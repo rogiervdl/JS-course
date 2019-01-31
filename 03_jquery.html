@@ -1602,6 +1602,16 @@ write('This will not be lime', {'color':'blue'});</code></pre>
   <script src="vendor/css-snippets.js"></script>
   <script src="vendor/css-edit.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    var devtools = /./;
+      devtools.toString = function() {
+      this.opened = true;
+    }
+    console.log('%c', devtools);
+    if (!devtools.opened) {
+      alert('in order to view the demos, keep your console open (press F12 or Ctrl-I');
+    }
+  </script>
 
 </body>
 </html>
