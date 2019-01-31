@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>Ajax example</title>
+    <meta charset="utf-8">
+    <style>
+        #pics img {
+            height: 200px;
+            display: block;
+            margin-top: 20px;
+            margin-right: 20px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <input id="search" type="text" placeholder="search here" />
+    <div id="pics"></div>
+    <script src="js/jquery.js"></script>
+    <script>
+
+        $(document).ready(function() {
+
+            var $pics = $('#pics');
+            var $search = $('#search');
+
+            $search.on('keypress', function(e) {
+                if (e.which == 13) {
+                    $pics.html('');
+                    makeSearch($(this).val());
+                }
+            });
+
+            function makeSearch(value) {
+                $.ajax({
+                    url: 'https://api.flickr.com/services/rest/',
+                    type: 'GET',
+                    data: {
+                      method: 'flickr.photos.search',
+                      api_key: '6ecfcd8d4a3b8a04da6093733db989a2',
+                      extras: 'url_m',
+                      per_page: 20,
+                      text: value,
+                      nojsoncallback: 1,
+                      safe_search: 1,
+                      format: 'json'
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        for (var i = 0; i < data.photos.photo.length; i++) {
+                            var photo = data.photos.photo[i];
+                            if (photo.url_m) $pics.append($('<img />').attr('src', photo.url_m));
+                        }
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                });
+            }
+
+        });
+
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- see https://v-fonts.com/fonts/zycon -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">	
+	<title>Variable fonts &mdahs; Zycon</title>
+	<style>
+		@font-face {
+			font-family: Zycon;
+			src: url(fonts/Zycon.woff2);
+		}
+		#container {
+			display: flex;
+			justify-content: flex-start;
+		}
+		#controls {
+			width: 250px;
+		}
+		#text {
+			font-family: Zycon; 
+			font-size: 80px;
+			margin: 0;
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="controls">
+			<p>Color: <input type="color" id="color" value="#000000"></p>
+			<p>Size: <input type="range" id="size" min="10" max="180" value="80" step="1"></p>
+			<p>T1: <input type="range" id="setting1" min="0" max="1" value="0" step="0.01" value="0"></p>
+			<p>T2: <input type="range" id="setting2" min="0" max="1" value="0" step="0.01" value="0"></p>
+			<p>T3: <input type="range" id="setting3" min="0" max="1" value="0" step="0.01" value="0"></p>
+			<p>T4: <input type="range" id="setting4" min="0" max="1" value="0" step="0.01" value="0"></p>
+			<p>M1: <input type="range" id="setting5" min="0" max="1" value="0" step="0.01" value="0"></p>
+			<p>M2: <input type="range" id="setting6" min="0" max="1" value="0" step="0.01" value="0"></p>
+		</div>
+		<p id="text">☀✯➟⬤🌝🏵🐈🐕🐢💡🔒🕛🖐🚴🦉🦎</p>
+	</div>
+	<script>
+		// aliases
+		let color = document.getElementById('color');
+		let size = document.getElementById('size');
+		let setting1 = document.getElementById('setting1');
+		let setting2 = document.getElementById('setting2');
+		let setting3 = document.getElementById('setting3');
+		let setting4 = document.getElementById('setting4');
+		let setting5 = document.getElementById('setting5');
+		let setting6 = document.getElementById('setting6');
+		let text = document.getElementById('text');
+
+		// apply all settings
+		let applyAll = function() {
+			text.style.color = color.value;
+			text.style.fontSize = size.value + 'px';
+	      	text.style.fontVariationSettings = "'T1  ' " + setting1.value + ",'T2  ' " + setting2.value + ",'T3  ' " + setting3.value + ",'T4  ' " + setting4.value + ",'M1  ' " + setting5.value + ",'M2  ' " + setting6.value + "";
+		}
+
+		// attach events
+		color.addEventListener('change', applyAll);
+		size.addEventListener('input', applyAll);
+		setting1.addEventListener('input', applyAll);
+		setting2.addEventListener('input', applyAll);
+		setting3.addEventListener('input', applyAll);
+		setting4.addEventListener('input', applyAll);
+		setting5.addEventListener('input', applyAll);
+		setting6.addEventListener('input', applyAll);
+	</script>
+</body>
+</html>

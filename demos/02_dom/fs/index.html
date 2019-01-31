@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formchecking</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="fonts/lato/webfont.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+	<form id="form1">
+		<h1>Registratie</h1>
+		<fieldset>
+			<legend>Adresgegevens</legend>
+			<div class="qstn">
+				<label for="qstStreet">Straat en nummer *</label>
+				<input type="text" id="qstStreet" value="" required />
+				<span class="message message--error" id="errStreet">&nbsp;</span>
+			</div>
+			<div class="qstn">
+				<label for="qstZip">Postcode *</label>
+				<input type="number" id="qstZip" value="" class="input--half" required />
+				<span class="message message--error" id="errZip">&nbsp;</span>
+			</div>
+			<div class="qstn">
+				<label for="qstCity">Gemeente *</label>
+				<input type="text" id="qstCity" value="" required />
+				<span class="message message--error" id="errCity">&nbsp;</span>
+			</div>
+		</fieldset>
+		<div class="buttons clearfix">
+			<input type="submit" id="btnSubmit" value="Registreren" />
+		</div>
+	</form>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+/*
+ * Styles
+ *
+ * @author Rogier van der Linde <rogier@bitmatters.be>
+ */
+
+/* ===========================================
+	Generic
+	=========================================== */
+
+/* reset */
+
+html {
+	font-size: 0.625em;  
+}
+
+* {
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0; 
+	padding: 0; 
+}
+
+fieldset {
+	border: 0;
+}
+
+p, div.qstn {
+	margin-bottom: 1em;
+}
+
+/* helper classes */
+
+.structural {
+	left: -9999px;
+	position: absolute;
+}
+
+.clearfix:after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+/* ===========================================
+	General
+	=========================================== */
+
+/* elements */
+
+body {
+	font-family: Lato, arial, sans-serif;
+	font-size: 1.4rem;
+	line-height: 1.5;
+	padding: 1rem 2rem;
+}
+
+h1 {
+	font-weight: normal;
+	padding-bottom: 1rem;
+}
+
+a {
+	color: #62954b;
+}
+
+a:hover {
+	color: #7bbb5e;
+}
+
+/* ===========================================
+	Form styles
+	=========================================== */
+
+/* elements */
+
+form, #thankyou {
+	background-color: #fafafa;
+	font-family: Lato;
+	margin: 0 auto;
+	max-width: 60rem;
+	padding: 3rem;
+}
+
+fieldset {
+	margin-bottom: 2rem;
+	margin-top: 1rem;
+}
+
+label {
+    display: block;
+    font-family: Lato, Arial;
+	font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+legend {
+	height: 2.4rem;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+}
+
+input, select {
+	border: 1px solid rgba(0, 0, 0, .08);
+	color: #444;
+    display: block;
+	font-size: 1.4rem;
+    height: 3rem;
+    line-height: 2rem;
+	outline: 0;
+	padding: 0.5rem 1rem;
+	width: 100%;
+}
+
+input[type=radio], input[type=checkbox], input[type=submit] {
+	width: auto;
+	height: auto;
+	margin-right: 1rem;
+} 
+
+input[type=radio], input[type=checkbox] {
+	display: inline;
+} 
+
+input[type=submit] {
+	background-color: #fff;
+	cursor: pointer;
+    border: 3px #7bbb5e solid;
+    color: #7bbb5e;
+    line-height: 1.4rem;
+    float: right;
+    text-transform: uppercase;
+} 
+
+input[type=submit]:hover {
+	background-color: #7bbb5e;
+    color: #fff;
+} 
+
+/* classes */
+
+.input--half {
+	width: 50%;
+}
+
+.message {
+	font-style: italic;
+	color: #777;
+	margin-bottom: 0;
+}
+
+.message--error {
+	display: none;
+	color: #c00;
+}
+
+.label--checkbox, .label--radio {
+	font-weight: normal;
+}
+
+.label--checkbox input, .label--radio input {
+	font-weight: normal;
+}
+
+.label--radio {
+	display: inline-block;
+}
+
+.label--checkbox + .label--checkbox {
+	margin-top: 0;
+}
+
+.label--radio + .label--radio {
+	margin-left: 2rem;	
+	margin-top: 0;
+}
+
+.invalid {
+	box-shadow: 0 0 3px 0 rgba(227, 64, 100, 0.8);
+}
+
+.valid {
+	box-shadow: 0 0 3px 0 rgba(64, 227, 100, 0.8);
+}
+
+/* specific */
+
+#zip {
+	max-width: 20rem;
+}
+
+#country {
+	max-width: 30rem;
+}
+
+#qstInterests_inp_other {
+	display: none;
+}
+
+#summary {
+	padding: 0 2rem;
+	background-color: rgba(227, 64, 100, 0.2);
+	border: 4px ridge;
+	border-color: rgba(227, 64, 100, 0.2);
+	height: 1px;
+	overflow: hidden;
+	transition: opacity 1s, padding 1s, height 1s;
+	opacity: 0;
+}
+
+#summary.show {
+	padding: 2rem;
+	height: auto;
+	opacity: 1;
+	margin: 1rem 0 3rem 0;
+}
+
+#thankyou {
+	display: none;
+}
+
+#thankyou__message {
+	padding: 2rem;
+	background-color: rgba(64, 227, 100, 0.2);
+	border: 4px ridge;
+	border-color: rgba(64, 227, 100, 0.2);
+	margin: 1rem 0 3rem 0;
+}
+

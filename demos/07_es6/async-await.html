@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Testpage</title>
+	<style>
+		
+		
+	</style>
+</head>
+<body>
+
+    <script>
+
+// some service returning JSON promise
+const getData = () => new Promise(function (resolve, reject) {
+    const data = {
+        'a': 'test'
+    };
+    // 50% chance that data is sent
+    if (Math.random() > 0.5) resolve(JSON.stringify(data));
+    else reject('some error');
+});
+
+// call service asynchronous
+const makeRequest = async () => {
+  try {
+    let res = JSON.parse(await getData());
+    console.log(res);
+  } catch (err) {
+    console.log(err)
+  }
+  return "done"
+};
+
+// make request
+makeRequest();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ThreeJS essentials demo</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<!-- lightning controls -->
+    <div class="controls" id="lightningControls">
+    	<!-- ambient light -->
+    	<div>
+    		<h1>
+    			<label><input type="checkbox" id="chbAmbient" checked> Ambient lightning</label>
+    		</h1>
+    		<p>
+    			<label for="inpAmbientIntensity">intensity: </label>
+	    		0 <input type="range" id="inpAmbientIntensity" min="0" max="2" value="1.5" step="0.1" /> 2
+    		</p>
+    		<p>
+    			<label for="inpAmbientColor">color: </label>
+	    		<input type="color" id="inpAmbientColor" value="#444444" />
+    		</p>
+    	</div>
+    	<!-- direct light -->
+    	<div>
+    		<h1>
+    			<label><input type="checkbox" id="chbDirect" checked> Direct lightning</label>
+    		</h1>
+    		<p>
+    			<label for="inpDirectIntensity">intensity: </label>
+	    		0 <input type="range" id="inpDirectIntensity" min="0" max="2" value="1" step="0.1" /> 2
+    		</p>
+    		<p>
+    			<label for="inpDirectColor">color: </label>
+	    		<input type="color" id="inpDirectColor" value="#555555" />
+    		</p>
+    		<p>
+    			<label for="inpDirectX">x: </label>
+	    		<input type="number" id="inpDirectX" value="-30" step="5" />
+    			<label for="inpDirectY">y: </label>
+	    		<input type="number" id="inpDirectY" value="130" step="5" />
+    			<label for="inpDirectZ">z: </label>
+	    		<input type="number" id="inpDirectZ" value="30" step="5" />
+    		</p>
+    	</div>
+    	<!-- spot light -->
+    	<div>
+    		<h1>
+    			<label><input type="checkbox" id="chbSpot" checked> Spotlight</label>
+    		</h1>
+    		<p>
+    			<label for="inpSpotIntensity">intensity: </label>
+	    		0 <input type="range" id="inpSpotIntensity" min="0" max="1" value="0.3" step="0.05" /> 1
+    		</p>
+    		<p>
+    			<label for="inpSpotColor">color: </label>
+	    		<input type="color" id="inpSpotColor" value="#FFFFFF" />
+    		</p>
+    		<p>
+    			<label for="inpSpotAngle">angle: </label>
+	    		0 <input type="range" id="inpSpotAngle" min="0" max="2" value="0.7" step="0.1" /> 2
+    		</p>
+    		<p>
+    			<label for="inpSpotX">x: </label>
+	    		<input type="number" id="inpSpotX" value="75" step="5" />
+    			<label for="inpSpotY">y: </label>
+	    		<input type="number" id="inpSpotY" value="100" step="5" />
+    			<label for="inpSpotZ">z: </label>
+	    		<input type="number" id="inpSpotZ" value="-75" step="5" />
+    		</p>
+    	</div>
+    </div>
+    <!-- camera controls -->
+    <div class="controls" id="cameraControls">
+        <div>
+            <h1>
+                Camera
+            </h1>
+            <p>
+                look at
+                <label for="cameraLookatX">x: </label>
+                <input type="number" id="cameraLookatX" value="0" step="5" />
+                <label for="cameraLookatY">y: </label>
+                <input type="number" id="cameraLookatY" value="50" step="5" />
+                <label for="cameraLookatZ">z: </label>
+                <input type="number" id="cameraLookatZ" value="0" step="5" />
+            </p>
+            <p>
+                position
+                <label for="cameraPosX">x: </label>
+                <input type="number" id="cameraPosX" value="0" step="5" />
+                <label for="cameraPosY">y: </label>
+                <input type="number" id="cameraPosY" value="250" step="5" />
+                <label for="cameraPosZ">z: </label>
+                <input type="number" id="cameraPosZ" value="250" step="5" />
+            </p>
+            <p>
+                <a id="cameraReset">reset values</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- shape controls -->
+    <div class="controls" id="shapeControls">
+    	<div>
+    		<h1>
+    			Shape
+    		</h1>
+            <p>
+                <label>material: </label>
+                <br><label><input type="radio" name="rbnMaterial" id="rbnMaterialWire"> wireframe</label>
+                <label><input type="radio" name="rbnMaterial" id="rbnMaterialBasic"> basic</label>
+                <label><input type="radio" name="rbnMaterial" id="rbnMaterialLambert"> Lambert</label>
+                <label><input type="radio" name="rbnMaterial" id="rbnMaterialPhong" checked> Phong</label>
+            </p>
+            <p>
+                <label for="inpColor">color: </label>
+                <input type="color" id="inpColor" value="#156289" />
+            </p>
+            <p>
+                <label>shading: </label>
+                <br><label><input type="radio" name="rbnShading" id="rbnShadingFlat" checked> flat</label>
+                <label><input type="radio" name="rbnShading" id="rbnShadingSmooth"> smooth</label>
+            </p>
+            <p>
+                <label for="inpShininess">shininess: </label>
+                0 <input type="range" id="inpShininess" min="0" max="60" value="30" step="5" /> 60
+            </p>
+            <p>
+                <label for="selTexture">texture: </label>
+                <br><select id="selTexture">
+                    <option value="-1" selected>none</option>
+                    <option value="lines.png">stripes</option>
+                    <option value="rubber.jpg">rubber</option>
+                    <option value="stone.jpg">stone</option>
+                    <option value="wood.jpg">wood</option>
+                </select>
+            </p>
+            <p>
+                <label for="inpPosX">X position: </label>
+                -50 <input type="range" id="inpPosX" min="-50" max="50" value="0" step="10" /> 50
+                <br><label for="inpPosY">Y position: </label>
+                0 <input type="range" id="inpPosY" min="0" max="200" value="60" step="10" /> 200
+                <br><label for="inpPosZ">Z position: </label>
+                -50 <input type="range" id="inpPosZ" min="-50" max="50" value="0" step="10" /> 50
+            </p>
+            <p>
+                <label for="inpRotX">X rotation: </label>
+                -5 <input type="range" id="inpRotX" min="-5" max="5" value="0" step="0.1" /> 5
+                <br><label for="inpRotY">Y rotation: </label>
+                -5 <input type="range" id="inpRotY" min="-5" max="5" value="0" step="0.1" /> 5
+                <br><label for="inpRotZ">Z rotation: </label>
+                -5 <input type="range" id="inpRotZ" min="-5" max="5" value="0" step="0.1" /> 5
+            </p>
+            <p>
+                <label><input type="checkbox" id="chbAnimate"> animate Y rotation</label>
+            </p>
+    	</div>
+    </div>
+    <script src="vendor/three.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

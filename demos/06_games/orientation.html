@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+
+	Runs on orientation-enabled devices like iPhone, many Android (use Opera mobile 12), Macbook Pro...
+
+-->
+<html>
+<head>
+	<title>Device Orientation Demo</title>
+	<meta charset="utf-8" />
+	<style>
+		.layer {
+			position: absolute;
+		}
+	</style>
+	<script>
+
+		window.onload = function(evt) {
+
+			window.addEventListener('deviceorientation', function(evt) {
+				var layers = document.querySelectorAll('.layer');
+				for (var i = 0; i < layers.length; i++) {
+					var layer = layers[i];
+					layer.style.left = Math.round(evt.gamma * i).toString() + 'px';
+					layer.style.top = Math.round(evt.beta * i).toString() + 'px';
+				}
+			}, false);
+
+		};
+
+	</script>
+</head>
+<body>
+  <img src="img/chrome-layer-01.png" alt="" class="layer">
+  <img src="img/chrome-layer-02.png" alt="" class="layer">
+  <img src="img/chrome-layer-03.png" alt="" class="layer">
+  <img src="img/chrome-layer-04.png" alt="" class="layer">
+  <img src="img/chrome-layer-05.png" alt="" class="layer">
+</body>
+</html>
+

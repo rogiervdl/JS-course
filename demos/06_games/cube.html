@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">	
+	<title>Morphing Power Cubes</title>
+	<style>
+		body {
+			background-color: black;
+			background-image: -webkit-gradient(radial, 50% 500, 1, 50% 500, 400,
+				from(rgba(255, 255, 255, 0.3)),
+				to(rgba(255, 255, 255, 0)));
+		}
+		#container {
+			width: 100%;
+			height: 700px;
+			-webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
+			-webkit-perspective-origin: 50% 0;
+		}
+		#stage {
+			width: 100%;
+			height: 100%;
+			transition: transform 2s;
+			transform-style: preserve-3d;
+		}
+		#cube {
+			position: relative;
+			top: 160px;
+			margin: 0 auto;
+			height: 200px;
+			width: 200px;
+			transform-style: preserve-3d;
+		}
+		.plane {
+			position: absolute;
+			height: 200px;
+			width: 200px;
+			border: 1px solid white;
+			border-radius: 12px;
+			text-align: center;
+			font-size: 124pt;
+			background-color: rgba(255, 255, 255, 0.6);
+			backface-visibility: visible;
+			opacity: 0.5;
+		}
+		#cube.animate {
+			animation: spin 8s infinite linear;
+		}
+		@keyframes spin {
+			from { transform: rotateY(0); }
+			to   { transform: rotateY(-360deg); }
+		}
+		.one {
+			transform: scale3d(1.2, 1.2, 1.2) rotateX(90deg) translateZ(100px);
+		}
+		.two {
+			transform: scale3d(1.2, 1.2, 1.2) translateZ(100px);
+		}
+		.three {
+			transform: scale3d(1.2, 1.2, 1.2) rotateY(90deg) translateZ(100px);
+		}
+		.four {
+			transform: scale3d(1.2, 1.2, 1.2) rotateY(180deg) translateZ(100px);
+		}
+		.five {
+			transform: scale3d(1.2, 1.2, 1.2) rotateY(-90deg) translateZ(100px);
+		}
+		.six {
+			transform: scale3d(1.2, 1.2, 1.2) rotateX(-90deg) translateZ(100px) rotate(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="stage">
+			<div id="cube" class="animate">
+				<div class="plane one">1</div>
+				<div class="plane two">2</div>
+				<div class="plane three">3</div>
+				<div class="plane four">4</div>
+				<div class="plane five">5</div>
+				<div class="plane six">6</div>
+			</div>
+		</div>
+		<div id="controls">
+			<p><input type="range" id="slider" min="0.1" max="20" step="0.1"></p>
+			<p><button id="btnStartStop">without animation</button></p>			
+		</div>
+	</div>
+	<script type="text/javascript">
+		document.getElementById('slider').addEventListener('input', function() {
+			document.getElementById('cube').style.animationDuration = this.value + 's';  	
+		});
+		document.getElementById('btnStartStop').addEventListener('click', function() {
+			if (this.innerHTML == 'without animation') {
+				document.getElementById('cube').classList.remove('animate');
+				this.innerHTML = 'with animation';  	
+			} else {
+				document.getElementById('cube').classList.add('animate');
+				this.innerHTML = 'without animation';  	
+			}
+		});
+	</script>
+</body>
+</html>

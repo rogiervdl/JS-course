@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>jQuery</title>
+</head>
+<body>
+
+	<h1>HTML, Attributes &amp; Values</h1>
+
+	<div id="john_doe" class="contact" data-database-id="39" data-avatar="johndoe.jpg">
+    John Doe
+  </div>
+
+  <script src="jquery-1.7.1.min.js"></script>
+  <script>
+    $('#john_doe').data('group', 'family');
+    alert('John Doe\'s avatar: ' + $('#john_doe').data('avatar'));
+  </script>
+</body>
+</html>

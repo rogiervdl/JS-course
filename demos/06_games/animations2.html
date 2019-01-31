@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<title> CSS animations demo </title>
+	<meta charset="utf-8" />
+	<style>
+		body {
+			background-color: #006600;
+		}
+		#app {
+			margin: 0 auto;
+			width: 743px;
+			height: 558px;
+			background-image: url(img/tweehuizen/background.png);
+			position: relative;
+			overflow: hidden;
+			border: 2px solid #999;
+		}
+		.layer {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#tree {
+			left: -31px;
+			top: 207px;
+		}
+		#school {
+			left: 65px;
+			top: 266px;
+		}
+		#football {
+			left: 420px;
+			top: 364px;
+		}
+		#fien {
+			left: 75px;
+			top: 403px;
+		}
+		#banner {
+			left: -35px;
+			top: 242px;
+		}
+
+		/* orange car */
+
+		.carOrange {
+			background-image: url(img/tweehuizen/carOrange.png);
+			width: 42px;
+			height: 21px;
+		}
+		#carOrange {
+			position: absolute;
+			left: 1000px;
+			top: 113px;
+			width: 720px;
+			-webkit-animation: carOrange-animation 10s infinite linear;
+			-moz-animation: carOrange-animation 10s infinite linear;
+			-o-animation: carOrange-animation 10s infinite linear;
+			-ms-animation: carOrange-animation 10s infinite linear;
+			animation: carOrange-animation 10s infinite linear;
+		}
+		@-webkit-keyframes carOrange-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -100px;}
+			100%     {left: 1000px;}
+		}
+		@-moz-keyframes carOrange-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -100px;}
+			100%     {left: 1000px;}
+		}
+		@-o-keyframes carOrange-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -100px;}
+			100%     {left: 1000px;}
+		}
+		@keyframes carOrange-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -100px;}
+			100%     {left: 1000px;}
+		}
+
+		/* red car */
+
+		.carRed {
+			background-image: url(img/tweehuizen/carRed.png);
+			width: 60px;
+			height: 31px;
+		}
+		#carRed {
+			position: absolute;
+			left: 0;
+			top: 198px;
+			width: 720px;
+			-webkit-animation: carRed-animation 13s infinite linear;
+			-moz-animation: carRed-animation 13s infinite linear;
+			-o-animation: carRed-animation 13s infinite linear;
+			-ms-animation: carRed-animation 13s infinite linear;
+			animation: carRed-animation 13s infinite linear;
+		}
+		@-webkit-keyframes carRed-animation {
+			0%       {left: 0px;}
+			99.9999%   {left: 2000px;}
+			100%     {left: 0px;}
+		}
+		@-moz-keyframes carRed-animation {
+			0%       {left: 0px;}
+			99.9999%   {left: 2000px;}
+			100%     {left: 0px;}
+		}
+		@-o-keyframes carRed-animation {
+			0%       {left: 0px;}
+			99.9999%   {left: 2000px;}
+			100%     {left: 0px;}
+		}
+		@-ms-keyframes carRed-animation {
+			0%       {left: 0px;}
+			99.9999%   {left: 2000px;}
+			100%     {left: 0px;}
+		}
+		@keyframes carRed-animation {
+			0%       {left: 0px;}
+			99.9999%   {left: 2000px;}
+			100%     {left: 0px;}
+		}
+
+		/* truck */
+
+		.truck{
+			background-image: url(img/tweehuizen/truck.png);
+			width: 181px;
+			height: 59px;
+		}
+		#truck {
+			position: absolute;
+			left: 1000px;
+			top: 259px;
+			width: 720px;
+			-webkit-animation: truck-animation 17s infinite linear;
+			-moz-animation: truck-animation 17s infinite linear;
+			-o-animation: truck-animation 17s infinite linear;
+			-ie-animation: truck-animation 17s infinite linear;
+			animation: truck-animation 17s infinite linear;
+		}
+		@-webkit-keyframes truck-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -2000px;}
+			100%     {left: 1000px;}
+		}
+		@-moz-keyframes truck-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -2000px;}
+			100%     {left: 1000px;}
+		}
+		@-o-keyframes truck-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -2000px;}
+			100%     {left: 1000px;}
+		}
+		@-ms-keyframes truck-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -2000px;}
+			100%     {left: 1000px;}
+		}
+		@keyframes truck-animation {
+			0%       {left: 1000px;}
+			99.9999%   {left: -2000px;}
+			100%     {left: 1000px;}
+		}
+
+		/* big bus */
+
+		.busBig {
+			background-image: url(img/tweehuizen/busBig.png);
+			width: 247px;
+			height: 106px;
+		}
+		#busBig {
+			position: absolute;
+			left: 70px;
+			top: 454px;
+			width: 720px;
+			-webkit-animation: busBig-animation 3s 1 linear;
+			-moz-animation: busBig-animation 3s 1 linear;
+			-o-animation: busBig-animation 3s 1 linear;
+			-ms-animation: busBig-animation 3s 1 linear;
+			animation: busBig-animation 3s 1 linear;
+		}
+		@-webkit-keyframes busBig-animation {
+			0%       {left: -300px;}
+			100%     {left: 70px;}
+		}
+		@-moz-keyframes busBig-animation {
+			0%       {left: -300px;}
+			100%     {left: 70px;}
+		}
+		@-o-keyframes busBig-animation {
+			0%       {left: -300px;}
+			100%     {left: 70px;}
+		}
+		@-ms-keyframes busBig-animation {
+			0%       {left: -300px;}
+			100%     {left: 70px;}
+		}
+		@keyframes busBig-animation {
+			0%       {left: -300px;}
+			100%     {left: 70px;}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div id="carOrange" class="layer"><div class="carOrange"></div></div>
+		<div id="houses1" class="layer"><img src="img/tweehuizen/houses1.png" /></div>
+		<div id="carRed" class="layer"><div class="carRed"></div></div>
+		<div id="houses2" class="layer"><img src="img/tweehuizen/houses2.png" /></div>
+		<div id="truck" class="layer"><div class="truck"></div></div>
+		<div id="tree" class="layer"><img src="img/tweehuizen/tree.png" /></div>
+		<div id="school" class="layer"><img src="img/tweehuizen/school.png" /></div>
+		<div id="busBig" class="layer"><div class="busBig"></div></div>
+		<div id="houses3" class="layer"><img src="img/tweehuizen/houses3.png" /></div>
+		<div id="football" class="layer"><img src="img/tweehuizen/football.gif" /></div>
+		<div id="fien" class="layer"><img src="img/tweehuizen/fien.gif" /></div>
+		<div id="banner" class="layer"><img src="img/tweehuizen/banner.gif" /></div>
+	</div>
+</body>
+</html>

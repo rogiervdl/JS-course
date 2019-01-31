@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>jQuery</title>
+</head>
+<body>
+
+	<h1>Properties</h1>
+  <p>(also try resetting the form)</p>
+  <form id="frm1">
+    <p>checkbox 1: <input type="checkbox" id="chb1"/></p>
+    <p>checkbox 2: <input type="checkbox" id="chb2"/></p>
+    <input type="reset" />
+  </form>
+  <script src="jquery-1.7.1.min.js"></script>
+  <script>
+    $('#chb1').attr('checked', true);
+    alert('attribute value: ' + $('#chb1').attr('checked'));
+    $('#chb2').prop('checked', true);
+    alert('property value: ' + $('#chb2').prop('checked'));
+  </script>
+</body>
+</html>

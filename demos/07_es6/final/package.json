@@ -1,0 +1,17 @@
+{
+  "name": "promises_demo",
+  "version": "1.0.0",
+  "description": "Demo with Node, promises, generators, async/await",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rogier van der Linde",
+  "license": "MIT",
+  "dependencies": {
+    "hget": "^3.1.0",
+    "marked": "^0.3.6",
+    "marked-terminal": "^2.0.0",
+    "request": "^2.79.0"
+  }
+}

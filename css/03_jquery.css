@@ -1,0 +1,20 @@
+.reveal ul.chapterlist {
+  column-count: 2;
+  column-gap: 60px;
+  -moz-column-count: 2;
+  -moz-column-gap: 60px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 60px;
+  padding-left: 50px;
+  padding-bottom: 30px;
+  display: block;
+  width: 650px;
+}
+
+.reveal ul.chapterlist li:nth-of-type(4) {
+  column-break-after: always;
+  -webkit-column-break-after: always;
+  -moz-column-break-after: always;
+}
+
+

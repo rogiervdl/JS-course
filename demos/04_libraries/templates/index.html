@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>Mustache example</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="template">
+        <h1>{{header}}</h1>
+    {{#items}}
+      {{#first}}
+        <ul>
+            <li><strong>{{name}}</strong></li>
+      {{/first}}
+      {{#link}}
+            <li><a href="{{url}}">{{name}}</a></li>
+      {{/link}}
+      {{#last}}
+        </ul>
+      {{/last}}
+    {{/items}}
+
+{{#empty}}
+        <p>The list is empty.</p>
+{{/empty}}
+    </div>
+    <script src="js/mustache.js"></script>
+    <script>
+        var data = {
+            "header": "Colors",
+            "items": [
+                {"name": "red", "first": true},
+                {"name": "green", "link": true, "url": "#Green"},
+                {"name": "blue", "last": true, "link": true, "url": "#Blue"}
+                ],
+            "empty": false
+        }
+        document.getElementById('template').innerHTML = Mustache.to_html(document.getElementById('template').innerHTML, data);
+    </script>    
+</body>
+</html>
+
+
+

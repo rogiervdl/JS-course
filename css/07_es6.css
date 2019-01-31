@@ -1,0 +1,23 @@
+.reveal ul.chapterlist {
+  column-count: 2;
+  column-gap: 60px;
+  -moz-column-count: 2;
+  -moz-column-gap: 60px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 60px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+  display: block;
+  width: 680px;
+}
+
+.reveal a.canary {
+  font-style: italic;
+  color: #900;
+  text-decoration: none;
+}
+
+.reveal a.canary:hover {
+  color: #900;
+  text-decoration: underline;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<body>
+  <label>notes: <input type="text" value="A Cs D F A" id="inpSong"></label>
+  <input type="button" id="btnPlay" value="play">
+  <script>
+
+    // play note i
+    var playNote = function(src, delay) {
+        // create audio
+        var audio = new Audio(src);
+        setTimeout(function() {
+          audio.play();
+        }, delay);
+    }
+
+    // add event listener to button
+    document.getElementById('btnPlay').addEventListener('click', function() {
+      // get input values
+      var notes = document.getElementById('inpSong').value.trim().split(' ');
+
+      // loop notes
+      for (var i = 0; i < notes.length; i++) {
+        playNote('sounds/violin-' + notes[i] + '.mp3', 1000 + 1000 * i);
+      }
+    }); 
+
+  </script>
+</body>
+</html>

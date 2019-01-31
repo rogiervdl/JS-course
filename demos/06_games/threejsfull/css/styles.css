@@ -1,0 +1,87 @@
+/**
+ * Tic tac toe styles
+ *
+ * @author Rogier van der Linde <rogier.vanderlinde@odisee.be>
+ */
+
+body {
+    margin: 0;
+    background-color: #bbb;
+    overflow: hidden;
+    font-family: Verdana;
+    font-size: 11px;
+}      
+
+input[type=number] {
+	width: 35px;
+	margin-right: 5px;
+}  
+
+#result {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 100px;
+	line-height: 100px;
+	margin-left: -200px; 
+	text-align: center;
+	font-size: 48px;
+	font-family: Arial;
+	color: #eee;
+	font-weight: bold;
+	z-index: 1000;
+	border: 4px dashed #666;
+	background-color: rgba(40, 40, 40, 0.7);
+	display: none;
+}
+
+.controls {
+	position: absolute;
+}
+
+#lightningControls {
+	left: 10px;
+	top: 10px;
+}
+
+#shapeControls {
+	right: 10px;
+	top: 10px;
+}
+
+#cameraControls {
+	left: 50%;
+	margin-left: -150px;
+	top: 10px;
+	width: 300px;
+}
+
+#cameraReset {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#cameraReset:hover {
+	text-decoration: none;
+}
+
+.controls div {
+	background-color: rgba(75, 75, 75, 0.7);
+	border: 2px solid #777;
+	padding: 10px;
+	margin-bottom: 10px;
+	min-width: 220px;
+}
+
+.controls p, .controls h1 {
+	color: white;
+}
+
+.controls h1 {
+	font-size: 13px;
+	font-weight: normal;
+}
+
+
+

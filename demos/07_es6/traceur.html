@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<body>
+  <!-- add two linked scripts -->
+  <script src="https://jspm.io/system@0.16.js"></script>
+  <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+  <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+  <!-- add type="module" to your ES2015 script -->
+  <script type="module">
+    'use strict'
+
+    var list = [77,  true, 'hello'];
+    var [a, b, c] = list; // normally unsupported in Chrome
+    document.write(a); // 77
+
+  </script>
+</body>
+</html>

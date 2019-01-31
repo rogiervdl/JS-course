@@ -1,0 +1,58 @@
+table#bubbling {
+	width: 180px;
+	margin: 0 auto 0;
+	border: 1px solid #FFF;
+	border-collapse: collapse;
+	cursor: pointer;
+}
+
+table#bubbling td {
+	width: 40px;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #333;
+}
+
+table#bubbling td:hover {
+	background: #ccc;
+}
+
+#demotime {
+	position: relative;
+}
+
+#demotime img {
+	position: absolute;
+	border: 2px solid;	
+	width: 400px;
+	box-shadow: 5px 5px 5px #999;
+}
+
+#demotime img.ss1 {
+	left: 250px;
+	top: 110px;
+}
+
+#demotime img.ss2 {
+	left: 400px;
+	top: 220px;
+}
+
+#demotime img.ss3 {
+	left: 30px;
+	top: 200px;
+}
+
+.reveal ul.chapterlist {
+  column-count: 2;
+  column-gap: 60px;
+  -moz-column-count: 2;
+  -moz-column-gap: 60px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 60px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+  display: block;
+  width: 680px;
+}
+

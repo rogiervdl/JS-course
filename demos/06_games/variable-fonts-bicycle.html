@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- see https://v-fonts.com/fonts/zycon -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">	
+	<title>Variable fonts &mdahs; Zycon</title>
+	<style>
+		@font-face {
+			font-family: Zycon;
+			src: url(fonts/Zycon.woff2);
+		}
+		#text {
+			font-family: Zycon; 
+			font-size: 180px;
+			margin: 0;
+			margin-left: 20px;
+			width: calc(100% - 270px);
+			font-variation-settings: "T1  " 0, "T2  " 0, "T3  " 0, "T4  " 0, "M1  " 0, "M2  " 0;
+			animation: variation 0.3s linear infinite;
+		}
+		@keyframes variation {
+			0% {
+				font-variation-settings: "T1  " 0, "T2  " 0, "T3  " 0, "T4  " 0, "M1  " 0, "M2  " 0;
+			}
+			100% {
+				font-variation-settings: "T1  " 0, "T2  " 0, "T3  " 0, "T4  " 0, "M1  " 1, "M2  " 0;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<p id="text">🚴</p>
+</body>
+</html>

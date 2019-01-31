@@ -1,0 +1,49 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# editorconfig.org
+
+root = true
+
+[*]
+# Indentation style
+indent_style = tab
+indent_size = 3
+
+# Settings
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.html]
+# Indentation style
+indent_style = space
+indent_size = 2
+
+[*.css]
+# Indentation style
+indent_style = tab
+indent_size = 3
+
+[*.scss]
+# Indentation style
+indent_style = tab
+indent_size = 3
+
+[*.js]
+# Indentation style
+indent_style = tab
+indent_size = 3
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.json]
+# Indentation style
+indent_style = tab
+indent_size = 2
+
+[*.yml]
+# Indentation style
+indent_style = tab
+indent_size = 2

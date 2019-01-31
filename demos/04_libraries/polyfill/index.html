@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Border radius shiv demo</title>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        article p {
+            margin: 0;
+            padding: 0;
+        }
+        article {
+            width: 400px;
+            padding: 10px 20px;
+            font: 16px Arial, sans-serif;
+            background-color: #cc9;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <article>
+	    <p>Fusce vitae orci. Lorem ipsum dolor sit amet, consectetuer adipiscing  elit.</p>
+    </article>
+    <script src="js/modernizr-1.5.min.js"></script>
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        if (!Modernizr.borderradius) {
+            $.getScript("js/jquery.corner.js", function () {
+                $("article").corner();
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Video custom controls demo </title>
+	<meta charset="utf-8" />
+	<script>
+		window.onload = function() {
+			var video = document.getElementById("video");
+			document.getElementById("lnkPlay").onclick = function() {
+				if (video.paused) {
+					video.play();
+					this.innerHTML = 'stop';
+				}
+				else {
+					video.pause();
+					this.innerHTML = 'play';
+				}
+				return false;
+			}
+			document.getElementById("lnkMute").onclick = function() {
+				if (video.volume > 0) {
+					video.volume = 0;
+					this.innerHTML = 'unmute';
+				} else {
+					video.volume = 1;
+					this.innerHTML = 'mute';
+				}
+				return false;
+			}
+			document.getElementById("inpSeek").onchange = function() {
+				video.currentTime = this.value;
+			}
+			document.getElementById("chbFunky").onchange = function() {
+				if (this.checked) video.classList.add('funky');
+				else video.classList.remove('funky');
+			}
+		}
+	</script>
+	<style>
+		body {
+			padding: 20px;
+		}
+		p {
+			margin-top: 0;
+		}
+		#myControls a {
+			color: #666;
+			padding: 5px 10px;
+			border: 1px solid;
+			text-decoration: none;
+			background-color: #ddd;
+		}
+		#inpSeek {
+			width: 320px;
+		}
+		video {
+			width: 320px;
+			height: 240px;
+			transition: all 0.5s ease-in-out;
+		}
+		video.funky {
+			transform: rotateZ(10deg);
+			box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.75);
+		}
+	</style>
+</head>
+<body>
+	<video src="media/tango.mp4" poster="img/meloYBratt.jpg" id="video">
+		Your browser dows not support the video tag
+	</video>
+	<nav id="myControls">
+		<p><input type="range" min="0" max="211" value="0" id="inpSeek"  /></p>
+		<p>
+			<a href="#" id="lnkPlay">play</a>
+			<a href="#" id="lnkMute">mute</a>
+		</p>
+		<p><label><input type="checkbox" id="chbFunky"> funky version</label></p>
+	</nav>
+</body>
+</html>

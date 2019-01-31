@@ -1,0 +1,57 @@
+/**
+ * CSS for 00_intro.html
+ *
+ * Copyright (C) 2013-2014 Rogier van der Linde
+ */
+
+.slidewishlist2 {
+	position: relative;
+}
+
+.slidewishlist2 img.notbad {
+	position: absolute;
+	right: 40px;
+	top: 255px;
+	width: 250px;
+}
+
+.instructor p {
+	text-align: center;
+}
+
+.prerequisites img.spaghetti {
+	position: absolute;
+	right: 40px;
+	bottom: 50px;
+	width: 500px;
+}
+
+.project6 figure {
+	width: 80%;	
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.project6 figure img {
+	margin: 0;	
+	padding: 0;	
+	box-sizing: border-box;
+}
+
+.project6 figure .portrait img {
+	width: 30%;	
+}
+
+.project6 figure .landscape img {
+	width: 45%;	
+	margin-top: 20px;
+}
+
+.project6 figure .portrait + .portrait {
+	margin-left: 5%;	
+}
+
+.project6 figure .landscape + .landscape {
+	margin-left: 10%;	
+}
+

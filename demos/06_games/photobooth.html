@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+	runs on Chrome (HTTPS) or FireFox
+-->
+<html lang="en">
+<head>
+	<title>Photobooth demo</title>
+	<meta charset="UTF-8" />
+  <style>
+    /* wrapper */
+    #wrapper {
+      position: relative;
+      width: 640px;
+      margin: 20px auto
+    }
+
+    /* video */
+    #webcamstream {
+      width: 640px;
+      height: 480px;
+    }
+
+    /* canvases */
+    canvas {
+      width: 133px;
+      height: 100px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+    canvas + canvas {
+      margin-left: 29px;
+    }
+
+    /* buttons */
+    button {
+      border-radius: 4px;
+      border: 1px solid #2a6496;
+      background-color: #428bca;
+      text-transform: uppercase;
+      padding: 3px 6px;
+      color: white;
+      cursor: pointer;
+    }
+    #dosnap {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    /* filters */
+    .sepia {
+      filter: sepia(1);
+    }
+    .blur {
+      filter: blur(5px);
+    }
+    .grayscale {
+      filter: grayscale(1);
+    }
+    .invert {
+      filter: invert(1);
+    }
+    .hue-rotate {
+      filter: hue-rotate(180deg);
+    }
+  </style>
+	<script>
+
+		window.addEventListener("load", function() {
+
+      // shorthands
+      var video = document.getElementById('webcamstream');
+      var canvases = document.querySelectorAll('canvas');
+      var nr = 0;
+
+      // take snapshot
+      document.getElementById('dosnap').addEventListener('click', function() {
+        var context = canvases[nr].getContext('2d');
+        context.filter = getComputedStyle(video).getPropertyValue('filter');
+        context.drawImage(video, 0, 0, 133, 100);
+        nr = (nr + 1) % 4;
+      });
+
+      // capture webcam
+      navigator.mediaDevices.getUserMedia({
+        video: true
+      }).then(function(stream) {
+        video.srcObject = stream;
+      }).catch(function(err) {
+        console.log(err);
+      });
+
+      // filters
+      document.getElementById('filters').addEventListener('click', function(e) {
+        video.classList.remove('natural', 'sepia', 'blur', 'grayscale', 'invert', 'hue-rotate');
+        video.classList.add(e.target.getAttribute('data-filter'));
+      });
+    });
+
+	</script>
+</head>
+<body>
+  <div id="wrapper">
+    <video id="webcamstream" autoplay></video>
+    <div id="filters">
+      <button data-filter="natural">natural</button>
+      <button data-filter="sepia">sepia</button>
+      <button data-filter="blur">blur</button>
+      <button data-filter="grayscale">grayscale</button>
+      <button data-filter="invert">invert</button>
+      <button data-filter="hue-rotate">hue-rotate</button>
+    </div>
+    <button id="dosnap">take snapshot</button>
+    <canvas width="133" height="100"></canvas>
+    <canvas width="133" height="100"></canvas>
+    <canvas width="133" height="100"></canvas>
+    <canvas width="133" height="100"></canvas>
+  </div>
+</body>
+</html>

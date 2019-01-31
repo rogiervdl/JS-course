@@ -1,0 +1,1890 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 &amp Games</title>
+  <meta name="author" content="Rogier van der Linde - odisee.be">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
+  <link rel="stylesheet" href="fonts/lato/webfont.css">
+  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
+  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
+  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
+  <link rel="stylesheet" href="css/reveal-mods.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+
+  <!-- SLIDES -->
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <!-- 0 : Title -->
+      <section>
+        <section>
+          <h1>JAVASCRIPT GAMES</h1>
+          <small>use the arrow keys to navigate; press space for slide overview</small>
+          <figure>
+            <img src="img/06_games/icon.png" alt="" class="noborder" style="background: none; width: 400px;">
+          </figure>
+          <footer>
+            <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+          </footer>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>JAVASCRIPT GAMES</h1>
+          <h2>Intro</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>What is a game?</h2>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 500px">
+              <img src="img/06_games/what-is-a-game.jpg" alt="board game" style="width: 100%">
+            </div>
+            <div style="width:calc(100% - 510px)">
+              <ul style="font-size: larger" class="v-style">
+                <li class="fragment">it's FUN</li>
+                <li class="fragment">it's INTERACTIVE</li>
+                <li class="fragment">it's POINTLESS</li>
+              </ul>
+              <ul class="fragment plus-style" style="font-size: smaller; margin-top: 30px">
+                <li>It may or may not have a start and/or an ending</li>
+                <li>It may or may not have a competition element</li>
+                <li>It may be based on skills, luck or both</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>So you want to create games</h2>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 400px">
+              <img src="img/06_games/war-game.jpg" alt="war game" style="width: 100%">
+            </div>
+            <div style="width:calc(100% - 410px)">
+              <ul class="fragment" style="font-size: smaller; list-style: square;">
+                <li>beware of scope: what <i>can</i> you create?</li>
+                <li>unless you work in a team of hundreds for several years, you'll never create something like Final Fantasy or God of War</li>
+                <li>don't focus on gameplay and graphics too soon; your first games are a learning experience, not your master work</li>
+                <li>start with a lousy version of tic-tac-toe, and be really proud of it</li>
+                <li>eventually you'll build games that you and others find enjoyable</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Where to start</h2>
+          <p>The first step should be to experiment and familiarize yourself with the terminology and basic principles:</p>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 300px">
+              <img src="img/06_games/wordcloud.png" alt="wordcloud" style="width: 100%">
+            </div>
+            <div style="width:calc(100% - 310px)">
+              <ul style="font-size: smaller; list-style: square;">
+                <li>shapes: geometry, mapping (texture, bump, displacement etc.), mesh, polygon, vertex...</li>
+                <li>light: illumination models (Phong, Lambert,...), color, shading, light sources (ambient, spot)...</li>
+                <li>audio: sound effects, context, sythesis...</li>
+                <li>rendering: context, scene, camera...</li>
+                <li>animation: frame, tween, kinematics...</li>
+                <li>gameplay: input, events, AI, collision detection...</li>
+                <li>math: origin, coordinates, vector, transformations...</li>
+                <li>...</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>What is the best tool?</h2>
+          <p>Which tool has a large scope, is flexible, easy to learn, preferably near to free, and good to begin with? Unity? Unreal? GameMaker? Godot?</p>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 500px">
+              <img src="img/06_games/unity.jpg" alt="unity" style="width: 100%">
+            </div>
+            <div style="width:calc(100% - 510px)">
+              <p class="fragment">
+                <span style="font-size: larger; margin-right: 10px">🦄</span> it doesn't exist
+              </p>
+              <ul class="fragment arrow spacious" style="font-size: smaller; list-style: none;">
+                <li>you'll dive in, get frustrated, disappointed, and quit before you even finish your first game</li>
+                <li>you'll learn a tool, not game programming; the tool gets in the way of learning about games</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Comes in: basic web technologies</h2>
+          <p>In my opinion, the best start is just a browser and a text editor. HTML, CSS and Javascript have all a beginner needs to start building great games.</p>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 500px">
+              <img src="img/06_games/oxo.png" alt="oxo" style="width: 100%">
+            </div>
+            <div style="width:calc(100% - 510px); font-size: smaller">
+              <p style="margin-top: 30px;">Let's see some examples of what HTML, CSS and Javascript have to offer...</p>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>JAVASCRIPT GAMES</h1>
+          <h2>Javascript Goodies</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+          <section data-toc-title="Webcam">
+            <h2>Webcam (1)</h2>
+            <ul>
+              <li>
+                Access the webcam:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Webcam demo&lt;/title&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;style&gt;
+    #webcamstream {
+      width: 640px;
+      height: 480px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;video id="webcamstream" autoplay&gt;&lt;/video&gt;
+  &lt;script&gt;
+    // get video element
+    let video = document.getElementById('webcamstream');
+
+    // open webcam and stream to video element
+    navigator.mediaDevices.getUserMedia({
+      video: true
+    }).then(function(stream) {
+      video.srcObject = stream;
+    }).catch(function(err) {
+      console.log(err);
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                <div class="demolink"><a href="demos/06_games/webcam.html">demo</a> (Chrome over https, or Firefox)</div>
+              </li>
+            </ul>
+          </section>
+          <section data-toc-title="">
+            <h2>Webcam (2)</h2>
+            <ul>
+              <li>
+                Photobooth fun with webcam and CSS filters:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Photobooth demo&lt;/title&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;style&gt;
+    /* wrapper */
+    #wrapper {
+      position: relative;
+      width: 640px;
+      margin: 20px auto
+    }
+
+    /* video */
+    #webcamstream {
+      width: 640px;
+      height: 480px;
+    }
+
+    /* canvases */
+    canvas {
+      width: 133px;
+      height: 100px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+    canvas + canvas {
+      margin-left: 29px;
+    }
+
+    /* buttons */
+    button {
+      border-radius: 4px;
+      border: 1px solid #2a6496;
+      background-color: #428bca;
+      text-transform: uppercase;
+      padding: 3px 6px;
+      color: white;
+      cursor: pointer;
+    }
+    #dosnap {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    /* filters */
+    .sepia {
+      filter: sepia(1);
+    }
+    .blur {
+      filter: blur(5px);
+    }
+    .grayscale {
+      filter: grayscale(1);
+    }
+    .invert {
+      filter: invert(1);
+    }
+    .hue-rotate {
+      filter: hue-rotate(180deg);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="wrapper"&gt;
+    &lt;video id="webcamstream" autoplay&gt;&lt;/video&gt;
+    &lt;div id="filters"&gt;
+      &lt;button data-filter="natural"&gt;natural&lt;/button&gt;
+      &lt;button data-filter="sepia"&gt;sepia&lt;/button&gt;
+      &lt;button data-filter="blur"&gt;blur&lt;/button&gt;
+      &lt;button data-filter="grayscale"&gt;grayscale&lt;/button&gt;
+      &lt;button data-filter="invert"&gt;invert&lt;/button&gt;
+      &lt;button data-filter="hue-rotate"&gt;hue-rotate&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button id="dosnap"&gt;take snapshot&lt;/button&gt;
+    &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+    &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+    &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+    &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+
+    // shorthands
+    let video = document.getElementById('webcamstream');
+    let canvases = document.querySelectorAll('canvas');
+    let nr = 0;
+
+    // capture webcam
+    navigator.mediaDevices.getUserMedia({
+      video: true
+    }).then(function(stream) {
+      video.srcObject = stream;
+    }).catch(function(err) {
+      console.log(err);
+    });
+
+    // filters
+    document.getElementById('filters').addEventListener('click', function(e) {
+      video.classList.remove('natural', 'sepia', 'blur', 'grayscale', 'invert', 'hue-rotate');
+      video.classList.add(e.target.getAttribute('data-filter'));
+    });
+
+    // take snapshot
+    document.getElementById('dosnap').addEventListener('click', function() {
+      let context = canvases[nr].getContext('2d');
+      context.filter = getComputedStyle(video).getPropertyValue('filter');
+      context.drawImage(video, 0, 0, 133, 100);
+      nr = (nr + 1) % 4;
+    });
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                <div class="demolink"><a href="demos/06_games/photobooth.html">demo</a> (Chrome over https, or Firefox)</div>
+              </li>
+            </ul>
+            <ul class="arrow">
+              <li>
+                other photobooth demo at <a href="https://neave.com/webcam/html5/">https://neave.com/webcam/html5/</a>
+              </li>
+              <li>
+                sand particles at <a href="https://lab.cheron.works/webgl-gpgpu-particles/">lab.cheron.works</a>
+              </li>
+              <li>
+                motion xylophone at <a href="http://www.soundstep.com/blog/experiments/jsdetection/">soundstep.com</a>
+              </li>
+            </ul>
+          </section>
+        <section>
+          <h2>Geolocation API</h2>
+          <ul>
+            <li>
+              Demo:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Geolocation demo&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"&gt;&lt;/script&gt;
+  &lt;style&gt;
+    #content {
+      height: 300px;
+      width: 500px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="btn1"&gt;Show Position&lt;/button&gt;
+  &lt;div id="content" style="height: 280px"&gt;&lt;/div&gt;
+  &lt;script&gt;
+
+    // function to create map with position shown
+    let createMap = function(position) {
+      let myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      let mapOptions = {
+        zoom: 13,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      let map = new google.maps.Map(document.getElementById('content'), mapOptions);
+      let marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'You are here'
+      });
+    }
+
+    // if button is clicked, get position and create map
+    document.getElementById('btn1').addEventListener('click', function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(createMap);
+      }
+    });
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="https://www.bitmatters.be/2019-lahti/geolocation.html">demo</a> (view through a web server)</div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Motion Control API</h2>
+          <ul>
+            <li>
+              Use device sensors like gyroscope, accelerometer, compass etc...; device orientation example:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Device Orientation Demo&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style&gt;
+    .layer {
+      position: absolute;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;img src="img/06_games/chrome-layer-01.png" alt="" class="layer"&gt;
+  &lt;img src="img/06_games/chrome-layer-02.png" alt="" class="layer"&gt;
+  &lt;img src="img/06_games/chrome-layer-03.png" alt="" class="layer"&gt;
+  &lt;img src="img/06_games/chrome-layer-04.png" alt="" class="layer"&gt;
+  &lt;img src="img/06_games/chrome-layer-05.png" alt="" class="layer"&gt;
+  &lt;script&gt;
+
+    // listen for orientation changes
+    window.addEventListener('deviceorientation', function(evt) {
+      // shift layers to simulate 3D
+      let layers = document.querySelectorAll('.layer');
+      for (let i = 0; i &lt; layers.length; i++) {
+        let layer = layers[i];
+        layer.style.left = Math.round(evt.gamma * i).toString() + 'px';
+        layer.style.top = Math.round(evt.beta * i).toString() + 'px';
+      }
+    });
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/06_games/orientation.html">demo</a> (orientation enabled devices only) &mdash; <a href="demos/img/06_games/qr-do.png" target="_new">QR</a></div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              another experiment: throw paper planes on <a href="https://paperplanes.world/">paperplanes.world</a> &mdash; <a href="demos/img/06_games/qr-paperplanes.png" target="_new">QR</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Notifications API</h2>
+          <ul>
+            <li>
+              Little taskbar notification popups (you need to request permission once per site first):
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt; Notification demo &lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;input type="button" id="lnkNotifyMe" value="Notify Me" /&gt;
+  &lt;script&gt;
+
+    document.getElementById('lnkNotifyMe').addEventListener('click', function() {
+      if (Notification.permission == 'denied') return;
+      if (Notification.permission == 'granted') {
+        let notification = new Notification('Some notification', {body: 'Hi there!', icon: 'img/avatar.jpg' } );
+        return;
+      }
+      Notification.requestPermission(function (permission) {
+        if (permission === 'granted') {
+          let notification = new Notification('Some notification', {body: 'Hi there!', icon: 'img/avatar.jpg' } );
+        }
+      });
+    });
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/06_games/notifications.html">demo</a> (Chrome; view through a web server)</div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Speech API</h2>
+          <ul>
+            <li>
+              Quite simple to use, considering the complex technology:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt; Speech demo &lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;input type="button" id="lnkStart" value="Start listening" /&gt;
+  &lt;p&gt;&lt;strong&gt;You said:&lt;/strong&gt; &lt;em id="echo"&gt;nothing yet&lt;/em&gt;.&lt;/p&gt;
+  &lt;script&gt;
+
+    document.getElementById('lnkStart').addEventListener('click', function() {
+      let recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      recognition.start();
+      recognition.onresult = function(event) {
+          document.getElementById('echo').innerHTML = event.results[0][0].transcript;
+      };
+    });
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/06_games/speech.html">demo</a> (Chrome; view through a web server)</div>
+            </li>
+          </ul>  
+          <ul class="arrow">
+            <li>
+              another inspiring example on <a href="https://www.peanutgalleryfilms.com/">peanutgalleryfilms.com</a>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="Sound API">
+          <h2>Sound API (1)</h2>
+          <ul>
+            <li>
+              Another very promising emerging technology is the sound API. Features:
+              <ul class="v-style">
+                <li>sound scheduling</li>
+                <li>filters (low pass, notch, peak...)</li>
+                <li>volume, gain, cross-fadings, mixing</li>
+                <li>read and write raw data (which basically means anything is possible)</li>
+              </ul>
+            </li>
+            <li>
+              Partial implementations already on Chrome and Firefox
+            </li>
+            <li>
+              Some great online demos:
+              <ul>
+                  <li>DinahMoe has nice demos, like <a href="http://dinahmoelabs.com/rickastley">Rick Ashtley</a> or <a href="http://dinahmoelabs.com/tonecraft">Tonecraft</a></li>
+                  <li>a simple <a href="demos/equalizer/index.html">equalizer</a></li>
+                  <li><a href="http://daftpunk.themaninblue.com/">Anatomy of a Mashup</a></li>
+                  <li>another <a href="https://musiclab.chromeexperiments.com/Spectrogram/">audio visualizer</a></li>
+              </ul>
+            </li>
+            <li>
+              Check out <a href="http://updates.html5rocks.com/2012/09/Live-Web-Audio-Input-Enabled">this article</a> on using live audio input from line-in or the microphone (be sure to try the pitch detector)
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>Sound API (2)</h2>
+          <ul>
+            <li>
+              A basic demo (note how devices are chained together):
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+  &lt;title&gt; Webforms demo &lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style&gt;
+    input {
+      width: 40em;
+    }
+    label {
+      font-family: Calibri;
+      width: 5em;
+      display: inline-block;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;&lt;label for="rngFrequency"&gt;Frequency:&lt;/label&gt; &lt;input type="range" min="200" value="1100" max="2000" id="rngFrequency" /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;label for="rngVolume"&gt;Volume:&lt;/label&gt; &lt;input type="range" min="0" value="0.5" max="1" id="rngVolume" step="0.01" /&gt;&lt;/p&gt;
+  &lt;script&gt;
+    // create audio context
+    let audioContext = new AudioContext();
+
+    // create oscillator
+    let oscillator = audioContext.createOscillator();
+    oscillator.frequency.value = 1000;
+
+    // create amp
+    let amp = audioContext.createGain();
+    amp.gain.value = 0.5;
+
+    // connect oscillator to amp, and amp to output
+    oscillator.connect(amp);
+    amp.connect(audioContext.destination);
+
+    // start oscillator
+    oscillator.start();
+
+    // bind sliders
+    document.getElementById('rngFrequency').addEventListener('input', function() {
+      oscillator.frequency.value = this.value;
+    });
+    document.getElementById('rngVolume').addEventListener('input', function() {
+      amp.gain.value = this.value;
+    });
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/06_games/soundAPI.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>Sound API (3)</h2>
+          <ul>
+            <li>
+              You can also simply load and play audio files:
+              <pre><code class="language-js">let song = new Audio('song.mp3');
+song.play(); // other methods: stop(), pause() etc...</code></pre>
+              Example:
+              <pre><code class="language-html" style="height: 200px;">&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;body&gt;
+  &lt;label&gt;notes: &lt;input type="text" value="A Cs D F A" id="inpSong"&gt;&lt;/label&gt;
+  &lt;input type="button" id="btnPlay" value="play"&gt;
+  &lt;script&gt;
+
+    // play note i
+    let playNote = function(src, delay) {
+      // create audio
+      let audio = new Audio(src);
+      setTimeout(function() {
+        audio.play();
+      }, delay);
+    }
+
+    // add event listener to button
+    document.getElementById('btnPlay').addEventListener('click', function() {
+      // get input values
+      let notes = document.getElementById('inpSong').value.trim().split(' ');
+
+      // loop notes
+      for (let i = 0; i &lt; notes.length; i++) {
+        playNote('sounds/violin-' + notes[i] + '.mp3', 1000 + 1000 * i);
+      }
+    }); 
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+              <div class="demolink"><a href="demos/06_games/audiodemo/audio.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="Canvas">
+          <h2>Canvas (1)</h2>
+          <ul>
+            <li>
+              Enables bitmapped-style drawing
+            </li>
+            <li>
+              A basic demo:
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt; HTML5 testpage &lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;script&gt;
+    window.addEventListener('load', function() {
+      let canvasContext = document.getElementById("canvas").getContext("2d");
+      canvasContext.fillRect(250, 25, 150, 100);
+      canvasContext.beginPath();
+      canvasContext.arc(450, 110, 100, Math.PI * 1/8, Math.PI * 3/2);
+      canvasContext.lineWidth = 15;
+      canvasContext.lineCap = 'round';
+      canvasContext.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+      canvasContext.stroke();
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;canvas id="canvas" width="838" height="220"&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/06_games/canvas.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>Canvas (2)</h2>
+          <ul>
+            <li>
+              Introduced by Apple; today supported by every major browser
+            </li>
+            <li>
+              You can also paint images, which is great for HTML5 games!
+            </li>
+            <li>
+              Some online demos:
+              <ul>
+                  <li><a href="http://www.cuttherope.ie/">Cut The Rope</a></li>
+                  <li><a href="http://www.mrspeaker.net/dev/parcycle/">Particles generator</a></li>
+                  <li><a href="http://kinderen.tweehuizen.be/index.html">Tweehuizen (own work)</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>WebGL</h2>
+          <ul>
+            <li>
+              The ultimate technology for creating 3D
+            </li>
+            <li>
+              Actually uses the canvas element for painting
+            </li>
+            <li>
+              Some of the latest demos:
+              <ul>
+                <li><a href="http://litewerx.dk/microscopix/demo-main.html?1024">Anaemia demo</a></li>
+                <li><a href="http://webglmol.sourceforge.jp/glmol/viewer.html">Molecule viewer</a></li>
+                <li><a href="http://www.zygotebody.com/">Body browser</a></li>
+                <li><a href="http://mrdoob.github.com/three.js/">Three.js WebGL library demos</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>More API's</h2>
+          <ul>
+            <li>
+              Expect these API's to appear soon:
+              <ul>
+                <li>media capture API</li>
+                <li>battery status API</li>
+                <li>vibration API</li>
+                <li>contacts API</li>
+                <li>application cache API</li>
+                <li>web intents API</li>
+                <li>...</li>
+              </ul>
+            </li>
+            <li class="no-style">
+              &rarr; time to dust off your RSS reader!
+            </li>
+          </ul>
+        </section>
+      </section>
+      </section>
+      <section>
+        <section>
+          <h1>JAVASCRIPT GAMES</h1>
+          <h2>CSS Goodies</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Transforms</h2>
+          <ul>
+            <li>
+              Possible transforms:
+              <ul>
+                <li>scaling</li>
+                <li>rotation</li>
+                <li>translation</li>
+                <li>skew/perspective</li>
+                <li>full 4x4 matrix transformation</li>
+              </ul>
+            </li>
+            <li class="no-style">
+              <pre class="bigger"><code class="language-css" contenteditable data-subject="#transformdemo">transform: rotate(-5deg) scaleY(0.5);
+</code></pre>
+              <div id="transformdemo" style="margin-top: 30px; width: 400px; height: 80px; line-height: 80px; text-align: center; font-size: 24px;background-color: #ccc">TRANSFORMS EXAMPLE</div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              nice transforms demo: <a href="http://www.zachstronaut.com/lab/isocube.html">http://www.zachstronaut.com/lab/isocube.html</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Transitions</h2>
+          <ul>
+            <li>
+              Ease any CSS property change:
+            </li>
+            <li class="no-style">
+              <pre class="bigger"><code class="language-css" contenteditable data-selector=".reveal section > section ul li">.container .box {
+  transition: all 2s ease-in-out;
+  margin-left: 0;
+  border-radius: 0px;
+  background-color: #ccc;
+}
+.container:hover .box {
+  margin-left: 500px;
+  border-radius: 30px;
+  background-color: #c00;
+}
+</code></pre>
+              <div class="container" id="transitiondemo" style="padding: 10px; margin-top: 30px; width: 580px; height: 60px; border: 1px dotted #999">
+                <div class="box" style="height: 60px; width: 60px; border: 1px solid #666; font-size: 18px; line-height: 30px;text-align: center">hover me!
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Animations</h2>
+          <ul>
+            <li>
+              Define keyframes, properties and easing:
+            </li>
+            <li class="no-style">
+              <div class="codescrollpanel"><pre class="bigger"><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;Animation&lt;/title&gt;
+  &lt;style&gt;
+    #scene {
+      width: 800px;
+      border: 2px solid #999;
+      margin: 20px auto;
+      height: 200px;
+      overflow: hidden;
+    }
+    #busBig {
+      background-image: url(img/busBig.png);
+      width: 247px;
+      height: 106px;
+      margin-left: -300px;
+      margin-top: 50px;
+      animation: moveBus 3s 1 ease-in-out;
+    }
+    @keyframes moveBus {
+      0% { margin-left: -300px; }
+      50% { margin-left: 70px; }
+      100% { margin-left: 2000px; }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="scene"&gt;
+    &lt;div id="busBig" class="layer"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+              <div class="demolink"><a href="demos/06_games/animations1.html">demo</a> (more <a href="demos/06_games/animations2.html">elaborated demo</a>)</div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Transforms and animations</h2>
+          <ul>
+            <li>
+              Transforms and animations combined:
+            </li>
+            <li class="no-style">
+              <div class="codescrollpanel"><pre class="bigger"><code class="language-html smallpanel overlayrun">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;  
+  &lt;title&gt;Morphing Power Cubes&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      background-color: black;
+      background-image: -webkit-gradient(radial, 50% 500, 1, 50% 500, 400,
+        from(rgba(255, 255, 255, 0.3)),
+        to(rgba(255, 255, 255, 0)));
+    }
+    #container {
+      width: 100%;
+      height: 700px;
+      -webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
+      -webkit-perspective-origin: 50% 0;
+    }
+    #stage {
+      width: 100%;
+      height: 100%;
+      transition: transform 2s;
+      transform-style: preserve-3d;
+    }
+    #cube {
+      position: relative;
+      top: 160px;
+      margin: 0 auto;
+      height: 200px;
+      width: 200px;
+      transform-style: preserve-3d;
+    }
+    .plane {
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      border: 1px solid white;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 124pt;
+      background-color: rgba(255, 255, 255, 0.6);
+      backface-visibility: visible;
+      opacity: 0.5;
+    }
+    #cube.animate {
+      animation: spin 8s infinite linear;
+    }
+    @keyframes spin {
+      from { transform: rotateY(0); }
+      to   { transform: rotateY(-360deg); }
+    }
+    .one {
+      transform: scale3d(1.2, 1.2, 1.2) rotateX(90deg) translateZ(100px);
+    }
+    .two {
+      transform: scale3d(1.2, 1.2, 1.2) translateZ(100px);
+    }
+    .three {
+      transform: scale3d(1.2, 1.2, 1.2) rotateY(90deg) translateZ(100px);
+    }
+    .four {
+      transform: scale3d(1.2, 1.2, 1.2) rotateY(180deg) translateZ(100px);
+    }
+    .five {
+      transform: scale3d(1.2, 1.2, 1.2) rotateY(-90deg) translateZ(100px);
+    }
+    .six {
+      transform: scale3d(1.2, 1.2, 1.2) rotateX(-90deg) translateZ(100px) rotate(180deg);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container"&gt;
+    &lt;div id="stage"&gt;
+      &lt;div id="cube" class="animate"&gt;
+        &lt;div class="plane one"&gt;1&lt;/div&gt;
+        &lt;div class="plane two"&gt;2&lt;/div&gt;
+        &lt;div class="plane three"&gt;3&lt;/div&gt;
+        &lt;div class="plane four"&gt;4&lt;/div&gt;
+        &lt;div class="plane five"&gt;5&lt;/div&gt;
+        &lt;div class="plane six"&gt;6&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="controls"&gt;
+      &lt;p&gt;&lt;input type="range" id="slider" min="0.1" max="20" step="0.1"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;button id="btnStartStop"&gt;without animation&lt;/button&gt;&lt;/p&gt;     
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script type="text/javascript"&gt;
+    document.getElementById('slider').addEventListener('input', function() {
+      document.getElementById('cube').style.animationDuration = this.value + 's';   
+    });
+    document.getElementById('btnStartStop').addEventListener('click', function() {
+      if (this.innerHTML == 'without animation') {
+        document.getElementById('cube').classList.remove('animate');
+        this.innerHTML = 'with animation';    
+      } else {
+        document.getElementById('cube').classList.add('animate');
+        this.innerHTML = 'without animation';   
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+              <div class="demolink"><a href="demos/06_games/cube.html">demo</a></div>
+            </li>
+            <li class="arrow">
+              also check this pure HTML/CSS <a href="http://jsfiddle.net/fULTJ/7/embedded/result/">stopwatch demo</a>; read about <a href="http://www.webdesignerdepot.com/2015/10/punched-card-coding-the-secret-of-interactive-email/">interactive email with CSS</a>; more CSS experiments by <a href="https://codepen.io/M_J_Robbins/">Mark Robbins</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Webfonts</h2>
+          <ul>
+            <li>
+              Google has a <a href="https://fonts.google.com/">great collection of free fonts</a> you can just link and use. Just select your font, and include a single line in your <code>&lt;head&gt;</code>:
+              <pre class="bigger"><code class="language-html overlayrun" style="max-height: 250px" contenteditable>&lt;html&gt;
+&lt;head&gt;
+  &lt;!-- copy-paste the Google Font link here --&gt;    
+  &lt;link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet"&gt;    
+  &lt;style&gt;
+    p {
+      font-family: 'Spicy Rice', sans-serif; /* use your new font here */
+      font-size: 30px;
+      line-height: 1.8;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Wie werkten meestal men menigte bersawa. Om monopolies ad nu mislukking interesten verscholen smeltovens. Brandhout mee snelleren geschiedt bezorgden aandeelen den are. Dat treffen gomboom zekeren tot fortuin gelaten stellen. Het ziet niet lage deze het per zes ipoh.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </li>
+          </ul>
+        </section>      
+        <section data-toc-title="Variable fonts">
+          <h2>Variable fonts (1)</h2>
+          <ul>
+            <li>
+              Classic fonts can be customized by size and also have a few weights:
+              <pre class="bigger"><code class="language-html" style="max-height: 250px" contenteditable>&lt;!DOCTYPE html&gt;
+&lt;!-- see https://www.axis-praxis.org/specimens/decovar --&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;  
+  &lt;title&gt;Lato&lt;/title&gt;
+  &lt;link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet"&gt;
+  &lt;style&gt;
+    #container {
+      display: flex;
+      justify-content: flex-start;
+    }
+    #controls {
+      width: 250px;
+    }
+    #text {
+      font-family: Lato; 
+      font-size: 30px;
+      font-weight: 300;
+      margin: 0;
+      margin-left: 20px;
+      width: calc(100% - 270px);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container"&gt;
+    &lt;div id="controls"&gt;
+      &lt;p&gt;Color: &lt;input type="color" id="color" value="#000000"&gt;&lt;/p&gt;
+      &lt;p&gt;Size: &lt;input type="range" id="size" min="10" max="180" value="30" step="1"&gt;&lt;/p&gt;
+      &lt;p&gt;Weight: &lt;input type="range" id="weight" min="100" max="900" step="100" value="300"&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p id="text"&gt;In no impression assistance contrasted. Manners she wishing justice hastily new anxious. At discovery discourse departure objection we.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    // aliases
+    let color = document.getElementById('color');
+    let size = document.getElementById('size');
+    let weight = document.getElementById('weight');
+
+    // apply all settings
+    let applyAll = function() {
+      text.style.color = color.value;
+      text.style.fontSize = size.value + 'px';
+      text.style.fontWeight = weight.value;
+    }
+
+    // attach events
+    color.addEventListener('change', applyAll);
+    size.addEventListener('input', applyAll);
+    weight.addEventListener('input', applyAll);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/06_games/variable-fonts-lato.html">demo</a></div>
+            </li>
+          </ul>
+        </section>      
+        <section data-toc-title="">
+          <h2>Variable fonts (2)</h2>
+          <ul>
+            <li>
+              Variable fonts have much more tweaking possibilities, e.g. the beautiful <a href="https://www.axis-praxis.org/specimens/decovar">Decovar</a> font:
+              <pre class="bigger"><code class="language-html" style="max-height: 250px" contenteditable>&lt;!DOCTYPE html&gt;
+&lt;!-- see https://www.axis-praxis.org/specimens/decovar --&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;  
+  &lt;title&gt;Variable fonts&lt;/title&gt;
+  &lt;style&gt;
+    @font-face {
+      font-family: Decovar;
+      src: url(fonts/DecovarAlpha-VF.ttf) format("truetype");
+    }
+    #container {
+      display: flex;
+      justify-content: flex-start;
+    }
+    #controls {
+      width: 250px;
+    }
+    #text {
+      font-family: Decovar; 
+      font-size: 30px;
+      margin: 0;
+      margin-left: 20px;
+      width: calc(100% - 270px);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container"&gt;
+    &lt;div id="controls"&gt;
+      &lt;p&gt;Color: &lt;input type="color" id="color" value="#000000"&gt;&lt;/p&gt;
+      &lt;p&gt;Size: &lt;input type="range" id="size" min="10" max="180" value="30" step="1"&gt;&lt;/p&gt;
+      &lt;p&gt;Setting 1: &lt;input type="range" id="setting1" min="0" max="1000" step="1" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;Setting 2: &lt;input type="range" id="setting2" min="0" max="1000" step="1" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;Setting 3: &lt;input type="range" id="setting3" min="0" max="1000" step="1" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;more settings see &lt;a href="https://www.axis-praxis.org/specimens/decovar"&gt;this page&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p id="text"&gt;In no impression assistance contrasted. Manners she wishing justice hastily new anxious. At discovery discourse departure objection we.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    // aliases
+    let color = document.getElementById('color');
+    let size = document.getElementById('size');
+    let setting1 = document.getElementById('setting1');
+    let setting2 = document.getElementById('setting2');
+    let setting3 = document.getElementById('setting3');
+    let text = document.getElementById('text');
+
+    // apply all settings
+    let applyAll = function() {
+      text.style.color = color.value;
+      text.style.fontSize = size.value + 'px';
+      text.style.fontVariationSettings = "'WMX2' " + setting1.value + ", 'TRMG' " + setting2.value + ", 'BLDA' " + setting3.value;
+    }
+
+    // attach events
+    color.addEventListener('change', applyAll);
+    size.addEventListener('input', applyAll);
+    setting1.addEventListener('input', applyAll);
+    setting2.addEventListener('input', applyAll);
+    setting3.addEventListener('input', applyAll);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/06_games/variable-fonts-decovar.html">demo</a></div>
+            </li>
+          </ul>
+        </section>      
+        <section data-toc-title="">
+          <h2>Variable fonts (3)</h2>
+          <ul>
+            <li>
+              Don't think of fonts as text only; it can contain any glyph, also icons like Zycon:
+              <pre class="bigger"><code class="language-html" style="max-height: 250px" contenteditable>&lt;!DOCTYPE html&gt;
+&lt;!-- see https://v-fonts.com/fonts/zycon --&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;  
+  &lt;title&gt;Variable fonts &mdahs; Zycon&lt;/title&gt;
+  &lt;style&gt;
+    @font-face {
+      font-family: Zycon;
+      src: url(fonts/Zycon.woff2);
+    }
+    #container {
+      display: flex;
+      justify-content: flex-start;
+    }
+    #controls {
+      width: 250px;
+    }
+    #text {
+      font-family: Zycon; 
+      font-size: 80px;
+      margin: 0;
+      margin-left: 20px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container"&gt;
+    &lt;div id="controls"&gt;
+      &lt;p&gt;Color: &lt;input type="color" id="color" value="#000000"&gt;&lt;/p&gt;
+      &lt;p&gt;Size: &lt;input type="range" id="size" min="10" max="180" value="80" step="1"&gt;&lt;/p&gt;
+      &lt;p&gt;T1: &lt;input type="range" id="setting1" min="0" max="1" value="0" step="0.01" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;T2: &lt;input type="range" id="setting2" min="0" max="1" value="0" step="0.01" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;T3: &lt;input type="range" id="setting3" min="0" max="1" value="0" step="0.01" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;T4: &lt;input type="range" id="setting4" min="0" max="1" value="0" step="0.01" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;M1: &lt;input type="range" id="setting5" min="0" max="1" value="0" step="0.01" value="0"&gt;&lt;/p&gt;
+      &lt;p&gt;M2: &lt;input type="range" id="setting6" min="0" max="1" value="0" step="0.01" value="0"&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p id="text"&gt;☀✯➟⬤🌝🏵🐈🐕🐢💡🔒🕛🖐🚴🦉🦎&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    // aliases
+    let color = document.getElementById('color');
+    let size = document.getElementById('size');
+    let setting1 = document.getElementById('setting1');
+    let setting2 = document.getElementById('setting2');
+    let setting3 = document.getElementById('setting3');
+    let setting4 = document.getElementById('setting4');
+    let setting5 = document.getElementById('setting5');
+    let setting6 = document.getElementById('setting6');
+    let text = document.getElementById('text');
+
+    // apply all settings
+    let applyAll = function() {
+      text.style.color = color.value;
+      text.style.fontSize = size.value + 'px';
+          text.style.fontVariationSettings = "'T1  ' " + setting1.value + ",'T2  ' " + setting2.value + ",'T3  ' " + setting3.value + ",'T4  ' " + setting4.value + ",'M1  ' " + setting5.value + ",'M2  ' " + setting6.value + "";
+    }
+
+    // attach events
+    color.addEventListener('change', applyAll);
+    size.addEventListener('input', applyAll);
+    setting1.addEventListener('input', applyAll);
+    setting2.addEventListener('input', applyAll);
+    setting3.addEventListener('input', applyAll);
+    setting4.addEventListener('input', applyAll);
+    setting5.addEventListener('input', applyAll);
+    setting6.addEventListener('input', applyAll);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/06_games/variable-fonts-zycon.html">demo</a></div>
+            </li>
+          </ul>
+        </section>      
+        <section data-toc-title="">
+          <h2>Variable fonts (4)</h2>
+          <ul>
+            <li>
+              You can combine these with any CSS technique, e.g. animation:
+              <pre class="bigger"><code class="language-html overlayrun" style="max-height: 250px" contenteditable>&lt;!DOCTYPE html&gt;
+&lt;!-- see https://v-fonts.com/fonts/zycon --&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;  
+  &lt;title&gt;Variable fonts &mdahs; Zycon&lt;/title&gt;
+  &lt;style&gt;
+    @font-face {
+      font-family: Zycon;
+      src: url(demos/fonts/Zycon.woff2);
+    }
+    #text {
+      font-family: Zycon; 
+      font-size: 180px;
+      font-variation-settings: "T1  " 0, "T2  " 0, "T3  " 0, "T4  " 0, "M1  " 0, "M2  " 0;
+      animation: variation 0.3s linear infinite;
+    }
+    @keyframes variation {
+      0% {
+        font-variation-settings: "T1  " 0, "T2  " 0, "T3  " 0, "T4  " 0, "M1  " 0, "M2  " 0;
+      }
+      100% {
+        font-variation-settings: "T1  " 0, "T2  " 0, "T3  " 0, "T4  " 0, "M1  " 1, "M2  " 0;
+      }
+    }
+
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p id="text"&gt;🚴&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/06_games/variable-fonts-bicycle.html">demo</a></div>
+            </li>
+          </ul>
+        </section>      
+        <section>
+          <h2>CSS Blend modes</h2>
+          <ul>
+            <li>
+              Fairly new technology with <a href="http://caniuse.com/#search=blend">variable browser support</a>.
+            </li>
+            <li class="no-style">
+              <pre class="bigger"><code class="language-css" contenteditable data-subject="#blenddemo1">background-image: url(demos/06_games/img/kaynewest.jpg);
+background-color: #add8e6; /* lightblue */
+background-blend-mode: multiply; /* also darken, lighten, dodge etc... */
+background-size: cover;
+</code></pre>
+              <div id="blenddemo1" style="margin-top: 30px; width: 300px; height: 300px; margin-bottom: 30px; padding: 0"></div>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="SVG filters">
+          <h2>SVG filters (1)</h2>
+          <ul>
+            <li>
+              SVG can also used to create filters:
+              <pre class="bigger"><code class="language-html overlayrun" style="max-height: 250px" contenteditable>&lt;!DOCTYPE html&gt;
+&lt;!-- see https://yoksel.github.io/svg-filters/#/ for more filter fun --&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;  
+  &lt;title&gt;SVG filter&lt;/title&gt;
+  &lt;style&gt;
+    #van {
+      -webkit-filter: url(#filter1);
+      filter: url(#filter1);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters"&gt;
+    &lt;defs&gt;
+      &lt;filter id="filter1"&gt;
+        &lt;feGaussianBlur in="SourceGraphic" stdDeviation="20,0" /&gt;
+      &lt;/filter&gt;
+    &lt;/defs&gt;
+  &lt;/svg&gt;
+  &lt;img src="img/06_games/van.jpg" alt="van" id="van"&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/06_games/svg-filter.html">demo</a></div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              more filters on <a href="https://yoksel.github.io/svg-filters/#/">yoksel.github.io</a>
+            </li>
+          </ul>
+        </section>      
+        <section data-toc-title="">
+          <h2>SVG filters (2)</h2>
+          <ul>
+            <li>
+              Another SVG filter example, conversion of any image to duotone:
+              <div class="codescrollpanel"><pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;filter with SVG&lt;/title&gt;
+  &lt;style&gt;
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+    body {
+      position: relative;
+    }
+    #controls {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      border: 2px ridge;
+    }
+    #duotone {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+    svg {
+        color-interpolation-filters:sRGB;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;svg width="1024" height="640" viewBox="0 0 1024 640" id="duotone"
+    preserveAspectRatio="xMidYMid slice"&gt;
+    &lt;defs&gt;
+      &lt;filter id="duotone-filter"&gt;
+        &lt;feColorMatrix
+          type="matrix"
+          values="1  0  0  0  0
+                  0  1  0  0  0
+                  0  0  1  0  0
+                  0  0  0  1  0"/&gt;
+      &lt;/filter&gt;
+    &lt;/defs&gt;
+    &lt;image width="1024" height="640" filter="url(#duotone-filter)"
+      xlink:href="img/kanye-west.jpg"/&gt;
+  &lt;/svg&gt;
+  &lt;div id="controls"&gt;
+    &lt;input type="color" id="color1" value="#8a702d" /&gt;
+    &lt;input type="color" id="color2" value="#19264f" /&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    // converts #hex to array of rgb values
+    function hexToRgb(hex) {
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? [
+        parseInt(result[1], 16), // R
+        parseInt(result[2], 16), // G
+        parseInt(result[3], 16) // B
+      ] : null;
+    }
+
+    // calculates filter matrix for two colors
+    function convertToDueTone(color1, color2) {
+      var matrix = document.querySelector('feColorMatrix');
+      var value = [
+        [color1[0]/256 - color2[0]/256, 0, 0, 0, color2[0]/256],
+        [color1[1]/256 - color2[1]/256, 0, 0, 0, color2[1]/256],
+        [color1[2]/256 - color2[2]/256, 0, 0, 0, color2[2]/256],
+        [0, 0, 0, 1, 0]
+      ];
+      matrix.setAttribute('values', value.join(' '));
+    }
+
+    // init
+    var inpColor1 = document.getElementById('color1');
+    var inpColor2 = document.getElementById('color2');
+    convertToDueTone(hexToRgb(inpColor1.value), hexToRgb(inpColor2.value));
+
+    // bind color picker change events
+    document.getElementById('color1').addEventListener('change', function() {
+      convertToDueTone(hexToRgb(inpColor1.value), hexToRgb(inpColor2.value));
+    })
+    document.getElementById('color2').addEventListener('change', function() {
+      convertToDueTone(hexToRgb(inpColor1.value), hexToRgb(inpColor2.value));
+    })
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+              <div class="demolink"><a href="demos/06_games/svg-filter-kayne.html">demo</a> (inspired by <a href="https://codepen.io/jmperez/pen/LGqaxQ/">this pen</a>)</div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              SVG's graphic possibilities are almost endless
+            </li>
+            <li>
+              small drawback: SVG support is <a href="http://www.codedread.com/svg-support-table.html">variable</a>
+            </li>
+          </ul>
+        </section>
+          <section>
+            <h2>Inline SVG graphics</h2>
+            <ul>
+              <li>
+                Crazy text demo:
+                <div class="codescrollpanel"><pre class="bigger"><code class="language-html overlayrun">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!-- Created with Inkscape (http://www.inkscape.org/)
+Created by ed@opera.com, 2007-07-05.
+--&gt;
+&lt;svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   viewBox="0 0 500 500"
+   id="svgroot"&gt;
+  &lt;defs&gt;
+    &lt;linearGradient
+       id="linearGradient3270"&gt;
+      &lt;stop
+         style="stop-color:#4c0000;stop-opacity:1"
+         offset="0"
+         id="stop3272" /&gt;
+      &lt;stop
+         style="stop-color:#9b0000;stop-opacity:0.77319586"
+         offset="1"
+         id="stop3278" /&gt;
+    &lt;/linearGradient&gt;
+    &lt;filter
+       id="filter3246"&gt;
+      &lt;feGaussianBlur
+         id="feGaussianBlur3248"
+         stdDeviation="5.3786588"
+         inkscape:collect="always" /&gt;
+    &lt;/filter&gt;
+    &lt;radialGradient
+       cx="75.110962"
+       cy="419.52441"
+       r="286.5"
+       fx="75.110962"
+       fy="419.52441"
+       id="radialGradient3276"
+       xlink:href="#linearGradient3270"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.6032362,1.2076622,-1.5679002,0.7831777,700.96274,-211.40865)"
+       spreadMethod="pad" /&gt;
+  &lt;/defs&gt;
+  &lt;g&gt;
+    &lt;rect
+       width="500"
+       height="500"
+       style="fill:url(#radialGradient3276);stroke-width:30;stroke-linecap:round;"
+       id="bg" /&gt;
+  &lt;g transform="translate(-120 -100)"&gt;
+    &lt;path
+       d="M 362.85715,349.50504 C 358.12981,356.81092 350.67666,346.73714 350.71429,341.64789 C 350.81627,327.85633 367.22572,322.12645 378.57144,325.21933 C 398.86627,330.75175 406.26373,354.82622 399.28571,373.07648 C 389.04518,399.85947 356.42337,409.13291 331.42856,398.07645 C 298.1144,383.33994 286.92857,341.90419 302.14288,310.2193 C 321.28853,270.3471 371.65046,257.23526 410.00003,276.64791 C 456.4465,300.15923 471.49146,359.50501 447.85713,404.50506 C 420.00489,457.53607 351.64169,474.51851 299.99997,446.64787 C 240.37757,414.47011 221.45475,337.06819 253.57146,278.79071 C 290.06451,212.57214 376.51952,191.70688 441.42862,228.07649 C 514.24681,268.8777 537.05603,364.39597 496.42854,435.93365 C 451.32433,515.35404 346.73537,540.10836 268.57138,495.21929"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:30;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3246)"
+       id="path2160" /&gt;
+    &lt;path
+       d="M 362.85715,349.50504 C 358.12981,356.81092 350.67666,346.73714 350.71429,341.64789 C 350.81627,327.85633 367.22572,322.12645 378.57144,325.21933 C 398.86627,330.75175 406.26373,354.82622 399.28571,373.07648 C 389.04518,399.85947 356.42337,409.13291 331.42856,398.07645 C 298.1144,383.33994 286.92857,341.90419 302.14288,310.2193 C 321.28853,270.3471 371.65046,257.23526 410.00003,276.64791 C 456.4465,300.15923 471.49146,359.50501 447.85713,404.50506 C 420.00489,457.53607 351.64169,474.51851 299.99997,446.64787 C 240.37757,414.47011 221.45475,337.06819 253.57146,278.79071 C 290.06451,212.57214 376.51952,191.70688 441.42862,228.07649 C 514.24681,268.8777 537.05603,364.39597 496.42854,435.93365 C 451.32433,515.35404 346.73537,540.10836 268.57138,495.21929"
+       transform="translate(0.758,-1.533235)"
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3287" /&gt;
+    &lt;text editable="simple" dy="5"
+       style="font-size:12px;font-family:Bitstream Vera Sans,sans-serif"&gt;
+     &lt;textPath xlink:href="#path3287"&gt;
+    Hello spiral text field Hello spiral text field
+    Hello spiral text field Hello spiral text field
+    Hello spiral text field Hello spiral text field
+    Hello spiral text field Hello spiral text field
+    &lt;/textPath&gt;
+    &lt;/text&gt;
+  &lt;/g&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+</code></pre></div>
+                <div class="demolink"><a href="demos/06_games/img/svg_text.svg">demo</a></div>
+              </li>
+            </ul>
+            <ul class="arrow">
+              <li>
+                or take a look at the famous <a href="demos/06_games/img/svg_tiger.svg">Tiger Example</a>
+              </li>
+            </ul>
+          </section>
+      </section>
+      <section>
+        <section>
+          <h1>JAVASCRIPT GAMES</h1>
+          <h2>ThreeJS</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>WebGL &amp; threejs</h2>
+          <ul>
+            <li>
+              WebGL (Web Graphics Library) is a Javascript API for rendering 3D directly in the browser without the need of extra plugins.
+            </li>
+            <li>
+              Browser support is actually <a href="http://caniuse.com/#feat=webgl">excellent</a>, also on mobile devices</a>.
+            </li>
+            <li>
+              WebGL is too basic to work with directly, so we'll use the <a href="https://threejs.org/">ThreeJS library</a> for our code.
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              <p>
+                The term 'Library' in WebGL is a little bit unfortunate, as it suggests it is just an extension, while actually it is the core. Web Graphics API would have been a better name.
+              </p>
+              <p>
+                WebGL doesn't know basic shapes like balls or cubes, only polygons.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Creating 3D</h2>
+          <ul>
+            <li>
+              For 3D graphics &amp; animations, we need to define:
+              <ul>
+                <li>
+                  a <em>scene</em> containing all objects, lights etc...
+                </li>
+                <li>
+                  some <em>objects</em> (color, texture, material, shape, position, rotation...)
+                </li>
+                <li>
+                  some <em>lights</em> (color, aperture, position, direction...)
+                </li>
+                <li>
+                  a <em>camera</em> (position, target...)
+                </li>
+                <li>
+                  probably <em>sound effects</em>
+                </li>
+              </ul>
+            </li>
+            <li>
+              To render the scene, we need to think of:
+              <ul>
+                <li>
+                  which objects cast and receive <em>shadows</em> and how
+                </li>
+                <li>
+                  <em>reflection</em> properties of objects
+                </li>
+              </ul>
+            </li>
+            <li>
+              For animations, we also need:
+              <ul>
+                <li>
+                  a <em>loop</em> generating successive frames
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <img src="img/06_games/3Dscene.jpg" alt="3D scene" style="position: absolute; right: 20px; bottom: 20px; max-width: 25%" />
+        </section>
+        <section>
+          <h2>setting up threejs</h2>
+          <p>
+            We basically just need an HTML document, and link our scripts
+              <pre class="bigger"><code contenteditable class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;ThreeJS demo&lt;/title&gt;
+    &lt;meta charset="utf-8" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- link to threejs library --&gt;
+    &lt;script src="vendor/three.min.js"&gt;&lt;/script&gt;
+    &lt;!-- link to our script --&gt;
+    &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+          </p>
+          <ul class="arrow">
+            <li>
+              from here, we'll continue in <code>scripts.js</code>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>scene</h2>
+          <p>
+            The scene is just an empty space which will contain all our objects, lights etc... Let's create one:
+              <pre class="bigger"><code contenteditable class="language-javascript">// init scene
+scene = new THREE.Scene();
+</code></pre>
+          </p>
+        </section>
+        <section data-toc-title="Objects">
+          <h2>objects (1)</h2>
+          <p>
+              In 3D, shapes are defined as a collection of adjacent polygons, called a <em>polygon mesh</em>. Less polygons = faster rendering (games), more polygons = better detail (movies)<br>
+              <img src="img/06_games/low-high-poly.jpg" alt="" width="400" />
+          </p>
+          <ul>
+            <li class="arrow">some movie examples: <a href="https://www.youtube.com/watch?v=QXe4T1RoJTc#t=00m45s">GoT</a>, <a href="http://www.cgmeetup.net/home/making-of-life-of-pi-visual-effect-by-rhythm-hues-studios/">life of PI</a>, <a href="https://www.youtube.com/watch?v=gAuGNqFJISs">walking dead</a></li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>objects (2)</h2>
+          <p>
+            To define an object ('<em>mesh</em>'), you need at least a shape ('<em>geometry</em>') and a <em>material</em>. ThreeJS has a few predefined shapes like sphere, cone, box, plane... Let's add a ground and a shape:
+              <pre class="bigger"><code contenteditable class="language-javascript smallpanel">// add ground
+let groundGeometry = new THREE.PlaneGeometry( 200, 300, 32 );
+let groundMaterial = new THREE.MeshPhongMaterial({
+    color: 0x666666,
+    side: THREE.DoubleSide
+});
+let ground = new THREE.Mesh( groundGeometry, groundMaterial );
+ground.rotation.x = Math.PI / 360 * 110;
+scene.add( ground );
+
+// add torus
+let shapeGeometry = new THREE.TorusGeometry(30, 10, 12, 24);
+let shapeMaterial = new THREE.MeshPhongMaterial({
+    color: 0x156289
+});
+let shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
+shape.position.y = 70;
+shape.rotation.y = Math.PI / 360 * 120;
+scene.add( shape );</code></pre>
+          </p>
+        </section>
+        <section>
+          <h2>camera &amp; renderer</h2>
+          <p>
+            To actually create an image, we need a camera viewpoint, from where we render the scene:
+            <pre class="bigger"><code contenteditable class="language-javascript smallpanel">// add camera
+camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
+camera.position.y = 250;
+camera.position.z = 250;
+camera.lookAt(new THREE.Vector3(0, 50, 0));
+
+// init renderer
+renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(new THREE.Color(0x000000));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+// render
+renderer.render(scene, camera); </code></pre>
+            <div class="demolink"><a href="demos/06_games/threejssimple/index1.html">demo</a> (hmm... something seems missing...)</div>
+          </p>
+        </section>
+        <section data-toc-title="lightning">
+          <h2>lightning (1)</h2>
+          <ul>
+            <li class="no-style">
+              You need lightning to see anything. Most important techniques:
+              <ul>
+                <li>
+                  <em>ambient</em>: uniform lightning on all surfaces and objects; doesn't cast shadows
+                </li>
+                <li>
+                  <em>point</em>: light from a single point, omnidirectional
+                </li>
+                <li>
+                  <em>directional</em>: from a single direction, all rays are parallel
+                </li>
+                <li>
+                  <em>spot</em>: light from a single point, spreads outwards in a cone, like a spotlight
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>lightning (2)</h2>
+          <p>
+            We add ambient light and a spotlight:
+              <pre class="bigger"><code contenteditable class="language-javascript">// add ambient light
+let ambientlight = new THREE.AmbientLight(0x444444, 2.5);
+scene.add(ambientlight);
+
+// add spotlight
+let spotlight = new THREE.SpotLight(0xFFFFFF, 0.7);
+spotlight.position.set(150, 200, -75);
+spotlight.penumbra = 0.1;
+spotlight.angle = 0.4;
+scene.add(spotlight);</code></pre>
+            <div class="demolink"><a href="demos/06_games/threejssimple/index2.html">demo</a></div>
+          </p>
+        </section>
+        <section>
+          <h2>shadows &amp; shading</h2>
+          <p>
+            We still need to create shadows, and specify how objects are shaded. Let's add relevant properties:
+              <pre class="bigger"><code contenteditable class="language-javascript">...
+let groundMaterial = new THREE.MeshPhongMaterial({
+    ...
+    shininess: 15, 
+    specular: 0x888888,
+    shading: THREE.SmoothShading
+});
+...
+ground.castShadow = false;
+ground.receiveShadow = true;
+...
+let shapeMaterial = new THREE.MeshPhongMaterial({
+    ...
+    shading: THREE.FlatShading, 
+    shininess: 60, 
+    specular: 0x156289,
+});
+...
+shape.castShadow = true;
+shape.receiveShadow = false;
+...
+spotlight.castShadow = true;
+spotlight.penumbra = 0.1;
+...
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+...
+</code></pre>
+            <div class="demolink"><a href="demos/06_games/threejssimple/index3.html">demo</a></div>
+          </p>
+        </section>
+        <section>
+          <h2>animations</h2>
+          <p>
+            To animate a scene, we need to change some properties and re-render x times per second. We'll use the native <code>requestAnimationFrame</code> function to create a loop:
+              <pre class="bigger"><code contenteditable class="language-javascript">// render
+let render = function() {
+    // keep looping
+    requestAnimationFrame(render);
+    shape.rotation.y += 0.03;
+
+    // render the scene
+    renderer.render(scene, camera);       
+}
+render();
+</code></pre>
+            <div class="demolink"><a href="demos/06_games/threejssimple/index4.html">demo</a></div>
+          </p>
+          <div class="comments">
+            <p>
+              The <code>requestAnimationFrame</code> function works a little bit like a variable delay: it executes within 1/60th of a second (60 FPS), or later if scenes are heavy to render. This prevents the dropping of frames or parts of frames, ensuring a smooth rendering.
+            </p>
+          </div>
+        </section>
+        <section>
+          <h2>texture</h2>
+          <p>
+            Adding texture to objects is easy, e.g. the ground floor:
+              <pre class="bigger"><code contenteditable class="language-javascript">let groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
+groundTexture.wrapS = THREE.RepeatWrapping;
+groundTexture.wrapT = THREE.RepeatWrapping;
+groundTexture.repeat.set( 4, 4 );
+let groundMaterial = new THREE.MeshPhongMaterial({
+  ...
+  map: groundTexture
+});</code></pre>
+            <div class="demolink"><a href="demos/06_games/threejssimple/index5.html">demo</a></div>
+          </p>
+          <div class="comments">
+            <p>
+              To add texture, create an animation first; it might take a few frames before the image is loaded. 
+            </p>
+          </div>
+        </section>
+        <section>
+          <h2>complete code listing</h2>
+          <p>
+            Our complete code:
+              <pre class="bigger"><code contenteditable class="language-javascript">// init scene
+let scene = new THREE.Scene();
+
+// add ground
+let groundGeometry = new THREE.PlaneGeometry( 200, 300, 32 );
+let groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
+groundTexture.wrapS = THREE.RepeatWrapping;
+groundTexture.wrapT = THREE.RepeatWrapping;
+groundTexture.repeat.set( 4, 4 );
+let groundMaterial = new THREE.MeshPhongMaterial({
+    shininess: 15, 
+    specular: 0x888888,
+    shading: THREE.SmoothShading, 
+    side: THREE.DoubleSide,
+    map: groundTexture
+});
+let ground = new THREE.Mesh( groundGeometry, groundMaterial );
+ground.rotation.x = Math.PI / 360 * 110;
+ground.castShadow = false;
+ground.receiveShadow = true;
+scene.add( ground );
+
+// add shape
+let shapeGeometry = new THREE.TorusGeometry(30, 10, 12, 24);
+let shapeMaterial = new THREE.MeshPhongMaterial({
+    color: 0x156289,
+    side: THREE.DoubleSide,
+    shading: THREE.FlatShading, 
+    shininess: 60, 
+    specular: 0x156289
+});
+let shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
+shape.castShadow = true;
+shape.receiveShadow = false;
+shape.position.y = 70;
+shape.rotation.y = Math.PI / 360 * 120;
+scene.add( shape );
+
+// add ambient light
+let ambientlight = new THREE.AmbientLight(0x444444, 2.5);
+scene.add(ambientlight);
+
+// add spotlight
+let spotlight = new THREE.SpotLight(0xFFFFFF, 0.7);
+spotlight.position.set(150, 200, -75);
+spotlight.shadow.camera.visible = true;            
+spotlight.castShadow = true;
+spotlight.penumbra = 0.1;
+spotlight.angle = 0.4;
+scene.add(spotlight);
+
+// add camera
+camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
+camera.position.y = 250;
+camera.position.z = 250;
+camera.lookAt(new THREE.Vector3(0, 50, 0));
+
+// init renderer
+renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(new THREE.Color(0x000000));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+// render
+let render = function() {
+    // keep looping
+    requestAnimationFrame(render);
+    shape.rotation.y += 0.03;
+
+    // render the scene
+    renderer.render(scene, camera);       
+}
+render();
+</code></pre>
+            <div class="demolink"><a href="demos/06_games/threejssimple/index5.html">demo</a></div>
+          </p>
+          <ul class="arrow">
+            <li>
+              also see this <a href="demos/06_games/threejsfull/index.html">elaborated example</a> illustrating all concepts
+            </li>
+          </ul>
+        </section>
+      </section>
+
+    </div>
+
+    <!-- odisee.be link -->
+    <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
+
+    <!-- Index Link -->
+    <aside class="back">
+      <nav>
+        <p><a href="index.html">&larr; Back to index</a></p>
+      </nav>
+    </aside>
+
+  </div>
+
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/reveal/lib/js/head.min.js"></script>
+  <script src="vendor/reveal/js/reveal.js"></script>
+  <script src="vendor/highlight/highlight.pack.js"></script>
+  <script src="vendor/incrementable.js"></script>
+  <script src="vendor/prefixfree.js"></script>
+  <script src="vendor/css-snippets.js"></script>
+  <script src="vendor/css-edit.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
