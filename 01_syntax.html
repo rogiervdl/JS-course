@@ -907,7 +907,7 @@ me.giveBeer();
             <li>
               Objects are often used to group properties into a single parameter:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// 'thing' should be an object 
-let toString = function(thing) {
+let getDescription = function(thing) {
   let str = '';
   str += 'Name: ' + thing.kind + '\n';  
   str += 'Color: ' + thing.color + '\n';  
@@ -924,7 +924,7 @@ let stone = {
 }
 
 // pass to the function and return result
-console.log(toString(stone));
+console.log(getDescription(stone));
 </code></pre>
             </li>
           </ul>
@@ -1516,12 +1516,6 @@ let function2 = function() {
           </ul>
         </section>
      </section>
-
-      <section data-index-title="">
-        <section>
-          <h2>Questions?</h2>
-        </section>
-      </section>
 
 
     </div>

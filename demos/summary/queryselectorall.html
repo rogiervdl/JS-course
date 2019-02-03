@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testpagina</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="">item1</a></li>
+			<li><a href="">item2</a></li>
+			<li><a href="">item3</a></li>
+			<li><a href="">item4</a></li>
+		</ul>
+	</nav>
+	<script>
+		// get even items
+		let linksToHide = document.querySelectorAll('nav li:nth-child(2n)');
+
+		// iterate results
+		for (let link of linksToHide) {
+			link.style.display = 'none'; 
+		}
+	</script>
+</body>
+</html>

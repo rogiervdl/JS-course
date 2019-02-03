@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testpagina</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<form id="frmLogin">
+		<span class="error"></span> 
+		<label for="uname">Login: </label><input type="text" id="uname" value="Bob">
+		<label for="pw">Password: </label><input type="password" id="pw" value="XYZ">
+		<input type="submit" value="login">
+	</form>
+	<script>
+		let inpName = document.querySelector('#frmLogin input[type=text]');
+		let inpPw = document.querySelector('#frmLogin input[type=password]');
+		console.log(inpName.value);
+		console.log(inpPw.value);
+	</script>
+</body>
+</html>

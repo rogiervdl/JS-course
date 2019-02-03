@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testpagina</title>
+	<meta charset="utf-8" />
+	<style>
+		.pw_error {
+			color: #900;
+			font-style: italic;
+		}
+
+	</style>
+</head>
+<body>
+	<form id="frm1">
+		<p>
+			<label for="pw">Your password: </label><input type="password" id="pw">
+			<span class="pw_error"></span> 
+		</p>
+		<p><input type="submit" value="register"></p>
+	</form>
+	<script>
+		// get form and input
+		let form = document.getElementById('frm1');
+		let inpPw = form.querySelector('input[type=password]'); 
+		let err = form.querySelector('.pw_error');
+
+		// handle form submits
+		form.addEventListener('submit', function(e) {
+			err.innerHTML = ''; // clear errors from previous attempts
+			if (inpPw.value.length < 8) {
+				err.innerHTML = 'your password is too short'; 
+				e.preventDefault(); // prevent submit
+			}  
+		});
+	</script>
+</body>
+</html>

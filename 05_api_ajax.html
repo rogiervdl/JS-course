@@ -609,9 +609,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </section>
         <section>
           <h2>Synchronous example</h2>
-          <pre class="bigger"><code contenteditable class="language-javascript overlayrun wrong">xhr = new XMLHttpRequest();
+          <pre class="bigger"><code contenteditable class="language-javascript overlayrun wrong">let xhr = new XMLHttpRequest();
 xhr.open('GET', 'demos/05_api_ajax/api_json.php?id=2', false);
-xhr.send(null);
+xhr.send();
 alert(xhr.responseText);</code></pre>
           <ul>
             <li class="no-style smaller">
@@ -623,14 +623,14 @@ alert(xhr.responseText);</code></pre>
         </section>
         <section>
           <h2>Asynchronous example</h2>
-          <pre class="bigger"><code contenteditable class="language-javascript overlayrun right">xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-  if (xhr.readyState == 4) {
-    alert(xhr.responseText);
+          <pre class="bigger"><code contenteditable class="language-javascript overlayrun right">let xhr = new XMLHttpRequest();
+xhr.addEventListener('readystatechange', function() {
+  if (this.readyState == 4 && this.status == 200) {
+    alert(this.responseText);
   }
-};
+});
 xhr.open('GET', 'demos/05_api_ajax/api_json.php?id=2', false);
-xhr.send(null);</code></pre>
+xhr.send();</code></pre>
         </section>
         <section data-toc-title="AJAX Flickr demo">
           <h2>AJAX Flickr demo (1)</h2>

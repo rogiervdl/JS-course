@@ -1,0 +1,18 @@
+table#bubbling {
+	width: 180px;
+	margin: 0 auto 0;
+	border: 1px solid #FFF;
+	border-collapse: collapse;
+	cursor: pointer;
+}
+
+table#bubbling td {
+	width: 40px;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #333;
+}
+
+table#bubbling td:hover {
+	background: #ccc;
+}
