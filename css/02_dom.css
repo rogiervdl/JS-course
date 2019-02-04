@@ -43,6 +43,19 @@ table#bubbling td:hover {
 	top: 200px;
 }
 
+#img-car { 
+	opacity: 0.7; 
+}
+#img-car-2, #img-car-3 { 
+	transition: all 0.3s;
+	opacity: 0.7; 
+}
+#img-car-2.zoom, #img-car-3.zoom { 
+	opacity: 1.0; 
+	transform: scale(1.3); 
+	box-shadow: #888888 5px 5px 10px; 
+}
+
 .reveal ul.chapterlist {
   column-count: 2;
   column-gap: 60px;

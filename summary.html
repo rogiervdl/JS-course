@@ -584,6 +584,43 @@ el.addEventListener('mouseover', function() {
             </li>
           </ul>
         </section>
+        <section>
+          <h2>Classlist</h2>
+          <ul>
+            <li>
+              Set or remove CSS classes with the <code><em>classList</em></code> property:
+              <div style="display: flex; justify-content: space-between;">
+                <div style="width: calc(100% - 120px)">
+                  <pre class="bigger"><code class="language-html" data-caption>&lt;button id="btn-view"&gt;change view&lt;/button&gt;
+&lt;img src="img/02_dom/photo.jpg" id="img-car"&gt;
+</code></pre>
+                  <pre class="bigger"><code class="language-css" data-caption>#img-car { opacity: 0.7; transition: all 0.3s; }
+#img-car.zoom { opacity: 1.0; transform: scale(1.3); box-shadow: #888888 5px 5px 10px;' }</code></pre>
+                  <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let img = document.querySelector('#img-car');
+let button = document.querySelector('#btn-view');
+button.addEventListener('click', function() {
+  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
+  else img.classList.add('zoom');
+});                    
+</code></pre>
+                </div>
+                <div style="width: 100px">
+                  <img src="img/02_dom/photo.jpg" id="img-car" alt="this is me" />
+                  <button id="btn-view">change view</button>
+<script>
+let img = document.querySelector('#img-car');
+let button = document.querySelector('#btn-view');
+button.addEventListener('click', function() {
+  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
+  else img.classList.add('zoom');
+});   
+</script>
+                </div>
+              </div> 
+            </li>
+          </ul>
+
+        </section>
       </section>
       <section>
         <section>
@@ -732,7 +769,7 @@ table.addEventListener('click', function(e) {
     }
     console.log('%c', devtools);
     if (!devtools.opened) {
-      alert('in order to view the demos, keep your console open (press F12 or Shift-Ctrl-I)');
+      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
     }
   </script>
 

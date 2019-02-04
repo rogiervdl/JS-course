@@ -494,10 +494,105 @@ el.addEventListener('mouseover', function() {
                 <img src="img/02_dom/me.jpg" id="img1" width="40" height="40" alt="this is me" />
                </div>
             </li>
+          </ul>
+          <ul class="arrow">
             <li>
-              Again, <a href="http://www.w3schools.com/jsref/default.asp">w3schools.com</a> has an excellent DOM reference
+              again, <a href="http://www.w3schools.com/jsref/default.asp">w3schools.com</a> has an excellent DOM reference
+            </li>            
+          </ul>
+        </section>
+        <section data-toc-title="classList">
+          <h2>Classlist (1)</h2>
+          <ul>
+            <li>
+              You could set CSS styles in Javascript directly with the <code><em>style</em></code> property:
+              <div style="display: flex; justify-content: space-between;">
+                <div style="width: calc(100% - 120px)">
+                  <pre class="bigger"><code class="language-html" data-caption>&lt;button id="btn1"&gt;change view&lt;/button&gt;
+&lt;img src="img/02_dom/photo.jpg" id="img-car"&gt;
+</code></pre>
+              <pre class="bigger"><code class="language-css" data-caption>#img-car { opacity: 0.7; }</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript wrong overlayrun" data-caption>let img = document.getElementById('img-car');
+img.style.opacity = '1.0';
+img.style.transition = 'all 0.3s';
+img.style.transform = 'scale(1.3)';
+img.style.boxShadow = '#888888 5px 5px 10px';
+</code></pre>
+
+                </div>
+                <div style="width: 100px">
+                  <img src="img/02_dom/photo.jpg" id="img-car" alt="this is me" />
+                </div>
+              </div> 
             </li>
           </ul>
+          <ul class="arrow">
+            <li>we always try to keep HTML, CSS and Javascript separated</li>
+            <li>here we set CSS directly in Javascript, which we want to avoid</li>
+          </ul> 
+        </section>
+        <section data-toc-title="">
+          <h2>Classlist (2)</h2>
+          <ul>
+            <li>
+              To set or remove CSS with Javascript, it is better to simply add or remove CSS classes with the <code><em>classList</em></code> property:
+              <div style="display: flex; justify-content: space-between;">
+                <div style="width: calc(100% - 120px)">
+                  <pre class="bigger"><code class="language-html" data-caption>&lt;img src="img/02_dom/photo.jpg" id="img-car-2"&gt;
+</code></pre>
+                  <pre class="bigger"><code class="language-css" data-caption>#img-car-2 { opacity: 0.7; transition: all 0.3s; }
+#img-car-2.zoom { opacity: 1.0; transform: scale(1.3); box-shadow: #888888 5px 5px 10px;' }</code></pre>
+                  <pre class="bigger"><code contenteditable class="language-javascript overlayrun right" data-caption>let img = document.getElementById('img-car-2');
+img.classList.add('zoom');
+</code></pre>
+                  <pre class="bigger"><code contenteditable class="language-javascript overlayrun right" data-caption>let img = document.getElementById('img-car-2');
+img.classList.remove('zoom');
+</code></pre>
+                </div>
+                <div style="width: 100px">
+                  <img src="img/02_dom/photo.jpg" id="img-car-2" alt="this is me" />
+                </div>
+              </div> 
+            </li>
+          </ul>
+
+        </section>
+        <section data-toc-title="">
+          <h2>Classlist (3)</h2>
+          <ul>
+            <li>
+              Just as an illustration, the same example with a button:
+              <div style="display: flex; justify-content: space-between;">
+                <div style="width: calc(100% - 120px)">
+                  <pre class="bigger"><code class="language-html" data-caption>&lt;button id="btn-view-3"&gt;change view&lt;/button&gt;
+&lt;img src="img/02_dom/photo.jpg" id="img-car-3"&gt;
+</code></pre>
+                  <pre class="bigger"><code class="language-css" data-caption>#img-car-3 { opacity: 0.7; transition: all 0.3s; }
+#img-car-3.zoom { opacity: 1.0; transform: scale(1.3); box-shadow: #888888 5px 5px 10px;' }</code></pre>
+                  <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let img = document.querySelector('#img-car-3');
+let button = document.querySelector('#btn-view-3');
+button.addEventListener('click', function() {
+  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
+  else img.classList.add('zoom');
+});                    
+</code></pre>
+                </div>
+                <div style="width: 100px">
+                  <img src="img/02_dom/photo.jpg" id="img-car-3" alt="this is me" />
+                  <button id="btn-view-3">change view</button>
+<script>
+let img = document.querySelector('#img-car-3');
+let button = document.querySelector('#btn-view-3');
+button.addEventListener('click', function() {
+  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
+  else img.classList.add('zoom');
+});   
+</script>
+                </div>
+              </div> 
+            </li>
+          </ul>
+
         </section>
       </section>
       <section>
@@ -1300,7 +1395,7 @@ let setMood = function(nr) {
     }
     console.log('%c', devtools);
     if (!devtools.opened) {
-      alert('in order to view the demos, keep your console open (press F12 or Shift-Ctrl-I)');
+      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
     }
   </script>
 
