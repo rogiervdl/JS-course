@@ -515,12 +515,15 @@ console.log(navlinks.length); // will display 4</code></pre>
     &lt;li&gt;&lt;a href=""&gt;item4&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>// get even items
-let linksToHide = document.querySelectorAll('nav li:nth-child(2n)');
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>// get even items (this will be item 2 and 4)
+let itemsToHide = document.querySelectorAll('nav li:nth-child(2n)');
 
-// iterate results
-for (let link of linksToHide) {
-  link.style.display = 'none'; 
+// show content of first found
+console.log(itemsToHide[0].innerHTML); // &lt;a href=""&gt;item2&lt;/a&gt;
+
+// iterate results and do something, e.g. hide them
+for (let item of itemsToHide) {
+  item.style.display = 'none'; 
 }</code></pre>
               <div class="demolink"><a href="demos/summary/queryselectorall.html">demo</a></div>
             </li>

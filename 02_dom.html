@@ -154,10 +154,13 @@
           <p style="text-align: center;"><img src="img/02_dom/dom_lean_annotated.png" alt="" width="700" /></p>
         </section>
         <section>
-          <h2>DOM &mdash; nodes</h2>
+          <h2>DOM objects</h2>
           <ul>
             <li>
-              Each element of the DOM has
+              The DOM consists of the window, location, history and document objects, and all HTML element objects that can be found with one of the three methods. 
+            </li>
+            <li>
+              Each DOM object has
               <ul>
                 <li><em>properties</em> like <code>width</code>, <code>value</code>, <code>src</code> etc... (some are read/write, others are read only)</li>
                 <li><em>methods</em> like <code>submit()</code>, <code>focus()</code> etc.. (which <a href="01_syntax.html#/19">are actually properties too</a>)</li>
@@ -165,38 +168,28 @@
               </ul>
             </li>
             <li>
-              The properties, methods and events you can use, depend on the type of node (image, input...)
-            </li>
-            <li>
-              The best hands-on DOM reference I know is <a href="http://www.w3schools.com/jsref/default.asp">W3Schools</a>
+              An excellent DOM reference is <a href="http://www.w3schools.com/jsref/default.asp">W3Schools</a>
             </li>
           </ul>
         </section>
         <section>
-          <h2>DOM &mdash; documentation</h2>
-          <figure style="display: block; margin: 30px auto; width: 500px; overflow: hidden;">
-            <img src="img/02_dom/ss_w3c.png" alt="" class="border" style="width: 100%" />
-            <figcaption style="text-align: right;"><a href="https://www.w3schools.com/jsref/default.asp">https://www.w3schools.com/jsref/</a></figcaption>
-          </figure>
-        </section>
-        <section>
-          <h2>DOM &mdash; window</h2>
+          <h2>window object</h2>
           <img src="img/02_dom/dom_lean1.png" alt="" width="500" style="display: block; margin: 30px auto" />
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; window</h2>
+          <h2>window object</h2>
           <img src="img/02_dom/ss_window.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
           <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_window.asp">here</a></small>
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; window</h2>
+          <h2>window object</h2>
           <ul>
             <li>
-              Using properties:
+              Some properties:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">console.log('kader: ' + window.innerWidth + 'x' + window.innerHeight);</code></pre>
             </li>
             <li>
-              Using Methods:
+              Some Methods:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">window.alert('hi');
 if (window.confirm('print this page?')) window.print();</code></pre>
             </li>
@@ -209,16 +202,16 @@ if (confirm('print this page?')) print();</code></pre>
           </ul>
         </section>
         <section>
-          <h2>DOM &mdash; history</h2>
+          <h2>history object</h2>
           <img src="img/02_dom/dom_lean2.png" alt="" width="500" style="display: block; margin: 30px auto" />
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; history</h2>
+          <h2>history object</h2>
           <img src="img/02_dom/ss_history.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
           <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_history.asp">here</a></small>
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; history</h2>
+          <h2>history object</h2>
           <ul>
             <li>
               You are not supposed to mess with browser history:
@@ -232,16 +225,16 @@ if (confirm('print this page?')) print();</code></pre>
           </ul>
         </section>
         <section>
-          <h2>DOM &mdash; location</h2>
+          <h2>location object</h2>
           <img src="img/02_dom/dom_lean3.png" alt="" width="500" style="display: block; margin: 30px auto" />
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; location</h2>
+          <h2>location object</h2>
           <img src="img/02_dom/ss_location.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
           <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_location.asp">here</a></small>
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; location</h2>
+          <h2>location object</h2>
           <ul>
             <li>
               Refers to the address bar. Example forcing a redirect:
@@ -261,16 +254,16 @@ if (confirm('print this page?')) print();</code></pre>
           </ul>
         </section>
         <section>
-          <h2>DOM &mdash; document</h2>
+          <h2>document object</h2>
           <img src="img/02_dom/dom_lean4.png" alt="" width="500" style="display: block; margin: 30px auto" />
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; document</h2>
+          <h2>document object</h2>
           <img src="img/02_dom/ss_document.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
           <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">here</a></small>
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; document</h2>
+          <h2>document object</h2>
           <ul>
             <li>
               This node carries the entire HTML document. The node itself is rather uninteresting, with only a few properties and methods (apart from the selector functions we'll talk about in a minute):
@@ -282,83 +275,139 @@ if (confirm('print this page?')) print();</code></pre>
           </ul>
         </section>
         <section>
-          <h2>DOM &mdash; finding an element</h2>
+          <h2>Finding HTML elements</h2>
           <img src="img/02_dom/dom_lean5.png" alt="" width="500" style="display: block; margin: 30px auto" />
         </section>
-        <section>
-          <h2>DOM &mdash; finding an element</h2>
+        <section data-toc-title="">
+          <h2>Finding HTML elements</h2>
           <ul>
             <li>
-              Find individual elements by id or CSS selector:
-              <pre class="bigger"><code contenteditable class="language-javascript">// get element by its id
-let button1 = document.getElementById('btnOk');
-
-// get first element matched by CSS selector
-let el = document.querySelector('#siteWrapper pre.bigger:last');</code></pre>
+              Single HTML elements can be found with the methods <code><em>getElementById()</em></code> and <code><em>querySelector()</em></code>:
+              <pre class="bigger"><code contenteditable class="language-javascript">let button1 = document.getElementbyId('btn1'); // element with id 'btn1'
+let button1 = document.querySelector('#btn1'); // this is identical
+let msg = document.querySelector('#login input'); // get first #login input element
+</code></pre>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              <code>getElementById()</code>: get by id; returns a single result
             </li>
             <li>
-              You can search inside any element, not just <code>document</code>:
-              <pre class="bigger"><code contenteditable class="language-javascript">// find menu wrapper
-let wrapper = document.getElementById('#menuWrapper');
-
-// find active link inside wrapper
-let activeLink = wrapper.querySelector('#siteWrapper li.active a');</code></pre>
+              <code>querySelector()</code>: get by CSS selector; returns a single result
             </li>
           </ul>
         </section>
         <section>
-          <h2>DOM &mdash; collections</h2>
+          <h2>getElementById</h2>
+          <ul>
+            <li>
+              <code><em>getElementById()</em></code> gets an element by its id, e.g.:
+              <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;p id="message"&gt;message here...&lt;/p&gt;
+&lt;button id="btn1"&gt;say hello&lt;/button&gt;</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>document.getElementById('btn1').addEventListener('click', function() {
+  document.getElementById('message').innerHTML = 'Hello World';
+});</code></pre>
+              ...or a little bit cleaner:
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let button1 = document.getElementById('btn1'); // get button by id
+let msg = document.getElementById('message'); // get paragraph by id
+button1.addEventListener('click', function() {
+  msg.innerHTML = 'Hello World';
+});</code></pre>
+              <div class="demolink"><a href="demos/summary/getelementbyid.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>querySelector</h2>
+          <ul>
+            <li>
+              <code><em>querySelector()</em></code> gets a single element by CSS selector, e.g.:
+              <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;form id="frmLogin"&gt;
+  &lt;span class="error"&gt;&lt;/span&gt; 
+  &lt;label for="uname"&gt;Login: &lt;/label&gt;&lt;input type="text" id="uname" value="Bob"&gt;
+  &lt;label for="pw"&gt;Password: &lt;/label&gt;&lt;input type="password" id="pw" value="XYZ"&gt;
+  &lt;input type="submit" value="login"&gt;
+&lt;/form&gt;</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let inpName = document.querySelector('#frmLogin input[type=text]');
+let inpPw = document.querySelector('#frmLogin input[type=password]');
+console.log(inpName.value);
+console.log(inpPw.value);
+</code></pre>
+              <div class="demolink"><a href="demos/summary/queryselector.html">demo</a></div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              you can use any selector you know from CSS, so dust off your CSS knowledge!
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>Finding HTML elements</h2>
           <img src="img/02_dom/dom_lean6.png" alt="" width="500" style="display: block; margin: 30px auto" />
         </section>
-        <section data-toc-title="">
-          <h2>DOM &mdash; collections</h2>
+        <section>
+          <h2>querySelectorAll</h2>
           <ul>
             <li>
-              Find multiple elements &mdash; <em>collections</em> &mdash; by CSS selector:
-              <pre class="bigger"><code contenteditable class="language-javascript">// find all images within gallery
-let galleryImgs = document.querySelectorAll('#myGallery img');
-
-// find all checked checkboxes
-let inpChecked = document.querySelectorAll('input[type=checkbox]:checked');
-</code></pre>
-            </li>
-            <li>
-              Treat collections as classic arrays:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// find all elements with a src attribute
-let srcElements = document.querySelectorAll('*[src]');
-
-// access third element
-console.log(srcElements[2]);
-
-// iterate with normal for-loop
-for (let i = 0; i < srcElements.length; i++) {
-  console.log(srcElements[i].nodeName + ': ' + srcElements[i].src);
-}
-</code></pre>
+              Find all HTML that match a CSS query with <code><em>querySelectorAll()</em></code>:
+              <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=""&gt;item1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;item2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;item3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;item4&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let navlinks = document.querySelectorAll('nav a');
+console.log(navlinks.length); // will display 4</code></pre>
             </li>
           </ul>
         </section>
         <section data-toc-title="">
-          <h2>DOM &mdash; collections</h2>
+          <h2>querySelectorAll</h2>
           <ul>
             <li>
-              Alas, properties do not distribute:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// find images
-let galleryImgs = document.querySelectorAll('#myGallery img');
+              Note: it returns an array, so you will need to iterate the items:
+              <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=""&gt;item1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;item2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;item3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;item4&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>// get even items (this will be item 2 and 4)
+let itemsToHide = document.querySelectorAll('nav li:nth-child(2n)');
 
-// set opacity of all to 0.8 -> does not work!
-galleryImgs.style.opacity = '0.8';
-</code></pre>
+// show content of first found
+console.log(itemsToHide[0].innerHTML); // &lt;a href=""&gt;item2&lt;/a&gt;
+
+// iterate results and do something, e.g. hide them
+for (let item of itemsToHide) {
+  item.style.display = 'none'; 
+}</code></pre>
+              <div class="demolink"><a href="demos/summary/queryselectorall.html">demo</a></div>
             </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Chaining queries</h2>
+          <ul>
             <li>
-              You will have to iterate manually:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// find images
-let galleryImgs = document.querySelectorAll('#myGallery img');
+              You can chain queries, e.g.:
+              <pre class="bigger"><code contenteditable class="language-javascript">// find form, then find password field in that form
+let loginForm = document.getElementbyId('frm1'); 
+let inpPw = loginForm.querySelector('input[type=passwprd]'); // look in loginForm
 
-// set opacity one by one -> works
-for (let i = 0; i < galleryImgs.length; i++) {
-  galleryImgs[i].style.opacity = '0.8';
-}
+// find table, then find all cells in that table
+let table1 = document.getElementbyId('my-table'); 
+let cells = table1.querySelectorAll('td'); // look in table1
+
+// this is of course equivalent to:
+let inpPw = document.querySelector('#frm1 input[type=passwprd]'); 
+let cells = document.querySelectorAll('#my-table td'); 
 </code></pre>
             </li>
           </ul>
@@ -396,7 +445,7 @@ for (let i = 0; i < galleryImgs.length; i++) {
           <h2>Manipulating CSS and content</h2>
           <ul>
             <li>
-              Some of the common properties and events for elements:
+              Some things you can do with almost all elements (see <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">documentation</a>):
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// cache the variable
 let el = document.getElementById('manipulatingDemo');
 
@@ -404,15 +453,15 @@ let el = document.getElementById('manipulatingDemo');
 el.style.backgroundColor = '#cc6';
 el.style.padding = '20px';
 
-// set 'test' as classname
-el.className = 'test'; // or better: el.classList.add('test');
-el.innerHTML = 'I am THE demo';
+// add/remove CSS classes
+el.classList.add('test'); 
+el.classList.remove('test2'); 
 
-// add some events
+// change the content
+el.innerHTML = 'Hammertime';
+
+// add events
 el.addEventListener('mouseover', function() {
-  this.innerHTML = 'Hammertime';
-});
-el.addEventListener('mouseout', function() {
   this.innerHTML = 'Can\'t touch this';
 });</code></pre>
 <p id="manipulatingDemo" style="text-align: center;">I am the demo</p>
