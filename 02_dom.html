@@ -399,14 +399,14 @@ for (let item of itemsToHide) {
               You can chain queries, e.g.:
               <pre class="bigger"><code contenteditable class="language-javascript">// find form, then find password field in that form
 let loginForm = document.getElementbyId('frm1'); 
-let inpPw = loginForm.querySelector('input[type=passwprd]'); // look in loginForm
+let inpPw = loginForm.querySelector('input[type=password]'); // look in loginForm
 
 // find table, then find all cells in that table
 let table1 = document.getElementbyId('my-table'); 
 let cells = table1.querySelectorAll('td'); // look in table1
 
 // this is of course equivalent to:
-let inpPw = document.querySelector('#frm1 input[type=passwprd]'); 
+let inpPw = document.querySelector('#frm1 input[type=password]'); 
 let cells = document.querySelectorAll('#my-table td'); 
 </code></pre>
             </li>
