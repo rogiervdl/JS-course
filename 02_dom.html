@@ -868,110 +868,7 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
       <section>
         <section>
           <h1>DOM</h1>
-          <h2>Example 1 &mdash; Mood selector</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-          <img src="img/02_dom/ss2.png" alt="" style="margin: 0 auto; border: 2px solid #ccc; width: 400px" />
-        </section>
-        <section>
-          <h2>The HTML</h2>
-          <ul>
-            <li>
-              The HTML:
-              <pre class="bigger"><code class="language-html overlayrun">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Moodselector&lt;/title&gt;
-  &lt;meta charset="utf-8" /&gt;
-  &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;How 'r you feeling today?&lt;/h1&gt;
-  &lt;form id="testForm" action="#"&gt;
-    &lt;select name="lstMood" id="lstMood"&gt;
-      &lt;option value="0"&gt;--unknown--&lt;/option&gt;
-      &lt;option value="1"&gt;darn bad&lt;/option&gt;
-      &lt;option value="2"&gt;bad&lt;/option&gt;
-      &lt;option value="3"&gt;neutral&lt;/option&gt;
-      &lt;option value="4"&gt;good&lt;/option&gt;
-      &lt;option value="5"&gt;jolly good&lt;/option&gt;
-    &lt;/select&gt;
-    &lt;img src="img/mood0.gif" alt="mood icon" id="imgMood" /&gt;
-  &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Linking the script</h2>
-          <ul>
-            <li>
-              We'll write a simple mood selector, where selecting a value in the list changes the smiley next to it
-            </li>
-            <li>
-              We link our scripts at the end of the body:
-              <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Moodselectior&lt;/title&gt;
-  ...
-&lt;/head&gt;
-&lt;body&gt;
-  ...
-  &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>List change event</h2>
-          <ul>
-            <li>
-              In <code>scripts.js</code> we'll hook a function <code>setMood()</code> on the change event of the list
-              <pre class="bigger"><code class="language-javascript">;(function() {
-  'use strict';
-
-  // wait till DOM is loaded
-  window.addEventListener('load', function() {
-    // listen to select list changes
-    document.getElementById('lstMood').addEventListener('change', function() {
-      setMood(this.value);
-    });
-  });
-
-})();</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Adjusting the image</h2>
-          <ul>
-            <li>
-              The function <code>setMood</code> is quite simple:
-              <pre class="bigger"><code class="language-javascript">//...
-let setMood = function(nr) {
-  // check boundaries
-  if (nr &lt; 0) nr = 0;
-  if (nr &gt; 5) nr = 5;
-
-  // adjust image
-  document.getElementById('imgMood').src = 'img/mood' + nr + '.gif';
-
-  //...
-}
-</code></pre>
-              <div class="demolink"><a href="demos/02_dom/moodselection/index.html">demo</a></div>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section>
-        <section>
-          <h1>DOM</h1>
-          <h2>Example 2 &mdash; Slideshow</h2>
+          <h2>Example 1 &mdash; Slideshow</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>
@@ -1123,7 +1020,7 @@ let setMood = function(nr) {
       <section>
         <section>
           <h1>DOM</h1>
-          <h2>Example 3 &mdash; Formchecking</h2>
+          <h2>Example 2 &mdash; Formchecking</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>
