@@ -7,19 +7,26 @@
 // start scripts
 window.addEventListener('load', function() {
     // aliases
-	let imglinks = document.querySelectorAll('#thumbsmenu li>a');
-    let photoBig = document.getElementById('photoBig');
+	let thumbs = document.querySelectorAll('#thumbsmenu li');
+    let big = document.querySelector('#big');
+    let photo = big.querySelector('img');
 
     // attach events
-	for (let i = 0; i < imglinks.length; i++) {
-        imglinks[i].addEventListener('click', function(e) {
+	for (let i = 0; i < thumbs.length; i++) {
+        let thumb = thumbs[i];
+        let link = thumb.querySelector('a');
+        let img = thumb.querySelector('img');
+        link.addEventListener('click', function(e) {
             // prevent default
             e.preventDefault();
 
             // show image
-            let img = this.querySelector('img');
-            photoBig.src = img.src.replace('S.jpg', 'L.jpg');
-            photoBig.alt = img.alt;
+            photo.src = link.href;
+            photo.alt = img.alt;
+
+            // change active state
+            document.querySelector('#thumbsmenu .active').classList.remove('active');
+            thumb.classList.add('active');
         });
 	}
 });

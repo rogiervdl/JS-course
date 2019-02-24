@@ -878,31 +878,27 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
           <h2>HTML only version</h2>
           <ul>
             <li>
-              We'll start from a HTML-only slideshow with a HTML file for each picture. The HTML for the first:
-              <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+              We'll start from this HTML/CSS page:
+              <pre class="smaller"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;title&gt;Show photo | Slideshow&lt;/title&gt;
-  &lt;meta charset="utf-8" /&gt;
-  &lt;link rel="stylesheet" href="css/reset.css" /&gt;
-  &lt;link rel="stylesheet" href="css/main.css" /&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;link rel="stylesheet" href="css/styles.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;h2&gt;Bekijk foto's&lt;/h2&gt;
-  &lt;ul id="thumbsmenu"&gt;
-    &lt;li&gt;&lt;a href="photo1.html"&gt;&lt;img src="img/photo1S.jpg"
-      alt="photo 1" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="photo2.html"&gt;&lt;img src="img/photo2S.jpg"
-      alt="photo 2" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="photo3.html"&gt;&lt;img src="img/photo3S.jpg"
-      alt="photo 3" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="photo4.html"&gt;&lt;img src="img/photo4S.jpg"
-      alt="photo 4" /&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p&gt;&lt;img src="img/photo1L.jpg" alt="photo 1" id="photoBig" /&gt;&lt;/p&gt;
+  &lt;div id="slideshow"&gt;
+    &lt;ul id="thumbsmenu"&gt;
+      &lt;li class="active"&gt;&lt;a href="img/photo1.jpg"&gt;&lt;img src="img/photo1S.jpg" alt="house outside"&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="img/photo2.jpg"&gt;&lt;img src="img/photo2S.jpg" alt="saloon"&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="img/photo3.jpg"&gt;&lt;img src="img/photo3S.jpg" alt="garden"&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="img/photo4.jpg"&gt;&lt;img src="img/photo4S.jpg" alt="living room"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p id="big"&gt;&lt;img src="img/photo1.jpg" alt="foto 1"&gt;&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-              <div class="demolink"><a href="demos/02_dom/slideshow/noscript/photo1.html">demo</a></div>
+              <div class="demolink"><a href="demos/02_dom/slideshow/noscript/index.html">demo</a></div>
             </li>
           </ul>
         </section>
@@ -910,10 +906,7 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
           <h2>Linking the script</h2>
           <ul>
             <li>
-              Each time the user selects a new picture, a new page needs to be loaded. Let's improve the user experience with some Javascript.
-            </li>
-            <li>
-              Again we link our script in the body:
+              Next we link our script:
               <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -932,25 +925,29 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
           <h2>Click events</h2>
           <ul>
             <li>
-              The code isn't that complicated; I'm sure you can figure this out:
-              <pre class="bigger"><code class="language-javascript">window.addEventListener('load', function() {
-  // aliases
-  let imglinks = document.querySelectorAll('#thumbsmenu li>a');
-  let photoBig = document.getElementById('photoBig');
+              The Javascript code isn't that complicated; I'm sure you can figure this out:
+              <pre class="smaller"><code class="language-javascript">// aliases
+let thumbs = document.querySelectorAll('#thumbsmenu li');
+let big = document.querySelector('#big');
+let photo = big.querySelector('img');
 
-  // attach events
-  for (let i = 0; i &lt; imglinks.length; i++) {
-    imglinks[i].addEventListener('click', function(e) {
-      // prevent default
-      e.preventDefault();
-
-      // show clicked image
-      let img = this.querySelector('img');
-      photoBig.src = img.src.replace('S.jpg', 'L.jpg');
-      photoBig.alt = img.alt;
+// attach click events to thumbnails
+for (let i = 0; i < thumbs.length; i++) {
+    let thumb = thumbs[i];
+    let link = thumb.querySelector('a');
+    let img = thumb.querySelector('img');
+    link.addEventListener('click', function(e) {
+        // prevent default link action
+        e.preventDefault();
+        // show image
+        photo.src = link.href;
+        photo.alt = img.alt;
+        // change active state
+        document.querySelector('#thumbsmenu .active').classList.remove('active');
+        thumb.classList.add('active');
     });
-  }
-});</code></pre>
+}
+</code></pre>
               <div class="demolink"><a href="demos/02_dom/slideshow/vs1/index.html">demo</a></div>
             </li>
           </ul>
@@ -962,30 +959,21 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
               HTML actually allows you to add any attribute you like, as long as you prefix it with <code>data-</code>. These are called <em>custom attributes</em>. 
             </li>
             <li>
-              Let's improve our code with custom <code>data-src-l</code> attributes:
-              <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Show photo | Slideshow&lt;/title&gt;
-  &lt;meta charset="utf-8" /&gt;
-  &lt;link rel="stylesheet" href="css/reset.css" /&gt;
-  &lt;link rel="stylesheet" href="css/main.css" /&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h2&gt;Bekijk foto's&lt;/h2&gt;
+              Let's add captions with custom <code>data-captions</code> attributes, and use a <code>&lt;figure&gt;</code> with <code>&lt;figcaption&gt;</code> for the big photo:
+              <pre class="smaller"><code class="language-html">...
+&lt;div id="slideshow"&gt;
   &lt;ul id="thumbsmenu"&gt;
-    &lt;li&gt;&lt;a href="photo1.html"&gt;&lt;img data-src-l="img/photo1L.jpg"
-      src="img/photo1S.jpg" alt="photo 1" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="photo2.html"&gt;&lt;img data-src-l="img/photo2L.jpg"
-      src="img/photo2S.jpg" alt="photo 2" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="photo3.html"&gt;&lt;img data-src-l="img/photo3L.jpg"
-      src="img/photo3S.jpg" alt="photo 3" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="photo4.html"&gt;&lt;img data-src-l="img/photo4L.jpg"
-      src="img/photo4S.jpg" alt="photo 4" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="active" data-caption="Picture from our lovely house seen from the street"&gt;&lt;a href="img/photo1.jpg"&gt;&lt;img src="img/photo1S.jpg" alt="house outside"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-caption="This is our saloon in full belle epoque style"&gt;&lt;a href="img/photo2.jpg"&gt;&lt;img src="img/photo2S.jpg" alt="saloon"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-caption="The sunny garden, overlooking the south"&gt;&lt;a href="img/photo3.jpg"&gt;&lt;img src="img/photo3S.jpg" alt="garden"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-caption="This is where we live"&gt;&lt;a href="img/photo4.jpg"&gt;&lt;img src="img/photo4S.jpg" alt="living room"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
-  &lt;p&gt;&lt;img src="img/photo1L.jpg" alt="photo 1" id="photoBig" /&gt;&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+  &lt;figure id="big"&gt;
+    &lt;img src="img/photo1.jpg" alt="foto 1"&gt;
+    &lt;figcaption&gt;house outside&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+...</code></pre>
             </li>
           </ul>
         </section>
@@ -993,25 +981,21 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
           <h2>Custom attributes</h2>
           <ul>
             <li>
-              The final code is almost identical, but without the ugly <code>...S.jpg</code> to <code>...L.jpg</code> replace trick:
-              <pre class="bigger"><code class="language-javascript">window.addEventListener('load', function() {
-  // aliases
-  let imglinks = document.querySelectorAll('#thumbsmenu li>a');
-  let photoBig = document.getElementById('photoBig');
+              The code changes are small:
+              <pre class="bigger"><code class="language-javascript">// aliases
+...
+let caption = big.querySelector('figcaption');
 
-  // attach events
-  for (let i = 0; i &lt; imglinks.length; i++) {
-    imglinks[i].addEventListener('click', function(e) {
-      // prevent default
-      e.preventDefault();
-
-      // show clicked image
-      let img = this.querySelector('img');
-      photoBig.src = img.getAttribute('data-src-l'); // much cleaner
-      photoBig.alt = img.alt;
+// attach events
+for (let i = 0; i < thumbs.length; i++) {
+    ...
+    link.addEventListener('click', function(e) {
+        ...
+        caption.innerHTML = thumb.getAttribute('data-caption');
+        ...
     });
-  }
-});</code></pre>
+}
+</code></pre>
               <div class="demolink"><a href="demos/02_dom/slideshow/vs2/index.html">demo</a></div>
             </li>
           </ul>
@@ -1133,7 +1117,7 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
           <h2>Intercepting the form</h2>
           <ul>
             <li>
-              We'll intercept the form using the <code>submit</code> event; the basic validation scheme:
+              We'll intercept the form using the <code>submit</code> event; basic validation scheme:
               <pre class="bigger"><code class="language-javascript">    //...
 
     // listen to form submit
