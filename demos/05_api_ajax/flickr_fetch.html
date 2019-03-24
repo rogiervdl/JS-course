@@ -53,7 +53,7 @@
             }
 
             function makeSearch(value) {
-                let base = "https://api.flickr.com/services/rest2/?";
+                let base = "https://api.flickr.com/services/rest/?";
                 let params = "method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
                 let searchParams = new URLSearchParams(params);
                 searchParams.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2')
