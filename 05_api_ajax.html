@@ -45,39 +45,20 @@
           </ul>
         </section>
         <section>
-          <h2>Definition</h2>
+          <h2>About WEB API's</h2>
           <ul>
             <li>
-              An <em>API</em> (Application Programming Interface) allows communication between software components by offering a set of methods that other applications can consume.
-            </li>
-            <li>
-              In classic applications
+              Generally, an <em>API</em> (Application Programming Interface) is software that offers functionality that other applications can consume remotely:
               <ul>
-                <li>many techniques exist: COM, DCOM, Corba, .NET remoting, .NET Web Services, Windows Communication Foundation, Web API...</li>
-                <li>often proprietary and not cross-platform</li>
-                <li>different channels used: HTTP, binary stream...</li>
-                <li>HTTP channel is usually slower as all communication has to pass the web server, but more flexible: messages are just text</li>
+                <li>reading &amp; searching data</li>
+                <li>updating content</li>
+                <li>authentication</li>
+                <li>...</li>
               </ul>
+              In a web context an API is called a <i>web API</i>
             </li>
             <li>
-              In web context
-              <ul>
-                <li>the HTTP channel is used</li>
-                <li>messages are sent in text format</li>
-                <li>very flexible: any two systems that understand text and have a HTTP connection available can communicate</li>
-                <li>slow: all communication has to pass a web server</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section data-toc-title="Web API's">
-          <h2>Web API's (1)</h2>
-          <ul>
-            <li>
-              In a web context an API is sometimes called a <i>web service</i>, but the term <i>Web API</i> is correcter.
-            </li>
-            <li>
-              Benefits from consuming a web API:
+              Benefits from <strong>consuming</strong> a web API:
               <ul class="v-style">
                 <li>
                   integrate <a href="http://www.flickr.com/services/api/">Flickr</a> or <a href="https://dev.twitter.com/docs">Twitter</a> in your website
@@ -91,7 +72,7 @@
               </ul>
             </li>
             <li>
-              Benefits from offering a web API:
+              Benefits from <strong>offering</strong> a web API:
               <ul class="v-style">
                 <li>
                   make your products information available for price aggregators
@@ -108,230 +89,231 @@
 
         </section>
         <section data-toc-title="">
-          <h2>Web API's (2)</h2>
+          <h2>Using Web API's</h2>
           <ul>
             <li>
-              We'll focus on consuming a web service from within a web page with Javascript. Tree fundamental questions arise:
+              To use web API's, you basically need to answer the following questions:
               <ol>
-                <li>how can we implement the web API on the server side?</li>
-                <li>what format will the request and response messages have?</li>
-                <li>how can we initiate a request and receive a response on the client side?</li>
+                <li>how can we send an API request from the client to the server?</li>
+                <li>how can we create a web API that handles the requests and sends back responses?</li>
+                <li>what format will the response have, and how can we interprete its content?</li>
+                <li>finally: how can we consume a web API in Javascript?</li>
               </ol>
             </li>
           </ul>
         </section>
         <section>
-          <h2>Web API example</h2>
+          <h2>1. Sending a request</h2>
           <ul>
             <li>
-              The first question, which technique is used on the server side to create a web API, is an easy one. Frankly, we don't give a damn. It can be any URL written in .NET, PHP, Ruby, whatever, as long as it
+              We'll basically use HTTP(S) to send a request, just like a web page URL. Only instead of an HTML page, we'll get back a plain text response, usually in JSON or XML format. 
+            </li>
+            <li>
+              To get an idea, just a few quick examples from the <a href="https://dog.ceo/dog-api/documentation/">Dog API</a>:
               <ul>
-                <li>accepts a HTTP request (GET, POST, PUT or DELETE)</li>
-                <li>sends back understandable text and a status code </li>
+                <li>get a random image: <a href="https://dog.ceo/api/breed/hound/images/random">https://dog.ceo/api/breed/hound/images/random</a></li>
+                <li>get a list of sub-breeds of the Retriever: <a href="https://dog.ceo/api/breed/retriever/list">https://dog.ceo/api/breed/retriever/list</a></li>
               </ul>
-            </li>
-          </ul>
-          <ul>
-            <li class="no-style">
-              &nbsp;
-            </li>
-            <li class="arrow">
-              let's create a simple PHP API to get started
+              An example from <a href="https://www.flickr.com/services/api/">Flickr API</a>:
+              <ul>
+                <li>search for images by tag: <a href="https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&api_key=6ecfcd8d4a3b8a04da6093733db989a2&text=atomium">https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&text=atomium&api_key=6ecfc...</a></li>
+              </ul>
             </li>
           </ul>
         </section>
         <section>
-          <h2>Web API example &mdash; CSV</h2>
+          <h2>2. Handling the request</h2>
           <ul>
             <li>
-              Simple CSV file for friends (id, name, age, email):
-              <pre class="bigger"><code contenteditable class="language-php">1,Rogier van der Linde,42,rogier.vanderlinde@odisee.be
+              The next question, how to create a web API on the server that handles the request and sends a response, is an easy one: in this course, we won't care. We'll consider it a black box. 
+            </li>
+            <li>
+              The web API can be any script on the server, written in any language (.NET, PHP, Ruby...), as long as it
+              <ul>
+                <li>accepts a HTTP request (GET or POST)</li>
+                <li>sends back understandable text (usually XML or JSON) and a status code</li>
+              </ul>
+            </li>
+            <li>
+              If you're interested in how an API is actually built, continue reading; if not, skip to <a href="#/3-the-response">3. The response</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="white-space: nowrap;">2. Building the API &mdash; URL design</h2>
+          <ul>
+            <li>
+              Let's take a simple example: an API for managing your friends list. 
+            </li>
+            <li>
+              First, we'll have to decide what the API URL's look like; the <em>URL design</em>. Assuming we host our API on https://bitmatters.be/o/friends-api/, we propose the following structure:
+              <ul>
+                <li><a href="https://bitmatters.be/o/friends-api/api.php?all">https://bitmatters.be/o/friends-api/api.php?all</a>: get all friends</li>
+                <li><a href="https://bitmatters.be/o/friends-api/api.php?id=2">https://bitmatters.be/o/friends-api/api.php?id=2</a>: get friend by id</li>
+                <li><a href="https://bitmatters.be/o/friends-api/api.php?delete=2">https://bitmatters.be/o/friends-api/api.php?delete=1</a>: delete friend by id</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>2. Building the API &mdash; CSV</h2>
+          <ul>
+            <li>
+              Next we need a place to store our  friends data.
+            </li>
+            <li>
+              To not further complicate matters, we'll use a simple CSV file instead of a database. It contains a list of friends (id, name, age, email):
+              <pre class="bigger"><code contenteditable class="language-php" data-caption="friends.csv">1,Rogier van der Linde,42,rogier.vanderlinde@odisee.be
 2,Bram Van Damme,33,bram.vandamme@odisee.be
-3,Davy De Winne,30,davy.dewinne@odisee.be</code></pre>
-              <div class="demolink">friends.csv</div>
+3,Davy De Winne,30,davy.dewinne@odisee.be
+4,Hans Gruyaert,37,hansgruyaert@telenet.be
+5,Dieter Roseeuw,38,dieter@pandora.be</code></pre>
+              <div class="demolink"><a href="demos/05_api_ajax/friends.csv">friends.csv</a></div>
             </li>
           </ul>
         </section>
-        <section data-toc-title="Web API example &mdash; PHP">
-          <h2>Web API example &mdash; PHP (1)</h2>
+        <section>
+          <h2>2. Building the API &mdash; PHP script</h2>
           <ul>
             <li>
-              Basic PHP to get, delete and save friends in CSV:
-              <pre class="bigger"><code contenteditable class="language-php">// path to CSV file
-define('CSV', 'friends.csv');
+              The final step is writing the server script that accepts the URL requests, and sends back responses. The full code listing:
+              <pre class="bigger"><code contenteditable class="language-php" style="max-height: 250px">&lt;?php
 
-// read CSV
-$friendsvals = file(CSV);
-$friends = array();
-foreach ($friendsvals as $friendvals) {
-  $vals = explode(',', trim($friendvals));
-  $friends[] = array('id' => (int) $vals[0], 'name' => $vals[1], 'age' => (int) $vals[2], 'email' => $vals[3]);
-}
+  // tell the server to use JSON for output
+  header('Content-type: application/json'); 
 
-// returns friend by id
-function getFriendById($friends, $id) {
-  foreach ($friends as $friend) {
-    if ($friend['id'] == $id) return $friend;
+  // accept requests from other domains
+  header('Access-Control-Allow-Origin: *'); 
+
+  // path to CSV file
+  define('CSV', 'friends.csv');
+
+  // read CSV
+  $friendsvals = file(CSV);
+  $friends = array();
+  foreach ($friendsvals as $friendvals) {
+    $vals = explode(',', trim($friendvals));
+    $friends[] = array('id' => (int) $vals[0], 'name' => $vals[1], 'age' => (int) $vals[2], 'email' => $vals[3]);
   }
-  return null;
-}
 
-// deletes friend by id
-function deleteFriendById(&amp;$friends, $id) {
-  for ($i = 0; $i &lt; count($friends); $i++) {
-    if ($friends[$i]['id'] == $id) {
-      array_splice($friends, $i, 1);
-      return true;
+  // returns friend by id
+  function getFriendById($friends, $id) {
+    foreach ($friends as $friend) {
+      if ($friend['id'] == $id) return $friend;
     }
+    return null;
   }
-  return false;
-}
 
-// writes friends to csv
-function writeToCsv($friends) {
-  $csv = array();
-  foreach ($friends as $friend) {
-    $csv[] = implode(',', array_values($friend));
+  // deletes friend by id
+  function deleteFriendById(&$friends, $id) {
+    for ($i = 0; $i < count($friends); $i++) {
+      if ($friends[$i]['id'] == $id) {
+        array_splice($friends, $i, 1);
+        return true;
+      } 
+    }
+    return false;
   }
-  file_put_contents(CSV, implode(PHP_EOL, $csv));
-}
 
-// code continues on next slide
-// ...</code></pre>
-              <div class="demolink">api.php</div>
-            </li>
-          </ul>
-        </section>
-        <section data-toc-title="">
-          <h2>Web API example &mdash; PHP (2)</h2>
-          <ul>
-            <li>
-              Now let's write our first API function, getting all friends:
-              <pre class="bigger"><code contenteditable class="language-php">// ...
-// code continues from previous slide
+  // writes friends to csv
+  function writeToCsv($friends) {
+    $csv = array();
+    foreach ($friends as $friend) {
+      $csv[] = implode(',', array_values($friend));
+    }
+    file_put_contents(CSV, implode(PHP_EOL, $csv));
+  }
 
-// handle GET, all friends
-if (isset($_GET['all'])) {
-  print_r($friends);
-  exit(0);
-}
+  // handle GET, all friends
+  if (isset($_GET['all'])) {
+    echo json_encode($friends);
+    exit(0);
+  }
 
-// code continues on next slide
-// ...</code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/api.php?all">demo</a></div>
+  // handle GET, single friend
+  if (isset($_GET['id'])) {
+    $friend = getFriendById($friends, $_GET['id']);
+    if ($friend == null) {
+      http_response_code(404);
+    } else {
+      echo json_encode($friend);
+    }
+    exit(0);
+  }
+
+  // handle POST
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // decode incoming JSON
+    $friend = json_decode(file_get_contents('php://input'), true);
+
+    // bad request
+    if (!isset($friend['name']) || !isset($friend['age']) || !isset($friend['email'])) {
+      http_response_code(400);
+      exit(0);
+    } 
+
+    // find new id
+    $id = count($friends) == 0 ? 1 : (int) $friends[count($friends) - 1]['id'] + 1;
+
+    // build new friend
+    $friends[] = array('id' => $id, 'name' => $friend['name'], 'age' => $friend['age'], 'email' => $friend['email']);
+
+    // write to csv
+    writeToCsv($friends);
+
+    // exit 
+    exit(0);
+  }
+
+  // handle DELETE; because PHP has no DELETE superglobal, we use GET instead
+  if (isset($_GET['delete'])) {
+    // try to delete friend
+    if (!deleteFriendById($friends, $_GET['delete'])) {
+      http_response_code(404);
+    } else {
+      writeToCsv($friends);
+    }
+
+    // exit 
+    exit(0);
+  }
+
+// EOF</code></pre>
+              <div class="demolink"><a href="demos/05_api_ajax/api_json.php?all">demo</a></div>
             </li>
             <li class="smaller arrow">
-              That's it! We have something that accepts a request, and outputs a response in text format. Easy, huh? A great tool for testing web API's is the <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm">Chrome Postman plugin</a>.
+              That's it! We have something that accepts a request, and outputs a JSON response. Easy, huh? A great tool for testing is the <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm">Chrome Postman plugin</a>.
             </li>
           </ul>
 
-        </section>
-        <section data-toc-title="">
-          <h2>Web API example &mdash; PHP (3)</h2>
-          <ul>
-            <li>
-              Let's add another GET method, to find an individual friend:
-              <pre class="bigger"><code contenteditable class="language-php">// ...
-// code continues from previous slide
-
-// handle GET, single friend
-if (isset($_GET['id'])) {
-  $friend = getFriendById($friends, $_GET['id']);
-  if ($friend == null) {
-    http_response_code(404);
-  } else {
-    print_r($friend);
-  }
-  exit(0);
-}
-
-// code continues on next slide
-// ...</code></pre>
-            </li>
-            <li class="arrow smaller">
-              in case a friend is not found, we return status 404
-            </li>
-          </ul>
-        </section>
-        <section data-toc-title="">
-          <h2>Web API example &mdash; PHP (4)</h2>
-          <ul>
-            <li>
-              Let's add one more method, POST this time, to add a friend:
-              <pre class="bigger"><code contenteditable class="language-php">// ...
-// code continues from previous slide
-
-// handle POST
-if (isset($_POST['name']) &amp;&amp; isset($_POST['age']) &amp;&amp; isset($_POST['email'])) {
-  // find new id
-  $id = count($friends) == 0 ? 1 : (int) $friends[count($friends) - 1]['id'] + 1;
-  // build new friend
-  $friends[] = array('id' => $id, 'name' => $_POST['name'], 'age' => $_POST['age'], 'email' => $_POST['email']);
-  // write to csv
-  writeToCsv($friends);
-  // exit
-  exit(0);
-}
-
-// code continues on next slide
-// ...</code></pre>
-            </li>
-            <li class="arrow smaller">
-              for INSERTs, the POST method is the most appropriate
-            </li>
-          </ul>
-        </section>
-        <section data-toc-title="">
-          <h2>Web API example &mdash; PHP (5)</h2>
-          <ul>
-            <li>
-              One last method, to delete a friend:
-              <pre class="bigger"><code contenteditable class="language-php">// ...
-// code continues from previous slide
-
-// handle DELETE
-// because PHP has no DELETE superglobal, we have to use GET instead
-if (isset($_GET['delete'])) {
-  // try to delete friend
-  if (!deleteFriendById($friends, $_GET['delete'])) {
-    http_response_code(404);
-  } else {
-    writeToCsv($friends);
-  }
-
-  // exit
-  exit(0);
-}
-</code></pre>
-            </li>
-            <li class="arrow smaller">
-              the DELETE method (yes, that exists) would have been better, but PHP only has $_GET and $_POST superglobals
-            </li>
-          </ul>
         </section>
         <section>
-          <h2>Verbs</h2>
+          <h2>3. The response</h2>
           <ul>
             <li>
-              Four methods or <em>verbs</em> are commonly used with web API's:
+              You can inspect the request and response of an API request (like from all resources) in the DevTools network tab. It contains request information:
               <ul>
-                <li>GET, for read / select</li>
-                <li>POST, for create / insert</li>
-                <li>PUT, for update </li>
-                <li>DELETE, for delete </li>
+                <li>Request URL</li>
+                <li>Request parameters</li>
+                <li>Request method (GET, POST...)</li>
               </ul>
             </li>
-            <li>
-              PHP currently only supports GET and POST, so with PHP we'll have to use POST for updates and GET for deletes
+            <li class="no-style">
+              and also response information:
+              <ul>
+                <li>Status code</li>
+                <li>Response type (XML, JSON, plain text...)</li>
+                <li>Raw response data</li>
+              </ul>              
             </li>
           </ul>
-
+          <img src="img/05_api_ajax/network-tab.png" style="position: absolute;right: 20px; bottom: 20px; max-width: 40%; border: 1px solid #999">
         </section>
         <section>
-          <h2>Status codes</h2>
+          <h2>3. The response &mdash; status codes</h2>
           <ul>
             <li>
-              Use your HTTP status codes!
+              Each response gets a status code; some examples:
               <ul>
                 <li>200 - get ok</li>
                 <li>201 - create ok</li>
@@ -343,85 +325,16 @@ if (isset($_GET['delete'])) {
                 <li>500 - internal server error</li>
               </ul>
             </li>
-            <li class="arrow smaller">
-              e.g. status 404 does not mean 'web API not found', but 'requested data not found'
-            </li>
           </ul>
         </section>
         <section>
-          <h2>request/response formats</h2>
+          <h2>3. The response &mdash; type</h2>
           <ul>
             <li>
-              Ok, now let's focus on question 2: request and response formats.
+              The response is just plain text. The way it should be interpreted is called the <em>response type</em>. It can be anything the server likes, but the most used are <em>XML</em> and <em>JSON</em>.
             </li>
             <li>
-              The request format is a classic HTTP GET/POST/... request with or without parameters.
-            </li>
-            <li>
-              The response format is a status code + plain text. Some possible formats:
-              <ul>
-                <li>SOAP</li>
-                <li>XML</li>
-                <li>HTML</li>
-                <li>JSON</li>
-                <li>your own hand-crafted format ('|'-delimited, whatever)</li>
-              </ul>
-            </li>
-            <li class="arrow">
-              it's plain text, so you can choose whatever output you want, and have the client interprete it your way
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>SOAP &mdash; request</h2>
-          <ul>
-            <li>
-              Initially SOAP was mostly used. An example of a SOAP request:
-              <pre class="bigger"><code contenteditable class="language-xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
-&lt;s:Envelope
-xmlns:s="http://www.w3.org/2001/06/soap-envelope"
-xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
-xmlns:xsd="http://www.w3.org/1999/XMLSchema"&gt;
-&lt;s:Body&gt;
-  &lt;x:FlickrRequest xmlns:x="urn:flickr"&gt;
-    &lt;method&gt;flickr.echo&lt;/method&gt;
-    &lt;name&gt;value&lt;/name&gt;
-  &lt;/x:FlickrRequest&gt;
-&lt;/s:Body&gt;
-&lt;/s:Envelope&gt;</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>SOAP &mdash; response</h2>
-          <ul>
-            <li>
-              ...and the corresponding SOAP response:
-              <pre class="bigger"><code contenteditable class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
-&lt;s:Envelope
-xmlns:s="http://www.w3.org/2001/06/soap-envelope"
-xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
-xmlns:xsd="http://www.w3.org/1999/XMLSchema"&gt;
-&lt;s:Body&gt;
-  &lt;x:FlickrResponse xmlns:x="urn:flickr"&gt;
-    &lt;method&gt;flickr.test.echo&lt;/method&gt;
-    &lt;format&gt;soap&lt;/format&gt;
-    &lt;foo&gt;bar&lt;/foo&gt;
-    &lt;api_key&gt;78ce850f064baa9e7fc7128794989563&lt;/api_key&gt;
-  &lt;/x:FlickrResponse&gt;
-&lt;/s:Body&gt;
-&lt;/s:Envelope&gt;</code></pre>
-            </li>
-            <li class="arrow smaller">
-              no idea who invented these formats, but it's too complex to hande and generates way to much overhead
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>plain XML</h2>
-          <ul>
-            <li>
-              Plain XML is also used; try <a style="font-size:smaller" href="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m&amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2">https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m &amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2</a>
+              E.g. Flickr returns XML by default; try <a style="font-size:smaller" href="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m&amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2">https://api.flickr.com/.../?method=flickr.photos .search&amp;text=atomium&amp;extras=url_m &amp;per_page=5&amp;api_key=6ecfcd...</a>
               <pre class="bigger"><code contenteditable class="language-html" style="height: 250px">&lt;rsp stat="ok"&gt;
 &lt;photos page="1" pages="2128217" perpage="5" total="10641084"&gt;
   &lt;photo id="8258910521" owner="28493557@N00" secret="88233d7d75" server="8502" farm="9"
@@ -443,17 +356,15 @@ xmlns:xsd="http://www.w3.org/1999/XMLSchema"&gt;
 &lt;/rsp&gt;</code></pre>
             </li>
             <li class="no-style smaller">
-              &rarr; request is a simple GET, response is XML<br />
-              &rarr; less overhead but XML is still hard to handle<br />
-              &rarr; note an API key is required, like with many API's, most are free
+              &rarr; note that Flickr requires an API key; <a href="https://www.flickr.com/services/api/misc.api_keys.html">get yours here</a> for free
             </li>
           </ul>
         </section>
         <section>
-          <h2>JSON</h2>
+          <h2>3. The response &mdash; JSON</h2>
           <ul>
             <li>
-              JSON is most used; try <a style="font-size:smaller" href="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m&amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2&amp;format=json">https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m &amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2<span style="color: #900">&amp;format=json</span></a>
+              JSON is most used. You can get JSON from Flickr by adding a parameter <code style="font-size: smaller;">format</code>: <a style="font-size:smaller" href="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m&amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2&amp;format=json">https://api.flickr.com/services/rest/?method=flickr.photos.search &amp;text=atomium&amp;extras=url_m &amp;per_page=5&amp;api_key=6ecfcd...<span style="color: #900">&amp;format=json</span></a>
               <pre class="bigger"><code contenteditable class="language-js" style="height: 250px">{"photos":{"page":1, "pages":2130468, "perpage":5, "total":"10652338", "photo":[{"id":"8258970061",
 "owner":"57683823@N07", "secret":"cd82c94425", "server":"8215", "farm":9, "title":"Alsatian Choucroute
 at Maison d'Alsace in Paris.", "ispublic":1, "isfriend":0, "isfamily":0, "url_m":"http:\/\
@@ -476,13 +387,13 @@ farm9.staticflickr.com\/8502\/8258910521_88233d7d75.jpg", "height_m":"500", "wid
           </ul>
         </section>
         <section>
-          <h2>JSON format</h2>
+          <h2>3. The response &mdash; JSON</h2>
           <ul>
             <li>
               <em>JSON</em> (Javascript Object Notation) is a string representation of a single Javascript object holding all information.
             </li>
             <li>
-              Example:
+              An example JSON string is  <code style="font-size: smaller">{"course":"RIA","lecturers":[{"id":1,"name":"Davy De Winne"},{"id": 2,"name": "Bramus Van Damme"}]}</code>, or in a more readable layout (use <a href="https://jsonformatter.curiousconcept.com/">this beautifier</a>):
               <pre class="bigger"><code contenteditable class="language-javascript">{
   "course": "RIA",
   "lecturers": [
@@ -500,7 +411,7 @@ farm9.staticflickr.com\/8502\/8258910521_88233d7d75.jpg", "height_m":"500", "wid
           </ul>
         </section>
         <section>
-          <h2>JSON FTW!</h2>
+          <h2>3. The response &mdash; JSON FTW!</h2>
           <ul>
             <li>
               Keys are <code>string</code> (double quotes required!), values may be <code>string</code>, <code>number</code>, <code>Object</code>, <code>Array</code>, <code>boolean</code> or <code>null</code>.
@@ -518,69 +429,6 @@ farm9.staticflickr.com\/8502\/8258910521_88233d7d75.jpg", "height_m":"500", "wid
             </li>
           </ul>
         </section>
-        <section>
-          <h2>JSON in our API</h2>
-          <ul>
-            <li>
-              Let's improve our API so it accepts and outputs JSON:
-              <pre class="bigger"><code contenteditable class="language-php">&lt;?php
-
-// output as JSON
-header('Content-type: application/json');
-
-// ... (unaltered code)
-
-// handle GET, all friends
-if (isset($_GET['all'])) {
-  echo json_encode($friends);
-  exit(0);
-}
-
-// handle GET, single friend
-if (isset($_GET['id'])) {
-  $friend = getFriendById($friends, $_GET['id']);
-  if ($friend == null) {
-    http_response_code(404);
-  } else {
-    echo json_encode($friend);
-  }
-  exit(0);
-}
-
-// handle POST
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // decode incoming JSON
-  $friend = json_decode(file_get_contents('php://input'), true);
-
-  // bad request
-  if (!isset($friend['name']) || !isset($friend['age']) || !isset($friend['email'])) {
-    http_response_code(400);
-    exit(0);
-  }
-
-  // find new id
-  $id = count($friends) == 0 ? 1 : (int) $friends[count($friends) - 1]['id'] + 1;
-
-  // build new friend
-  $friends[] = array('id' => $id, 'name' => $friend['name'], 'age' => $friend['age'], 'email' => $friend['email']);
-
-  // write to csv
-  writeToCsv($friends);
-
-  // exit
-  exit(0);
-}
-
-// ...  (unaltered code)
-</code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/api_json.php?all">demo</a></div>
-            </li>
-            <li class="arrow smaller">
-              try it out in our Chrome Postman plugin
-            </li>
-          </ul>
-
-        </section>
       </section>
       <section>
         <section>
@@ -591,10 +439,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </ul>
         </section>
         <section>
-          <h2>Intro</h2>
+          <h2>About AJAX</h2>
           <ul>
             <li>
-              Now let's solve our last question: how can we consume a web API with Javascript?
+              Now let's solve our last question: how can we consume a web API with Javascript? How can we request an URL without reloading the page?
             </li>
             <li>
               The technique used is called <em>AJAX</em>:
@@ -703,115 +551,87 @@ xhr.send();</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="AJAX in jQuery">
-          <h2>AJAX in jQuery (1)</h2>
+        <section data-toc-title="Fetch API">
+          <h2>Fetch API (1)</h2>
           <ul>
             <li>
-              The Javascript, jQuery version:
-              <pre class="bigger"><code class="language-javascript">$(document).ready(function() {
-
-  var $pics = $('#pics');
-  var $search = $('#search');
-
-  $search.on('keypress', function(e) {
-    if (e.which == 13) {
-      $pics.html('');
-      makeSearch($(this).val());
-    }
-  });
-
-  function makeSearch(value) {
-    $.ajax({
-        url: 'https://api.flickr.com/services/rest/',
-        type: 'GET',
-        data: {
-          method: 'flickr.photos.search',
-          api_key: '6ecfcd8d4a3b8a04da6093733db989a2',
-          extras: 'url_m',
-          per_page: 20,
-          text: value,
-          nojsoncallback: 1,
-          safe_search: 1,
-          format: 'json'
-        },
-        dataType: 'json',
-        success: function(data) {
-            for (var i = 0; i < data.photos.photo.length; i++) {
-                var photo = data.photos.photo[i];
-                if (photo.url_m) $pics.append($('<img />').attr('src', photo.url_m));
-            }
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    });
-  }
-
-});
+              The Javascript code isn't very easy to read, and we also need to handle errors etc... Comes in the new <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Javascript Fetch API</a>, created as a flexible and easy solution to perform AJAX requests. The basic syntax:
+              <pre class="bigger"><code class="language-javascript">function handleError(err) {
+    console.log('Request failed', err)
+}
+function handleResponse(resp) {
+  console.log('response status: ', resp.status);
+  return resp.json();
+}
+function handleSuccess(data) {
+  console.log('data received: ', data);
+}
+let url = ...;  // insert request URL here
+fetch(url)
+    .then(handleResponse)
+    .then(handleSuccess)
+    .catch(handleError);
 </code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/flickr.html">demo</a></div>
-            </li>
-            <li class="arrow smaller">
-              note how simple and compact the AJAX call is in jQuery
             </li>
           </ul>
         </section>
         <section data-toc-title="">
-          <h2>AJAX in jQuery (2)</h2>
+          <h2>Fetch API (2)</h2>
           <ul>
             <li>
-              jQuery example consuming the PHP API we <a href="05_api_ajax.html#/5">wrote earlier</a>:
-              <pre class="bigger"><code class="language-javascript">$(document).ready(function($) {
-  $.ajax({
-    url: 'api_json.php',
-    type: 'get',
-    data: {
-      id: 1
-    },
-    dataType: 'json',
-    success: function(data, textStatus, jqXHR) {
-      console.log(data);
-    },
-    error : function(jqXHR, textStatus, errorThrown) {
-      console.log(errorThrown);
-    },
-    statusCode: {
-      404: function() {
-        alert("friend not found");
-      }
+              The AJAX Flickr demo, using the Fetch API (and also conveniently using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URLSearchParams</a> URL API):
+              <pre class="bigger"><code class="language-javascript">window.addEventListener('load', function() {
+
+  let  pics = document.getElementById('pics');
+  let  search = document.getElementById('search');
+
+  search.onkeypress = function(e) {
+    if (e.which == 13) {
+      pics.innerHTML = '';
+      makeSearch(this.value);
     }
-  });
+  }
+
+  function onError(error) {
+    console.log('Request failed', error)
+  }
+
+  function onResponse(res) {
+    // error
+    if (res.status < 200 || res.status >= 300) {
+      console.log('error with status ' + res.status);
+    } else {
+      console.log('response ok ' + res.status);
+      return res.json();
+    }
+  }
+
+  function onSuccess(data) {
+    // all ok
+    for (let  i = 0; i < data.photos.photo.length; i++) {
+      let  img = document.createElement('img');
+      if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
+      pics.appendChild(img);
+    }
+  }
+
+  function makeSearch(value) {
+    let base = "https://api.flickr.com/services/rest2/?";
+    let params = "method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
+    let searchParams = new URLSearchParams(params);
+    searchParams.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2')
+    searchParams.append('text', value);
+    let url = base + searchParams.toString();
+    fetch(url)
+      .then(onResponse)
+      .then(onSuccess)
+      .catch(onError);
+  }
 });
 </code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/api_json_consumer.html">demo</a> (results in the console)</div>
+              <div class="demolink"><a href="demos/05_api_ajax/flickr_fetch.html">demo</a></div>
             </li>
           </ul>
-        </section>
-        <section>
-          <h2>Cross domain AJAX</h2>
-          <ul>
-            <li>
-              By default, a web API will only accept requests on the same domain.
-            </li>
-            <li>
-              To allow requests from other domains, specify the <code>Access-Control-Allow-Origin</code> header:
-              <pre class="bigger"><code contenteditable class="language-php">&lt;?php
-
-// accept requests from all domains
-header('Access-Control-Allow-Origin: *');
-
-// ...
-
-</code></pre>
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              If you check the response headers of the Flickr AJAX demo with Postman or Chrome developer tools, you'll find the necessary 'Access-Control-Allow-Origin:*' header. <br /><br />
-              Also try to run the PHP API demo .html client from another domain (e.g. http://localhost) as where the .php API sits (e.g. http://johndoe.ikdoeict.be), and check the response with or without this header...
-            </div>
-          </div>
-
         </section>
         <section>
           <h2>Things to consider</h2>
@@ -872,7 +692,7 @@ header('Access-Control-Allow-Origin: *');
     }
     console.log('%c', devtools);
     if (!devtools.opened) {
-      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
+//      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
     }
   </script>
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <title>Ajax example</title>
+    <meta charset="utf-8">
+    <style>
+        #pics img {
+            height: 200px;
+            display: block;
+            margin-top: 20px;
+            margin-right: 20px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <input id="search" type="text" placeholder="search here" />
+    <div id="pics"></div>
+    <script>
+
+        window.addEventListener('load', function() {
+
+            let  pics = document.getElementById('pics');
+            let  search = document.getElementById('search');
+
+            search.onkeypress = function(e) {
+                if (e.which == 13) {
+                    pics.innerHTML = '';
+                    makeSearch(this.value);
+                }
+            }
+
+            function onError(error) {
+                console.log('Request failed', error)
+            }
+
+            function onResponse(res) {
+                // error
+                if (res.status < 200 || res.status >= 300) {
+                    console.log('error with status ' + res.status);
+                } else {
+                    console.log('response ok ' + res.status);
+                    return res.json();
+                }
+            }
+
+            function onSuccess(data) {
+                // all ok
+                for (let  i = 0; i < data.photos.photo.length; i++) {
+                    let  img = document.createElement('img');
+                    if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
+                    pics.appendChild(img);
+                }
+            }
+
+            function makeSearch(value) {
+                let base = "https://api.flickr.com/services/rest2/?";
+                let params = "method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
+                let searchParams = new URLSearchParams(params);
+                searchParams.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2')
+                searchParams.append('text', value);
+                let url = base + searchParams.toString();
+                fetch(url)
+                    .then(onResponse)
+                    .then(onSuccess)
+                    .catch(onError);
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+
+
