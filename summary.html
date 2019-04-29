@@ -736,6 +736,93 @@ table.addEventListener('click', function(e) {
             </li>
           </ul>
         </section>
+      </section>
+      <section>
+        <section>
+          <h1>JAVASCRIPT SUMMARY</h1>
+          <h2>AJAX</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Fetch API example</h2>
+          <ul>
+            <li>
+              AJAX Flickr demo, using the Fetch API:
+              <pre class="bigger"><code class="language-html overlayrun">&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+    &lt;title&gt;Ajax example&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;style&gt;
+        #pics img {
+            height: 200px;
+            display: block;
+            margin-top: 20px;
+            margin-right: 20px;
+            float: left;
+        }
+        #search {
+            width: 250px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;input id="search" type="text" placeholder="enter keyword(s) and press return" /&gt;
+    &lt;div id="pics"&gt;&lt;/div&gt;
+    &lt;script&gt;
+
+        let  pics = document.getElementById('pics');
+        let  search = document.getElementById('search');
+
+        search.addEventListener('keypress', function(e) {
+            if (e.which == 13) {
+                pics.innerHTML = '';
+                makeSearch(this.value);
+            }
+        });
+
+        function onError(error) {
+            console.log('Request failed', error)
+        }
+
+        function onResponse(res) {
+            // error
+            if (res.status &lt; 200 || res.status &gt;= 300) {
+                console.log('error with status ' + res.status);
+            } else {
+                console.log('response ok ' + res.status);
+                return res.json();
+            }
+        }
+
+        function onSuccess(data) {
+            // all ok
+            for (let  i = 0; i &lt; data.photos.photo.length; i++) {
+                let  img = document.createElement('img');
+                if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
+                pics.appendChild(img);
+            }
+        }
+
+        function makeSearch(value) {
+            let base = "https://api.flickr.com/services/rest/?";
+            let params = "method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
+            params += '&api_key=6ecfcd8d4a3b8a04da6093733db989a2';
+            params += '&text=' + encodeURIComponent(value);
+            let url = base + params;
+            fetch(url)
+              .then(onResponse)
+              .then(onSuccess)
+              .catch(onError);
+        }
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+          </ul>
+        </section>
      </section>
 
 
