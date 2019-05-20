@@ -141,6 +141,263 @@
             <!-- to be filled by Javascript -->
           </ul>
         </section>
+          <section>
+            <h2>Drag and drop files</h2>
+            <ul>
+              <li>
+                Drag/drop made easy with <code>ondrop</code> event and <code>dataTransfer.getData()</code> method:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-html smallpanel">  ...
+  &lt;script&gt;
+    window.addEventListener('load', function() {
+      var dropZone = document.querySelector('#dropzone');
+      dropZone.addEventListener('dragenter', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+      });
+      dropZone.addEventListener('dragover', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+      });
+      dropZone.addEventListener('drop', function(e) {
+        txtPassed = e.dataTransfer.getData('text/plain');
+        this.innerHTML = txtPassed;
+        e.stopPropagation();
+        e.preventDefault();
+      });
+    });
+  &lt;/script&gt;
+  &lt;style&gt;
+    #dropzone {
+      height: 200px;
+      width: 400px;
+      border: 2px ridge;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+    ex ea commodo consequat.
+  &lt;/p&gt;
+  &lt;p&gt;
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+  &lt;/p&gt;
+  &lt;div id="dropzone"&gt;
+    ...select a text above, and drag it here...
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                <div class="demolink"><a href="demos/06_games/dragdrop1.html">demo</a></div>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Drag and drop images</h2>
+            <ul>
+              <li>
+                Example with images and <code>draggable</code> attribute:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-html smallpanel">  ...
+  &lt;script&gt;
+    window.addEventListener('load', function() {
+      var dropZone = document.querySelector('#dropzone');
+      dropZone.addEventListener('dragenter', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+      });
+      dropZone.addEventListener('dragover', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+      });
+      dropZone.addEventListener('drop', function(e) {
+        imgPassed = e.dataTransfer.getData('text/uri-list');
+        this.innerHTML = "&lt;img src='" + imgPassed + "'/&gt;";
+        e.stopPropagation();
+        e.preventDefault();
+      });
+    });
+  &lt;/script&gt;
+  &lt;style&gt;
+    #dropzone {
+      height: 200px;
+      width: 400px;
+      border: 2px ridge;
+    }
+    ol {
+      list-style: none;
+      padding: 0;
+    }
+    ol li {
+      display: inline-block;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="dragzone"&gt;
+    &lt;img src="img/product1.jpg" alt="ball" /&gt;
+    &lt;img src="img/product2.jpg" alt="animal" <b>draggable="false"</b> /&gt;
+    &lt;img src="img/product3.jpg" alt="rope" /&gt;
+  &lt;/div&gt;
+  &lt;div id="dropzone"&gt;
+    ...drop item here...
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                <div class="demolink"><a href="demos/06_games/dragdrop2.html">demo</a></div>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>File desktop drag in</h2>
+            <ul>
+              <li>
+                Example images dragging from your desktop, HTML and CSS:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-html">&lt;style&gt;
+  #dropzone {
+    height: 150px;
+    border: 2px dashed #0687FF;
+  }
+  #thumbnails {
+    height: 125px;
+    margin-top: 10px;
+  }
+  #thumbnails img {
+    height: 100px;
+    margin: 10px
+  }
+&lt;/style&gt;
+  ...
+&lt;div id="dropzone">Drop in images from your desktop&lt;/div&gt;
+&lt;div id="thumbnails"&gt;&lt;/div&gt;</code></pre>
+              </li>
+                <div class="demolink"><a href="demos/06_games/dragin.html">demo</a></div>
+            </ul>
+          </section>
+          <section>
+            <h2>Images desktop drag in</h2>
+            <ul>
+              <li>
+                Example images dragging from your desktop, Javascript:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-javascript smallpanel">window.addEventListener('load', function() {
+  // drop area
+  var dropzone = document.getElementById('dropzone');
+
+  // thumbnails area
+  var thumbnails = document.getElementById('thumbnails');
+
+  // dropzone events
+  dropzone.addEventListener('dragenter', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  dropzone.addEventListener('dragover', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  dropzone.addEventListener('dragleave', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  dropzone.addEventListener('drop', function(e) {
+    // fetch and iterate dropped files
+    var files = e.dataTransfer.files;
+    for (var i = 0; i &lt; files.length; i++) {
+      // get next file
+      file = files[i];
+
+      // images only
+      if (!file.type.match(/image.*/)) continue;
+
+      // create reader for dropped file
+      var reader = new FileReader();
+      reader.addEventListener('load', function(e) {
+        thumbnails.innerHTML = thumbnails.innerHTML
+          + ('&lt;img src="' + e.target.result + '" alt="' + file.name + '" /&gt;');
+      });
+      reader.addEventListener('error', function(e) {
+        alert('an error occurred');
+      });
+
+      // feed dropped file to reader
+      reader.readAsDataURL(file);
+    }
+    e.stopPropagation();
+    e.preventDefault();
+  });
+
+});
+</code></pre>
+                <div class="demolink"><a href="demos/06_games/dragin.html">demo</a> (Chrome &amp; FF, view through a web server)</div>
+              </li>
+            </ul>
+            <ul class="arrow">
+              <li>
+                A great example using drag-in is <a href="http://spritepad.wearekiss.com/">Spritepad</a>
+              </li>
+            </ul>
+          </section>
+          <section data-toc-title="Files desktop drag out">
+            <h2>Files desktop drag out (1)</h2>
+            <ul>
+              <li>
+                Example dragging files to your desktop, HTML and CSS:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-html">&lt;style&gt;
+  .dragout {
+    background: #999;
+    color: #fff;
+    text-decoration: none;
+    padding: 2px 5px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+&lt;/style&gt;
+...
+  Drag each of these files onto your desktop:
+  &lt;a class="dragout" href="http://static....es.pdf" data-downloadurl
+  ="application/pdf:Chrome3DGlasses.pdf:http://static...es.pdf"&gt;PDF&lt;/a&gt;
+  &lt;a class="dragout" href="media/star.mp3" data-downloadurl
+  ="audio/mpeg:star.mp3:http://sli...star.mp3"&gt;MP3&lt;/a&gt;
+</code></pre>
+              </li>
+            </ul>
+          </section>
+          <section data-toc-title="">
+            <h2>Files desktop drag out (2)</h2>
+            <ul>
+              <li>
+                Example dragging files to your desktop, Javascript:
+              </li>
+              <li class="no-style">
+                <pre><code class="language-javascript">window.addEventListener('load', function() {
+  // files ready for dragging
+  var files = document.querySelectorAll('.dragout');
+
+  // create drag events
+  for (var i = 0; i &lt; files.length; i++) {
+    files[i].addEventListener('dragstart', function(e) {
+      e.dataTransfer.setData('DownloadURL', this.getAttribute('data-downloadurl'));
+    });
+  }
+});
+</code></pre>
+                <div class="demolink"><a href="demos/06_games/dragout.html">demo</a> (Chrome; view through a web server)</div>
+              </li>
+            </ul>
+          </section>
           <section data-toc-title="Webcam">
             <h2>Webcam (1)</h2>
             <ul>
