@@ -2,46 +2,31 @@
 <head>
     <title>Ajax example</title>
     <meta charset="utf-8">
-    <style>
-        #cats img {
-            height: 200px;
-        }
-    </style>
 </head>
 <body>
-    <div id="cats"></div>
+    <div id="weather"></div>
     <script>
         // DOM
-        let divCats = document.querySelector('#cats');
+        let divWeather = document.querySelector('#weather');
 
         // base url
-        let url = 'https://api.thecatapi.com/v1/images/search?';
+        let url = 'https://api.openweathermap.org/data/2.5/weather?';
 
         // append parameters
         let params = new URLSearchParams();
-        params.append('mime_types', 'gif');
-        params.append('category_ids', 15); 
-        params.append('limit', 3); 
+        params.append('APPID', '3ebaf394980f26ae85f41a9ce0a2b8e6');
+        params.append('q', 'Brussels'); 
+        params.append('units', 'metric'); 
+        params.append('lang', 'nl'); 
         url = url + params.toString();
 
-        // append API key in header
-        let options = {
-          headers: {
-            'x-api-key': 'b2cc9b32-9683-467e-b42b-3b53053b39db'
-          }
-        };                
-
         // AJAX call
-        fetch(url, options)
+        fetch(url)
           .then(function(res) {
               return res.json()
           })
           .then(function(data) {
-              divCats.innerHTML = '';
-              for (let i of data) {
-                divCats.innerHTML = divCats.innerHTML + '<img src="' + i.url + '" alt="">';
-                console.log(i);
-              }
+              divWeather.innerHTML = 'Het is in Brussel ' + data.main.temp + '&deg;C en ' + data.weather[0].description;
           })
           .catch(function(err) {
               console.log('Request failed', err)
@@ -49,6 +34,3 @@
     </script>
 </body>
 </html>
-
-
-
