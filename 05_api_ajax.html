@@ -660,11 +660,11 @@ fetch(url)
             <li class="darkgreen">this is the way to go!</li>
           </ul>
         </section>
-        <section data-toc-title="">
-          <h2>fetch() syntax (3)</h2>
+        <section>
+          <h2>fetch() custom headers</h2>
           <ul>
             <li>
-              Another example from the <a href="https://rapidapi.com/matchilling/api/chuck-norris">Chuck Norris API</a>, an API that requires custom headers:
+              Example from the <a href="https://rapidapi.com/matchilling/api/chuck-norris">Chuck Norris API</a>, an API that requires custom headers:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let url = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random';
 let options = {
   headers: {
@@ -687,6 +687,54 @@ fetch(url, options)
       console.log('request failed: ', err)
   });</code></pre>
             </li>
+          </ul>
+        </section>
+        <section>
+          <h2>fetch() GET parameters</h2>
+          <ul>
+            <li>
+              Full example from <a href="https://openweathermap.org/current">OpenWeatherMap API</a>, using GET parameters for API key, city, units and language:
+              <pre class="bigger"><code contenteditable class="language-html overlayrun">&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+  &lt;title&gt;Ajax example&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="weather"&gt;&lt;/div&gt;
+  &lt;script&gt;
+    // DOM
+    let divWeather = document.querySelector('#weather');
+
+    // base url
+    let url = 'https://api.openweathermap.org/data/2.5/weather?';
+
+    // append parameters
+    let params = new URLSearchParams();
+    params.append('APPID', '3ebaf394980f26ae85f41a9ce0a2b8e6'); // API key
+    params.append('q', 'Brussels'); // query for 'Brussels'
+    params.append('units', 'metric'); // use Celsius
+    params.append('lang', 'nl'); // Dutch language
+    url = url + params.toString();
+
+    // AJAX call
+    fetch(url)
+      .then(function(res) {
+          return res.json()
+      })
+      .then(function(data) {
+          divWeather.innerHTML = 'Het is in Brussel ' + data.main.temp + '&deg;C en ' + data.weather[0].description;
+      })
+      .catch(function(err) {
+          console.log('Request failed', err)
+      });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>note that we use the URLSearchParams() object to build our parameter list; this is <a href="https://fetch.spec.whatwg.org/#fetch-api">recommended by the Fetch standard</a></li>
           </ul>
         </section>
         <section data-toc-title="AJAX Flickr demo">
@@ -740,15 +788,12 @@ let url = base + params.toString();
 
 // AJAX call
 fetch(url)
-    .then(onResponse) // TODO: implement onResponse
-    .then(onSuccess) // TODO: implement onSuccess
-    .catch(function(err) {
-        console.log('Request failed', err)
-    });</code></pre>
+  .then(onResponse) // TODO: implement onResponse
+  .then(onSuccess) // TODO: implement onSuccess
+  .catch(function(err) {
+      console.log('Request failed', err)
+  });</code></pre>
             </li>
-          </ul>
-          <ul class="arrow">
-            <li>note that we use the URLSearchParams() object to build our parameter list; this is <a href="https://fetch.spec.whatwg.org/#fetch-api">recommended by the Fetch standard</a></li>
           </ul>
         </section>
         <section data-toc-title="">
@@ -757,64 +802,64 @@ fetch(url)
             <li>
               The complete script:
               <pre class="bigger"><code class="language-javascript">window.addEventListener('load', function() {
-    // DOM 
-    let pics = document.getElementById('pics');
-    let search = document.getElementById('search');
+  // DOM 
+  let pics = document.getElementById('pics');
+  let search = document.getElementById('search');
 
-    // search field event
-    search.addEventListener('keypress', function(e) {
-        if (e.which == 13) {
-            pics.innerHTML = '';
-            makeSearch(this.value);
-        }
-    });
-
-    // handle fetch response
-    function onResponse(res) {
-        // error
-        if (res.status < 200 || res.status >= 300) {
-            console.log('error with status ' + res.status);
-        } else {
-            console.log('response ok ' + res.status);
-            return res.json();
-        }
+  // search field event
+  search.addEventListener('keypress', function(e) {
+    if (e.which == 13) {
+      pics.innerHTML = '';
+      makeSearch(this.value);
     }
+  });
 
-    // handle fetch data
-    function onSuccess(data) {
-        // all ok
-        for (let i = 0; i < data.photos.photo.length; i++) {
-            let img = document.createElement('img');
-            if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
-            pics.appendChild(img);
-        }
+  // handle fetch response
+  function onResponse(res) {
+    // error
+    if (res.status < 200 || res.status >= 300) {
+      console.log('error with status ' + res.status);
+    } else {
+      console.log('response ok ' + res.status);
+      return res.json();
     }
+  }
 
-    // make the search
-    function makeSearch(searchval) {
-        // base URL
-        let base = "https://api.flickr.com/services/rest/?";
-
-        // append parameters
-        let params = new URLSearchParams();
-        params.append('method', 'flickr.photos.search');
-        params.append('extras', 'url_m');
-        params.append('per_page', 20);
-        params.append('format', 'json');
-        params.append('nojsoncallback', 1);
-        params.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2');
-        params.append('text', searchval);
-        let url = base + params.toString();
-
-        // AJAX call
-        fetch(url)
-            .then(onResponse) 
-            .then(onSuccess) 
-            .catch(function(err) {
-                console.log('Request failed', err)
-            });
-        }
+  // handle fetch data
+  function onSuccess(data) {
+    // all ok
+    for (let i = 0; i < data.photos.photo.length; i++) {
+      let img = document.createElement('img');
+      if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
+      pics.appendChild(img);
     }
+  }
+
+  // make the search
+  function makeSearch(searchval) {
+    // base URL
+    let base = "https://api.flickr.com/services/rest/?";
+
+    // append parameters
+    let params = new URLSearchParams();
+    params.append('method', 'flickr.photos.search');
+    params.append('extras', 'url_m');
+    params.append('per_page', 20);
+    params.append('format', 'json');
+    params.append('nojsoncallback', 1);
+    params.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2');
+    params.append('text', searchval);
+    let url = base + params.toString();
+
+    // AJAX call
+    fetch(url)
+      .then(onResponse) 
+      .then(onSuccess) 
+      .catch(function(err) {
+          console.log('Request failed', err)
+      });
+    }
+  }
 });
 </code></pre>
               <div class="demolink"><a href="demos/05_api_ajax/flickr_fetch.html">demo</a></div>
