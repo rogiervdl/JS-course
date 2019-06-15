@@ -39,23 +39,283 @@
       <section>
         <section>
           <h1>API's &amp; Ajax</h1>
+          <h2>Client&ndash;server model</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>HTTP Client&ndash;Server model</h2>
+          <ul>
+            <li>
+              In order to use API's and AJAX, it is very important to understand how the HTTP client&ndash;server model works. Some definitions:
+              <ul>
+                <li>a <em>resource</em> is an HTML page, CSS file, JS script, image, font...</li>
+                <li>a <em>client</em> is the software requesting a resource: browser, app, program...</li>
+                <li>a <em>server</em> is the software/hardware hosting and delivering resources to clients</li>
+                <li>a <em>request</em> is a message from client to server</li>
+                <li>a <em>response</em> is a message back from the server to the client</li>
+              </ul>
+            </li>
+          </ul>  
+        </section>
+        <section>
+          <h2>HTTP Client&ndash;Server model</h2>
+          <ul>
+            <li>
+              A request/response has three steps:
+              <ul>
+                <li>step 1: the client <em>sends a request</em> to the server</li>
+                <li>step 2: the server <em>processes the request</em></li>
+                <li>step 3: the server <em>returns a response</em> to the client</li>
+              </ul>
+            </li>
+          </ul>  
+          <figure style="max-width: 600px; margin-top: 20px">
+            <img src="img/05_api_ajax/http1.png" alt="http" style="border: 0; display: block;">
+            <figcaption>source: <a href="https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html">www.ntu.edu.sg</a></figcaption>
+          </figure>
+        </section>
+        <section data-toc-title="Step 1: HTTP request">
+          <h2>Step 1: HTTP request (1)</h2>
+          <ul>
+            <li>
+              An HTTP request message has the following parts: 
+              <ul>
+                <li><em>request line</em>: contains <strong>URL</strong>, <strong>method</strong> and <strong>HTTP version</strong></li>
+                <li><em>request headers</em>: contains <strong>extra info</strong> like browser/OS version, expected response type...</li>
+                <li><em>request body</em>: contains <strong>data attached</strong> to the request</li>
+              </ul>
+            </li>
+            <li>
+              Example of a HTTP GET request to retrieve an image:
+            </li>
+          </ul>  
+          <figure>
+            <img src="img/05_api_ajax/request1.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+          </figure>
+        </section>
+        <section data-toc-title="">
+          <h2>Step 1: HTTP request (2)</h2>
+          <ul>
+            <li>
+              The request <em>method</em> defines which action is required from the server. Many methods exist (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">overview</a>), but the only two important are:
+              <ul>
+                <li><em>GET</em>: retrieve data</li>
+                <li><em>POST</em>: send data (e.g. form data, uploaded file...)</li>
+              </ul> 
+            </li>
+            <li>
+              The main difference between GET and POST is that a POST request body can contain data. Example of a POST request with login data sent to a PHP server script <strong>login.php</strong>:
+            </li>
+          </ul>  
+          <figure>
+            <img src="img/05_api_ajax/request2.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
+          </figure>
+        </section>
+        <section data-toc-title="">
+          <h2>Step 1: HTTP request (3)</h2>
+          <ul>
+            <li>
+              Example of a POST request to upload a file to a ASP.NET server script <strong>upload.aspx</strong>:
+            </li>
+          </ul>  
+          <figure>
+            <img src="img/05_api_ajax/request3.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
+          </figure>
+        </section>
+        <section>
+          <h2>Step 2: Processing the request</h2>
+          <ul>
+            <li>
+              When the server receives the request, a lot of magic happens: locating resources, checking permissions, executing scripts... This lies outside the scope of this course, so we'll just consider the server a black box:
+            </li>
+          </ul>  
+          <figure style="max-width: 600px">
+            <img src="img/05_api_ajax/magic.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
+          </figure>
+        </section>
+        <section>
+          <h2>Step 3: HTTP response</h2>
+          <ul>
+            <li>
+              The HTTP response message is similar to the HTTP request:
+              <ul>
+                <li><em>response line</em>: contains <strong>HTTP version</strong> and <strong>status code</strong> (e.g. 200=ok, 403=forbidden, 404=not found...)</li>
+                <li><em>response headers</em>: contains <strong>extra info</strong> like compression type, content type...</li>
+                <li><em>response body</em>: contains the requested resource (e.g. image, HTML code...)</li>
+              </ul>
+            </li>
+          </ul>  
+          <figure>
+            <img src="img/05_api_ajax/response.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+          </figure>
+        </section>
+        <section>
+          <h2>Initiating a HTTP request</h2>
+          <ul>
+            <li>
+              HTTP requests can be initiated in many ways. 
+            </li>
+            <li>
+              If you just want to retrieve an URL content, you can
+              <ul>
+                <li><strong>enter a URL</strong> in the address bar (browser)</li>
+                <li><strong>click a link</strong> in a page, email, PDF...</li>
+              </ul>
+            </li>
+            <li>
+              If you want to test a HTTP request with control over custom headers, body content, method..., you can build and send a request
+              <ul>
+                <li>with the <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Chrome Postman plugin</a></li>
+                <li>on Linux based machines from the <strong>terminal</strong> with the <code>curl</code> command</li>
+              </ul>
+            </li>
+            <li>
+              Finally, you can also send requests from scripts:
+              <ul>
+                <li>from a <strong>.NET application</strong> with the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.net.webrequest?view=netframework-4.8">System.NET.WebRequest</a> class</li>
+                <li>from a <strong>PHP server script</strong> with the <a href="https://www.php.net/curl">cUrl module</a></li>
+                <li><em>from Javascript with the fetch() method</em> <span class="darkgreen">&rarr; this will be the focus of this presentation</span></li>
+              </ul>
+            </li>
+          </ul>
+
+        </section>
+        <section data-toc-title="Inspecting request/response">
+          <h2>Inspecting request/response (1)</h2>
+          <ul>
+            <li>
+              In the browser you can inspect request/responses on the Network tab of Chrome devtools. Example when requesting the Toledo portal page:
+            </li>
+          </ul>  
+          <figure style="max-width: 800px; display: block; margin: 0 auto">
+            <img src="img/05_api_ajax/devtools_request1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+          </figure>
+        </section>
+        <section data-toc-title="">
+          <h2>Inspecting request/response (2)</h2>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 40%;">
+              <figure style="display: block; margin: 0 auto">
+                <img src="img/05_api_ajax/devtools_request2.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+              </figure>
+            </div>
+            <div style="width: 60%; padding-left: 10px">
+              <ul>
+                <li class="no-style">
+                  Note that this request generates a waterfall of other requests:
+                  <ul>
+                    <li>first the main URL is loaded, <strong>portal/</strong>; the response will return the HTML of the page</li>
+                    <li>then all resources linked in the HTML (images, CSS, scripts...) are loaded in the order in which they appear</li>
+                    <li>then all resources linked to these resources are loaded (e.g. images in CSS, audi in scripts...)</li>
+                    <li>...</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section data-toc-title="">
+          <h2>Inspecting request/response (3)</h2>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 50%;">
+              <figure style="display: block; margin: 0 auto">
+                <img src="img/05_api_ajax/devtools_request3.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+              </figure>
+            </div>
+            <div style="width: 50%; ">
+              <ul>
+                <li class="no-style">
+                  Click on a request to inspect:
+                  <ul>
+                    <li>request URL, status code</li>
+                    <li>request and response headers</li>
+                    <li>response body</li>
+                    <li>...</li>
+                  </ul>
+                </li>
+                <li class="no-style">
+                  Response status codes:
+                  <ul>
+                    <li>200 - get ok</li>
+                    <li>201 - create ok</li>
+                    <li>301 - permanently moved</li>
+                    <li>400 - bad request (missing parameters)</li>
+                    <li>401 - not authorized (e.g. API key not given)</li>
+                    <li>404 - requested data not found</li>
+                    <li>405 - method not allowed (e.g. wrong verb)</li>
+                    <li>500 - internal server error</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section data-toc-title="">
+          <h2>Inspecting request/response (4)</h2>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="width: 50%;">
+              <figure style="display: block; margin: 0 auto">
+                <img src="img/05_api_ajax/devtools_request4.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+              </figure>
+            </div>
+            <div style="width: 50%; ">
+              <ul>
+                <li class="no-style">
+                  Example showing the response for a CSS file request
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section data-toc-title="">
+          <h2>Inspecting request/response (5)</h2>
+          <ul>
+            <li>
+              A great tool for creating requests and inspecting responses is the <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Chrome Postman plugin</a>:
+            </li>
+          </ul>  
+          <figure style="max-width: 600px; display: block; margin: 0 auto">
+            <img src="img/05_api_ajax/postman.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+          </figure>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>API's &amp; Ajax</h1>
           <h2>API's</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>
         </section>
         <section>
-          <h2>About WEB API's</h2>
+          <h2>What is an API</h2>
           <ul>
             <li>
-              Generally, an <em>API</em> (Application Programming Interface) is software that offers functionality that other applications can consume remotely:
+              An <em>API</em> (Application Programming Interface) is a software service that offers a <em>set of functions</em> that other applications can consume remotely:
               <ul>
                 <li>reading &amp; searching data</li>
+                <li>weather service</li>
                 <li>updating content</li>
                 <li>authentication</li>
+                <li>complex calculations</li>
+                <li>image compression/conversion</li>
                 <li>...</li>
               </ul>
-              In a web context an API is called a <i>web API</i>
+            </li>
+          </ul>
+
+        </section>
+        <section>
+          <h2>What is a Web API</h2>
+          <ul>
+            <li>
+              In a web context it is called a <i>web API</i>. It follows the client&ndash;server model:
+              <ul>
+                <li>the web application sends a <strong>request</strong> to the API, optionally with request data</li>
+                <li>the API function sends back a <strong>response</strong>, optionally with readable response data</li>
+              </ul>
             </li>
             <li>
               Benefits from <strong>consuming</strong> a web API:
@@ -86,308 +346,145 @@
               </ul>
             </li>
           </ul>
-
         </section>
-        <section data-toc-title="">
-          <h2>Using Web API's</h2>
+        <section data-toc-title="Finding Web API's">
+          <h2>Finding Web API's (1)</h2>
           <ul>
             <li>
-              To use web API's, you basically need to answer the following questions:
-              <ol>
-                <li>how can we send an API request from the client to the server?</li>
-                <li>how can we create a web API that handles the requests and sends back responses?</li>
-                <li>what format will the response have, and how can we interprete its content?</li>
-                <li>finally: how can we consume a web API in Javascript?</li>
-              </ol>
+              Almost all large web applications like Youtube, Google Maps, Dropbox, Twitter, Flickr etc. have web API's that you can use as a developer. 
+            </li>
+            <li>
+              Just Google the API, e.g. search for "Flickr API", and you'll find the docs:
+            </li>
+          </ul>
+          <figure style="max-width: 700px; display: block; margin: 0 auto">
+            <img src="img/05_api_ajax/flickr-api.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+          </figure>
+        </section>
+        <section data-toc-title="">
+          <h2>Finding Web API's (2)</h2>
+          <ul>
+            <li>
+              Smaller dedicated API's also exist, e.g. weather service, dog pictures, funny quotes... Finding them may be a little harder; <a href="https://rapidapi.com/">rapidapi.com</a> has a nice collection:
+            </li>
+          </ul>
+          <figure style="max-width: 700px; display: block; margin: 0 auto">
+            <img src="img/05_api_ajax/rapidAPI.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+          </figure>
+        </section>
+        <section data-toc-title="Using Web API's">
+          <h2>Using Web API's (1)</h2>
+          <ul>
+            <li>
+              How you can use a web API varies greatly, from very simple to very difficult. You will have to study the documentation. Things to consider:
+              <ul>
+                <li>
+                  <strong>authentication</strong>: 
+                  <ul>
+                    <li>some API's are completely open (no effort)</li>
+                    <li>some require you to apply for an API key that you have to include with every request (easy)</li>
+                    <li>some require complex authentication methods like OAuth (too difficult for this course)</li>
+                  </ul> 
+                </li>
+                <li>
+                  <strong>price/quota</strong>: 
+                  <ul>
+                    <li>a few API's are still free and unlimited (but less and less)</li>
+                    <li>most API's are free but have daily quota linked to the API key</li>
+                    <li>in all other cases, you'll have to open your wallet</li>
+                  </ul> 
+                </li>
+                <li>
+                  <strong>request</strong>: 
+                  <ul>
+                    <li>make sure the REST (URL-based) request format is supported, beware of older formats like SOAP or XML-RPC</li>
+                    <li>for the name of the functions and parameters, check the documentation</li>
+                    <li>some API's require you to include extra headers with the request (e.g. API key)</li>
+                  </ul> 
+                </li>
+                <li>
+                  <strong>response</strong>: 
+                  <ul>
+                    <li>the response may have any format (XML, HTML, plain text...), but the most common and easiest is JSON (JavaScript Object Notation, see further); make sure it is supported</li>
+                  </ul> 
+                </li>
+              </ul>  
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>Using Web API's (2)</h2>
+          <ul>
+            <li>
+              To summarize, if you pick a web API, make sure:
+              <ul>
+                <li>
+                   the API is <strong>open</strong> or requires a simple <strong>API key</strong> which you can get by easy registration
+                </li>
+                <li>
+                   the API is <strong>free</strong> or has sufficient free daily quota
+                </li>
+                <li>
+                    the <strong>REST</strong> request format is supported
+                </li>
+                <li>
+                    the <strong>JSON</strong> response format is supported
+                </li>
+                <li>
+                    it is <strong>well-documented</strong> and easy to use
+                </li>
+              </ul>  
             </li>
           </ul>
         </section>
         <section>
-          <h2>1. Sending a request</h2>
+          <h2>Open API example</h2>
           <ul>
             <li>
-              We'll basically use HTTP(S) to send a request, just like a web page URL. Only instead of an HTML page, we'll get back a plain text response, usually in JSON or XML format. 
+              If no key or authentication is needed, it is called an <em>open API</em>. 
             </li>
             <li>
-              To get an idea, just a few quick examples from the <a href="https://dog.ceo/dog-api/documentation/">Dog API</a>:
+              To get an idea, just a few quick examples from the <a href="https://dog.ceo/dog-api/documentation/">Dog API</a>. The request is very simple, just an URL, so we can use the browser to fetch the contents: 
               <ul>
                 <li>get a random image: <a href="https://dog.ceo/api/breed/hound/images/random">https://dog.ceo/api/breed/hound/images/random</a></li>
                 <li>get a list of sub-breeds of the Retriever: <a href="https://dog.ceo/api/breed/retriever/list">https://dog.ceo/api/breed/retriever/list</a></li>
               </ul>
+            </li>
+          </ul>
+          <figure style="max-width: 600px; display: block; margin: 0 auto">
+            <img src="img/05_api_ajax/dogAPi-example.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+          </figure>
+        </section>
+        <section data-toc-title="API key example">
+          <h2>API key example (1)</h2>
+          <ul>
+            <li>
+              Most API's will <a href="https://www.flickr.com/services/api/misc.api_keys.html">require you to register</a> to get a (usually free) API key. You need to include this key with every request, either as a GET parameter, or with a custom header.  
+            </li>
+            <li>
               An example from <a href="https://www.flickr.com/services/api/">Flickr API</a>:
               <ul>
-                <li>search for images by tag: <a href="https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&api_key=6ecfcd8d4a3b8a04da6093733db989a2&text=atomium">https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&text=atomium&api_key=6ecfc...</a></li>
+                <li>search for images by tag: <a href="https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&api_key=6ecfcd8d4a3b8a04da6093733db989a2&text=atomium&format=json">https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20 &text=atomium<strong>&api_key=6ecfcd8d4a3b8a04da6093733db989a2</strong>&format=json</a></li>
               </ul>
             </li>
           </ul>
+          <figure style="max-width: 600px; display: block; margin: 0 auto">
+            <img src="img/05_api_ajax/flickr1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+          </figure>
         </section>
-        <section>
-          <h2>2. Handling the request</h2>
+        <section data-toc-title="">
+          <h2>API key example (2)</h2>
           <ul>
             <li>
-              The next question, how to create a web API on the server that handles the request and sends a response, is an easy one: in this course, we won't care. We'll consider it a black box. 
-            </li>
-            <li>
-              The web API can be any script on the server, written in any language (.NET, PHP, Ruby...), as long as it
-              <ul>
-                <li>accepts a HTTP request (GET or POST)</li>
-                <li>sends back understandable text (usually XML or JSON) and a status code</li>
-              </ul>
-            </li>
-            <li>
-              If you're interested in how an API is actually built, continue reading; if not, skip to <a href="#/3-the-response">3. The response</a>
+              You can do the same request with Postman:
             </li>
           </ul>
+          <figure style="max-width: 700px; display: block; margin: 0 auto">
+            <img src="img/05_api_ajax/flickr2.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+          </figure>
         </section>
-        <section>
-          <h2 style="white-space: nowrap;">2. Building the API &mdash; URL design</h2>
-          <ul>
-            <li>
-              Let's take a simple example: an API for managing your friends list. 
-            </li>
-            <li>
-              First, we'll have to decide what the API URL's look like; the <em>URL design</em>. Assuming we host our API on https://bitmatters.be/o/friends-api/, we propose the following structure:
-              <ul>
-                <li><a href="https://bitmatters.be/o/friends-api/api.php?all">https://bitmatters.be/o/friends-api/api.php?all</a>: get all friends</li>
-                <li><a href="https://bitmatters.be/o/friends-api/api.php?id=2">https://bitmatters.be/o/friends-api/api.php?id=2</a>: get friend by id</li>
-                <li><a href="https://bitmatters.be/o/friends-api/api.php?delete=2">https://bitmatters.be/o/friends-api/api.php?delete=1</a>: delete friend by id</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>2. Building the API &mdash; CSV</h2>
-          <ul>
-            <li>
-              Next we need a place to store our  friends data.
-            </li>
-            <li>
-              To not further complicate matters, we'll use a simple CSV file instead of a database. It contains a list of friends (id, name, age, email):
-              <pre class="bigger"><code contenteditable class="language-php" data-caption="friends.csv">1,Rogier van der Linde,42,rogier.vanderlinde@odisee.be
-2,Bram Van Damme,33,bram.vandamme@odisee.be
-3,Davy De Winne,30,davy.dewinne@odisee.be
-4,Hans Gruyaert,37,hansgruyaert@telenet.be
-5,Dieter Roseeuw,38,dieter@pandora.be</code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/friends.csv">friends.csv</a></div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>2. Building the API &mdash; PHP script</h2>
-          <ul>
-            <li>
-              The final step is writing the server script that accepts the URL requests, and sends back responses. The full code listing:
-              <pre class="bigger"><code contenteditable class="language-php" style="max-height: 250px">&lt;?php
-
-  // tell the server to use JSON for output
-  header('Content-type: application/json'); 
-
-  // accept requests from other domains
-  header('Access-Control-Allow-Origin: *'); 
-
-  // path to CSV file
-  define('CSV', 'friends.csv');
-
-  // read CSV
-  $friendsvals = file(CSV);
-  $friends = array();
-  foreach ($friendsvals as $friendvals) {
-    $vals = explode(',', trim($friendvals));
-    $friends[] = array('id' => (int) $vals[0], 'name' => $vals[1], 'age' => (int) $vals[2], 'email' => $vals[3]);
-  }
-
-  // returns friend by id
-  function getFriendById($friends, $id) {
-    foreach ($friends as $friend) {
-      if ($friend['id'] == $id) return $friend;
-    }
-    return null;
-  }
-
-  // deletes friend by id
-  function deleteFriendById(&$friends, $id) {
-    for ($i = 0; $i < count($friends); $i++) {
-      if ($friends[$i]['id'] == $id) {
-        array_splice($friends, $i, 1);
-        return true;
-      } 
-    }
-    return false;
-  }
-
-  // writes friends to csv
-  function writeToCsv($friends) {
-    $csv = array();
-    foreach ($friends as $friend) {
-      $csv[] = implode(',', array_values($friend));
-    }
-    file_put_contents(CSV, implode(PHP_EOL, $csv));
-  }
-
-  // handle GET, all friends
-  if (isset($_GET['all'])) {
-    echo json_encode($friends);
-    exit(0);
-  }
-
-  // handle GET, single friend
-  if (isset($_GET['id'])) {
-    $friend = getFriendById($friends, $_GET['id']);
-    if ($friend == null) {
-      http_response_code(404);
-    } else {
-      echo json_encode($friend);
-    }
-    exit(0);
-  }
-
-  // handle POST
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // decode incoming JSON
-    $friend = json_decode(file_get_contents('php://input'), true);
-
-    // bad request
-    if (!isset($friend['name']) || !isset($friend['age']) || !isset($friend['email'])) {
-      http_response_code(400);
-      exit(0);
-    } 
-
-    // find new id
-    $id = count($friends) == 0 ? 1 : (int) $friends[count($friends) - 1]['id'] + 1;
-
-    // build new friend
-    $friends[] = array('id' => $id, 'name' => $friend['name'], 'age' => $friend['age'], 'email' => $friend['email']);
-
-    // write to csv
-    writeToCsv($friends);
-
-    // exit 
-    exit(0);
-  }
-
-  // handle DELETE; because PHP has no DELETE superglobal, we use GET instead
-  if (isset($_GET['delete'])) {
-    // try to delete friend
-    if (!deleteFriendById($friends, $_GET['delete'])) {
-      http_response_code(404);
-    } else {
-      writeToCsv($friends);
-    }
-
-    // exit 
-    exit(0);
-  }
-
-// EOF</code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/api_json.php?all">demo</a></div>
-            </li>
-            <li class="smaller arrow">
-              That's it! We have something that accepts a request, and outputs a JSON response. Easy, huh? A great tool for testing is the <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm">Chrome Postman plugin</a>.
-            </li>
-          </ul>
-
-        </section>
-        <section>
-          <h2>3. The response</h2>
-          <ul>
-            <li>
-              You can inspect the request and response of an API request (like from all resources) in the DevTools network tab. It contains request information:
-              <ul>
-                <li>Request URL</li>
-                <li>Request parameters</li>
-                <li>Request method (GET, POST...)</li>
-              </ul>
-            </li>
-            <li class="no-style">
-              and also response information:
-              <ul>
-                <li>Status code</li>
-                <li>Response type (XML, JSON, plain text...)</li>
-                <li>Raw response data</li>
-              </ul>              
-            </li>
-          </ul>
-          <img src="img/05_api_ajax/network-tab.png" style="position: absolute;right: 20px; bottom: 20px; max-width: 40%; border: 1px solid #999">
-        </section>
-        <section>
-          <h2>3. The response &mdash; status codes</h2>
-          <ul>
-            <li>
-              Each response gets a status code; some examples:
-              <ul>
-                <li>200 - get ok</li>
-                <li>201 - create ok</li>
-                <li>301 - permanently moved</li>
-                <li>400 - bad request (missing parameters)</li>
-                <li>401 - not authorized (e.g. API key not given)</li>
-                <li>404 - requested data not found</li>
-                <li>405 - method not allowed (e.g. wrong verb)</li>
-                <li>500 - internal server error</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>3. The response &mdash; type</h2>
-          <ul>
-            <li>
-              The response is just plain text. The way it should be interpreted is called the <em>response type</em>. It can be anything the server likes, but the most used are <em>XML</em> and <em>JSON</em>.
-            </li>
-            <li>
-              E.g. Flickr returns XML by default; try <a style="font-size:smaller" href="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m&amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2">https://api.flickr.com/.../?method=flickr.photos .search&amp;text=atomium&amp;extras=url_m &amp;per_page=5&amp;api_key=6ecfcd...</a>
-              <pre class="bigger"><code contenteditable class="language-html" style="height: 250px">&lt;rsp stat="ok"&gt;
-&lt;photos page="1" pages="2128217" perpage="5" total="10641084"&gt;
-  &lt;photo id="8258910521" owner="28493557@N00" secret="88233d7d75" server="8502" farm="9"
-    title="la cafetería" ispublic="1" isfriend="0" isfamily="0"
-    url_m="http://farm9.staticflickr.com/8502/8258910521_88233d7d75.jpg" height_m="500" width_m="281"/&gt;
-  &lt;photo id="8259983104" owner="49322283@N03" secret="a7bb4bd94b" server="8077" farm="9"
-    title="Las Vegas strip" ispublic="1" isfriend="0" isfamily="0"
-    url_m="http://farm9.staticflickr.com/8077/8259983104_a7bb4bd94b.jpg" height_m="500" width_m="332"/&gt;
-  &lt;photo id="8258877609" owner="12811438@N08" secret="280988f53b" server="8355" farm="9"
-    title="Carved German relief" ispublic="1" isfriend="0" isfamily="0"
-    url_m="http://farm9.staticflickr.com/8355/8258877609_280988f53b.jpg" height_m="375" width_m="500"/&gt;
-  &lt;photo id="8258885865" owner="12811438@N08" secret="3ca4569d2a" server="8061" farm="9"
-    title="The Lady and the Unicorn" ispublic="1" isfriend="0" isfamily="0"
-    url_m="http://farm9.staticflickr.com/8061/8258885865_3ca4569d2a.jpg" height_m="375" width_m="500"/&gt;
-  &lt;photo id="8259949322" owner="12811438@N08" secret="1ceaa9fc1d" server="8218" farm="9"
-    title="DSC00273" ispublic="1" isfriend="0" isfamily="0"
-    url_m="http://farm9.staticflickr.com/8218/8259949322_1ceaa9fc1d.jpg" height_m="375" width_m="500"/&gt;
-&lt;/photos&gt;
-&lt;/rsp&gt;</code></pre>
-            </li>
-            <li class="no-style smaller">
-              &rarr; note that Flickr requires an API key; <a href="https://www.flickr.com/services/api/misc.api_keys.html">get yours here</a> for free
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>3. The response &mdash; JSON</h2>
-          <ul>
-            <li>
-              JSON is most used. You can get JSON from Flickr by adding a parameter <code style="font-size: smaller;">format</code>: <a style="font-size:smaller" href="https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;text=atomium&amp;extras=url_m&amp;per_page=5&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2&amp;format=json">https://api.flickr.com/services/rest/?method=flickr.photos.search &amp;text=atomium&amp;extras=url_m &amp;per_page=5&amp;api_key=6ecfcd...<span style="color: #900">&amp;format=json</span></a>
-              <pre class="bigger"><code contenteditable class="language-js" style="height: 250px">{"photos":{"page":1, "pages":2130468, "perpage":5, "total":"10652338", "photo":[{"id":"8258970061",
-"owner":"57683823@N07", "secret":"cd82c94425", "server":"8215", "farm":9, "title":"Alsatian Choucroute
-at Maison d'Alsace in Paris.", "ispublic":1, "isfriend":0, "isfamily":0, "url_m":"http:\/\
-/farm9.staticflickr.com\/8215\/8258970061_cd82c94425.jpg", "height_m":"375", "width_m":"500"},
-{"id":"8258965669", "owner":"90915031@N08", "secret":"0f57778c48", "server":"8361", "farm":9,
-"title":"Perth sights", "ispublic":1, "isfriend":0, "isfamily":0, "url_m":"http:\/\
-farm9.staticflickr.com\/8361\/8258965669_0f57778c48.jpg", "height_m":"500", "width_m":"375"}, {"id":"8258925755",
-"owner":"82551583@N00", "secret":"255dcf2c8a", "server":"8064", "farm":9, "title":"Mus\u00e9e du Louvre HDRI",
-"ispublic":1, "isfriend":0, "isfamily":0, "url_m":"http:\/\/farm9.staticflickr.com\/8064\/8258925755_255dcf2c8a.jpg",
-"height_m":"333", "width_m":"500"}, {"id":"8259990066", "owner":"30981722@N00", "secret":"1894ba5fb9",
-"server":"8477", "farm":9, "title":"dandelion lights @ Design Miami", "ispublic":1, "isfriend":0, "isfamily":0,
-"url_m":"http:\/\/farm9.staticflickr.com\/8477\/8259990066_1894ba5fb9.jpg", "height_m":"500", "width_m":"375"},
-{"id":"8258910521", "owner":"28493557@N00", "secret":"88233d7d75", "server":"8502", "farm":9,
-"title":"lacafeter\u00eda", "ispublic":1, "isfriend":0, "isfamily":0, "url_m":"http:\/\
-farm9.staticflickr.com\/8502\/8258910521_88233d7d75.jpg", "height_m":"500", "width_m":"281"}]}, "stat":"ok"}</code></pre>
-            </li>
-            <li class="arrow smaller">
-              what is this 'JSON' format?
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>3. The response &mdash; JSON</h2>
+        <section data-toc-title="About JSON">
+          <h2>About JSON (1)</h2>
           <ul>
             <li>
               <em>JSON</em> (Javascript Object Notation) is a string representation of a single Javascript object holding all information.
@@ -410,20 +507,28 @@ farm9.staticflickr.com\/8502\/8258910521_88233d7d75.jpg", "height_m":"500", "wid
             </li>
           </ul>
         </section>
-        <section>
-          <h2>3. The response &mdash; JSON FTW!</h2>
+        <section data-toc-title="">
+          <h2>About JSON (2)</h2>
           <ul>
             <li>
-              Keys are <code>string</code> (double quotes required!), values may be <code>string</code>, <code>number</code>, <code>Object</code>, <code>Array</code>, <code>boolean</code> or <code>null</code>.
+              JSON is basically a keys-values tree, where
+              <ul>
+                <li>
+                  <em>keys</em> are <code>string</code> (double quotes required!)
+                </li>
+                <li>
+                  <em>values</em> are <code>string</code>, <code>number</code>, <code>Object</code>, <code>Array</code>, <code>boolean</code> or <code>null</code>
+                </li>
+              </ul>
             </li>
             <li>
-              Well supported in almost all programming languages (PHP functions <code>json_encode()</code>/<code>json_decode()</code>, Javascript functions <code>JSON.parse()</code>/<code>JSON.stringify()</code> )
+              Well supported in most programming languages (PHP, .NET, Javascript...)
             </li>
             <li>
               JSON FTW!
               <ul>
                 <li>easy to work with (clientside and serverside)</li>
-                <li>less overhead than XML</li>
+                <li>less overhead than other response formats like XML</li>
                 <li>supported by all modern web API's</li>
               </ul>
             </li>
@@ -433,7 +538,7 @@ farm9.staticflickr.com\/8502\/8258910521_88233d7d75.jpg", "height_m":"500", "wid
       <section>
         <section>
           <h1>API's &amp; Ajax</h1>
-          <h2>AJAX</h2>
+          <h2>AJAX with fetch()</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>
@@ -442,60 +547,167 @@ farm9.staticflickr.com\/8502\/8258910521_88233d7d75.jpg", "height_m":"500", "wid
           <h2>About AJAX</h2>
           <ul>
             <li>
-              Now let's solve our last question: how can we consume a web API with Javascript? How can we request an URL without reloading the page?
+              Now our final question: how can we use web API's in Javascript? 
             </li>
             <li>
-              The technique used is called <em>AJAX</em>:
+              The technique to make a request to a server from Javascript is called <em>AJAX</em>:
               <ul>
                 <li>Asynchronous Javascript and XML</li>
-                <li>allows requests to a web server without leaving the page</li>
+                <li>allows loading extra resources and data without leaving the page</li>
                 <li>originally created by developers of Outlook Web Access (Microsoft) back in 2000, later picked up by Google in Google suggest</li>
-                <li>at the core sits the <code>XMLHttpRequest</code> object</li>
+              </ul>
+            </li>
+            <li>
+              There are various ways to implement an AJAX call:
+              <ul>
+                <li>oldest: with the <code><strong>XMLHttpRequest</strong></code> object</li>
+                <li>newer: with specialized libraries, e.g. <strong>jQuery</strong></li>
+                <li>newest: with the new Javascript <code><strong>fetch()</strong></code> method, now <a href="https://caniuse.com/#search=fetch">widely supported</a></li>
               </ul>
             </li>
           </ul>
         </section>
         <section>
-          <h2>Synchronous example</h2>
-          <pre class="bigger"><code contenteditable class="language-javascript overlayrun wrong">let xhr = new XMLHttpRequest();
-xhr.open('GET', 'demos/05_api_ajax/api_json.php?id=2', false);
-xhr.send();
-alert(xhr.responseText);</code></pre>
+          <h2>XMLHttpRequest syntax</h2>
           <ul>
-            <li class="no-style smaller">
-              &rarr; synchronous calls block the UI while waiting for a response<br />
-              &rarr; never use synchronous AJAX calls
-            </li>
-          </ul>
-
-        </section>
-        <section>
-          <h2>Asynchronous example</h2>
-          <pre class="bigger"><code contenteditable class="language-javascript overlayrun right">let xhr = new XMLHttpRequest();
+            <li>
+              The XMLHttpRequest syntax (check your console):
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun wrong">let xhr = new XMLHttpRequest();
 xhr.addEventListener('readystatechange', function() {
   if (this.readyState == 4 && this.status == 200) {
-    alert(this.responseText);
+    console.log('data received: ', this.responseText);
   }
 });
-xhr.open('GET', 'demos/05_api_ajax/api_json.php?id=2', false);
+xhr.open('GET', 'https://dog.ceo/api/breed/hound/images/random', false);
 xhr.send();</code></pre>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li class="darkred">hard to use; I wouldn't recommend this syntax</li>
+          </ul>
+        </section>
+        <section>
+          <h2>JQUERY syntax</h2>
+          <ul>
+            <li>
+              The jQuery syntax (check your console):
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun wrong">jQuery.ajax({
+  url: 'https://dog.ceo/api/breed/hound/images/random',
+  method: 'GET',
+  success: function(result) {
+    console.log('data received: ', result);
+  },
+  error: function(err) {
+    alert('request failed: ', err);
+  }
+});</code></pre>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li class="darkred">requires an external library (jQuery)</li>
+            <li class="darkred">is easier to use, but I wouldn't recommend using this syntax either</li>
+          </ul>
+        </section>
+        <section data-toc-title="fetch() syntax">
+          <h2>fetch() syntax (1)</h2>
+          <ul>
+            <li>
+              The fetch() syntax (check your console):
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun right">let url = 'https://dog.ceo/api/breed/hound/images/random';
+fetch(url)
+  // handle response
+  .then(function(resp) {
+      console.log('response status: ', resp.status);
+      return resp.json();
+  })
+  // handle response data
+  .then(function handleSuccess(data) {
+      console.log('data received: ', data);
+  })
+  // catch errors
+  .catch(function(err) {
+      console.log('request failed: ', err)
+  });</code></pre>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li class="darkgreen">this is the way to go!</li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>fetch() syntax (2)</h2>
+          <ul>
+            <li>
+              If you prefer, you can use named functions instead of anonymous:
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let url = 'https://dog.ceo/api/breed/hound/images/random';
+function handleResponse(resp) {
+  console.log('response status: ', resp.status);
+  return resp.json();
+}                
+function handleSuccess(data) {
+  console.log('data received: ', data);
+}
+function handleError(err) {
+  console.log('request failed: ', err)
+}
+fetch(url)
+  .then(handleResponse)
+  .then(handleSuccess)
+  .catch(handleError);</code></pre>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li class="darkgreen">this is the way to go!</li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>fetch() syntax (3)</h2>
+          <ul>
+            <li>
+              Another example from the <a href="https://rapidapi.com/matchilling/api/chuck-norris">Chuck Norris API</a>, using custom headers:
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let url = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random';
+let options = {
+  headers: {
+    'X-RapidAPI-Host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com',
+    'X-RapidAPI-Key': 'FLd7sJMCXBmshkCvZXkHKWBWSYt6p1lHgIZjsnuLCh9gVyZf1I'
+  }
+};                
+fetch(url, options)
+  // handle response
+  .then(function(resp) {
+      console.log('response status: ', resp.status);
+      return resp.json();
+  })
+  // handle response data
+  .then(function handleSuccess(data) {
+      alert(data.value);
+  })
+  // catch errors
+  .catch(function(err) {
+      console.log('request failed: ', err)
+  });</code></pre>
+            </li>
+          </ul>
         </section>
         <section data-toc-title="AJAX Flickr demo">
           <h2>AJAX Flickr demo (1)</h2>
           <ul>
             <li>
-              Let's build a small application using the Flickr API. HTML...
+              Let's build a small application using the Flickr API. The HTML and CSS:
               <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;head&gt;
   &lt;title&gt;Ajax example&lt;/title&gt;
   &lt;meta charset="utf-8"&gt;
   &lt;style&gt;
+    #pics {
+      display: flex
+      flex-flow: row wrap;
+    }
     #pics img {
       height: 200px;
       display: block;
       margin-top: 20px;
       margin-right: 20px;
-      float: left;
     }
   &lt;/style&gt;
 &lt;/head&gt;
@@ -511,122 +723,98 @@ xhr.send();</code></pre>
           <h2>AJAX Flickr demo (2)</h2>
           <ul>
             <li>
-              ...and the Javascript:
-              <pre class="bigger"><code class="language-javascript">window.addEventListener('load', function() {
+              The Javascript fragment for making our API call:
+              <pre class="bigger"><code class="language-javascript">// base URL
+let base = "https://api.flickr.com/services/rest/?";
 
-  var pics = document.getElementById('pics');
-  var search = document.getElementById('search');
+// append parameters
+let params = new URLSearchParams();
+params.append('method', 'flickr.photos.search');
+params.append('extras', 'url_m');
+params.append('per_page', 20);
+params.append('format', 'json');
+params.append('nojsoncallback', 1);
+params.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2');
+params.append('text', searchval);
+let url = base + params.toString();
 
-  search.addEventListener('keypress', function(e) {
-    if (e.which == 13) {
-      pics.innerHTML = '';
-      makeSearch(this.value);
-    }
-  });
-
-  var xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function(e) {
-    var data = JSON.parse(this.responseText);
-    data = data.photos.photo;
-    for (var i = 0; i &lt; data.length; i++) {
-      var img = document.createElement('img');
-      img.setAttribute('src', data[i].url_m);
-      pics.appendChild(img);
-    }
-  };
-
-  var makeSearch = function (value) {
-    var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;extras=url_m&amp;per_page=20&amp;format=json&amp;nojsoncallback=1&amp;safe_search=1";
-    url += '&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2';
-    url += '&amp;text=' + value;
-    url = encodeURI(url);
-    xhr.open("GET", url, true);
-    xhr.send()
-  };
-
-});
-</code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/flickr.html">demo</a></div>
+// AJAX call
+fetch(url)
+    .then(onResponse) // TODO: implement onResponse
+    .then(onSuccess) // TODO: implement onSuccess
+    .catch(function(err) {
+        console.log('Request failed', err)
+    });</code></pre>
             </li>
           </ul>
-        </section>
-        <section data-toc-title="Fetch API">
-          <h2>Fetch API (1)</h2>
-          <ul>
-            <li>
-              The Javascript code isn't very easy to read, and we also need to handle errors etc... Comes in the new <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Javascript Fetch API</a>, created as a flexible and easy solution to perform AJAX requests. The basic syntax:
-              <pre class="bigger"><code class="language-javascript">function handleError(err) {
-    console.log('Request failed', err)
-}
-function handleResponse(resp) {
-  console.log('response status: ', resp.status);
-  return resp.json();
-}
-function handleSuccess(data) {
-  console.log('data received: ', data);
-}
-let url = ...;  // insert request URL here
-fetch(url)
-    .then(handleResponse)
-    .then(handleSuccess)
-    .catch(handleError);
-</code></pre>
-            </li>
+          <ul class="arrow">
+            <li>note that we use the URLSearchParams() object to build our parameter list; this is <a href="https://fetch.spec.whatwg.org/#fetch-api">recommended by the Fetch standard</a></li>
           </ul>
         </section>
         <section data-toc-title="">
-          <h2>Fetch API (2)</h2>
+          <h2>AJAX Flickr demo (3)</h2>
           <ul>
             <li>
-              The AJAX Flickr demo, using the Fetch API (and also conveniently using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">URLSearchParams</a> URL API for the GET parameters):
+              The complete script:
               <pre class="bigger"><code class="language-javascript">window.addEventListener('load', function() {
+    // DOM 
+    let pics = document.getElementById('pics');
+    let search = document.getElementById('search');
 
-  let  pics = document.getElementById('pics');
-  let  search = document.getElementById('search');
+    // search field event
+    search.addEventListener('keypress', function(e) {
+        if (e.which == 13) {
+            pics.innerHTML = '';
+            makeSearch(this.value);
+        }
+    });
 
-  search.onkeypress = function(e) {
-    if (e.which == 13) {
-      pics.innerHTML = '';
-      makeSearch(this.value);
+    // handle fetch response
+    function onResponse(res) {
+        // error
+        if (res.status < 200 || res.status >= 300) {
+            console.log('error with status ' + res.status);
+        } else {
+            console.log('response ok ' + res.status);
+            return res.json();
+        }
     }
-  }
 
-  function onError(error) {
-    console.log('Request failed', error)
-  }
-
-  function onResponse(res) {
-    // error
-    if (res.status < 200 || res.status >= 300) {
-      console.log('error with status ' + res.status);
-    } else {
-      console.log('response ok ' + res.status);
-      return res.json();
+    // handle fetch data
+    function onSuccess(data) {
+        // all ok
+        for (let i = 0; i < data.photos.photo.length; i++) {
+            let img = document.createElement('img');
+            if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
+            pics.appendChild(img);
+        }
     }
-  }
 
-  function onSuccess(data) {
-    // all ok
-    for (let  i = 0; i < data.photos.photo.length; i++) {
-      let  img = document.createElement('img');
-      if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
-      pics.appendChild(img);
+    // make the search
+    function makeSearch(searchval) {
+        // base URL
+        let base = "https://api.flickr.com/services/rest/?";
+
+        // append parameters
+        let params = new URLSearchParams();
+        params.append('method', 'flickr.photos.search');
+        params.append('extras', 'url_m');
+        params.append('per_page', 20);
+        params.append('format', 'json');
+        params.append('nojsoncallback', 1);
+        params.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2');
+        params.append('text', searchval);
+        let url = base + params.toString();
+
+        // AJAX call
+        fetch(url)
+            .then(onResponse) 
+            .then(onSuccess) 
+            .catch(function(err) {
+                console.log('Request failed', err)
+            });
+        }
     }
-  }
-
-  function makeSearch(value) {
-    let base = "https://api.flickr.com/services/rest/?";
-    let params = "method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
-    let searchParams = new URLSearchParams(params);
-    searchParams.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2')
-    searchParams.append('text', value);
-    let url = base + searchParams.toString();
-    fetch(url)
-      .then(onResponse)
-      .then(onSuccess)
-      .catch(onError);
-  }
 });
 </code></pre>
               <div class="demolink"><a href="demos/05_api_ajax/flickr_fetch.html">demo</a></div>
@@ -638,7 +826,7 @@ fetch(url)
           <ul>
             <li>
               AJAX is essential in modern web development:
-              <ul>
+              <ul class="v-style">
                 <li>no reloads</li>
                 <li>faster</li>
                 <li>less bandwith used</li>
@@ -646,18 +834,12 @@ fetch(url)
             </li>
             <li>
               But beware:
-              <ul>
+              <ul class="x-style">
                 <li>no browser history, back button is broken, no bookmarking</li>
-                <li>search engines do not index injected content</li>
+                <li>search engines do not always index injected content</li>
               </ul>
             </li>
           </ul>
-        </section>
-      </section>
-
-      <section data-index-title="">
-        <section>
-          <h2>Questions?</h2>
         </section>
       </section>
 

@@ -3,12 +3,15 @@
     <title>Ajax example</title>
     <meta charset="utf-8">
     <style>
+        #pics {
+            display: flex;
+            flex-flow: row wrap;
+        }    
         #pics img {
             height: 200px;
             display: block;
             margin-top: 20px;
             margin-right: 20px;
-            float: left;
         }
     </style>
 </head>
@@ -18,21 +21,19 @@
     <script>
 
         window.addEventListener('load', function() {
+            // DOM 
+            let pics = document.getElementById('pics');
+            let search = document.getElementById('search');
 
-            let  pics = document.getElementById('pics');
-            let  search = document.getElementById('search');
-
-            search.onkeypress = function(e) {
+            // search field event
+            search.addEventListener('keypress', function(e) {
                 if (e.which == 13) {
                     pics.innerHTML = '';
                     makeSearch(this.value);
                 }
-            }
+            });
 
-            function onError(error) {
-                console.log('Request failed', error)
-            }
-
+            // handle fetch response
             function onResponse(res) {
                 // error
                 if (res.status < 200 || res.status >= 300) {
@@ -43,6 +44,7 @@
                 }
             }
 
+            // handle fetch data
             function onSuccess(data) {
                 // all ok
                 for (let  i = 0; i < data.photos.photo.length; i++) {
@@ -52,17 +54,29 @@
                 }
             }
 
-            function makeSearch(value) {
+            // make the search
+            function makeSearch(searchval) {
+                // base URL
                 let base = "https://api.flickr.com/services/rest/?";
-                let params = "method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
-                let searchParams = new URLSearchParams(params);
-                searchParams.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2')
-                searchParams.append('text', value);
-                let url = base + searchParams.toString();
+
+                // append parameters
+                let params = new URLSearchParams();
+                params.append('method', 'flickr.photos.search');
+                params.append('extras', 'url_m');
+                params.append('per_page', 20);
+                params.append('format', 'json');
+                params.append('nojsoncallback', 1);
+                params.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2');
+                params.append('text', searchval);
+                let url = base + params.toString();
+
+                // AJAX call
                 fetch(url)
                     .then(onResponse)
                     .then(onSuccess)
-                    .catch(onError);
+                    .catch(function(err) {
+                        console.log('Request failed', err)
+                    });
             }
         });
 
