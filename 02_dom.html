@@ -932,8 +932,7 @@ let big = document.querySelector('#big');
 let photo = big.querySelector('img');
 
 // attach click events to thumbnails
-for (let i = 0; i < thumbs.length; i++) {
-    let thumb = thumbs[i];
+for (let thumb of thumbs) {
     let link = thumb.querySelector('a');
     let img = thumb.querySelector('img');
     link.addEventListener('click', function(e) {
@@ -987,7 +986,7 @@ for (let i = 0; i < thumbs.length; i++) {
 let caption = big.querySelector('figcaption');
 
 // attach events
-for (let i = 0; i < thumbs.length; i++) {
+for (let thumb of thumbs) {
     ...
     link.addEventListener('click', function(e) {
         ...
