@@ -155,7 +155,6 @@ input[type=submit]:hover {
 }
 
 .message--error {
-	display: none;
 	color: #c00;
 }
 

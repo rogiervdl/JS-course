@@ -1157,14 +1157,13 @@ for (let thumb of thumbs) {
       // input shorthand
       let qstStreet = document.getElementById('qstStreet');
 
-      // hide error message
-      errStreet.style.display = 'none';
+      // clear error message
+      errStreet.innerHTML = '&amp;nbsp;';
 
       // check street and number
       if (qstStreet.value == '') {
         isValid = false;
         errStreet.innerHTML = 'gelieve een straat en nummer in te vullen';
-        errStreet.style.display = 'block';
       }
 
       // ...</code></pre>
@@ -1203,31 +1202,28 @@ for (let thumb of thumbs) {
       let qstZip = document.getElementById('qstZip');
       let qstCity = document.getElementById('qstCity');
 
-      // hide all error messages
+      // clear all error messages
       let errMessages = document.querySelectorAll('.message--error');
       for (let i = 0; i < errMessages.length; i++) {
-        errMessages[i].style.display = 'none';
+        errMessages[i].innerHTML = '&amp;nbsp;';
       }
 
       // check street and number
       if (qstStreet.value == '') {
         allOk = false;
         errStreet.innerHTML = 'gelieve een straat en nummer in te vullen';
-        errStreet.style.display = 'block';
       }
 
       // check zip
       if (qstZip.value == '') {
         allOk = false;
         errZip.innerHTML = 'gelieve een postcode in te vullen';
-        errZip.style.display = 'block';
       }
 
       // check city
       if (qstCity.value == '') {
         allOk = false;
         errCity.innerHTML = 'gelieve een gemeente in te vullen';
-        errCity.style.display = 'block';
       }
 
       // draw conclusion

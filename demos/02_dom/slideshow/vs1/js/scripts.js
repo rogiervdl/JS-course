@@ -12,8 +12,7 @@ window.addEventListener('load', function() {
     let photo = big.querySelector('img');
 
     // attach events
-	for (let i = 0; i < thumbs.length; i++) {
-        let thumb = thumbs[i];
+	for (let thumb of thumbs) {
         let link = thumb.querySelector('a');
         let img = thumb.querySelector('img');
         link.addEventListener('click', function(e) {

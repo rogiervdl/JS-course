@@ -13,8 +13,7 @@ window.addEventListener('load', function() {
     let caption = big.querySelector('figcaption');
 
     // attach events
-    for (let i = 0; i < thumbs.length; i++) {
-        let thumb = thumbs[i];
+    for (let thumb of thumbs) {
         let link = thumb.querySelector('a');
         let img = thumb.querySelector('img');
         link.addEventListener('click', function(e) {
