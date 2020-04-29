@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Javascript &mdash; Libraries</title>
+  <meta name="author" content="Rogier van der Linde - ikdoeict.be">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
+  <link rel="stylesheet" href="fonts/lato/webfont.css">
+  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
+  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
+  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
+  <link rel="stylesheet" href="css/reveal-mods.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/05_libraries.css">
+</head>
+
+<body>
+
+  <!-- SLIDES -->
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <!-- 0 : Title -->
+      <section>
+        <h1>Libraries</h1>
+        <small>use the arrow keys to navigate; press space for slide overview<br /></small>
+        <figure style="width: 380px; margin: 0 auto">
+          <img src="img/05_libraries/icon.png" alt="" width="380" />
+          <figcaption>
+            image from <a href="http://webmuch.com/how-why-you-should-use-google-cdn/">Webmuch</a>
+          </figcaption>
+        </figure>
+
+        <footer>
+          <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+        </footer>
+      </section>
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Libraries</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+
+        </section>
+        <section>
+          <h2>What is a library</h2>
+          <ul>
+            <li>
+              <em>Vanilla Javascript</em>: pure Javascript code, without libraries or frameworks
+            </li>
+            <li>
+              <em>Library</em>: code package included in your script to <strong>solve a specific problem</strong>
+              <ul>
+                <li>slideshows / carousels: <a href="https://owlcarousel2.github.io/OwlCarousel2/">OWL Carousel</a>, <a href="https://glidejs.com/">Glide</a>, <a href="https://kenwheeler.github.io/slick/">Slick</a>...</li>
+                <li>lightboxes: <a href="https://lokeshdhakar.com/projects/lightbox2/">Lightbox</a>, <a href="http://fancyapps.com/fancybox/3/">Fancybox</a>...</li>
+                <li>charting: <a href="https://dhtmlx.com/docs/products/dhtmlxGantt/">DHX Gantt</a>, <a href="https://www.highcharts.com/products/highcharts/#non-commercial">Highcharts</a>, <a href="http://www.jscharts.com/">JSCharts</a>...</li>
+                <li>UI components: <a href="http://bootboxjs.com/">Bootbox</a> (modals), <a href="https://microtip.now.sh/">Microtip</a> (tooltips), <a href="https://spin.js.org/">SpinJS</a> (spinners), <a href="https://jqueryui.com/">jQuery UI</a>...</li>
+                <li>multimedia: <a href="http://dmitrybaranovskiy.github.io/raphael/">Raphaël</a> (SVG), <a href="https://threejs.org/">ThreeJS</a> (3D), <a href="https://howlerjs.com/">Howler</a> (audio)...</li>
+              </ul>
+            </li>
+            <li class="no-style">
+              <ul class="arrow">
+                <li>you can <strong>combine multiple libraries</strong> in a single project</li>
+                <li>libraries are usually <strong>easy to use</strong>, requiring no real coding</li>
+                <li>remarkably, libraries are <strong>often free</strong></li>
+              </ul>
+            </li>
+          </li>
+          <div class="tooltip">
+            <div>
+              Another way to create rich applications is by embedding content, see <a href="http://github.site/HTML-course/06_objects.html#/embedding">http://github.site/HTML-course/06_objects.html#/embedding</a>;
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Choosing a library</h2>
+          <ul>
+            <li class="no-style">
+              So, you want a library to solve a specific problem. How do you know if a library is right for you? Checklist:
+              <ol start="0">
+                <li>do you <strong>really need a library</strong>? (or is it just to hide your lack of Javascript skills?)</li>
+                <li>does it <strong>fit your needs</strong>? (check the configuration options)</li>
+                <li>is it <strong>well documented</strong>?</li>
+                <li>is it <strong>easy to use</strong>?</li>
+                <li>is it <strong>responsive</strong>?</li>
+                <li>does it have a <strong>reasonable file size</strong>?</li>
+                <li>can you <strong>customize the design</strong>? (preferably with CSS)</li>
+              </ol>
+            </li>
+            <li class="no-style">
+              <ul class="arrow">
+                <li>if the candidate fails on <i>any</i> of these checks, look for another!</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Using a library</h2>
+          <ul>
+            <li class="no-style">
+              The exact steps may differ, but they typically are:
+              <ol>
+                <li>many libraries require <a href="https://jquery.com/">jQuery</a> (see further): <strong>download and include jQuery</strong> in your page</li>
+                <li>next, go to the library website and <strong>download the library</strong></li>
+                <li>unzip it, and <strong>copy the relevant files</strong>, usually from a <code>dist/</code> folder to your project</li>
+                <li><strong>include necessary CSS and JS files</strong> from this folder in the <code>&lt;head&gt;</code> resp. <code>&lt;body&gt;</code></li>
+                <li>next <strong>configure and use</strong> your library (check the documentation) </li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+
+        <section data-toc-title="OWL Carousel demo">
+          <h2>OWL Carousel demo (1)</h2>
+          <ul>
+            <li class="no-style">
+              As an example, we'll demonstrate how to use <a href="https://owlcarousel2.github.io/OwlCarousel2/">OWL Carousel</a>. Let's start from this empty HTML page:
+              <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;OWL Carousel demo&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;!-- vendor styles go here --&gt;
+  &lt;!-- ... --&gt;
+  &lt;style&gt;
+    html { font-size: 62.5%; }
+    body { background-color: #eee; min-height: 100%; }
+    header { max-width: 960px; margin: 0 auto; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- vendor scripts go here --&gt;
+  &lt;!-- ... --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+
+        <section data-toc-title="">
+          <h2>OWL Carousel demo (2)</h2>
+          <ul>
+            <li class="no-style">
+              OWL Carousel requires jQuery (see <a href="https://owlcarousel2.github.io/OwlCarousel2/docs/started-welcome.html">documentation</a>), so <a href="https://jquery.com/">download</a> it and include it in your project:
+              <pre class="bigger"><code class="language-html">...
+&lt;body&gt;
+  &lt;!-- vendor scripts go here --&gt;
+  &lt;script src="vendor/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+            <li class="no-style">
+              <ul class="arrow">
+                <li><code>.min.js</code> is by convention the filename of a compressed version of a js file</li>
+                <li>good practice: put all of your vendor scripts in a subfolder <code>vendor/</code></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section data-toc-title="">
+          <h2>OWL Carousel demo (3)</h2>
+          <ul>
+            <li class="no-style">
+              Next, <a href="https://owlcarousel2.github.io/OwlCarousel2/">download</a> and unzip OWL Carousel. The <code>dist/</code> folder contains the needed distribution files; copy them to a new folder <code>vendor/owlcarousel/</code> (you may skip files like README.md or LICENSE):
+              <div style="display: flex; max-width: 100%; justify-content: space-between; align-items: flex-start;">
+                <figure style="width:60%">
+                  <img src="img/05_libraries/owlcarousel-zip.png" alt="" class="border">
+                  <figcaption>dist folder in zip contents</figcaption>
+                </figure>
+                <figure style="width:30%">
+                  <img src="img/05_libraries/owlcarousel-project.png" alt="" class="border">
+                  <figcaption>content copied to vendor/owlcarousel/</figcaption>
+                </figure>
+
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section data-toc-title="">
+          <h2>OWL Carousel demo (4)</h2>
+          <ul>
+            <li class="no-style">
+              Now add the necessary stylesheets to the <code>&lt;head&gt;</code>, and script to the bottom of <code>&lt;body&gt;</code> (see <a href="https://owlcarousel2.github.io/OwlCarousel2/docs/started-installation.html">documentation</a>):
+              <pre class="bigger"><code class="language-html">  ...
+  &lt;link rel="stylesheet" href="vendor/owlcarousel/assets/owl.carousel.min.css"&gt;
+  &lt;link rel="stylesheet" href="vendor/owlcarousel/assets/owl.theme.default.min.css"&gt;
+  &lt;style&gt;
+    ...
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script src="vendor/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="vendor/owlcarousel/owl.carousel.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section data-toc-title="">
+          <h2>OWL Carousel demo (5)</h2>
+          <ul>
+            <li class="no-style">
+              Finally add the HTML markup, and init the carousel with a script at the bottom (see <a href="https://owlcarousel2.github.io/OwlCarousel2/docs/started-installation.html">documentation</a>):
+              <pre class="bigger"><code class="language-html">  ...
+  &lt;body&gt;
+  &lt;div class="owl-carousel owl-theme"&gt;
+    &lt;img src="images/foto1.jpg" alt=""&gt;
+    &lt;img src="images/foto2.jpg" alt=""&gt;
+    &lt;img src="images/foto3.jpg" alt=""&gt;
+    ...
+  &lt;/div&gt;
+  &lt;script src="vendor/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="vendor/owlcarousel/owl.carousel.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(document).ready(function() {
+      $(".owl-carousel").owlCarousel({
+          loop: false
+      });
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/05_libraries/owlcarousel/index.html">full demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>TinyMCE web editor example</h2>
+          <ul>
+            <li class="no-style">
+              Another all-time classic, the <a href="https://www.tiny.cloud/get-tiny">TinyMCE web editor</a>:
+              <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Word processor example&lt;/title&gt;
+  &lt;script type="text/javascript" src="js/tiny_mce/tiny_mce.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+    tinyMCE.init({
+      // General options
+      mode : "textareas",
+      plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups,autosave",
+
+      // Theme options
+      theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+      theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form method="post" action="#"&gt;
+    &lt;p&gt;
+      &lt;textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 650px"&gt;
+        &lt;p&gt;This is the first paragraph.&lt;/p&gt;
+        &lt;p&gt;This is the second paragraph.&lt;/p&gt;
+        &lt;p&gt;This is the third paragraph.&lt;/p&gt;
+      &lt;/textarea&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;input type="submit" name="save" value="Submit" /&gt;
+      &lt;input type="reset" name="reset" value="Reset" /&gt;
+    &lt;/p&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/05_libraries/tinymce/index.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Frameworks</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>What is a framework</h2>
+          <ul>
+            <li>
+              <em>Framework</em>: fundamentally changes the way we use Javascript
+              <ul>
+                <li>Javascript <strong>language extensions</strong> (looping, string & array functions...)</li>
+                <li><strong>cross browser solutions</strong> for DOM handling or events</li>
+                <li>enforce a strict <strong>coding methodology</strong> like MVC</li>
+                <li>target a <strong>specific platform</strong> like mobile web apps</li>
+              </ul>
+            </li>
+            <li>
+              Some popular frameworks:
+              <ul>
+                <li><a href="http://jquery.com/">jQuery</a>: DOM manipulation, events support, animations, AJAX support etc...</li>
+                <li><a href="http://angularjs.org/">AngularJS</a>, <a href="https://vuejs.org/">Vue</a>, <a href="https://reactjs.org/">React</a>: component-based single page web app frameworks</li>
+                <li><a href="https://jquerymobile.com/">jQuery mobile</a>, <a href="https://phonegap.com/">Phonegap</a>, <a href="https://framework7.io/">Framework7</a>: mobile frameworks</li>
+                <li><a href="https://getbootstrap.com/">Bootstrap</a>, <a href="https://get.foundation/building-blocks/">Foundation</a>, <a href="https://material-ui.com/">Material UI</a>: CSS-heavy ready-made UI building blocks</li>
+              </ul>
+            </li>
+            <li class="no-style">
+              <ul class="arrow">
+                <li>frameworks  is usually <strong>not easily combined</strong></li>
+                <li>frameworks are usually <strong>hard to learn</strong>, but <strong>pay off</strong> once you mastered them</li>
+                <li>remarkably, frameworks are <strong>usually free</strong> too</li>
+                <li>frameworks are usually <strong>strongly opinionated</strong>, i.e. force you in methodology / style etc...</li>
+              </ul>
+            </li>
+          </ul>
+
+        </section>
+        <section data-toc-title="jQuery">
+          <h2>jQuery (1)</h2>
+          <img src="img/05_libraries/john-resig.jpg" alt="" style="float: right; margin-left: 20px; width: 300px">
+          <ul style="display: block;">
+            <li>
+              JQuery was invented in 2006 by <strong>John Resig</strong>, solving many of the serious limitations and caveats of Javascript (and CSS) at the time.
+            </li>
+            <li>
+              Arguably historically the most popular framework. At its peak, about 90% of all websites used JQuery, whereas its competitors were far behind at not more than 10%.
+            </li>
+            <li>
+              Today, the vast majority of sites still uses jQuery, but more and more for legacy reasons (like libraries requiring jQuery).
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>jQuery (2)</h2>
+          <ul>
+            <li class="no-style">
+              Probably its main feat was making DOM handling easier:
+            </li>
+            <li class="no-style">
+              <pre class="bigger"><code class="language-javascript" data-caption="vanilla JS">window.addEventListener('load', function() {
+  let allMenuLinks = document.querySelectorAll('#myMenu a');
+  for (let lnk of allMenuLinks) {
+    lnk.addEventListener('click', function() {
+      console.log(this.innerHTML + ' link clicked');
+      this.classList.add('visited');
+    });
+  }
+});</code></pre>
+              <pre class="bigger"><code class="language-javascript" data-caption="jQuery">$(window).on('load', function() {
+  let $allMenuLinks = $('#myMenu a');
+  $allMenuLinks.on('click', function() {
+    console.log($(this).text() + ' link clicked');
+    $(this).addClass('visited');
+  });
+});</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>jQuery (3)</h2>
+          <ul>
+            <li class="no-style">
+              Also allows all kinds of animations:
+            </li>
+            <li class="no-style">
+              <pre class="bigger"><code class="language-html overlayrun" data-caption="jQuery">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;JQuery animation demo&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="btn1"&gt;toggle&lt;/button&gt;
+  &lt;p id="par1"&gt;
+    Leven ons vraag jonge goa ouder. Schatkist ad aardschok bepaalden producten ik gomboomen te er.
+    Dan naast alais ijzer ten. Ons uitmaakt machtige menschen kapitaal zou pogingen tin gestoken.
+    Verklaart bijgeloof mengeling er versteend nu. Uithoudt oog die doodende staatjes het verschil.
+    Opzicht nu fortuin nu menigte. Hen verwoede voorraad grootste ton elastica laatsten wij uit.
+  &lt;/p&gt;
+  &lt;script src="https://code.jquery.com/jquery-3.5.0.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $('#btn1').on('click', function() {
+      $('#par1').slideToggle();
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>jQuery UI</h2>
+          <ul>
+            <li class="no-style">
+              More effects, interactions, UI components etc... can be found in the <a href="https://jqueryui.com/">jQuery UI library</a>, built on top of the jQuery framework. Bounce example:
+            </li>
+            <li class="no-style">
+              <pre class="bigger"><code class="language-html overlayrun">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;jQuery UI Effects - Effect demo&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style&gt;
+    body {
+      font: 12px Arial;
+    }
+    #box {
+      width: 200px;
+      background-color: #ccc;
+      border-radius: 10px;
+      border: 2px solid #aaa;
+      padding: 10px 20px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;&lt;input type="button" id="btn1" value="Run Effect" /&gt;&lt;/p&gt;
+  &lt;p id="box"&gt;
+    Etiam libero neque, luctus a, eleifend nec, semper at, lorem.
+    Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+  &lt;/p&gt;
+  &lt;script src="https://code.jquery.com/jquery-3.5.0.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $("#btn1" ).on('click', function() {
+      $("#box").effect('bounce');
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/05_libraries/jquery_ui/bounce.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="">
+          <h2>jQuery (4)</h2>
+          <p>
+            Since the introduction of new CSS techniques like transitions/animations, and the many improvements made to Javascript, jQuery gradually looses its relevance. Its decline is clearly visible on Google Trends:
+          </p>
+          <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2152_RC04/embed_loader.js"></script>
+          <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"jquery","geo":"US","time":"2004-01-01 2020-04-28"}],"category":0,"property":""}, {"exploreQuery":"date=all&geo=US&q=jquery","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+        </section>
+        <section data-toc-title="">
+          <h2>Frameworks popularity</h2>
+          <p>Disappearing into oblivion is the fate of every framework, as nicely illustrated on <a href="https://insights.stackoverflow.com/trends?tags=jquery%2Cangular%2Creactjs%2Cvue.js%2Cbackbone.js%2Ctwitter-bootstrap">StackOverflow Trends</a>:</p>
+          <img src="img/05_libraries/stats.png" alt="">
+        </section>
+        <section>
+          <h2>frameworks vs vanilla</h2>
+          <ul>
+            <li>
+              Frameworks (and libraries) typically have a lifespan of 5, maximum 10 years.
+            </li>
+            <li>
+              Learning a framework is usually hard, and takes time. Choosing the "right" framework is tricky, and mostly a matter of personal preference.
+            </li>
+            <li class="arrow" style="color: #633">
+              before taking on frameworks, you should properly learn your vanilla Javascript; it is the only front-end technology made to last, and the best investment in your human capital at this point
+            </li>
+            <li class="arrow" style="color: #633">
+              therefore, frameworks are outside the scope of this course
+            </li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Node.js runtime</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Node.js example</h2>
+          <ul>
+            <li>
+              <a href="http://nodejs.org/">Node.js</a> is actually not a framework, but a platform built on Chrome's V8 Javascript runtime to build network applications. A simple webserver example (install Node first):
+              <pre class="bigger"><code class="language-javascript">var http = require('http');
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+
+console.log('Server running at http://127.0.0.1:8124/');</code></pre>
+              <div class="demolink">example.js</div>
+            </li>
+            <li>
+              In the command prompt:
+              <pre class="bigger" style="background-color: black; color: white"><code class="donthighlight">&gt; node example.js
+Server running at http://127.0.0.1:8124/</code></pre>
+            </li>
+            <li class="arrow">
+              now open this link in your browser...
+            </li>
+          </ul>
+        </section>
+      </section>
+
+    </div>
+
+    <!-- odisee.be link -->
+    <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
+
+
+    <!-- Index Link -->
+    <aside class="back">
+      <nav>
+        <p><a href="index.html">&larr; Back to index</a></p>
+      </nav>
+    </aside>
+
+  </div>
+
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/reveal/lib/js/head.min.js"></script>
+  <script src="vendor/reveal/js/reveal.js"></script>
+  <script src="vendor/highlight/highlight.pack.js"></script>
+  <script src="vendor/incrementable.js"></script>
+  <script src="vendor/prefixfree.js"></script>
+  <script src="vendor/css-snippets.js"></script>
+  <script src="vendor/css-edit.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    var devtools = /./;
+      devtools.toString = function() {
+      this.opened = true;
+    }
+    console.log('%c', devtools);
+    if (!devtools.opened) {
+      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
+    }
+  </script>
+
+</body>
+</html>

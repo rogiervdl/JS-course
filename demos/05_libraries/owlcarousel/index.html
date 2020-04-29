@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>OWL Carousel demo</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="vendor/owlcarousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendor/owlcarousel/assets/owl.theme.default.min.css">
+	<style>
+		html {
+		    font-size: 62.5%;
+		}
+
+		body {
+		    background-color: #eee;
+		    min-height: 100%;
+		}
+
+		header {
+		    max-width: 960px;
+		    margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="owl-carousel owl-theme">
+		<img src="images/foto1.jpg" alt="">
+		<img src="images/foto2.jpg" alt="">
+		<img src="images/foto3.jpg" alt="">
+		<img src="images/foto4.jpg" alt="">
+		<img src="images/foto5.jpg" alt="">
+		<img src="images/foto6.jpg" alt="">
+		<img src="images/foto7.jpg" alt="">
+	</div>
+	<script src="vendor/jquery.min.js"></script>
+	<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".owl-carousel").owlCarousel({
+			    loop: false
+			});
+		});		
+	</script>
+</body>
+</html>

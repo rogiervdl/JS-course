@@ -144,7 +144,7 @@ body {
 .reveal ul.arrow li {
   padding-bottom: 0;
   margin: 0;
-  line-height: 1.2em;
+  line-height: 1.6em;
 }
 .reveal ul.arrow li:before {
   content: '→  ';
@@ -186,7 +186,7 @@ aside.back {
 }
 
 aside.back nav > p:first-child {
-  color: #8b743d;  
+  color: #8b743d;
   margin: 0;
 }
 

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
   <link rel="stylesheet" href="css/reveal-mods.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/05_api_ajax.css">
+  <link rel="stylesheet" href="css/04_api_ajax.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         <h1>API's &amp; Ajax</h1>
         <small>use the arrow keys to navigate; press space for slide overview<br /></small>
         <figure style="width: 380px; margin: 0 auto">
-          <img src="img/05_api_ajax/icon.png" alt="" width="380" />
+          <img src="img/04_api_ajax/icon.png" alt="" width="380" />
         </figure>
 
         <footer>
@@ -57,7 +57,7 @@
                 <li>a <em>response</em> is a message back from the server to the client</li>
               </ul>
             </li>
-          </ul>  
+          </ul>
         </section>
         <section>
           <h2>HTTP Client&ndash;Server model</h2>
@@ -70,9 +70,9 @@
                 <li>step 3: the server <em>returns a response</em> to the client</li>
               </ul>
             </li>
-          </ul>  
+          </ul>
           <figure style="max-width: 600px; margin-top: 20px">
-            <img src="img/05_api_ajax/http.png" alt="http" style="border: 0; display: block;">
+            <img src="img/04_api_ajax/http.png" alt="http" style="border: 0; display: block;">
             <figcaption>source: <a href="https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html">www.ntu.edu.sg</a></figcaption>
           </figure>
         </section>
@@ -80,7 +80,7 @@
           <h2>Step 1: HTTP request (1)</h2>
           <ul>
             <li>
-              An HTTP request message has the following parts: 
+              An HTTP request message has the following parts:
               <ul>
                 <li><em>request line</em>: contains <strong>URL</strong>, <strong>method</strong> and <strong>HTTP version</strong></li>
                 <li><em>request headers</em>: contains <strong>extra info</strong> like browser/OS version, expected response type...</li>
@@ -90,9 +90,9 @@
             <li>
               Example of a HTTP GET request to retrieve an image:
             </li>
-          </ul>  
+          </ul>
           <figure>
-            <img src="img/05_api_ajax/request1.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/request1.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section data-toc-title="">
@@ -103,14 +103,14 @@
               <ul>
                 <li><em>GET</em>: retrieve data</li>
                 <li><em>POST</em>: send data (e.g. form data, uploaded file...)</li>
-              </ul> 
+              </ul>
             </li>
             <li>
               The main difference between GET and POST is that a POST request body can contain data. Example of a POST request with login data sent to a PHP server script <strong>login.php</strong>:
             </li>
-          </ul>  
+          </ul>
           <figure>
-            <img src="img/05_api_ajax/request2.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
+            <img src="img/04_api_ajax/request2.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
           </figure>
         </section>
         <section data-toc-title="">
@@ -119,9 +119,9 @@
             <li>
               Example of a POST request to upload a file to a ASP.NET server script <strong>upload.aspx</strong>:
             </li>
-          </ul>  
+          </ul>
           <figure>
-            <img src="img/05_api_ajax/request3.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
+            <img src="img/04_api_ajax/request3.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
           </figure>
         </section>
         <section>
@@ -130,9 +130,9 @@
             <li>
               When the server receives the request, a lot of magic happens: locating resources, checking permissions, executing scripts... This lies outside the scope of this course, so we'll just consider the server a black box:
             </li>
-          </ul>  
+          </ul>
           <figure style="max-width: 600px">
-            <img src="img/05_api_ajax/magic.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
+            <img src="img/04_api_ajax/magic.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
           </figure>
         </section>
         <section>
@@ -146,16 +146,16 @@
                 <li><em>response body</em>: contains the requested resource (e.g. image, HTML code...)</li>
               </ul>
             </li>
-          </ul>  
+          </ul>
           <figure>
-            <img src="img/05_api_ajax/response.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/response.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section>
           <h2>Initiating a HTTP request</h2>
           <ul>
             <li>
-              HTTP requests can be initiated in many ways. 
+              HTTP requests can be initiated in many ways.
             </li>
             <li>
               If you just want to retrieve an URL content, you can
@@ -188,9 +188,9 @@
             <li>
               In the browser you can inspect request/responses on the Network tab of Chrome devtools. Example when requesting the Toledo portal page:
             </li>
-          </ul>  
+          </ul>
           <figure style="max-width: 800px; display: block; margin: 0 auto">
-            <img src="img/05_api_ajax/devtools_request1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/devtools_request1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section data-toc-title="">
@@ -198,7 +198,7 @@
           <div style="display: flex; justify-content: space-between;">
             <div style="width: 40%;">
               <figure style="display: block; margin: 0 auto">
-                <img src="img/05_api_ajax/devtools_request2.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+                <img src="img/04_api_ajax/devtools_request2.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
               </figure>
             </div>
             <div style="width: 60%; padding-left: 10px">
@@ -221,7 +221,7 @@
           <div style="display: flex; justify-content: space-between;">
             <div style="width: 50%;">
               <figure style="display: block; margin: 0 auto">
-                <img src="img/05_api_ajax/devtools_request3.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+                <img src="img/04_api_ajax/devtools_request3.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
               </figure>
             </div>
             <div style="width: 50%; ">
@@ -257,7 +257,7 @@
           <div style="display: flex; justify-content: space-between;">
             <div style="width: 50%;">
               <figure style="display: block; margin: 0 auto">
-                <img src="img/05_api_ajax/devtools_request4.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+                <img src="img/04_api_ajax/devtools_request4.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
               </figure>
             </div>
             <div style="width: 50%; ">
@@ -275,9 +275,9 @@
             <li>
               A great tool for creating requests and inspecting responses is the <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Chrome Postman plugin</a>:
             </li>
-          </ul>  
+          </ul>
           <figure style="max-width: 600px; display: block; margin: 0 auto">
-            <img src="img/05_api_ajax/postman.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/postman.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
           </figure>
         </section>
       </section>
@@ -351,14 +351,14 @@
           <h2>Finding Web API's (1)</h2>
           <ul>
             <li>
-              Almost all large web applications like Youtube, Google Maps, Dropbox, Twitter, Flickr etc. have web API's that you can use as a developer. 
+              Almost all large web applications like Youtube, Google Maps, Dropbox, Twitter, Flickr etc. have web API's that you can use as a developer.
             </li>
             <li>
               Just Google the API, e.g. search for "Flickr API", and you'll find the docs:
             </li>
           </ul>
           <figure style="max-width: 700px; display: block; margin: 0 auto">
-            <img src="img/05_api_ajax/flickr-api.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/flickr-api.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section data-toc-title="">
@@ -369,7 +369,7 @@
             </li>
           </ul>
           <figure style="max-width: 700px; display: block; margin: 0 auto">
-            <img src="img/05_api_ajax/rapidAPI.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/rapidAPI.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section data-toc-title="Using Web API's">
@@ -379,36 +379,36 @@
               How you can use a web API varies greatly, from very simple to very difficult. You will have to study the documentation. Things to consider:
               <ul>
                 <li>
-                  <strong>authentication</strong>: 
+                  <strong>authentication</strong>:
                   <ul>
                     <li>some API's are completely open (no effort)</li>
                     <li>some require you to apply for an API key that you have to include with every request (easy)</li>
                     <li>some require complex authentication methods like OAuth (too difficult for this course)</li>
-                  </ul> 
+                  </ul>
                 </li>
                 <li>
-                  <strong>price/quota</strong>: 
+                  <strong>price/quota</strong>:
                   <ul>
                     <li>a few API's are still free and unlimited (but less and less)</li>
                     <li>most API's are free but have daily quota linked to the API key</li>
                     <li>in all other cases, you'll have to open your wallet</li>
-                  </ul> 
+                  </ul>
                 </li>
                 <li>
-                  <strong>request</strong>: 
+                  <strong>request</strong>:
                   <ul>
                     <li>make sure the REST (URL-based) request format is supported, beware of older formats like SOAP or XML-RPC</li>
                     <li>for the name of the functions and parameters, check the documentation</li>
                     <li>some API's require you to include extra headers with the request (e.g. API key)</li>
-                  </ul> 
+                  </ul>
                 </li>
                 <li>
-                  <strong>response</strong>: 
+                  <strong>response</strong>:
                   <ul>
                     <li>the response may have any format (XML, HTML, plain text...), but the most common and easiest is JSON (JavaScript Object Notation, see further); make sure it is supported</li>
-                  </ul> 
+                  </ul>
                 </li>
-              </ul>  
+              </ul>
             </li>
           </ul>
         </section>
@@ -433,7 +433,7 @@
                 <li>
                     it is <strong>well-documented</strong> and easy to use
                 </li>
-              </ul>  
+              </ul>
             </li>
           </ul>
         </section>
@@ -441,10 +441,10 @@
           <h2>Open API example</h2>
           <ul>
             <li>
-              If no key or authentication is needed, it is called an <em>open API</em>. 
+              If no key or authentication is needed, it is called an <em>open API</em>.
             </li>
             <li>
-              To get an idea, just a few quick examples from the <a href="https://dog.ceo/dog-api/documentation/">Dog API</a>. The request is very simple, just an URL, so we can use the browser to fetch the contents: 
+              To get an idea, just a few quick examples from the <a href="https://dog.ceo/dog-api/documentation/">Dog API</a>. The request is very simple, just an URL, so we can use the browser to fetch the contents:
               <ul>
                 <li>get a random image: <a href="https://dog.ceo/api/breed/hound/images/random">https://dog.ceo/api/breed/hound/images/random</a></li>
                 <li>get a list of sub-breeds of the Retriever: <a href="https://dog.ceo/api/breed/retriever/list">https://dog.ceo/api/breed/retriever/list</a></li>
@@ -452,14 +452,14 @@
             </li>
           </ul>
           <figure style="max-width: 600px; display: block; margin: 0 auto">
-            <img src="img/05_api_ajax/dogAPi-example.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/dogAPi-example.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section data-toc-title="API key example">
           <h2>API key example (1)</h2>
           <ul>
             <li>
-              Most API's will <a href="https://www.flickr.com/services/api/misc.api_keys.html">require you to register</a> to get a (usually free) API key. You need to include this key with every request, either as a GET parameter, or with a custom header.  
+              Most API's will <a href="https://www.flickr.com/services/api/misc.api_keys.html">require you to register</a> to get a (usually free) API key. You need to include this key with every request, either as a GET parameter, or with a custom header.
             </li>
             <li>
               An example from <a href="https://www.flickr.com/services/api/">Flickr API</a>:
@@ -469,7 +469,7 @@
             </li>
           </ul>
           <figure style="max-width: 600px; display: block; margin: 0 auto">
-            <img src="img/05_api_ajax/flickr1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/flickr1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section data-toc-title="">
@@ -480,7 +480,7 @@
             </li>
           </ul>
           <figure style="max-width: 700px; display: block; margin: 0 auto">
-            <img src="img/05_api_ajax/flickr2.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
+            <img src="img/04_api_ajax/flickr2.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
           </figure>
         </section>
         <section data-toc-title="About JSON">
@@ -547,7 +547,7 @@
           <h2>About AJAX</h2>
           <ul>
             <li>
-              Now our final question: how can we use web API's in Javascript? 
+              Now our final question: how can we use web API's in Javascript?
             </li>
             <li>
               The technique to make a request to a server from Javascript is called <em>AJAX</em>:
@@ -643,7 +643,7 @@ fetch(url)
 function handleResponse(resp) {
   console.log('response status: ', resp.status);
   return resp.json();
-}                
+}
 function handleSuccess(data) {
   console.log('data received: ', data);
 }
@@ -671,7 +671,7 @@ let options = {
     'X-RapidAPI-Host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com',
     'X-RapidAPI-Key': 'FLd7sJMCXBmshkCvZXkHKWBWSYt6p1lHgIZjsnuLCh9gVyZf1I'
   }
-};                
+};
 fetch(url, options)
   // handle response
   .then(function(resp) {
@@ -802,7 +802,7 @@ fetch(url)
             <li>
               The complete script:
               <pre class="bigger"><code class="language-javascript">window.addEventListener('load', function() {
-  // DOM 
+  // DOM
   let pics = document.getElementById('pics');
   let search = document.getElementById('search');
 
@@ -853,8 +853,8 @@ fetch(url)
 
     // AJAX call
     fetch(url)
-      .then(onResponse) 
-      .then(onSuccess) 
+      .then(onResponse)
+      .then(onSuccess)
       .catch(function(err) {
           console.log('Request failed', err)
       });
@@ -862,7 +862,7 @@ fetch(url)
   }
 });
 </code></pre>
-              <div class="demolink"><a href="demos/05_api_ajax/flickr_fetch.html">demo</a></div>
+              <div class="demolink"><a href="demos/04_api_ajax/flickr_fetch.html">demo</a></div>
             </li>
           </ul>
         </section>

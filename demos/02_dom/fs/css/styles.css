@@ -11,17 +11,17 @@
 /* reset */
 
 html {
-	font-size: 0.625em;  
+	font-size: 0.625em;
 }
 
 * {
-	-webkit-box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
-	margin: 0; 
-	padding: 0; 
+	margin: 0;
+	padding: 0;
 }
 
 fieldset {
@@ -121,11 +121,11 @@ input[type=radio], input[type=checkbox], input[type=submit] {
 	width: auto;
 	height: auto;
 	margin-right: 1rem;
-} 
+}
 
 input[type=radio], input[type=checkbox] {
 	display: inline;
-} 
+}
 
 input[type=submit] {
 	background-color: #fff;
@@ -135,12 +135,12 @@ input[type=submit] {
     line-height: 1.4rem;
     float: right;
     text-transform: uppercase;
-} 
+}
 
 input[type=submit]:hover {
 	background-color: #7bbb5e;
     color: #fff;
-} 
+}
 
 /* classes */
 
@@ -175,7 +175,7 @@ input[type=submit]:hover {
 }
 
 .label--radio + .label--radio {
-	margin-left: 2rem;	
+	margin-left: 2rem;
 	margin-top: 0;
 }
 
