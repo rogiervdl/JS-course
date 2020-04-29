@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>setTimeout demo</title>
+	<style>
+		#app { width: 400px; height: 200px; position: relative; background-color: #eee; }
+		#ball { width: 50px; height: 50px; position: absolute; left: 10px; top: 100px; }
+	</style>
+</head>
+<body>
+	<div id="app"><img src="ball.png" id="ball" alt=""></div>
+	<script>
+		let speedX = 10; let speedY = 5; let speedR = 10;
+		let x = 10; let y = 100; let r = 0;
+		let ball = document.querySelector('#ball');
+		function doLoop() {
+			x += speedX;
+			y += speedY;
+			r += speedR;
+			ball.style.left = x + 'px';
+			ball.style.top = y + 'px';
+			ball.style.transform = 'rotate(' + r + 'deg)';
+			if (x < 0 || x > 350) { speedX *= -1; speedR *= -1; }
+			if (y < 0 || y > 150) { speedY *= -1; speedR *= -1; }
+			requestAnimationFrame(doLoop); // call next frame whenever the CPU is ready
+		}
+		doLoop(); // start the loop
+	</script>
+</body>
+</html>

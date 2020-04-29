@@ -987,7 +987,6 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
           </ul>
         </section>
       </section>
-      </section>
       <section>
         <section>
           <h1>JAVASCRIPT GAMES</h1>
@@ -1747,7 +1746,274 @@ Created by ed@opera.com, 2007-07-05.
       <section>
         <section>
           <h1>JAVASCRIPT GAMES</h1>
-          <h2>ThreeJS</h2>
+          <h2>2D sprites and animations</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>What are animations</h2>
+          <ul>
+            <li class="no-style">
+              An animation is basically a sequence of still images, creating the illusion of a fluid motion:
+              <div style="display: flex; margin-top: 20px;">
+                <figure style="margin-right: 20px;">
+                  <img src="img/06_games/anim1.png" alt="">
+                  <figcaption>stop motion – <a href="https://www.youtube.com/watch?v=i3CEE9xKKZc">watch online</a></figcaption>
+                </figure>
+                <figure style="margin-right: 20px;">
+                  <img src="img/06_games/anim2.png" alt="">
+                  <figcaption>zoetrope – watch <a href="https://www.youtube.com/watch?v=SBg6dAE3mI0">here</a> or <a href="https://www.youtube.com/watch?v=AfS2kGO5lg8">here</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="img/06_games/anim3.png" alt="">
+                  <figcaption>flip book – <a href="https://giphy.com/gifs/museums-pVjNltXcTkJfq/fullscreen">watch online</a></figcaption>
+                </figure>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Animation definitions</h2>
+          <ul>
+            <li>
+              Most computergames contain moving objects or <em>sprites</em>, that need animation. Some definitions:
+              <ul>
+                <li>
+                  <em>scene</em>: the world the game is played in
+                </li>
+                <li>
+                  <em>sprite</em>: a object in the scene that can be animated (Super Mario, coin, bullet, bomb...)
+                </li>
+                <li>
+                  <em>sprite sheet</em>: an image containing all image versions of the sprite
+                </li>
+                <li>
+                  <em>game loop</em>: a piece of code that executes iteratively x times per second
+                </li>
+                <li>
+                  <em>frame</em>: a still image of an animation
+                </li>
+                <li>
+                  <em>FPS</em>: frames per second)
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <img src="img/06_games/spritesheet.png" alt="">
+        </section>
+        <section>
+          <h2>Loop with setInterval()</h2>
+          <ul>
+            <li>
+              You <i>could</i> use the vintage Javascript method <code>setInterval()</code> to time your animations. A basic bouncing ball example:
+              <pre class="bigger"><code class="language-html overlayrun wrong" style="max-height: 250px" contenteditable>&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    #app { width: 400px; height: 200px; position: relative; background-color: #ccc; }
+    #ball { width: 50px; height: 50px; position: absolute; left: 10px; top: 100px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="app"&gt;&lt;img src="demos/06_games/setinterval/ball.png" id="ball" alt=""&gt;&lt;/div&gt;
+  &lt;script&gt;
+    let speedX = 10; let speedY = 5; let speedR = 10;
+    let x = 10; let y = 100; let r = 0;
+    let ball = document.querySelector('#ball');
+    function doLoop() {
+      x += speedX;
+      y += speedY;
+      r += speedR;
+      ball.style.left = x + 'px';
+      ball.style.top = y + 'px';
+      ball.style.transform = 'rotate(' + r + 'deg)';
+      if (x &lt; 0 || x &gt; 350) { speedX *= -1; speedR *= -1; }
+      if (y &lt; 0 || y &gt; 150) { speedY *= -1; speedR *= -1; }
+    }
+    setInterval(doLoop, 20); // repeat doLoop function every 20ms
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/06_games/setinterval/index.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-toc-title="Loop with requestAnimationFrame()">
+          <h2>requestAnimationFrame()</h2>
+          <ul>
+            <li>
+              Problem: the FPS in <code>setInterval()</code> is fixed, which could be too fast for your CPU and lead to jerky or incomplete animations.
+              <pre class="bigger"><code class="language-javascript wrong" style="max-height: 250px" contenteditable>function doLoop() {
+  // animation logic here
+  // ...
+}
+setInterval(doLoop, 20); // repeat doLoop function every 20ms
+</code></pre>
+            </li>
+            <li>
+              Solution: use the new <code>requestAnimationFrame()</code> method, which uses a flexibel interval depending on the complexity of the scene:
+              <pre class="bigger"><code class="language-javascript right" style="max-height: 250px" contenteditable>function doLoop() {
+  // animation logic here
+  // ...
+  requestAnimationFrame(doLoop); // call next frame whenever the CPU is ready
+}
+doLoop(); // start the loop</code></pre>
+              <div class="demolink"><a href="demos/06_games/requestanimationframe/index.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Full example</h2>
+          <ul>
+            <li>
+              A full example with animation, sound effects etc. (Javascript is listed; inspect the demo source code for HTML and CSS):
+              <pre class="bigger"><code class="language-javascript right" style="max-height: 250px">// sprites list
+let sprites = [];
+
+// sound fx
+let sndSplash = new Audio('snd/splash.mp3');
+let sndGun = new Audio('snd/gun.mp3');
+sndGun.loop = true;
+
+// DOM elements
+const app = document.querySelector('#app');
+const btnStop = document.querySelector('#btnStop');
+const btnWalk = document.querySelector('#btnWalk');
+const btnRun = document.querySelector('#btnRun');
+const btnShoot = document.querySelector('#btnShoot');
+const btnDie = document.querySelector('#btnDie');
+const btnTurn = document.querySelector('#btnTurn');
+
+// background offset
+let bgOffsetX = -750;
+
+// gunman object
+const gunman = {
+  el: document.querySelector('#gunman'), // DOM element
+  w: 150, // sprite width
+  h: 150, // sprite height
+  fps: 5, // frames per second
+  isDead: false,
+  startTime: new Date(), // in milliseconds
+  direction: 1, // 1 = left, -1 = right
+  state: 'walk', // stop, walk, die, shoot
+  setState: function(state) { // sets sprite state
+    sndGun.pause();
+    this.startTime = new Date();
+    this.state = state;
+    this.fps = 15;
+    if (state == 'run') this.fps = 10;
+    if (state == 'walk') this.fps = 5;
+    if (state == 'stop') this.fps = 3;
+    if (state == 'die') sndSplash.play();
+    if (state == 'shoot') sndGun.play();
+  },
+  frames: { // series of images from sprite sheet
+    stop: [
+      [0, 0]
+    ],
+    walk: [
+      [2, 0],
+      [3, 0],
+      [4, 0]
+    ],
+    run: [
+      [2, 0],
+      [3, 0],
+      [4, 0]
+    ],
+    die: [
+      [0, 1],
+      [1, 1],
+      [2, 1],
+      [3, 1],
+      [4, 1],
+      [5, 1],
+      [6, 1],
+      [7, 1],
+      [8, 1],
+      [9, 1]
+    ],
+    shoot: [
+      [0, 0],
+      [0, 0],
+      [1, 0],
+      [1, 0]
+    ]
+  }
+};
+
+// add gunman to sprites list
+sprites.push(gunman);
+
+// render a sprite
+const renderSprite = function (sprite) {
+  // ignore dead sprites
+  if (sprite.isDead) return;
+
+  //
+  const timePassed = new Date() - sprite.startTime;
+  const currFrames = sprite.frames[sprite.state];
+  let frameNr = parseInt(timePassed * sprite.fps / 1000);
+  if (sprite.state == 'die' && frameNr >= currFrames.length) {
+    sprite.isDead = true;
+    return;
+  }
+
+  // adjust frame
+  frameNr = frameNr % currFrames.length;
+  sprite.el.style.backgroundPositionX = '-' + (sprite.w * currFrames[frameNr][0]) + 'px';
+  sprite.el.style.backgroundPositionY = '-' + (sprite.h * currFrames[frameNr][1]) + 'px';
+  sprite.el.style.transform = 'scaleX(' + sprite.direction + ')';
+
+  // adjust background
+  if (sprite.state == 'walk' || sprite.state == 'run') bgOffsetX += sprite.direction * sprite.fps / 5;
+  app.style.backgroundPositionX = bgOffsetX + 'px';
+}
+
+// main game loop
+const doLoop = function () {
+  for (let sprite of sprites) renderSprite(sprite);
+  requestAnimationFrame(doLoop);
+}
+
+// window loaded
+window.addEventListener('load', function() {
+  // add button event listeners
+  btnStop.addEventListener('click', function() {
+    gunman.setState('stop');
+  });
+  btnWalk.addEventListener('click', function() {
+    gunman.setState('walk');
+  });
+  btnRun.addEventListener('click', function() {
+    gunman.setState('run');
+  });
+  btnShoot.addEventListener('click', function() {
+    sndGun.play();
+    gunman.setState('shoot');
+  });
+  btnDie.addEventListener('click', function() {
+    gunman.setState('die');
+  });
+  btnTurn.addEventListener('click', function() {
+    gunman.direction = gunman.direction * -1;
+  });
+
+  // start game loop
+  doLoop();
+
+}); // end window.onload
+                </code></pre>
+              <div class="demolink"><a href="demos/06_games/gunman/index.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>JAVASCRIPT GAMES</h1>
+          <h2>3D ThreeJS</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>

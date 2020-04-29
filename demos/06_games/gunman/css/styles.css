@@ -1,0 +1,48 @@
+/**
+ *
+ * Helicopter Game styles
+ *
+ * @author Rogier van der Linde
+ *
+ */
+
+/*********************************************
+ * GENERAL SETUP
+ *********************************************/
+
+body {
+	background-color: #333;
+}
+
+#app {
+	background-color: rgb(112, 61, 61);
+	background-image: url(../img/panorama.jpg);
+	background-position: -750px 0;
+	width: 900px;
+	height: 500px;
+	margin: 0 auto;
+	position:  relative;
+}
+
+.buttons {
+	display: flex;
+	left: 20px;
+	position: absolute;
+	top: 20px;
+	z-index: 10;
+}
+
+.buttons button {
+	margin: 0 5px;
+}
+
+#gunman {
+	background-image: url(../img/sprite.png);
+	bottom: 100px;
+	display: block;
+	height: 150px;
+	left: 400px;
+	overflow: hidden;
+	position: absolute;
+	width: 150px;	
+}
