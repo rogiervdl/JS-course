@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+
+	View through localhost
+
+-->
+<html lang="en">
+<head>
+	<title> Localstorage demo </title>
+	<meta charset="utf-8" />
+	<script>
+		window.addEventListener('load', function() {
+			var list1 = document.getElementById("list1");
+			list1.addEventListener('blur', function() {
+				localStorage.setItem("todoData", this.innerHTML);
+			});
+			if (localStorage.getItem("todoData")) {
+				list1.innerHTML = localStorage.getItem("todoData");
+			}
+		})
+	</script>
+	<style>
+		p {
+			font-size: smaller;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<h1>My simple todo list</h1>
+	<p>Click and edit the list below, close the browser and open this page again</p>
+	<ul id="list1" contenteditable>
+		<li>do groceries</li>
+	</ul>
+</body>
+</html>

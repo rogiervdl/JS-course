@@ -141,6 +141,35 @@
             <!-- to be filled by Javascript -->
           </ul>
         </section>
+        <section>
+          <h2>LocalStorage</h2>
+          <ul>
+            <li>
+              Persist data locally on the user's browser. Simple todo list example:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html overlayrun">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;body&gt;
+  &lt;h1&gt;My simple todo list&lt;/h1&gt;
+  &lt;ul id="list1" contenteditable&gt;
+    &lt;li&gt;do groceries&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;script&gt;
+    var list1 = document.getElementById("list1");
+    list1.addEventListener('blur', function() {
+      localStorage.setItem("todoData", this.innerHTML);
+    });
+    if (localStorage.getItem("todoData")) {
+      list1.innerHTML = localStorage.getItem("todoData");
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/06_games/localstorage.html">demo</a></div>
+            </li>
+          </ul>
+          </section>
           <section>
             <h2>Drag and drop files</h2>
             <ul>
@@ -724,7 +753,7 @@
 &lt;/html&gt;</code></pre>
               <div class="demolink"><a href="demos/06_games/speech.html">demo</a> (Chrome; view through a web server)</div>
             </li>
-          </ul>  
+          </ul>
           <ul class="arrow">
             <li>
               another inspiring example on <a href="https://www.peanutgalleryfilms.com/">peanutgalleryfilms.com</a>
@@ -852,7 +881,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
       for (let i = 0; i &lt; notes.length; i++) {
         playNote('sounds/violin-' + notes[i] + '.mp3', 1000 + 1000 * i);
       }
-    }); 
+    });
 
   &lt;/script&gt;
 &lt;/body&gt;
@@ -1072,7 +1101,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               <div class="codescrollpanel"><pre class="bigger"><code class="language-html smallpanel overlayrun">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;meta charset="utf-8"&gt;  
+  &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Morphing Power Cubes&lt;/title&gt;
   &lt;style&gt;
     body {
@@ -1154,20 +1183,20 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
     &lt;/div&gt;
     &lt;div id="controls"&gt;
       &lt;p&gt;&lt;input type="range" id="slider" min="0.1" max="20" step="0.1"&gt;&lt;/p&gt;
-      &lt;p&gt;&lt;button id="btnStartStop"&gt;without animation&lt;/button&gt;&lt;/p&gt;     
+      &lt;p&gt;&lt;button id="btnStartStop"&gt;without animation&lt;/button&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;script type="text/javascript"&gt;
     document.getElementById('slider').addEventListener('input', function() {
-      document.getElementById('cube').style.animationDuration = this.value + 's';   
+      document.getElementById('cube').style.animationDuration = this.value + 's';
     });
     document.getElementById('btnStartStop').addEventListener('click', function() {
       if (this.innerHTML == 'without animation') {
         document.getElementById('cube').classList.remove('animate');
-        this.innerHTML = 'with animation';    
+        this.innerHTML = 'with animation';
       } else {
         document.getElementById('cube').classList.add('animate');
-        this.innerHTML = 'without animation';   
+        this.innerHTML = 'without animation';
       }
     });
   &lt;/script&gt;
@@ -1188,8 +1217,8 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               Google has a <a href="https://fonts.google.com/">great collection of free fonts</a> you can just link and use. Just select your font, and include a single line in your <code>&lt;head&gt;</code>:
               <pre class="bigger"><code class="language-html overlayrun" style="max-height: 250px" contenteditable>&lt;html&gt;
 &lt;head&gt;
-  &lt;!-- copy-paste the Google Font link here --&gt;    
-  &lt;link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet"&gt;    
+  &lt;!-- copy-paste the Google Font link here --&gt;
+  &lt;link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet"&gt;
   &lt;style&gt;
     p {
       font-family: 'Spicy Rice', sans-serif; /* use your new font here */
@@ -1205,7 +1234,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
 </code></pre>
             </li>
           </ul>
-        </section>      
+        </section>
         <section data-toc-title="Variable fonts">
           <h2>Variable fonts (1)</h2>
           <ul>
@@ -1215,7 +1244,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
 &lt;!-- see https://www.axis-praxis.org/specimens/decovar --&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;meta charset="utf-8"&gt;  
+  &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Lato&lt;/title&gt;
   &lt;link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet"&gt;
   &lt;style&gt;
@@ -1227,7 +1256,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
       width: 250px;
     }
     #text {
-      font-family: Lato; 
+      font-family: Lato;
       font-size: 30px;
       font-weight: 300;
       margin: 0;
@@ -1269,7 +1298,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               <div class="demolink"><a href="demos/06_games/variable-fonts-lato.html">demo</a></div>
             </li>
           </ul>
-        </section>      
+        </section>
         <section data-toc-title="">
           <h2>Variable fonts (2)</h2>
           <ul>
@@ -1279,7 +1308,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
 &lt;!-- see https://www.axis-praxis.org/specimens/decovar --&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;meta charset="utf-8"&gt;  
+  &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Variable fonts&lt;/title&gt;
   &lt;style&gt;
     @font-face {
@@ -1294,7 +1323,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
       width: 250px;
     }
     #text {
-      font-family: Decovar; 
+      font-family: Decovar;
       font-size: 30px;
       margin: 0;
       margin-left: 20px;
@@ -1342,7 +1371,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               <div class="demolink"><a href="demos/06_games/variable-fonts-decovar.html">demo</a></div>
             </li>
           </ul>
-        </section>      
+        </section>
         <section data-toc-title="">
           <h2>Variable fonts (3)</h2>
           <ul>
@@ -1352,7 +1381,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
 &lt;!-- see https://v-fonts.com/fonts/zycon --&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;meta charset="utf-8"&gt;  
+  &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Variable fonts &mdahs; Zycon&lt;/title&gt;
   &lt;style&gt;
     @font-face {
@@ -1367,7 +1396,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
       width: 250px;
     }
     #text {
-      font-family: Zycon; 
+      font-family: Zycon;
       font-size: 80px;
       margin: 0;
       margin-left: 20px;
@@ -1423,7 +1452,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               <div class="demolink"><a href="demos/06_games/variable-fonts-zycon.html">demo</a></div>
             </li>
           </ul>
-        </section>      
+        </section>
         <section data-toc-title="">
           <h2>Variable fonts (4)</h2>
           <ul>
@@ -1433,7 +1462,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
 &lt;!-- see https://v-fonts.com/fonts/zycon --&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;meta charset="utf-8"&gt;  
+  &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Variable fonts &mdahs; Zycon&lt;/title&gt;
   &lt;style&gt;
     @font-face {
@@ -1441,7 +1470,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
       src: url(demos/fonts/Zycon.woff2);
     }
     #text {
-      font-family: Zycon; 
+      font-family: Zycon;
       font-size: 180px;
       font-variation-settings: "T1  " 0, "T2  " 0, "T3  " 0, "T4  " 0, "M1  " 0, "M2  " 0;
       animation: variation 0.3s linear infinite;
@@ -1464,7 +1493,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               <div class="demolink"><a href="demos/06_games/variable-fonts-bicycle.html">demo</a></div>
             </li>
           </ul>
-        </section>      
+        </section>
         <section>
           <h2>CSS Blend modes</h2>
           <ul>
@@ -1490,7 +1519,7 @@ background-size: cover;
 &lt;!-- see https://yoksel.github.io/svg-filters/#/ for more filter fun --&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;meta charset="utf-8"&gt;  
+  &lt;meta charset="utf-8"&gt;
   &lt;title&gt;SVG filter&lt;/title&gt;
   &lt;style&gt;
     #van {
@@ -1519,7 +1548,7 @@ background-size: cover;
               more filters on <a href="https://yoksel.github.io/svg-filters/#/">yoksel.github.io</a>
             </li>
           </ul>
-        </section>      
+        </section>
         <section data-toc-title="">
           <h2>SVG filters (2)</h2>
           <ul>
@@ -1930,7 +1959,7 @@ scene.add(spotlight);</code></pre>
               <pre class="bigger"><code contenteditable class="language-javascript">...
 let groundMaterial = new THREE.MeshPhongMaterial({
     ...
-    shininess: 15, 
+    shininess: 15,
     specular: 0x888888,
     shading: THREE.SmoothShading
 });
@@ -1940,8 +1969,8 @@ ground.receiveShadow = true;
 ...
 let shapeMaterial = new THREE.MeshPhongMaterial({
     ...
-    shading: THREE.FlatShading, 
-    shininess: 60, 
+    shading: THREE.FlatShading,
+    shininess: 60,
     specular: 0x156289,
 });
 ...
@@ -1969,7 +1998,7 @@ let render = function() {
     shape.rotation.y += 0.03;
 
     // render the scene
-    renderer.render(scene, camera);       
+    renderer.render(scene, camera);
 }
 render();
 </code></pre>
@@ -1997,7 +2026,7 @@ let groundMaterial = new THREE.MeshPhongMaterial({
           </p>
           <div class="comments">
             <p>
-              To add texture, create an animation first; it might take a few frames before the image is loaded. 
+              To add texture, create an animation first; it might take a few frames before the image is loaded.
             </p>
           </div>
         </section>
@@ -2015,9 +2044,9 @@ groundTexture.wrapS = THREE.RepeatWrapping;
 groundTexture.wrapT = THREE.RepeatWrapping;
 groundTexture.repeat.set( 4, 4 );
 let groundMaterial = new THREE.MeshPhongMaterial({
-    shininess: 15, 
+    shininess: 15,
     specular: 0x888888,
-    shading: THREE.SmoothShading, 
+    shading: THREE.SmoothShading,
     side: THREE.DoubleSide,
     map: groundTexture
 });
@@ -2032,8 +2061,8 @@ let shapeGeometry = new THREE.TorusGeometry(30, 10, 12, 24);
 let shapeMaterial = new THREE.MeshPhongMaterial({
     color: 0x156289,
     side: THREE.DoubleSide,
-    shading: THREE.FlatShading, 
-    shininess: 60, 
+    shading: THREE.FlatShading,
+    shininess: 60,
     specular: 0x156289
 });
 let shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
@@ -2050,7 +2079,7 @@ scene.add(ambientlight);
 // add spotlight
 let spotlight = new THREE.SpotLight(0xFFFFFF, 0.7);
 spotlight.position.set(150, 200, -75);
-spotlight.shadow.camera.visible = true;            
+spotlight.shadow.camera.visible = true;
 spotlight.castShadow = true;
 spotlight.penumbra = 0.1;
 spotlight.angle = 0.4;
@@ -2077,7 +2106,7 @@ let render = function() {
     shape.rotation.y += 0.03;
 
     // render the scene
-    renderer.render(scene, camera);       
+    renderer.render(scene, camera);
 }
 render();
 </code></pre>
