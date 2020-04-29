@@ -33,12 +33,12 @@ const gunman = {
 		this.startTime = new Date();
 		this.state = state;
 		this.fps = 15;
-		if (state == 'run') this.fps = 10;
+		if (state == 'run') this.fps = 15;
 		if (state == 'walk') this.fps = 5;
 		if (state == 'stop') this.fps = 3;
 		if (state == 'die') sndSplash.play();
 		if (state == 'shoot') sndGun.play();
-	},	
+	},
 	frames: { // series of images from sprite sheet
 		stop: [
 			[0, 0]
@@ -70,7 +70,7 @@ const gunman = {
 			[0, 0],
 			[1, 0],
 			[1, 0]
-		]		
+		]
 	}
 };
 
@@ -82,10 +82,10 @@ const renderSprite = function (sprite) {
 	// ignore dead sprites
 	if (sprite.isDead) return;
 
-	// 
+	//
 	const timePassed = new Date() - sprite.startTime;
 	const currFrames = sprite.frames[sprite.state];
-	let frameNr = parseInt(timePassed * sprite.fps / 1000); 
+	let frameNr = parseInt(timePassed * sprite.fps / 1000);
 	if (sprite.state == 'die' && frameNr >= currFrames.length) {
 		sprite.isDead = true;
 		return;
@@ -99,34 +99,34 @@ const renderSprite = function (sprite) {
 
 	// adjust background
 	if (sprite.state == 'walk' || sprite.state == 'run') bgOffsetX += sprite.direction * sprite.fps / 5;
-	app.style.backgroundPositionX = bgOffsetX + 'px'; 
+	app.style.backgroundPositionX = bgOffsetX + 'px';
 }
 
 const doLoop = function () {
-	for (let sprite of sprites) renderSprite(sprite);	
+	for (let sprite of sprites) renderSprite(sprite);
 	requestAnimationFrame(doLoop);
 }
 
 window.addEventListener('load', function() {
 	btnStop.addEventListener('click', function() {
-		gunman.setState('stop'); 
+		gunman.setState('stop');
 	});
 	btnWalk.addEventListener('click', function() {
-		gunman.setState('walk'); 
+		gunman.setState('walk');
 	});
 	btnRun.addEventListener('click', function() {
-		gunman.setState('run'); 
+		gunman.setState('run');
 	});
 	btnShoot.addEventListener('click', function() {
 		sndGun.play();
-		gunman.setState('shoot'); 
+		gunman.setState('shoot');
 	});
-	btnDie.addEventListener('click', function() {		
-		gunman.setState('die'); 
+	btnDie.addEventListener('click', function() {
+		gunman.setState('die');
 	});
 	btnTurn.addEventListener('click', function() {
-		gunman.direction = gunman.direction * -1; 
+		gunman.direction = gunman.direction * -1;
 	});
 	doLoop();
 
-}); // end window.onload			
+}); // end window.onload
