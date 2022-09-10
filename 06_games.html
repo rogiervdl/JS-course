@@ -156,12 +156,12 @@
     &lt;li&gt;do groceries&lt;/li&gt;
   &lt;/ul&gt;
   &lt;script&gt;
-    var list1 = document.getElementById("list1");
+    const list1 = document.querySelector('#list1');
     list1.addEventListener('blur', function() {
-      localStorage.setItem("todoData", this.innerHTML);
+      localStorage.setItem('todoData', this.innerHTML);
     });
-    if (localStorage.getItem("todoData")) {
-      list1.innerHTML = localStorage.getItem("todoData");
+    if (localStorage.getItem('todoData')) {
+      list1.innerHTML = localStorage.getItem('todoData');
     }
   &lt;/script&gt;
 &lt;/body&gt;
@@ -180,7 +180,7 @@
                 <pre><code class="language-html smallpanel">  ...
   &lt;script&gt;
     window.addEventListener('load', function() {
-      var dropZone = document.querySelector('#dropzone');
+      const dropZone = document.querySelector('#dropzone');
       dropZone.addEventListener('dragenter', function(e) {
         e.stopPropagation();
         e.preventDefault();

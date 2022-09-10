@@ -634,7 +634,7 @@ console.log('' === false); // false; different types</code></pre></div>
           </ul>
         </section>
         <section>
-          <h2>Undefined, NaN, Infinity</h2>
+          <h2>Undefined, NaN</h2>
           <ul>
             <li>
               An unassigned variable has the value <code>undefined</code>:
@@ -646,12 +646,6 @@ console.log(test1); // undefined</code></pre></div>
               <div><pre class="bigger"><code contenteditable class="language-javascript overlayrun">let test1 = 7 * "bladibla"; // multiplication yields numbers
 console.log(test1); // NaN</code></pre></div>
             </li>
-            <li>
-              For division by zero we have <code>Infinity</code>:
-              <div><pre class="bigger"><code contenteditable class="language-javascript overlayrun">let test = 6 / 0;
-console.log(test); // Infinity
-</code></pre></div>
-            </li>
           </ul>
         </section>
         <section>
@@ -660,28 +654,95 @@ console.log(test); // Infinity
             <li>
               With <code>const</code>, a variable cannot be reassigned:
               <div><pre class="bigger"><code contenteditable class="language-javascript">// define some constants
-const PI = 3.141592653589793;
-const NUM_LIVES = 3;
-const CAR_MAKES = ['Saab', 'Volvo', 'BMW'];  
-const ME = { name: 'Rogier', age: 48 }              
+const pi = 3.141592653589793;
+const numLives = 3;
+const carMakes = ['Saab', 'Volvo', 'BMW'];  
+const me = { name: 'Rogier', age: 48 }              
 
 // you can't reassign a constant
-PI = 3.14; // error
-NUM_LIVES--; // error
-CAR_MAKES = ['Mercedes', 'Volvo', 'Dacia']; // error
+pi = 3.14; // error
+numLives--; // error
+carMakes = ['Mercedes', 'Volvo', 'Dacia']; // error
 
 // however: changes to array elements or object properties are ok
-CAR_MAKES[1] = 'Peugeot'; // ok
-CAR_MAKES.push('Tesla'); // ok
-ME.age = 49; // ok
+carMakes[1] = 'Peugeot'; // ok
+carMakes.push('Tesla'); // ok
+me.age = 49; // ok
 </code></pre></div>
             </li>
           </ul>
-          <ul class="arrow">
-            <li>note that we use UPPERCASE_UNDERSCORE notation for the name of constants</li>
-          </ul>
         </section>
+        <section>
+         <h2>Multiline strings</h2>
+         <ul>
+            <li>
+               Python-inspired multiline strings; notice the backticks <code>`...`</code>:
+               <div>
+                  <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let message = `Ik ben voor je gevallen,
+gevallen op straat,
+Ik zag je mooie ogen
+maar de stoeprand te laat`;
+
+console.log(message);
+</code></pre>
+               </div>
+            </li>
+         </ul>
       </section>
+      <section>
+         <h2>String interpolation</h2>
+         <ul>
+            <li>
+               remember PHP:
+               <div>
+                  <pre class="bigger"><code class="language-php" contenteditable>$name = "Rogier";
+$message = "hello $name, how are you?" // hello Rogier, how are you?</code></pre>
+               </div>
+            </li>
+            <li>
+               in ES6 (notice again the backticks):
+               <div>
+                  <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let person1 = { name: 'Rogier', age: 44 };
+let myName = 'Bob';
+let message = `hello ${person1.name}, my name is ${myName}`;
+console.log(message);  // hello Rogier, my name is Bob</code></pre>
+               </div>
+               <div>
+                  <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let id = 3;
+let language = 'nl';
+let url = `http://www.somedomain.com/?id=${id}&amp;lang=${language}`;
+console.log(url); // http://www.somedomain.com/?id=3&amp;lang=nl</code></pre>
+               </div>
+            </li>
+         </ul>
+        </section>
+        <section>
+         <h2>Array and string methods</h2>
+         <ul>
+            <li>
+               some intersting array and string methods:
+               <div>
+                  <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// array
+console.log([3, 4, 2, 7, 6].find(x => x > 3)); // find first: 4; uses arrow functions
+console.log([3, 4, 2, 7, 6].filter(x => x % 2 == 0)); // filter: [4, 2, 6]
+console.log([3, 4, 2, 7, 6].map(x => x * 2)); // do for each: [6, 8, 4, 14, 12]
+console.log([3, 4, 2, 7, 6].includes(7); // contains value: true
+
+// string
+console.log("ha".repeat(3)); // hahaha
+console.log("hello".startsWith("ello", 1)) // true
+console.log("hello".endsWith("hell", 4)); // true
+console.log("hello".includes("ell")); // true
+
+// math
+console.log(Math.trunc(42.7)) // 42
+console.log(Math.sign(-7)) // -1
+</code></pre>
+               </div>
+            </li>
+         </ul>
+      </section>
+</section>
       <section>
         <section>
           <h1>JAVASCRIPT SYNTAX</h1>
@@ -1383,6 +1444,31 @@ console.log(num); // 10; outer num is overwritten by inner num
             <li>never EVER use <code>var</code> to declare a variable</li>
           </ul>
         </section>
+        <section>
+         <h2>use const</h2>
+         <ul>
+           <li>
+             If a variable is assigned only once, you <i>should</i> use <em><code>const</code></em> in Javascript. Example: this fragment...
+             <div><pre class="bigger"><code contenteditable class="language-javascript">let values = [];
+let message = '';
+for (let i = 0; i < 10; i++) {
+   let rnd = Math.floor(Math.random() * 10 + 1);
+   message += `...adding ${rnd}\n`;
+   values.push(rnd);
+}
+console.log(message);</code></pre></div>
+            ...should be written as:
+            <div><pre class="bigger"><code contenteditable class="language-javascript"><b>const</b> values = []; // only assigned once
+let message = '';
+for (let i = 0; i < 10; i++) {
+   <b>const</b> rnd = Math.floor(Math.random() * 10 + 1); // only assigned once
+   message += `...adding ${rnd}\n`;
+   values.push(rnd);
+}
+console.log(message);</code></pre></div>
+            </li>
+         </ul>
+       </section>
         <section>
           <h2>How to avoid global space</h2>
           <ul>
