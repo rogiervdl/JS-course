@@ -44,7 +44,7 @@
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-        <section data-toc-title="Including scripts">
+        <section data-title="Including scripts">
           <h2>Including scripts (1)</h2>
           <ul>
             <li>
@@ -63,7 +63,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Including scripts (2)</h2>
           <ul>
             <li>
@@ -86,7 +86,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="Script structure">
+        <section data-title="Script structure">
           <h2>Script structure (1)</h2>
           <ul>
             <li>
@@ -109,14 +109,14 @@ window.addEventListener('load', function() {
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Script structure (2)</h2>
           <ul>
             <li>
               If your page runs other scripts, encapsulate your script in an anonymous function:
               <pre class="bigger"><code contenteditable class="language-javascript">(function() {
   'use strict';
-  
+
   // some functions
   let function1 = function() {
     // ...
@@ -202,8 +202,8 @@ let dat = new Date(); // Date object
               <div><pre class="bigger"><code contenteditable class="language-javascript">// define some constants
 const PI = 3.141592653589793;
 const NUM_LIVES = 3;
-const CAR_MAKES = ['Saab', 'Volvo', 'BMW'];  
-const ME = { name: 'Rogier', age: 48 }              
+const CAR_MAKES = ['Saab', 'Volvo', 'BMW'];
+const ME = { name: 'Rogier', age: 48 }
 </code></pre></div>
             </li>
           </ul>
@@ -213,14 +213,14 @@ const ME = { name: 'Rogier', age: 48 }
           <ul>
             <li>
               Classic syntax style:
-              <pre class="bigger"><code contenteditable class="language-javascript">function myFunction(par1, par2) { 
+              <pre class="bigger"><code contenteditable class="language-javascript">function myFunction(par1, par2) {
   // function statements here
   // ...
 } </code></pre>
             </li>
             <li>
               Newer syntax style:
-              <pre class="bigger"><code contenteditable class="language-javascript">let myFunction = function(par1, par2) { 
+              <pre class="bigger"><code contenteditable class="language-javascript">let myFunction = function(par1, par2) {
   // function statements here
   // ...
 }; </code></pre>
@@ -277,7 +277,7 @@ console.log(forrest.says());
             <li>
               to create an object, you don't need a class or constructor
             </li>
-          </ul>          
+          </ul>
         </section>
         <section>
           <h2>Anonymous objects</h2>
@@ -287,9 +287,9 @@ console.log(forrest.says());
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// function with only one parameter 'thing'
 let getDescription = function(thing) {
   let str = '';
-  str += 'Name: ' + thing.kind + '\n';  
-  str += 'Color: ' + thing.color + '\n';  
-  str += 'It weighs ' + thing.volume * thing.density + 'kg\n';  
+  str += 'Name: ' + thing.kind + '\n';
+  str += 'Color: ' + thing.color + '\n';
+  str += 'It weighs ' + thing.volume * thing.density + 'kg\n';
   return str;
 }
 
@@ -333,7 +333,7 @@ for (let friend of forrestFriends) {
   console.log(friend);
 }</code></pre>
             </li>
-          </ul>  
+          </ul>
         </section>
         <section>
           <h2>Looping over an object</h2>
@@ -351,7 +351,7 @@ for (let key in forrest) {
   console.log(key + ' = ' + forrest[key]);
 }</code></pre>
             </li>
-          </ul>  
+          </ul>
         </section>
         <section>
           <h2>Date, Math, Array</h2>
@@ -359,13 +359,13 @@ for (let key in forrest) {
             <li>
               Some examples of built-in classes <a href="https://www.w3schools.com/js/js_date_methods.asp">Date</a>, <a href="https://www.w3schools.com/js/js_math.asp">Math</a> and <a href="see https://www.w3schools.com/jsref/jsref_obj_array.asp">Array</a> (full overview on <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference">mozilla.org</a> or <a href="http://www.w3schools.com/js/default.asp">w3schools.com</a>):
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// Date example
-let now = new Date(); 
+let now = new Date();
 console.log(now.getFullYear());
 
 // Math example
 console.log(Math.ceil(Math.random() * 10));
 
-// Array example 
+// Array example
 let shakefruits = ['banana', 'orange', 'apple', 'mango'];
 if (shakefruits.includes('orange')) console.log('this shake has orange');
 shakefruits.push('pear'); // add a pear to the array
@@ -383,20 +383,20 @@ console.log(shakefruits);
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-        <section data-toc-title="How to find elements">
+        <section data-title="How to find elements">
           <h2>How to find elements (1)</h2>
           <ul>
             <li>
               The elements <code>window</code>, <code>location</code> and <code>document</code> can be used directly (see documentation on W3Schools for <a href="https://www.w3schools.com/jsref/obj_window.asp">window</a>, <a href="https://www.w3schools.com/jsref/obj_location.asp">location</a> and <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">document</a>):
               <pre class="bigger"><code contenteditable class="language-javascript">console.log(window.innerWidth); // window width
 location.href = 'https://www.google.com'; // redirect
-location.reload(); // reload page  
+location.reload(); // reload page
 document.title = 'Javascript &mdash; a beginners course'; // set document title
 </code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>How to find elements (2)</h2>
           <ul>
             <li>
@@ -419,22 +419,22 @@ let images = document.querySelectorAll('.thumbnail'); // get all img elements wi
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>How to find elements (3)</h2>
           <ul>
             <li>
               You can chain queries, e.g.:
               <pre class="bigger"><code contenteditable class="language-javascript">// find form, then find password field in that form
-let loginForm = document.getElementbyId('frm1'); 
+let loginForm = document.getElementbyId('frm1');
 let inpPw = loginForm.querySelector('input[type=passwprd]'); // look in loginForm
 
 // find table, then find all cells in that table
-let table1 = document.getElementbyId('my-table'); 
+let table1 = document.getElementbyId('my-table');
 let cells = table1.querySelectorAll('td'); // look in table1
 
 // this is of course equivalent to:
-let inpPw = document.querySelector('#frm1 input[type=passwprd]'); 
-let cells = document.querySelectorAll('#my-table td'); 
+let inpPw = document.querySelector('#frm1 input[type=passwprd]');
+let cells = document.querySelectorAll('#my-table td');
 </code></pre>
             </li>
           </ul>
@@ -465,7 +465,7 @@ button1.addEventListener('click', function() {
             <li>
               <code><em>querySelector()</em></code> gets a single element by CSS selector, e.g.:
               <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;form id="frmLogin"&gt;
-  &lt;span class="error"&gt;&lt;/span&gt; 
+  &lt;span class="error"&gt;&lt;/span&gt;
   &lt;label for="uname"&gt;Login: &lt;/label&gt;&lt;input type="text" id="uname" value="Bob"&gt;
   &lt;label for="pw"&gt;Password: &lt;/label&gt;&lt;input type="password" id="pw" value="XYZ"&gt;
   &lt;input type="submit" value="login"&gt;
@@ -484,7 +484,7 @@ console.log(inpPw.value);
             </li>
           </ul>
         </section>
-        <section data-toc-title="querySelectorAll">
+        <section data-title="querySelectorAll">
           <h2>querySelectorAll (1)</h2>
           <ul>
             <li>
@@ -502,7 +502,7 @@ console.log(navlinks.length); // will display 4</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>querySelectorAll (2)</h2>
           <ul>
             <li>
@@ -523,13 +523,13 @@ console.log(itemsToHide[0].innerHTML); // &lt;a href=""&gt;item2&lt;/a&gt;
 
 // iterate results and do something, e.g. hide them
 for (let item of itemsToHide) {
-  item.style.display = 'none'; 
+  item.style.display = 'none';
 }</code></pre>
               <div class="demolink"><a href="demos/summary/queryselectorall.html">demo</a></div>
             </li>
           </ul>
         </section>
-        <section data-toc-title="Manipulating elements">
+        <section data-title="Manipulating elements">
           <h2>Manipulating elements (1)</h2>
           <ul>
             <li>
@@ -542,8 +542,8 @@ el.style.backgroundColor = '#cc6'; // note: CSS property is camelCased in Javasc
 el.style.padding = '20px';
 
 // add/remove CSS classes
-el.classList.add('test'); 
-el.classList.remove('test2'); 
+el.classList.add('test');
+el.classList.remove('test2');
 
 // change the content
 el.innerHTML = 'Hammertime';
@@ -563,7 +563,7 @@ el.addEventListener('mouseover', function() {
             </div>
           </div>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Manipulating elements (2)</h2>
           <ul>
             <li>
@@ -599,9 +599,9 @@ el.addEventListener('mouseover', function() {
                   <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let img = document.querySelector('#img-car');
 let button = document.querySelector('#btn-view');
 button.addEventListener('click', function() {
-  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
+  if (img.classList.contains('zoom')) img.classList.remove('zoom');
   else img.classList.add('zoom');
-});                    
+});
 </code></pre>
                 </div>
                 <div style="width: 100px">
@@ -611,12 +611,12 @@ button.addEventListener('click', function() {
 let img = document.querySelector('#img-car');
 let button = document.querySelector('#btn-view');
 button.addEventListener('click', function() {
-  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
+  if (img.classList.contains('zoom')) img.classList.remove('zoom');
   else img.classList.add('zoom');
-});   
+});
 </script>
                 </div>
-              </div> 
+              </div>
             </li>
           </ul>
 
@@ -656,7 +656,7 @@ button1.addEventListener('click', function() {
 let link1 = document.getElementById('lnk1');
 
 // add click event listener; note the 'e' (event) parameter
-link1.addEventListener('click', function(e) { 
+link1.addEventListener('click', function(e) {
   e.preventDefault(); // prevent the link of being followed
   console.log('You clicked me!');
 });</code></pre>
@@ -690,22 +690,22 @@ link1.addEventListener('click', function(e) {
               Basic form checking example:
               <div><pre class="bigger"><code class="language-html" data-caption>&lt;form id="frm1"&gt;
   &lt;label for="pw"&gt;Your password: &lt;/label&gt;&lt;input type="password" id="pw"&gt;
-  &lt;span class="pw_error"&gt;&lt;/span&gt; 
+  &lt;span class="pw_error"&gt;&lt;/span&gt;
   &lt;input type="submit" value="register"&gt;
 &lt;/form&gt;</code></pre></div>
 
               <pre class="bigger"><code contenteditable class="language-javascript" data-caption>// get form and input
 let form = document.getElementById('frm1');
-let inpPw = form.querySelector('input[type=password]'); 
+let inpPw = form.querySelector('input[type=password]');
 let err = form.querySelector('.pw_error');
 
 // handle form submits
 form.addEventListener('submit', function(e) {
   err.innerHTML = ''; // clear errors from previous attempts
   if (inpPw.value.length < 8) {
-    err.innerHTML = 'your password is too short'; 
+    err.innerHTML = 'your password is too short';
     e.preventDefault(); // prevent submit
-  }  
+  }
 });
 </code></pre>
               <div class="demolink"><a href="demos/summary/formchecking.html">demo</a></div>

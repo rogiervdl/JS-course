@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="nl">
 <head>
     <title>Ajax example</title>
     <meta charset="utf-8">
@@ -6,7 +7,7 @@
         #pics {
             display: flex;
             flex-flow: row wrap;
-        }    
+        }
         #pics img {
             height: 200px;
             display: block;
@@ -16,14 +17,14 @@
     </style>
 </head>
 <body>
-    <input id="search" type="text" placeholder="search here" />
+    <input id="search" type="text" placeholder="search here">
     <div id="pics"></div>
     <script>
 
         window.addEventListener('load', function() {
-            // DOM 
-            let pics = document.getElementById('pics');
-            let search = document.getElementById('search');
+            // DOM
+            const pics = document.getElementById('pics');
+            const search = document.getElementById('search');
 
             // search field event
             search.addEventListener('keypress', function(e) {
@@ -47,8 +48,8 @@
             // handle fetch data
             function onSuccess(data) {
                 // all ok
-                for (let  i = 0; i < data.photos.photo.length; i++) {
-                    let  img = document.createElement('img');
+                for (let i = 0; i < data.photos.photo.length; i++) {
+                    const img = document.createElement('img');
                     if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
                     pics.appendChild(img);
                 }
@@ -57,10 +58,10 @@
             // make the search
             function makeSearch(searchval) {
                 // base URL
-                let base = "https://api.flickr.com/services/rest/?";
+                const base = "https://api.flickr.com/services/rest/?";
 
                 // append parameters
-                let params = new URLSearchParams();
+                const params = new URLSearchParams();
                 params.append('method', 'flickr.photos.search');
                 params.append('extras', 'url_m');
                 params.append('per_page', 20);
@@ -68,7 +69,7 @@
                 params.append('nojsoncallback', 1);
                 params.append('api_key', '6ecfcd8d4a3b8a04da6093733db989a2');
                 params.append('text', searchval);
-                let url = base + params.toString();
+                const url = base + params.toString();
 
                 // AJAX call
                 fetch(url)

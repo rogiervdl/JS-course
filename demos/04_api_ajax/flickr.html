@@ -1,66 +1,66 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Ajax example</title>
-    <meta charset="utf-8">
-    <style>
-        #pics {
-            display: flex;
-            flex-flow: row wrap;
-        }    
-        #pics img {
-            height: 200px;
-            display: block;
-            margin-top: 20px;
-            margin-right: 20px;
-        }
-    </style>
+  <title>Ajax example</title>
+  <meta charset="utf-8">
+  <style>
+    #pics {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    #pics img {
+      height: 200px;
+      display: block;
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+  </style>
 </head>
+
 <body>
-    <input id="search" type="text" placeholder="search here" />
-    <div id="pics"></div>
-    <script>
+  <input id="search" type="text" placeholder="search here">
+  <div id="pics"></div>
+  <script>
 
-        window.addEventListener('load', function() {
+    const pics = document.getElementById('pics');
+    const search = document.getElementById('search');
 
-            var pics = document.getElementById('pics');
-            var search = document.getElementById('search');
+    window.addEventListener('load', function () {
+      search.addEventListener('keypress', function (e) {
+        if (e.which == 13) {
+          pics.innerHTML = '';
+          makeSearch(this.value);
+        }
+      });
 
-            search.onkeypress = function(e) {
-                if (e.which == 13) {
-                    pics.innerHTML = '';
-                    makeSearch(this.value);
-                }
-            }
+      const xhr = new XMLHttpRequest();
 
-            var xhr = new XMLHttpRequest();
-
-            xhr.onreadystatechange = function(e) {
-                if (xhr.readyState != 4) return;
-                var data = JSON.parse(this.responseText);
-                console.log(data);
-                data = data.photos.photo;
-                for (var i = 0; i < data.length; i++) {
-                    var img = document.createElement('img');
-                    if (data[i].url_m) img.setAttribute('src', data[i].url_m);
-                    pics.appendChild(img);
-                }
-            }
+      xhr.onreadystatechange = function (e) {
+        if (xhr.readyState != 4) return;
+        const data = JSON.parse(this.responseText);
+        console.log(data);
+        data = data.photos.photo;
+        for (let i = 0; i < data.length; i++) {
+          const img = document.createElement('img');
+          if (data[i].url_m) img.setAttribute('src', data[i].url_m);
+          pics.appendChild(img);
+        }
+      }
 
 
-            function makeSearch(value) {
-                var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
-                url += '&api_key=6ecfcd8d4a3b8a04da6093733db989a2';
-                url += '&text=' + value;
-                url = encodeURI(url);
-                xhr.open("GET", url, true);
-                xhr.send()
-            }
+      function makeSearch(value) {
+        let url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&format=json&nojsoncallback=1&safe_search=1";
+        url += '&api_key=6ecfcd8d4a3b8a04da6093733db989a2';
+        url += '&text=' + value;
+        url = encodeURI(url);
+        xhr.open("GET", url, true);
+        xhr.send()
+      }
 
-        });
+    });
 
-    </script>
+  </script>
 </body>
+
 </html>
-
-
-

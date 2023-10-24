@@ -1,18 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>HTML5 &amp Games</title>
+  <title>HTML5 &amp; Games</title>
   <meta name="author" content="Rogier van der Linde - odisee.be">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
-  <link rel="stylesheet" href="fonts/lato/webfont.css">
-  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
-  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
-  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
-  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
-  <link rel="stylesheet" href="css/reveal-mods.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -24,19 +18,23 @@
     <div class="slides">
 
       <!-- 0 : Title -->
-      <section>
+      <section class="cover">
         <section>
           <h1>JAVASCRIPT GAMES</h1>
-          <small>use the arrow keys to navigate; press space for slide overview</small>
-          <figure>
-            <img src="img/06_games/icon.png" alt="" class="noborder" style="background: none; width: 400px;">
-          </figure>
-          <footer>
-            <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+          <p>
+            tussen []: optioneel, sterk aanbevolen voor wie wil verdergaan in web
+          </p>
+          <p>
+            gebruik pijltjestoetsen om te navigeren<br>
+            dotted codepanels zijn editeerbaar
+          </p>
+          <img src="img/06_games/icon.png" alt="" class="cover__icon">
+          <footer class="cover__footer">
+            <img src="img/me.jpg" alt="" class="cover__me"> <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
           </footer>
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>JAVASCRIPT GAMES</h1>
           <h2>Intro</h2>
@@ -46,74 +44,58 @@
         </section>
         <section>
           <h2>What is a game?</h2>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 500px">
-              <img src="img/06_games/what-is-a-game.jpg" alt="board game" style="width: 100%">
-            </div>
-            <div style="width:calc(100% - 510px)">
-              <ul style="font-size: larger" class="v-style">
-                <li class="fragment">it's FUN</li>
-                <li class="fragment">it's INTERACTIVE</li>
-                <li class="fragment">it's POINTLESS</li>
-              </ul>
-              <ul class="fragment plus-style" style="font-size: smaller; margin-top: 30px">
-                <li>It may or may not have a start and/or an ending</li>
-                <li>It may or may not have a competition element</li>
-                <li>It may be based on skills, luck or both</li>
-              </ul>
-            </div>
+          <div class="flex-2-1">
+            <img src="img/06_games/what-is-a-game.jpg" alt="board game">
+            <ul class="smallfont">
+              <li class="v-style">it's FUN</li>
+              <li class="v-style">it's INTERACTIVE</li>
+              <li class="v-style">it's POINTLESS</li>
+              <li class="plus-style">It may or may not have a start and/or an ending</li>
+              <li class="plus-style">It may or may not have a competition element</li>
+              <li class="plus-style">It may be based on skills, luck or both</li>
+            </ul>
           </div>
         </section>
         <section>
           <h2>So you want to create games</h2>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 400px">
-              <img src="img/06_games/war-game.jpg" alt="war game" style="width: 100%">
-            </div>
-            <div style="width:calc(100% - 410px)">
-              <ul class="fragment" style="font-size: smaller; list-style: square;">
-                <li>beware of scope: what <i>can</i> you create?</li>
-                <li>unless you work in a team of hundreds for several years, you'll never create something like Final Fantasy or God of War</li>
-                <li>don't focus on gameplay and graphics too soon; your first games are a learning experience, not your master work</li>
-                <li>start with a lousy version of tic-tac-toe, and be really proud of it</li>
-                <li>eventually you'll build games that you and others find enjoyable</li>
-              </ul>
-            </div>
+          <div class="flex-1-1">
+            <img src="img/06_games/war-game.jpg" alt="war game">
+            <ul class="smallfont">
+              <li>beware of scope: what <i>can</i> you create?</li>
+              <li>unless you work in a team of hundreds for several years, you'll never create something like Final Fantasy or God of War</li>
+              <li>don't focus on gameplay and graphics too soon; your first games are a learning experience, not your master work</li>
+              <li>start with a lousy version of tic-tac-toe, and be really proud of it</li>
+              <li>eventually you'll build games that you and others find enjoyable</li>
+            </ul>
           </div>
         </section>
         <section>
           <h2>Where to start</h2>
           <p>The first step should be to experiment and familiarize yourself with the terminology and basic principles:</p>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 300px">
-              <img src="img/06_games/wordcloud.png" alt="wordcloud" style="width: 100%">
-            </div>
-            <div style="width:calc(100% - 310px)">
-              <ul style="font-size: smaller; list-style: square;">
-                <li>shapes: geometry, mapping (texture, bump, displacement etc.), mesh, polygon, vertex...</li>
-                <li>light: illumination models (Phong, Lambert,...), color, shading, light sources (ambient, spot)...</li>
-                <li>audio: sound effects, context, sythesis...</li>
-                <li>rendering: context, scene, camera...</li>
-                <li>animation: frame, tween, kinematics...</li>
-                <li>gameplay: input, events, AI, collision detection...</li>
-                <li>math: origin, coordinates, vector, transformations...</li>
-                <li>...</li>
-              </ul>
-            </div>
+          <div class="flex-1-2">
+            <img src="img/06_games/wordcloud.png" alt="wordcloud">
+            <ul class="smallfont">
+              <li>shapes: geometry, mapping (texture, bump, displacement etc.), mesh, polygon, vertex...</li>
+              <li>light: illumination models (Phong, Lambert,...), color, shading, light sources (ambient, spot)...</li>
+              <li>audio: sound effects, context, sythesis...</li>
+              <li>rendering: context, scene, camera...</li>
+              <li>animation: frame, tween, kinematics...</li>
+              <li>gameplay: input, events, AI, collision detection...</li>
+              <li>math: origin, coordinates, vector, transformations...</li>
+              <li>...</li>
+            </ul>
           </div>
         </section>
         <section>
           <h2>What is the best tool?</h2>
           <p>Which tool has a large scope, is flexible, easy to learn, preferably near to free, and good to begin with? Unity? Unreal? GameMaker? Godot?</p>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 500px">
-              <img src="img/06_games/unity.jpg" alt="unity" style="width: 100%">
-            </div>
-            <div style="width:calc(100% - 510px)">
+          <div class="flex-6-4">
+            <img src="img/06_games/unity.jpg" alt="unity">
+            <div class="smallfont">
               <p class="fragment">
-                <span style="font-size: larger; margin-right: 10px">🦄</span> it doesn't exist
+                🦄 it doesn't exist
               </p>
-              <ul class="fragment arrow spacious" style="font-size: smaller; list-style: none;">
+              <ul class="fragment arrow">
                 <li>you'll dive in, get frustrated, disappointed, and quit before you even finish your first game</li>
                 <li>you'll learn a tool, not game programming; the tool gets in the way of learning about games</li>
               </ul>
@@ -123,17 +105,15 @@
         <section>
           <h2>Comes in: basic web technologies</h2>
           <p>In my opinion, the best start is just a browser and a text editor. HTML, CSS and Javascript have all a beginner needs to start building great games.</p>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 500px">
-              <img src="img/06_games/oxo.png" alt="oxo" style="width: 100%">
-            </div>
-            <div style="width:calc(100% - 510px); font-size: smaller">
-              <p style="margin-top: 30px;">Let's see some examples of what HTML, CSS and Javascript have to offer...</p>
+          <div class="flex-6-4">
+            <img src="img/06_games/oxo.png" alt="oxo">
+            <div class="smallfont">
+              <p>Let's see some examples of what HTML, CSS and Javascript have to offer...</p>
             </div>
           </div>
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>JAVASCRIPT GAMES</h1>
           <h2>Javascript Goodies</h2>
@@ -169,15 +149,15 @@
               <div class="demolink"><a href="demos/06_games/localstorage.html">demo</a></div>
             </li>
           </ul>
-          </section>
-          <section>
-            <h2>Drag and drop</h2>
-            <ul>
-              <li>
-                Drag/drop made easy with <code>ondrop</code> event and <code>dataTransfer.getData()</code> method:
-              </li>
-              <li class="no-style">
-                <pre><code class="language-html smallpanel">  ...
+        </section>
+        <section>
+          <h2>Drag and drop</h2>
+          <ul>
+            <li>
+              Drag/drop made easy with <code>ondrop</code> event and <code>dataTransfer.getData()</code> method:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">  ...
   &lt;script&gt;
     window.addEventListener('load', function() {
       const dropZone = document.querySelector('#dropzone');
@@ -221,18 +201,18 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-                <div class="demolink"><a href="demos/06_games/dragdrop1.html">demo</a></div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Drag and drop images</h2>
-            <ul>
-              <li>
-                Example with images and <code>draggable</code> attribute:
-              </li>
-              <li class="no-style">
-                <pre><code class="language-html smallpanel">  ...
+              <div class="demolink"><a href="demos/06_games/dragdrop1.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Drag and drop images</h2>
+          <ul>
+            <li>
+              Example with images and <code>draggable</code> attribute:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">  ...
   &lt;script&gt;
     window.addEventListener('load', function() {
       var dropZone = document.querySelector('#dropzone');
@@ -279,18 +259,18 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-                <div class="demolink"><a href="demos/06_games/dragdrop2.html">demo</a></div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Images desktop drag in</h2>
-            <ul>
-              <li>
-                Example images dragging from your desktop, Javascript:
-              </li>
-              <li class="no-style">
-                <pre><code class="language-javascript smallpanel">window.addEventListener('load', function() {
+              <div class="demolink"><a href="demos/06_games/dragdrop2.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Images desktop drag in</h2>
+          <ul>
+            <li>
+              Example images dragging from your desktop, Javascript:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-javascript smallpanel">window.addEventListener('load', function() {
   // drop area
   var dropzone = document.getElementById('dropzone');
 
@@ -339,23 +319,23 @@
 
 });
 </code></pre>
-                <div class="demolink"><a href="demos/06_games/dragin.html">demo</a></div>
-              </li>
-            </ul>
-            <ul class="arrow">
-              <li>
-                A great example using drag-in is <a href="http://spritepad.wearekiss.com/">Spritepad</a>
-              </li>
-            </ul>
-          </section>
-          <section data-toc-title="Files desktop drag out">
-            <h2>Files desktop drag out (1)</h2>
-            <ul>
-              <li>
-                Example dragging files to your desktop, HTML and CSS:
-              </li>
-              <li class="no-style">
-                <pre><code class="language-html">&lt;style&gt;
+              <div class="demolink"><a href="demos/06_games/dragin.html">demo</a></div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              A great example using drag-in is <a href="http://spritepad.wearekiss.com/">Spritepad</a>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Files desktop drag out">
+          <h2>Files desktop drag out (1)</h2>
+          <ul>
+            <li>
+              Example dragging files to your desktop, HTML and CSS:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html">&lt;style&gt;
   .dragout {
     background: #999;
     color: #fff;
@@ -373,17 +353,17 @@
   &lt;a class="dragout" href="media/star.mp3" data-downloadurl
   ="audio/mpeg:star.mp3:http://sli...star.mp3"&gt;MP3&lt;/a&gt;
 </code></pre>
-              </li>
-            </ul>
-          </section>
-          <section data-toc-title="">
-            <h2>Files desktop drag out (2)</h2>
-            <ul>
-              <li>
-                Example dragging files to your desktop, Javascript:
-              </li>
-              <li class="no-style">
-                <pre><code class="language-javascript">window.addEventListener('load', function() {
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Files desktop drag out (2)</h2>
+          <ul>
+            <li>
+              Example dragging files to your desktop, Javascript:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-javascript">window.addEventListener('load', function() {
   // files ready for dragging
   var files = document.querySelectorAll('.dragout');
 
@@ -395,18 +375,18 @@
   }
 });
 </code></pre>
-                <div class="demolink"><a href="demos/06_games/dragout.html">demo</a></div>
-              </li>
-            </ul>
-          </section>
-          <section data-toc-title="Webcam">
-            <h2>Webcam (1)</h2>
-            <ul>
-              <li>
-                Access the webcam:
-              </li>
-              <li class="no-style">
-                <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+              <div class="demolink"><a href="demos/06_games/dragout.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Webcam">
+          <h2>Webcam (1)</h2>
+          <ul>
+            <li>
+              Access the webcam:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;title&gt;Webcam demo&lt;/title&gt;
@@ -436,18 +416,18 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-                <div class="demolink"><a href="demos/06_games/webcam.html">demo</a></div>
-              </li>
-            </ul>
-          </section>
-          <section data-toc-title="">
-            <h2>Webcam (2)</h2>
-            <ul>
-              <li>
-                Photobooth fun with webcam and CSS filters:
-              </li>
-              <li class="no-style">
-                <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+              <div class="demolink"><a href="demos/06_games/webcam.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Webcam (2)</h2>
+          <ul>
+            <li>
+              Photobooth fun with webcam and CSS filters:
+            </li>
+            <li class="no-style">
+              <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;title&gt;Photobooth demo&lt;/title&gt;
@@ -562,21 +542,21 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-                <div class="demolink"><a href="demos/06_games/photobooth.html">demo</a></div>
-              </li>
-            </ul>
-            <ul class="arrow">
-              <li>
-                other photobooth demo at <a href="https://neave.com/webcam/html5/">https://neave.com/webcam/html5/</a>
-              </li>
-              <li>
-                sand particles at <a href="https://lab.cheron.works/webgl-gpgpu-particles/">lab.cheron.works</a>
-              </li>
-              <li>
-                motion xylophone at <a href="http://www.soundstep.com/blog/experiments/jsdetection/">soundstep.com</a>
-              </li>
-            </ul>
-          </section>
+              <div class="demolink"><a href="demos/06_games/photobooth.html">demo</a></div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              other photobooth demo at <a href="https://neave.com/webcam/html5/">https://neave.com/webcam/html5/</a>
+            </li>
+            <li>
+              sand particles at <a href="https://lab.cheron.works/webgl-gpgpu-particles/">lab.cheron.works</a>
+            </li>
+            <li>
+              motion xylophone at <a href="http://www.soundstep.com/blog/experiments/jsdetection/">soundstep.com</a>
+            </li>
+          </ul>
+        </section>
         <section>
           <h2>Geolocation API</h2>
           <ul>
@@ -673,12 +653,12 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-              <div class="demolink"><a href="demos/06_games/orientation.html">demo</a> (orientation enabled devices only) &mdash; <a href="demos/06_games/img/qr-orientation.png" target="_new">QR</a></div>
+              <div class="demolink"><a href="demos/06_games/orientation.html">demo</a> (orientation enabled devices only) &mdash; <a href="demos/06_games/img/qr-orientation.png" target="_blank">QR</a></div>
             </li>
           </ul>
           <ul class="arrow">
             <li>
-              another experiment: throw paper planes on <a href="https://paperplanes.world/">paperplanes.world</a> &mdash; <a href="demos/06_games/img/qr-paperplanes.png" target="_new">QR</a>
+              another experiment: throw paper planes on <a href="https://paperplanes.world/">paperplanes.world</a> &mdash; <a href="demos/06_games/img/qr-paperplanes.png" target="_blank">QR</a>
             </li>
           </ul>
         </section>
@@ -760,7 +740,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="Sound API">
+        <section data-title="Sound API">
           <h2>Sound API (1)</h2>
           <ul>
             <li>
@@ -778,10 +758,10 @@
             <li>
               Some great online demos:
               <ul>
-                  <li>DinahMoe has nice demos, like <a href="http://dinahmoelabs.com/rickastley">Rick Ashtley</a> or <a href="http://dinahmoelabs.com/tonecraft">Tonecraft</a></li>
-                  <li>a simple <a href="demos/equalizer/index.html">equalizer</a></li>
-                  <li><a href="http://daftpunk.themaninblue.com/">Anatomy of a Mashup</a></li>
-                  <li>another <a href="https://musiclab.chromeexperiments.com/Spectrogram/">audio visualizer</a></li>
+                <li>DinahMoe has nice demos, like <a href="http://dinahmoelabs.com/rickastley">Rick Ashtley</a> or <a href="http://dinahmoelabs.com/tonecraft">Tonecraft</a></li>
+                <li>a simple <a href="demos/equalizer/index.html">equalizer</a></li>
+                <li><a href="http://daftpunk.themaninblue.com/">Anatomy of a Mashup</a></li>
+                <li>another <a href="https://musiclab.chromeexperiments.com/Spectrogram/">audio visualizer</a></li>
               </ul>
             </li>
             <li>
@@ -789,7 +769,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Sound API (2)</h2>
           <ul>
             <li>
@@ -848,7 +828,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Sound API (3)</h2>
           <ul>
             <li>
@@ -856,7 +836,7 @@
               <pre><code class="language-js">let song = new Audio('song.mp3');
 song.play(); // other methods: stop(), pause() etc...</code></pre>
               Example:
-              <pre><code class="language-html" style="height: 200px;">&lt;!DOCTYPE html&gt;
+              <pre><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
 &lt;html lang="nl"&gt;
 &lt;body&gt;
   &lt;label&gt;notes: &lt;input type="text" value="A Cs D F A" id="inpSong"&gt;&lt;/label&gt;
@@ -892,7 +872,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="Canvas">
+        <section data-title="Canvas">
           <h2>Canvas (1)</h2>
           <ul>
             <li>
@@ -927,7 +907,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Canvas (2)</h2>
           <ul>
             <li>
@@ -939,9 +919,9 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
             <li>
               Some online demos:
               <ul>
-                  <li><a href="http://www.cuttherope.ie/">Cut The Rope</a></li>
-                  <li><a href="http://www.mrspeaker.net/dev/parcycle/">Particles generator</a></li>
-                  <li><a href="http://kinderen.tweehuizen.be/index.html">Tweehuizen (own work)</a></li>
+                <li><a href="http://www.cuttherope.ie/">Cut The Rope</a></li>
+                <li><a href="http://www.mrspeaker.net/dev/parcycle/">Particles generator</a></li>
+                <li><a href="http://kinderen.tweehuizen.be/index.html">Tweehuizen (own work)</a></li>
               </ul>
             </li>
           </ul>
@@ -987,7 +967,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
           </ul>
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>JAVASCRIPT GAMES</h1>
           <h2>CSS Goodies</h2>
@@ -1053,7 +1033,8 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               Define keyframes, properties and easing:
             </li>
             <li class="no-style">
-              <div class="codescrollpanel"><pre class="bigger"><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
+              <div class="codescrollpanel">
+                <pre class="bigger"><code class="language-html smallpanel">&lt;!DOCTYPE html&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8" /&gt;
   &lt;title&gt;Animation&lt;/title&gt;
@@ -1085,7 +1066,8 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
     &lt;div id="busBig" class="layer"&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
+              </div>
               <div class="demolink"><a href="demos/06_games/animations1.html">demo</a> (more <a href="demos/06_games/animations2.html">elaborated demo</a>)</div>
             </li>
           </ul>
@@ -1097,7 +1079,8 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
               Transforms and animations combined:
             </li>
             <li class="no-style">
-              <div class="codescrollpanel"><pre class="bigger"><code class="language-html smallpanel overlayrun">&lt;!DOCTYPE html&gt;
+              <div class="codescrollpanel">
+                <pre class="bigger"><code class="language-html smallpanel overlayrun">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8"&gt;
@@ -1201,7 +1184,8 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></div>
+</code></pre>
+              </div>
               <div class="demolink"><a href="demos/06_games/cube.html">demo</a></div>
             </li>
             <li class="arrow">
@@ -1234,7 +1218,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="Variable fonts">
+        <section data-title="Variable fonts">
           <h2>Variable fonts (1)</h2>
           <ul>
             <li>
@@ -1298,7 +1282,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Variable fonts (2)</h2>
           <ul>
             <li>
@@ -1371,7 +1355,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Variable fonts (3)</h2>
           <ul>
             <li>
@@ -1452,7 +1436,7 @@ song.play(); // other methods: stop(), pause() etc...</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Variable fonts (4)</h2>
           <ul>
             <li>
@@ -1509,7 +1493,7 @@ background-size: cover;
             </li>
           </ul>
         </section>
-        <section data-toc-title="SVG filters">
+        <section data-title="SVG filters">
           <h2>SVG filters (1)</h2>
           <ul>
             <li>
@@ -1548,12 +1532,13 @@ background-size: cover;
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>SVG filters (2)</h2>
           <ul>
             <li>
               Another SVG filter example, conversion of any image to duotone:
-              <div class="codescrollpanel"><pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+              <div class="codescrollpanel">
+                <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -1643,7 +1628,8 @@ background-size: cover;
 
   &lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
+              </div>
               <div class="demolink"><a href="demos/06_games/svg-filter-kayne.html">demo</a> (inspired by <a href="https://codepen.io/jmperez/pen/LGqaxQ/">this pen</a>)</div>
             </li>
           </ul>
@@ -1656,12 +1642,13 @@ background-size: cover;
             </li>
           </ul>
         </section>
-          <section>
-            <h2>Inline SVG graphics</h2>
-            <ul>
-              <li>
-                Crazy text demo:
-                <div class="codescrollpanel"><pre class="bigger"><code class="language-html overlayrun">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+        <section>
+          <h2>Inline SVG graphics</h2>
+          <ul>
+            <li>
+              Crazy text demo:
+              <div class="codescrollpanel">
+                <pre class="bigger"><code class="language-html overlayrun">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;!-- Created with Inkscape (http://www.inkscape.org/)
 Created by ed@opera.com, 2007-07-05.
 --&gt;
@@ -1732,18 +1719,19 @@ Created by ed@opera.com, 2007-07-05.
   &lt;/g&gt;
   &lt;/g&gt;
 &lt;/svg&gt;
-</code></pre></div>
-                <div class="demolink"><a href="demos/06_games/img/svg_text.svg">demo</a></div>
-              </li>
-            </ul>
-            <ul class="arrow">
-              <li>
-                or take a look at the famous <a href="demos/06_games/img/svg_tiger.svg">Tiger Example</a>
-              </li>
-            </ul>
-          </section>
+</code></pre>
+              </div>
+              <div class="demolink"><a href="demos/06_games/img/svg_text.svg">demo</a></div>
+            </li>
+          </ul>
+          <ul class="arrow">
+            <li>
+              or take a look at the famous <a href="demos/06_games/img/svg_tiger.svg">Tiger Example</a>
+            </li>
+          </ul>
+        </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>JAVASCRIPT GAMES</h1>
           <h2>2D sprites and animations</h2>
@@ -1838,7 +1826,7 @@ Created by ed@opera.com, 2007-07-05.
             </li>
           </ul>
         </section>
-        <section data-toc-title="Loop with requestAnimationFrame()">
+        <section data-title="Loop with requestAnimationFrame()">
           <h2>requestAnimationFrame()</h2>
           <ul>
             <li>
@@ -2010,7 +1998,7 @@ window.addEventListener('load', function() {
           </ul>
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>JAVASCRIPT GAMES</h1>
           <h2>3D ThreeJS</h2>
@@ -2025,7 +2013,7 @@ window.addEventListener('load', function() {
               WebGL (Web Graphics Library) is a Javascript API for rendering 3D directly in the browser without the need of extra plugins.
             </li>
             <li>
-              Browser support is actually <a href="http://caniuse.com/#feat=webgl">excellent</a>, also on mobile devices</a>.
+              Browser support is actually <a href="http://caniuse.com/#feat=webgl">excellent</a>, also on mobile devices.
             </li>
             <li>
               WebGL is too basic to work with directly, so we'll use the <a href="https://threejs.org/">ThreeJS library</a> for our code.
@@ -2085,13 +2073,14 @@ window.addEventListener('load', function() {
               </ul>
             </li>
           </ul>
-          <img src="img/06_games/3Dscene.jpg" alt="3D scene" style="position: absolute; right: 20px; bottom: 20px; max-width: 25%" />
+          <img src="img/06_games/3Dscene.jpg" alt="3D scene" style="position: absolute; right: 20px; bottom: 20px; max-width: 25%">
         </section>
         <section>
           <h2>setting up threejs</h2>
           <p>
             We basically just need an HTML document, and link our scripts
-              <pre class="bigger"><code contenteditable class="language-html">&lt;!DOCTYPE html&gt;
+          </p>
+          <pre class="bigger"><code contenteditable class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;ThreeJS demo&lt;/title&gt;
@@ -2105,7 +2094,6 @@ window.addEventListener('load', function() {
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-          </p>
           <ul class="arrow">
             <li>
               from here, we'll continue in <code>scripts.js</code>
@@ -2116,26 +2104,27 @@ window.addEventListener('load', function() {
           <h2>scene</h2>
           <p>
             The scene is just an empty space which will contain all our objects, lights etc... Let's create one:
-              <pre class="bigger"><code contenteditable class="language-javascript">// init scene
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript">// init scene
 scene = new THREE.Scene();
 </code></pre>
-          </p>
         </section>
-        <section data-toc-title="Objects">
+        <section data-title="Objects">
           <h2>objects (1)</h2>
           <p>
-              In 3D, shapes are defined as a collection of adjacent polygons, called a <em>polygon mesh</em>. Less polygons = faster rendering (games), more polygons = better detail (movies)<br>
-              <img src="img/06_games/low-high-poly.jpg" alt="" width="400" />
+            In 3D, shapes are defined as a collection of adjacent polygons, called a <em>polygon mesh</em>. Less polygons = faster rendering (games), more polygons = better detail (movies)<br>
+            <img src="img/06_games/low-high-poly.jpg" alt="" width="400">
           </p>
           <ul>
             <li class="arrow">some movie examples: <a href="https://www.youtube.com/watch?v=QXe4T1RoJTc#t=00m45s">GoT</a>, <a href="http://www.cgmeetup.net/home/making-of-life-of-pi-visual-effect-by-rhythm-hues-studios/">life of PI</a>, <a href="https://www.youtube.com/watch?v=gAuGNqFJISs">walking dead</a></li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>objects (2)</h2>
           <p>
             To define an object ('<em>mesh</em>'), you need at least a shape ('<em>geometry</em>') and a <em>material</em>. ThreeJS has a few predefined shapes like sphere, cone, box, plane... Let's add a ground and a shape:
-              <pre class="bigger"><code contenteditable class="language-javascript smallpanel">// add ground
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript smallpanel">// add ground
 let groundGeometry = new THREE.PlaneGeometry( 200, 300, 32 );
 let groundMaterial = new THREE.MeshPhongMaterial({
     color: 0x666666,
@@ -2154,13 +2143,13 @@ let shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
 shape.position.y = 70;
 shape.rotation.y = Math.PI / 360 * 120;
 scene.add( shape );</code></pre>
-          </p>
         </section>
         <section>
           <h2>camera &amp; renderer</h2>
           <p>
             To actually create an image, we need a camera viewpoint, from where we render the scene:
-            <pre class="bigger"><code contenteditable class="language-javascript smallpanel">// add camera
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript smallpanel">// add camera
 camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
 camera.position.y = 250;
 camera.position.z = 250;
@@ -2176,10 +2165,9 @@ document.body.appendChild(renderer.domElement);
 
 // render
 renderer.render(scene, camera); </code></pre>
-            <div class="demolink"><a href="demos/06_games/threejssimple/index1.html">demo</a> (hmm... something seems missing...)</div>
-          </p>
+          <div class="demolink"><a href="demos/06_games/threejssimple/index1.html">demo</a> (hmm... something seems missing...)</div>
         </section>
-        <section data-toc-title="lightning">
+        <section data-title="lightning">
           <h2>lighting (1)</h2>
           <ul>
             <li class="no-style">
@@ -2201,11 +2189,12 @@ renderer.render(scene, camera); </code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>lighting (2)</h2>
           <p>
             We add ambient light and a spotlight:
-              <pre class="bigger"><code contenteditable class="language-javascript">// add ambient light
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript">// add ambient light
 let ambientlight = new THREE.AmbientLight(0x444444, 2.5);
 scene.add(ambientlight);
 
@@ -2215,14 +2204,14 @@ spotlight.position.set(150, 200, -75);
 spotlight.penumbra = 0.1;
 spotlight.angle = 0.4;
 scene.add(spotlight);</code></pre>
-            <div class="demolink"><a href="demos/06_games/threejssimple/index2.html">demo</a></div>
-          </p>
+          <div class="demolink"><a href="demos/06_games/threejssimple/index2.html">demo</a></div>
         </section>
         <section>
           <h2>shadows &amp; shading</h2>
           <p>
             We still need to create shadows, and specify how objects are shaded. Let's add relevant properties:
-              <pre class="bigger"><code contenteditable class="language-javascript">...
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript">...
 let groundMaterial = new THREE.MeshPhongMaterial({
     ...
     shininess: 15,
@@ -2250,14 +2239,14 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 ...
 </code></pre>
-            <div class="demolink"><a href="demos/06_games/threejssimple/index3.html">demo</a></div>
-          </p>
+          <div class="demolink"><a href="demos/06_games/threejssimple/index3.html">demo</a></div>
         </section>
         <section>
           <h2>animations</h2>
           <p>
             To animate a scene, we need to change some properties and re-render x times per second. We'll use the native <code>requestAnimationFrame</code> function to create a loop:
-              <pre class="bigger"><code contenteditable class="language-javascript">// render
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript">// render
 let render = function() {
     // keep looping
     requestAnimationFrame(render);
@@ -2268,8 +2257,7 @@ let render = function() {
 }
 render();
 </code></pre>
-            <div class="demolink"><a href="demos/06_games/threejssimple/index4.html">demo</a></div>
-          </p>
+          <div class="demolink"><a href="demos/06_games/threejssimple/index4.html">demo</a></div>
           <div class="comments">
             <p>
               The <code>requestAnimationFrame</code> function works a little bit like a variable delay: it executes within 1/60th of a second (60 FPS), or later if scenes are heavy to render. This prevents the dropping of frames or parts of frames, ensuring a smooth rendering.
@@ -2280,7 +2268,8 @@ render();
           <h2>texture</h2>
           <p>
             Adding texture to objects is easy, e.g. the ground floor:
-              <pre class="bigger"><code contenteditable class="language-javascript">let groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript">let groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
 groundTexture.wrapS = THREE.RepeatWrapping;
 groundTexture.wrapT = THREE.RepeatWrapping;
 groundTexture.repeat.set( 4, 4 );
@@ -2288,8 +2277,7 @@ let groundMaterial = new THREE.MeshPhongMaterial({
   ...
   map: groundTexture
 });</code></pre>
-            <div class="demolink"><a href="demos/06_games/threejssimple/index5.html">demo</a></div>
-          </p>
+          <div class="demolink"><a href="demos/06_games/threejssimple/index5.html">demo</a></div>
           <div class="comments">
             <p>
               To add texture, create an animation first; it might take a few frames before the image is loaded.
@@ -2300,7 +2288,8 @@ let groundMaterial = new THREE.MeshPhongMaterial({
           <h2>complete code listing</h2>
           <p>
             Our complete code:
-              <pre class="bigger"><code contenteditable class="language-javascript">// init scene
+          </p>
+          <pre class="bigger"><code contenteditable class="language-javascript">// init scene
 let scene = new THREE.Scene();
 
 // add ground
@@ -2376,8 +2365,7 @@ let render = function() {
 }
 render();
 </code></pre>
-            <div class="demolink"><a href="demos/06_games/threejssimple/index5.html">demo</a></div>
-          </p>
+          <div class="demolink"><a href="demos/06_games/threejssimple/index5.html">demo</a></div>
           <ul class="arrow">
             <li>
               also see this <a href="demos/06_games/threejsfull/index.html">elaborated example</a> illustrating all concepts
@@ -2388,15 +2376,12 @@ render();
 
     </div>
 
+
     <!-- odisee.be link -->
     <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
 
-    <!-- Index Link -->
-    <aside class="back">
-      <nav>
-        <p><a href="index.html">&larr; Back to index</a></p>
-      </nav>
-    </aside>
+    <!-- index menu container -->
+    <nav id="navigator"></nav>
 
   </div>
 
@@ -2411,4 +2396,5 @@ render();
   <script src="js/main.js"></script>
 
 </body>
+
 </html>

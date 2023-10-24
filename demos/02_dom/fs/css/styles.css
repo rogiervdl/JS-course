@@ -10,15 +10,7 @@
 
 /* reset */
 
-html {
-	font-size: 0.625em;
-}
-
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -32,19 +24,6 @@ p, div.qstn {
 	margin-bottom: 1em;
 }
 
-/* helper classes */
-
-.structural {
-	left: -9999px;
-	position: absolute;
-}
-
-.clearfix:after {
-	clear: both;
-	content: "";
-	display: table;
-}
-
 /* ===========================================
 	General
 	=========================================== */
@@ -53,14 +32,14 @@ p, div.qstn {
 
 body {
 	font-family: Lato, arial, sans-serif;
-	font-size: 1.4rem;
+	font-size: 14px;
 	line-height: 1.5;
-	padding: 1rem 2rem;
+	padding: 10px 20px;
 }
 
 h1 {
 	font-weight: normal;
-	padding-bottom: 1rem;
+	padding-bottom: 10px;
 }
 
 a {
@@ -82,64 +61,64 @@ form, #thankyou {
 	font-family: Lato;
 	margin: 0 auto;
 	max-width: 60rem;
-	padding: 3rem;
+	padding: 30px;
 }
 
 fieldset {
-	margin-bottom: 2rem;
-	margin-top: 1rem;
+	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 label {
-    display: block;
-    font-family: Lato, Arial;
-	font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
+	display: block;
+	font-family: Lato, Arial;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 5px;
+	margin-top: 10px;
 }
 
 legend {
-	height: 2.4rem;
-	margin-bottom: 0.5em;
+	height: 24px;
+	margin-bottom: 5px;
 	text-transform: uppercase;
 }
 
 input, select {
 	border: 1px solid rgba(0, 0, 0, .08);
 	color: #444;
-    display: block;
-	font-size: 1.4rem;
-    height: 3rem;
-    line-height: 2rem;
+	display: block;
+	font-size: 14px;
+	height: 30px;
+	line-height: 20px;
 	outline: 0;
-	padding: 0.5rem 1rem;
+	padding: 5px 10px;
 	width: 100%;
 }
 
-input[type=radio], input[type=checkbox], input[type=submit] {
+input[type=radio], input[type=checkbox], [type=submit] {
 	width: auto;
 	height: auto;
-	margin-right: 1rem;
+	margin-right: 10px;
 }
 
 input[type=radio], input[type=checkbox] {
 	display: inline;
 }
 
-input[type=submit] {
+[type=submit] {
 	background-color: #fff;
 	cursor: pointer;
-    border: 3px #7bbb5e solid;
-    color: #7bbb5e;
-    line-height: 1.4rem;
-    float: right;
-    text-transform: uppercase;
+	border: 3px #7bbb5e solid;
+	color: #7bbb5e;
+	line-height: 14px;
+	float: right;
+	text-transform: uppercase;
 }
 
 input[type=submit]:hover {
 	background-color: #7bbb5e;
-    color: #fff;
+	color: #fff;
 }
 
 /* classes */
@@ -175,7 +154,7 @@ input[type=submit]:hover {
 }
 
 .label--radio + .label--radio {
-	margin-left: 2rem;
+	margin-left: 20px;
 	margin-top: 0;
 }
 
@@ -202,7 +181,7 @@ input[type=submit]:hover {
 }
 
 #summary {
-	padding: 0 2rem;
+	padding: 0 20px;
 	background-color: rgba(227, 64, 100, 0.2);
 	border: 4px ridge;
 	border-color: rgba(227, 64, 100, 0.2);
@@ -213,10 +192,10 @@ input[type=submit]:hover {
 }
 
 #summary.show {
-	padding: 2rem;
+	padding: 20px;
 	height: auto;
 	opacity: 1;
-	margin: 1rem 0 3rem 0;
+	margin: 10px 0 30px 0;
 }
 
 #thankyou {
@@ -224,10 +203,10 @@ input[type=submit]:hover {
 }
 
 #thankyou__message {
-	padding: 2rem;
+	padding: 20px;
 	background-color: rgba(64, 227, 100, 0.2);
 	border: 4px ridge;
 	border-color: rgba(64, 227, 100, 0.2);
-	margin: 1rem 0 3rem 0;
+	margin: 10px 0 30px 0;
 }
 

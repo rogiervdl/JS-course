@@ -1,123 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-   <meta charset="utf-8">
-   <title>ES6 &amp; beyond</title>
-   <meta name="author" content="Rogier van der Linde - odisee.be">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-   <link rel="stylesheet" href="fonts/droidsans/webfont.css">
-   <link rel="stylesheet" href="fonts/lato/webfont.css">
-   <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
-   <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
-   <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
-   <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
-   <link rel="stylesheet" href="css/reveal-mods.css">
-   <link rel="stylesheet" href="css/common.css">
-   <link rel="stylesheet" href="css/07_es6.css">
-   <script>
-      'use strict'
-   </script>
+  <meta charset="utf-8">
+  <title>ES6 &amp; beyond</title>
+  <meta name="author" content="Rogier van der Linde - odisee.be">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/07_es6.css">
+  <script>
+    'use strict'
+  </script>
 </head>
 
 <body>
 
-   <!-- SLIDES -->
-   <div class="reveal">
+  <!-- SLIDES -->
+  <div class="reveal">
 
-      <!-- SLIDES -->
-      <div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
 
-         <!-- Any section element inside of this container is displayed as a slide -->
-         <div class="slides">
-
-            <!-- 0 : Title -->
-            <section>
-               <section>
-                  <h1>JAVASCRIPT GAMES</h1>
-                  <small>use the arrow keys to navigate; press space for slide overview</small>
-                  <figure>
-                     <img src="img/07_es6/icon.png" alt="" class="noborder" style="background: none; width: 200px;">
-                  </figure>
-                  <footer>
-                     <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a
-                        href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
-                  </footer>
-               </section>
-            </section>
-            <section>
-               <section>
-                  <h1>ES6 &amp; beyond</h1>
-                  <h2>about</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section>
-                  <h2>ECMAScript 6</h2>
-                  <ul>
-                     <li>
-                        A.K.A. Harmony, A.K.A. ES6, A.K.A. ES2015
-                     </li>
-                     <li>
-                        feature-frozen in August 2014
-                     </li>
-                     <li>
-                        after a bugfixing period, published as standard on June 17, 2015
-                     </li>
-                     <li>
-                        should be used in strict mode:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript">'use strict'
+      <!-- 0 : Title -->
+      <section class="cover">
+        <section>
+          <h1>ES6</h1>
+          <p>
+            tussen []: optioneel, sterk aanbevolen voor wie wil verdergaan in web
+          </p>
+          <p>
+            gebruik pijltjestoetsen om te navigeren<br>
+            dotted codepanels zijn editeerbaar
+          </p>
+          <img src="img/07_es6/icon.png" alt="" class="cover__icon">
+          <footer class="cover__footer">
+            <img src="img/me.jpg" alt="" class="cover__me"> <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+          </footer>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES6 &amp; beyond</h1>
+          <h2>about</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>ECMAScript 6</h2>
+          <ul>
+            <li>
+              A.K.A. Harmony, A.K.A. ES6, A.K.A. ES2015
+            </li>
+            <li>
+              feature-frozen in August 2014
+            </li>
+            <li>
+              after a bugfixing period, published as standard on June 17, 2015
+            </li>
+            <li>
+              should be used in strict mode:
+              <div>
+                <pre class="bigger"><code class="language-javascript">'use strict'
 
 // rest of ES6 code here</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        Also Javascript's naming history is a long one: originally developed under the name Mocha,
-                        renamed to LiveScript, then Javascript, then ECMAScript; IE developed a 'compatible' version
-                        called JScript. Also version numbering is <a
-                           href="https://www.w3schools.com/js/js_versions.asp">confusing to say the least</a>.
-                     </div>
-                  </div>
-               </section>
-               <section data-toc-title="ES2015">
-                  <h2><del>ES.Harmony</del> <del>ECMAScript 6</del> ES2015</h2>
-                  <ul>
-                     <li>
-                        future versions will follow the <code class="hl">ES[yyyy]</code> pattern, e.g. <del>ES7</del>
-                        ES2016 (so the correct name for ES6 is ES2015)
-                     </li>
-                     <li>
-                        yearly release; features that don't make it in time, take the next
-                     </li>
-                     <li>
-                        reason: pressing browser vendors to implement features quickly
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>variables</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section data-toc-title="Var, Let and Const">
-                  <h2>Var, Let and Const (1)</h2>
-                  <ul>
-                     <li>
-                        <em>scope</em> means where a variable lives
-                     </li>
-                     <li>
-                        the scope of <code class="hl">var</code> is only limited by a function, not by blocks:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let x = 1; // x is global
+              </div>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              Also Javascript's naming history is a long one: originally developed under the name Mocha,
+              renamed to LiveScript, then Javascript, then ECMAScript; IE developed a 'compatible' version
+              called JScript. Also version numbering is <a
+                href="https://www.w3schools.com/js/js_versions.asp">confusing to say the least</a>.
+            </div>
+          </div>
+        </section>
+        <section data-title="ES2015">
+          <h2><del>ES.Harmony</del> <del>ECMAScript 6</del> ES2015</h2>
+          <ul>
+            <li>
+              future versions will follow the <code class="hl">ES[yyyy]</code> pattern, e.g. <del>ES7</del>
+              ES2016 (so the correct name for ES6 is ES2015)
+            </li>
+            <li>
+              yearly release; features that don't make it in time, take the next
+            </li>
+            <li>
+              reason: pressing browser vendors to implement features quickly
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>variables</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section data-title="Var, Let and Const">
+          <h2>Var, Let and Const (1)</h2>
+          <ul>
+            <li>
+              <em>scope</em> means where a variable lives
+            </li>
+            <li>
+              the scope of <code class="hl">var</code> is only limited by a function, not by blocks:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let x = 1; // x is global
 for (let y = 0; y &lt; 4; y++) { // y is global
   let z = 10; // z is global
 }
@@ -125,33 +117,33 @@ console.log(x) // 1
 console.log(y) // 4
 console.log(z) // 10
 </code></pre>
-                        </div>
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let x = 1; // x is global
-let test = function() {
+              </div>
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let x = 1; // x is global
+const test = function() {
   let y = 2; // y is local
 };
 console.log(x); // 1
 console.log(y); // error: y only lives within the function scope
 </code></pre>
-                        </div>
+              </div>
 
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        Note that the scope in Javascript differs from most other languages as C# or Java, where in the
-                        first example y would be local to the loop.
-                     </div>
-                  </div>
-               </section>
-               <section data-toc-title="">
-                  <h2>Var, Let and Const (2)</h2>
-                  <ul>
-                     <li>
-                        the scope of <code class="hl">let</code> is also limited by blocks:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let x = 1; // x is global
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              Note that the scope in Javascript differs from most other languages as C# or Java, where in the
+              first example y would be local to the loop.
+            </div>
+          </div>
+        </section>
+        <section data-title="">
+          <h2>Var, Let and Const (2)</h2>
+          <ul>
+            <li>
+              the scope of <code class="hl">let</code> is also limited by blocks:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let x = 1; // x is global
 for (let y = 0; y &lt; 4; y++) { // y is local
   let z = 10; // z is local
 }
@@ -159,65 +151,66 @@ console.log(x); // 1
 console.log(y); // error!
 console.log(z); // error!
 </code></pre>
-                        </div>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Var, Let and Const (5)</h2>
-                  <ul>
-                     <li>
-                        Javascript finally accepts constants:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>const text = 'hello';
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Var, Let and Const (5)</h2>
+          <ul>
+            <li>
+              Javascript finally accepts constants:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>const text = 'hello';
 text = 'goodbye'; // will throw an error</code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        You can't change the value of a constant, but you can still change its properties:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>const person1 = {
+              </div>
+            </li>
+            <li>
+              You can't change the value of a constant, but you can still change its properties:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>const person1 = {
   name: 'Roger',
   age: 44
 };
 
 person1.age = 45; // happy birthday</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Var, Let or Const?</h2>
-                  <img src="img/07_es6/const_let_var.png" alt="" class="border" />
-               </section>
-               <section>
-                  <h2>Object property shorthand</h2>
-                  <ul>
-                     <li>
-                        ES5:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let name = 'Bobby', age = 42;
-let person = {name: name, age: age};
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Var, Let or Const?</h2>
+          <img src="img/07_es6/const_let_var.png" alt="" class="bordered">
+        </section>
+        <section>
+          <h2>Object property shorthand</h2>
+          <ul>
+            <li>
+              ES5:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>var name = 'Bobby', age = 42;
+var person = {name: name, age: age};
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun right" contenteditable>let name = 'Bobby', age = 42;
-let person = {name, age};
+              </div>
+            </li>
+            <li>
+              ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun right" contenteditable>const name = 'Bobby', age = 42;
+const person = {name, age};
 console.log(person);
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>Method property shorthand</h2>
-                  <ul>
-                     <li>
-                        ES5:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let obj = {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Method property shorthand</h2>
+          <ul>
+            <li>
+              ES5:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>var obj = {
   sayHello: function() {
     console.log('hello');
   },
@@ -226,12 +219,12 @@ console.log(person);
   }
 };
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript right strict overlayrun" contenteditable>let obj = {
+              </div>
+            </li>
+            <li>
+              ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript right strict overlayrun" contenteditable>const obj = {
   sayHello() {
     console.log('hello');
   },
@@ -242,136 +235,136 @@ console.log(person);
 
 console.log(obj.sum(6, 8)); // 14
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>...Rest parameter</h2>
-                  <ul>
-                     <li>
-                        aggregate remaining parameters into a single <code class="hl">...rest</code> parameter:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let test = function(x, y, ...a) {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>...Rest parameter</h2>
+          <ul>
+            <li>
+              aggregate remaining parameters into a single <code class="hl">...rest</code> parameter:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const test = function(x, y, ...a) {
   return (x + y) * a.length;
 }
 console.log(test(1, 2, "hello", true, 7)); // 9</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="...Spread operator">
-                  <h2>...Spread operator (1)</h2>
-                  <ul>
-                     <li>
-                        spread an array or string into individual elements:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let str = "hello";
-let chars = [ ...str ]; // ["h", "e", "l", "l", "o"]</code></pre>
-                        </div>
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let options = ["green", true, 7];
-let extendedOptions = [1, 2, ...options]; // [1, 2, "green", true, 7]</code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        example: easy array concatenation
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let arr = [1, 2, ...[3, 4, 5], 6, 7];
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="...Spread operator">
+          <h2>...Spread operator (1)</h2>
+          <ul>
+            <li>
+              spread an array or string into individual elements:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>const str = "hello";
+const chars = [ ...str ]; // ["h", "e", "l", "l", "o"]</code></pre>
+              </div>
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>const options = ["green", true, 7];
+const extendedOptions = [1, 2, ...options]; // [1, 2, "green", true, 7]</code></pre>
+              </div>
+            </li>
+            <li>
+              example: easy array concatenation
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const arr = [1, 2, ...[3, 4, 5], 6, 7];
 console.log(arr);</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Destructuring &ndash; arrays">
-                  <h2>Destructuring &ndash; arrays (1)</h2>
-                  <ul>
-                     <li>
-                        ES5:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let list = [77, true, 'hello'];
-let a = list[0];
-let b = list[1];
-let c = list[2];
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Destructuring &ndash; arrays">
+          <h2>Destructuring &ndash; arrays (1)</h2>
+          <ul>
+            <li>
+              ES5:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>var list = [77, true, 'hello'];
+var a = list[0];
+var b = list[1];
+var c = list[2];
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript right strict overlayrun" contenteditable>let list = [77,  true, 'hello'];
-let [a, b, c] = list; // array destructuring
+              </div>
+            </li>
+            <li>
+              ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript right strict overlayrun" contenteditable>const list = [77,  true, 'hello'];
+const [a, b, c] = list; // array destructuring
 
 console.log(a); // 77
 console.log(b); // true
 console.log(c); // 'hello'</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Destructuring &ndash; arrays (2)</h2>
-                  <ul>
-                     <li>
-                        default values:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let list = [7, 42];
-let [a = 1, b = 2, c = 3, d] = list;
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Destructuring &ndash; arrays (2)</h2>
+          <ul>
+            <li>
+              default values:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const list = [7, 42];
+const [a = 1, b = 2, c = 3, d] = list;
 
 console.log(b); // 42
 console.log(c); // 3
 console.log(d); // undefined</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Destructuring &ndash; arrays (3)</h2>
-                  <ul>
-                     <li>
-                        skipping values:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let list = [77, true, 'hello'];
-let [a, , c] = list;
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Destructuring &ndash; arrays (3)</h2>
+          <ul>
+            <li>
+              skipping values:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const list = [77, true, 'hello'];
+const [a, , c] = list;
 
 console.log(a); // 77
 console.log(c); // 'hello'</code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        easy value swapping with destructuring:
-                        <div>
-                           <pre
-                              class="bigger"><code class="language-javascript" contenteditable>let [a, b] = [b, a];</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Destructuring &ndash; arrays (4)</h2>
-                  <ul>
-                     <li>
-                        return multiple values:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let func = function() {
+              </div>
+            </li>
+            <li>
+              easy value swapping with destructuring:
+              <div>
+                <pre
+                  class="bigger"><code class="language-javascript" contenteditable>const [a, b] = [b, a];</code></pre>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Destructuring &ndash; arrays (4)</h2>
+          <ul>
+            <li>
+              return multiple values:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const func = function() {
   return [1, true, 'hello', {}]; // return multiple values
 }
 
-let [a, , b, ] = func();
+const [a, , b, ] = func();
 
 console.log(a); // 1
 console.log(b); // 'hello'</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Destructuring &ndash; objects">
-                  <h2>Destructuring &ndash; objects (1)</h2>
-                  <ul>
-                     <li>
-                        Destructuring an object into variables (shorthand version):
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let test = {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Destructuring &ndash; objects">
+          <h2>Destructuring &ndash; objects (1)</h2>
+          <ul>
+            <li>
+              Destructuring an object into variables (shorthand version):
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const test = {
   name: 'Rogier',
   address: {
     street: 'Kerkstraat',
@@ -380,22 +373,22 @@ console.log(b); // 'hello'</code></pre>
   age: 42
 };
 
-let { name, address } = test; // object destructuring
+const { name, address } = test; // object destructuring
 
 console.log(name); // Rogier
 console.log(address); // {street: "Kerkstraat", number: 33}
 console.log(address.number); // 33</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Destructuring &ndash; objects (2)</h2>
-                  <ul>
-                     <li>
-                        Explicit variable names &amp; deep matching:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let test = {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Destructuring &ndash; objects (2)</h2>
+          <ul>
+            <li>
+              Explicit variable names &amp; deep matching:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>const test = {
   name: 'Rogier',
   address: {
     street: 'Kerkstraat',
@@ -405,118 +398,117 @@ console.log(address.number); // 33</code></pre>
   isMale: true
 };
 
-let { name: n, address: {street: s}, age: a } = test; // object destructuring
+const { name: n, address: {street: s}, age: a } = test; // object destructuring
 
 console.log(n); // Rogier
 console.log(s); // 'Kerkstraat'
 console.log(a); // 42
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>functions</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section>
-                  <h2>Arrow functions</h2>
-                  <ul>
-                     <li>
-                        shorthand notation for functions (like C# lambda expressions)
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// no parameters
-let sayHello = () => console.log('hello');
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>functions</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Arrow functions</h2>
+          <ul>
+            <li>
+              shorthand notation for functions (like C# lambda expressions)
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// no parameters
+const sayHello = () =&gt; console.log('hello');
 sayHello(); // hello </code></pre>
-                        </div>
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// single parameter
-let double = a => a * 2;
+              </div>
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// single parameter
+const double = a =&gt; a * 2;
 console.log(double(4)); // 8</code></pre>
-                        </div>
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// multiple parameters
-let sum = (a, b) => a + b;
+              </div>
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// multiple parameters
+const sum = (a, b) =&gt; a + b;
 console.log(sum(2,4)); // 6</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>Currying functions</h2>
-                  <ul>
-                     <li>
-                        is a function that returns a function that returns a function etc...
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let highpass = function highpass(cutoff) {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Currying functions</h2>
+          <ul>
+            <li>
+              is a function that returns a function that returns a function etc...
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>var highpass = function highpass(cutoff) {
   return function (n) {
-    return n >= cutoff;
+    return n &gt;= cutoff;
   };
 };
-let gt4 = highpass(4);
-console.log(gt4(6)); // true
-console.log(gt4(3)); // false</code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        in ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const highpass = cutoff => n => n >= cutoff;
 const gt4 = highpass(4);
 console.log(gt4(6)); // true
 console.log(gt4(3)); // false</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>Default parameters</h2>
-                  <ul>
-                     <li>
-                        ES5:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>function f (x, y, z) {
+              </div>
+            </li>
+            <li>
+              in ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const highpass = cutoff =&gt; n =&gt; n &gt;= cutoff;
+const gt4 = highpass(4);
+console.log(gt4(6)); // true
+console.log(gt4(3)); // false</code></pre>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Default parameters</h2>
+          <ul>
+            <li>
+              ES5:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>function f (x, y, z) {
   if (y === undefined) y = 7;
   if (z === undefined) z = 42;
   return x + y + z;
 };
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript right" contenteditable>function f (x, y = 7, z = 42) {
+              </div>
+            </li>
+            <li>
+              ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript right" contenteditable>function f (x, y = 7, z = 42) {
   return x + y + z;
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Generator functions">
-                  <h2>Generator functions (1)</h2>
-                  <ul>
-                     <li>
-                        a generator is a function that can return multiple values
-                     </li>
-                     <li>
-                        each time next() is called, it runs till the next <code>yield</code> and pauses:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// define a generator
-let someGenerator = function*(){
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Generator functions">
+          <h2>Generator functions (1)</h2>
+          <ul>
+            <li>
+              a generator is a function that can return multiple values
+            </li>
+            <li>
+              each time next() is called, it runs till the next <code>yield</code> and pauses:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// define a generator
+const someGenerator = function*(){
   yield 'hello';
   yield 9;
   yield true;
 }
 
 // calling the generator returns an iterator object
-let gen = someGenerator();
+const gen = someGenerator();
 
 // call the next iterator value
 console.log(gen.next().value); // 'hello'
@@ -524,69 +516,69 @@ console.log(gen.next().value); // 9
 console.log(gen.next().value); // true
 console.log(gen.next().value); // undefined
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Generator functions (2)</h2>
-                  <ul>
-                     <li>
-                        <code>next()</code> actually returns an object with <code>value</code> and <code>done</code>
-                        props:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let someGenerator = function*(){
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Generator functions (2)</h2>
+          <ul>
+            <li>
+              <code>next()</code> actually returns an object with <code>value</code> and <code>done</code>
+              props:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const someGenerator = function*(){
   yield 'an';
   yield 'bob';
 }
 
-let gen = someGenerator();
+const gen = someGenerator();
 
 console.log(gen.next()); // {value: "an", done: false}
 console.log(gen.next()); // {value: "bob", done: false}
 console.log(gen.next()); // {value: undefined, done: true}
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        simply said: generators calculate a set of <code>yield</code>s, which are called one by one by
-                        <code>next()</code>
-                     </div>
-                  </div>
-               </section>
-               <section data-toc-title="">
-                  <h2>Generator functions (3)</h2>
-                  <ul>
-                     <li>
-                        example with parameters:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let counterGenerator = function*(start, step){
-  let number = start;
+              </div>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              simply said: generators calculate a set of <code>yield</code>s, which are called one by one by
+              <code>next()</code>
+            </div>
+          </div>
+        </section>
+        <section data-title="">
+          <h2>Generator functions (3)</h2>
+          <ul>
+            <li>
+              example with parameters:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const counterGenerator = function*(start, step){
+  const number = start;
   while(true) {
     yield number;
     number += step;
   }
 }
 
-let gen = counterGenerator(100, 3);
+const gen = counterGenerator(100, 3);
 
 console.log(gen.next().value); // 100
 console.log(gen.next().value); // 103
 console.log(gen.next().value); // 106
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Generator functions (4)</h2>
-                  <ul>
-                     <li>
-                        fibonacci example:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>function* fibonacci(n) {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Generator functions (4)</h2>
+          <ul>
+            <li>
+              fibonacci example:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>function* fibonacci(n) {
   const infinite = !n &amp;&amp; n !== 0;
   let current = 0;
   let next = 1;
@@ -598,26 +590,26 @@ console.log(gen.next().value); // 106
 }
 
 // oldskool:
-let fibGenerator = fibonacci();
+const fibGenerator = fibonacci();
 console.log(fibGenerator.next().value); // 0
 console.log(fibGenerator.next().value); // 1
 console.log(fibGenerator.next().value); // 1
 
 // generators are iterables, so for...of work, as do spreads:
-let [...first10] = fibonacci(10);
+const [...first10] = fibonacci(10);
 console.log(first10); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Generator functions (5)</h2>
-                  <ul>
-                     <li>
-                        you can delegate to another generator with <code>yield*</code>:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>function* g1() {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Generator functions (5)</h2>
+          <ul>
+            <li>
+              you can delegate to another generator with <code>yield*</code>:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>function* g1() {
   yield 2;
   yield 3;
   yield 4;
@@ -629,102 +621,101 @@ function* g2() {
   yield 5;
 }
 
-let iterator = g2();
+const iterator = g2();
 
-let next = iterator.next();
+const next = iterator.next();
 while(!next.done) {
   console.log(next.value); // 1 2 3 4 5
   next = iterator.next();
 }</code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        more in-depth lecture on <a
-                           href="https://ponyfoo.com/articles/es6-generators-in-depth">ponyfoo.com</a>
-                     </li>
-                  </ul>
-               </section>
-            </section>
+              </div>
+            </li>
+            <li class="arrow">
+              more in-depth lecture on <a
+                href="https://ponyfoo.com/articles/es6-generators-in-depth">ponyfoo.com</a>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>collections</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section data-title="for...of">
+          <h2>for...of (1)</h2>
+          <ul>
+            <li>
+              Iterates arrays over values instead of over keys:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const arr = ['hello', 111];
 
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>collections</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section data-toc-title="for...of">
-                  <h2>for...of (1)</h2>
-                  <ul>
-                     <li>
-                        Iterates arrays over values instead of over keys:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let arr = ['hello', 111];
+const obj = { a: 'bye', b: 222 };
 
-let obj = { a: 'bye', b: 222 };
-
-for (let i in arr) {
+for (const i in arr) {
   if (!arr.hasOwnProperty(i)) continue;
   console.log(i); // 0 1
 }
 
-for (let i of arr) {
+for (const i of arr) {
   console.log(i); // hello 111
 }
 
-for (let i in obj) {
+for (const i in obj) {
   if (!obj.hasOwnProperty(i)) continue;
   console.log(i); // a b
 }
 
-// for (let i of obj) { error! by default, object is not iterable
+// for (const i of obj) { error! by default, object is not iterable
 //   console.log(i);
 // }
 
-for (let i in obj) {
+for (const i in obj) {
   console.log(obj[i]); // bye 222
   if (!obj.hasOwnProperty(i)) continue;
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>for...of (2)</h2>
-                  <ul>
-                     <li>
-                        Sidenote: when looping arrays or objects with <code>for...in</code>, you should use
-                        <code>hasOwnProperty()</code> to skip properties inherited from the prototype. Try this
-                        fragment:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun wrong" contenteditable>// define prototype method
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>for...of (2)</h2>
+          <ul>
+            <li>
+              Sidenote: when looping arrays or objects with <code>for...in</code>, you should use
+              <code>hasOwnProperty()</code> to skip properties inherited from the prototype. Try this
+              fragment:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun wrong" contenteditable>// define prototype method
 Array.prototype.containsValue = function(obj) {
-  for (let key in this)
+  for (const key in this)
     if (this[key] == obj) return true;
   return false;
 }
 
 // create array and loop over properties
-let arr = new Array();
+const arr = new Array();
 arr['one'] = 1;
 arr['two'] = 2;
 arr['three'] = 3;
-for(let i in arr) {
+for(const i in arr) {
 //  if (!arr.hasOwnProperty(i)) continue;
   console.log(i);
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>Sets</h2>
-                  <ul>
-                     <li>
-                        Like arrays, but without double values:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun strict" contenteditable>let x = new Set([1, 2, 3, 4, 4, 4, 5]);
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Sets</h2>
+          <ul>
+            <li>
+              Like arrays, but without double values:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun strict" contenteditable>const x = new Set([1, 2, 3, 4, 4, 4, 5]);
 
 x.add(6);
 x.delete(2);
@@ -734,31 +725,31 @@ console.log('The set has 1:', x.has(1));
 console.log('The set has 8:', x.has(8));
 
 // iteration
-for (let value of x) {
+for (const value of x) {
   console.log(value);
 }</code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        other methods are <code>clear()</code>, <code>forEach()</code>, <code>values()</code>
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        Think of sets like a collection of values which have already been chosen. E.g. try building a
-                        hangman game with sets.
-                     </div>
-                  </div>
-               </section>
-               <section>
-                  <h2>Maps</h2>
-                  <ul>
-                     <li>
-                        Little bit like objects, but anything can be key:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun strict" contenteditable>let x = new Map([
+              </div>
+            </li>
+            <li class="arrow">
+              other methods are <code>clear()</code>, <code>forEach()</code>, <code>values()</code>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              Think of sets like a collection of values which have already been chosen. E.g. try building a
+              hangman game with sets.
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Maps</h2>
+          <ul>
+            <li>
+              Little bit like objects, but anything can be key:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun strict" contenteditable>const x = new Map([
   [new Date(), function today () {}],
-  [y => y * 2, { pony: 'foo' }],
+  [y =&gt; y * 2, { pony: 'foo' }],
   ['items', [1, 2]]
 ]);
 
@@ -766,37 +757,37 @@ x.delete('items');
 x.set('author', 'Rogier');
 
 // iteration
-for (let [key, value] of x) {
+for (const [key, value] of x) {
   console.log(`${key}: ${value}`);
 }</code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        other methods are <code>clear()</code>, <code>forEach()</code>, <code>values()</code>,
-                        <code>keys()</code>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="WeakSet and WeakMap">
-                  <h2>WeakSet and WeakMap (1)</h2>
-                  <ul>
-                     <li>
-                        Same as Set and Map, but with some limitations:
-                        <ul>
-                           <li>you can only add objects (weakset) or use objects as keys (weakmap)</li>
-                           <li>you can't use iteration, so no <code>size</code>, <code>for...in</code> etc...</li>
-                        </ul>
-                     </li>
-                     <li>
-                        Main advantage: entry is automatically removed by garbage collector when no more references
-                        exist
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun strict" contenteditable>let set = new Set();
-let weakset = new WeakSet();
+              </div>
+            </li>
+            <li class="arrow">
+              other methods are <code>clear()</code>, <code>forEach()</code>, <code>values()</code>,
+              <code>keys()</code>
+            </li>
+          </ul>
+        </section>
+        <section data-title="WeakSet and WeakMap">
+          <h2>WeakSet and WeakMap (1)</h2>
+          <ul>
+            <li>
+              Same as Set and Map, but with some limitations:
+              <ul>
+                <li>you can only add objects (weakset) or use objects as keys (weakmap)</li>
+                <li>you can't use iteration, so no <code>size</code>, <code>for...in</code> etc...</li>
+              </ul>
+            </li>
+            <li>
+              Main advantage: entry is automatically removed by garbage collector when no more references
+              exist
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun strict" contenteditable>const set = new Set();
+                  const weakset = new WeakSet();
 
 (function(){
-  let a = {x: 12};
-  let b = {y: 12};
+  const a = {x: 12};
+  const b = {y: 12};
 
   set.add(a);
   weakset.add(b);
@@ -805,63 +796,63 @@ let weakset = new WeakSet();
 console.log(set); // map will contain a until you remove it manually
 console.log(weakset); // weakmap will contain b until garbage collected
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        <p>
-                           The problem is that objects are only GC'd when every reference has disappeared. Having them
-                           lingering around in structures like arrays is one of the main reasons of memory leaks.
-                        </p>
-                        <p>
-                           You will probably still see b in weakset; the reason is that garbage collection only happens
-                           now and then, whenever the browser feels the time is right. Alas, there is no way to force a
-                           GC.
-                        </p>
-                     </div>
-                  </div>
-               </section>
-               <section data-toc-title="">
-                  <h2>WeakSet and WeakMap (2)</h2>
-                  <ul>
-                     <li>
-                        Use weak collections instead of Map and Set whenever you can to prevent memory leaks
-                     </li>
-                     <li>
-                        Typical use cases:
-                        <ul>
-                           <li>organise objects in groups (WeakSet)</li>
-                           <li>keep track of which objects already have been processed (WeakSet)</li>
-                           <li>extend objects without interfering with garbage collection (WeakMap)</li>
-                        </ul>
-                     </li>
-                     <li>
-                        Weak collections are about GC, so it doesn't make sense to use object literals as keys:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript wrong" contenteditable>let weakmap = new WeakMap();
+              </div>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              <p>
+                The problem is that objects are only GC'd when every reference has disappeared. Having them
+                lingering around in structures like arrays is one of the main reasons of memory leaks.
+              </p>
+              <p>
+                You will probably still see b in weakset; the reason is that garbage collection only happens
+                now and then, whenever the browser feels the time is right. Alas, there is no way to force a
+                GC.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section data-title="">
+          <h2>WeakSet and WeakMap (2)</h2>
+          <ul>
+            <li>
+              Use weak collections instead of Map and Set whenever you can to prevent memory leaks
+            </li>
+            <li>
+              Typical use cases:
+              <ul>
+                <li>organise objects in groups (WeakSet)</li>
+                <li>keep track of which objects already have been processed (WeakSet)</li>
+                <li>extend objects without interfering with garbage collection (WeakMap)</li>
+              </ul>
+            </li>
+            <li>
+              Weak collections are about GC, so it doesn't make sense to use object literals as keys:
+              <div>
+                <pre class="bigger"><code class="language-javascript wrong" contenteditable>const weakmap = new WeakMap();
 weakmap.set(new Date(), 111); // doesn't make sense
 weakmap.set({}, 222); // doesn't make sense</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Iterators">
-                  <h2>Iterators (1)</h2>
-                  <ul>
-                     <li>
-                        An <em>iterator</em> defines how an object is iterated with <code>for...in...</code>
-                     </li>
-                     <li>
-                        It is accessed as the evaluated property [Symbol.iterator]
-                     </li>
-                     <li>
-                        It returns a value <code class="hl">{value: ..., done: ...}</code>
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let foo = {};
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Iterators">
+          <h2>Iterators (1)</h2>
+          <ul>
+            <li>
+              An <em>iterator</em> defines how an object is iterated with <code>for...in...</code>
+            </li>
+            <li>
+              It is accessed as the evaluated property [Symbol.iterator]
+            </li>
+            <li>
+              It returns a value <code class="hl">{value: ..., done: ...}</code>
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const foo = {};
 
 foo[Symbol.iterator] = function() {
-  let items = ['alice', 'bob', 'clive', 'dave'];
+  const items = ['alice', 'bob', 'clive', 'dave'];
   return {
     next: function () {
       return {
@@ -872,29 +863,29 @@ foo[Symbol.iterator] = function() {
   }
 };
 
-for (let item of foo) {
+for (const item of foo) {
   console.log(item); // alice bob clive dave
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        <code class="hl">Symbol</code> is a new primitive type introduced in ES2015. They look an awful
-                        lot like Strings, except for a few differences; they are unique, for example. Symbols are mainly
-                        used for iterators and a little funky, so we won't get into them. If you wish, you can read all
-                        about them on <a href="https://ponyfoo.com/articles/es6-symbols-in-depth">ponyfoo.com</a>.
-                     </div>
-                  </div>
-               </section>
-               <section data-toc-title="">
-                  <h2>Iterators (2)</h2>
-                  <ul>
-                     <li>
-                        Shorter syntax:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let foo = {
-  [Symbol.iterator]: () => ({
+              </div>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              <code class="hl">Symbol</code> is a new primitive type introduced in ES2015. They look an awful
+              lot like Strings, except for a few differences; they are unique, for example. Symbols are mainly
+              used for iterators and a little funky, so we won't get into them. If you wish, you can read all
+              about them on <a href="https://ponyfoo.com/articles/es6-symbols-in-depth">ponyfoo.com</a>.
+            </div>
+          </div>
+        </section>
+        <section data-title="">
+          <h2>Iterators (2)</h2>
+          <ul>
+            <li>
+              Shorter syntax:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const foo = {
+  [Symbol.iterator]: () =&gt; ({
     items: ['alice', 'bob', 'clive', 'dave'],
     next: function () {
       return {
@@ -905,20 +896,20 @@ for (let item of foo) {
   })
 };
 
-for (let item of foo) {
+for (const item of foo) {
   console.log(item); // alice bob clive dave
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Iterators (3)</h2>
-                  <ul>
-                     <li>
-                        Chipping off a few more characters:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let foo = {};
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Iterators (3)</h2>
+          <ul>
+            <li>
+              Chipping off a few more characters:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const foo = {};
 
 foo[Symbol.iterator]() {
   return {
@@ -932,21 +923,21 @@ foo[Symbol.iterator]() {
   }
 };
 
-for (let item of foo) {
+for (const item of foo) {
   console.log(item); // alice bob clive dave
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
+              </div>
+            </li>
+          </ul>
+        </section>
 
-               <section data-toc-title="">
-                  <h2>Iterators (4)</h2>
-                  <ul>
-                     <li>
-                        A fibonacci example:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let fibonacci = {
+        <section data-title="">
+          <h2>Iterators (4)</h2>
+          <ul>
+            <li>
+              A fibonacci example:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const fibonacci = {
   [Symbol.iterator]() {
     let pre = 0, cur = 1;
     return {
@@ -958,21 +949,21 @@ for (let item of foo) {
   }
 };
 
-for (let n of fibonacci) {
-  if (n > 1000) break;
+for (const n of fibonacci) {
+  if (n &gt; 1000) break;
   console.log(n);
 };</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Iterators (5)</h2>
-                  <ul>
-                     <li>
-                        An example using priorities:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let custom_collection = {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Iterators (5)</h2>
+          <ul>
+            <li>
+              An example using priorities:
+              <div>
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const custom_collection = {
   elements: [
     {val: 111, priority: 1},
     {val: 222, priority: 2},
@@ -981,8 +972,8 @@ for (let n of fibonacci) {
     {val: 555, priority: 2}
   ],
   [Symbol.iterator]: function() {
-    let e = this.elements;
-    let setDone = new WeakSet();
+    const e = this.elements;
+    const setDone = new WeakSet();
     let numReturned = 0;
     return {
       next: function() {
@@ -991,9 +982,9 @@ for (let n of fibonacci) {
         }
         let prior = -1;
         let retval = undefined;
-        for (let elem of e) {
+        for (const elem of e) {
           if (setDone.has(elem)) continue;
-          if (elem.priority > prior) {
+          if (elem.priority &gt; prior) {
             prior = elem.priority;
             retval = elem;
           }
@@ -1006,43 +997,42 @@ for (let n of fibonacci) {
   }
 }
 
-for(let i of custom_collection) {
+for(const i of custom_collection) {
   console.log(i); // 444 222 555 111 333
 };
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>OO concepts</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section data-toc-title="Class definitions">
-                  <h2>Class definitions (1)</h2>
-                  <ul>
-                     <li>
-                        ES5:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let Shape = function (id, x, y) {
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>OO concepts</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section data-title="Class definitions">
+          <h2>Class definitions (1)</h2>
+          <ul>
+            <li>
+              ES5:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>var Shape = function (id, x, y) {
   this.id = id;
   this.move(x, y) = function (x, y) {
     this.x = x;
     this.y = y;
   };
 };</code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript right overlayrun" contenteditable>class Shape {
+              </div>
+            </li>
+            <li>
+              ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript right overlayrun" contenteditable>class Shape {
   constructor (id, x, y) {
     this.id = id;
     this.move(x, y);
@@ -1053,59 +1043,59 @@ for(let i of custom_collection) {
   }
 };
 
-let dot1 = new Shape('dot 1', 25, 50);
+const dot1 = new Shape('dot 1', 25, 50);
 console.log(`shape ${dot1.id} has position (${dot1.x},${dot1.y})`);</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Class definitions (2)</h2>
-                  <ul>
-                     <li>
-                        Static class members:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>class Rectangle {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Class definitions (2)</h2>
+          <ul>
+            <li>
+              Static class members:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>class Rectangle {
   ...
   static defaultRectangle () {
     return new Rectangle("default", 0, 0, 100, 100)
   }
 }
-let defRectangle = Rectangle.defaultRectangle();</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Inheritance">
-                  <h2>Inheritance (1)</h2>
-                  <ul>
-                     <li>
-                        ES5:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>let Rectangle = function (id, x, y, width, height) {
+const defRectangle = Rectangle.defaultRectangle();</code></pre>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Inheritance">
+          <h2>Inheritance (1)</h2>
+          <ul>
+            <li>
+              ES5:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>var Rectangle = function (id, x, y, width, height) {
   Shape.call(this, id, x, y);
   this.width  = width;
   this.height = height;
 };
 Rectangle.prototype = Object.create(Shape.prototype);
 Rectangle.prototype.constructor = Rectangle;
-let Circle = function (id, x, y, radius) {
+var Circle = function (id, x, y, radius) {
   Shape.call(this, id, x, y);
   this.radius = radius;
 };
 Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Inheritance (2)</h2>
-                  <ul>
-                     <li>
-                        ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript right" contenteditable>class Rectangle extends Shape {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Inheritance (2)</h2>
+          <ul>
+            <li>
+              ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript right" contenteditable>class Rectangle extends Shape {
   constructor (id, x, y, width, height) {
     super(id, x, y);
     this.width  = width;
@@ -1118,17 +1108,17 @@ class Circle extends Shape {
     this.radius = radius;
   }
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Modules">
-                  <h2>Modules (1)</h2>
-                  <ul>
-                     <li>
-                        In ES5, you need namespaces to group functionality
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>// libs/SomeLibrary/SomeApi.js
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Modules">
+          <h2>Modules (1)</h2>
+          <ul>
+            <li>
+              In ES5, you need namespaces to group functionality
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>// libs/SomeLibrary/SomeApi.js
 SomeLibrary = SomeLibrary || {};
 SomeLibrary.SomeApi = {};
 SomeLibrary.SomeApi.function1 = function () { ... };
@@ -1137,29 +1127,29 @@ SomeLibrary.SomeApi.var1 = ...;
 SomeLibrary.SomeApi.var2 = ...;
 
 // use in someApp.js
-let api = SomeLibrary.SomeApi; // use shortcut if you like
+var api = SomeLibrary.SomeApi; // use shortcut if you like
 console.log(api.function2(...));
 
 // use in otherApp.js
-let api = SomeLibrary.SomeApi; // use shortcut if you like
+var api = SomeLibrary.SomeApi; // use shortcut if you like
 console.log(api.function1(...));
 console.log(api.var2);
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Modules (2)</h2>
-                  <ul>
-                     <li>
-                        Proposed syntax in ES6:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript" contenteditable>// libs/SomeLibrary/SomeApi.js
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Modules (2)</h2>
+          <ul>
+            <li>
+              Proposed syntax in ES6:
+              <div>
+                <pre class="bigger"><code class="language-javascript" contenteditable>// libs/SomeLibrary/SomeApi.js
 export function1 = function () { ... };
 export function2 = function () { ... };
-export let var1 = ...;
-export let var2 = ...;
+export const var1 = ...;
+export const var2 = ...;
 
 // use in someApp.js
 import * as api from "libs/SomeLibrary/SomeApi"
@@ -1170,131 +1160,129 @@ import {function1 as f1, var2 as v2} from "libs/SomeLibrary/SomeApi"
 console.log(f1(...));
 console.log(v2);
 </code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        no more namespace pollution
-                     </li>
-                     <li class="arrow">
-                        full syntax see <a
-                           href="https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Statements/import">developer.mozilla.org</a>
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>internationalization</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section>
-                  <h2>Collation</h2>
-                  <ul>
-                     <li>
-                        <em>Collation</em> means sorting order, which differs from country to country:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// in German,  "ä" sorts with "a"
+              </div>
+            </li>
+            <li class="arrow">
+              no more namespace pollution
+            </li>
+            <li class="arrow">
+              full syntax see <a
+                href="https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Statements/import">developer.mozilla.org</a>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>internationalization</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Collation</h2>
+          <ul>
+            <li>
+              <em>Collation</em> means sorting order, which differs from country to country:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// in German,  "ä" sorts with "a"
 // in Swedish, "ä" sorts after "z"
-let list = [ "ä", "a", "z" ];
-let deCollator = new Intl.Collator("de");
-let svCollator = new Intl.Collator("sv");
+const list = [ "ä", "a", "z" ];
+const deCollator = new Intl.Collator("de");
+const svCollator = new Intl.Collator("sv");
 console.log(deCollator.compare("ä", "z")); // -1;
 console.log(svCollator.compare("ä", "z")); // 1;
 console.log(list.sort(deCollator.compare)) // [ "a", "ä", "z" ];
 console.log(list.sort(svCollator.compare)) // [ "a", "z", "ä" ];</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>Number formatting</h2>
-                  <ul>
-                     <li>
-                        Localize number formatting:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let beNumberFormat = new Intl.NumberFormat("nl-BE");
-let enNumberFormat = new Intl.NumberFormat("en-US");
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Number formatting</h2>
+          <ul>
+            <li>
+              Localize number formatting:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const beNumberFormat = new Intl.NumberFormat("nl-BE");
+const enNumberFormat = new Intl.NumberFormat("en-US");
 
 console.log(beNumberFormat.format(1234567.89)); // 1.234.567,89
 console.log(enNumberFormat.format(1234567.89)); // 1,234,567.89
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>Currency formatting</h2>
-                  <ul>
-                     <li>
-                        Localize currency formatting:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let usNumberFormat = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
-let gbNumberFormat = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
-let beNumberFormat = new Intl.NumberFormat("nl-BE", { style: "currency", currency: "EUR" });
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Currency formatting</h2>
+          <ul>
+            <li>
+              Localize currency formatting:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const usNumberFormat = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+const gbNumberFormat = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
+const beNumberFormat = new Intl.NumberFormat("nl-BE", { style: "currency", currency: "EUR" });
 console.log(usNumberFormat.format(100200300.40)); // $100,200,300.40
 console.log(gbNumberFormat.format(100200300.40)); // £100,200,300.40
 console.log(beNumberFormat.format(100200300.40)); // 100.200.300,40 €
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>DateTime formatting</h2>
-                  <ul>
-                     <li>
-                        Localize date/time formatting:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let beDateTimeFormat = new Intl.DateTimeFormat("de-DE");
-let usDateTimeFormat = new Intl.DateTimeFormat("en-US");
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>DateTime formatting</h2>
+          <ul>
+            <li>
+              Localize date/time formatting:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const beDateTimeFormat = new Intl.DateTimeFormat("de-DE");
+const usDateTimeFormat = new Intl.DateTimeFormat("en-US");
 console.log(beDateTimeFormat.format(new Date("2015-01-02"))); // 2.1.2015
 console.log(usDateTimeFormat.format(new Date("2015-01-02"))); // 1/2/2015</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>proxies</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section data-toc-title="proxies">
-                  <h2>proxy (1)</h2>
-                  <ul>
-                     <li>
-                        proxies allow to attach behaviour whenever an object's properties are accessed
-                     </li>
-                     <li>
-                        in its simplest form, it is just a passthrough:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let handler = {}
-let target = {}
-let proxy = new Proxy(target, handler)
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>proxies</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section data-title="proxies">
+          <h2>proxy (1)</h2>
+          <ul>
+            <li>
+              proxies allow to attach behaviour whenever an object's properties are accessed
+            </li>
+            <li>
+              in its simplest form, it is just a passthrough:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const handler = {}
+const target = {}
+const proxy = new Proxy(target, handler)
 proxy.a = 'Alice' // property set
 proxy.b = 'Bob' // property set
 console.log(proxy.a); // property get; identical to target.a
 console.log(proxy.b); // property get; identical to target.b
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>proxy (2)</h2>
-                  <ul>
-                     <li>
-                        with some behaviour attached to <code>get</code> and <code>set</code>:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let handler = {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>proxy (2)</h2>
+          <ul>
+            <li>
+              with some behaviour attached to <code>get</code> and <code>set</code>:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const handler = {
   // proxy trap for 'get'
   get (target, key) {
     console.info(`Get on property ${key}`);
@@ -1307,28 +1295,28 @@ console.log(proxy.b); // property get; identical to target.b
     return true;
   }
 };
-let target = {};
-let proxy = new Proxy(target, handler)
+const target = {};
+const proxy = new Proxy(target, handler)
 proxy.a = 'Alice'; // property set
 proxy.b = 'Bob'; // property set
 console.log(proxy.a); // property get
 console.log(proxy.b); // property get
 </code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        full list of possible traps on <a
-                           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">developer.mozilla.org</a>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>proxy (3)</h2>
-                  <ul>
-                     <li>
-                        proxies allow access control, e.g. make all '_'-prefixed private:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let handler = {
+              </div>
+            </li>
+            <li class="arrow">
+              full list of possible traps on <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">developer.mozilla.org</a>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>proxy (3)</h2>
+          <ul>
+            <li>
+              proxies allow access control, e.g. make all '_'-prefixed private:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const handler = {
   get (target, key) {
     if (key[0] === '_') throw new Error(`Invalid attempt to get private "${key}" property`);
     console.info(`Get on property ${key}`);
@@ -1340,100 +1328,99 @@ console.log(proxy.b); // property get
     return true;
   }
 };
-let target = {};
-let proxy = new Proxy(target, handler);
+const target = {};
+const proxy = new Proxy(target, handler);
 proxy.a = 'Alice';
 proxy.b = 'Bob';
 proxy._c = 'Clive';
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>proxy (4)</h2>
-                  <ul>
-                     <li>
-                        proxies may also be used for validation schemes:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let handler = {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>proxy (4)</h2>
+          <ul>
+            <li>
+              proxies may also be used for validation schemes:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const handler = {
   set (target, key, value) {
     if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
     return true;
   }
 };
-let person = {};
-let proxy = new Proxy(person, handler);
+const person = {};
+const proxy = new Proxy(person, handler);
 proxy.age = -1; // throws an error
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>proxy (5)</h2>
-                  <ul>
-                     <li>
-                        note that you can still access properties directly:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let handler = {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>proxy (5)</h2>
+          <ul>
+            <li>
+              note that you can still access properties directly:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const handler = {
   set (target, key, value) {
     if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
     return true;
   }
 };
-let person = {};
-let proxy = new Proxy(person, handler);
+const person = {};
+const proxy = new Proxy(person, handler);
 person.age = -1; // no problem
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>promises</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section>
-                  <h2>promises</h2>
-                  <ul>
-                     <li>
-                        Solves problems with classic async solutions based on nested callback functions
-                        (<code>onSucces</code>, <code>onError</code>):
-                        <ul class="x-style">
-                           <li>deeper and deeper nesting ('callback hell')</li>
-                           <li>difficult error management</li>
-                           <li>not very intuitive (nothing is returned)</li>
-                        </ul>
-                     </li>
-                     <li>
-                        Concept of promises was <a
-                           href="https://dojotoolkit.org/reference-guide/1.10/dojo/Deferred.html">introduced by DoJo in
-                           2007</a>
-                     </li>
-                     <li>
-                        Promises are cool, I promise...
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="basic promise">
-                  <h2>basic promise (1)</h2>
-                  <blockquote style="width: 95%; font-size: smaller">
-                     [daughter] &mdash; "I promise to clean my room today"<br>
-                     [mom] &mdash; "Ok. If you do, I'll give you a candy. But if you don't, I'll tell dad about it."
-                  </blockquote>
-                  <ul>
-                     <li class="no-style">
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
-let cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() > 0.5) resolve(); // 50% chance that promise is kept
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>promises</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>promises</h2>
+          <ul>
+            <li>
+              Solves problems with classic async solutions based on nested callback functions
+              (<code>onSucces</code>, <code>onError</code>):
+              <ul class="x-style">
+                <li>deeper and deeper nesting ('callback hell')</li>
+                <li>difficult error management</li>
+                <li>not very intuitive (nothing is returned)</li>
+              </ul>
+            </li>
+            <li>
+              Concept of promises was <a
+                href="https://dojotoolkit.org/reference-guide/1.10/dojo/Deferred.html">introduced by DoJo in
+                2007</a>
+            </li>
+            <li>
+              Promises are cool, I promise...
+            </li>
+          </ul>
+        </section>
+        <section data-title="basic promise">
+          <h2>basic promise (1)</h2>
+          <blockquote class="smallfont">
+            [daughter] &mdash; "I promise to clean my room today"<br>
+            [mom] &mdash; "Ok. If you do, I'll give you a candy. But if you don't, I'll tell dad about it."
+          </blockquote>
+          <ul>
+            <li class="no-style">
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
+const cleanRoom = new Promise(function (resolve, reject) {
+  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
   else reject();
 })
 
@@ -1442,201 +1429,201 @@ cleanRoom
   .then(function() { console.log('well done — here is your candy') })
   .catch(function() { console.log('boo — I\'ll have to tell dad') });
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>basic promise (2)</h2>
-                  <ul>
-                     <li>
-                        same but with cleaner arrow notations:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
-let cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() > 0.5) resolve(); // 50% chance that promise is kept
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>basic promise (2)</h2>
+          <ul>
+            <li>
+              same but with cleaner arrow notations:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
+const cleanRoom = new Promise(function (resolve, reject) {
+  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
   else reject();
 })
 
 // mom's reactions
 cleanRoom
-  .then(() => console.log('well done — here is your candy'))
-  .catch(() => console.log('boo — I\'ll have to tell dad'));
+  .then(() =&gt; console.log('well done — here is your candy'))
+  .catch(() =&gt; console.log('boo — I\'ll have to tell dad'));
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>basic promise (3)</h2>
-                  <ul>
-                     <li>
-                        same but with <code class="hl">.then(result => {...}, error => {...})</code> notation:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
-let cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() > 0.5) resolve(); // 50% chance that promise is kept
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>basic promise (3)</h2>
+          <ul>
+            <li>
+              same but with <code class="hl">.then(result =&gt; {...}, error =&gt; {...})</code> notation:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
+const cleanRoom = new Promise(function (resolve, reject) {
+  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
   else reject();
 })
 
 // mom's reactions
 cleanRoom.then(
-  () => console.log('well done — here is your candy'),
-  () => console.log('boo — I\'ll have to tell dad')
+  () =&gt; console.log('well done — here is your candy'),
+  () =&gt; console.log('boo — I\'ll have to tell dad')
 );
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>basic promise (4)</h2>
-                  <ul>
-                     <li>
-                        a promise, once made, can be kept ('resolved') or failed ('rejected')
-                     </li>
-                     <li>
-                        a possible fail <i>must</i> be caught:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun wrong" contenteditable>let promise1 = new Promise(function (resolve, reject) {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>basic promise (4)</h2>
+          <ul>
+            <li>
+              a promise, once made, can be kept ('resolved') or failed ('rejected')
+            </li>
+            <li>
+              a possible fail <i>must</i> be caught:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun wrong" contenteditable>const promise1 = new Promise(function (resolve, reject) {
   reject();
 });
 
-// correct: promise1.catch(() => {});
+// correct: promise1.catch(() =&gt; {});
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        shorter notation for previous example:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun wrong" contenteditable>Promise.reject();
-// correct: Promise.reject().catch(() => console.log('promise rejected'));
+              </div>
+            </li>
+            <li>
+              shorter notation for previous example:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun wrong" contenteditable>Promise.reject();
+// correct: Promise.reject().catch(() =&gt; console.log('promise rejected'));
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>basic promise (5)</h2>
-                  <ul>
-                     <li>
-                        a promise can be pending, or resolved / rejected (= settled)
-                     </li>
-                     <li>
-                        a promise can only settle once:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let promise = new Promise(function (resolve, reject) {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>basic promise (5)</h2>
+          <ul>
+            <li>
+              a promise can be pending, or resolved / rejected (= settled)
+            </li>
+            <li>
+              a promise can only settle once:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const promise = new Promise(function (resolve, reject) {
   console.log('pending');
-  let delay = 6000; // change to 2000 and run again
+  const delay = 6000; // change to 2000 and run again
   setTimeout(resolve, delay);
   setTimeout(reject, 3000);
 });
 
 promise
-  .then(() => console.log('settled (resolved)'))
-  .catch(() => console.log('settled (rejected)'));</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>passing data</h2>
-                  <blockquote style="width: 95%; font-size: smaller">
-                     [daughter] &mdash; "I promise to clean my room today"<br>
-                     [mom] &mdash; "Ok. If you do, you can pick a candy. If not, I want to hear your excuse."
-                  </blockquote>
-                  <ul>
-                     <li class="no-style">
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
-let cleanRoom = new Promise(function (resolve, reject) {
+  .then(() =&gt; console.log('settled (resolved)'))
+  .catch(() =&gt; console.log('settled (rejected)'));</code></pre>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>passing data</h2>
+          <blockquote>
+            [daughter] &mdash; "I promise to clean my room today"<br>
+            [mom] &mdash; "Ok. If you do, you can pick a candy. If not, I want to hear your excuse."
+          </blockquote>
+          <ul>
+            <li class="no-style">
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
+const cleanRoom = new Promise(function (resolve, reject) {
   // 50% chance that promise is kept
-  if (Math.random() > 0.5) resolve('chocolate bar');
+  if (Math.random() &gt; 0.5) resolve('chocolate bar');
   else reject('fell asleep');
 })
 
 // mom's reactions
 cleanRoom
-  .then(result => console.log('well done — here is your ' + result))
-  .catch(error => console.log('boo — you ' + error));
+  .then(result =&gt; console.log('well done — here is your ' + result))
+  .catch(error =&gt; console.log('boo — you ' + error));
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>multiple branches</h2>
-                  <blockquote style="width: 95%; font-size: smaller">
-                     [daughter] &mdash; "I promise to clean my room today"<br>
-                     [mom] &mdash; "Ok. If you do, I'll give you a candy. If you don't, I won't care."<br>
-                     [dad] &mdash; "If you don't, I'll spank you."
-                  </blockquote>
-                  <ul>
-                     <li class="no-style">
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
-let cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() > 0.5) resolve(); // 50% chance that promise is kept
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>multiple branches</h2>
+          <blockquote>
+            [daughter] &mdash; "I promise to clean my room today"<br>
+            [mom] &mdash; "Ok. If you do, I'll give you a candy. If you don't, I won't care."<br>
+            [dad] &mdash; "If you don't, I'll spank you."
+          </blockquote>
+          <ul>
+            <li class="no-style">
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// daughter's promise
+const cleanRoom = new Promise(function (resolve, reject) {
+  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
   else reject();
 })
 
 // mom's reactions
 cleanRoom
-  .then(() => console.log('well done — here is your candy'))
-  .catch(() => {});
+  .then(() =&gt; console.log('well done — here is your candy'))
+  .catch(() =&gt; {});
 
 // dad's reactions
-cleanRoom.catch(error => console.log('Here is your spanking'));
+cleanRoom.catch(error =&gt; console.log('Here is your spanking'));
 </code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        a branch should finish with <code>catch</code> to prevent uncaught errors
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="chaining promises">
-                  <h2>chaining promises (1)</h2>
-                  <blockquote style="width: 95%; font-size: smaller">
-                     [dad] &mdash; "I promise to fix the car today"<br>
-                     [mom] &mdash; "good, because I promised we would take the kids to the park."<br>
-                     [big brother] &mdash; "little brother, i will ask mom if we go to the park"
-                  </blockquote>
-                  <ul>
-                     <li class="no-style">
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// dad's promise
-let fixCar = new Promise(function (resolve, reject) {
+              </div>
+            </li>
+            <li class="arrow">
+              a branch should finish with <code>catch</code> to prevent uncaught errors
+            </li>
+          </ul>
+        </section>
+        <section data-title="chaining promises">
+          <h2>chaining promises (1)</h2>
+          <blockquote>
+            [dad] &mdash; "I promise to fix the car today"<br>
+            [mom] &mdash; "good, because I promised we would take the kids to the park."<br>
+            [big brother] &mdash; "little brother, i will ask mom if we go to the park"
+          </blockquote>
+          <ul>
+            <li class="no-style">
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// dad's promise
+const fixCar = new Promise(function (resolve, reject) {
   // 50% chance dad fixes the car
-  if (Math.random() > 0.5) resolve('it was the carburator');
+  if (Math.random() &gt; 0.5) resolve('it was the carburator');
   else reject('dad didn\'t find the problem');
 });
 
 // mom's promise
-let goToPark = new Promise(function (resolve, reject) {
+const goToPark = new Promise(function (resolve, reject) {
   // 25% chance mom's got a headache
-  if (Math.random() > 0.75) {
+  if (Math.random() &gt; 0.75) {
     reject('mom has a headache');
-    fixCar.catch(() => {}); // it doesn't matter if the car gets fixed or not
+    fixCar.catch(() =&gt; {}); // it doesn't matter if the car gets fixed or not
   }
   // depends on whether dad gets the car fixed or not
-  else fixCar.then(res => resolve(res), err => reject(err));
+  else fixCar.then(res =&gt; resolve(res), err =&gt; reject(err));
 });
 
 // big brother's promise
-let tellLittleBrother = new Promise(function (resolve, reject) {
+const tellLittleBrother = new Promise(function (resolve, reject) {
   goToPark.then(
-    res => {
+    res =&gt; {
       resolve({msg: 'ok, we can go, ' + res, success: true});
     },
-    err => {
+    err =&gt; {
       resolve({msg: 'sorry bro\', we cannot go, ' + err, success: false});
     })
 });
 
 // little brother's reaction
 tellLittleBrother.then(
-  res => {
+  res =&gt; {
     console.log('[big brother] ' + res.msg);
     if(res.success) {
       console.log('[little brother] yippeee!');
@@ -1645,28 +1632,28 @@ tellLittleBrother.then(
     }
   }
 ); // no need to catch here; big brother always keeps his promise</code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        a branch should finish with <code>catch</code> to prevent uncaught errors
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>chaining promises (2)</h2>
-                  <ul>
-                     <li>
-                        with extra messages and more realistic with delays:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let fixCar = new Promise(function (resolve, reject) {
+              </div>
+            </li>
+            <li class="arrow">
+              a branch should finish with <code>catch</code> to prevent uncaught errors
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>chaining promises (2)</h2>
+          <ul>
+            <li>
+              with extra messages and more realistic with delays:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const fixCar = new Promise(function (resolve, reject) {
   console.log('---- dad starts fixing the car');
   // 50% chance dad fixes the car
   setTimeout(
-    Math.random() > 0.5 ?
-      () => {
+    Math.random() &gt; 0.5 ?
+      () =&gt; {
         console.log('---- dad found the problem');
         resolve('it was the carburator')
-      } : () => {
+      } : () =&gt; {
         console.log('---- dad gives up');
         reject('dad didn\'t find the problem')
       },
@@ -1675,40 +1662,40 @@ tellLittleBrother.then(
 });
 
 // mom's promise
-let goToPark = new Promise(function (resolve, reject) {
+const goToPark = new Promise(function (resolve, reject) {
   // 25% chance mom's got a headache
-  if (Math.random() > 0.75) {
+  if (Math.random() &gt; 0.75) {
     console.log('---- mom starts developing a headache');
-    setTimeout(() => reject('mom has a headache'), 300);
-    fixCar.catch(() => {}); // it doesn't matter if the car gets fixed or not
+    setTimeout(() =&gt; reject('mom has a headache'), 300);
+    fixCar.catch(() =&gt; {}); // it doesn't matter if the car gets fixed or not
   }
   // depends on whether dad gets the car fixed or not
   else {
     fixCar.then(
-      res => {
+      res =&gt; {
         console.log('---- mom notifies big brother');
-        setTimeout(() => resolve(res), 1000)
+        setTimeout(() =&gt; resolve(res), 1000)
       },
-      err => {
+      err =&gt; {
         console.log('---- mom notifies big brother');
-        setTimeout(() => reject(err), 1000)
+        setTimeout(() =&gt; reject(err), 1000)
       }
     );
   }
 });
 
 // big brother's promise
-let tellLittleBrother = new Promise(function (resolve, reject) {
+const tellLittleBrother = new Promise(function (resolve, reject) {
   goToPark.then(
-    res => {
+    res =&gt; {
       console.log('---- big brother runs to little brother with a smile');
-      setTimeout(() => {
+      setTimeout(() =&gt; {
         resolve({msg: 'ok, we can go, ' + res, success: true});
       }, 1000)
     },
-    err => {
+    err =&gt; {
       console.log('---- big brother runs to little brother with a frown');
-      setTimeout(() => {
+      setTimeout(() =&gt; {
         resolve({msg: 'sorry bro\', we cannot go, ' + err, success: false});
       }, 1000)
     }
@@ -1717,7 +1704,7 @@ let tellLittleBrother = new Promise(function (resolve, reject) {
 
 // little brother's reaction
 tellLittleBrother.then(
-  res => {
+  res =&gt; {
     console.log('[big brother] ' + res.msg);
     if(res.success) {
       console.log('[little brother] yippeee!');
@@ -1727,31 +1714,31 @@ tellLittleBrother.then(
   }
 ); // no need to catch here; big brother always keeps his promise
 </code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        with classic nested callback functions you'd have lots of nesting!
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>promise.all</h2>
-                  <blockquote style="width: 95%; font-size: smaller">
-                     [kids] &mdash; "Can we go to the park today?"<br>
-                     [mom] &mdash; "Only if you both clean your rooms"
-                  </blockquote>
-                  <ul>
-                     <li class="no-style">
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// kid1 promise
-let cleanRoom1 = new Promise(function (resolve, reject) {
-  if (Math.random() > 0.5) resolve(); // 50% chance that promise is kept
+              </div>
+            </li>
+            <li class="arrow">
+              with classic nested callback functions you'd have lots of nesting!
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>promise.all</h2>
+          <blockquote>
+            [kids] &mdash; "Can we go to the park today?"<br>
+            [mom] &mdash; "Only if you both clean your rooms"
+          </blockquote>
+          <ul>
+            <li class="no-style">
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// kid1 promise
+const cleanRoom1 = new Promise(function (resolve, reject) {
+  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
   else reject('kid 1 failed');
 })
 
 // kid2 promise
-let cleanRoom2 = new Promise(function (resolve, reject) {
-  if (Math.random() > 0.5) resolve(); // 50% chance that promise is kept
+const cleanRoom2 = new Promise(function (resolve, reject) {
+  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
   else reject('kid 2 failed');
 })
 
@@ -1759,33 +1746,33 @@ let cleanRoom2 = new Promise(function (resolve, reject) {
 Promise.all([
   cleanRoom1,
   cleanRoom2
-]).then(() => console.log('well done, we go')).catch(err => console.log(err));
+]).then(() =&gt; console.log('well done, we go')).catch(err =&gt; console.log(err));
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>promise.race</h2>
-                  <blockquote style="width: 95%; font-size: smaller">
-                     &mdash; "Can we have a candy?"<br>
-                     &mdash; "The first who cleans his room gets a candy."
-                  </blockquote>
-                  <ul>
-                     <li class="no-style">
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// kid1 promise
-let cleanRoom1 = new Promise(function (resolve, reject) {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>promise.race</h2>
+          <blockquote>
+            &mdash; "Can we have a candy?"<br>
+            &mdash; "The first who cleans his room gets a candy."
+          </blockquote>
+          <ul>
+            <li class="no-style">
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>// kid1 promise
+const cleanRoom1 = new Promise(function (resolve, reject) {
   setTimeout(
-    () => resolve('kid 1 cleaned his room'),
+    () =&gt; resolve('kid 1 cleaned his room'),
     Math.random() * 2000
   )
 })
 
 // kid2 promise
-let cleanRoom2 = new Promise(function (resolve, reject) {
+const cleanRoom2 = new Promise(function (resolve, reject) {
   setTimeout(
-    () => resolve('kid 2 cleaned his room'),
+    () =&gt; resolve('kid 2 cleaned his room'),
     Math.random() * 2000
   )
 })
@@ -1794,26 +1781,26 @@ let cleanRoom2 = new Promise(function (resolve, reject) {
 Promise.race([
   cleanRoom1,
   cleanRoom2
-]).then(res => console.log(res + ' first and gets the candy'));</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Case study">
-                  <h2>Case study (1)</h2>
-                  <ul>
-                     <li>
-                        Let's throw an example together in Node, where we'll use
-                        <ul>
-                           <li>a generator to generate URL's</li>
-                           <li>promises to fetch and return the URL content (HTML)</li>
-                           <li>Node modules to parse and process the HTML to markup</li>
-                        </ul>
-                     </li>
-                     <li>
-                        Node modules needed (may also be globally installed):
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" data-caption="package.json" contenteditable>{
+]).then(res =&gt; console.log(res + ' first and gets the candy'));</code></pre>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Case study">
+          <h2>Case study (1)</h2>
+          <ul>
+            <li>
+              Let's throw an example together in Node, where we'll use
+              <ul>
+                <li>a generator to generate URL's</li>
+                <li>promises to fetch and return the URL content (HTML)</li>
+                <li>Node modules to parse and process the HTML to markup</li>
+              </ul>
+            </li>
+            <li>
+              Node modules needed (may also be globally installed):
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" data-caption="package.json" contenteditable>{
   ...
   "dependencies": {
     "hget": "^3.1.0",
@@ -1823,57 +1810,57 @@ Promise.race([
   }
 }
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Case study (2)</h2>
-                  <ul>
-                     <li>
-                        Requiring modules and creating the URL generator:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" data-caption="script.js" contenteditable>// require modules
-let request = require('request');
-let hget = require('hget');
-let marked = require('marked');
-let MarkedTerminal = require('marked-terminal');
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Case study (2)</h2>
+          <ul>
+            <li>
+              Requiring modules and creating the URL generator:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" data-caption="script.js" contenteditable>// require modules
+const request = require('request');
+const hget = require('hget');
+const marked = require('marked');
+const MarkedTerminal = require('marked-terminal');
 
 // define and create a generator for URL's
-let urlGenerator = function*(){
-  let urls = [
+const urlGenerator = function*(){
+  const urls = [
     'https://ikdoeict.be/',
     'https://ikdoeict.be/opleiding-ict/'
   ];
   while (urls.length) yield urls.shift();
 }
-let urlGen = urlGenerator();
+const urlGen = urlGenerator();
 
 ...</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Case study (3)</h2>
-                  <ul>
-                     <li>
-                        Function that returns promise to request the URL:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" data-caption="script.js (cont'd)" contenteditable>... 
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Case study (3)</h2>
+          <ul>
+            <li>
+              Function that returns promise to request the URL:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" data-caption="script.js (cont'd)" contenteditable>...
 
 // returns a promise to return the content found at an URL
-let getNextPage = function () {
-  let url = urlGen.next();
-  return new Promise((resolve, reject) => {
+const getNextPage = function () {
+  const url = urlGen.next();
+  return new Promise((resolve, reject) =&gt; {
     if (url.done) {
       reject('Done! No more pages');
       return;
-    } 
+    }
     console.log(`Fetching next page at ${url.value}...`);
-    request(url.value, (err, res, body) => {
+    request(url.value, (err, res, body) =&gt; {
       if (err) {
-        reject(err); 
+        reject(err);
         return;
       }
       resolve(body);
@@ -1882,119 +1869,119 @@ let getNextPage = function () {
 };
 
 ...</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Case study (4)</h2>
-                  <ul>
-                     <li>
-                        Recursive function to parse URL content delivered by promise:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" data-caption="script.js (end)" contenteditable>... 
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Case study (4)</h2>
+          <ul>
+            <li>
+              Recursive function to parse URL content delivered by promise:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" data-caption="script.js (end)" contenteditable>...
 
 // displays and parses the content
-let displayNextPage = function() {
+const displayNextPage = function() {
   getNextPage()
-    .then(html => hget(html, {
+    .then(html =&gt; hget(html, {
       markdown: true,
       root: 'div.main-content',
       ignore: '.at-subscribe,.mm-comments,.de-sidebar'
     }))
-    .then(md => marked(md, {
+    .then(md =&gt; marked(md, {
       renderer: new MarkedTerminal()
     }))
-    .then(txt => { 
-      console.log(txt); 
-      displayNextPage(); 
+    .then(txt =&gt; {
+      console.log(txt);
+      displayNextPage();
     })
-    .catch(reason => console.error(reason));
+    .catch(reason =&gt; console.error(reason));
 }
 
 // start recursive page call
 displayNextPage();</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Case study (5)</h2>
-                  <ul>
-                     <li>
-                        Execute our script:
-                        <div>
-                           <pre class="bigger"><code class="donthighlight black">&gt; node script.js
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Case study (5)</h2>
+          <ul>
+            <li>
+              Execute our script:
+              <div>
+                <pre class="bigger"><code class="donthighlight black">&gt; node script.js
 </code></pre>
-                        </div>
-                        <img src="img/07_es6/final.png" alt="" class="border"
-                           style="max-width: 80%; margin: 0 auto; display: block; margin-top: 1rem" />
-                        <div class="demolink"><a href="demos/07_es6/case-study.zip">case-study.zip</a></div>
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>async/await (ES2017)</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section data-toc-title="consuming &amp; error handling">
-                  <h2>consuming &amp; error handling (1)</h2>
-                  <ul>
-                     <li>
-                        new way to write asynchronous code, after callbacks and promises (actually built on top of
-                        promises)
-                     </li>
-                     <li>
-                        let's start from a service returning a JSON promise:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>// some service returning JSON promise
-const getData = () => new Promise(function (resolve, reject) {
+              </div>
+              <p class="centered">
+                <img src="img/07_es6/final.png" alt="" class="bordered" width="600">
+              </p>
+              <div class="demolink"><a href="demos/07_es6/case-study.zip">case-study.zip</a></div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>async/await (ES2017)</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section data-title="consuming &amp; error handling">
+          <h2>consuming &amp; error handling (1)</h2>
+          <ul>
+            <li>
+              new way to write asynchronous code, after callbacks and promises (actually built on top of
+              promises)
+            </li>
+            <li>
+              let's start from a service returning a JSON promise:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>// some service returning JSON promise
+const getData = () =&gt; new Promise(function (resolve, reject) {
   const data = {
     'a': 'test'
   };
   // 50% chance that data is sent
-  if (Math.random() > 0.5) resolve(JSON.stringify(data));
+  if (Math.random() &gt; 0.5) resolve(JSON.stringify(data));
   else reject('some error');
 });
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>consuming &amp; error handling (2)</h2>
-                  <ul>
-                     <li>
-                        promises version:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = () => {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>consuming &amp; error handling (2)</h2>
+          <ul>
+            <li>
+              promises version:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = () =&gt; {
   getData()
-    .then(result => {
+    .then(result =&gt; {
       const res = JSON.parse(result);
       console.log(res);
     })
-    .catch((err) => {
+    .catch((err) =&gt; {
       console.log(err);
     });
 }
 makeRequest();</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>consuming &amp; error handling (2)</h2>
-                  <ul>
-                     <li>
-                        async/await version:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = async () => {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>consuming &amp; error handling (2)</h2>
+          <ul>
+            <li>
+              async/await version:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = async () =&gt; {
   try {
     const res = JSON.parse(await getData());
     console.log(res);
@@ -2005,23 +1992,23 @@ makeRequest();</code></pre>
 };
 makeRequest();
 </code></pre>
-                        </div>
-                        <div class="demolink"><a href="demos/07_es6/async-await.html">demo</a></div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="nesting">
-                  <h2>nesting (1)</h2>
-                  <ul>
-                     <li>
-                        promises version (without error handling for clarity):
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = () => {
+              </div>
+              <div class="demolink"><a href="demos/07_es6/async-await.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="nesting">
+          <h2>nesting (1)</h2>
+          <ul>
+            <li>
+              promises version (without error handling for clarity):
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = () =&gt; {
   return getData()
-    .then(data => {
+    .then(data =&gt; {
       if (data.needsMoreData) {
         return getMoreData(data)
-          .then(moreData => {
+          .then(moreData =&gt; {
             console.log(moreData);
             return moreData;
           });
@@ -2031,17 +2018,17 @@ makeRequest();
       }
     });
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>nesting (2)</h2>
-                  <ul>
-                     <li>
-                        async/await version:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = async () => {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>nesting (2)</h2>
+          <ul>
+            <li>
+              async/await version:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = async () =&gt; {
   const data = await getData()
   if (data.needsMoreData) {
     const moreData = await getMoreData(data);
@@ -2049,47 +2036,47 @@ makeRequest();
     return moreData;
   } else {
     console.log(data)
-    return data    
+    return data
   }
 }</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="debugging">
-                  <h2>debugging (1)</h2>
-                  <ul>
-                     <li>
-                        debugging is much easier; compare promises version...
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = () => {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="debugging">
+          <h2>debugging (1)</h2>
+          <ul>
+            <li>
+              debugging is much easier; compare promises version...
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = () =&gt; {
   return callAPromise()
-    .then(() => callAPromise())
-    .then(() => callAPromise())
-    .then(() => callAPromise())
-    .then(() => callAPromise())
-    .then(() => {
+    .then(() =&gt; callAPromise())
+    .then(() =&gt; callAPromise())
+    .then(() =&gt; callAPromise())
+    .then(() =&gt; callAPromise())
+    .then(() =&gt; {
       throw new Error("oops");
     });
 };
 
 makeRequest()
-  .catch(err => {
+  .catch(err =&gt; {
     console.log(err);
     // output
     // Error: oops at callAPromise.then.then.then.then.then (index.js:8:13)
   });</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>debugging (2)</h2>
-                  <ul>
-                     <li>
-                        ...with async/await version:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = async () => {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>debugging (2)</h2>
+          <ul>
+            <li>
+              ...with async/await version:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>const makeRequest = async () =&gt; {
   await callAPromise();
   await callAPromise();
   await callAPromise();
@@ -2099,22 +2086,22 @@ makeRequest()
 }
 
 makeRequest()
-  .catch(err => {
+  .catch(err =&gt; {
     console.log(err);
     // output
     // Error: oops at makeRequest (index.js:7:9)
   });</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Ajax/jQuery example">
-                  <h2>Ajax/jQuery example (1)</h2>
-                  <ul>
-                     <li>
-                        Schematic Ajax/jQuery example, classic version:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>$.ajax({
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Ajax/jQuery example">
+          <h2>Ajax/jQuery example (1)</h2>
+          <ul>
+            <li>
+              Schematic Ajax/jQuery example, classic version:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>$.ajax({
   url: url,
   data: {
     some_par: somePar
@@ -2122,7 +2109,7 @@ makeRequest()
   dataType: 'json',
   succes: function() {
     // insert items in DOM
-    for (let i = 0; i < data.items.length; i++) {
+    for (let i = 0; i &lt; data.items.length; i++) {
       // ...
     }
     // load more data here
@@ -2132,17 +2119,17 @@ makeRequest()
     console.log(err);
   },
 });</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="Ajax/jQuery example">
-                  <h2>Ajax/jQuery example (2)</h2>
-                  <ul>
-                     <li>
-                        Schematic Ajax/jQuery example, promises inspired version:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>$.ajax({
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="Ajax/jQuery example">
+          <h2>Ajax/jQuery example (2)</h2>
+          <ul>
+            <li>
+              Schematic Ajax/jQuery example, promises inspired version:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>$.ajax({
   url: url,
   data: {
     some_par: somePar
@@ -2150,7 +2137,7 @@ makeRequest()
   dataType: 'json'
 }).done(function() {
   // insert items in DOM
-  for (let i = 0; i < data.items.length; i++) {
+  for (let i = 0; i &lt; data.items.length; i++) {
     // ...
   }
   // load more data here
@@ -2158,17 +2145,17 @@ makeRequest()
 }).fail(function() {
   console.log(err);
 });</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Ajax/jQuery example (3)</h2>
-                  <ul>
-                     <li>
-                        Schematic Ajax/jQuery example, async/await version:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict" contenteditable>const loadItems = async (url, somePar) => {
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Ajax/jQuery example (3)</h2>
+          <ul>
+            <li>
+              Schematic Ajax/jQuery example, async/await version:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict" contenteditable>const loadItems = async (url, somePar) =&gt; {
   const data = await $.ajax({
     url: url,
     data: {
@@ -2177,135 +2164,135 @@ makeRequest()
     dataType: 'json'
   });
   // insert items in DOM
-  for (let i = 0; i < data.items.length; i++) {
+  for (let i = 0; i &lt; data.items.length; i++) {
     // ....
   }
   // load more data here
   // ...
 };
 
-loadItems().catch(err => { // or use try-catch if you prefer
+loadItems().catch(err =&gt; { // or use try-catch if you prefer
   console.log(err);
 });</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        <p>
-                           You can read 'async' as: <i>"this might take a while"</i><br>
-                           You can read 'await' as: <i>"I'll wait for the result here"</i><br>
-                           &rarr; note: you can only call await in an async function (makes sense: if you are prepared
-                           to wait, you should notify that it may take a while)
-                        </p>
-                     </div>
-                  </div>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>Reactive programming</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section>
-                  <h2>About Reactive Programming</h2>
-                  <ul>
-                     <li>
-                        Reactive programming is not a library or framework, but a programming paradigm (or philosophy,
-                        if you like)
-                     </li>
-                     <li>
-                        Everything can be seen as an asynchronous data stream:
-                        <ul>
-                           <li>database changes</li>
-                           <li>user actions</li>
-                           <li>network requests</li>
-                           <li>...</li>
-                        </ul>
-                     </li>
-                     <li>
-                        Uses <em>marble diagrams</em> to represent streams and manipulations, e.g. event filtering:<br>
-                        <img src="img/07_es6/marble_filter.jpg" alt="" class="border" style="max-width: 50%" />
-                     </li>
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        The events could be a filtered set of keyboard strokes for example
-                     </div>
-                  </div>
-               </section>
-               <section>
-                  <h2>Observables vs. Event Listeners</h2>
-                  <ul>
-                     <li>
-                        (Observable) streams may be listened to and acted upon
-                     </li>
-                     <li>
-                        Listening to streams fundamentally differs from adding listeners to events:
-                        <ul>
-                           <li>streams may end, while there is no such thing as 'the last event' in event listeners</li>
-                           <li>
-                              in event listeners, the acting object controls the reacting object, while in reactive
-                              programming the reacting object is in control; in pseudo-code:
-                              <div>
-                                 <pre class="bigger"><code class="language-javascript strict">// proactive: button controls panel
-button.addClickEventListener(...toggle panel visibility...) 
+              </div>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              <p>
+                You can read 'async' as: <i>"this might take a while"</i><br>
+                You can read 'await' as: <i>"I'll wait for the result here"</i><br>
+                &rarr; note: you can only call await in an async function (makes sense: if you are prepared
+                to wait, you should notify that it may take a while)
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>Reactive programming</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>About Reactive Programming</h2>
+          <ul>
+            <li>
+              Reactive programming is not a library or framework, but a programming paradigm (or philosophy,
+              if you like)
+            </li>
+            <li>
+              Everything can be seen as an asynchronous data stream:
+              <ul>
+                <li>database changes</li>
+                <li>user actions</li>
+                <li>network requests</li>
+                <li>...</li>
+              </ul>
+            </li>
+            <li>
+              Uses <em>marble diagrams</em> to represent streams and manipulations, e.g. event filtering:<br>
+              <img src="img/07_es6/marble_filter.jpg" alt="" class="bordered" width="400">
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              The events could be a filtered set of keyboard strokes for example
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Observables vs. Event Listeners</h2>
+          <ul>
+            <li>
+              (Observable) streams may be listened to and acted upon
+            </li>
+            <li>
+              Listening to streams fundamentally differs from adding listeners to events:
+              <ul>
+                <li>streams may end, while there is no such thing as 'the last event' in event listeners</li>
+                <li>
+                  in event listeners, the acting object controls the reacting object, while in reactive
+                  programming the reacting object is in control; in pseudo-code:
+                  <div>
+                    <pre class="bigger"><code class="language-javascript strict">// proactive: button controls panel
+button.addClickEventListener(...toggle panel visibility...)
 
 // reactive: panel reacts on button changes
-panel.listen(Observable button -> ...toggle panel visibility...)</code></pre>
-                              </div>
-                           </li>
-                        </ul>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>ReactiveX and RxJs</h2>
-                  <ul>
-                     <li>
-                        Currently, languages don't natively support observables. <a
-                           href="http://reactivex.io/">ReactiveX</a> is an API library for observable streams, ported to
-                        <a href="http://reactivex.io/languages.html">many languages</a>.
-                     </li>
-                     <li>
-                        The Javascript implementation is called <a href="https://github.com/ReactiveX/rxjs">RxJs</a>.
-                        Just include the script, e.g. via a CDN:
-                        <div>
-                           <pre class="bigger"><code class="language-html strict">&lt;script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"&gt;&lt;/script&gt;
+panel.listen(Observable button -&gt; ...toggle panel visibility...)</code></pre>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>ReactiveX and RxJs</h2>
+          <ul>
+            <li>
+              Currently, languages don't natively support observables. <a
+                href="http://reactivex.io/">ReactiveX</a> is an API library for observable streams, ported to
+              <a href="http://reactivex.io/languages.html">many languages</a>.
+            </li>
+            <li>
+              The Javascript implementation is called <a href="https://github.com/ReactiveX/rxjs">RxJs</a>.
+              Just include the script, e.g. via a CDN:
+              <div>
+                <pre class="bigger"><code class="language-html strict">&lt;script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   // your reactive script here
 &lt;/script&gt;</code></pre>
-                        </div>
-                     </li>
+              </div>
+            </li>
 
 
-                  </ul>
-                  <div class="tooltip">
-                     <div>
-                        <p>ReactiveX is considered the golden standard API library for observables and probably the most
-                           feature-complete, but more exist, like <a href="https://github.com/cujojs/most">most.js</a>,
-                           <a href="https://github.com/staltz/xstream">xstream</a> etc...</p>
-                        <p>Observables are proposed for ES, but didn't make it in ES2016 nor ES2017 yet, probably
-                           because it's more of an API than a syntax.</p>
-                     </div>
-                  </div>
-               </section>
-               <section data-toc-title="Example">
-                  <h2>Example (1)</h2>
-                  <ul>
-                     <li>
-                        Let's take a simple example, a button toggling a panel. A classic solution would be:
-                        <div>
-                           <pre class="bigger"><code class="language-html strict overlayrun">&lt;!DOCTYPE html&gt;
+          </ul>
+          <div class="tooltip">
+            <div>
+              <p>ReactiveX is considered the golden standard API library for observables and probably the most
+                feature-complete, but more exist, like <a href="https://github.com/cujojs/most">most.js</a>,
+                <a href="https://github.com/staltz/xstream">xstream</a> etc...
+              </p>
+              <p>Observables are proposed for ES, but didn't make it in ES2016 nor ES2017 yet, probably
+                because it's more of an API than a syntax.</p>
+            </div>
+          </div>
+        </section>
+        <section data-title="Example">
+          <h2>Example (1)</h2>
+          <ul>
+            <li>
+              Let's take a simple example, a button toggling a panel. A classic solution would be:
+              <div>
+                <pre class="bigger"><code class="language-html strict overlayrun">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;body&gt;
   &lt;button class="toggleButton"&gt;open/close&lt;/button&gt;
   &lt;div class="togglePanel"&gt;
-    Far quitting dwelling graceful the likewise received building. An fact so to that show am shed sold cold. Unaffected remarkably get yet introduced excellence terminated led. Result either design saw she esteem and. On ashamed no inhabit ferrars it ye besides resolve. Own judgment directly few trifling. Elderly as pursuit at regular do parlors. Rank what has into fond she.     
+    Far quitting dwelling graceful the likewise received building. An fact so to that show am shed sold cold. Unaffected remarkably get yet introduced excellence terminated led. Result either design saw she esteem and. On ashamed no inhabit ferrars it ye besides resolve. Own judgment directly few trifling. Elderly as pursuit at regular do parlors. Rank what has into fond she.
   &lt;/div&gt;
   &lt;script&gt;
     const toggleButton = document.querySelector('.toggleButton');
@@ -2317,271 +2304,266 @@ panel.listen(Observable button -> ...toggle panel visibility...)</code></pre>
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Example (2)</h2>
-                  <ul>
-                     <li>
-                        The RxJs version:
-                        <div>
-                           <pre class="bigger"><code class="language-html strict overlayrun" style="max-height: 300px">&lt;!DOCTYPE html&gt;
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Example (2)</h2>
+          <ul>
+            <li>
+              The RxJs version:
+              <div>
+                <pre class="bigger"><code class="language-html strict overlayrun smallpanel">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;body&gt;
   &lt;button class="toggleButton"&gt;open/close&lt;/button&gt;
   &lt;div class="togglePanel"&gt;
-    Far quitting dwelling graceful the likewise received building. An fact so to that show am shed sold cold. Unaffected remarkably get yet introduced excellence terminated led. Result either design saw she esteem and. On ashamed no inhabit ferrars it ye besides resolve. Own judgment directly few trifling. Elderly as pursuit at regular do parlors. Rank what has into fond she.     
+    Far quitting dwelling graceful the likewise received building. An fact so to that show am shed sold cold. Unaffected remarkably get yet introduced excellence terminated led. Result either design saw she esteem and. On ashamed no inhabit ferrars it ye besides resolve. Own judgment directly few trifling. Elderly as pursuit at regular do parlors. Rank what has into fond she.
   &lt;/div&gt;
   &lt;script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"&gt;&lt;/script&gt;
   &lt;script&gt;
     // create stream of clicks and map to stream of booleans
     const toggleButton = document.querySelector('.toggleButton');
     const clicks = Rx.Observable.fromEvent(toggleButton, 'click');
-    const toggle = clicks.map(() => {  
+    const toggle = clicks.map(() =&gt; {
       return togglePanel.style.display === 'none'
     });
 
-    // listen to stream and act accordingly                                                                          
+    // listen to stream and act accordingly
     const togglePanel = document.querySelector('.togglePanel');
-    toggle.subscribe((show) => {
+    toggle.subscribe((show) =&gt; {
       togglePanel.style.display = show ? 'block' : 'none';
     });
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        note how the button doesn't even know its clicks are being listened to
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>Getting started with RP</h2>
-                  <ul>
-                     <li>
-                        RP basically comes down to:
-                        <ul>
-                           <li>convert your data into observable streams</li>
-                           <li>use operators like <code>filter()</code>, <code>map()</code>, <code>filter()</code>,
-                              <code>combineLatest()</code> etc... to convert them into new streams</li>
-                           <li>have objects subscribe to the streams and change their state accordingly</li>
-                        </ul>
-                     </li>
-                     <li>
-                        further reading:
-                        <ul>
-                           <li>
-                              other great introductions: <a
-                                 href="http://blog.danlew.net/2017/07/27/an-introduction-to-functional-reactive-programming/">blog.danlew.net</a>
-                              &mdash; <a
-                                 href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">gist.github.com/staltz</a>
-                           </li>
-                           <li>also great as introduction, Netflix talks: <a
-                                 href="https://www.youtube.com/watch?v=XRYN2xt11Ek">Async JavaScript with Reactive
-                                 Extensions</a> &mdash; <a href="https://www.youtube.com/watch?v=AslncyG8whg">RxJS +
-                                 Redux + React = Amazing!</a> &mdash; <a
-                                 href="https://www.youtube.com/watch?v=uODxUJ5Jwis">Real-time Insights powered by
-                                 Reactive Programming</a></li>
-                           <li>documentation starting point: <a href="https://www.learnrxjs.io/">learnrxjs.io</a></li>
-                           <li>great visualization tools: <a href="http://rxmarbles.com/">rxmarbles.com</a>, <a
-                                 href="https://rxviz.com/">rxviz.com</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Functional programming</h2>
-                  <ul>
-                     <li>
-                        <em>Functional programming</em> is another programming paradigm, especially popular with RP
-                        (FRP: Functional Reactive Programming). Basic principles:
-                        <ul>
-                           <li><strong>no shared state</strong>: outcome should not rely on any external variable or
-                              object like DOM, current time, globals...</li>
-                           <li><strong>reproducibility</strong>: given the same inputs, always returns the same output
-                           </li>
-                           <li><strong>no side-effects</strong> function shouldn't modify an external variable, write to
-                              screen/file/network, trigger external process...</li>
-                           <li><strong>immutability</strong>: incoming parameters should remain unaltered by the
-                              function</li>
-                        </ul>
-                     </li>
-                  </ul>
-               </section>
-               <section data-toc-title="">
-                  <h2>Example (3)</h2>
-                  <ul>
-                     <li>
-                        Our example, the FRP version with DOM interaction removed from our stream:
-                        <div>
-                           <pre class="bigger"><code class="language-html strict overlayrun" style="max-height: 300px">&lt;!DOCTYPE html&gt;
+              </div>
+            </li>
+            <li class="arrow">
+              note how the button doesn't even know its clicks are being listened to
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Getting started with RP</h2>
+          <ul>
+            <li>
+              RP basically comes down to:
+              <ul>
+                <li>convert your data into observable streams</li>
+                <li>use operators like <code>filter()</code>, <code>map()</code>, <code>filter()</code>,
+                  <code>combineLatest()</code> etc... to convert them into new streams
+                </li>
+                <li>have objects subscribe to the streams and change their state accordingly</li>
+              </ul>
+            </li>
+            <li>
+              further reading:
+              <ul>
+                <li>
+                  other great introductions: <a
+                    href="http://blog.danlew.net/2017/07/27/an-introduction-to-functional-reactive-programming/">blog.danlew.net</a>
+                  &mdash; <a
+                    href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">gist.github.com/staltz</a>
+                </li>
+                <li>also great as introduction, Netflix talks: <a
+                    href="https://www.youtube.com/watch?v=XRYN2xt11Ek">Async JavaScript with Reactive
+                    Extensions</a> &mdash; <a href="https://www.youtube.com/watch?v=AslncyG8whg">RxJS +
+                    Redux + React = Amazing!</a> &mdash; <a
+                    href="https://www.youtube.com/watch?v=uODxUJ5Jwis">Real-time Insights powered by
+                    Reactive Programming</a></li>
+                <li>documentation starting point: <a href="https://www.learnrxjs.io/">learnrxjs.io</a></li>
+                <li>great visualization tools: <a href="http://rxmarbles.com/">rxmarbles.com</a>, <a
+                    href="https://rxviz.com/">rxviz.com</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Functional programming</h2>
+          <ul>
+            <li>
+              <em>Functional programming</em> is another programming paradigm, especially popular with RP
+              (FRP: Functional Reactive Programming). Basic principles:
+              <ul>
+                <li><strong>no shared state</strong>: outcome should not rely on any external variable or
+                  object like DOM, current time, globals...</li>
+                <li><strong>reproducibility</strong>: given the same inputs, always returns the same output
+                </li>
+                <li><strong>no side-effects</strong> function shouldn't modify an external variable, write to
+                  screen/file/network, trigger external process...</li>
+                <li><strong>immutability</strong>: incoming parameters should remain unaltered by the
+                  function</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section data-title="">
+          <h2>Example (3)</h2>
+          <ul>
+            <li>
+              Our example, the FRP version with DOM interaction removed from our stream:
+              <div>
+                <pre class="bigger"><code class="language-html strict overlayrun smallpanel">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;body&gt;
   &lt;button class="toggleButton"&gt;open/close&lt;/button&gt;
   &lt;div class="togglePanel"&gt;
-    Far quitting dwelling graceful the likewise received building. An fact so to that show am shed sold cold. Unaffected remarkably get yet introduced excellence terminated led. Result either design saw she esteem and. On ashamed no inhabit ferrars it ye besides resolve. Own judgment directly few trifling. Elderly as pursuit at regular do parlors. Rank what has into fond she.     
+    Far quitting dwelling graceful the likewise received building. An fact so to that show am shed sold cold. Unaffected remarkably get yet introduced excellence terminated led. Result either design saw she esteem and. On ashamed no inhabit ferrars it ye besides resolve. Own judgment directly few trifling. Elderly as pursuit at regular do parlors. Rank what has into fond she.
   &lt;/div&gt;
   &lt;script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"&gt;&lt;/script&gt;
   &lt;script&gt;
     // create stream of clicks and map to stream of booleans
     const toggleButton = document.querySelector('.toggleButton');
     const initialState = false;
-    const toggle = Rx.Observable.fromEvent(toggleButton, 'click').scan((currentState) => !currentState, initialState);
+    const toggle = Rx.Observable.fromEvent(toggleButton, 'click').scan((currentState) =&gt; !currentState, initialState);
 
-    // listen to stream and act accordingly                                                                          
+    // listen to stream and act accordingly
     const togglePanel = document.querySelector('.togglePanel');
-    toggle.subscribe((show) => {
+    toggle.subscribe((show) =&gt; {
       togglePanel.style.display = show ? 'block' : 'none';
     });
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">
-                        uses the <code><a href="http://rxmarbles.com/#scan">scan()</a></code> operator
-                     </li>
-                  </ul>
-               </section>
-            </section>
-
-            <section>
-               <section>
-                  <h1>ES2015 &amp; beyond</h1>
-                  <h2>ES2016/17</h2>
-                  <ul class="chapterlist">
-                     <!-- to be filled by Javascript -->
-                  </ul>
-               </section>
-               <section>
-                  <h2>ES2016</h2>
-                  <ul>
-                     <li>
-                        Better late than never, exponentiation:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>console.log(2 ** 3);
+              </div>
+            </li>
+            <li class="arrow">
+              uses the <code><a href="http://rxmarbles.com/#scan">scan()</a></code> operator
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter">
+        <section>
+          <h1>ES2015 &amp; beyond</h1>
+          <h2>ES2016/17</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>ES2016</h2>
+          <ul>
+            <li>
+              Better late than never, exponentiation:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>console.log(2 ** 3);
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        Also at last <code>includes()</code> for arrays:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>console.log(['a', 'b', 'c'].includes('a')); // true
+              </div>
+            </li>
+            <li>
+              Also at last <code>includes()</code> for arrays:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>console.log(['a', 'b', 'c'].includes('a')); // true
 console.log(['a', 'b', 'c'].includes('z')); // false
 </code></pre>
-                        </div>
-                     </li>
-                  </ul>
-               </section>
-               <section>
-                  <h2>ES2017</h2>
-                  <ul>
-                     <li>
-                        Allow trailing commas:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let arr = [
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>ES2017</h2>
+          <ul>
+            <li>
+              Allow trailing commas:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const arr = [
   'red',
   'green',
   'blue',
 ];
 console.log(arr.length); // 3
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        String padding:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>console.log('hello'.padEnd(10, '.'));
+              </div>
+            </li>
+            <li>
+              String padding:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>console.log('hello'.padEnd(10, '.'));
 </code></pre>
-                        </div>
-                     </li>
-                     <li>
-                        Object.entries:
-                        <div>
-                           <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let obj = { one: 1, two: 2 };
-for (let [k,v] of Object.entries(obj)) {
+              </div>
+            </li>
+            <li>
+              Object.entries:
+              <div>
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const obj = { one: 1, two: 2 };
+for (const [k,v] of Object.entries(obj)) {
     console.log(`${k}: ${v}`);
 }
 // "one": 1
 // "two": 2
 </code></pre>
-                        </div>
-                     </li>
-                     <li class="arrow">complete list on <a
-                           href="http://exploringjs.com/es2016-es2017/">exploringjs.com/es2016-es2017</a></li>
-                  </ul>
-               </section>
-            </section>
+              </div>
+            </li>
+            <li class="arrow">complete list on <a
+                href="http://exploringjs.com/es2016-es2017/">exploringjs.com/es2016-es2017</a></li>
+          </ul>
+        </section>
+      </section>
+      <section class="chapter" data-index-title="">
+        <section>
+          <h2>Questions?</h2>
+          <ul>
+            <li>
+              References:
+              <ul>
+                <li><a href="http://es6-features.org/">http://es6-features.org/</a></li>
+                <li><a href="https://ponyfoo.com/">https://ponyfoo.com/</a></li>
+                <li><a
+                    href="https://kangax.github.io/compat-table/es6/">https://kangax.github.io/compat-table/es6/</a>
+                </li>
+                <li><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a>
+                </li>
+                <li><a href="http://exploringjs.com/es2016-es2017/">Exploring ES2016 and ES2017</a></li>
+              </ul>
+            </li>
+            <li>
+              ES2015 tools:
+              <ul>
+                <li><a href="http://bevacqua.github.io/promisees/">http://bevacqua.github.io/promisees/</a>
+                </li>
+                <li><a href="http://codepen.io/">http://codepen.io/</a></li>
+                <li><a href="http://www.es6fiddle.net/">http://www.es6fiddle.net/</a></li>
+                <li><a href="http://babeljs.io/">http://babeljs.io/</a></li>
+                <li><a href="https://github.com/babel/babelify">https://github.com/babel/babelify</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </section>
 
-            <section data-index-title="">
-               <section>
-                  <h2>Questions?</h2>
-                  <ul>
-                     <li>
-                        References:
-                        <ul>
-                           <li><a href="http://es6-features.org/">http://es6-features.org/</a></li>
-                           <li><a href="https://ponyfoo.com/">https://ponyfoo.com/</a></li>
-                           <li><a
-                                 href="https://kangax.github.io/compat-table/es6/">https://kangax.github.io/compat-table/es6/</a>
-                           </li>
-                           <li><a
-                                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a>
-                           </li>
-                           <li><a href="http://exploringjs.com/es2016-es2017/">Exploring ES2016 and ES2017</a></li>
-                        </ul>
-                     </li>
-                     <li>
-                        ES2015 tools:
-                        <ul>
-                           <li><a href="http://bevacqua.github.io/promisees/">http://bevacqua.github.io/promisees/</a>
-                           </li>
-                           <li><a href="http://codepen.io/">http://codepen.io/</a></li>
-                           <li><a href="http://www.es6fiddle.net/">http://www.es6fiddle.net/</a></li>
-                           <li><a href="http://babeljs.io/">http://babeljs.io/</a></li>
-                           <li><a href="https://github.com/babel/babelify">https://github.com/babel/babelify</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </section>
-            </section>
+    </div>
 
-         </div>
+    <!-- odisee.be link -->
+    <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
 
-         <!-- odisee.be link -->
-         <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
+    <!-- index menu container -->
+    <nav id="navigator"></nav>
 
-         <!-- Index Link -->
-         <aside class="back">
-            <nav>
-               <p><a href="index.html">&larr; Back to index</a></p>
-            </nav>
-         </aside>
+  </div>
 
-      </div>
-
-      <script src="vendor/jquery.min.js"></script>
-      <script src="vendor/reveal/lib/js/head.min.js"></script>
-      <script src="vendor/reveal/js/reveal.js"></script>
-      <script src="vendor/highlight/highlight.pack.js"></script>
-      <script src="vendor/incrementable.js"></script>
-      <script src="vendor/prefixfree.js"></script>
-      <script src="vendor/css-snippets.js"></script>
-      <script src="vendor/css-edit.js"></script>
-      <script src="js/main.js"></script>
-      <script>
-         let devtools = /./;
-         devtools.toString = function () {
-            this.opened = true;
-         }
-         console.log('%c', devtools);
-         if (!devtools.opened) {
-            alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
-         }
-      </script>
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/reveal/lib/js/head.min.js"></script>
+  <script src="vendor/reveal/js/reveal.js"></script>
+  <script src="vendor/highlight/highlight.pack.js"></script>
+  <script src="vendor/incrementable.js"></script>
+  <script src="vendor/prefixfree.js"></script>
+  <script src="vendor/css-snippets.js"></script>
+  <script src="vendor/css-edit.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const devtools = /./;
+    devtools.toString = function () {
+      this.opened = true;
+    }
+    console.log('%c', devtools);
+    if (!devtools.opened) {
+      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
+    }
+  </script>
 
 </body>
 

@@ -1,68 +1,60 @@
 /*
  * Main scripts
  *
- * @author Rogier van der Linde <rogier@bitmatters.be>
+ * @author Rogier van der Linde
  */
 
-;(function() {
-	'use strict';
+// error messages shortcuts
+const errStreet = document.getElementById('errStreet');
+const errZip = document.getElementById('errZip');
+const errCity = document.getElementById('errCity');
+const errMessages = document.querySelectorAll('.message--error');
 
-	// wait till DOM is loaded
-	window.addEventListener('load', function() {
-		// disable HTML5 form validation
-		document.getElementById('form1').setAttribute('novalidate', 'novalidate');
+// input shortcuts
+const qstStreet = document.getElementById('qstStreet');
+const qstZip = document.getElementById('qstZip');
+const qstCity = document.getElementById('qstCity');
 
-		// intercept document submit
-		document.getElementById('form1').addEventListener('submit', function(e) {
-			// halt event
-			e.preventDefault();
-			e.stopPropagation();
+// disable HTML5 form validation
+document.getElementById('form1').setAttribute('novalidate', 'novalidate');
 
-			// form checking
-			let isValid = true;
+// intercept document submit
+document.getElementById('form1').addEventListener('submit', function (e) {
+	// halt event
+	e.preventDefault();
+	e.stopPropagation();
 
-			// error messages shortcuts
-			let errStreet = document.getElementById('errStreet');
-			let errZip = document.getElementById('errZip');
-			let errCity = document.getElementById('errCity');
+	// form checking
+	let isValid = true;
 
-			// input shortcuts
-			let qstStreet = document.getElementById('qstStreet');
-			let qstZip = document.getElementById('qstZip');
-			let qstCity = document.getElementById('qstCity');
+	// hide all error messages
+	for (let i = 0; i < errMessages.length; i++) {
+		errMessages[i].innerHTML = '&nbsp;';
+	}
 
-			// hide all error messages
-			let errMessages = document.querySelectorAll('.message--error');
-			for (let i = 0; i < errMessages.length; i++) {
-				errMessages[i].innerHTML = '&nbsp;';
-			}
+	// check street and number
+	if (qstStreet.value == '') {
+		isValid = false;
+		errStreet.innerHTML = 'gelieve een straat en nummer in te vullen';
+	}
 
-			// check street and number
-			if (qstStreet.value == '') {
-				isValid = false;
-				errStreet.innerHTML = 'gelieve een straat en nummer in te vullen';
-			}
+	// check zip
+	if (qstZip.value == '') {
+		isValid = false;
+		errZip.innerHTML = 'gelieve een postcode in te vullen';
+	}
 
-			// check zip
-			if (qstZip.value == '') {
-				isValid = false;
-				errZip.innerHTML = 'gelieve een postcode in te vullen';
-			}
+	// check city
+	if (qstCity.value == '') {
+		isValid = false;
+		errCity.innerHTML = 'gelieve een gemeente in te vullen';
+	}
 
-			// check city
-			if (qstCity.value == '') {
-				isValid = false;
-				errCity.innerHTML = 'gelieve een gemeente in te vullen';
-			}
+	// draw conclusion
+	if (isValid) {
+		console.log('all ok');
+	} else {
+		console.log('form contains errors');
+	}
 
-			// draw conclusion
-			if (isValid) {
-				console.log('all ok');
-			} else {
-				console.log('form contains errors');
-			}
-
-		});
-	});
-
-})();
+});

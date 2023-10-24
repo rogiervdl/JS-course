@@ -1,18 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Javascript &mdash; DOM</title>
   <meta name="author" content="Rogier van der Linde - odisee.be">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
-  <link rel="stylesheet" href="fonts/lato/webfont.css">
-  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
-  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
-  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
-  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
-  <link rel="stylesheet" href="css/reveal-mods.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/02_dom.css">
 </head>
 
@@ -24,22 +18,21 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
-      <!-- 0 : Title -->
-      <section>
+      <section class="cover">
         <h1>DOM</h1>
-        <small>use the arrow keys to navigate; press space for slide overview<br /></small>
-        <figure>
-          <img src="img/02_dom/dom_lean1.png" alt="" width="380" style="border: 10px solid white" />
-          <figcaption>
-
-          </figcaption>
-        </figure>
-
-        <footer>
-          <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+        <p>
+          tussen []: optioneel, sterk aanbevolen voor wie wil verdergaan in web
+        </p>
+        <p>
+          gebruik pijltjestoetsen om te navigeren<br>
+          dotted codepanels zijn editeerbaar
+        </p>
+        <img src="img/02_dom/icon.png" alt="" class="cover__visual">
+        <footer class="cover__footer">
+          <img src="img/me.jpg" alt="" class="cover__me"> <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
         </footer>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>DOM</h1>
           <h2>Intro</h2>
@@ -47,12 +40,13 @@
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-        <section data-toc-title="Scripts recap">
+        <section data-title="Scripts recap">
           <h2>Scripts recap (1)</h2>
           <ul>
             <li>
               Link your scripts at the bottom, vendor scripts first, your scripts last:
-              <div><pre class="bigger"><code class="language-html right">&lt;!DOCTYPE html&gt;
+              <div>
+                <pre class="bigger"><code class="language-html right">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;How to include scripts&lt;/title&gt;
@@ -66,11 +60,12 @@
   &lt;!-- load your scripts --&gt;
   &lt;script src="js/my-script.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
+&lt;/html&gt;</code></pre>
+              </div>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Scripts recap (2)</h2>
           <ul>
             <li>
@@ -102,28 +97,28 @@
               In previous presentation, we already saw a few examples of how to interact with the HTML page and CSS <a href="01_syntax.html#/html-css-and-js-together-1">here</a> and <a href="01_syntax.html#/html-css-and-js-together-2">here</a>.
             </li>
             <li>
-              A programmable model of the current HTML page accessible for Javascript is called the <em>Document Object Model</em>, in short the <em>DOM</em>. 
+              A programmable model of the current HTML page accessible for Javascript is called the <em>Document Object Model</em>, in short the <em>DOM</em>.
             </li>
             <li>In early days browser DOM support used to be disastrous, but today you don't have to worry about browser differences (at least not in this course)</li>
           </ul>
         </section>
-        <section data-toc-title="Trees">
+        <section data-title="Trees">
           <h2>Trees (1)</h2>
           <ul>
             <li>
-              Before we talk about DOM, some terms used in tree structures: 
+              Before we talk about DOM, some terms used in tree structures:
             </li>
           </ul>
-          <p style="text-align: center;"><img src="img/02_dom/tree1.png" alt="" width="500" /></p>
+          <p class="centered"><img src="img/02_dom/tree1.png" alt="" width="500"></p>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Trees (2)</h2>
           <ul>
             <li>
               Some more terms:
             </li>
           </ul>
-          <p style="text-align: center;"><img src="img/02_dom/tree2.png" alt="" width="500" /></p>
+          <p class="centered"><img src="img/02_dom/tree2.png" alt="" width="500"></p>
         </section>
         <section>
           <h2>DOM &mdash; full version</h2>
@@ -132,7 +127,7 @@
               The actual DOM is, well, quite complex:
             </li>
           </ul>
-          <p style="text-align: center;"><img src="img/02_dom/dom_full.png" alt="" width="700" /></p>
+          <p class="centered"><img src="img/02_dom/dom_full.png" alt="" width="700"></p>
           <div class="tooltip">
             <div>
               <p>
@@ -148,16 +143,16 @@
           <h2>DOM &mdash; final version</h2>
           <ul>
             <li>
-              Luckily, we just need a small part of it: <br />
+              Luckily, we just need a small part of it: <br>
             </li>
           </ul>
-          <p style="text-align: center;"><img src="img/02_dom/dom_lean_annotated.png" alt="" width="700" /></p>
+          <p class="centered"><img src="img/02_dom/dom_lean_annotated.png" alt="" width="700"></p>
         </section>
         <section>
           <h2>DOM objects</h2>
           <ul>
             <li>
-              The DOM consists of the window, location, history and document objects, and all HTML element objects that can be found with one of the three methods. 
+              The DOM consists of the window, location, history and document objects, and all HTML element objects that can be found with one of the three methods.
             </li>
             <li>
               Each DOM object has
@@ -172,17 +167,17 @@
             </li>
           </ul>
         </section>
-        <section>
-          <h2>window object</h2>
-          <img src="img/02_dom/dom_lean1.png" alt="" width="500" style="display: block; margin: 30px auto" />
+        <section data-title="window object">
+          <h2>window object (1)</h2>
+          <p class="centered"><img src="img/02_dom/dom_lean1.png" alt="" width="500"></p>
         </section>
-        <section data-toc-title="">
-          <h2>window object</h2>
-          <img src="img/02_dom/ss_window.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
-          <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_window.asp">here</a></small>
+        <section data-title="">
+          <h2>window object (2)</h2>
+          <p class="centered"><img src="img/02_dom/ss_window.png" alt=""></p>
+          <p class="smallfont">&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_window.asp">here</a></p>
         </section>
-        <section data-toc-title="">
-          <h2>window object</h2>
+        <section data-title="">
+          <h2>window object (3)</h2>
           <ul>
             <li>
               Some properties:
@@ -201,22 +196,21 @@ if (confirm('print this page?')) print();</code></pre>
             </li>
           </ul>
         </section>
-        <section>
-          <h2>history object</h2>
-          <img src="img/02_dom/dom_lean2.png" alt="" width="500" style="display: block; margin: 30px auto" />
+        <section data-title="history object">
+          <h2>history object (1)</h2>
+          <p class="centered"><img src="img/02_dom/dom_lean2.png" alt="" width="500"></p>
         </section>
-        <section data-toc-title="">
-          <h2>history object</h2>
-          <img src="img/02_dom/ss_history.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
-          <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_history.asp">here</a></small>
+        <section data-title="">
+          <h2>history object (2)</h2>
+          <p class="centered"><img src="img/02_dom/ss_history.png" alt=""></p>
+          <p class="smallfont">&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_history.asp">here</a></p>
         </section>
-        <section data-toc-title="">
-          <h2>history object</h2>
+        <section data-title="">
+          <h2>history object (3)</h2>
           <ul>
             <li>
               You are not supposed to mess with browser history:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun wrong">history.back(); // don't use this!
-
 </code></pre>
             </li>
             <li>
@@ -224,17 +218,17 @@ if (confirm('print this page?')) print();</code></pre>
             </li>
           </ul>
         </section>
-        <section>
-          <h2>location object</h2>
-          <img src="img/02_dom/dom_lean3.png" alt="" width="500" style="display: block; margin: 30px auto" />
+        <section data-title="location object">
+          <h2>location object (1)</h2>
+          <p class="centered"><img src="img/02_dom/dom_lean3.png" alt="" width="500"></p>
         </section>
-        <section data-toc-title="">
-          <h2>location object</h2>
-          <img src="img/02_dom/ss_location.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
-          <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_location.asp">here</a></small>
+        <section data-title="">
+          <h2>location object (2)</h2>
+          <p class="centered"><img src="img/02_dom/ss_location.png" alt=""></p>
+          <p class="smallfont">&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_location.asp">here</a></p>
         </section>
-        <section data-toc-title="">
-          <h2>location object</h2>
+        <section data-title="">
+          <h2>location object (3)</h2>
           <ul>
             <li>
               Refers to the address bar. Example forcing a redirect:
@@ -253,17 +247,17 @@ if (confirm('print this page?')) print();</code></pre>
             </li>
           </ul>
         </section>
-        <section>
-          <h2>document object</h2>
-          <img src="img/02_dom/dom_lean4.png" alt="" width="500" style="display: block; margin: 30px auto" />
+        <section data-title="document object">
+          <h2>document object (1)</h2>
+          <p class="centered"><img src="img/02_dom/dom_lean4.png" alt="" width="500"></p>
         </section>
-        <section data-toc-title="">
-          <h2>document object</h2>
-          <img src="img/02_dom/ss_document.png" alt="" style="display: block; margin: 30px auto 10px; width: 700px;" />
-          <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">here</a></small>
+        <section data-title="">
+          <h2>document object (2)</h2>
+          <p class="centered"><img src="img/02_dom/ss_document.png" alt=""></p>
+          <p class="smallfont">&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">here</a></p>
         </section>
-        <section data-toc-title="">
-          <h2>document object</h2>
+        <section data-title="">
+          <h2>document object (3)</h2>
           <ul>
             <li>
               This node carries the entire HTML document. The node itself is rather uninteresting, with only a few properties and methods (apart from the selector functions we'll talk about in a minute):
@@ -276,9 +270,9 @@ if (confirm('print this page?')) print();</code></pre>
         </section>
         <section>
           <h2>Finding HTML elements</h2>
-          <img src="img/02_dom/dom_lean5.png" alt="" width="500" style="display: block; margin: 30px auto" />
+          <p class="centered"><img src="img/02_dom/dom_lean5.png" alt="" width="500"></p>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Finding HTML elements</h2>
           <ul>
             <li>
@@ -309,8 +303,8 @@ let msg = document.querySelector('#login input'); // get first #login input elem
   document.getElementById('message').innerHTML = 'Hello World';
 });</code></pre>
               ...or a little bit cleaner:
-              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let button1 = document.getElementById('btn1'); // get button by id
-let msg = document.getElementById('message'); // get paragraph by id
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>const button1 = document.getElementById('btn1'); // get button by id
+const msg = document.getElementById('message'); // get paragraph by id
 button1.addEventListener('click', function() {
   msg.innerHTML = 'Hello World';
 });</code></pre>
@@ -324,7 +318,7 @@ button1.addEventListener('click', function() {
             <li>
               <code><em>querySelector()</em></code> gets a single element by CSS selector, e.g.:
               <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;form id="frmLogin"&gt;
-  &lt;span class="error"&gt;&lt;/span&gt; 
+  &lt;span class="error"&gt;&lt;/span&gt;
   &lt;label for="uname"&gt;Login: &lt;/label&gt;&lt;input type="text" id="uname" value="Bob"&gt;
   &lt;label for="pw"&gt;Password: &lt;/label&gt;&lt;input type="password" id="pw" value="XYZ"&gt;
   &lt;input type="submit" value="login"&gt;
@@ -343,9 +337,9 @@ console.log(inpPw.value);
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Finding HTML elements</h2>
-          <img src="img/02_dom/dom_lean6.png" alt="" width="500" style="display: block; margin: 30px auto" />
+          <p class="centered"><img src="img/02_dom/dom_lean6.png" alt="" width="500"></p>
         </section>
         <section>
           <h2>querySelectorAll</h2>
@@ -365,7 +359,7 @@ console.log(navlinks.length); // will display 4</code></pre>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>querySelectorAll</h2>
           <ul>
             <li>
@@ -386,7 +380,7 @@ console.log(itemsToHide[0].innerHTML); // &lt;a href=""&gt;item2&lt;/a&gt;
 
 // iterate results and do something, e.g. hide them
 for (let item of itemsToHide) {
-  item.style.display = 'none'; 
+  item.style.display = 'none';
 }</code></pre>
               <div class="demolink"><a href="demos/summary/queryselectorall.html">demo</a></div>
             </li>
@@ -398,22 +392,22 @@ for (let item of itemsToHide) {
             <li>
               You can chain queries, e.g.:
               <pre class="bigger"><code contenteditable class="language-javascript">// find form, then find password field in that form
-let loginForm = document.getElementbyId('frm1'); 
+let loginForm = document.getElementbyId('frm1');
 let inpPw = loginForm.querySelector('input[type=password]'); // look in loginForm
 
 // find table, then find all cells in that table
-let table1 = document.getElementbyId('my-table'); 
+let table1 = document.getElementbyId('my-table');
 let cells = table1.querySelectorAll('td'); // look in table1
 
 // this is of course equivalent to:
-let inpPw = document.querySelector('#frm1 input[type=password]'); 
-let cells = document.querySelectorAll('#my-table td'); 
+let inpPw = document.querySelector('#frm1 input[type=password]');
+let cells = document.querySelectorAll('#my-table td');
 </code></pre>
             </li>
           </ul>
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>DOM</h1>
           <h2>Manipulating the DOM</h2>
@@ -421,23 +415,23 @@ let cells = document.querySelectorAll('#my-table td');
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>DOM &mdash; documentation</h2>
           <ul>
             <li>
               Most interesting properties and methods for <em>DOM Elements</em>:
-              <img src="img/02_dom/ss_elements.png" alt="" class="border" style="display: block; margin: 30px auto; width: 700px;" />
-              <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">here</a></small>
+              <p class="centered"><img src="img/02_dom/ss_elements.png" alt="" class="bordered"></p>
+              <p class="smallfont">&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">here</a></p>
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>DOM &mdash; documentation</h2>
           <ul>
             <li>
               For individual elements, additional properties and methods exist, e.g. for <em>DOM Input Checkbox</em>:
-              <img src="img/02_dom/ss_checkbox.png" alt="" class="border" style="display: block; margin: 30px auto; width: 700px;" />
-              <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_checkbox.asp">here</a></small>
+              <p class="centered"><img src="img/02_dom/ss_checkbox.png" alt="" class="bordered"></p>
+              <p class="smallfont">&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_checkbox.asp">here</a></p>
             </li>
           </ul>
         </section>
@@ -454,8 +448,8 @@ el.style.backgroundColor = '#cc6';
 el.style.padding = '20px';
 
 // add/remove CSS classes
-el.classList.add('test'); 
-el.classList.remove('test2'); 
+el.classList.add('test');
+el.classList.remove('test2');
 
 // change the content
 el.innerHTML = 'Hammertime';
@@ -464,7 +458,7 @@ el.innerHTML = 'Hammertime';
 el.addEventListener('mouseover', function() {
   this.innerHTML = 'Can\'t touch this';
 });</code></pre>
-<p id="manipulatingDemo" style="text-align: center;">I am the demo</p>
+              <p id="manipulatingDemo">I am the demo</p>
             </li>
           </ul>
           <div class="tooltip">
@@ -480,39 +474,35 @@ el.addEventListener('mouseover', function() {
           <ul>
             <li>
               There's a wide variety of elements: images, links, buttons, divs... Each may have its own additional properties, events and methods. Some examples:
-              <pre class="bigger"><code class="language-html">&lt;form id="demoForm1"&gt;
-  &lt;label&gt;Yes/no: &lt;input type="checkbox" name="chb1" id="chb1" /&gt;&lt;/label&gt;;
-&lt;/form&gt;
+              <pre class="bigger"><code class="language-html">&lt;label&gt;Yes/no: &lt;input type="checkbox" name="chb1" id="chb1" /&gt;&lt;/label&gt;&lt;br&gt;
 &lt;img src="img/02_dom/me.jpg" id="img1" width="40" height="40" /&gt;
 </code></pre>
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.getElementById('chb1').checked = true;</code></pre>
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.getElementById('img1').width = 20;</code></pre>
-              <div  style="font-family: Courier; font-size: 14px; line-height: 1.2em">
-                <form id="demoForm1" action="#" method="post">
-                  <label>Sample checkbox: <input type="checkbox" name="chb1" id="chb1" /></label>
-                </form>
-                <img src="img/02_dom/me.jpg" id="img1" width="40" height="40" alt="this is me" />
-               </div>
+              <div>
+                <label>Sample checkbox: <input type="checkbox" name="chb1" id="chb1"></label><br>
+                <img src="img/02_dom/me.jpg" id="img1" width="40" height="40" alt="this is me">
+              </div>
             </li>
           </ul>
           <ul class="arrow">
             <li>
               again, <a href="http://www.w3schools.com/jsref/default.asp">w3schools.com</a> has an excellent DOM reference
-            </li>            
+            </li>
           </ul>
         </section>
-        <section data-toc-title="classList">
+        <section data-title="classList">
           <h2>Classlist (1)</h2>
           <ul>
             <li>
               You could set CSS styles in Javascript directly with the <code><em>style</em></code> property:
-              <div style="display: flex; justify-content: space-between;">
-                <div style="width: calc(100% - 120px)">
+              <div class="flex-1-100">
+                <div>
                   <pre class="bigger"><code class="language-html" data-caption>&lt;button id="btn1"&gt;change view&lt;/button&gt;
 &lt;img src="img/02_dom/photo.jpg" id="img-car"&gt;
 </code></pre>
-              <pre class="bigger"><code class="language-css" data-caption>#img-car { opacity: 0.7; }</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript wrong overlayrun" data-caption>let img = document.getElementById('img-car');
+                  <pre class="bigger"><code class="language-css" data-caption>#img-car { opacity: 0.7; }</code></pre>
+                  <pre class="bigger"><code contenteditable class="language-javascript wrong overlayrun" data-caption>let img = document.getElementById('img-car');
 img.style.opacity = '1.0';
 img.style.transition = 'all 0.3s';
 img.style.transform = 'scale(1.3)';
@@ -520,24 +510,24 @@ img.style.boxShadow = '#888888 5px 5px 10px';
 </code></pre>
 
                 </div>
-                <div style="width: 100px">
-                  <img src="img/02_dom/photo.jpg" id="img-car" alt="this is me" />
+                <div>
+                  <img src="img/02_dom/photo.jpg" id="img-car" alt="this is me">
                 </div>
-              </div> 
+              </div>
             </li>
           </ul>
           <ul class="arrow">
             <li>we always try to keep HTML, CSS and Javascript separated</li>
             <li>here we set CSS directly in Javascript, which we want to avoid</li>
-          </ul> 
+          </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Classlist (2)</h2>
           <ul>
             <li>
               To set or remove CSS with Javascript, it is better to simply add or remove CSS classes with the <code><em>classList</em></code> property:
-              <div style="display: flex; justify-content: space-between;">
-                <div style="width: calc(100% - 120px)">
+              <div class="flex-1-100">
+                <div>
                   <pre class="bigger"><code class="language-html" data-caption>&lt;img src="img/02_dom/photo.jpg" id="img-car-2"&gt;
 </code></pre>
                   <pre class="bigger"><code class="language-css" data-caption>#img-car-2 { opacity: 0.7; transition: all 0.3s; }
@@ -549,23 +539,23 @@ img.classList.add('zoom');
 img.classList.remove('zoom');
 </code></pre>
                 </div>
-                <div style="width: 100px">
-                  <img src="img/02_dom/photo.jpg" id="img-car-2" alt="this is me" />
+                <div>
+                  <img src="img/02_dom/photo.jpg" id="img-car-2" alt="this is me">
                 </div>
-              </div> 
+              </div>
             </li>
           </ul>
           <ul class="arrow">
             <li>note: if a CSS property is calculated (e.g. if you wish to set an opacity depending on a HTML slider value), you still will have to set CSS properties directly with <code>elem.style</code></li>
-          </ul> 
+          </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Classlist (3)</h2>
           <ul>
             <li>
               Just as an illustration, the same example with a button:
-              <div style="display: flex; justify-content: space-between;">
-                <div style="width: calc(100% - 120px)">
+              <div class="flex-1-100">
+                <div>
                   <pre class="bigger"><code class="language-html" data-caption>&lt;button id="btn-view-3"&gt;change view&lt;/button&gt;
 &lt;img src="img/02_dom/photo.jpg" id="img-car-3"&gt;
 </code></pre>
@@ -574,30 +564,30 @@ img.classList.remove('zoom');
                   <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let img = document.querySelector('#img-car-3');
 let button = document.querySelector('#btn-view-3');
 button.addEventListener('click', function() {
-  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
+  if (img.classList.contains('zoom')) img.classList.remove('zoom');
   else img.classList.add('zoom');
-});                    
+});
 </code></pre>
                 </div>
-                <div style="width: 100px">
-                  <img src="img/02_dom/photo.jpg" id="img-car-3" alt="this is me" />
-                  <button id="btn-view-3">change view</button>
-<script>
-let img = document.querySelector('#img-car-3');
-let button = document.querySelector('#btn-view-3');
-button.addEventListener('click', function() {
-  if (img.classList.contains('zoom')) img.classList.remove('zoom'); 
-  else img.classList.add('zoom');
-});   
-</script>
+                <div>
+                  <img src="img/02_dom/photo.jpg" id="img-car-3" alt="this is me">
+                  <button type="button" id="btn-view-3">change view</button>
+                  <script>
+                    let img = document.querySelector('#img-car-3');
+                    let button = document.querySelector('#btn-view-3');
+                    button.addEventListener('click', function () {
+                      if (img.classList.contains('zoom')) img.classList.remove('zoom');
+                      else img.classList.add('zoom');
+                    });
+                  </script>
                 </div>
-              </div> 
+              </div>
             </li>
           </ul>
 
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>DOM</h1>
           <h2>Event handling</h2>
@@ -605,10 +595,10 @@ button.addEventListener('click', function() {
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Events &mdash; documentation</h2>
-            <img src="img/02_dom/ss_events.png" alt="" style="display: block; margin: 30px auto; width: 600px;" />
-            <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">here</a></small>
+          <p class="centered"><img src="img/02_dom/ss_events.png" alt=""></p>
+          <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">here</a></small>
         </section>
         <section>
           <h2>Attaching events</h2>
@@ -628,7 +618,7 @@ par.addEventListener('mouseout', function() {
   this.style.backgroundColor = '';
   this.style.color = 'black';
 });</code></pre>
-<p id="eventsDemo" style="text-align: center;">I am the demo</p>
+              <p id="eventsDemo">I am the demo</p>
             </li>
           </ul>
           <ul class="arrow">
@@ -642,7 +632,7 @@ par.addEventListener('mouseout', function() {
             </div>
           </div>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Attaching events</h2>
           <ul>
             <li>
@@ -656,7 +646,7 @@ par.addEventListener('click', function() {
   console.log('You clicked me (2)!');
 });
 </code></pre>
-<p id="eventsDemo2" style="text-align: center;">I am the demo</p>
+              <p id="eventsDemo2">I am the demo</p>
             </li>
           </ul>
           <div class="tooltip">
@@ -667,7 +657,7 @@ par.addEventListener('click', function() {
             </div>
           </div>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Attaching events</h2>
           <ul>
             <li>
@@ -700,7 +690,7 @@ let clickHandler2 = function() {
 par.addEventListener('click', clickHandler1);
 par.addEventListener('click', clickHandler2);
 </code></pre>
-<p id="eventsDemo3" style="text-align: center;">I am the demo</p>
+              <p id="eventsDemo3">I am the demo</p>
             </li>
           </ul>
           <div class="tooltip">
@@ -716,11 +706,11 @@ par.addEventListener('click', clickHandler2);
           <ul>
             <li>
               What happens if two or more nested elements handle the same event:
-          <pre class="bigger"><code class="language-html">&lt;div id="nDemo"&gt;
+              <pre class="bigger"><code class="language-html">&lt;div id="nDemo"&gt;
   &lt;a href="http://www.google.be"&gt;&lt;img src="img/02_dom/me.jpg" alt=""&gt;&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-          <pre class="bigger"><code contenteditable class="language-javascript">document.querySelector('#nDemo').addEventListener('click', function() {
+              <pre class="bigger"><code contenteditable class="language-javascript">document.querySelector('#nDemo').addEventListener('click', function() {
   console.log('div clicked');
 });
 document.querySelector('#nDemo img').addEventListener('click', function() {
@@ -732,7 +722,7 @@ document.querySelector('body').addEventListener('click', function() {
 document.querySelector('#nDemo a').addEventListener('click', function() {
   console.log('a clicked');
 });</code></pre>
-              <div class="demolink"><a href="demos/02_dom/bubbling.html" target='_blank'>demo</a></div>
+              <div class="demolink"><a href="demos/02_dom/bubbling.html" target="_blank">demo</a></div>
             </li>
           </ul>
         </section>
@@ -782,9 +772,8 @@ document.querySelector('#nDemo a').addEventListener('click', function(e) {
         </section>
         <section>
           <h2>Event object properties</h2>
-            <img src="img/02_dom/ss_event_object.png" alt="" style="display: block; margin: 30px auto; width: 600px;" />
-            <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">here</a></small>
-          </ul>
+          <p class="centered"><img src="img/02_dom/ss_event_object.png" alt=""></p>
+          <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">here</a></small>
           <div class="tooltip">
             <div>
               <p>
@@ -807,22 +796,24 @@ document.querySelector('body').addEventListener('click', function(e) {
             </li>
             <li>
               Say you have a table with 1000 cells; instead of binding 1000 events, thanks to bubbling it's possible to bind a single handler on the &lt;table&gt; itself, which saves memory.
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let table = document.querySelector('#bubbling');
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const table = document.querySelector('#bubbling');
 table.addEventListener('click', function(e) {
   console.log('click was on ' + e.target.innerHTML);
 });</code></pre>
               <table id="bubbling">
-                <tbody><tr>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                </tr>
-              </tbody></table>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                  </tr>
+                </tbody>
+              </table>
             </li>
           </ul>
         </section>
@@ -841,7 +832,7 @@ document.getElementById('btn1').addEventListener('mousedown', function(e) {
 &lt;/script&gt;</code></pre>
             </li>
             <li>
-              Browser incompatibility may occur. Some cross-browser scripts can be found online on <a href="http://www.quirksmode.org/js/events_properties.html">quirksmode.org</a>  or use a <a href="http://api.jquery.com/category/events/">jQuery</a>.
+              Browser incompatibility may occur. Some cross-browser scripts can be found online on <a href="http://www.quirksmode.org/js/events_properties.html">quirksmode.org</a> or use a <a href="http://api.jquery.com/category/events/">jQuery</a>.
             </li>
           </ul>
         </section>
@@ -859,20 +850,19 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
 &lt;/script&gt;</code></pre>
             </li>
             <li>
-              Browser incompatibility may occur. Some cross-browser scripts can be found online on <a href="http://www.quirksmode.org/js/events_properties.html">quirksmode.org</a>  or use a <a href="http://api.jquery.com/category/events/">jQuery</a>.
+              Browser incompatibility may occur. Some cross-browser scripts can be found online on <a href="http://www.quirksmode.org/js/events_properties.html">quirksmode.org</a> or use a <a href="http://api.jquery.com/category/events/">jQuery</a>.
             </li>
           </ul>
         </section>
       </section>
-
-      <section>
+      <section class="chapter">
         <section>
           <h1>DOM</h1>
           <h2>Example 1 &mdash; Slideshow</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>
-          <img src="img/02_dom/ss3.png" alt="" style="margin: 0 auto; border: 2px solid #ccc; width: 500px" />
+          <p class="centered"><img src="img/02_dom/ss3.png" alt="" width="400"></p>
         </section>
         <section>
           <h2>HTML only version</h2>
@@ -927,24 +917,24 @@ document.getElementById('inp1').addEventListener('keypress', function(e) {
             <li>
               The Javascript code isn't that complicated; I'm sure you can figure this out:
               <pre class="smaller"><code class="language-javascript">// aliases
-let thumbs = document.querySelectorAll('#thumbsmenu li');
-let big = document.querySelector('#big');
-let photo = big.querySelector('img');
+const thumbs = document.querySelectorAll('#thumbsmenu li');
+const big = document.querySelector('#big');
+const photo = big.querySelector('img');
 
 // attach click events to thumbnails
-for (let thumb of thumbs) {
-    let link = thumb.querySelector('a');
-    let img = thumb.querySelector('img');
-    link.addEventListener('click', function(e) {
-        // prevent default link action
-        e.preventDefault();
-        // show image
-        photo.src = link.href;
-        photo.alt = img.alt;
-        // change active state
-        document.querySelector('#thumbsmenu .active').classList.remove('active');
-        thumb.classList.add('active');
-    });
+for (const thumb of thumbs) {
+  const link = thumb.querySelector('a');
+  const img = thumb.querySelector('img');
+  link.addEventListener('click', function(e) {
+    // prevent default link action
+    e.preventDefault();
+    // show image
+    photo.src = link.href;
+    photo.alt = img.alt;
+    // change active state
+    document.querySelector('#thumbsmenu .active').classList.remove('active');
+    thumb.classList.add('active');
+  });
 }
 </code></pre>
               <div class="demolink"><a href="demos/02_dom/slideshow/vs1/index.html">demo</a></div>
@@ -955,7 +945,7 @@ for (let thumb of thumbs) {
           <h2>Custom attributes</h2>
           <ul>
             <li>
-              HTML actually allows you to add any attribute you like, as long as you prefix it with <code>data-</code>. These are called <em>custom attributes</em>. 
+              HTML actually allows you to add any attribute you like, as long as you prefix it with <code>data-</code>. These are called <em>custom attributes</em>.
             </li>
             <li>
               Let's add captions with custom <code>data-captions</code> attributes, and use a <code>&lt;figure&gt;</code> with <code>&lt;figcaption&gt;</code> for the big photo:
@@ -976,38 +966,41 @@ for (let thumb of thumbs) {
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Custom attributes</h2>
           <ul>
             <li>
               The code changes are small:
               <pre class="bigger"><code class="language-javascript">// aliases
 ...
-let caption = big.querySelector('figcaption');
+const caption = big.querySelector('figcaption');
 
 // attach events
-for (let thumb of thumbs) {
+for (const thumb of thumbs) {
     ...
     link.addEventListener('click', function(e) {
         ...
-        caption.innerHTML = thumb.getAttribute('data-caption');
+        caption.innerHTML = thumb.dataset.caption;
         ...
     });
 }
 </code></pre>
               <div class="demolink"><a href="demos/02_dom/slideshow/vs2/index.html">demo</a></div>
             </li>
+            <li class="arrow smallfont">
+              <code>thumb.dataset.caption</code> is the same as <code>thumb.getAttribute('data-caption')</code>
+            </li>
           </ul>
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>DOM</h1>
           <h2>Example 2 &mdash; Formchecking</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>
-          <img src="img/02_dom/ss1.png" alt="" style="margin: 0 auto; border: 2px solid #ccc; width: 400px" />
+          <p class="centered"><img src="img/02_dom/ss1.png" alt="" width="400"></p>
         </section>
         <section>
           <h2>The HTML</h2>
@@ -1018,9 +1011,9 @@ for (let thumb of thumbs) {
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Formchecking&lt;/title&gt;
-  &lt;meta charset=&quot;utf-8&quot; /&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;demos/02_dom/fs/fonts/lato/webfont.css&quot; /&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;demos/02_dom/fs/css/styles.css&quot; /&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;demos/02_dom/fs/fonts/lato/webfont.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;demos/02_dom/fs/css/styles.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form id=&quot;form1&quot;&gt;
@@ -1029,22 +1022,22 @@ for (let thumb of thumbs) {
       &lt;legend&gt;Adresgegevens&lt;/legend&gt;
       &lt;div class=&quot;qstn&quot;&gt;
         &lt;label for=&quot;qstStreet&quot;&gt;Straat en nummer *&lt;/label&gt;
-        &lt;input type=&quot;text&quot; id=&quot;qstStreet&quot; value=&quot;&quot; required /&gt;
+        &lt;input type=&quot;text&quot; id=&quot;qstStreet&quot; required&gt;
         &lt;span class=&quot;message message--error&quot; id=&quot;errStreet&quot;&gt;&amp;nbsp;&lt;/span&gt;
       &lt;/div&gt;
       &lt;div class=&quot;qstn&quot;&gt;
         &lt;label for=&quot;qstZip&quot;&gt;Postcode *&lt;/label&gt;
-        &lt;input type=&quot;number&quot; id=&quot;qstZip&quot; value=&quot;&quot; class=&quot;input--half&quot; required /&gt;
+        &lt;input type=&quot;number&quot; id=&quot;qstZip&quot; class=&quot;input--half&quot; required /&gt;
         &lt;span class=&quot;message message--error&quot; id=&quot;errZip&quot;&gt;&amp;nbsp;&lt;/span&gt;
       &lt;/div&gt;
       &lt;div class=&quot;qstn&quot;&gt;
         &lt;label for=&quot;qstCity&quot;&gt;Gemeente *&lt;/label&gt;
-        &lt;input type=&quot;text&quot; id=&quot;qstCity&quot; value=&quot;&quot; required /&gt;
+        &lt;input type=&quot;text&quot; id=&quot;qstCity&quot; required&gt;
         &lt;span class=&quot;message message--error&quot; id=&quot;errCity&quot;&gt;&amp;nbsp;&lt;/span&gt;
       &lt;/div&gt;
     &lt;/fieldset&gt;
-    &lt;div class=&quot;buttons clearfix&quot;&gt;
-      &lt;input type=&quot;submit&quot; id=&quot;btnSubmit&quot; value=&quot;Registreren&quot; /&gt;
+    &lt;div class=&quot;buttons&quot;&gt;
+      &lt;button type=&quot;submit&quot; id=&quot;btnSubmit&quot;&gt;Registreren&lt;button/&gt;
     &lt;/div&gt;
   &lt;/form&gt;
 &lt;/body&gt;
@@ -1066,9 +1059,9 @@ for (let thumb of thumbs) {
             </li>
             <li>
               We'll basically test:
-                <ul class="v-style">
-                  <li>are all fieds filled?</li>
-                </ul>
+              <ul class="v-style">
+                <li>are all fieds filled?</li>
+              </ul>
             </li>
           </ul>
         </section>
@@ -1204,7 +1197,7 @@ for (let thumb of thumbs) {
 
       // clear all error messages
       let errMessages = document.querySelectorAll('.message--error');
-      for (let i = 0; i < errMessages.length; i++) {
+      for (let i = 0; i &lt; errMessages.length; i++) {
         errMessages[i].innerHTML = '&amp;nbsp;';
       }
 
@@ -1245,15 +1238,12 @@ for (let thumb of thumbs) {
 
     </div>
 
+
     <!-- odisee.be link -->
     <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
 
-    <!-- Index Link -->
-    <aside class="back">
-      <nav>
-        <p><a href="index.html">&larr; Back to index</a></p>
-      </nav>
-    </aside>
+    <!-- index menu container -->
+    <nav id="navigator"></nav>
 
   </div>
 
@@ -1267,8 +1257,8 @@ for (let thumb of thumbs) {
   <script src="vendor/css-edit.js"></script>
   <script src="js/main.js"></script>
   <script>
-    var devtools = /./;
-      devtools.toString = function() {
+    const devtools = /./;
+    devtools.toString = function () {
       this.opened = true;
     }
     console.log('%c', devtools);
@@ -1278,4 +1268,5 @@ for (let thumb of thumbs) {
   </script>
 
 </body>
+
 </html>

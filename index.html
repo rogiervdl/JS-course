@@ -1,126 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Javascript &mdash; a beginners introduction</title>
-  <meta name="author" content="Rogier van der Linde - odisee.be">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
-  <link rel="stylesheet" href="fonts/lato/webfont.css">
-  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
-  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
-  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
-  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
-  <link rel="stylesheet" href="css/reveal-mods.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index.css">
+   <meta charset="utf-8">
+   <title>Jaavascript &mdash; introductie voor beginners</title>
+   <meta name="author" content="Rogier van der Linde - odisee.be">
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+   <link rel="stylesheet" href="fonts/droidsans/webfont.css">
+   <link rel="stylesheet" href="fonts/lato/webfont.css">
+   <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
+   <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
-      <h1>Javascript</h1>
-      <p>a beginners introduction</p>
-    </header>
-    <ul class="thumbs">
-      <li>
-        <a href="01_syntax.html" title="syntax">
-          <article>
-            <h1>01. SYNTAX</h1>
-            <img src="img/01_syntax/icon.png" alt="" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-      <li>
-        <a href="02_dom.html" title="dom">
-          <article>
-            <h1>02. DOM</h1>
-            <img src="img/02_dom/icon.png" alt="" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-      <li>
-        <a href="03_jquery.html" title="jquery">
-          <article>
-            <h1>[03. JQUERY]</h1>
-            <img src="img/03_jquery/icon.png" alt="" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-      <li>
-        <a href="04_api_ajax.html" title="API &amp; AJAX">
-          <article>
-            <h1>04. API's &amp; AJAX</h1>
-            <img src="img/04_api_ajax/icon.png" alt="" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-      <li>
-        <a href="05_libraries.html" title="libraries">
-          <article>
-            <h1>05. LIBRARIES</h1>
-            <img src="img/05_libraries/icon.png" alt="" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-      <li>
-        <a href="06_games.html" title="HTML5 &amp; Games">
-          <article>
-            <h1>06. HTML5 &amp; games</h1>
-            <img src="img/06_games/icon.png" alt="" style="max-width: 50%" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-      <li>
-        <a href="07_es6.html" title="ES6">
-          <article>
-            <h1>[07. ES6]</h1>
-            <img src="img/07_es6/icon.png" alt="" style="max-width: 50%" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-      <li>
-        <a href="summary.html" title="summary">
-          <article>
-            <h1>SUMMARY</h1>
-            <img src="img/summary/icon.jpg" alt="" style="max-width: 50%" />
-            <footer>
-              <p>Rogier van der Linde</p>
-            </footer>
-          </article>
-        </a>
-      </li>
-    </ul>
-    <footer>
-      <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
-    </footer>
-    <aside>
-      <p>The materials were developed by Rogier van der Linde, lecturer ICT at Odisee.</p>
-      <p>It may be used freely, as long as credit to Rogier van der Linde is present and the top right graphical link to <a href="http://www.odisee.be/">odisee.be</a> remains in place.</p>
-      <p>Suggestions and additions may be mailed to <a href="mailto:rogier.vanderlinde@odisee.be">Rogier</a>, or sent via <a href="https://github.com/rogiervdl/HTML-course">a pull request on GitHub</a>.</p>
-    </aside>
-  </div>
+   <header class="site__header">
+      <a class="header__logo" href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
+      <h1 class="header__title">Javascript</h1>
+      <p class="header__tagline">introductie voor beginners</p>
+   </header>
+   <main class="site__main">
+      <a href="01_syntax.html" class="main__thumb">
+         <h3 class="thumb__title">01. SYNTAX</h3>
+         <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+      </a>
+      <a href="02_dom.html" class="main__thumb">
+         <h3 class="thumb__title">02. DOM</h3>
+         <img class="thumb__visual" src="img/02_dom/icon.png" alt="">
+      </a>
+      <a href="03_jquery.html" class="main__thumb">
+         <h3 class="thumb__title">[03. JQUERY]</h3>
+         <img class="thumb__visual" src="img/03_jquery/icon.png" alt="">
+      </a>
+      <a href="04_api_ajax.html" class="main__thumb">
+         <h3 class="thumb__title">04. API's &amp; AJAX</h3>
+         <img class="thumb__visual" src="img/04_api_ajax/icon.png" alt="">
+      </a>
+      <a href="05_libraries.html" class="main__thumb">
+         <h3 class="thumb__title">05. LIBRARIES</h3>
+         <img class="thumb__visual" src="img/05_libraries/icon.png" alt="">
+      </a>
+      <a href="06_games.html" class="main__thumb">
+         <h3 class="thumb__title">06. HTML5 games</h3>
+         <img class="thumb__visual" src="img/06_games/icon.png" alt="">
+      </a>
+      <a href="07_es6.html" class="main__thumb">
+         <h3 class="thumb__title">[07. ES6]</h3>
+         <img class="thumb__visual" src="img/07_es6/icon.png" alt="">
+      </a>
+      <a href="summary.html" class="main__thumb">
+         <h3 class="thumb__title">SUMMARY</h3>
+         <img class="thumb__visual" src="img/summary/icon.jpg" alt="">
+      </a>
+   </main>
+   <footer class="site__footer">
+      <p>also check the <a href="https://rogiervdl.github.io/HTML-course/">HTML</a> and <a href="https://rogiervdl.github.io/CSS-course/">CSS</a> courses</p>
+   </footer>
+   <aside>
+      <p>Dit materiaal werd ontwikkeld door Rogier van der Linde, docent Toegepaste Informatica op Odisee.</p>
+      <p>Het mag vrij gebruikt worden, zolang een credit aan Rogier van der Linde vermeld is en de link rechtsboven naar <a href="http://www.odisee.be/">odisee.be</a> behouden blijft.</p>
+      <p>Suggesties en opmerkingen zijn welkom per mail naar <a href="mailto:rogier.vanderlinde@odisee.be">Rogier</a>, of via een <a href="https://github.com/rogiervdl/HTML-course">a pull request op GitHub</a>.</p>
+      <img src="img/me.jpg" alt="foto Rogier van der Linde">
+   </aside>
 </body>
+
 </html>

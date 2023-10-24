@@ -1,18 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Javascript &mdash; jQuery</title>
   <meta name="author" content="Rogier van der Linde - ikdoeict.be">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
-  <link rel="stylesheet" href="fonts/lato/webfont.css">
-  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
-  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
-  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
-  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
-  <link rel="stylesheet" href="css/reveal-mods.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/03_jquery.css">
 </head>
 
@@ -24,351 +17,21 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
-      <!-- 0 : Title -->
-      <section>
+      <section class="cover">
         <h1>[jQUERY]</h1>
-        <small>use the arrow keys to navigate; press space for slide overview<br /></small>
-        <figure>
-          <img src="img/03_jquery/icon.png" alt="" width="300" style="border: 10px solid white" />
-          <figcaption>
-
-          </figcaption>
-        </figure>
-
-        <footer>
-          <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be &mdash; <a href="mailto:bramus@bram.us">bramus@bram.us</a></a>
+        <p>
+          tussen []: optioneel, sterk aanbevolen voor wie wil verdergaan in web
+        </p>
+        <p>
+          gebruik pijltjestoetsen om te navigeren<br>
+          dotted codepanels zijn editeerbaar
+        </p>
+        <img src="img/03_jquery/icon.png" alt="" class="cover__visual">
+        <footer class="cover__footer">
+          <img src="img/me.jpg" alt="" class="cover__me"> <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
         </footer>
-
       </section>
-
-
-      <!-- 1 : Intro -->
-      <section>
-
-        <section>
-          <h1>JQuery</h1>
-          <h2>About jQuery</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-
-        </section>
-
-        <section>
-          <h2>Why jQuery?</h2>
-          <ul>
-            <li>
-              Popular library, used by big companies (Google, Amazon, Microsoft, Dell, EA, Mozilla, Wordpress, ...)
-            </li>
-            <li>
-              Even works in IE6
-            </li>
-            <li>
-              Easy to use: built around CSS Selectors
-            </li>
-            <li>Can be used with other libraries</li>
-            <li>Does not extend the DOM</li>
-            <li>Lots of high quality plugins available</li>
-            <li>Great documentation/information</li>
-          </ul>
-
-        </section>
-
-        <section>
-          <h2>How popular is jQuery Exactly?</h2>
-          <ul>
-            <li>
-              1 in every 2 of the top 10K websites is using jQuery
-              <img src="img/03_jquery/jslibs_stat_jquery.jpg" alt="" title="" width="450" />
-              <img src="img/03_jquery/jslibs_stat.png" alt="" title="source: https://w3techs.com/technologies/overview/javascript_library/all" width="300" />
-            </li>
-            <li class="arrow">jQuery is used by 44.1% of all top 10K websites <br /><small>(JS market share 84.7%)</small></li>
-          </ul>
-
-        </section>
-
-        <section>
-          <h2>History</h2>
-          <figure style="float: right; max-width: 40%">
-            <img src="img/03_jquery/john-resig.jpg" alt="">
-            <figcaption>photo of John Resig in 2008</figcaption>
-          </figure>
-          <ul>
-            <li>
-              June 2005:
-              <ul>
-                <li>Ben Nolan released <a href="http://bennolan.com/behaviour/">Behaviour</a> which <a href="http://scrap.dasgenie.com/articles/2006/09/14/applying-behaviour-without-behaviour-js">allowed</a> to bind events on elements based on (basic) CSS selectors</li>
-                <li>Worked well with Prototype</li>
-                <li>Allowed to remove those pesky <code>onclick=...</code> attr from your HTML</li>
-              </ul>
-            </li>
-            <li>
-              August 2005:
-              <ul>
-                <li>John Resig digs the idea of Behaviour but dislikes the syntax and notes a few shortcomings. He <a href="http://ejohn.org/blog/selectors-in-javascript/">proposes something that eventually will become jQuery</a> on his blog</li>
-              </ul>
-            </li>
-            <li>
-              January 2006:
-              <ul>
-                <li>John Resig attended Barcamp NYC and announced jQuery</li>
-              </ul>
-            </li>
-            <li>
-              August 2006:
-              <ul>
-                <li>jQuery 1.0 released</li>
-              </ul>
-            </li>
-          </ul>
-
-        </section>
-        <section data-toc-title="Versions">
-          <h2>Versions (1)</h2>
-          <ul>
-            <li>
-              August 2006, jQuery 1 released:
-              <ul>
-                <li>first stable jQuery version</li>
-                <li>support for modern browsers and IE6+</li>
-              </ul>
-            </li>
-            <li>
-              August 2013, jQuery 2 released:
-              <ul>
-                <li>support for IE8 and lower dropped</li>
-                <li>results in 12% smaller file</li>
-                <li>custom builds (since jQuery 1.8) allow file sizes as little as 10kb</li>
-                <li>API equivalent with jQuery 1.9, where lots of inefficient and inconsistent functionality was removed</li>
-              </ul>
-            </li>
-            <li>
-              July 2016, jQuery 3 released:
-              <ul>
-                <li><em>jQuery 3.0</em> (modern browsers, IE9+) and <em>jQuery 3.0 Compat</em> (also IE8)</li>
-                <li>a few rather technical changes / additions compared to jQuery 2</li>
-              </ul>
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              <p>
-                Note: jQuery versions follow the <a href="http://semver.org/">semver specifications</a>, i.e MAJOR.MINOR.PATCH:
-              </p>
-              <ul>
-                <li>MAJOR version when you make incompatible API changes</li>
-                <li>MINOR version when you add backwards-compatible functionality</li>
-                <li>PATCH version when you make backwards-compatible bug fixes</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section data-toc-title="">
-          <h2>Versions (2)</h2>
-          <p>General guidelines for choosing a version:</p>
-          <ul>
-            <li>
-              By default, use <em>jQuery Compat 3</em>. It has support for the widest variety of browsers including IE8, Opera 12, Safari 5 etc...
-            </li>
-            <li>
-              If you target leading-edge browsers only, use <em>jQuery 3</em>
-            </li>
-            <li>
-              If for some obscure reason you need support for prehistoric browsers like IE6, stick to <em>jQuery 1</em>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>jQuery Documentation</h2>
-          <ul>
-            <li>
-              Meet your new home:
-              <ul>
-                <li><a href="http://api.jquery.com/">jQuery API</a> &mdash; Look up functions</li>
-              </ul>
-            </li>
-            <li>
-              Also worth checking
-              <ul>
-
-                <li><a href="http://oscarotero.com/jquery/">jQuery Cheatsheet</a> &mdash; Quick overview with access to the API</li>
-                <li><a href="http://www.w3schools.com/jquery/jquery_ref_selectors.asp">jQuery on W3Schools</a> &mdash; good ol' W3Schools</li>
-                <li><a href="http://stage.learn.jquery.com/">learn.jquery.com</a> &mdash; jQuery introduction and tutorials (new)</li>
-              </ul>
-            </li>
-          </ul>
-
-        </section>
-
-        <section data-toc-title="Including jQuery">
-          <h2>Including jQuery (1)</h2>
-          <ul>
-            <li>
-              Download jQuery from <a href="http://www.jquery.com/">jQuery.com</a>; basic page structure:
-              <pre><code class="language-html" data-overlay-example="demos/03_jquery/01.html">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;title&gt;Including jQuery&lt;/title&gt;
-  &lt;meta charset="utf-8"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Including jQuery&lt;/h1&gt;
-  &lt;script src=&quot;demos/03_jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
-  &lt;script&gt;
-    jQuery(document).ready(function() {
-      console.log('loaded');
-    });
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              <p>
-                The lazy way of including jQuery is with a simple link to a <a href="https://developers.google.com/speed/libraries/">Google hosted library</a>, but it tends to slow down your page, and you won't be able to work on your website offline (e.g. in a train). Therefore I would strongly advice to include it locally.
-              </p>
-            </div>
-          </div>
-
-        </section>
-        <section data-toc-title="Including jQuery">
-          <h2>Including jQuery (1)</h2>
-          <ul>
-            <li>
-              JQuery uses the $ shorthand:
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/01.html">  ...
-  // wait till the DOM has loaded
-  $(document).ready(function() {
-    console.log('loaded');
-  });
-  ...</code></pre>
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              <p>
-                The lazy way of including jQuery is with a simple link to a <a href="https://developers.google.com/speed/libraries/">Google hosted library</a>, but it tends to slow down your page, and you won't be able to work on your website offline (e.g. in a train). Therefore I would strongly advice to include it locally.
-              </p>
-            </div>
-          </div>
-
-        </section>
-        <section data-toc-title="">
-          <h2>Including jQuery (3)</h2>
-          <ul>
-            <li>
-              If you need not only the DOM to be loaded but also all images, videos etc...
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/01b.html">  ...
-  // wait till the DOM and all resources have loaded
-  $(window).on('load', function() {
-    console.log('loaded');
-  });
-  ...</code></pre>
-            </li>
-          </ul>
-
-        </section>
-        <section data-toc-title="">
-          <h2>Including jQuery (4)</h2>
-          <ul>
-            <li>
-              If you have stuff outside the main load function, you will still need the self executing anonymous wrapper function:
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/01b.html">  ...
-  ;(function() {
-    'use strict'
-
-    // variables and functions
-    // ...
-
-    // wait till the DOM and all resources have loaded
-    $(window).on('load', function() {
-      // everything loaded
-      console.log('loaded');
-
-      // event handling here
-      // ...
-    });
-  })();
-  ...</code></pre>
-            </li>
-          </ul>
-
-        </section>
-        <section data-toc-title="">
-          <h2>Including jQuery (5)</h2>
-          <ul>
-            <li>
-              There are more libraries using $ as shorthand, which could conflict with jQuery. Therefore, some frameworks like Wordpress will disable the jQuery shorthand right after including jQuery:
-              <pre><code class="language-html" data-overlay-example="demos/03_jquery/01b.html">...
-&lt;script src=&quot;demos/03_jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-   $.noConflict(); // disable $ shorthand
-&lt;/script&gt;
-...</code></pre>
-            </li>
-          </ul>
-
-        </section>
-        <section data-toc-title="">
-          <h2>Including jQuery (6)</h2>
-          <ul>
-            <li>
-              If you still wish to use the $ shorthand in your code, pass jQuery as parameter to $, resulting in this final structure:
-              <pre><code class="language-html right" data-overlay-example="demos/03_jquery/01b.html">...
-&lt;script src=&quot;demos/03_jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-  ;(function($) {
-    'use strict'
-
-    // variables and functions here
-    // ...
-
-    // wait till the DOM and all resources have loaded
-    $(window).on('load', function() { // or use $(document).ready()
-      // everything loaded
-      console.log('loaded');
-
-      // event handling here
-      // ...
-    });
-  })(jQuery);
-&lt;/script&gt;
-...</code></pre>
-            </li>
-          </ul>
-
-        </section>
-        <section>
-          <h2>jsFiddle playground</h2>
-          <ul>
-            <li>
-              A great playground for testing scripts is <a href="http://jsfiddle.net/">jsFiddle</a>; try it out with these fragments (select jQuery framework):
-              <pre><code class="language-html">&lt;div id="flip"&gt;Click to slide the panel down or up&lt;/div&gt;
-&lt;div id="panel"&gt;Hello world!&lt;/div&gt;</code></pre>
-              <pre><code class="language-css">#panel, #flip {
-  padding: 5px;
-  text-align: center;
-  background-color: #e5eecc;
-  border: solid 1px #c3c3c3;
-}
-#panel {
-  padding: 50px;
-  display: none;
-}</code></pre>
-              <pre><code class="language-javascript">$("#flip").click(function(){
-  $("#panel").slideToggle("slow");
-});
-</code></pre>
-            </li>
-          </ul>
-        </section>
-
-      </section>
-
-
-      <!-- 3 : Selecting Elements -->
-      <section>
+      <section class="chapter">
 
         <section>
           <h1>JQuery</h1>
@@ -379,7 +42,7 @@
 
         </section>
 
-        <section data-toc-title="jQuery selectors">
+        <section data-title="jQuery selectors">
           <h2>jQuery selectors (1)</h2>
           <ul>
             <li>jQuery is built around the <code>jQuery</code> function (shorthand notation <code>$</code>)</li>
@@ -408,7 +71,7 @@ var lastlink = $('#menu a[href]:last-child');
           </ul>
         </section>
 
-        <section data-toc-title="jQuery selectors">
+        <section data-title="jQuery selectors">
           <h2>jQuery selectors (2)</h2>
           <ul>
             <li>
@@ -431,7 +94,7 @@ $('ul li:nth-child(2)');</code></pre>
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>jQuery selectors (3)</h2>
           <ul>
             <li>
@@ -585,7 +248,7 @@ var $menu = $(menu); // jQuery object
           </ul>
         </section>
 
-        <section data-toc-title="iterating a selection">
+        <section data-title="iterating a selection">
           <h2>Iterating a selection (1)</h2>
           <ul>
             <li>you could theoretically use a <code>for</code> loop and <code>eq()</code> to iterate over a jQuery selection:
@@ -594,15 +257,16 @@ var $menu = $(menu); // jQuery object
 &lt;p&gt;andouille&lt;/p&gt;
 
 &lt;div id="message"&gt;paragraph texts: &lt;/div&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/01c.html">var $test = $('p');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/01c.html">var $test = $('p');
 for (var i = 0; i &lt; $test.length; i++) {
   $('#message').append($test.eq(i).text() + ' ');
 }
 </code></pre>
             </li>
+          </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Iterating a selection (2)</h2>
           <ul>
             <li>better is to use jQuery's <code>each()</code>:
@@ -613,15 +277,16 @@ $test.each(function() {
 </code></pre>
             </li>
             <li>if you need the iterator:
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/01d.html">var $test = $('p');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/01d.html">var $test = $('p');
 $test.each(function(i) {
   $('#message').append('(' + i + ') ' + $(this).text() + ' ');
 });
 </code></pre>
             </li>
+          </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Iterating a selection (3)</h2>
           <ul>
             <li>beware! <code>this</code> refers to the DOM node, so wrap to <code>$(this)</code>:
@@ -638,9 +303,10 @@ $test.each(function(i) {
 });
 </code></pre>
             </li>
+          </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Iterating a selection (4)</h2>
           <ul>
             <li>jQuery methods automatically iterate over selections; this
@@ -655,9 +321,10 @@ $test.each(function() {
 $test.css('color', 'green'); // css() automatically iterates over $test
 </code></pre>
             </li>
+          </ul>
         </section>
 
-        <section data-toc-title="jQuery methods">
+        <section data-title="jQuery methods">
           <h2>jQuery API</h2>
           <ul>
             <li>
@@ -681,11 +348,7 @@ $test.css('color', 'green'); // css() automatically iterates over $test
         </section>
 
       </section>
-
-
-      <!-- 4: Manipulating Elements -->
-      <section>
-
+      <section class="chapter">
         <section>
           <h1>JQuery</h1>
           <h2>Manipulating</h2>
@@ -693,7 +356,6 @@ $test.css('color', 'green'); // css() automatically iterates over $test
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-
         <section>
           <h2>Manipulating Elements</h2>
           <ul>
@@ -706,15 +368,12 @@ $test.css('color', 'green'); // css() automatically iterates over $test
                 <li>Add, Move, Copy &amp; Remove Elements</li>
               </ul>
             </li>
-
-            <li class='arrow'>
+            <li class="arrow">
               see attributes/css and manipulation sections on this <a href="http://oscarotero.com/jquery/">cheatsheet</a>
             </li>
           </ul>
-
         </section>
-
-        <section data-toc-title="CSS">
+        <section data-title="CSS">
           <h2>CSS (1)</h2>
           <ul>
             <li>
@@ -725,7 +384,7 @@ $test.css('color', 'green'); // css() automatically iterates over $test
   &lt;li&gt;Bread&lt;/li&gt;
   &lt;li&gt;Banana&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/02.html">// adjust properties one by one
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/02.html">// adjust properties one by one
 $('li').css('border', '1px solid red');
 $('li').css('width', '200px');
 
@@ -741,12 +400,12 @@ $('ul li:nth-child(1)').css({
 
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>CSS (2)</h2>
           <ul>
             <li>
               jQuery allows chaining, you should make use of that
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/02b.html">// adjust properties one by one
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/02b.html">// adjust properties one by one
 $('li').css('border', '1px solid red').css('width', '200px');
 
 // adjust multiple properties
@@ -761,12 +420,12 @@ $('ul li:nth-child(1)').css({
 
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>CSS (3)</h2>
           <ul>
             <li>
               To read a value, omit the 2nd parameter
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/02c.html">// adjust properties one by one
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/02c.html">// adjust properties one by one
 $('li').css('border', '1px solid red').css('width', '200px');
 
 // adjust multiple properties
@@ -782,12 +441,12 @@ console.log($('ul li:nth-child(1)').css('width'));</code></pre>
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>CSS (4)</h2>
           <ul>
             <li>
               when working with <a href="http://api.jquery.com/category/dimensions/">dimensions</a>, you can also use methods like <a href="http://api.jquery.com/width/">width()</a> and <a href="http://api.jquery.com/height/">height()</a>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/02c.html">// Adjust properties one by one
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/02c.html">// Adjust properties one by one
 $('li').css('border', '1px solid red').width(200);
 
 // Adjust multiple properties
@@ -801,12 +460,12 @@ console.log($('ul li:nth-child(1)').width());</code></pre>
           </ul>
         </section>
 
-        <section data-toc-title="Classes">
+        <section data-title="Classes">
           <h2>Classes (1)</h2>
           <ul>
             <li>
               Basic manipulation: <a href="http://api.jquery.com/addClass/">addClass()</a> and <a href="http://api.jquery.com/removeClass/">removeClass()</a>
-              <pre><code class="language-html" data-overlay-example="demos/03_jquery/03.html">&lt;!doctype html&gt;
+              <pre><code class="language-html" data-overlayexample="demos/03_jquery/03.html">&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
   &lt;title&gt;jQuery&lt;/title&gt;
@@ -836,12 +495,12 @@ console.log($('ul li:nth-child(1)').width());</code></pre>
 
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Classes (2)</h2>
           <ul>
             <li>
               Other functions: <a href="http://api.jquery.com/toggleClass/">toggleClass()</a> and <a href="http://api.jquery.com/hasClass/">hasClass()</a>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/03b.html">$(document).ready(function() {
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/03b.html">$(document).ready(function() {
 $('li:last').toggleClass('highlight');
   if ($('li:last').hasClass('selected')) {
     console.log('last li has the class &quot;selected&quot;');
@@ -864,7 +523,7 @@ $('li:last').toggleClass('highlight');
 &lt;p&gt;&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 </code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/04.html">$('#operator').val('Telenet');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/04.html">$('#operator').val('Telenet');
 $('p:first').html('Currently selected: &lt;em&gt;' + $('#operator').val() + '&lt;/em&gt;');
 $('p:last').html('All values: &lt;em&gt;' + $('#operator').text() + '&lt;/em&gt;');
 </code></pre>
@@ -881,7 +540,7 @@ $('p:last').html('All values: &lt;em&gt;' + $('#operator').text() + '&lt;/em&gt;
               <pre><code class="language-html">&lt;p&gt;Once there was a &lt;em title=&quot;huge, gigantic&quot;&gt;large&lt;/em&gt; dinosaur...&lt;/p&gt;
 
 &lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/04d.html">$('#msg').html('The emphasis title is ' + $('em').attr('title'));
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/04d.html">$('#msg').html('The emphasis title is ' + $('em').attr('title'));
 </code></pre>
             </li>
           </ul>
@@ -896,12 +555,12 @@ $('p:last').html('All values: &lt;em&gt;' + $('#operator').text() + '&lt;/em&gt;
   John Doe
 &lt;/div&gt;
 </code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/04b.html">$('#john_doe').attr('data-group', 'family');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/04b.html">$('#john_doe').attr('data-group', 'family');
 console.log('John Doe avatar: ' + $('#john_doe').attr('data-avatar'));</code></pre>
             </li>
             <li class="no-style">
               is similar to:
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/04b.html">$('#john_doe').data('group', 'family');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/04b.html">$('#john_doe').data('group', 'family');
 console.log('John Doe avatar: ' + $('#john_doe').data('avatar'));</code></pre>
             </li>
           </ul>
@@ -916,7 +575,7 @@ console.log('John Doe avatar: ' + $('#john_doe').data('avatar'));</code></pre>
   &lt;p&gt;checkbox 2: &lt;input type="checkbox" id="chb2"/&gt;&lt;/p&gt;
   &lt;input type="reset" /&gt;
 &lt;/form&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/04c.html">$('#chb1').attr('checked', true);
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/04c.html">$('#chb1').attr('checked', true);
 console.log('attribute value: ' + $('#chb1').attr('checked'));
 $('#chb2').prop('checked', true);
 console.log('property value: ' + $('#chb2').prop('checked'));
@@ -955,7 +614,7 @@ var a = $('&lt;a/&gt;', {
 
         </section>
 
-        <section data-toc-title="Adding Elements">
+        <section data-title="Adding Elements">
           <h2>Adding Elements (1)</h2>
           <ul>
             <li>
@@ -963,14 +622,14 @@ var a = $('&lt;a/&gt;', {
               <pre><code class="language-html">&lt;h2&gt;Greetings&lt;/h2&gt;
 &lt;p&gt;Hello&lt;/p&gt;
 &lt;p&gt;Goodbye&lt;/p&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/05.html">$('p').after('&lt;p&gt;Injected After&lt;/p&gt;');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/05.html">$('p').after('&lt;p&gt;Injected After&lt;/p&gt;');
 </code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/05b.html">$('p').before('&lt;p&gt;Injected Before&lt;/p&gt;');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/05b.html">$('p').before('&lt;p&gt;Injected Before&lt;/p&gt;');</code></pre>
             </li>
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Adding Elements (2)</h2>
           <ul>
             <li>
@@ -978,14 +637,14 @@ var a = $('&lt;a/&gt;', {
               <pre><code class="language-html">&lt;h2&gt;Greetings&lt;/h2&gt;
 &lt;p&gt;Hello&lt;/p&gt;
 &lt;p&gt;Goodbye&lt;/p&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/05c.html">$('&lt;p&gt;Injected After&lt;/p&gt;').insertAfter('p');</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/05d.html">$('&lt;p&gt;Injected Before&lt;/p&gt;').insertBefore('p');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/05c.html">$('&lt;p&gt;Injected After&lt;/p&gt;').insertAfter('p');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/05d.html">$('&lt;p&gt;Injected Before&lt;/p&gt;').insertBefore('p');</code></pre>
             </li>
             <li>Difference with previous: target and content parameters swapped</li>
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Adding Elements (3)</h2>
           <ul>
             <li>
@@ -995,12 +654,12 @@ var a = $('&lt;a/&gt;', {
   &lt;li&gt;Bread&lt;/li&gt;
   &lt;li&gt;Banana&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/05e.html">$('ul').prepend('&lt;li&gt;Apple&lt;/li&gt;').append('&lt;li&gt;Pear&lt;/li&gt;');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/05e.html">$('ul').prepend('&lt;li&gt;Apple&lt;/li&gt;').append('&lt;li&gt;Pear&lt;/li&gt;');</code></pre>
             </li>
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Adding Elements (4)</h2>
           <ul>
             <li>
@@ -1010,13 +669,13 @@ var a = $('&lt;a/&gt;', {
   &lt;li&gt;Bread&lt;/li&gt;
   &lt;li&gt;Banana&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/05f.html">$('&lt;li&gt;Apple&lt;/li&gt;').prependTo('ul');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/05f.html">$('&lt;li&gt;Apple&lt;/li&gt;').prependTo('ul');
 $('&lt;li&gt;Pear&lt;/li&gt;').appendTo('ul');</code></pre>
             </li>
           </ul>
         </section>
 
-        <section data-toc-title="Moving elements">
+        <section data-title="Moving elements">
           <h2>Moving Elements (1)</h2>
           <ul>
             <li>
@@ -1024,12 +683,12 @@ $('&lt;li&gt;Pear&lt;/li&gt;').appendTo('ul');</code></pre>
               <pre><code class="language-html">&lt;h2&gt;Greetings&lt;/h2&gt;
 &lt;p&gt;Hello&lt;/p&gt;
 &lt;p&gt;Goodbye&lt;/p&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/05g.html">$('h2:first').insertBefore('p:last');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/05g.html">$('h2:first').insertBefore('p:last');</code></pre>
             </li>
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Moving Elements (2)</h2>
           <ul>
             <li>
@@ -1039,7 +698,7 @@ $('&lt;li&gt;Pear&lt;/li&gt;').appendTo('ul');</code></pre>
   &lt;li&gt;Bread&lt;/li&gt;
   &lt;li&gt;Banana&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/06.html">$('li:last').prependTo('ul');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/06.html">$('li:last').prependTo('ul');</code></pre>
             </li>
           </ul>
         </section>
@@ -1054,7 +713,7 @@ $('&lt;li&gt;Pear&lt;/li&gt;').appendTo('ul');</code></pre>
   &lt;li&gt;Bread&lt;/li&gt;
   &lt;li&gt;Banana&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/07.html">$('li:last').clone().appendTo('ul');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/07.html">$('li:last').clone().appendTo('ul');</code></pre>
             </li>
           </ul>
         </section>
@@ -1071,7 +730,7 @@ $('&lt;li&gt;Pear&lt;/li&gt;').appendTo('ul');</code></pre>
 &lt;/ul&gt;
 
 &lt;p&gt;A paragraph&lt;/p&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/08.html">$('p').remove();
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/08.html">$('p').remove();
 $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
             </li>
           </ul>
@@ -1079,11 +738,7 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
         </section>
 
       </section>
-
-
-      <!-- 5 : Traversing -->
-      <section>
-
+      <section class="chapter">
         <section>
           <h1>JQuery</h1>
           <h2>Traversing</h2>
@@ -1091,7 +746,6 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-
         <section>
           <h2>Traversing</h2>
           <ul>
@@ -1107,10 +761,8 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
               jQuery provides <a href="http://api.jquery.com/category/traversing/tree-traversal/">a truckload of functions</a> to walking the DOM tree
             </li>
           </ul>
-
         </section>
-
-        <section data-toc-title="Selecting children">
+        <section data-title="Selecting children">
           <h2>Selecting Children (1)</h2>
           <ul>
             <li>
@@ -1132,13 +784,13 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
   &lt;/li&gt;
   &lt;li class=&quot;item-iii&quot;&gt;III&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/09.html">$('ul.level-2').children().css('border', '1px solid red');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/09.html">$('ul.level-2').children().css('border', '1px solid red');</code></pre>
             </li>
           </ul>
 
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Selecting Children (2)</h2>
           <ul>
             <li>
@@ -1160,13 +812,13 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
   &lt;/li&gt;
   &lt;li class=&quot;item-iii&quot;&gt;III&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/10.html">$('ul.level-2').find('li').css('border', '1px solid red');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/10.html">$('ul.level-2').find('li').css('border', '1px solid red');</code></pre>
             </li>
           </ul>
 
         </section>
 
-        <section data-toc-title="Selecting parents">
+        <section data-title="Selecting parents">
           <h2>Selecting Parents (1)</h2>
           <ul>
             <li>
@@ -1188,13 +840,13 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
   &lt;/li&gt;
   &lt;li class=&quot;item-iii&quot;&gt;III&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/11.html">$('li.item-a').parent().css('border', '1px solid red');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/11.html">$('li.item-a').parent().css('border', '1px solid red');</code></pre>
             </li>
           </ul>
 
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Selecting Parents (2)</h2>
           <ul>
             <li>
@@ -1216,13 +868,13 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
   &lt;/li&gt;
   &lt;li class=&quot;item-iii&quot;&gt;III&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/11b.html">$('li.item-a').parents('ul').css('border', '1px solid red');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/11b.html">$('li.item-a').parents('ul').css('border', '1px solid red');</code></pre>
             </li>
           </ul>
 
         </section>
 
-        <section data-toc-title="Selecting siblings">
+        <section data-title="Selecting siblings">
           <h2>Selecting Siblings (1)</h2>
           <ul>
             <li>
@@ -1234,13 +886,13 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
   &lt;li&gt;list item 4&lt;/li&gt;
   &lt;li&gt;list item 5&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/12.html">$('#third-item').siblings().css('border', '1px solid red');</code></pre>
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/12.html">$('#third-item').siblings().css('border', '1px solid red');</code></pre>
             </li>
           </ul>
 
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Selecting Siblings (2)</h2>
           <ul>
             <li>
@@ -1252,14 +904,14 @@ $('ul').empty().append('&lt;li&gt;Apple&lt;/li&gt;');</code></pre>
   &lt;li&gt;list item 4&lt;/li&gt;
   &lt;li&gt;list item 5&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/13.html">$('#third-item').next().css('border', '1px solid red');
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/13.html">$('#third-item').next().css('border', '1px solid red');
 $('#third-item').prev().css('border', '1px solid blue');</code></pre>
             </li>
           </ul>
 
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Selecting Siblings (3)</h2>
           <ul>
             <li>
@@ -1271,7 +923,7 @@ $('#third-item').prev().css('border', '1px solid blue');</code></pre>
   &lt;li&gt;list item 4&lt;/li&gt;
   &lt;li&gt;list item 5&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/13b.html">$('#third-item')
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/13b.html">$('#third-item')
 .next().css('border', '1px solid red')
 .end()
 .prev().css('border', '1px solid blue');</code></pre>
@@ -1281,20 +933,14 @@ $('#third-item').prev().css('border', '1px solid blue');</code></pre>
         </section>
 
       </section>
-
-
-      <!-- 6 : Events -->
-      <section>
-
+      <section class="chapter">
         <section>
           <h1>JQuery</h1>
           <h2>Events</h2>
           <ul class="chapterlist">
             <!-- to be filled by Javascript -->
           </ul>
-
         </section>
-
         <section>
           <h2>Events</h2>
           <ul>
@@ -1329,7 +975,7 @@ $('#third-item').prev().css('border', '1px solid blue');</code></pre>
   &lt;li&gt;list item 4&lt;/li&gt;
   &lt;li&gt;list item 5&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/14.html">$('li').css('cursor','pointer').on('mouseover', function(e) {
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/14.html">$('li').css('cursor','pointer').on('mouseover', function(e) {
   $(this).css('color', 'blue');
 }).on('mouseout', function(e) {
   $(this).css('color', 'black');
@@ -1346,7 +992,7 @@ $('#third-item').prev().css('border', '1px solid blue');</code></pre>
           <ul>
             <li>
               jQuery offers shorthand binding methods like <a href="http://api.jquery.com/hover/">hover()</a> or <a href="http://api.jquery.com/click/">click()</a>
-              <pre><code class="language-javascript wrong" data-overlay-example="demos/03_jquery/14b.html">$('li').css('cursor','pointer')
+              <pre><code class="language-javascript wrong" data-overlayexample="demos/03_jquery/14b.html">$('li').css('cursor','pointer')
 .hover(
   function(e) {
     $(this).css('color', 'blue');
@@ -1380,12 +1026,12 @@ $('#third-item').prev().css('border', '1px solid blue');</code></pre>
           </ul>
         </section>
 
-        <section data-toc-title="Binding on future nodes">
+        <section data-title="Binding on future nodes">
           <h2>Binding on future nodes (1)</h2>
           <ul>
             <li>
               <a href="http://api.jquery.com/on/">on()</a> by default only binds to existing elements, not to future elements:
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/15.html">// bind events
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/15.html">// bind events
 $('li').css('cursor','pointer').on('mouseover', function(e) {
   $(this).css('color', 'blue');
 }).on('mouseout', function(e) {
@@ -1402,11 +1048,11 @@ $('ul').append('&lt;li&gt;new list item, injected after the event binding&lt;/li
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Binding on future nodes (2)</h2>
           <ul>
             <li>Can be fixed by binding on the parent instead and using an extra selector parameter in <a href="http://api.jquery.com/on/">on()</a>:
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/15b2.html">// bind events
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/15b2.html">// bind events
 $('ul').on('mouseover', 'li', function(e) {
   $(this).css('color', 'blue');
 }).on('mouseout', 'li', function(e) {
@@ -1425,11 +1071,7 @@ $('ul').append('&lt;li&gt;new list item, injected after the event binding&lt;/li
         </section>
 
       </section>
-
-
-      <!-- 7 : Effects/Animation -->
-      <section>
-
+      <section class="chapter">
         <section>
           <h1>JQuery</h1>
           <h2>Effects/Animation</h2>
@@ -1438,7 +1080,6 @@ $('ul').append('&lt;li&gt;new list item, injected after the event binding&lt;/li
           </ul>
 
         </section>
-
         <section>
           <h2>Animation Core Function</h2>
           <ul>
@@ -1446,7 +1087,7 @@ $('ul').append('&lt;li&gt;new list item, injected after the event binding&lt;/li
               jQuery lets you animate elements (viz. adjust CSS properties in an animated manner) via its core <a href="http://api.jquery.com/animate/">animate()</a> function.
               <pre><code class="language-html">&lt;button id=&quot;go&quot;&gt;Run&lt;/button&gt;
 &lt;div id=&quot;block&quot; style=&quot;background-color:#bca; width:100px; border:1px solid green;&quot;&gt;Hello!&lt;/div&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/19.html">$('#go').on('click', function() {
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/19.html">$('#go').on('click', function() {
   $('#block').animate({
     width: '70%',
     opacity: 0.4,
@@ -1478,11 +1119,7 @@ $('ul').append('&lt;li&gt;new list item, injected after the event binding&lt;/li
         </section>
 
       </section>
-
-
-      <!-- 8 : Core Functions -->
-      <section>
-
+      <section class="chapter">
         <section>
           <h1>JQuery</h1>
           <h2>jQuery Core Functions</h2>
@@ -1490,7 +1127,6 @@ $('ul').append('&lt;li&gt;new list item, injected after the event binding&lt;/li
             <!-- to be filled by Javascript -->
           </ul>
         </section>
-
         <section>
           <h2>jQuery Core Functions</h2>
           <ul>
@@ -1529,7 +1165,7 @@ $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
             <li>
               Commonly used to allow defaults in functions &amp; plugins
               <pre><code class="language-html">&lt;p&gt;&lt;/p&gt;</code></pre>
-              <pre><code class="language-javascript" data-overlay-example="demos/03_jquery/20.html">var defaults = {
+              <pre><code class="language-javascript" data-overlayexample="demos/03_jquery/20.html">var defaults = {
   'color' : 'lime',
   'font-size' : '15px',
   'font-weight' : '700',
@@ -1571,25 +1207,13 @@ write('This will not be lime', {'color':'blue'});</code></pre>
 
       </section>
 
-
-      <!-- The END -->
-      <section data-index-title="">
-        <section>
-          <h2>Questions?</h2>
-        </section>
-      </section>
-
     </div>
 
     <!-- odisee.be link -->
     <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
 
-    <!-- Index Link -->
-    <aside class="back">
-      <nav>
-        <p><a href="index.html">&larr; Back to index</a></p>
-      </nav>
-    </aside>
+    <!-- index menu container -->
+    <nav id="navigator"></nav>
 
   </div>
 
@@ -1603,7 +1227,7 @@ write('This will not be lime', {'color':'blue'});</code></pre>
   <script src="vendor/css-edit.js"></script>
   <script src="js/main.js"></script>
   <script>
-    var devtools = /./;
+    const devtools = /./;
       devtools.toString = function() {
       this.opened = true;
     }

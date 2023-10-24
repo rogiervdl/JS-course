@@ -1,18 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Javascript &mdash; Libraries</title>
   <meta name="author" content="Rogier van der Linde - ikdoeict.be">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
-  <link rel="stylesheet" href="fonts/lato/webfont.css">
-  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
-  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
-  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
-  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
-  <link rel="stylesheet" href="css/reveal-mods.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/04_api_ajax.css">
 </head>
 
@@ -25,18 +18,21 @@
     <div class="slides">
 
       <!-- 0 : Title -->
-      <section>
+      <section class="cover">
         <h1>API's &amp; Ajax</h1>
-        <small>use the arrow keys to navigate; press space for slide overview<br /></small>
-        <figure style="width: 380px; margin: 0 auto">
-          <img src="img/04_api_ajax/icon.png" alt="" width="380" />
-        </figure>
-
-        <footer>
-          <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+        <p>
+          tussen []: optioneel, sterk aanbevolen voor wie wil verdergaan in web
+        </p>
+        <p>
+          gebruik pijltjestoetsen om te navigeren<br>
+          dotted codepanels zijn editeerbaar
+        </p>
+        <img src="img/04_api_ajax/icon.png" alt="" class="cover__visual">
+        <footer class="cover__footer">
+          <img src="img/me.jpg" alt="" class="cover__me"> <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
         </footer>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>API's &amp; Ajax</h1>
           <h2>Client&ndash;server model</h2>
@@ -71,12 +67,12 @@
               </ul>
             </li>
           </ul>
-          <figure style="max-width: 600px; margin-top: 20px">
-            <img src="img/04_api_ajax/http.png" alt="http" style="border: 0; display: block;">
+          <figure>
+            <img src="img/04_api_ajax/http.png" alt="http" width="600" class="bordered">
             <figcaption>source: <a href="https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html">www.ntu.edu.sg</a></figcaption>
           </figure>
         </section>
-        <section data-toc-title="Step 1: HTTP request">
+        <section data-title="Step 1: HTTP request">
           <h2>Step 1: HTTP request (1)</h2>
           <ul>
             <li>
@@ -91,11 +87,9 @@
               Example of a HTTP GET request to retrieve an image:
             </li>
           </ul>
-          <figure>
-            <img src="img/04_api_ajax/request1.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/request1.png" alt="http" class="bordered">
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Step 1: HTTP request (2)</h2>
           <ul>
             <li>
@@ -109,20 +103,16 @@
               The main difference between GET and POST is that a POST request body can contain data. Example of a POST request with login data sent to a PHP server script <strong>login.php</strong>:
             </li>
           </ul>
-          <figure>
-            <img src="img/04_api_ajax/request2.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
-          </figure>
+          <img src="img/04_api_ajax/request2.png" alt="http" class="bordered">
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Step 1: HTTP request (3)</h2>
           <ul>
             <li>
               Example of a POST request to upload a file to a ASP.NET server script <strong>upload.aspx</strong>:
             </li>
           </ul>
-          <figure>
-            <img src="img/04_api_ajax/request3.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
-          </figure>
+          <img src="img/04_api_ajax/request3.png" alt="http" class="bordered">
         </section>
         <section>
           <h2>Step 2: Processing the request</h2>
@@ -131,9 +121,7 @@
               When the server receives the request, a lot of magic happens: locating resources, checking permissions, executing scripts... This lies outside the scope of this course, so we'll just consider the server a black box:
             </li>
           </ul>
-          <figure style="max-width: 600px">
-            <img src="img/04_api_ajax/magic.png" alt="http" style="border: 0; display: block;margin-bottom:20px">
-          </figure>
+          <img src="img/04_api_ajax/magic.png" alt="http" width="600" class="bordered">
         </section>
         <section>
           <h2>Step 3: HTTP response</h2>
@@ -147,9 +135,7 @@
               </ul>
             </li>
           </ul>
-          <figure>
-            <img src="img/04_api_ajax/response.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/response.png" alt="http">
         </section>
         <section>
           <h2>Initiating a HTTP request</h2>
@@ -182,26 +168,22 @@
           </ul>
 
         </section>
-        <section data-toc-title="Inspecting request/response">
+        <section data-title="Inspecting request/response">
           <h2>Inspecting request/response (1)</h2>
           <ul>
             <li>
               In the browser you can inspect request/responses on the Network tab of Chrome devtools. Example when requesting the Toledo portal page:
             </li>
           </ul>
-          <figure style="max-width: 800px; display: block; margin: 0 auto">
-            <img src="img/04_api_ajax/devtools_request1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/devtools_request1.png" alt="http" width="600" class="bordered">
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Inspecting request/response (2)</h2>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 40%;">
-              <figure style="display: block; margin: 0 auto">
-                <img src="img/04_api_ajax/devtools_request2.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
-              </figure>
+          <div class="flex-1-2">
+            <div>
+              <img src="img/04_api_ajax/devtools_request2.png" alt="http" class="bordered">
             </div>
-            <div style="width: 60%; padding-left: 10px">
+            <div>
               <ul>
                 <li class="no-style">
                   Note that this request generates a waterfall of other requests:
@@ -216,72 +198,58 @@
             </div>
           </div>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Inspecting request/response (3)</h2>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 50%;">
-              <figure style="display: block; margin: 0 auto">
-                <img src="img/04_api_ajax/devtools_request3.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
-              </figure>
-            </div>
-            <div style="width: 50%; ">
-              <ul>
-                <li class="no-style">
-                  Click on a request to inspect:
-                  <ul>
-                    <li>request URL, status code</li>
-                    <li>request and response headers</li>
-                    <li>response body</li>
-                    <li>...</li>
-                  </ul>
-                </li>
-                <li class="no-style">
-                  Response status codes:
-                  <ul>
-                    <li>200 - get ok</li>
-                    <li>201 - create ok</li>
-                    <li>301 - permanently moved</li>
-                    <li>400 - bad request (missing parameters)</li>
-                    <li>401 - not authorized (e.g. API key not given)</li>
-                    <li>404 - requested data not found</li>
-                    <li>405 - method not allowed (e.g. wrong verb)</li>
-                    <li>500 - internal server error</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+          <div class="flex-1-1">
+            <img src="img/04_api_ajax/devtools_request3.png" alt="http" class="bordered">
+            <ul>
+              <li class="no-style">
+                Click on a request to inspect:
+                <ul>
+                  <li>request URL, status code</li>
+                  <li>request and response headers</li>
+                  <li>response body</li>
+                  <li>...</li>
+                </ul>
+              </li>
+              <li class="no-style">
+                Response status codes:
+                <ul>
+                  <li>200 - get ok</li>
+                  <li>201 - create ok</li>
+                  <li>301 - permanently moved</li>
+                  <li>400 - bad request (missing parameters)</li>
+                  <li>401 - not authorized (e.g. API key not given)</li>
+                  <li>404 - requested data not found</li>
+                  <li>405 - method not allowed (e.g. wrong verb)</li>
+                  <li>500 - internal server error</li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Inspecting request/response (4)</h2>
-          <div style="display: flex; justify-content: space-between;">
-            <div style="width: 50%;">
-              <figure style="display: block; margin: 0 auto">
-                <img src="img/04_api_ajax/devtools_request4.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
-              </figure>
-            </div>
-            <div style="width: 50%; ">
-              <ul>
-                <li class="no-style">
-                  Example showing the response for a CSS file request
-                </li>
-              </ul>
-            </div>
+          <div class="flex-1-1">
+            <img src="img/04_api_ajax/devtools_request4.png" alt="http" class="bordered">
+            <ul>
+              <li class="no-style">
+                Example showing the response for a CSS file request
+              </li>
+            </ul>
           </div>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Inspecting request/response (5)</h2>
           <ul>
             <li>
               A great tool for creating requests and inspecting responses is the <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Chrome Postman plugin</a>:
             </li>
           </ul>
-          <figure style="max-width: 600px; display: block; margin: 0 auto">
-            <img src="img/04_api_ajax/postman.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/postman.png" alt="http" width="600" class="bordered">
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>API's &amp; Ajax</h1>
           <h2>API's</h2>
@@ -347,7 +315,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="Finding Web API's">
+        <section data-title="Finding Web API's">
           <h2>Finding Web API's (1)</h2>
           <ul>
             <li>
@@ -357,22 +325,18 @@
               Just Google the API, e.g. search for "Flickr API", and you'll find the docs:
             </li>
           </ul>
-          <figure style="max-width: 700px; display: block; margin: 0 auto">
-            <img src="img/04_api_ajax/flickr-api.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/flickr-api.png" alt="http" class="bordered" width="700">
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Finding Web API's (2)</h2>
           <ul>
             <li>
               Smaller dedicated API's also exist, e.g. weather service, dog pictures, funny quotes... Finding them may be a little harder; <a href="https://rapidapi.com/">rapidapi.com</a> has a nice collection:
             </li>
           </ul>
-          <figure style="max-width: 700px; display: block; margin: 0 auto">
-            <img src="img/04_api_ajax/rapidAPI.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/rapidAPI.png" alt="http" class="bordered" width="700">
         </section>
-        <section data-toc-title="Using Web API's">
+        <section data-title="Using Web API's">
           <h2>Using Web API's (1)</h2>
           <ul>
             <li>
@@ -412,7 +376,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Using Web API's (2)</h2>
           <ul>
             <li>
@@ -451,11 +415,9 @@
               </ul>
             </li>
           </ul>
-          <figure style="max-width: 600px; display: block; margin: 0 auto">
-            <img src="img/04_api_ajax/dogAPi-example.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/dogAPi-example.png" alt="http" class="bordered" width="600">
         </section>
-        <section data-toc-title="API key example">
+        <section data-title="API key example">
           <h2>API key example (1)</h2>
           <ul>
             <li>
@@ -464,33 +426,29 @@
             <li>
               An example from <a href="https://www.flickr.com/services/api/">Flickr API</a>:
               <ul>
-                <li>search for images by tag: <a href="https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&api_key=6ecfcd8d4a3b8a04da6093733db989a2&text=atomium&format=json">https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20 &text=atomium<strong>&api_key=6ecfcd8d4a3b8a04da6093733db989a2</strong>&format=json</a></li>
+                <li>search for images by tag: <a href="https://api.flickr.com/services/rest/?method=flickr.photos.search&extras=url_m&per_page=20&api_key=6ecfcd8d4a3b8a04da6093733db989a2&text=atomium&format=json">https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;extras=url_m&amp;per_page=20&amp;text=atomium<strong>&amp;api_key=6ecfcd8d4a3b8a04da6093733db989a2</strong>&amp;format=json</a></li>
               </ul>
             </li>
           </ul>
-          <figure style="max-width: 600px; display: block; margin: 0 auto">
-            <img src="img/04_api_ajax/flickr1.png" alt="http" style="border: 1px solid #ccc; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/flickr1.png" alt="http" class="bordered" width="600">
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>API key example (2)</h2>
           <ul>
             <li>
               You can do the same request with Postman:
             </li>
           </ul>
-          <figure style="max-width: 700px; display: block; margin: 0 auto">
-            <img src="img/04_api_ajax/flickr2.png" alt="http" style="border: 0; display: block;margin-bottom:20px;">
-          </figure>
+          <img src="img/04_api_ajax/flickr2.png" alt="http" class="bordered" width="700">
         </section>
-        <section data-toc-title="About JSON">
+        <section data-title="About JSON">
           <h2>About JSON (1)</h2>
           <ul>
             <li>
               <em>JSON</em> (Javascript Object Notation) is a string representation of a single Javascript object holding all information.
             </li>
             <li>
-              An example JSON string is  <code style="font-size: smaller">{"course":"RIA","lecturers":[{"id":1,"name":"Davy De Winne"},{"id": 2,"name": "Bramus Van Damme"}]}</code>, or in a more readable layout (use <a href="https://jsonformatter.curiousconcept.com/">this beautifier</a>):
+              An example JSON string is  <code class="smallfont">{"course":"RIA","lecturers":[{"id":1,"name":"Davy De Winne"},{"id": 2,"name": "Bramus Van Damme"}]}</code>, or in a more readable layout (use <a href="https://jsonformatter.curiousconcept.com/">this beautifier</a>):
               <pre class="bigger"><code contenteditable class="language-javascript">{
   "course": "RIA",
   "lecturers": [
@@ -507,7 +465,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>About JSON (2)</h2>
           <ul>
             <li>
@@ -535,7 +493,7 @@
           </ul>
         </section>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>API's &amp; Ajax</h1>
           <h2>AJAX with fetch()</h2>
@@ -574,7 +532,7 @@
               The XMLHttpRequest syntax (check your console):
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun wrong">let xhr = new XMLHttpRequest();
 xhr.addEventListener('readystatechange', function() {
-  if (this.readyState == 4 && this.status == 200) {
+  if (this.readyState == 4 &amp;&amp; this.status == 200) {
     console.log('data received: ', this.responseText);
   }
 });
@@ -608,7 +566,7 @@ xhr.send();</code></pre>
             <li class="darkred">is easier to use, but I wouldn't recommend using this syntax either</li>
           </ul>
         </section>
-        <section data-toc-title="fetch() syntax">
+        <section data-title="fetch() syntax">
           <h2>fetch() syntax (1)</h2>
           <ul>
             <li>
@@ -634,7 +592,7 @@ fetch(url)
             <li class="darkgreen">this is the way to go!</li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>fetch() syntax (2)</h2>
           <ul>
             <li>
@@ -737,7 +695,7 @@ fetch(url, options)
             <li>note that we use the URLSearchParams() object to build our parameter list; this is <a href="https://fetch.spec.whatwg.org/#fetch-api">recommended by the Fetch standard</a></li>
           </ul>
         </section>-->
-        <section data-toc-title="AJAX Flickr demo">
+        <section data-title="AJAX Flickr demo">
           <h2>AJAX Flickr demo (1)</h2>
           <ul>
             <li>
@@ -767,7 +725,7 @@ fetch(url, options)
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>AJAX Flickr demo (2)</h2>
           <ul>
             <li>
@@ -796,7 +754,7 @@ fetch(url)
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>AJAX Flickr demo (3)</h2>
           <ul>
             <li>
@@ -817,7 +775,7 @@ fetch(url)
   // handle fetch response
   function onResponse(res) {
     // error
-    if (res.status < 200 || res.status >= 300) {
+    if (res.status &lt; 200 || res.status &gt;= 300) {
       console.log('error with status ' + res.status);
     } else {
       console.log('response ok ' + res.status);
@@ -828,7 +786,7 @@ fetch(url)
   // handle fetch data
   function onSuccess(data) {
     // all ok
-    for (let i = 0; i < data.photos.photo.length; i++) {
+    for (let i = 0; i &lt; data.photos.photo.length; i++) {
       let img = document.createElement('img');
       if (data.photos.photo[i].url_m) img.setAttribute('src', data.photos.photo[i].url_m);
       pics.appendChild(img);
@@ -890,16 +848,12 @@ fetch(url)
 
     </div>
 
+
     <!-- odisee.be link -->
     <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
 
-
-    <!-- Index Link -->
-    <aside class="back">
-      <nav>
-        <p><a href="index.html">&larr; Back to index</a></p>
-      </nav>
-    </aside>
+    <!-- index menu container -->
+    <nav id="navigator"></nav>
 
   </div>
 
@@ -913,13 +867,13 @@ fetch(url)
   <script src="vendor/css-edit.js"></script>
   <script src="js/main.js"></script>
   <script>
-    var devtools = /./;
+    const devtools = /./;
       devtools.toString = function() {
       this.opened = true;
     }
     console.log('%c', devtools);
     if (!devtools.opened) {
-//      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
+      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
     }
   </script>
 

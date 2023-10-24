@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Testpagina</title>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
 </head>
 <body>
 	<nav>
@@ -15,14 +15,14 @@
 	</nav>
 	<script>
 		// get even items (this will be item 2 and 4)
-		let itemsToHide = document.querySelectorAll('nav li:nth-child(2n)');
+		const itemsToHide = document.querySelectorAll('nav li:nth-child(2n)');
 
 		// show content of first found
 		console.log(itemsToHide[0].innerHTML); // item2
 
 		// iterate results and do something, e.g. hide them
-		for (let item of itemsToHide) {
-			item.style.display = 'none'; 
+		for (const item of itemsToHide) {
+			item.style.display = 'none';
 		}
 	</script>
 </body>

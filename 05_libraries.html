@@ -1,18 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Javascript &mdash; Libraries</title>
   <meta name="author" content="Rogier van der Linde - ikdoeict.be">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
-  <link rel="stylesheet" href="fonts/lato/webfont.css">
-  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
-  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
-  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
-  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
-  <link rel="stylesheet" href="css/reveal-mods.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/05_libraries.css">
 </head>
 
@@ -25,21 +19,21 @@
     <div class="slides">
 
       <!-- 0 : Title -->
-      <section>
+      <section class="cover">
         <h1>Libraries</h1>
-        <small>use the arrow keys to navigate; press space for slide overview<br /></small>
-        <figure style="width: 380px; margin: 0 auto">
-          <img src="img/05_libraries/icon.png" alt="" width="380" />
-          <figcaption>
-            image from <a href="http://webmuch.com/how-why-you-should-use-google-cdn/">Webmuch</a>
-          </figcaption>
-        </figure>
-
-        <footer>
-          <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+        <p>
+          tussen []: optioneel, sterk aanbevolen voor wie wil verdergaan in web
+        </p>
+        <p>
+          gebruik pijltjestoetsen om te navigeren<br>
+          dotted codepanels zijn editeerbaar
+        </p>
+        <img src="img/05_libraries/icon.png" alt="" class="cover__visual">
+        <footer class="cover__footer">
+          <img src="img/me.jpg" alt="" class="cover__me"> <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
         </footer>
       </section>
-      <section>
+      <section class="chapter">
         <section>
           <h1>Libraries</h1>
           <h2>Libraries</h2>
@@ -71,7 +65,7 @@
                 <li>remarkably, libraries are <strong>often free</strong></li>
               </ul>
             </li>
-          </li>
+          </ul>
           <div class="tooltip">
             <div>
               Another way to create rich applications is by embedding content, see <a href="http://github.site/HTML-course/06_objects.html#/embedding">http://github.site/HTML-course/06_objects.html#/embedding</a>;
@@ -118,7 +112,7 @@
           </ul>
         </section>
 
-        <section data-toc-title="OWL Carousel demo">
+        <section data-title="OWL Carousel demo">
           <h2>OWL Carousel demo (1)</h2>
           <ul>
             <li class="no-style">
@@ -141,9 +135,11 @@
   &lt;!-- ... --&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+            </li>
+          </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>OWL Carousel demo (2)</h2>
           <ul>
             <li class="no-style">
@@ -164,18 +160,18 @@
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>OWL Carousel demo (3)</h2>
           <ul>
             <li class="no-style">
               Next, <a href="https://owlcarousel2.github.io/OwlCarousel2/">download</a> and unzip OWL Carousel. The <code>dist/</code> folder contains the needed distribution files; copy them to a new folder <code>vendor/owlcarousel/</code> (you may skip files like README.md or LICENSE):
-              <div style="display: flex; max-width: 100%; justify-content: space-between; align-items: flex-start;">
-                <figure style="width:60%">
-                  <img src="img/05_libraries/owlcarousel-zip.png" alt="" class="border">
+              <div class="flex-2-1">
+                <figure>
+                  <img src="img/05_libraries/owlcarousel-zip.png" alt="" class="bordered">
                   <figcaption>dist folder in zip contents</figcaption>
                 </figure>
-                <figure style="width:30%">
-                  <img src="img/05_libraries/owlcarousel-project.png" alt="" class="border">
+                <figure>
+                  <img src="img/05_libraries/owlcarousel-project.png" alt="" class="bordered">
                   <figcaption>content copied to vendor/owlcarousel/</figcaption>
                 </figure>
 
@@ -184,7 +180,7 @@
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>OWL Carousel demo (4)</h2>
           <ul>
             <li class="no-style">
@@ -205,7 +201,7 @@
           </ul>
         </section>
 
-        <section data-toc-title="">
+        <section data-title="">
           <h2>OWL Carousel demo (5)</h2>
           <ul>
             <li class="no-style">
@@ -277,8 +273,7 @@
           </ul>
         </section>
       </section>
-
-      <section>
+      <section class="chapter">
         <section>
           <h1>Libraries</h1>
           <h2>Frameworks</h2>
@@ -292,7 +287,7 @@
             <li>
               <em>Framework</em>: fundamentally changes the way we use Javascript
               <ul>
-                <li>Javascript <strong>language extensions</strong> (looping, string & array functions...)</li>
+                <li>Javascript <strong>language extensions</strong> (looping, string &amp; array functions...)</li>
                 <li><strong>cross browser solutions</strong> for DOM handling or events</li>
                 <li>enforce a strict <strong>coding methodology</strong> like MVC</li>
                 <li>target a <strong>specific platform</strong> like mobile web apps</li>
@@ -309,7 +304,7 @@
             </li>
             <li class="no-style">
               <ul class="arrow">
-                <li>frameworks  is usually <strong>not easily combined</strong></li>
+                <li>frameworks is usually <strong>not easily combined</strong></li>
                 <li>frameworks are usually <strong>hard to learn</strong>, but <strong>pay off</strong> once you mastered them</li>
                 <li>remarkably, frameworks are <strong>usually free</strong> too</li>
                 <li>frameworks are usually <strong>strongly opinionated</strong>, i.e. force you in methodology / style etc...</li>
@@ -318,22 +313,24 @@
           </ul>
 
         </section>
-        <section data-toc-title="jQuery">
+        <section data-title="jQuery">
           <h2>jQuery (1)</h2>
-          <img src="img/05_libraries/john-resig.jpg" alt="" style="float: right; margin-left: 20px; width: 300px">
-          <ul style="display: block;">
-            <li>
-              JQuery was invented in 2006 by <strong>John Resig</strong>, solving many of the serious limitations and caveats of Javascript (and CSS) at the time.
-            </li>
-            <li>
-              Arguably historically the most popular framework. At its peak, about 90% of all websites used JQuery, whereas its competitors were far behind at not more than 10%.
-            </li>
-            <li>
-              Today, the vast majority of sites still uses jQuery, but more and more for legacy reasons (like libraries requiring jQuery).
-            </li>
-          </ul>
+          <div class="flex-6-4">
+            <ul style="display: block;">
+              <li>
+                JQuery was invented in 2006 by <strong>John Resig</strong>, solving many of the serious limitations and caveats of Javascript (and CSS) at the time.
+              </li>
+              <li>
+                Arguably historically the most popular framework. At its peak, about 90% of all websites used JQuery, whereas its competitors were far behind at not more than 10%.
+              </li>
+              <li>
+                Today, the vast majority of sites still uses jQuery, but more and more for legacy reasons (like libraries requiring jQuery).
+              </li>
+            </ul>
+            <img src="img/05_libraries/john-resig.jpg" alt="">
+          </div>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>jQuery (2)</h2>
           <ul>
             <li class="no-style">
@@ -341,8 +338,8 @@
             </li>
             <li class="no-style">
               <pre class="bigger"><code class="language-javascript" data-caption="vanilla JS">window.addEventListener('load', function() {
-  let allMenuLinks = document.querySelectorAll('#myMenu a');
-  for (let lnk of allMenuLinks) {
+  const allMenuLinks = document.querySelectorAll('#myMenu a');
+  for (const lnk of allMenuLinks) {
     lnk.addEventListener('click', function() {
       console.log(this.innerHTML + ' link clicked');
       this.classList.add('visited');
@@ -350,7 +347,7 @@
   }
 });</code></pre>
               <pre class="bigger"><code class="language-javascript" data-caption="jQuery">$(window).on('load', function() {
-  let $allMenuLinks = $('#myMenu a');
+  const $allMenuLinks = $('#myMenu a');
   $allMenuLinks.on('click', function() {
     console.log($(this).text() + ' link clicked');
     $(this).addClass('visited');
@@ -359,7 +356,7 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>jQuery (3)</h2>
           <ul>
             <li class="no-style">
@@ -435,15 +432,15 @@
             </li>
           </ul>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>jQuery (4)</h2>
           <p>
             Since the introduction of new CSS techniques like transitions/animations, and the many improvements made to Javascript, jQuery gradually looses its relevance. Its decline is clearly visible on Google Trends:
           </p>
-          <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2152_RC04/embed_loader.js"></script>
-          <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"jquery","geo":"US","time":"2004-01-01 2020-04-28"}],"category":0,"property":""}, {"exploreQuery":"date=all&geo=US&q=jquery","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+          <script src="https://ssl.gstatic.com/trends_nrtr/2152_RC04/embed_loader.js"></script>
+          <script> trends.embed.renderExploreWidget("TIMESERIES", { "comparisonItem": [{ "keyword": "jquery", "geo": "US", "time": "2004-01-01 2020-04-28" }], "category": 0, "property": "" }, { "exploreQuery": "date=all&geo=US&q=jquery", "guestPath": "https://trends.google.com:443/trends/embed/" }); </script>
         </section>
-        <section data-toc-title="">
+        <section data-title="">
           <h2>Frameworks popularity</h2>
           <p>Disappearing into oblivion is the fate of every framework, as nicely illustrated on <a href="https://insights.stackoverflow.com/trends?tags=jquery%2Cangular%2Creactjs%2Cvue.js%2Cbackbone.js%2Ctwitter-bootstrap">StackOverflow Trends</a>:</p>
           <img src="img/05_libraries/stats.png" alt="">
@@ -457,17 +454,16 @@
             <li>
               Learning a framework is usually hard, and takes time. Choosing the "right" framework is tricky, and mostly a matter of personal preference.
             </li>
-            <li class="arrow" style="color: #633">
+            <li class="arrow">
               before taking on frameworks, you should properly learn your vanilla Javascript; it is the only front-end technology made to last, and the best investment in your human capital at this point
             </li>
-            <li class="arrow" style="color: #633">
+            <li class="arrow">
               therefore, frameworks are outside the scope of this course
             </li>
           </ul>
         </section>
       </section>
-
-      <section>
+      <section class="chapter">
         <section>
           <h1>Libraries</h1>
           <h2>[Node.js runtime]</h2>
@@ -492,7 +488,7 @@ console.log('Server running at http://127.0.0.1:8124/');</code></pre>
             </li>
             <li>
               In the command prompt:
-              <pre class="bigger" style="background-color: black; color: white"><code class="donthighlight">&gt; node example.js
+              <pre class="bigger"><code class="donthighlight console">&gt; node example.js
 Server running at http://127.0.0.1:8124/</code></pre>
             </li>
             <li class="arrow">
@@ -504,16 +500,12 @@ Server running at http://127.0.0.1:8124/</code></pre>
 
     </div>
 
+
     <!-- odisee.be link -->
     <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
 
-
-    <!-- Index Link -->
-    <aside class="back">
-      <nav>
-        <p><a href="index.html">&larr; Back to index</a></p>
-      </nav>
-    </aside>
+    <!-- index menu container -->
+    <nav id="navigator"></nav>
 
   </div>
 
@@ -527,8 +519,8 @@ Server running at http://127.0.0.1:8124/</code></pre>
   <script src="vendor/css-edit.js"></script>
   <script src="js/main.js"></script>
   <script>
-    var devtools = /./;
-      devtools.toString = function() {
+    const devtools = /./;
+    devtools.toString = function () {
       this.opened = true;
     }
     console.log('%c', devtools);
@@ -538,4 +530,5 @@ Server running at http://127.0.0.1:8124/</code></pre>
   </script>
 
 </body>
+
 </html>
