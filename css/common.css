@@ -139,7 +139,7 @@ body section .img-8 figure {
    list-style: disc;
 }
 
-.reveal li + li {
+.reveal li {
    padding-top: 10px;
 }
 

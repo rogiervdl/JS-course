@@ -193,7 +193,7 @@ C:\Users\Rogier\Desktop&gt;</code></pre>
               You can also use command line arguments:
               <div>
                 <pre class="bigger"><code class="language-javascript" data-caption="test.js">var numArgs = WScript.arguments.length;
-for (let i = 0; i &lt; WScript.arguments.length; i++) {
+for (var i = 0; i &lt; WScript.arguments.length; i++) {
   WScript.StdOut.Write('Hello ' + WScript.arguments(i) + '\n');
 }
 </code></pre>
@@ -290,7 +290,7 @@ C:\Users\Rogier\Desktop&gt;</code></pre>
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;How to include scripts&lt;/title&gt;
-  &lt;meta charset="utf-8" /&gt;
+  &lt;meta charset="utf-8"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   ...
@@ -339,7 +339,7 @@ C:\Users\Rogier\Desktop&gt;</code></pre>
             <li>
               You could also add <em>inline scripts</em> to your HTML, but as they break the separation of HTML and Javascript too, we won't use them either
               <div>
-                <pre class="bigger"><code class="language-html overlayrun wrong">&lt;input type="button" value="I'm a button" onclick="console.log('auch')" /&gt;
+                <pre class="bigger"><code class="language-html overlayrun wrong">&lt;input type="button" value="I'm a button" onclick="console.log('auch')"&gt;
 &lt;p&gt;note: for most  your console&lt;/p&gt;
               </code></pre>
               </div>
@@ -357,15 +357,16 @@ C:\Users\Rogier\Desktop&gt;</code></pre>
             <li>
               You can use <code>console.log</code> to inspect values from the console:
               <div>
-                <pre class="bigger"><code class="language-javascript overlayrun contenteditable">var name = 'Rogier';
-console.log('Hello ' + name);</code></pre>
+                <pre class="bigger"><code class="language-javascript overlayrun contenteditable">const name = 'Rogier';
+console.log('Hello ' + name);
+console.log(`Hello ${name}`); // string interpolation notation</code></pre>
               </div>
             </li>
             <li>
               Any array or object can be inspected, not just primitive variables:
               <div>
-                <pre class="bigger"><code class="language-javascript overlayrun contenteditable">var names = ['Alice', 'Bob', 'Clive'];
-let person = { name: 'rogier', age: '46', isMale: true};
+                <pre class="bigger"><code class="language-javascript overlayrun contenteditable">const names = ['Alice', 'Bob', 'Clive'];
+const person = { name: 'rogier', age: '46', isMale: true};
 console.log(person);
 console.log(names);</code></pre>
               </div>
@@ -397,9 +398,9 @@ console.error('whoops! an error occured');</code></pre>
             <li>
               In a browser you can use the standard Javascript dialog windows <code>alert()</code>, <code>confirm()</code> and <code>prompt()</code>:
               <div>
-                <pre class="bigger"><code class="language-javascript overlayrun inputOutputCode">let name = prompt('Enter your name')<span class="colon">;</span>
+                <pre class="bigger"><code class="language-javascript overlayrun inputOutputCode">const name = prompt('Enter your name')<span class="colon">;</span>
 alert('Hello ' + name)<span class="colon">;</span>
-let doHighfive = confirm('High five?')<span class="colon">;</span>
+const doHighfive = confirm('High five?')<span class="colon">;</span>
 if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pre>
               </div>
             </li>
@@ -416,7 +417,7 @@ if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pr
             <li>
               Find HTML elements by id with <code>document.getElementById()</code>, add event listeners with <code>addEventListener()</code>, and react by changing styles and properties. A basic math quiz example:
               <div>
-                <pre class="bigger"><code class="language-html overlayrun smallpanel">&lt;!DOCTYPE html&gt;
+                <pre class="bigger"><code class="language-html overlayrun smallpanel smallfont">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Math quiz&lt;/title&gt;
@@ -430,13 +431,13 @@ if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pr
 &lt;body&gt;
   &lt;h1&gt;Math exam&lt;/h1&gt;
   &lt;span id="question"&gt;&lt;/span&gt;
-  &lt;input type="text" id="answer" /&gt;
-  &lt;input type="button" value="check" id="btn1" /&gt;
+  &lt;input type="text" id="answer"&gt;
+  &lt;input type="button" value="check" id="btn1"&gt;
   &lt;script&gt;
-    let val1 = parseInt(Math.random() * 100);
-    let val2 = parseInt(Math.random() * 100);
-    let inpAnswer = document.getElementById('answer');
-    document.getElementById('question').innerHTML =  val1 + ' + ' + val2 + ' = ';
+    const val1 = parseInt(Math.random() * 100);
+    const val2 = parseInt(Math.random() * 100);
+    const inpAnswer = document.getElementById('answer');
+    document.getElementById('question').innerHTML = `$(val1) + $(val2) = `;
     document.getElementById('btn1').addEventListener('click', function() {
       inpAnswer.className = inpAnswer.value == val1 + val2 ? 'right' : 'wrong';
     });
@@ -453,11 +454,11 @@ if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pr
           <ul>
             <li>
               Another example of HTML, CSS and Javascript working together to create custom video controls:
-              <pre class="bigger"><code contenteditable class="language-html overlayrun smallpanel">&lt;!DOCTYPE html&gt;
+              <pre class="bigger"><code contenteditable class="language-html overlayrun smallpanel smallfont">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;title&gt;Custom controls&lt;/title&gt;
-  &lt;meta charset="utf-8" /&gt;
+  &lt;meta charset="utf-8"&gt;
   &lt;style&gt;
     body {
       padding: 20px;
@@ -491,7 +492,7 @@ if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pr
     Your browser dows not support the video tag
   &lt;/video&gt;
   &lt;nav id="myControls"&gt;
-    &lt;p&gt;&lt;input type="range" min="0" max="211" value="0" id="inpSeek"  /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;input type="range" min="0" max="211" value="0" id="inpSeek" &gt;&lt;/p&gt;
     &lt;p&gt;
       &lt;a href="#" id="lnkPlay"&gt;play&lt;/a&gt;
       &lt;a href="#" id="lnkMute"&gt;mute&lt;/a&gt;
@@ -499,7 +500,7 @@ if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pr
     &lt;p&gt;&lt;label&gt;&lt;input type="checkbox" id="chbFunky"&gt; funky version&lt;/label&gt;&lt;/p&gt;
   &lt;/nav&gt;
   &lt;script&gt;
-    let video = document.getElementById('video');
+    const video = document.getElementById('video');
     document.getElementById('lnkPlay').addEventListener('click', function() {
       if (video.paused) {
         video.play();
@@ -549,23 +550,26 @@ if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pr
           <h2>Creating variables</h2>
           <ul>
             <li>
+              In Javascript, declare variables with <code><em>const</em></code> by default; use <code><em>let</em></code> only if its value may change
+            </li>
+            <li>
               A variable has a name and a value:
               <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let quoteOfTheDay = 'Now have that tasty morning burger';
+                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const quoteOfTheDay = 'Now have that tasty morning burger';
 console.log(quoteOfTheDay);</code></pre>
               </div>
             </li>
             <li>
               Javascript is <em>weakly typed</em>, i.e. you don't mention their type explicitly:
               <div>
-                <pre class="bigger"><code class="language-javascript">let num = 3; // number
-let boo = true; // boolean
-let str = 'hello'; // string; note: you may use single or double quotes
-let fun = function(nm) { console.log('hello' + nm) }; // function
-let arr = [1, 2, 3, 5, 8, 13]; // array
-let rex = /^\d+$/ // regular expression
-let obj = { id: 2, url: 'img/me.jpg', hidden: false } // general object
-let dat = new Date(); // Date object
+                <pre class="bigger"><code class="language-javascript">const num = 3; // number
+const boo = true; // boolean
+const str = 'hello'; // string; note: you may use single or double quotes
+const fun = function(nm) { console.log('hello' + nm) }; // function
+const arr = [1, 2, 3, 5, 8, 13]; // array
+const rex = /^\d+$/ // regular expression
+const obj = { id: 2, url: 'img/me.jpg', hidden: false } // general object
+const dat = new Date(); // Date object
 </code></pre>
               </div>
             </li>
@@ -626,14 +630,14 @@ console.log('' === false); // false; different types</code></pre>
             <li>
               An unassigned variable has the value <code>undefined</code>:
               <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let test1;
+                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const test1;
 console.log(test1); // undefined</code></pre>
               </div>
             </li>
             <li>
               A variable that should be a number but cannot be calculated has the value <code>NaN</code> (Not a Number):
               <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let test1 = 7 * "bladibla"; // multiplication yields numbers
+                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const test1 = 7 * "bladibla"; // multiplication yields numbers
 console.log(test1); // NaN</code></pre>
               </div>
             </li>
@@ -648,15 +652,25 @@ console.log(test1); // NaN</code></pre>
                 <pre class="bigger"><code contenteditable class="language-javascript">// define some constants
 const pi = 3.141592653589793;
 const numLives = 3;
-const carMakes = ['Saab', 'Volvo', 'BMW'];
-const me = { name: 'Rogier', age: 48 }
 
 // you can't reassign a constant
 pi = 3.14; // error
 numLives--; // error
-carMakes = ['Mercedes', 'Volvo', 'Dacia']; // error
+</code></pre>
+              </div>
+            </li>
+            <li>
+              Properties of objects and values of arrays can still change though:
+              <div>
+                <pre class="bigger"><code contenteditable class="language-javascript">// define some constants
+const carMakes = ['Saab', 'Volvo', 'BMW'];
+const me = { name: 'Rogier', age: 48 }
 
-// however: changes to array elements or object properties are ok
+// you can't reassign a constant
+carMakes = ['Mercedes', 'Volvo', 'Dacia']; // error
+me = { name: 'Rogier', age: 49 }; // error
+
+// but: changes to array elements or object properties are ok
 carMakes[1] = 'Peugeot'; // ok
 carMakes.push('Tesla'); // ok
 me.age = 49; // ok
@@ -671,7 +685,7 @@ me.age = 49; // ok
             <li>
               Python-inspired multiline strings; notice the backticks <code>`...`</code>:
               <div>
-                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>let message = `Ik ben voor je gevallen,
+                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const message = `Ik ben voor je gevallen,
 gevallen op straat,
 Ik zag je mooie ogen
 maar de stoeprand te laat`;
@@ -686,24 +700,24 @@ console.log(message);
           <h2>String interpolation</h2>
           <ul>
             <li>
-              remember PHP:
+              remember C#:
               <div>
-                <pre class="bigger"><code class="language-php" contenteditable>$name = "Rogier";
-$message = "hello $name, how are you?" // hello Rogier, how are you?</code></pre>
+                <pre class="bigger"><code class="language-cs" contenteditable>string name = "Rogier";
+string message = $"hello {name}, how are you?" // hello Rogier, how are you?</code></pre>
               </div>
             </li>
             <li>
-              in ES6 (notice again the backticks):
+              The notation in Javascript is similar (notice the backticks):
               <div>
-                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let person1 = { name: 'Rogier', age: 44 };
-let myName = 'Bob';
-let message = `hello ${person1.name}, my name is ${myName}`;
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const person1 = { name: 'Rogier', age: 44 };
+const myName = 'Bob';
+const message = `hello ${person1.name}, my name is ${myName}`;
 console.log(message);  // hello Rogier, my name is Bob</code></pre>
               </div>
               <div>
-                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>let id = 3;
-let language = 'nl';
-let url = `http://www.somedomain.com/?id=${id}&amp;lang=${language}`;
+                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const id = 3;
+const language = 'nl';
+const url = `http://www.somedomain.com/?id=${id}&amp;lang=${language}`;
 console.log(url); // http://www.somedomain.com/?id=3&amp;lang=nl</code></pre>
               </div>
             </li>
@@ -748,45 +762,53 @@ console.log(Math.sign(-7)) // -1
           <h2>Creating functions</h2>
           <ul>
             <li>
-              Classic syntax style:
-              <pre class="bigger"><code contenteditable class="language-javascript">function myFunction(par1, par2) {
+              Classical function declaration style:
+              <pre class="bigger"><code contenteditable class="language-javascript smallfont">function myFunction(par1, par2) {
   // function statements here
   // ...
 } </code></pre>
             </li>
             <li>
-              Newer syntax style:
-              <pre class="bigger"><code contenteditable class="language-javascript">let myFunction = function(par1, par2) {
+              Variable declaration style:
+              <pre class="bigger"><code contenteditable class="language-javascript smallfont">const myFunction = function(par1, par2) {
   // function statements here
   // ...
 }; </code></pre>
             </li>
-          </ul>
-          <ul class="arrow">
             <li>
-              you are free to use either syntax
+              Variable declaration style, shorthand notation:
+              <pre class="bigger"><code contenteditable class="language-javascript smallfont">const myFunction = (par1, par2) =&gt; {
+  // function statements here
+  // ...
+}; </code></pre>
+            </li>
+            <li class="arrow smallfont">
+              in this course, I'll use the shorthand notation in inline situations, and classical syntax elsewhere
+            </li>
+            <li class="arrow smallfont">
+              you are free to choose your own preferred syntax
             </li>
           </ul>
           <div class="tooltip">
             <div>
               <p>
-                There is a drawback however when using the newer syntax. This fragment will throw an error:
+                There is a drawback when using the variable declaration syntax. This fragment will throw an error:
               </p>
-              <pre><code>console.log(sayHelloTo('Bill'));
-let sayHelloTo = function(name) {
+              <pre><code class="wrong">console.log(sayHelloTo('Bill'));
+const sayHelloTo = (name) =&gt; {
   return 'Hello ' + name;
 }
 </code></pre>
               <p>
-                But when you use the classic syntax, it runs justfine:
+                But when you use the function declaration syntax, it runs just fine:
               </p>
-              <pre><code>console.log(sayHelloTo('Bill'));
+              <pre><code class="right">console.log(sayHelloTo('Bill'));
 function sayHelloTo(name) {
   return 'Hello ' + name;
 }
 </code></pre>
               <p>
-                The problem is that the newer syntax doesn't allow you to call a function before its definition. If that is a problem, you may want to stick to the classic style.
+                The problem is that the newer syntax doesn't allow you to call a function before its definition. If that is a problem, you may want to stick to the function declaration style.
               </p>
             </div>
           </div>
@@ -798,17 +820,17 @@ function sayHelloTo(name) {
               To execute a function, just call the () operator:
               <div>
                 <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define functions
-let sayHello = function() {
+function sayHello() {
   console.log('hello');
 };
-let getNumVowels = function(str) {
+function getNumVowels(str) {
   return str.match(/[aeiou]/g).length; // don't worry too much about this line
 };
 
 sayHello(); // execute sayHello
-let text = 'The quick brown fox jumps over the lazy dog';
-let textNumVowels = getNumVowels(text); // execute getNumVowels
-console.log('The text contains ' + textNumVowels + ' vowels');
+const text = 'The quick brown fox jumps over the lazy dog';
+const textNumVowels = getNumVowels(text); // execute getNumVowels
+console.log(`The text contains ${textNumVowels} vowels`);
 </code></pre>
               </div>
             </li>
@@ -819,10 +841,10 @@ console.log('The text contains ' + textNumVowels + ' vowels');
           <ul>
             <li>
               In Javascript functions are just variables, and can be used as arguments in other functions:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let end = function() {
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">function end() {
   console.log('Ok, that was funny 😄');
 }
-let speak = function(quote, callback) {
+function speak(quote, callback) {
   console.log(quote);
   callback();
 }
@@ -837,12 +859,12 @@ speak('Behind every great man is a woman rolling her eyes.', end);
           <ul>
             <li>
               You can even directly create and pass a function without declaring it first:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let speak = function(quote, callback) {
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">function speak(quote, callback) {
   console.log(quote);
   callback();
 }
 
-speak('Behind every great man is a woman rolling her eyes. ', function() {
+speak('Behind every great man is a woman rolling her eyes. ', () =&gt; {
   console.log('Ok, that was funny 😄');
 });
 </code></pre>
@@ -873,7 +895,7 @@ speak('Behind every great man is a woman rolling her eyes. ', function() {
               You don't need a class to create an object, just use a literal:
               <div>
                 <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// object Literal
-let forrest = {
+const forrest = {
   firstName : 'Forrest',
   lastName : 'Gump',
   sentence : 'Stupid is as stupid does',
@@ -898,15 +920,15 @@ console.log(forrest.says());
             <li>
               You can add arbitrary new properties to existing objects:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// create object "me"
-let me = {
+const me = {
   name: 'Rogier',
-  age: 49
+  maxBeers: 3
 }
 
 // add properties
 me.numBeers = 0;
-me.giveBeer = function() {
-  if (this.numBeers &gt;= 3) {
+me.giveBeer = () =&gt; {
+  if (this.numBeers &gt;= me.maxBeers) {
     console.log('you really had enough, ' + this.name);
     return;
   }
@@ -933,14 +955,14 @@ me.giveBeer();
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Custom properties example&lt;/title&gt;
-  &lt;meta charset="utf-8" /&gt;
+  &lt;meta charset="utf-8"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="btn1"&gt;Button 1&lt;/button&gt;
   &lt;button id="btn2"&gt;Button 2&lt;/button&gt;
   &lt;script&gt;
     // note: 'this' refers to the object calling the function, i.e. the button
-    let handleClick = function() {
+    function handleClick() {
       if (!this.numClicks) this.numClicks = 0;
       this.numClicks++;
       console.log('clicks on ' + this.id + ': ' + this.numClicks);
@@ -963,16 +985,16 @@ me.giveBeer();
             <li>
               Objects are often used to group properties into a single parameter:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// 'thing' should be an object
-let getDescription = function(thing) {
-  let str = '';
-  str += 'Name: ' + thing.kind + '\n';
-  str += 'Color: ' + thing.color + '\n';
-  str += 'It weighs ' + thing.volume * thing.density + 'kg\n';
-  return str;
+function getDescription(thing) {
+  const lines = [];
+  lines.push(`Name: ${thing.kind}`);
+  lines.push(`Color: ${thing.color}`);
+  lines.push(`It weighs ${thing.volume * thing.density}kg`);
+  return lines.join('\n');
 }
 
 // build the object
-let stone = {
+const stone = {
   kind: 'lapis lazuli',
   volume: 0.03, // m³
   density: 3000, // kg/m³
@@ -991,12 +1013,12 @@ console.log(getDescription(stone));
             <li>
               You may also directly pass the object, without declaring it first:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// 'thing' should be an object
-let toString = function(thing) {
-  let str = '';
-  str += 'Name: ' + thing.kind + '\n';
-  str += 'Color: ' + thing.color + '\n';
-  str += 'It weighs ' + thing.volume * thing.density + 'kg\n';
-  return str;
+function toString(thing) {
+  const lines = [];
+  lines.push(`Name: ${thing.kind}`);
+  lines.push(`Color: ${thing.color}`);
+  lines.push(`It weighs ${thing.volume * thing.density}kg`);
+  return lines.join('\n');
 }
 
 // pass an anonymous object and return result
@@ -1025,11 +1047,11 @@ console.log(toString({
           </ul>
         </section>
         <section>
-          <h2>If-else</h2>
+          <h2>if-else</h2>
           <ul>
             <li>
               An <em><code>if-else</code></em> isn't much different from any programming language:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let badGrades = true;
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const badGrades = true;
 if (badGrades) {
   console.log('House arrest for two weeks');
 } else {
@@ -1038,17 +1060,18 @@ if (badGrades) {
             </li>
             <li>
               If you just have to choose between two values based on a condition, consider using a <em>ternairy operator</em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let number = 13;
-console.log(number + ' is ' + number % 2 == 0 ? 'even' : 'odd');</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const number = 13;
+console.log(`${number} is ${number % 2 == 0 ? 'even' : 'odd'}`);</code></pre>
             </li>
           </ul>
         </section>
         <section>
-          <h2>Switch-case</h2>
+          <h2>switch-case</h2>
           <ul>
             <li>
               The <em><code>switch-case</code></em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let daynr = 4, dayname;
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun smallfont">const daynr = 4;
+let dayname;
 switch (daynr) {
   case 1: dayname = 'Monday'; break;
   case 2: dayname = 'Tuesday'; break;
@@ -1061,53 +1084,77 @@ switch (daynr) {
 }
 console.log(dayname);</code></pre>
             </li>
+            <li>
+              Although in this case a simple array would be more practical:
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun smallfont">const daynr = 4;
+const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Synday'];
+console.log(dayNames[daynr] ?? 'unknown');</code></pre>
+            </li>
+            <li class="arrow smallfont">
+              ?? is the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing">nullish coalescing operator</a>: take right-hand side if left is <code>null</code> or <code>undefined</code>
+            </li>
           </ul>
         </section>
         <section>
-          <h2>For</h2>
+          <h2>for</h2>
           <ul>
             <li>
               A classic <em><code>for</code></em> loop, for example to loop over an array:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define an array
-let forrestFriends = ['Bubba', 'Lt. Dan'];
+const forrestFriends = ['Bubba', 'Lt. Dan', 'Jenny'];
 
 // loop over its values
 for (let i = 0; i &lt; forrestFriends.length; i++) {
-  console.log('friend number ' + i + ': ' + forrestFriends[i]);
+  console.log(`friend number ${i}: ${forrestFriends[i]}`);
 }
 </code></pre>
             </li>
           </ul>
         </section>
         <section>
-          <h2>For-of</h2>
+          <h2>for-of</h2>
           <ul>
             <li>
               If you just need the array values, you can also just use <em><code>for-of</code></em>:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define an array
-let forrestFriends = ['Bubba', 'Lt. Dan'];
+const forrestFriends = ['Bubba', 'Lt. Dan', 'Jenny'];
 
 // loop over its values
-for (let friend of forrestFriends) {
+for (const friend of forrestFriends) {
   console.log(friend);
 }</code></pre>
             </li>
           </ul>
         </section>
         <section>
-          <h2>For-in</h2>
+          <h2>forEach</h2>
+          <ul>
+            <li>
+              To iterate a collection with a callback function, use <em><code>forEach</code></em>:
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define an array
+const forrestFriends = ['Bubba', 'Lt. Dan', 'Jenny'];
+
+// iterate over array values
+forrestFriends.forEach(friend =&gt; {
+  console.log(friend);
+});</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>for-in</h2>
           <ul>
             <li>
               To loop over an object's keys, use <em><code>for-in</code></em>:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define object
-let forrest = {
+const forrest = {
   firstName: 'Forrest',
   lastName: 'Gump'
 };
 
 // loop over keys
-for (let key in forrest) {
-  console.log(key + ' = ' + forrest[key]);
+for (const key in forrest) {
+  console.log(`${key} = ${forrest[key]}`);
 }</code></pre>
             </li>
           </ul>
@@ -1141,14 +1188,14 @@ do {
               <em><code>continue</code></em> skips the current loop and moves to the next one:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">for (let x = 1; x &lt;= 20; x++) {
   if (x % 3 == 0) continue; // skip multiples of 3
-  console.log('processing ' + x + '...');
+  console.log(`processing ${x}...`);
 }</code></pre>
             </li>
             <li>
               <em><code>break</code></em> completely exits the iteration:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">for (let x = 1; x &lt;= 20; x++) {
   if (x % 3 == 0) break; // stop at multiple of 3
-  console.log('processing ' + x + '...');
+  console.log(`processing ${x}...`);
 }</code></pre>
             </li>
           </ul>
@@ -1179,7 +1226,7 @@ try {
           </ul>
           <div class="tooltip">
             <div>
-              Maybe surprisingly: I hardly ever use error handling with try-catch. Unless you really have no control over the possibility of an error (e.g. because you rely on third party data or code), it's better to let the error happen, and correct your code, instead of sweeping it under the carpet with a try-catch.
+              Only use try-catch when accessing external code (library, network call, database query...). Don't use it to catch possible errors in your own code and sweep them under the carpet Let your own errors happen and fix the code.
             </div>
           </div>
         </section>
@@ -1189,14 +1236,14 @@ try {
             <li>
               Althought Javascript has a rather limited set compared to other languages, it offers some basic built-in classes and functionality like <a href="https://www.w3schools.com/js/js_date_methods.asp">Date</a>, <a href="https://www.w3schools.com/js/js_math.asp">Math</a> and <a href="see https://www.w3schools.com/jsref/jsref_obj_array.asp">Array</a> (full overview on <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference">mozilla.org</a> or <a href="http://www.w3schools.com/js/default.asp">w3schools.com</a>):
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// Date example
-let now = new Date();
+const now = new Date();
 console.log(now.getFullYear());
 
 // Math example
 console.log(Math.ceil(Math.random() * 10));
 
 // Array example
-let shakefruits = ['banana', 'orange', 'apple', 'mango'];
+const shakefruits = ['banana', 'orange', 'apple', 'mango'];
 if (shakefruits.includes('orange')) console.log('this shake has orange');
 shakefruits.push('pear'); // add a pear to the array
 console.log(shakefruits);
@@ -1246,14 +1293,14 @@ console.log(shakefruits);
  *
  * @return boolean
  */
-let inArray = function(needle, haystack) {
+function inArray(needle, haystack) {
   // ...
 }</code></pre>
             </li>
             <li class="no-style">
               ...or single line comment on top:
               <pre class="bigger"><code contenteditable class="language-javascript">// initializer
-let init = function() {
+function init() {
   // ...
 }</code></pre>
             </li>
@@ -1264,7 +1311,7 @@ let init = function() {
           <ul>
             <li>
               Code blocks: start each block with single comment line; separate with whitelines
-              <pre class="bigger"><code contenteditable class="language-javascript">let function1 = function() {
+              <pre class="bigger"><code contenteditable class="language-javascript">function someFunction() {
   // description block 1
   statement 1;
 
@@ -1290,15 +1337,17 @@ let init = function() {
         <section>
           <h2>Indentation</h2>
           <ul>
-            <li>Choose either spaces, or tabs, not both:</li>
-            <li>
-              <pre class="bigger"><code contenteditable class="language-javascript">let test = function() {
-                ....let somelet = 'some value';
-                ....for (let i = 0; i &lt; 10; i++) {
-                ........// do something here
-                ........// do something here too
-                ....}
-                };</code></pre>
+            <li>You may choose any indentation size (2-4), as long as you don't mix tabs and spaces:
+              <pre class="bigger"><code contenteditable class="language-javascript">function test() {
+...const somevar = 'some value';
+...for (let i = 0; i &lt; 10; i++) {
+......// do something here
+......// do something here too
+...}
+};</code></pre>
+            </li>
+            <li class="arrow ok">
+              <strong>Ctrl-Alt-F</strong> in Visual Studio Code is your friend
             </li>
           </ul>
         </section>
@@ -1318,12 +1367,15 @@ let init = function() {
               <pre class="bigger"><code contenteditable class="language-javascript wrong">for(let x=0 ; x&lt;10 ; x++) {
   // ...
 }
-let hasItems = arrItems.length &gt; 0?true:false ;
+const hasItems = arrItems.length &gt; 0?true:false ;
 </code></pre>
               <pre class="bigger"><code contenteditable class="language-javascript right">for (let x = 0; x &lt; 10; x++) {
   // ...
 }
-let hasItems = arrItems.length &gt; 0 ? true : false;</code></pre>
+const hasItems = arrItems.length &gt; 0 ? true : false;</code></pre>
+            </li>
+            <li class="arrow ok">
+              <strong>Ctrl-Alt-F</strong> in Visual Studio Code is your friend
             </li>
           </ul>
           <div class="tooltip">
@@ -1339,19 +1391,26 @@ let hasItems = arrItems.length &gt; 0 ? true : false;</code></pre>
               Put semicolons:
               <ul>
                 <li class="v-style">after each statement</li>
-                <li class="v-style">after an assignment statement <code>let varName = {...};</code></li>
+                <li class="v-style">after an assignment statement <code>const varName = {...};</code></li>
                 <li class="x-style">not after all other }</li>
               </ul>
             </li>
             <li>
               Examples:
-              <pre class="bigger"><code contenteditable class="language-javascript right">let test1 = function() {
+              <pre class="bigger"><code contenteditable class="language-javascript right">const test1 = function() {
   console.log('test1 function executing'); // statement
-}; // assignment statement
+}; // assignment statement - add semicolon
+
+function test1() {
+  console.log('test1 function executing'); // statement
+} // no assignment - no semicolon
 
 if (x &amp;&amp; x === 9) {
   console.log('x is nine'); // statement
-} // don't put one here!</code></pre>
+} // no assignment - no semicolon</code></pre>
+            </li>
+            <li class="arrow ok">
+              <strong>ESLint</strong> Visual Studio Code extension is your friend
             </li>
           </ul>
         </section>
@@ -1377,6 +1436,9 @@ else
   ...
 }</code></pre>
             </li>
+            <li class="arrow ok">
+              <strong>ESLint</strong> Visual Studio Code extension is your friend
+            </li>
           </ul>
         </section>
         <section>
@@ -1386,20 +1448,23 @@ else
               Conventions:
               <ul>
                 <li class="v-style">use camelCase for all identifiers (variables, functions...)</li>
-                <li class="v-style">exception: use UPPER_CASE for all constants</li>
+                <li class="v-style">exception: for objects PascalCase or UPPERCASE is also allowed</li>
               </ul>
             </li>
             <li>
               Examples:
-              <pre class="bigger"><code contenteditable class="language-javascript right">// variables
-let userName = 'Rogier';
-let someFunction = function() { // variable
+              <pre class="bigger"><code contenteditable class="language-javascript right">// variables, functions...: camelCase
+const userName = 'Rogier';
+function someFunction() {
   // ....
 }
 
-// constants
-const CHESSBOARD_SIZE = 8;
-const POSSIBLE_GRADES = ['awful', 'ok-ish', 'swell'];
+// objects: DOM or Dom is also allowed
+const DOM = {
+  btnOk: document.querySelector('#btnOk'),
+  galleryImages: document.querySelectorAll('#gallery img'),
+  ...
+}
 </code></pre>
             </li>
           </ul>
@@ -1414,7 +1479,7 @@ const POSSIBLE_GRADES = ['awful', 'ok-ish', 'swell'];
             <li>
               In this fragment, the scope of the inner variable <code>num</code> is limited to the iteration, not interfering with the outer variable <code>num</code>:
               <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let num = 100; // outer num; lives in global scope
+                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const num = 100; // outer num; lives in global scope
 for (let num = 0; num &lt; 10; num++) {
   // inner num; only lives in 'for'-scope
 }
@@ -1444,7 +1509,7 @@ console.log(num); // 10; outer num is overwritten by inner num
           </ul>
         </section>
         <section>
-          <h2>use const</h2>
+          <h2>Use const</h2>
           <ul>
             <li>
               If a variable is assigned only once, you <i>should</i> use <em><code>const</code></em> in Javascript. Example: this fragment...
@@ -1473,7 +1538,7 @@ console.log(message);</code></pre>
           </ul>
         </section>
         <section>
-          <h2>How to avoid global space</h2>
+          <h2>[How to avoid global space]</h2>
           <ul>
             <li>
               Scripts are often combined with other scripts in the same page. Variables in the global space might conflict with each other.
@@ -1482,30 +1547,25 @@ console.log(message);</code></pre>
               To avoid conflicts, wrap your code in its own scope with a so-called <em>self invoking anonymous function</em>:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// your code wrapped in an anonymous function
 (function() {
-  let number1 = 5;
-  let number2 = 7;
-  console.log('the sum is ' + (number1 + number2));
-  console.log('variable "number1" is accessible inside; its type is ' + typeof number1);
-  console.log('variable "number2" is accessible inside; its type is ' + typeof number2);
+  const number1 = 5;
+  const number2 = 7;
+  console.log(`the sum is ${number1 + number2}`);
+  console.log(`variable "number1" is accessible inside; its type is ${typeof number1}`);
+  console.log(`variable "number2" is accessible inside; its type is ${typeof number2}`);
 })();
 
 // someone else's code
-console.log('variable "number1" is unaccessible outside; its type is ' + typeof number1);
-console.log('variable "number2" is unaccessible outside; its type is ' + typeof number2);
+console.log(`variable "number1" is unaccessible outside; its type is ${typeof number1}`);
+console.log(`variable "number2" is unaccessible outside; its type is ${typeof number2}`);
 </code></pre>
             </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              this encapsulates your variables, hidden for the outside world (good practice!)
-            </li>
-            <li>
-              this will be the basic structure of all our scripts
+            <li class="arrow smallfont">
+              encapsulates your variables, hidden for the outside world; this will become relevant in later courses
             </li>
           </ul>
         </section>
-        <section data-title="Use strict">
-          <h2>Use strict (1)</h2>
+        <section>
+          <h2>[Use strict]</h2>
           <ul>
             <li>
               New since ECMAScript 5 (2016); ignored in earlier versions
@@ -1521,87 +1581,30 @@ console.log('variable "number2" is unaccessible outside; its type is ' + typeof 
               Examples:
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">'use strict';
 
-let somevariable;
-someVariable = 7; // might be typo; new variable not allowed without 'let'
+const somevariable;
+someVariable = 7; // might be typo; new variable not allowed without 'const'
 
-let sum = function(a, a, c) { // possible mistake: duplicate parameter names
+function sum(a, a, c) { // possible mistake: duplicate parameter names
   // ...
 }
 </code></pre>
             </li>
-          </ul>
-        </section>
-        <section data-title="">
-          <h2>Use strict (2)</h2>
-          <ul>
-            <li>
-              Should be first line of the script or function
-            </li>
-            <li>
-              It applies to the whole scope, so this is a bad idea:
-              <pre class="bigger"><code contenteditable class="language-javascript wrong">'use strict';
-
-let function1 = function() {
-  // ...
-}
-
-let function2 = function() {
-  // ...
-}
-
-// ...
-</code></pre>
+            <li class="arrow smallfont">
+              less relevant since the rise of linting tools like ESLint
             </li>
           </ul>
-          <ul class="arrow warning">
-            <li>it would also apply to any other included code, possibly breaking it</li>
-          </ul>
         </section>
-        <section data-title="">
-          <h2>Use strict (3)</h2>
-          <ul>
-            <li>
-              Encapsulate your script in a self-invoking anonymous function, all is ok:
-              <pre class="bigger"><code contenteditable class="language-javascript right">(function() {
-  'use strict';
-
-  let function1 = function() {
-    // ...
-  }
-
-  let function2 = function() {
-    // ...
-  }
-})();</code></pre>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>applies to the enclosed code only</li>
-          </ul>
-        </section>
-        <section data-title="">
+        <section>
           <h2>Window onload event</h2>
           <ul>
             <li>
-              Usually, you'll want for all of the page's content to have loaded before starting your script. Use the <em><code>onload</code></em> event of the <code>window</code> object:
-              <pre class="bigger"><code contenteditable class="language-javascript right">(function() {
-  'use strict';
-
-  let function1 = function() {
-    // ...
-  }
-
-  let function2 = function() {
-    // ...
-  }
-
-  window.addEventListener('load', function() {
-    // start your script here
-    // ...
-  });
-})();</code></pre>
+              Often you'll want for all of the page's content, including images, to load before your script starts. Use the <em><code>onload</code></em> event of the <code>window</code> object:
+              <pre class="bigger"><code contenteditable class="language-javascript right">window.addEventListener('load', () =&gt; {
+  // start your script here
+  // ...
+});</code></pre>
             </li>
-            <li class="arrow ok">this is the basic structure you should use for all your scripts!</li>
+            <li class="arrow ok">this is recommended if your page contains many resources accessed by your script</li>
           </ul>
         </section>
       </section>

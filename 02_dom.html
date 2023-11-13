@@ -69,23 +69,11 @@
           <h2>Scripts recap (2)</h2>
           <ul>
             <li>
-              To avoid name conflicts with third party scripts, wrap your code in a function:
-              <pre class="bigger"><code contenteditable class="language-javascript right">(function() {
-  'use strict';
-
-  let function1 = function() {
-    // ...
-  }
-
-  let function2 = function() {
-    // ...
-  }
-
-  window.addEventListener('load', function() {
-    // start your script here
-    // ...
-  });
-})();</code></pre>
+              To wait for all resources tot load, consider wrapping your code in a window load event handler:
+              <pre class="bigger"><code contenteditable class="language-javascript right">window.addEventListener('load', () =&gt; {
+  // start your script here
+  // ...
+});</code></pre>
             </li>
           </ul>
         </section>
@@ -181,7 +169,7 @@
           <ul>
             <li>
               Some properties:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">console.log('kader: ' + window.innerWidth + 'x' + window.innerHeight);</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">console.log(`kader: ${window.innerWidth}x${window.innerHeight}`);</code></pre>
             </li>
             <li>
               Some Methods:
@@ -190,23 +178,23 @@ if (window.confirm('print this page?')) window.print();</code></pre>
             </li>
             <li>
               As <code>window</code> is the root of any path, you may omit this:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">console.log('kader: ' + innerWidth + 'x' + innerHeight);
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">console.log(`kader: ${innerWidth}x${innerHeight}`);
 alert('hi');
 if (confirm('print this page?')) print();</code></pre>
             </li>
           </ul>
         </section>
         <section data-title="history object">
-          <h2>history object (1)</h2>
+          <h2>[history object (1)]</h2>
           <p class="centered"><img src="img/02_dom/dom_lean2.png" alt="" width="500"></p>
         </section>
         <section data-title="">
-          <h2>history object (2)</h2>
+          <h2>[history object (2)]</h2>
           <p class="centered"><img src="img/02_dom/ss_history.png" alt=""></p>
           <p class="smallfont">&rarr; full listing <a href="https://www.w3schools.com/jsref/obj_history.asp">here</a></p>
         </section>
         <section data-title="">
-          <h2>history object (3)</h2>
+          <h2>[history object (3)]</h2>
           <ul>
             <li>
               You are not supposed to mess with browser history:
@@ -261,7 +249,7 @@ if (confirm('print this page?')) print();</code></pre>
           <ul>
             <li>
               This node carries the entire HTML document. The node itself is rather uninteresting, with only a few properties and methods (apart from the selector functions we'll talk about in a minute):
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.title = "hello there";
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.title = 'hello there';
 </code></pre>
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.write('kot kot kedei'); // beware: this page will be overwritten
 </code></pre>
@@ -277,18 +265,18 @@ if (confirm('print this page?')) print();</code></pre>
           <ul>
             <li>
               Single HTML elements can be found with the methods <code><em>getElementById()</em></code> and <code><em>querySelector()</em></code>:
-              <pre class="bigger"><code contenteditable class="language-javascript">let button1 = document.getElementbyId('btn1'); // element with id 'btn1'
-let button1 = document.querySelector('#btn1'); // this is identical
-let msg = document.querySelector('#login input'); // get first #login input element
+              <pre class="bigger"><code contenteditable class="language-javascript">const button1 = document.getElementbyId('btn1'); // element with id 'btn1'
+const button1 = document.querySelector('#btn1'); // this is identical
+const msg = document.querySelector('#login input'); // get first #login input element
 </code></pre>
             </li>
           </ul>
-          <ul class="arrow">
+          <ul class="arrow smallfont">
             <li>
-              <code>getElementById()</code>: get by id; returns a single result
+              <code>getElementById()</code>: get by id; <code>querySelector()</code>: get by CSS selector
             </li>
-            <li>
-              <code>querySelector()</code>: get by CSS selector; returns a single result
+            <li class="ok">
+              for consistence, we'll use <code>querySelector()</code> instead of <code>getElementById()</code>
             </li>
           </ul>
         </section>
@@ -299,13 +287,13 @@ let msg = document.querySelector('#login input'); // get first #login input elem
               <code><em>getElementById()</em></code> gets an element by its id, e.g.:
               <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;p id="message"&gt;message here...&lt;/p&gt;
 &lt;button id="btn1"&gt;say hello&lt;/button&gt;</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>document.getElementById('btn1').addEventListener('click', function() {
-  document.getElementById('message').innerHTML = 'Hello World';
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>document.querySelector('#btn1').addEventListener('click', () =&gt; {
+  document.querySelector('#message').innerHTML = 'Hello World';
 });</code></pre>
               ...or a little bit cleaner:
-              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>const button1 = document.getElementById('btn1'); // get button by id
-const msg = document.getElementById('message'); // get paragraph by id
-button1.addEventListener('click', function() {
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>const button1 = document.querySelector('#btn1'); // get button by id
+const msg = document.querySelector('#message'); // get paragraph by id
+button1.addEventListener('click', () =&gt; {
   msg.innerHTML = 'Hello World';
 });</code></pre>
               <div class="demolink"><a href="demos/summary/getelementbyid.html">demo</a></div>
@@ -323,8 +311,8 @@ button1.addEventListener('click', function() {
   &lt;label for="pw"&gt;Password: &lt;/label&gt;&lt;input type="password" id="pw" value="XYZ"&gt;
   &lt;input type="submit" value="login"&gt;
 &lt;/form&gt;</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let inpName = document.querySelector('#frmLogin input[type=text]');
-let inpPw = document.querySelector('#frmLogin input[type=password]');
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>const inpName = document.querySelector('#frmLogin input[type=text]');
+const inpPw = document.querySelector('#frmLogin input[type=password]');
 console.log(inpName.value);
 console.log(inpPw.value);
 </code></pre>
@@ -354,7 +342,7 @@ console.log(inpPw.value);
     &lt;li&gt;&lt;a href=""&gt;item4&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let navlinks = document.querySelectorAll('nav a');
+              <pre class="bigger"><code contenteditable class="language-javascript" data-caption>const navlinks = document.querySelectorAll('nav a');
 console.log(navlinks.length); // will display 4</code></pre>
             </li>
           </ul>
@@ -363,7 +351,7 @@ console.log(navlinks.length); // will display 4</code></pre>
           <h2>querySelectorAll</h2>
           <ul>
             <li>
-              Note: it returns an array, so you will need to iterate the items:
+              Note: it returns a node list, so you will need to iterate it:
               <pre class="bigger"><code contenteditable class="language-html" data-caption>&lt;nav&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=""&gt;item1&lt;/a&gt;&lt;/li&gt;
@@ -373,13 +361,13 @@ console.log(navlinks.length); // will display 4</code></pre>
   &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
               <pre class="bigger"><code contenteditable class="language-javascript" data-caption>// get even items (this will be item 2 and 4)
-let itemsToHide = document.querySelectorAll('nav li:nth-child(2n)');
+const itemsToHide = document.querySelectorAll('nav li:nth-child(2n)');
 
 // show content of first found
 console.log(itemsToHide[0].innerHTML); // &lt;a href=""&gt;item2&lt;/a&gt;
 
 // iterate results and do something, e.g. hide them
-for (let item of itemsToHide) {
+for (const item of itemsToHide) {
   item.style.display = 'none';
 }</code></pre>
               <div class="demolink"><a href="demos/summary/queryselectorall.html">demo</a></div>
@@ -392,16 +380,16 @@ for (let item of itemsToHide) {
             <li>
               You can chain queries, e.g.:
               <pre class="bigger"><code contenteditable class="language-javascript">// find form, then find password field in that form
-let loginForm = document.getElementbyId('frm1');
-let inpPw = loginForm.querySelector('input[type=password]'); // look in loginForm
+const loginForm = document.querySelector('#frm1');
+const inpPw = loginForm.querySelector('input[type=password]'); // look in loginForm
 
 // find table, then find all cells in that table
-let table1 = document.getElementbyId('my-table');
-let cells = table1.querySelectorAll('td'); // look in table1
+const table1 = document.querySelector('#my-table');
+const cells = table1.querySelectorAll('td'); // look in table1
 
 // this is of course equivalent to:
-let inpPw = document.querySelector('#frm1 input[type=password]');
-let cells = document.querySelectorAll('#my-table td');
+const inpPw = document.querySelector('#frm1 input[type=password]');
+const cells = document.querySelectorAll('#my-table td');
 </code></pre>
             </li>
           </ul>
@@ -441,7 +429,7 @@ let cells = document.querySelectorAll('#my-table td');
             <li>
               Some things you can do with almost all elements (see <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">documentation</a>):
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// cache the variable
-let el = document.getElementById('manipulatingDemo');
+const el = document.getElementById('manipulatingDemo');
 
 // change CSS properties (note: camelCased!)
 el.style.backgroundColor = '#cc6';
@@ -455,7 +443,7 @@ el.classList.remove('test2');
 el.innerHTML = 'Hammertime';
 
 // add events
-el.addEventListener('mouseover', function() {
+el.addEventListener('mouseover', () =&gt; {
   this.innerHTML = 'Can\'t touch this';
 });</code></pre>
               <p id="manipulatingDemo">I am the demo</p>
@@ -477,16 +465,14 @@ el.addEventListener('mouseover', function() {
               <pre class="bigger"><code class="language-html">&lt;label&gt;Yes/no: &lt;input type="checkbox" name="chb1" id="chb1" /&gt;&lt;/label&gt;&lt;br&gt;
 &lt;img src="img/02_dom/me.jpg" id="img1" width="40" height="40" /&gt;
 </code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.getElementById('chb1').checked = true;</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.getElementById('img1').width = 20;</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.querySelector('#chb1').checked = true;</code></pre>
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">document.querySelector('#img1').width = 20;</code></pre>
               <div>
                 <label>Sample checkbox: <input type="checkbox" name="chb1" id="chb1"></label><br>
                 <img src="img/02_dom/me.jpg" id="img1" width="40" height="40" alt="this is me">
               </div>
             </li>
-          </ul>
-          <ul class="arrow">
-            <li>
+            <li class="arrow smallfont">
               again, <a href="http://www.w3schools.com/jsref/default.asp">w3schools.com</a> has an excellent DOM reference
             </li>
           </ul>
@@ -502,7 +488,7 @@ el.addEventListener('mouseover', function() {
 &lt;img src="img/02_dom/photo.jpg" id="img-car"&gt;
 </code></pre>
                   <pre class="bigger"><code class="language-css" data-caption>#img-car { opacity: 0.7; }</code></pre>
-                  <pre class="bigger"><code contenteditable class="language-javascript wrong overlayrun" data-caption>let img = document.getElementById('img-car');
+                  <pre class="bigger"><code contenteditable class="language-javascript wrong overlayrun" data-caption>const img = document.querySelector('#img-car');
 img.style.opacity = '1.0';
 img.style.transition = 'all 0.3s';
 img.style.transform = 'scale(1.3)';
@@ -515,10 +501,8 @@ img.style.boxShadow = '#888888 5px 5px 10px';
                 </div>
               </div>
             </li>
-          </ul>
-          <ul class="arrow">
-            <li>we always try to keep HTML, CSS and Javascript separated</li>
-            <li>here we set CSS directly in Javascript, which we want to avoid</li>
+            <li class="arrow smallfont">we always try to keep HTML, CSS and Javascript separated</li>
+            <li class="arrow smallfont">here we set CSS directly in Javascript, which we want to avoid</li>
           </ul>
         </section>
         <section data-title="">
@@ -532,10 +516,10 @@ img.style.boxShadow = '#888888 5px 5px 10px';
 </code></pre>
                   <pre class="bigger"><code class="language-css" data-caption>#img-car-2 { opacity: 0.7; transition: all 0.3s; }
 #img-car-2.zoom { opacity: 1.0; transform: scale(1.3); box-shadow: #888888 5px 5px 10px;' }</code></pre>
-                  <pre class="bigger"><code contenteditable class="language-javascript overlayrun right" data-caption>let img = document.getElementById('img-car-2');
+                  <pre class="bigger"><code contenteditable class="language-javascript overlayrun right" data-caption>const img = document.querySelector('#img-car-2');
 img.classList.add('zoom');
 </code></pre>
-                  <pre class="bigger"><code contenteditable class="language-javascript overlayrun right" data-caption>let img = document.getElementById('img-car-2');
+                  <pre class="bigger"><code contenteditable class="language-javascript overlayrun right" data-caption>const img = document.querySelector('#img-car-2');
 img.classList.remove('zoom');
 </code></pre>
                 </div>
@@ -544,9 +528,7 @@ img.classList.remove('zoom');
                 </div>
               </div>
             </li>
-          </ul>
-          <ul class="arrow">
-            <li>note: if a CSS property is calculated (e.g. if you wish to set an opacity depending on a HTML slider value), you still will have to set CSS properties directly with <code>elem.style</code></li>
+            <li class="arrow smallfont">note: if a CSS property is calculated (e.g. if you wish to set an opacity depending on a HTML slider value), you still will have to set CSS properties directly with <code>elem.style</code></li>
           </ul>
         </section>
         <section data-title="">
@@ -561,9 +543,9 @@ img.classList.remove('zoom');
 </code></pre>
                   <pre class="bigger"><code class="language-css" data-caption>#img-car-3 { opacity: 0.7; transition: all 0.3s; }
 #img-car-3.zoom { opacity: 1.0; transform: scale(1.3); box-shadow: #888888 5px 5px 10px;' }</code></pre>
-                  <pre class="bigger"><code contenteditable class="language-javascript" data-caption>let img = document.querySelector('#img-car-3');
-let button = document.querySelector('#btn-view-3');
-button.addEventListener('click', function() {
+                  <pre class="bigger"><code contenteditable class="language-javascript" data-caption>const img = document.querySelector('#img-car-3');
+const button = document.querySelector('#btn-view-3');
+button.addEventListener('click', () =&gt; {
   if (img.classList.contains('zoom')) img.classList.remove('zoom');
   else img.classList.add('zoom');
 });
@@ -584,7 +566,6 @@ button.addEventListener('click', function() {
               </div>
             </li>
           </ul>
-
         </section>
       </section>
       <section class="chapter">
@@ -600,29 +581,27 @@ button.addEventListener('click', function() {
           <p class="centered"><img src="img/02_dom/ss_events.png" alt=""></p>
           <small>&rarr; full listing <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">here</a></small>
         </section>
-        <section>
-          <h2>Attaching events</h2>
+        <section data-title="Attaching events">
+          <h2>Attaching events (1)</h2>
           <ul>
             <li>
               Some examples:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let par = document.getElementById('eventsDemo');
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const par = document.querySelector('#eventsDemo');
 
-par.addEventListener('click', function() {
+par.addEventListener('click', () =&gt; {
   console.log('You clicked me!');
 });
-par.addEventListener('mouseover', function() {
+par.addEventListener('mouseover', () =&gt; {
   this.style.backgroundColor = '#333';
   this.style.color = 'white';
 });
-par.addEventListener('mouseout', function() {
+par.addEventListener('mouseout', () =&gt; {
   this.style.backgroundColor = '';
   this.style.color = 'black';
 });</code></pre>
               <p id="eventsDemo">I am the demo</p>
             </li>
-          </ul>
-          <ul class="arrow">
-            <li>event names are used without 'on', e.g. 'onclick' becomes 'click'</li>
+            <li class="arrow smallfont">event names are used without 'on', e.g. 'onclick' becomes 'click'</li>
           </ul>
           <div class="tooltip">
             <div>
@@ -633,16 +612,16 @@ par.addEventListener('mouseout', function() {
           </div>
         </section>
         <section data-title="">
-          <h2>Attaching events</h2>
+          <h2>Attaching events (2)</h2>
           <ul>
             <li>
               You can hook more than one function to the same event:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let par = document.getElementById('eventsDemo2');
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const par = document.getElementById('eventsDemo2');
 
-par.addEventListener('click', function() {
+par.addEventListener('click', () =&gt; {
   console.log('You clicked me (1)!');
 });
-par.addEventListener('click', function() {
+par.addEventListener('click', () =&gt; {
   console.log('You clicked me (2)!');
 });
 </code></pre>
@@ -658,7 +637,7 @@ par.addEventListener('click', function() {
           </div>
         </section>
         <section data-title="">
-          <h2>Attaching events</h2>
+          <h2>Attaching events (3)</h2>
           <ul>
             <li>
               You may also run across the older syntax for event hooking (notice <i>on</i>click instead of click):
@@ -679,11 +658,11 @@ par.addEventListener('click', function() {
           <ul>
             <li>
               You can also remove an event, but only if the attached function has a name:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let par = document.getElementById('eventsDemo3');
-let clickHandler1 = function() {
+              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const par = document.querySelector('#eventsDemo3');
+const clickHandler1 = () =&gt; {
   console.log('This is the first handler');
 };
-let clickHandler2 = function() {
+const clickHandler2 = () =&gt; {
   console.log('This is the second handler');
   this.removeEventListener('click', clickHandler1);
 };
@@ -710,16 +689,16 @@ par.addEventListener('click', clickHandler2);
   &lt;a href="http://www.google.be"&gt;&lt;img src="img/02_dom/me.jpg" alt=""&gt;&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript">document.querySelector('#nDemo').addEventListener('click', function() {
+              <pre class="bigger"><code contenteditable class="language-javascript">document.querySelector('#nDemo').addEventListener('click', () =&gt; {
   console.log('div clicked');
 });
-document.querySelector('#nDemo img').addEventListener('click', function() {
+document.querySelector('#nDemo img').addEventListener('click', () =&gt; {
   console.log('img clicked');
 });
-document.querySelector('body').addEventListener('click', function() {
+document.querySelector('body').addEventListener('click', () =&gt; {
   console.log('body clicked');
 });
-document.querySelector('#nDemo a').addEventListener('click', function() {
+document.querySelector('#nDemo a').addEventListener('click', () =&gt; {
   console.log('a clicked');
 });</code></pre>
               <div class="demolink"><a href="demos/02_dom/bubbling.html" target="_blank">demo</a></div>
@@ -735,7 +714,7 @@ document.querySelector('#nDemo a').addEventListener('click', function() {
             <li>
               If you just want to prevent the browser action, call <code>preventDefault()</code> anywhere along the route:
               <pre class="bigger"><code contenteditable class="language-javascript">...
-document.querySelector('#nDemo a').addEventListener('click', function(e) {
+document.querySelector('#nDemo a').addEventListener('click', (e) =&gt; {
   console.log('a clicked');
   e.preventDefault();
 });
@@ -750,7 +729,7 @@ document.querySelector('#nDemo a').addEventListener('click', function(e) {
             <li>
               If you want to stop bubbling, call <code>stopPropagation()</code>:
               <pre class="bigger"><code contenteditable class="language-javascript">...
-document.querySelector('#nDemo a').addEventListener('click', function(e) {
+document.querySelector('#nDemo a').addEventListener('click', (e) =&gt; {
   console.log('a clicked');
   e.stopPropagation();
 });
@@ -760,7 +739,7 @@ document.querySelector('#nDemo a').addEventListener('click', function(e) {
             <li>
               If you want to stop both, call both:
               <pre class="bigger"><code contenteditable class="language-javascript">...
-document.querySelector('#nDemo a').addEventListener('click', function(e) {
+document.querySelector('#nDemo a').addEventListener('click', (e) =&gt; {
   console.log('a clicked');
   e.stopPropagation();
   e.preventDefault();
@@ -788,8 +767,8 @@ document.querySelector('#nDemo a').addEventListener('click', function(e) {
             <li>
               At any time during bubbling you can know which top element was clicked (even if it doesn't handle the event):
               <pre class="bigger"><code contenteditable class="language-javascript">...
-document.querySelector('body').addEventListener('click', function(e) {
-  console.log(e.target.tagName + ' clicked');
+document.querySelector('body').addEventListener('click', (e) =&gt; {
+  console.log(`${e.target.tagName} clicked`);
 });
 </code></pre>
               <div class="demolink"><a href="demos/02_dom/target.html">demo</a></div>
@@ -797,8 +776,8 @@ document.querySelector('body').addEventListener('click', function(e) {
             <li>
               Say you have a table with 1000 cells; instead of binding 1000 events, thanks to bubbling it's possible to bind a single handler on the &lt;table&gt; itself, which saves memory.
               <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const table = document.querySelector('#bubbling');
-table.addEventListener('click', function(e) {
-  console.log('click was on ' + e.target.innerHTML);
+table.addEventListener('click', (e) =&gt; {
+  console.log(`click was on ${e.target.innerHTML}`);
 });</code></pre>
               <table id="bubbling">
                 <tbody>
@@ -822,17 +801,19 @@ table.addEventListener('click', function(e) {
           <ul>
             <li>
               The <code>e</code> parameter of the event listener contains information of the event. An example for mouse events:
-              <pre class="bigger"><code contenteditable class="language-html overlayrun">&lt;input type="button" id="btn1" value="Left or right click me"&gt;
+              <pre class="bigger"><code contenteditable class="language-html overlayrun smallfont">&lt;input type="button" id="btn1" value="Left or right click me"&gt;
 &lt;script&gt;
-document.getElementById('btn1').addEventListener('mousedown', function(e) {
-  let right = e.button &amp;&amp; e.button == 2;
-  console.log('You clicked ' + (right ? 'right' : 'left')
-    + ' on position (' + e.pageX + ',' + e.pageY + ')');
+document.querySelector('#btn1').addEventListener('mousedown', (e) =&gt; {
+  switch(e.button) {
+    case 0: console.log(`You clicked left button on position (${e.pageX},${e.pageY})`); break;
+    case 1: console.log(`You clicked wheel or middle button on position (${e.pageX},${e.pageY})`); break;
+    case 2: console.log(`You clicked right button on position (${e.pageX},${e.pageY})`); break;
+    case 3: console.log(`You clicked a fourth button on position (${e.pageX},${e.pageY})`); break;
+    case 4: console.log(`You clicked a fifth button on position (${e.pageX},${e.pageY})`); break;
+    default: console.log(`You seem to have a very special mouse with unknown buttons`);
+  }
 });
 &lt;/script&gt;</code></pre>
-            </li>
-            <li>
-              Browser incompatibility may occur. Some cross-browser scripts can be found online on <a href="http://www.quirksmode.org/js/events_properties.html">quirksmode.org</a> or use a <a href="http://api.jquery.com/category/events/">jQuery</a>.
             </li>
           </ul>
         </section>
@@ -844,13 +825,22 @@ document.getElementById('btn1').addEventListener('mousedown', function(e) {
               <pre class="bigger"><code contenteditable class="language-html overlayrun">&lt;p&gt;type something...&lt;/p&gt;
 &lt;input type="text" id="inp1" /&gt;
 &lt;script&gt;
-document.getElementById('inp1').addEventListener('keypress', function(e) {
-  console.log('You pressed ' + (e.shiftKey ? 'Shift-' : '')  + e.key + ', code ' + e.keyCode);
+document.querySelector('#inp1').addEventListener('keydown', (e) =&gt; {
+  e.preventDefault();
+  console.log(`You pressed ${(e.shiftKey ? 'Shift-' : '')} ${(e.ctrltKey ? 'Ctrl-' : '')} ${e.key}`);
+  console.log(`ASCII code: ${e.keyCode}`);
+  console.log(`Key code: ${e.code}`);
 });
 &lt;/script&gt;</code></pre>
             </li>
-            <li>
-              Browser incompatibility may occur. Some cross-browser scripts can be found online on <a href="http://www.quirksmode.org/js/events_properties.html">quirksmode.org</a> or use a <a href="http://api.jquery.com/category/events/">jQuery</a>.
+            <li class="arrow smallfont">
+              <strong>keydown</strong>: event is fired <i>before</i> key is shown<br>
+            </li>
+            <li class="arrow smallfont">
+              <strong>keyup</strong>: event is fired <i>after</i> key is shown<br>
+            </li>
+            <li class="arrow smallfont warning">
+              <strong>keypress</strong>: deprecated - do not use anymore!
             </li>
           </ul>
         </section>
