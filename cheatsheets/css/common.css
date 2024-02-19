@@ -194,6 +194,10 @@ table {
 	max-width: 80rem;
 }
 
+.mw-1000 {
+	max-width: 100rem;
+}
+
 .mw-1200 {
 	max-width: 120rem;
 }

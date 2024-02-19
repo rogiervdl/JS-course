@@ -128,7 +128,7 @@ console.log('Server running at http://127.0.0.1:8124/');
 </code></pre>
     <p>Sla dit script ergens op, bijvoorbeeld als <strong>demoNode.js</strong> op de desktop. Voer het dan uit met het <strong>node</strong> commando:</p>
     <figure class="console">
-      <pre>C:\Users\rogie\Destkop&gt;node demoWSH.js
+      <pre>C:\Users\rogie\Destkop&gt;node demoNode.js
 Server running at http://127.0.0.1:8124/</pre>
       <figcaption>run het script in de command prompt</figcaption>
     </figure>
@@ -136,6 +136,36 @@ Server running at http://127.0.0.1:8124/</pre>
     <p>
       <img src="img/01_syntax/nodejs.png" alt="array" class="w-500">
     </p>
+
+    <h3>Javascript in een webpagina</h3>
+    <p>
+      In de rest van de cursus beperken we ons tot Javascript in web pagina’s. De werkwijze is gelijkend aan hoe je CSS aan een webpagina toevoegt:
+    </p>
+    <ol>
+      <li>maak een map js in je project</li>
+      <li>maak daarin een bestand script.js</li>
+      <li>link het onderaan in de &lt;body&gt; (CSS bestanden link je bovenaan in de &lt;head&gt;) je HTML document met &lt;script src="js/scripts.js"&gt;&lt;/script&gt;</li>
+      <li>open de HTML pagina in de browser (bijvoorbeeld met de Go Live knop rechtsonder)</li>
+    </ol>
+    <img src="img/01_syntax/js-in-webpagina.png" alt="" class="mw-1000">
+    <p>Voorbeeldcode, HTML en Javascript en het resultaat in de webpagina:</p>
+    <pre class="prism-okaida line-numbers w-700"><code>document.getElementById('message').innerHTML = 'Hallo Wereld!';
+console.log('einde script');
+</code></pre>
+    <pre class="prism-okaida language-html line-numbers w-700"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p id="message"&gt;&lt;/p&gt;
+  &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<img src="img/01_syntax/js-in-webpagina2.png" alt="" class="mw-600">
 
 
 
@@ -484,7 +514,7 @@ Console.WriteLine($"current speed is {myCar.Speed}");
     speed: 0,
     engineOn: false,
     constructionDate: new Date(1976, 6, 24),
-    accelerate: (acc) =&gt; {
+    accelerate: function(acc) =&gt; {
         if (this.engineOn) speed += acc;
     }
 }
@@ -625,7 +655,7 @@ forrestFriends.forEach(friend =&gt; {
 </code></pre>
     </div>
     <h3>Notatie als constante</h3>
-    <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig</p>
+    <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig  (of toch bijna, er is <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een klein verschil</a>, maar dat is voor deze cursus niet zo belangrijk)</p>
     <div class="codecompare">
       <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
     ...
@@ -636,9 +666,26 @@ forrestFriends.forEach(friend =&gt; {
 }
 </code></pre>
     </div>
+    <h3>Arrow function expressies</h3>
+    <p>Een verkorte notatie die je in nog andere talen tegenkomt, is de <code>(...) =&gt; { ... }</code> vorm. Volgende notaties zijn gelijkwaardig:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
+    ...
+}
+const bepaalGgd = function(get1, get2) {
+    ...
+}
+</code></pre>
+      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = n =&gt; {
+    ...
+}
+const bepaalGgd = (get1, get2) =&gt; {
+    ...
+}
+</code></pre>
+    </div>
     <ul class="arrow">
-      <li>beide syntaxen zijn evenwaardig (al is er <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een klein verschil</a>, maar dat is voor deze cursus onbelangrijk)</li>
-      <li>in deze cursus mag je kiezen welke syntax je het liefste hebt: of de gewone notatie (mijn persoonlijke voorkeur), of de notatie als variabele</li>
+      <li>je komt ze vooral veel tegen in <a href="#extensiemethodes">extensie methodes</a>, zie aldaar</li>
     </ul>
 
     <h2>Ingebouwde klassen: Math, Date, Array, Random...</h2>
