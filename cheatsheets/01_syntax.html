@@ -201,10 +201,10 @@ console.log(3.0 / 2); // 1.5; gewone deling
       <pre class="prism-vslight language-cs line-numbers w-600"><code>Console.WriteLine(3 + '2'); // 53; '2' omgezet naar ASCII 50
 Console.WriteLine(3 + "2"); // 32; 3 naar string omgezet
 Console.WriteLine(3 * '2'); // 150; '2' omgezet naar ASCII 50
-Console.WriteLine(3 * "2"); // fout
+Console.WriteLine(3 * "2"); // FOUT!
 Console.WriteLine(3 - '2'); // -47; '2' omgezet naar ASCII 50
-Console.WriteLine(3 - "2"); // fout
-Console.WriteLine(3 == '3.0'); // fout
+Console.WriteLine(3 - "2"); // FOUT!
+Console.WriteLine(3 == '3.0'); // FOUT!
 Console.WriteLine(3 / 2); // 1; gehele deling
 Console.WriteLine(3.0 / 2); // 1.5; gewone deling
 </code></pre>
@@ -484,7 +484,7 @@ Console.WriteLine($"current speed is {myCar.Speed}");
     speed: 0,
     engineOn: false,
     constructionDate: new Date(1976, 6, 24),
-    accelerate: (acc) => {
+    accelerate: (acc) =&gt; {
         if (this.engineOn) speed += acc;
     }
 }
@@ -512,10 +512,167 @@ myCar.Color = "silver"; // FOUT! property bestaat niet
 </code></pre>
     </div>
 
+    <h2>Selecties en iteraties</h2>
+    <h3>Selecties</h3>
+    <p>In Javascript komt de syntax van de selecties <code>if</code>, <code>if</code>-<code>else</code> en <code>switch</code>-<code>case</code> overeen met C#. Een <code>if</code>-<code>else</code> voorbeeld:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const badGrades = true;
+if (badGrades) {
+  console.log('House arrest for two weeks');
+} else {
+  console.log('No house arrest');
+}
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>bool badGrades = true;
+if (badGrades) {
+    Console.WriteLine("House arrest for two weeks");
+} else {
+    Console.WriteLine("No house arrest");
+}
+</code></pre>
+    </div>
+    <p>Vergeet ook de handige ternaire operator niet:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>const number = 13;
+console.log(`${number} is ${number % 2 == 0 ? 'even' : 'odd'}`);
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>int number = 13;
+Console.WriteLine($"{number} is {(number % 2 == 0 ? "even" : "odd")}");
+</code></pre>
+    </div>
 
+    <h3>Iteraties</h3>
+    <h4><code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
+    <p>In Javascript komt de syntax van de selecties <code>while</code>, <code>do</code>-<code>while</code> en <code>for</code> overeen met C#. Een <code>for</code> voorbeeld:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>// definieer een array
+const forrestFriends = ['Bubba', 'Lt. Dan'];
 
+// itereer over de waarden
+for (let i = 0; i &lt; forrestFriends.length; i++) {
+  console.log(`friend nr. ${i}: ${forrestFriends[i]}`);
+}
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>// definieer een array
+string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
+// itereer over de waarden
+for (int i = 0; i &lt; forrestFriends.Length; i++) {
+    Console.WriteLine($"friend number {i}: {forrestFriends[i]}");
+}
+</code></pre>
+    </div>
 
+    <h4><code>for</code>-<code>of</code> </h4>
+    <p>De <code>for</code>-<code>of</code> iteratie in Javascript komt overeen met <code>foreach</code>-<code>in</code> in C#:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
+const forrestFriends = ['Bubba', 'Lt. Dan'];
+
+// itereer over de waarden
+for (const friend of forrestFriends) {
+  console.log(friend); // Bubba, Lt. Dan
+}
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>// defininieer een array
+string[] forrestFriends = { "Bubba", "Lt. Dan" };
+
+// itereer over de waarden
+foreach (string friend in forrestFriends) {
+    Console.WriteLine(friend); // Bubba, Lt. Dan
+}
+</code></pre>
+    </div>
+
+    <h4><code>forEach</code></h4>
+    <p>Javascript heeft nog een verkorte notatie (zonder C# equivalent) die velen zeer handig vinden:</p>
+    <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
+const forrestFriends = ['Bubba', 'Lt. Dan'];
+
+// itereer over de waarden
+forrestFriends.forEach(friend =&gt; {
+   console.log(friend); // Bubba, Lt. Dan
+});
+</code></pre>
+
+    <h2>Functies</h2>
+    <h3>Klassieke notatie</h3>
+    <p>Methodes in C# noemt men in Javascript <strong>functies</strong>. Een vergelijking van de syntax:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>function getFibonacciNumbers(n) {
+   if (n &lt;= 0) return [];
+   if (n == 1) return [0];
+   const arrFib = [];
+   arrFib[0] = 0;
+   arrFib[1] = 1;
+   for (let i = 2; i &lt; n; i++) {
+       arrFib[i] = arrFib[i - 2] + arrFib[i - 1];
+   }
+   return arrFib;
+}
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>private static int[] GetFibonacciNumbers(int n) {
+    if (n &lt;= 0) return new int[0] { };
+    if (n == 1) return new int[1] { 0 };
+    int[] arrFib = new int[n];
+    arrFib[0] = 0;
+    arrFib[1] = 1;
+    for (int i = 2; i &lt; n; i++) {
+        arrFib[i] = arrFib[i - 2] + arrFib[i - 1];
+    }
+    return arrFib;
+}
+</code></pre>
+    </div>
+    <h3>Notatie als constante</h3>
+    <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
+    ...
+}
+</code></pre>
+      <pre class="prism-okaida language-javascript line-numbers w-500"><code>function getFibonacciNumbers(n) {
+    ...
+}
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>beide syntaxen zijn evenwaardig (al is er <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een klein verschil</a>, maar dat is voor deze cursus onbelangrijk)</li>
+      <li>in deze cursus mag je kiezen welke syntax je het liefste hebt: of de gewone notatie (mijn persoonlijke voorkeur), of de notatie als variabele</li>
+    </ul>
+
+    <h2>Ingebouwde klassen: Math, Date, Array, Random...</h2>
+    <p>Minder dan C#, maar Javascript heeft ook een aantal ingebouwde klassen als <code>Math</code>, <code>Date</code>, <code>Array</code>... De syntax verschilt helaas vaak veel. Een paar typische voorbeelden:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>// Date example
+const now = new Date();
+console.log(now.getFullYear());
+
+// Math example
+console.log(Math.ceil(Math.random() * 10));
+
+// Array example
+const arr1 = [ 'melk', 'boter', 'eieren' ];
+arr1.sort();
+console.log(arr1.join(', '));
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>// Date example
+DateTime now = DateTime.Now;
+Console.WriteLine(now.Year);
+
+// Math/Random example
+Random rnd = new Random();
+Console.WriteLine(Math.ceil(rnd.Next() * 10));
+
+// Array example
+string[] arr1 = { "melk", "boter", "eieren" }
+Array.Sort(arr1);
+Console.WriteLine(String.Join(", ", arr1));
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>voor een volledig overzicht zie <a href="https://www.w3schools.com/js/js_string_methods.asp">W3Schools</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">Mozilla.org</a></li>
+    </ul>
 
 
   </main>
