@@ -29,7 +29,8 @@
 
 
     <!-- COMMENTAAR -->
-    <h2>Javascript als scriptingtaal</h2>
+    <h2>Werken met Javascript</h2>
+    <h3>Javascript als scriptingtaal</h3>
     <p>
       Javascript een <strong>scripting taal</strong>, geen echte programmeertaal zoals C#. Enkele kenmerken:
     </p>
@@ -55,7 +56,7 @@
       <li>andere voorbeelden van Javascript programma's van minder dan 1000 tekens: <a href="demos/01_syntax/js1k_1.html">Rainbow game</a>, <a href="demos/01_syntax/js1k_2.html">Particles generator</a> </li>
     </ul>
 
-    <h2>Javascript uitvoeren</h2>
+    <h3>Javascript in andere omgevingen</h3>
     <p>
       Javascript is <strong>enkel een taal</strong>, d.w.z. een set van syntaxregels; dit zegt niks over waar het uitgevoerd wordt. In principe kan het uitgevoerd worden in elke omgeving waar een Javascript engine op kan draaien.
       De meest gekende toepassing is <strong>in webpagina’s</strong>, maar enkele andere mogelijke omgevingen zijn:
@@ -67,7 +68,7 @@
       <li><strong>Embedded</strong>: plugins voor Adobe Acrobat, Photoshop, Chrome enz... geschreven in Javascript</li>
       <li>...</li>
     </ul>
-    <h3>In Windows Scripting Host</h3>
+    <h4>In Windows Scripting Host</h4>
     <p>Je kan Javascript gebruiken om scripts uit te voeren in een Windows command. Codevoorbeeld (en ter vergelijking rechts de C# Console versie):</p>
     <div class="codecompare">
       <pre class="prism-okaida line-numbers"><code>/* global WScript */
@@ -112,7 +113,7 @@ C:\Users\rogie\Destkop</pre>
       <figcaption>resultaat in de command prompt</figcaption>
     </figure>
 
-    <h3>Serverside Javascript met NodeJS</h3>
+    <h4>Serverside Javascript met NodeJS</h4>
     <p>
       NodeJS is een Javascript runtime omgeving waarmee Javascript buiten de browser kan uitgevoerd worden, bijvoorbeeld om server- of desktop toepassingen te schrijven. Je moet het eerst downloaden en installeren via <a href="https://nodejs.org/en">https://nodejs.org/en</a>
       Voorbeeldscript voor het opzetten van een eenvoudige server:
@@ -138,16 +139,22 @@ Server running at http://127.0.0.1:8124/</pre>
     </p>
 
     <h3>Javascript in een webpagina</h3>
+    <h4>Script extern linken</h4>
     <p>
       In de rest van de cursus beperken we ons tot Javascript in web pagina’s. De werkwijze is gelijkend aan hoe je CSS aan een webpagina toevoegt:
     </p>
     <ol>
-      <li>maak een map js in je project</li>
-      <li>maak daarin een bestand script.js</li>
-      <li>link het onderaan in de &lt;body&gt; (CSS bestanden link je bovenaan in de &lt;head&gt;) je HTML document met &lt;script src="js/scripts.js"&gt;&lt;/script&gt;</li>
+      <li>maak een <strong>map 'js'</strong> in je project</li>
+      <li>maak daarin een <strong>bestand 'script.js'</strong></li>
+      <li>link het <strong>onderaan in de &lt;body&gt;</strong> (CSS bestanden link je bovenaan in de &lt;head&gt;) je HTML document met &lt;script src="js/scripts.js"&gt;&lt;/script&gt;</li>
       <li>open de HTML pagina in de browser (bijvoorbeeld met de Go Live knop rechtsonder)</li>
     </ol>
     <img src="img/01_syntax/js-in-webpagina.png" alt="" class="mw-1000">
+    <div class="tips">
+      <p>Link je scripts altijd <strong>onderaan in de body</strong>, zodat alle HTML ingelezen is vóór het script uitgevoerd wordt! Als bonus krijgt de gebruiker dan sneller de inhoud van de pagina te zien, zonder eerst op het inladen van het script te moeten wachten
+      </p>
+    </div>
+
     <p>Voorbeeldcode, HTML en Javascript en het resultaat in de webpagina:</p>
     <pre class="prism-okaida line-numbers w-700"><code>document.getElementById('message').innerHTML = 'Hallo Wereld!';
 console.log('einde script');
@@ -165,7 +172,81 @@ console.log('einde script');
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<img src="img/01_syntax/js-in-webpagina2.png" alt="" class="mw-600">
+    <img src="img/01_syntax/js-in-webpagina2.png" alt="" class="mw-600">
+
+    <h4>Meerdere scripts linken</h4>
+    <p>
+      Net zoals bij CSS, kan je ook meerdere scripts linken. Een typisch HTML bestand wordt dan:
+    </p>
+    <pre class="prism-okaida language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
+  &lt;link rel="stylesheet" src="vendor/fancybox.min.css"&gt;
+  &lt;link rel="stylesheet" src="vendor/owlcarousel.min.css"&gt;
+  &lt;link rel="stylesheet" src="vendor/owlcarousel.theme.min.css"&gt;
+  &lt;link rel="stylesheet" src="css/start.css"&gt;
+  &lt;link rel="stylesheet" src="css/styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  ...
+  &lt;script src="vendor/fancybox.js"&gt;&lt;/script&gt;
+  &lt;script src="vendor/owlcarousel.js"&gt;&lt;/script&gt;
+  &lt;script src="js/library.js"&gt;&lt;/script&gt;
+  &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    <h4>Interne scriptblokken</h4>
+    <p>In principe kan je scripts ook in de HTML pagina plaatsen, en net zoals bij CSS</p>
+    <pre class="prism-okaida language-html wrong line-numbers w-600"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p id="message"&gt;&lt;/p&gt;
+  &lt;script&gt;
+    document.getElementById('message').innerHTML = 'Hallo Wereld!';
+    console.log('einde script');
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <ul class="arrow warning">
+      <li>Interne script blokken getuigen van een slechte stijl. Hou je HTML, CSS en Javascript netjes in aparte bestanden!</li>
+    </ul>
+
+    <h4>Inline scripts</h4>
+    <p>Je kan scripts zelfs inline plaatsen, en net zoals bij CSS:</p>
+    <pre class="prism-okaida language-html wrong line-numbers w-600"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;input type="button" value="I'm a button" onclick="console.log('auch')" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <ul class="arrow warning">
+      <li>Inline scripts zijn NOT DONE. Als je dit tegenkomt op het Internet, neem het dan niet over in een oefening of project!</li>
+    </ul>
+
+
+    <h3>Browser Console</h3>
+    <p>Javascript foutmeldingen komen in de Console terecht, dus hou het altijd goed in de gaten!</p>
+    <pre class="prism-okaida line-numbers"><code>document.getElementById('messge').innerHTML = 'Hallo Wereld!'; // FOUT: element messge bestaat niet
+console.log('einde script');
+</code></pre>
+    <img src="img/01_syntax/console.png" alt="" class="mw-600">
 
 
 
@@ -655,7 +736,7 @@ forrestFriends.forEach(friend =&gt; {
 </code></pre>
     </div>
     <h3>Notatie als constante</h3>
-    <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig  (of toch bijna, er is <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een klein verschil</a>, maar dat is voor deze cursus niet zo belangrijk)</p>
+    <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig (of toch bijna, er is <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een klein verschil</a>, maar dat is voor deze cursus niet zo belangrijk)</p>
     <div class="codecompare">
       <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
     ...

@@ -329,10 +329,13 @@ body:not(.showpro) .pro {
 	text-align: center;
 }
 
-.redcomments .comment,
-.error {
+.redcomments .comment, .error {
 	color: #C00 !important;
 	font-weight: bold !important;
+}
+
+.warning {
+	color: #C00 !important;
 }
 
 
@@ -555,6 +558,7 @@ pre {
 	margin-top: 0;
 	overflow-wrap: break-word;
 	padding: 1em;
+	padding-top: 2em;
 	white-space: pre-wrap;
 }
 

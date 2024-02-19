@@ -25,3 +25,11 @@ pre, div.tips {
 .bordered {
    border-width: 2px;
 }
+
+.line-numbers .line-numbers-rows {
+	display: none;
+}
+
+pre[class*="language-"].line-numbers {
+	padding-left: 1em;
+}
