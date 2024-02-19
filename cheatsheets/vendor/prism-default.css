@@ -1,0 +1,82 @@
+.prism-default pre[class*="language-"],
+pre[class*="language-"].prism-default {
+	background-color: #F5F2F0;
+}
+
+.prism-default code[class*="language-"] {
+	color: #000;
+	background-color: 0 0;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.prism-default .token.cdata,
+.prism-default .token.comment,
+.prism-default .token.doctype,
+.prism-default .token.prolog {
+	color: #708090;
+}
+
+.prism-default .token.punctuation {
+	color: #999;
+}
+
+.prism-default .token.namespace {
+	opacity: .7;
+}
+
+.prism-default .token.boolean,
+.prism-default .token.constant,
+.prism-default .token.deleted,
+.prism-default .token.number,
+.prism-default .token.property,
+.prism-default .token.symbol,
+.prism-default .token.tag {
+	color: #905;
+}
+
+.prism-default .token.attr-name,
+.prism-default .token.builtin,
+.prism-default .token.char,
+.prism-default .token.inserted,
+.prism-default .token.selector,
+.prism-default .token.string {
+	color: #690;
+}
+
+.prism-default .language-css .token.string,
+.prism-default .style .token.string,
+.prism-default .token.entity,
+.prism-default .token.operator,
+.prism-default .token.url {
+	color: #9a6e3a;
+}
+
+.prism-default .token.atrule,
+.prism-default .token.attr-value,
+.prism-default .token.keyword {
+	color: #07a;
+}
+
+.prism-default .token.class-name,
+.prism-default .token.function {
+	color: #dd4a68;
+}
+
+.prism-default .token.important,
+.prism-default .token.regex,
+.prism-default .token.variable {
+	color: #e90;
+}
+
+.prism-default .token.bold,
+.prism-default .token.important {
+	font-weight: 700;
+}
+
+.prism-default .token.italic {
+	font-style: italic;
+}
+
+.prism-default .token.entity {
+	cursor: help;
+}

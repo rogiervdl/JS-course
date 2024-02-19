@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<!-- [html-validate-disable no-trailing-whitespace] -->
+<html lang="nl">
+
+<head>
+  <title>Document Object Model | Javascript cheat sheets</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="language-cs">
+  <nav class="site__nav">
+    <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
+      <p class="thumb__title">01. Javascript syntax</p>
+      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+    </a>
+    <a href="02_dom.html" class="main__thumb active" title="02. Document Object Model">
+      <p class="thumb__title">02. Document Object Model</p>
+      <img class="thumb__visual" src="img/02_dom/icon.png" alt="">
+    </a>
+    <a href="03_async.html" class="main__thumb" title="03. Asynchrone Javascript">
+      <p class="thumb__title">03. Asynchrone Javascript</p>
+      <img class="thumb__visual" src="img/03_async/icon.png" alt="">
+    </a>
+  </nav>
+  <h1>02. Document Object Model</h1>
+  <div id="toc"></div>
+
+  <main>
+
+    <!-- OVERZICHT -->
+    <h2>Over Javascript</h2>
+    <h3>Javascript als scriptingtaal</h3>
+    <p>
+      Javascript een <strong>scripting taal</strong>, geen echte programmeertaal zoals C#. Enkele kenmerken:
+    </p>
+    <ul>
+      <li>In Javascript gebeurt de <strong>compilatie tijdens de uitvoering</strong> van het script (JIT: just in time compilation), en niet vooraf zoals C# (naar een .exe)</li>
+      <li>Je zou verwachten dat het daardoor iets trager is dan bv. C#, maar dankzij JIT kan de code ook nog tijdens uitvoering geoptimaliseerd worden. Gemiddeld is er <strong>weinig verschil in snelheid</strong>.</li>
+      <li>Javascript is (net zoals HTML en CSS) <strong>zuiver tekst</strong>, en dus is de code moeilijker te beschermen tegen kopiëren dan een C# .exeprogramma.</li>
+      <li>Scripting talen hebben vaak een wat <strong>speciale, lossere syntax</strong>, met minder strakke regels en heel veel vrijheden en verantwoordelijkheden (dat zul je verderop nog wel merken).</li>
+      <li>Er zijn veel scripting talen &mdash; Python, PHP, Perl, Ruby... &mdash; maar er is er maar één die browsers begrijpen: <strong>Javascript</strong>.</li>
+    </ul>
+
+
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Klasse</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#bitmapimage">BitmapImage</a></td>
+          <td>In-memory afbeelding</td>
+        </tr>
+        <tr>
+          <td><a href="#brushes">Brushes</a></td>
+          <td>Bevat een aantal voorgedefinieerde kleuren</td>
+        </tr>
+        <tr>
+          <td><a href="#clipboard">Clipboard</a></td>
+          <td>Geeft toegang tot het Window-klembord</td>
+        </tr>
+        <tr>
+          <td><a href="#color">Color</a></td>
+          <td>Werken met RGB-kleuren</td>
+        </tr>
+        <tr>
+          <td><a href="#console">Console</a></td>
+          <td>Basis I/O via de console</td>
+        </tr>
+        <tr>
+          <td><a href="#convert">Convert</a></td>
+          <td>Omzetten (converteren) tussen verschillende datatypes</td>
+        </tr>
+        <tr>
+          <td><a href="#dispatchertimer">DispatcherTimer</a></td>
+          <td>een timer waarmee je op vaste momenten een methode kan uitvoeren</td>
+        </tr>
+        <tr>
+          <td><a href="#environment">Environment</a></td>
+          <td>Geeft toegang tot de omgeving waarin de applicatie wordt uitgevoerd</td>
+        </tr>
+        <tr>
+          <td><a href="#math">Math</a></td>
+          <td>Bevat wiskundige methodes en constanten</td>
+        </tr>
+        <tr>
+          <td><a href="#messagebox">MessageBox</a></td>
+          <td>Tonen van dialoogvensters</td>
+        </tr>
+        <tr>
+          <td><a href="#random">Random</a></td>
+          <td>Genereren van willekeurige waarden (getallen)</td>
+        </tr>
+        <tr>
+          <td><a href="#stopwatch">Stopwatch</a></td>
+          <td>een timer waarmee je een tijdsspanne kan meten</td>
+        </tr>
+        <tr>
+          <td><a href="#ingebouwde-windowssounds">SystemSounds</a></td>
+          <td>windows geluiden afspelen</td>
+        </tr>
+        <tr>
+          <td><a href="#string">String</a></td>
+          <td>Werken met tekstuele data</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- MEDIA -->
+    <h2>Audio en video</h2>
+    <h3>Overzicht</h3>
+    <p>Er zijn verschillende klassen waarmee je media kan afspelen in .NET:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Klasse</th>
+          <th scope="col">Te gebruiken voor</th>
+          <th scope="col">Console?</th>
+          <th scope="col">WPF?</th>
+          <th scope="col">Opmerking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>System.Media.SystemSounds</code></td>
+          <td>Windows-sounds</td>
+          <td>enkel .NET Framework</td>
+          <td>ja</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code>System.Media.SoundPlayer</code></td>
+          <td>audio (enkel .wav)</td>
+          <td>enkel .NET Framework</td>
+          <td>ja</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code>System.Media.MediaPlayer</code></td>
+          <td>audio (meeste formaten)</td>
+          <td>nee</td>
+          <td>ja</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code>WMPLib.WindowsMediaPlayer</code></td>
+          <td>audio (meeste formaten)</td>
+          <td>ja</td>
+          <td>ja</td>
+          <td>referentie naar WMP library nodig</td>
+        </tr>
+        <tr>
+          <td><code>System.Windows.Controls.MediaElement</code></td>
+          <td>video (meeste formaten)</td>
+          <td>nee</td>
+          <td>ja</td>
+          <td>dit is een WPF control, dus makkelijk te integreren in WPF toepassingen</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>De meest flexibele oplossing is dus gebruik maken van een externe bibliotheek als WMPLib.</p>
+
+    <h3>Media toevoegen aan je project</h3>
+    <p>
+      Om media toe te voegen, volg deze stappen:
+    </p>
+    <ol>
+      <li>maak een map aan in je project voor de media bestanden via <strong>Add, New Folder...</strong></li>
+      <li><strong>drag drop</strong> de media bestanden in deze map uit verkenner</li>
+      <li>selecteer bij de properties voor elk media bestand bij <i>Build Action</i> <strong>Content</strong> en bij <i>Copy to Output Directory</i> <strong>Copy always</strong>:</li>
+    </ol>
+    <p>
+      <img src="img/02_dotnetclasses/wav-properties.png" alt="" class="w-200 bordered">
+    </p>
+
+    <h3>Code voorbeelden</h3>
+    <h4>Windows sound afspelen</h4>
+    <p>
+      Windows heeft een heel aantal ingebouwde geluidseffecten, die je vrij kan gebruiken in je .NET projecten.
+      De syntax is eenvoudig (zie ook <a href="https://www.wpf-tutorial.com/audio-video/playing-audio/">https://www.wpf-tutorial.com/audio-video/playing-audio/</a>):
+    </p>
+    <pre><code>...
+using System.Media;
+
+...
+// play the Asterisk Windows sound effet
+SystemSounds.Asterisk.Play();
+</code></pre>
+    <ul class="arrow">
+      <li>de bewuste sound moet effect effectief ingeschakeld zijn in Windows en er moet een geluid voor gekozen zijn; hoe je dat moet doen vind je op <a href="https://www.windowscentral.com/how-customize-sound-effects-windows-10">https://www.windowscentral.com/how-customize-sound-effects-windows-10</a></li>
+      <li>dit werkt enkel met WPF en .NET Framework Console apps, niet met .NET8 Console apps, zie <a href="#audio-en-video">overzicht</a></li>
+    </ul>
+    <h4>.wav file afspelen met SoundPlayer</h4>
+    <p>Behalve starten en stoppen van geluiden biedt <code>SoundPlayer</code> weinig functionaliteit; volume regelen of pauzeren b.v. kan niet. <br>Schematisch codefragment:</p>
+    <pre><code>...
+using System.Media;
+
+...
+string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sounds/test.wav");
+SoundPlayer player = new SoundPlayer(path);
+player.Load(); // wacht tot het geluid ingeladen is
+player.PlaySync(); // PlaySync(): wacht met uitvoeren van de rest van de code tot het geluid afgespeeld is
+                   // Play(): speel het geluid af en ga ondertussen verder met de rest van de code
+...
+player.Stop(); // stop het geluid voortijdig
+</code></pre>
+    <ul class="arrow">
+      <li>dit werkt enkel met WPF en .NET Framework Console apps, niet met .NET8 Console apps</li>
+    </ul>
+    <h4>Geluid afspelen met MediaPlayer</h4>
+    <p>
+      Dit is een prima klasse om geluiden af te spelen in WPF toepassingen, met veel functionaliteit als starten, pauzeren, stoppen, volume, balans, detecteren wanneer het geluid gestopt is enz... In Console toepassingen werkt het evenwel niet; daar gebruik je best de Windows Media Player library (zie volgend onderdeel).
+      Schematisch codefragment:
+    </p>
+    <pre><code>...
+using using System.Windows.Media;
+
+...
+MediaPlayer mediaPlayer = new MediaPlayer();
+mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
+mediaPlayer.Open(new Uri("Music/some-song.mp3", UriKind.Relative));
+mediaPlayer.Play();
+
+// callback method when media has finished playing
+private void MediaPlayer_MediaEnded(object? sender, EventArgs e)
+{
+   MessageBox.Show("song has finished");
+}</code></pre>
+    <p>Andere methodes en properties die je kan gebruiken:</p>
+    <pre><code>mediaPlayer.Pause(); // pauzeer
+mediaPlayer.Stop(); // stop
+mediaPlayer.Balance = -1; // enkel linkerspeaker
+mediaPlayer.Position = new TimeSpan(0, 0, 0, 30); // stel speelpositie in op 30s
+mediaPlayer.SpeedRatio = 1.5; // speel 50% sneller
+mediaPlayer.Volume = 0.5; // zet volume op 50%
+</code></pre>
+
+    <h4>Geluid afspelen met Windows Media Player library</h4>
+    <p>
+      Met de <strong>Windows Media Player</strong>-library kan je een brede waaier aan audioformaten afspelen in WPF én Console apps.
+      Het bevat functionaliteit om liedjes te starten, pauzeren, het volume te regelen, etc.
+    </p>
+    <p>
+      Eerst moet je een referentie naar de library toevoegen aan je project. Dit kan in de Solution Explorer met de rechtermuisknop, “Add Reference...”:
+    </p>
+    <p>
+      <img src="img/02_dotnetclasses/mp3-a.png" alt="" class="w-250 bordered">
+    </p>
+    <p>
+      Selecteer onder “COM” in de lijst “Windows Media Player”, en klik OK:
+    </p>
+    <p>
+      <img src="img/02_dotnetclasses/mp3-b.png" alt="" class="w-500 bordered">
+    </p>
+    <p>Codefragment (let op de <code>using WPMLib</code> bovenaan):</p>
+    <pre><code>...
+using WMPLib;
+
+...
+WMPLib.WindowsMediaPlayer wmPlayer = new WMPLib.WindowsMediaPlayer();
+wmPlayer.URL = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sounds/music.mp3");
+wmPlayer.controls.play();</code></pre>
+    <p>Andere methodes en properties die je kan gebruiken:</p>
+    <pre><code>wmPlayer.controls.pause(); // pauzeer
+wmPlayer.controls.stop(); // stop
+wmPlayer.settings.volume = 50; // zet volume op 50%
+wmPlayer.settings.mute = true; // muten
+</code></pre>
+    <ul class="arrow">
+      <li>hoewel deze library als wat verouderd gezien wordt, werkt het nog steeds in een brede waaier van toepassingen</li>
+    </ul>
+    <h4>Video afspelen met MediaElement WPF control</h4>
+    <p>zie <a href="03_wpfcontrols.html#mediaelement">MediaElement WPF control</a></p>
+
+    <!-- BITMAP -->
+    <h2>BitmapImage</h2>
+    <p>Een BitmapImage is een klasse die een in-memory afbeelding voorstelt. Je kunt het gebruiken om een afbeeldingsbestand in te laden en vervolgens weer te geven in een WPF Image-control (zie voorbeeld-code hieronder).</p>
+    <p>De klasse <code>BitmapImage</code> bevindt zich in de namespace <code>System.Windows.Media.Imaging</code>. Je dient deze namespace dus eerst te importeren (m.b.v. een <code>using</code>-statement), alvorens je deze klasse kunt gebruiken in je code:</p>
+    <pre><code>using System.Windows.Media.Imaging;
+
+//... rest van je code</code></pre>
+    <h3>Constructie</h3>
+    <pre><code>new BitmapImage(Uri resource);</code></pre>
+    <h3>Code voorbeeld</h3>
+    <h4>Afbeelding inladen en weergeven in WPF Image-control:</h4>
+    <pre><code>Uri bitmapSource = new Uri("img/02_dotnetclasses/photo1.jpg", UriKind.Relative); // bestand: img/02_dotnetclasses/photo1.jpg
+wpfImage.Source = new BitmapImage(bitmapSource);</code></pre>
+
+    <h2>Brushes</h2>
+    <p>Een klasse die een aantal <code>Brush</code>-properties bevat die standaardkleuren voorstellen (bv.: <code>Aqua</code>, <code>Blue</code>, <code>Green</code>, ...). Voor een volledig overzicht van alle beschikbare kleuren, zie de <a href="https://docs.microsoft.com/en-us/dotnet/api/system.drawing.brushes?view=dotnet-plat-ext-3.1#properties">documentatie</a>.</p>
+    <h3>Voorbeeld</h3>
+    <h4>Instellen van voor- en achtergrondkleur Label-control:</h4>
+    <pre><code>lblHello.Foreground = Brushes.DarkBlue; // donker blauwe tekstkleur
+lblHello.Background = Brushes.LightYellow; // licht gele achtergrondkleur</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/brushes_example1.png" alt="voorbeeld brushes" class="bordered w-100">
+      <figcaption>resultaat van instellen Foreground en Background</figcaption>
+    </figure>
+    <p>Opmerking: voor algemenere manieren om kleuren te definiëren zie de <a href="#color"><code>Color</code></a> klasse</p>
+
+    <!-- CLIPBOARD -->
+    <h2>Clipboard</h2>
+    <p>De klasse <code>Clipboard</code> geeft je toegang tot het klembord van Windows (wordt gebruik bij copy-paste van gegevens).</p>
+    <h3>Methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>SetText()</code></td>
+          <td>Plaatst de meegegeven tekst op het klembord van de gebruiker</td>
+        </tr>
+        <tr>
+          <td><code>GetText()</code></td>
+          <td>Vraagt de huidige (tekstuele) waarde van het klembord op</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Voorbeelden</h3>
+    <h4>Tekst op het klembord plaatsen</h4>
+    <pre><code>Clipboard.SetText("text to be copied");</code></pre>
+    <h4>Tekstuele inhoud van het klembord opvragen</h4>
+    <pre><code>string content = Clipboard.GetText();</code></pre>
+
+    <!-- COLLECTIES -->
+    <h2>Collectie classes</h2>
+    <p>Een collectie is een verzameling gegevens van hetzelfde type met één naam. <br><i>Opmerking</i>: er bestond vroeger ook een <code>ArrayList</code> waar je types mocht mixen, maar dat is slechte stijl en het wordt dan ook niet meer gebruikt. </p>
+    <p>Alle klassen (behalve <code>Array</code>) zitten in de <code>System.Collections.Generic</code> namespace. Om ze te kunnen gebruiken, moet je dus een <code>using</code> toevoegen: </p>
+    <pre><code>using System;
+using System.Collections.Generic;
+...</code></pre>
+    <h3>Overzicht</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Klasse</th>
+          <th scope="col">Beschrijving</th>
+          <th scope="col">Te vergelijken met</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Array</td>
+          <td>vaste lengte; wrapper class rond native C# arrays</td>
+          <td>vaste stoelen in een wachtzaal</td>
+        </tr>
+        <tr>
+          <td>Dictionary&lt;TKey, Tvalue&gt;</td>
+          <td>variabele lengte; key-value paren, met unieke keys</td>
+          <td>lockers met naambordjes</td>
+        </tr>
+        <tr>
+          <td>HashSet&lt;T&gt;</td>
+          <td>variabele lengte; lijst unieke waarden</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>List&lt;T&gt;</td>
+          <td>variabele lengte; toevoegen of verwijderen items kan overal</td>
+          <td>platenkast</td>
+        </tr>
+        <tr>
+          <td>Queue&lt;T&gt;</td>
+          <td>variabele lengte; FIFO (first in, first out): toevoegen aan einde, verwijderen aan begin</td>
+          <td>wachtrij aan de kassa</td>
+        </tr>
+        <tr>
+          <td>SortedDictionarytt&lt;TKey, Tvalue&gt;</td>
+          <td>variabele lengte; als Dictionary, maar dan automatisch gesorteerd op TKey</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Stack&lt;T&gt;</td>
+          <td>variabele lengte, LIFO (last in, first out): toevoegen en verwijderen aan einde</td>
+          <td>stapel pannenkoeken</td>
+        </tr>
+      </tbody>
+    </table>
+    <figure id="figCollections">
+      <div>
+        <img src="img/02_dotnetclasses/collecties_array.jpg" alt="">
+        <img src="img/02_dotnetclasses/collecties_dictionary.jpg" alt="">
+        <img src="img/02_dotnetclasses/collecties_list.jpg" alt="">
+        <img src="img/02_dotnetclasses/collecties_queue.jpg" alt="">
+        <img src="img/02_dotnetclasses/collecties_stack.jpg" alt="">
+      </div>
+      <figcaption>in volgorde: Array, Dictionary, List, Queue en Stack</figcaption>
+    </figure>
+
+    <!-- ARRAY -->
+    <h3>Array</h3>
+    <p>Dit is een uitbreiding of zgn. <i>wrapper class</i> rond <a href="01_csharpsyntax.html#arrays">C# arrays</a>; voor declaratie, initialisatie, wijzigen elementwaarde, overlopen elementen enz... zie <a href="01_csharpsyntax.html#arrays">01. C# syntax - arrays</a>.</p>
+    <h4>Properties en methodes</h4>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Length</code></td>
+          <td>het aantal beschikbare plaatsen in de array</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Clear()</code></td>
+          <td>reset alle elementen naar de defaultwaarde (0 voor ints, null voor strings enz...)</td>
+        </tr>
+        <tr>
+          <td><code>Contains()</code></td>
+          <td>controleert of de array een gegeven waarde bevat</td>
+        </tr>
+        <tr>
+          <td><code>IndexOf()</code></td>
+          <td>zoekt de positie (index) van een gegeven waarde; -1 indien niet gevonden</td>
+        </tr>
+        <tr>
+          <td><code>Array.Reverse()</code></td>
+          <td>keert de volgorde van de elementen om</td>
+        </tr>
+        <tr>
+          <td><code>Array.sort()</code></td>
+          <td>sorteert een gegeven array</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Code voorbeelden</h4>
+    <h5>nagaan of waarde voorkomt in een array</h5>
+    <p>Gebruik <code>Contains()</code> (returnwaarde <code>true</code> of <code>false</code>):</p>
+    <pre><code>string[] fruit = { "appel", "banaan", "citroen" };
+bool gevonden = fruit.Contains("citroen");
+if (gevonden)
+{
+   Console.WriteLine("De array bevat het woord \"citroen\"");
+}</code></pre>
+    <h5>positie van een waarde in een array</h5>
+    <p>Gebruik <code>IndexOf()</code> om de positie te vinden (-1 indien niet gevonden):</p>
+    <pre><code>string[] fruit = { "appel", "banaan", "citroen" };
+int pos = fruit.IndexOf("citroen");
+if (pos &gt; -1)
+{
+   Console.WriteLine($"Het woord \"citroen\" is gevonden op positie {pos}");
+}</code></pre>
+    <h5>array sorteren</h5>
+    <p>Gebruik <code>Array.Sort()</code> om een array <i>oplopend</i> te sorteren:</p>
+    <pre><code>int[] getallen = { 7, 3, 9, 2, 6 };
+Array.Sort(getallen); // sorteer getallen van klein naar groot
+
+foreach (int getal in getallen)
+{
+   Console.WriteLine(getal);
+}
+   </code></pre>
+    <figure class="console">
+      <pre>2
+3
+6
+7
+9</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <p>Gebruik in combinatie met <code>Array.Reverse()</code> om een array <i>aflopend</i> te sorteren:</p>
+    <pre><code>int[] getallen = { 7, 3, 9, 2, 6 };
+Array.Sort(getallen); // sorteer getallen van klein naar groot
+Array.Reverse(getallen); // keer volgorde om
+
+foreach (int getal in getallen)
+{
+   Console.WriteLine(getal);
+}
+   </code></pre>
+    <figure class="console">
+      <pre>2
+3
+6
+7
+9</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>string splitsen naar array</h5>
+    <p>
+      gebruik de <code>Split()</code> methode uit de <a href="#string-splitsen-naar-een-array">String klasse</a>
+    </p>
+    <h5>array samenvoegen tot een string</h5>
+    <p>
+      gebruik <code>string.Join()</code>, zie de <a href="#lijst-of-array-samenvoegen-tot-een-string-gescheiden-door-een-tekst">String klasse</a> verderop deze pagina.
+    </p>
+
+    <!-- LIST -->
+    <h3>List&lt;T&gt;</h3>
+    <p>Een <code>List</code> is een collectie van elementen van <strong>één bepaald type</strong> (<code>string</code>, <code>int</code>, <code>double</code>, ...), waarbij het aantal elementen onbepaald is.</p>
+    <h4>Declaratie en initialisatie</h4>
+    <p>Algemene syntax:</p>
+    <pre><code>List&lt;type&gt; naamLijst = new List&lt;type&gt;(); // type is het type van de elementen in de collectie (int, double, string, ...)
+</code></pre>
+    <p>Code voorbeelden:</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;(); // een lijst van int's
+List&lt;bool&gt; myList = new List&lt;bool&gt;(); // een lijst van bool's
+List&lt;string&gt; namen = new List&lt;string&gt;(); // een lijst van string's
+</code></pre>
+    <p>Je kan meteen een aantal beginwaarden meegeven:</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() { 5, 12, 7, 9, 3 };  // de lijst getallen bevat 5 elementen: 5, 12, 7, 9 en 3
+</code></pre>
+    <h4>Lijsten aanpassen</h4>
+    <h5>één element toevoegen</h5>
+    <p>Je kunt individuele elementen toevoegen met de <code>Add()</code>:</p>
+    <pre><code>List&lt;string&gt; fruit = new List&lt;string&gt;(); // declaratie (nieuwe lijst van string's)
+fruit.Add("appel"); // lijst bevat 1 element
+fruit.Add("banaan"); // lijst bevat 2 elementen
+fruit.Add("citroen"); // lijst bevat 3 elementen
+</code></pre>
+    <h5>lijsten samenvoegen</h5>
+    <p>Je kan de elementen van een tweede lijst toevoegen met <code>AddRange()</code>:</p>
+    <pre><code>List&lt;string&gt; fruit = new List&lt;string&gt;() { "appel", "banaan", "citroen" }; // eerste lijst
+List&lt;string&gt; nogmeerfruit = new List&lt;string&gt;() { "peer", "kiwi" }; // tweede lijst
+fruit.AddRange(nogmeerfruit); // fruit is nu "appel", "banaan", "citroen", "peer", "kiwi"
+</code></pre>
+    <h5>element wijzigen</h5>
+    <p>Elementen wijzigen doe je eenvoudig met een toewijzing (<code>=</code>). Code voorbeeld:</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() { 4, 8, 3 }; // lijst is 4, 8, 3
+getallen[1] = 5; // tweede element wijzigen naar 5, lijst is nu: 4, 5, 3
+</code></pre>
+    <h5>één element verwijderen</h5>
+    <p>Je kan een element verwijderen op basis van de waarde met <code>Remove()</code> (enkel de <i>eerst gevonden waarde</i> zal verwijderd worden):</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() {2, 5, 7, 5 }; // inhoud van de lijst: 2, 5, 7, 5
+getallen.Remove(5); // verwijder element met waarde 5 (enkel eerste); inhoud van de lijst: 2, 7, 5
+</code></pre>
+    <p>Je kan een element ook verwijderen op basis van de index met <code>RemoveAt()</code>:</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() {2, 5, 7, 5 }; // inhoud van de lijst: 2, 5, 7, 5
+getallen.RemoveAt(2); // verwijder het derde element; de lijst is nu 2, 5, 5
+</code></pre>
+    <h5>alle elementen verwijderen</h5>
+    <p>Met de methode <code>Clear()</code>, kan je alle elementen uit de lijst verwijderen:</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() {2, 5, 7, 5 }; // inhoud van de lijst: 2, 5, 7, 5
+getallen.Clear(); // de lijst is nu leeg</code></pre>
+    <h4>Lijsten gebruiken</h4>
+    <h5>elementwaarde opvragen</h5>
+    <p>Je kunt een element uit een lijst opvragen op basis van de index van het element, startend vanaf 0. Code voorbeeld:</p>
+    <pre><code>List&lt;string&gt; kleuren = new List&lt;string&gt;() { "rood", "groen", "blauw" };
+string eerste = kleuren[0]; // eerste element heeft index 0
+Console.WriteLine($"Het eerste element is: {eerste}");
+Console.WriteLine($"Het tweede element is: {kleuren[1]}");
+string laatste = kleuren[kleuren.Count - 1]; // manier om laatste element op te vragen
+Console.WriteLine($"Het laatste element is: {laatste}");</code></pre>
+    <figure class="console">
+      <pre>Het eerste element is: rood
+Het tweede element is: groen
+Het laatste element is: blauw</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>aantal elementen opvragen</h5>
+    <p>Met de property <code>Count</code> kan je het aantal elementen dat op dat moment in de List zit opvragen:</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() { 2, 5, 8 };
+Console.WriteLine(getallen.Count); // Count property</code></pre>
+    <figure class="console">
+      <pre>3</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>alle elementen overlopen met for-loop</h5>
+    <p>Indien je de index (positie) van het element in de lijst nodig hebt.</p>
+    <pre><code>List&lt;string&gt; namen = new List&lt;string&gt;() { "Zakaria", "Nelly", "Killian", "Chun" };
+
+for (int i = 0; i &lt; namen.Count; i++)
+{
+    string naam = namen[i];
+    Console.WriteLine($"{i + 1}. {naam}");
+}
+</code></pre>
+    <figure class="console">
+      <pre>1. Zakaria
+2. Nelly
+3. Killian
+4. Chun</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>alle elementen overlopen met foreach-loop</h5>
+    <p>Indien je de index (positie) van het element niet nodig hebt kan je <code>foreach</code> gebruiken:</p>
+    <pre><code>List&lt;string&gt; namen = new List&lt;string&gt;() { "Zakaria", "Nelly", "Killian", "Chun" };
+
+foreach (string naam in namen)
+{
+    Console.WriteLine(naam);
+}
+</code></pre>
+    <figure class="console">
+      <pre>Zakaria
+Nelly
+Killian
+Chun</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>nagaan of element voorkomt in lijst</h5>
+    <p>Met de methode <code>Contains()</code> kan je nagaan of een element voorkomt in een lijst. De methode stuurt <code>true</code> terug indien de meegegeven waarde zich in de lijst bevindt:</p>
+    <pre><code>List&lt;string&gt; fruit = new List&lt;string&gt;() { "appel", "banaan", "citroen" };
+
+bool gevonden = fruit.Contains("citroen"); // ga na of het woord "citroen" in de lijst voorkomt
+if (gevonden)
+{
+    Console.WriteLine("Het element komt wel in de lijst voor");
+}
+else
+{
+    Console.WriteLine("Het element komt niet in de lijst voor.");
+}
+</code></pre>
+    <figure class="console">
+      <pre>Het element komt in de lijst voor</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>lijst sorteren</h5>
+    <p>De methode <code>Sort()</code> sorteert de elementen in een lijst in <strong>oplopende volgorde</strong> (van klein naar groot, of voor tekst alfabetische van 'a' tot 'z'):</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() { 7, 3, 9, 5 };
+
+getallen.Sort(); // sorteer de elementen in de lijst (volgorde van elementen in lijst zélf verandert!)
+foreach (int getal in getallen)
+{
+    Console.WriteLine(getal);
+}
+</code></pre>
+    <figure class="console">
+      <pre>3
+5
+7
+9</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>elementen in een lijst samenvoegen tot één string</h5>
+    <p>Gebruik <code>string.Join()</code> om elementen van een list samen te voegen tot één string. Het eerste argument is de "lijm" tussen elementen:</p>
+    <pre><code>List&lt;int&gt; getallen = new List&lt;int&gt;() { 7, 3, 9, 5 };
+
+Console.WriteLine(string.Join(" - ", getallen));</code></pre>
+    <figure class="console">
+      <pre>7 - 3 - 9 - 5</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h4>Lijsten vs arrays</h4>
+    <p>Er zijn nogal wat syntactische verschillen. Een overzichtstabel:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Array</th>
+          <th scope="col">List</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>lengte</td>
+          <td>vast</td>
+          <td>flexibel</td>
+        </tr>
+        <tr>
+          <td>declaratie</td>
+          <td><code>int[] cijfers = new int[3];</code></td>
+          <td><code>List&lt;int&gt; cijfers = new List&lt;int&gt;();</code></td>
+        </tr>
+        <tr>
+          <td>initialisatie</td>
+          <td><code>int[] cijfers = { 4, 1, 11 };</code></td>
+          <td><code>List&lt;int&gt; cijfers = new List&lt;int&gt;() { 4, 1, 11 };</code></td>
+        </tr>
+        <tr>
+          <td>elementen toevoegen/verwijderen</td>
+          <td>niet mogelijk</td>
+          <td><code>Add()</code>, <code>Remove()</code>, <code>RemoveAt()</code>, <code>Clear()</code></td>
+        </tr>
+        <tr>
+          <td>elementen lezen/schrijven</td>
+          <td><code>cijfers[i]</code></td>
+          <td><code>cijfers[i]</code></td>
+        </tr>
+        <tr>
+          <td>aantal elementen</td>
+          <td><code>cijfers.Length</code></td>
+          <td><code>cijfers.Count</code></td>
+        </tr>
+        <tr>
+          <td>sorteren</td>
+          <td><code>Array.Sort(cijfers)</code></td>
+          <td><code>cijfers.Sort()</code></td>
+        </tr>
+        <tr>
+          <td>bevat waarde</td>
+          <td><code>cijfers.Contains(4)</code></td>
+          <td><code>cijfers.Contains(4)</code></td>
+        </tr>
+        <tr>
+          <td>string splitten naar...</td>
+          <td><code>string txt = &quot;aap noot mies&quot;;</code><br><code>string[] woorden = txt.Split(' ');</code></td>
+          <td>niet mogelijk</td>
+        </tr>
+        <tr>
+          <td>samenvoegen</td>
+          <td><code>string.Join(&quot;, &quot;, cijfers)</code></td>
+          <td><code>string.Join(&quot;, &quot;, cijfers)</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pro">
+      <!-- STACK -->
+      <h3>Stack&lt;T&gt;</h3>
+      <p>Een <code>Stack&lt;T&gt;</code> is als een <code>List&lt;T&gt;</code> maar dan zonder methodes <code>Add()</code> of <code>Remove()</code>, en in plaats daarvan <code>Push()</code> (plaats element op de stapel) en <code>Pop()</code> (pak een element van de stapel):</p>
+      <pre><code>Stack&lt;int&gt; stack = new Stack&lt;int&gt;(new int[] { 4, 8, 11 });
+int val1 = stack.Pop(); // 11
+int val2 = stack.Pop(); // 8
+stack.Push(23);
+int val3 = stack.Pop(); // 23
+int val4 = stack.Pop(); // 4
+int val5 = stack.Pop(); // FOUT! stack is leeg
+</code></pre>
+
+      <!-- QUEUE -->
+      <h3>Queue&lt;T&gt;</h3>
+      <p>Een <code>Queue&lt;T&gt;</code> is als een <code>List&lt;T&gt;</code> maar dan zonder methodes <code>Add()</code> of <code>Remove()</code>, en in plaats daarvan <code>Enqueue()</code> (plaats element achteraan de wachtrij) en <code>Dequeue()</code> (pak een element vooraan de wachtrij):</p>
+      <pre><code>Queue&lt;int&gt; queue = new Queue&lt;int&gt;(new int[] { 4, 8, 11 });
+int val1 = queue.Dequeue(); // 4
+int val2 = queue.Dequeue(); // 8
+queue.Enqueue(23);
+int val3 = queue.Dequeue(); // 11
+int val4 = queue.Dequeue(); // 23
+int val5 = queue.Dequeue(); // FOUT! queue is leeg
+</code></pre>
+
+      <!-- HASHSET -->
+      <h3>HashSet&lt;T&gt;</h3>
+      <p>Een <code>HashSet&lt;T&gt;</code> is hetzelfde als een <code>List&lt;T&gt;</code>, behalve dat de lijst uniek gehouden wordt:</p>
+      <pre><code>HashSet&lt;string&gt; set = new HashSet&lt;string&gt;(new string[] { "banaan", "appel" });
+set.Add("banaan");
+set.Add("citroen");
+set.Add("banaan");
+set.Add("banaan");
+set.Add("appel");
+set.Add("appel");
+set.Add("peer");
+Console.WriteLine(string.Join(", ", set));</code></pre>
+      <figure class="console">
+        <pre>banaan, appel, citroen, peer</pre>
+        <figcaption>voorbeeldfragment HashSet&lt;T&gt;</figcaption>
+      </figure>
+
+      <!-- DICTIONARY -->
+      <h3>Dictionary&lt;TKey,Tvalue&gt;</h3>
+      <p>De <code>Dictionary</code> wordt gebruikt voor key-value paren, waarbij de keys uniek moeten zijn. De methodes en properties lijken sterk op <code>List&lt;T&gt;</code>. Voorbeeldfragment met typische methodes en properties:</p>
+      <pre><code>Dictionary&lt;string, int&gt; dict1 = new Dictionary&lt;string, int&gt; { { "aap", 6 }, { "noot", 3 }, { "mies", -7 } };
+dict1["tuin"] = 11; // voeg een nieuw key-value paar toe
+dict1.Remove("mies"); // verwijder een key-value paar
+dict1["noot"] = 4; // verander de waarde van ene key-value paar
+Console.WriteLine($"Dictionary 1 bevat key \"noot\": {(dict1.Keys.Contains("noot") ? "ja" : "nee")}"); // controleer of key bestaat
+Console.WriteLine($"Dictionary 1 bevat waarde 3: {(dict1.Values.Contains(3) ? "ja" : "nee")}"); // controleer of value bestaat
+foreach (KeyValuePair&lt;string, int&gt; item in dict1)
+{
+    Console.WriteLine($"Key: {item.Key}, Value: {item.Value}");
+}
+</code></pre>
+      <figure class="console">
+        <pre>Dictionary 1 bevat key "noot": ja
+Dictionary 1 bevat waarde 3: ja
+Key: aap, Value: 6
+Key: noot, Value: 4
+Key: tuin, Value: 11</pre>
+        <figcaption>voorbeeldfragment Dictionary&lt;string,int&gt;</figcaption>
+      </figure>
+      <h3>LINQ extensie methodes</h3>
+      <p>Linq biedt een aantal <a href="01_csharpsyntax.html#extensie-methodes">extensie methodes</a> met de <a href="01_csharpsyntax.html#lambda-expressies">lambda expressie syntax</a> voor collecties. Een greep uit het aanbod:</p>
+      <table class="light">
+        <thead>
+          <tr>
+            <th scope="col">Methode</th>
+            <th scope="col">Omschrijving</th>
+            <th scope="col">Returntype</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>All()</code></td>
+            <td>controleer of alle items aan een voorwaarde voldoen</td>
+            <td><code>bool</code></td>
+          </tr>
+          <tr>
+            <td><code>Any()</code></td>
+            <td>controleer of minstens één item aan een voorwaarde voldoet</td>
+            <td><code>bool</code></td>
+          </tr>
+          <tr>
+            <td><code>Average()</code></td>
+            <td>bepaal het gemiddelde van de items</td>
+            <td><code>double</code></td>
+          </tr>
+          <tr>
+            <td><code>Count()</code></td>
+            <td>tel het aantal items</td>
+            <td><code>int</code></td>
+          </tr>
+          <tr>
+            <td><code>Distinct()</code></td>
+            <td>verwijder alle dubbels</td>
+            <td><code>IEnumerable</code></td>
+          </tr>
+          <tr>
+            <td><code>First()</code></td>
+            <td>geef het eerste item; fout indien niet gevonden</td>
+            <td><code>object</code></td>
+          </tr>
+          <tr>
+            <td><code>FirstOrDefault()</code></td>
+            <td>geef het eerste item; standaardwaarde (<code>null</code>/0/...) indien niet gevonden</td>
+            <td><code>object</code></td>
+          </tr>
+          <tr>
+            <td><code>Last()</code></td>
+            <td>geef het laatste item; fout indien niet gevonden</td>
+            <td><code>object</code></td>
+          </tr>
+          <tr>
+            <td><code>LastOrDefault()</code></td>
+            <td>geef het laatste item; standaardwaarde (<code>null</code>/0/...) indien niet gevonden</td>
+            <td><code>object</code></td>
+          </tr>
+          <tr>
+            <td><code>OrderBy()</code></td>
+            <td>sorteer items op basis van een item waarde</td>
+            <td><code>IEnumerable</code></td>
+          </tr>
+          <tr>
+            <td><code>Select()</code></td>
+            <td>selecteer van elk item een waarde</td>
+            <td><code>IEnumerable</code></td>
+          </tr>
+          <tr>
+            <td><code>Sum()</code></td>
+            <td>bepaal de som van de items</td>
+            <td><code>int/double</code></td>
+          </tr>
+          <tr>
+            <td><code>Take()</code></td>
+            <td>neem de eerste n items</td>
+            <td><code>IEnumerable</code></td>
+          </tr>
+          <tr>
+            <td><code>Where()</code></td>
+            <td>filter items op basis van een voorwaarde</td>
+            <td><code>IEnumerable</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Voorbeelden met arrays:</p>
+      <pre><code>string[] fruits = { "apple", "pear", "grape", "banana", "banana", "jackfruit", "banana" };
+string[] fruitsLength5 = fruits.Where(f =&gt; f.Length == 5).ToArray(); // { "apple", "grape" }
+int[] fruitLengths = fruits.Select(f =&gt; f.Length).ToArray(); // { 5, 4, 5, 6, 9 }
+bool containsBanana = fruits.Any(f =&gt; f == "banana"); // true
+int numBananas = fruits.Count(f =&gt; f == "banana"); // 3
+string firstLength7 = fruits.FirstOrDefault(f =&gt; f.Length == 7); // null
+string[] fruitsUnique = fruits.Distinct().ToArray(); // { "apple", "pear", "grape", "banana", "jackfruit" }
+string[] fruitsFirst3 = fruits.Take(3).ToArray(); // { "apple", "pear", "grape" }
+string[] fruitsByLength = fruits.Distinct().OrderBy(f =&gt; f.Length).ToArray(); // { "pear", "apple", "grape", "banana", "jackfruit" }
+
+int[] numbers = { 3, 8, 1, 5, 10 };
+double avg = numbers.Average(); // 5.4
+int sum = numbers.Sum(); // 27
+int lowest = numbers.Min() // 1
+int first = numbers.First() // 3
+int last = numbers.Last() // 10
+</code></pre>
+      <ul class="arrow">
+        <li>dit werkt even goed met <code>List&lt;&gt;</code>; gebruik dan waar nodig <code>ToList()</code> in plaats van <code>ToArray()</code> om een <code>IEnumerable</code> om te zetten</li>
+      </ul>
+
+    </div>
+
+    <!-- COLOR -->
+    <h2>Color</h2>
+    <p>Deze klasse wordt gebruikt voor het werken met (RGB-)kleuren.</p>
+    <h3>Methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>FromRgb()</code></td>
+          <td>Construeert een <code>Color</code>-object, op basis van de R-, G- en B-componenten van de kleur</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Voorbeeld</h3>
+    <h4>Instellen van voor- en achtergrondkleur Button</h4>
+    <pre><code>Color tekstkleur = Color.FromRgb(227, 227, 227);
+btnKlikHier.Foreground = new SolidColorBrush(tekstkleur);
+
+Color achtergrondkleur = Color.FromRgb(11, 212, 21);
+btnKlikHier.Background = new SolidColorBrush(achtergrondkleur);</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/color_example1.png" alt="color button" class="w-150">
+      <figcaption>button met tekst- en achtergrondkleur</figcaption>
+    </figure>
+
+    <!-- CONSOLE -->
+    <h2>Console</h2>
+    <p>Met de klasse <code>Console</code> is het mogelijk om tekst naar de console te schrijven en invoer van de gebruiker uit de console uit te lezen (basis I/O).</p>
+    <h3>Properties en methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>BackgroundColor</code></td>
+          <td>De achtergrondkleur die achter de tekst in de console wordt weergegeven</td>
+        </tr>
+        <tr>
+          <td><code>ForegroundColor</code></td>
+          <td>De tekstkleur voor het weergeven van tekst in de console</td>
+        </tr>
+        <tr>
+          <td><code>OutputEncoding</code></td>
+          <td>Het karakterset gebruikt in de console</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Clear()</code></td>
+          <td>Wist de inhoud van het console-venster</td>
+        </tr>
+        <tr>
+          <td><code>Read()</code></td>
+          <td>Lees één karakter uit, uit de console</td>
+        </tr>
+        <tr>
+          <td><code>ReadKey()</code></td>
+          <td>Leest één karakter uit, uit de console. Biedt de mogelijkheid om de ingetypte toets niet weer te geven</td>
+        </tr>
+        <tr>
+          <td><code>ReadLine()</code></td>
+          <td>Leest een volledige regel uit, uit de console</td>
+        </tr>
+        <tr>
+          <td><code>ResetColor()</code></td>
+          <td>Herstelt de voor- en achtergrondkleur naar de oorspronkelijke kleuren</td>
+        </tr>
+        <tr>
+          <td><code>Write()</code></td>
+          <td>Schrijft de waarde naar de console</td>
+        </tr>
+        <tr>
+          <td><code>WriteLine()</code></td>
+          <td>Schrijft de waarde naar de console en eindigt de regel met een newline-karakter</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Waarde schrijven</h3>
+    <h4>Tekst schrijven op één regel</h4>
+    <pre><code>Console.Write("a");
+Console.Write("b");
+Console.Write("c");</code></pre>
+    <figure class="console">
+      <pre>
+abc</pre>
+      <figcaption>Write(): schrijf en blijf op dezelfde regel</figcaption>
+    </figure>
+    <h4>Tekst schrijven over meerdere regels</h4>
+    <pre><code>Console.WriteLine("a");
+Console.WriteLine("b");
+Console.WriteLine("c");</code></pre>
+    <figure class="console">
+      <pre>
+a
+b
+c</pre>
+      <figcaption>WriteLine(): schrijf en ga naar de volgende regel</figcaption>
+    </figure>
+    <h3>Waarde inlezen</h3>
+    <h4>Tekst inlezen en weergeven in de console</h4>
+    <pre><code>Console.Write("Voer je naam in: "); // vraag om de naam van de gebruiker (blijf op zelfde lijn)
+string naam = Console.ReadLine();   // lees de naam in en sla deze op in een variabele
+
+Console.WriteLine($"Hallo, {naam}"); // schrijf een boodschap naar de console</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/console-lezen.gif" alt="regel inlezen en weergeven" class="w-250">
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h4>Getal inlezen</h4>
+    <p>Console.ReadLine() geeft altijd een tekst terug; als je een getal wil, moet je het converteren met <code>Convert.ToInt32()</code> (gehele getallen) of <code>Convert.ToDouble()</code> (kommagetallen):</p>
+    <pre><code>Console.Write("Geef een aantal in: ");
+int aantal = Convert.ToInt32(Console.ReadLine());   // zet de tekst om naar een geheel getal met Convert.ToInt32()
+Console.Write("Geef een prijs in: ");
+double prijs = Convert.ToDouble(Console.ReadLine());   // zet de tekst om naar een kommagetal met Convert.ToInt32()</code></pre>
+    <h4>Karakter inlezen met weergave</h4>
+    <pre><code>Console.Write("Wil je verder gaan? [j/n]: ");
+char keuze = Console.ReadKey().KeyChar;
+Console.WriteLine($"\nJe koos: {keuze}");</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/console-readkey1.gif" alt="" class="w-250">
+      <figcaption>resultaat in de console: het ingetikte karakter wordt weergegeven</figcaption>
+    </figure>
+    <h4>Karakter inlezen zonder weergave</h4>
+    <pre><code>Console.Write("Wil je verder gaan? [j/n]: ");
+char keuze = Console.ReadKey(true).KeyChar; // true &rarr; karakter wordt niet weergegeven in console
+Console.WriteLine($"\nJe koos: {keuze}");</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/console-readkey2.gif" alt="" class="w-250">
+      <figcaption>resultaat in de console het ingetikte karakter wordt niet weergegeven</figcaption>
+    </figure>
+    <p>Soms wordt dit ook gebruikt om met het vervolg van het programma te wachten tot de gebruiker een toets indrukt:</p>
+    <pre><code>Console.WriteLine("druk een toets om verder te gaan...");
+Console.ReadKey(true); </code></pre>
+    <h3>Console kleuren</h3>
+    <p>Met de properties <code>ForegroundColor</code> en <code>BackgroundColor</code> kan je de tekstkleur, respectievelijk de achtergrondkleur van de uitvoer in de console instellen.</p>
+    <pre><code>Console.ForegroundColor = ConsoleColor.Red; // rode tekstkleur
+Console.BackgroundColor = ConsoleColor.White; // witte achtergrond
+
+Console.WriteLine("Hello, World!");</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/console-kleuren.png" alt="uitvoer console kleuren" class="w-250">
+      <figcaption>resultaat console kleuren</figcaption>
+    </figure>
+    <p>Om opnieuw de oorspronkelijke tekst- en achtergrondkleur in te stellen, maak je gebruik van de methode <code>ResetColor()</code>:</p>
+    <pre><code>Console.ResetColor();</code></pre>
+    <h3>Console wissen</h3>
+    <p>Om het console-venster leeg te maken, maak je gebruik van de <code>Clear()</code>-methode:</p>
+    <pre><code>Console.Clear(); // wis de inhoud van het console-venster</code></pre>
+    <h3>Console karaktersets</h3>
+    <p>Standaard kan je in de console alleen de eerste 127 ASCII karakters gebruiken (zie b.v. <a href="https://www.asciitable.com/">asciitable.com</a> ). Andere karakters worden fout weergegeven:</p>
+    <pre><code>Console.WriteLine("A 1 +"); // gewone ASCII karakters worden correct weergegeven
+Console.WriteLine("∑ → ◈"); // andere karakters worden fout weergegeven</code></pre>
+    <figure class="console">
+      <pre>
+A 1 +
+S ⸮ ?</pre>
+      <figcaption>speciale karakters worden fout weergegeven</figcaption>
+    </figure>
+    <p>Om speciale karakters correct weer te geven, moet je <code>Console.OutputEncoding</code> instellen:</p>
+    <pre><code>Console.OutputEncoding = Encoding.UTF8; // stel utf-8 karakterset in
+Console.WriteLine("A 1 +");
+Console.WriteLine("∑ → ◈"); // andere karakters worden nu ook correct weergegeven</code></pre>
+    <figure class="console">
+      <pre>
+A 1 +
+∑ → ◈</pre>
+      <figcaption>speciale karakters worden nu correct weergegeven</figcaption>
+    </figure>
+    <p>Merk op: zelfs dan kunnen karakters soms verkeerd of anders weergegeven worden, afhankelijk van de beschikbare lettertypes, en zeker bij emoji's. </p>
+    <pre><code>Console.OutputEncoding = Encoding.UTF8;
+Console.WriteLine("✂ ✍ ✈ ☀");</code></pre>
+    <figure class="console">
+      <img src="img/02_dotnetclasses/console-emojis.png" alt="" class="w-350">
+      <figcaption>emoji's worden soms anders of verkeerd weergegeven</figcaption>
+    </figure>
+
+    <!-- CONVERT -->
+    <h2>Convert</h2>
+    <p>De klasse <code>Convert</code> wordt gebruikt om waarden van verschillende types om te zetten naar een ander data-type (bv.: van <code>string</code> naar <code>int</code>).</p>
+    <h3>Methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ToChar()</code></td>
+          <td>Zet een waarde om naar een waarde van het type <code>char</code></td>
+        </tr>
+        <tr>
+          <td><code>ToDouble()</code></td>
+          <td>Zet een waarde om naar een waarde van het type <code>double</code></td>
+        </tr>
+        <tr>
+          <td><code>ToInt32()</code></td>
+          <td>Zet een waarde om naar een waarde van het type <code>int</code> (32 bits)</td>
+        </tr>
+        <tr>
+          <td><code>ToString()</code></td>
+          <td>Zet een waarde om naar een <code>string</code></td>
+        </tr>
+        <tr>
+          <td><code>ToBoolean()</code></td>
+          <td>Zet een waarde om naar een waarde van het type <code>bool</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Code voorbeelden</h3>
+    <h4>ToChar</h4>
+    <pre><code>char letter = Convert.ToChar("a"); // string naar char
+char letter2 = Convert.ToChar(65); // int naar char (ASCII-waarde &rarr; 'A')</code></pre>
+    <h4>ToDouble</h4>
+    <pre><code>double kommagetal = Convert.ToDouble("3.14"); // string naar double</code></pre>
+    <h4>ToInt32</h4>
+    <pre><code>int a = Convert.ToInt32("15"); // string naar int
+int b = Convert.ToInt32(3.14); // double naar int &rarr; afronding (b = 3)
+int c = Convert.ToInt32(3.91); // double naar int &rarr; afronding (c = 4)</code></pre>
+    <p>Opmerking: wanneer je een kommagetal (double) omzet naar een geheel getal (int), wordt het getal wiskundig afgerond (d.w.z. &lt; 0.5 naar beneden, &gt;= 0.5 naar boven)</p>
+    <h4>ToString</h4>
+    <pre><code>string str1 = Convert.ToString('a');        // char &rarr; string "a"
+string str2 = Convert.ToString(32);         // int &rarr; string "32"
+string str3 = Convert.ToString(3.1415);     // double &rarr; string "3.1415"</code></pre>
+
+    <!-- ENVIRONMENT-->
+    <h2>Environment</h2>
+    <p>De klasse <code>Environment</code> biedt een aantal properties en methodes aan om informatie te verkrijgen over de omgeving waarin de applicatie wordt uitgevoerd (locale, besturingssysteem, ...).</p>
+    <h3>Properties en methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>NewLine</code></td>
+          <td>Newline-karakter voor het besturingssysteem waarop de applicatie wordt uitgevoerd</td>
+        </tr>
+        <tr>
+          <td><code>SpecialFolder.Desktop</code></td>
+          <td>Pad naar de desktop op de huidige computer</td>
+        </tr>
+        <tr>
+          <td><code>SpecialFolder.MyDocuments</code></td>
+          <td>Pad naar de documentenmap op de huidige computer</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Exit</code></td>
+          <td>Wordt gebruikt om de applicatie (voortijdig) af te sluiten</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Code voorbeelden</h3>
+    <h4>Platform-onafhankelijke NewLine (Windows/Linux/Mac OSX/...)</h4>
+    <pre><code>Console.Write($"Regel 1{Environment.NewLine}Regel 2");</code></pre>
+    <figure class="console">
+      <pre>Regel 1
+Regel 2</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h4>Pad naar Desktop opvragen</h4>
+    <pre><code>string pathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+Console.log($"Pad naar mijn desktop: {pathToDesktop}");</code></pre>
+    <figure class="console">
+      <pre>Pad naar mijn desktop: C:\Users\rogie\Desktop</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h4>Programma afsluiten</h4>
+    <pre><code>Environment.Exit(0);</code></pre>
+    <p>Opmerking: het argument (0) wordt een <em>exit-code</em> genoemd. Een exit-code van 0 geeft aan dat het programma succesvol (zonder errors) beëindigd is. Een exit-code verschillend van 0, wordt gebruikt om aan te geven dat er tijdens de uitvoer van het programma iets foutgelopen is. De waarde duidt dan het type fout aan (zelfgekozen).</p>
+
+    <div class="pro">
+      <!-- LINQ -->
+      <h2>LINQ</h2>
+      <p>De .NET namespace <code>System.Linq</code> biedt een uitbreiding van C# waarmee je met SQL-achtige queries allerlei databronnen kan bevragen. Een voorbeeld voor een array:</p>
+      <pre><code>int[] scores = new int[] { 97, 54, 92, 81, 60 };
+
+// Define the query expression.
+int[] scoresAbove80 =
+    (from score in scores
+    where score &gt; 80
+    select score).ToArray();
+
+// Execute the query.
+Console.Write(string.Join(", ", scoresAbove80));
+</code></pre>
+      <figure class="console">
+        <pre>97, 92, 81</pre>
+        <figcaption>resultaat in de console</figcaption>
+      </figure>
+      <h3>LINQ extensie methodes voor collecties</h3>
+      <p>Linq biedt ook een aantal <a href="02_dotnetclasses.html#linq-extensie-methodes">extensie methodes voor collecties</a></p>
+    </div>
+
+    <!-- MATH -->
+    <h2>Math</h2>
+    <p>De klasse <code>Math</code> bevat tal van wiskundige methodes en properties.</p>
+    <h3>Properties en methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>PI</code></td>
+          <td>Benadering van het getal <em>pi</em></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Beschrijving</th>
+          <th scope="col">Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Ceiling()</code></td>
+          <td>getal naar boven afronden</td>
+          <td><code>Math.Ceiling(3.14); // resultaat: 4.0</code></td>
+        </tr>
+        <tr>
+          <td><code>Floor()</code></td>
+          <td>getal naar beneden afronden</td>
+          <td><code>Math.Floor(3.14); // resultaat: 3.0</code></td>
+        </tr>
+        <tr>
+          <td><code>Pow()</code></td>
+          <td>machtsverheffing</td>
+          <td><code>Math.Pow(5, 2); // resultaat: 5² = 25</code></td>
+        </tr>
+        <tr>
+          <td><code>Round()</code></td>
+          <td>getal afronden tot aantal decimalen</td>
+          <td><code>Math.Round(3.1415, 2); // resultaat: 3.14</code></td>
+        </tr>
+        <tr>
+          <td><code>Sqrt()</code></td>
+          <td>vierkantswortel (square root)</td>
+          <td><code>Math.Sqrt(25); // resultaat: 5.0</code></td>
+        </tr>
+        <tr>
+          <td><code>Max()</code></td>
+          <td>grootste van twee getallen</td>
+          <td><code>Math.Max(10, 20); // resultaat: 20.0</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Voorbeelden</h3>
+    <h4>Berekening oppervlakte cirkel (m.b.v. PI)</h4>
+    <pre><code>int straal = 5;
+double oppervlakte = straal * straal * Math.PI;
+
+Console.WriteLine($"De oppervlakte bedraagt: {oppervlakte}");</code></pre>
+    <figure class="console">
+      <pre>De oppervlakte bedraagt: 78,5398163397448</pre>
+      <figcaption>gebruik van de PI constante</figcaption>
+    </figure>
+    <h4>Wiskundige methodes</h4>
+    <pre><code>double a = Math.Ceiling(3.14); // resultaat: 4.0
+double b = Math.Floor(3.14);   // resultaat: 3.0
+double c = Math.Pow(5, 2);     // resultaat: 5² = 25
+double d = Math.Round(3.1415, 2); // resultaat: 3.14 (afgerond tot op 2 cijfers na de komma)
+double e = Math.Sqrt(16); // resultaat: vierkantswortel 16 = 4
+int grootste = Math.Max(25, 12); // resultaat: grootste &rarr; 25
+int kleinste = Math.Min(30, 15); // resultaat: kleinste &rarr; 15
+
+Console.WriteLine($"a: {a}");
+Console.WriteLine($"b: {b}");
+Console.WriteLine($"c: {c}");
+Console.WriteLine($"d: {d}");
+Console.WriteLine($"e: {e}");
+Console.WriteLine($"grootste: {grootste}");
+Console.WriteLine($"kleinste: {kleinste}");</code></pre>
+    <figure class="console">
+      <pre>a: 4
+b: 3
+c: 25
+d: 3,14
+e: 4
+grootste: 25
+kleinste: 15</pre>
+      <figcaption>twee random getallen tussen 1 en 20</figcaption>
+    </figure>
+
+    <!-- MESSAGEBOX -->
+    <h2>MessageBox</h2>
+    <p>Een MessageBox is een dialoogvenster dat een boodschap voor de gebruiker bevat (bv.: een foutmelding, een bevestiging van een actie, ...).</p>
+    <h3>Methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Show()</code></td>
+          <td>Toon het dialoogvenster op het scherm</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Code voorbeelden</h3>
+    <h4>Eenvoudig dialoogvenster</h4>
+    <pre><code>MessageBox.Show("Hello, World!");</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/messagebox_simple.png" alt="" class="w-150">
+      <figcaption>MessageBox met enkel boodschap</figcaption>
+    </figure>
+    <h4>Dialoogvenster met icoon</h4>
+    <pre><code>MessageBoxResult result = MessageBox.Show("Het bestand is opgeslagen", "", MessageBoxButton.OK, MessageBoxImage.Information);</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/messagebox_icon.png" alt="" class="w-200">
+      <figcaption>MessageBox met boodschap en icoon</figcaption>
+    </figure>
+    <h4>OK/Cancel ialoogvenster</h4>
+    <pre><code>MessageBoxResult result = MessageBox.Show(
+   "Je wijzigingen gaan mogelijks verloren. Ben je zeker dat je wil afsluiten?",
+   "WAARSCHUWING",
+   MessageBoxButton.OKCancel,
+   MessageBoxImage.Exclamation
+);
+if (result == MessageBoxResult.OK)
+{
+    Environment.Exit(0);
+}
+</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/messagebox_okcancel.png" alt="" class="w-300">
+      <figcaption>MessageBox met boodschap, titel, icoon en ok/cancel knoppen</figcaption>
+    </figure>
+
+    <!-- RANDOM -->
+    <h2>Random</h2>
+    <p>Met de klasse <code>Random</code> kan je een willekeurige waarde (getal) genereren.</p>
+    <h3>Constructie</h3>
+    <pre><code>Random rnd = new Random();</code></pre>
+    <h3>Methodes</h3>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Next()</code></td>
+          <td>Genereert een willekeurig getal tussen de meegegeven boven- en ondergrens</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Code voorbeeld</h3>
+    <h4>Willekeurig getal van 1 tot en met 20</h4>
+    <pre><code>Random rnd = new Random();
+int getal1 = rnd.Next(1, 21); // de bovengrens (21) is exclusief!!!
+int getal2 = rnd.Next(1, 21); // de bovengrens (21) is exclusief!!!
+
+Console.WriteLine($"Random getal 1: {getal1}");
+Console.WriteLine($"Random getal 2: {getal2}");</code></pre>
+    <figure class="console">
+      <pre>Random getal 1: 15
+Random getal 2: 6</pre>
+      <figcaption>twee random getallen tussen 1 en 20</figcaption>
+    </figure>
+
+    <p>Opmerking: de bovengrens is <strong>exclusief</strong>. Dat betekent dat het gegenereerde getal steeds strikt kleiner zal zijn dan de opgegeven bovengrens. Wil je bv. een willekeurig getal berekenen van 1 t.e.m. 5, gebruik je de parameters <code>Next(1, 6)</code>.</p>
+
+    <!-- STRING -->
+    <h2>String</h2>
+    <p>De <code>String</code> klasse is een zogenaamde <em>wrapper class</em>, of uitbreiding van het <code>string</code> type. Beiden zijn uitwisselbaar; deze fragmenten zijn dus gelijkwaardig:</p>
+    <pre><code>// de "string" notatie krijgt de voorkeur
+string[] arr1 = new string[] { "blauw", "rood", "groen" };
+string samengevoegd = string.Join(", ", arr1);
+
+// de "String" notatie is technisch gelijkwaardig
+String[] arr1 = new String[] { "blauw", "rood", "groen" };
+String samengevoegd = String.Join(", ", arr1);</code></pre>
+    <p class="small">&rarr; de eerste notatie is gebruikelijker; kwestie van gewoonte</p>
+    <h3>Properties en methodes</h3>
+    <table class="light top">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Length</code></td>
+          <td>aantal karakters</td>
+        </tr>
+        <tr>
+          <td><code>Empty</code></td>
+          <td>lege string constante</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light top">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>CompareTo()</code></td>
+          <td>twee strings alfabetisch vergelijken</td>
+        </tr>
+        <tr>
+          <td><code>Contains()</code></td>
+          <td>controleert of de string een gegeven <code>string</code> of <code>char</code> bevat</td>
+        </tr>
+        <tr>
+          <td><code>IsNullOrEmpty()</code></td>
+          <td>gaat na of de string gelijk is aan <code>null</code> of de lege string (<code>&quot;&quot;</code>)</td>
+        </tr>
+        <tr>
+          <td><code>Join()</code></td>
+          <td>voegt een reeks waarden samen tot één string met daartussen een separator</td>
+        </tr>
+        <tr>
+          <td><code>IndexOf(), LastIndexOf()</code></td>
+          <td>eerste/laatste positie zoeken van een karakter of tekst in de string (-1 indien niet gevonden)</td>
+        </tr>
+        <tr>
+          <td><code>Replace()</code></td>
+          <td>voegt een reeks waarden samen tot één string met daartussen een separator</td>
+        </tr>
+        <tr>
+          <td><code>Split()</code></td>
+          <td>een string rond een bepaald karakter opsplitsen in een reeks waarden</td>
+        </tr>
+        <tr>
+          <td><code>StartsWith(), EndsWith()</code></td>
+          <td>controleert of de string met een bepaalde tekst begint of eindigt</td>
+        </tr>
+        <tr>
+          <td><code>Substring()</code></td>
+          <td>deel van een string nemen</td>
+        </tr>
+        <tr>
+          <td><code>ToLower(), ToUpper()</code></td>
+          <td>omzetten naar kleine letters / hoofdletters</td>
+        </tr>
+        <tr>
+          <td><code>Trim()</code></td>
+          <td>karakters wegnemen (<em>trimmen</em>) aan het begin en het einde</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>String's vergelijken</h3>
+    <p>Je kunt string's op twee verschillende maniere vergelijken:</p>
+    <ul>
+      <li>met behulp van de <code>==</code>-operator (<code>true</code> indien beide string's dezelfde zijn, anders <code>false</code>)</li>
+      <li>met de methode <code>CompareTo</code>, return-waarden:
+        <ul>
+          <li>&minus;1 indien de string kleiner is dat de gegeven string</li>
+          <li>0 indien beide string's gelijk zijn aan elkaar</li>
+          <li>1 indien de string groter is dan de gegeven string</li>
+        </ul>
+      </li>
+    </ul>
+    <pre><code>string str1 = "banaan";
+string str2 = "banaan";
+string str3 = "citroen";
+string str4 = "appel";
+
+bool test1 = str1 == str2; // true; "banaan" is gelijk aan "banaan"
+int test2 = str1.CompareTo(str2); // 0; "banaan" is gelijk aan "banaan"
+int test3 = str1.CompareTo(str3); // &minus;1; "banaan" komt alfabetisch vóór "citroen"
+int test4 = str1.CompareTo(str4); // 1; "banaan" komt alfabetisch ná "appel"
+</code></pre>
+    <h3>Code voorbeelden</h3>
+    <h4>Lengte bepalen</h4>
+    <p>De lengte bepaal je met de <code>Length property</code></p>
+    <pre><code>string str1 = "Now have that tasty morning burger.";
+int len = str1.Length; // 35, dus inclusief spaties, leestekens enz...</code></pre>
+    <h4>Trimmen</h4>
+    <p>Trimmen betekent karakters links en/of rechts wegsnijden:</p>
+    <pre><code>// karakters trimmen aan het begin en einde
+string str1 = "  ,Guitar, drum, Bass,. ";
+str1 = str1.Trim(); // ",Guitar, drum, Bass,."
+str1 = str1.Trim(new char[] { ',', '.' }); // "Guitar, drum, Bass"</code></pre>
+    <h4>Controle op deelstrings</h4>
+    <pre><code>string str2 = "Now have that tasty morning burger.";
+int int1 = str1.IndexOf("at"); // 11
+int int2 = str1.IndexOf('z'); // -1; not found
+int int3 = str1.LastIndexOf('e'); // 32
+bool bool1 = str1.StartsWith("No"); // true
+bool bool2 = str1.Contains("that"); // true
+bool bool3 = str1.Contains('X'); // false</code></pre>
+    <h4>Tekst vervangen, omzetten, inkorten</h4>
+    <pre><code>string str1 = "Hey hey hey, please DO NOT touch that!";
+string str2 = str1.Substring(0, 21); // "Hey hey hey, please DO"
+string str3 = str1.ToLower(); // "hey hey hey, please do not touch that!"
+string str4 = str1.ToUpper(); // "HEY HEY HEY, PLEASE DO NOT TOUCH THAT!"
+string str4 = str1.Replace("hey", "yo"); // "Hey yo yo, please DO NOT touch that!!" &rarr; hoofdlettergevoelig, vervangt alle
+</code></pre>
+
+    <h4>Nagaan of een string leeg is</h4>
+    <p>Gebruik <code>string.IsNullOrEmpty()</code>:</p>
+    <pre><code>string str1 = "test";
+bool bool1 = string.IsNullOrEmpty(str1); // False
+
+string str2 = null;
+bool bool2 = string.IsNullOrEmpty(str2); // True
+
+string str3 = "";
+bool bool3 = string.IsNullOrEmpty(str3); // True
+
+string str4 = " ";
+bool bool4 = string.IsNullOrEmpty(str4); // False - een spatie is geen lege string!</code></pre>
+    <p>Je kan dit gebruiken om na te gaan of de gebruiker een TextBox heeft ingevuld</p>
+    <pre><code>if (string.IsNullOrEmpty(txtNaam))
+{
+   lblFoutboodschap.Content = "Dit veld is verplicht";
+}
+else
+{
+   lblFoutboodschap.Content = "";
+}</code></pre>
+    <p>of korter met de ternaire operator:</p>
+    <pre><code>lblFoutboodschap.Content = string.IsNullOrEmpty(txtNaam) ? "Dit veld is verplicht" : "";</code></pre>
+    <h4>Lijst of array samenvoegen tot een string, gescheiden door een tekst</h4>
+    <p>Gebruik <code>string.Join()</code>. Voorbeeld voor een lijst:</p>
+    <pre><code>List&lt;string&gt; fruit = new List&lt;string&gt;() { "appel", "banaan", "citroen", "peer" };
+string reeks = string.Join(" - ", fruit);
+Console.WriteLine(reeks);</code></pre>
+    <figure class="console">
+      <pre>appel - banaan - citroen - peer</pre>
+      <figcaption>Join() voorbeeld met List&lt;string&gt;</figcaption>
+    </figure>
+    <p>Voorbeeld voor een array:</p>
+    <pre><code>int[] getallen = { 5, 7, 12, 8, 3 }; // &rarr; int[] array
+string samengevoegd = string.Join(", ", getallen); // "5, 7, 12, 8, 3" &rarr; één string
+Console.WriteLine(samengevoegd);</code></pre>
+    <figure class="console">
+      <pre>5, 7, 12, 8, 3</pre>
+      <figcaption>Join() voorbeeld met array</figcaption>
+    </figure>
+    <h4>String splitsen naar een array</h4>
+    <h5>rond spaties</h5>
+    <pre><code>string zin = "dit is een zin met meerdere woorden";
+string[] woorden = zin.Split(' '); // verdeel zin in woorden
+foreach (string woord in woorden)
+{
+   Console.WriteLine(woord);
+}</code></pre>
+    <figure class="console">
+      <pre>dit
+is
+een
+zin
+met
+meerdere
+woorden</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h5>rond een karakterlijst</h5>
+    <p>Je kan als parameter van <code>Split()</code> een array van karakters opgeven waarrond gesplitst moet worden:</p>
+    <pre><code>string txt = "0477/234.56.78"; // &rarr; één string
+string[] parts2 = txt.Split(new char[] { '/', '.' }); // { "0477", "234", "56", "78" } &rarr; string[] array
+</code></pre>
+
+    <h2>Timer classes</h2>
+    <p>Timers bieden de mogelijkheid de uitvoering van statements te plannen.</p>
+
+
+    <h3>Stopwatch</h3>
+    <p>Een stopwatch is een tijdsmeter die je kan starten, stoppen en resetten.</p>
+    <h4>Properties en methodes</h4>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Elapsed</code></td>
+          <td>verstreken tijd (type <code>TimeSpan</code>)</td>
+        </tr>
+        <tr>
+          <td><code>IsRunning</code></td>
+          <td>boolean die aangeeft of de stopwatch loopt of niet</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Reset()</code></td>
+          <td>reset de stopwatch</td>
+        </tr>
+        <tr>
+          <td><code>Start()</code></td>
+          <td>start de stopwatch</td>
+        </tr>
+        <tr>
+          <td><code>Stop()</code></td>
+          <td>stop de stopwatch</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Codevoorbeeld</h4>
+    <pre><code>Stopwatch stopwatch = new Stopwatch();
+stopwatch.Start();
+Console.WriteLine("Timer is gestart. Druk een toets...");
+Console.ReadKey(true);
+TimeSpan elapsed = stopwatch.Elapsed; // verstreken tijdsspanne
+stopwatch.Stop();
+Console.WriteLine($"Timer is gestopt. De verstreken tijd is {elapsed.Seconds}.{elapsed.Milliseconds}s");
+Console.ReadKey();</code></pre>
+    <figure class="console">
+      <pre>Timer is gestart. Druk een toets...
+Timer is gestopt. De verstreken tijd is 2.47s</pre>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
+    <h3>DispatcherTimer</h3>
+    <p>Hiermee kan je een teller maken die een methode uitvoert met vaste tussentijden. </p>
+    <h4>Properties, methodes en events</h4>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Interval</code></td>
+          <td>tussentijd (type <code>TimeSpan</code>)</td>
+        </tr>
+        <tr>
+          <td><code>IsEnabled</code></td>
+          <td>boolean die aangeeft of de timer loopt of niet</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Start()</code></td>
+          <td>start de stopwatch</td>
+        </tr>
+        <tr>
+          <td><code>Stop()</code></td>
+          <td>stop de stopwatch</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">Event</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Tick</code></td>
+          <td>vuurt af met vaste intervallen (zie de <code>Interval</code> property)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Codevoorbeeld</h4>
+    <p>Een eenvoudige WPF teller die met een knop kan gestart worden, XAML:</p>
+    <pre><code class="language-html">&lt;Label x:Name="lblCount" Content="0" .../&gt;
+&lt;Button x:Name="btnStart" Content="start" Click="BtnStart_Click"... /&gt;
+</code></pre>
+    <p>De C# code-behind:</p>
+    <pre><code>private int ticks;
+private DispatcherTimer timer;
+
+public MainWindow()
+{
+    InitializeComponent();
+    ticks = 0; // zet teller op 0
+    timer = new DispatcherTimer(); // maak teller aan
+    timer.Interval = TimeSpan.FromMilliseconds(200); // tijdsspanne tussen twee ticks is 200 milliseconden
+    timer.Tick += DoSomething; // voer deze methode bij elke tick uit
+}
+
+private void BtnStart_Click(object sender, RoutedEventArgs e) {
+   timer.Start(); // start de teller als op de OK-knop geklikt wordt
+}
+
+private void DoSomething(object sender, EventArgs e)
+{
+    // elke 200 milliseconden uitgevoerd
+    // ...
+    ticks++;
+    lblCount.Content = ticks;
+}
+</code></pre>
+    <figure>
+      <img src="img/02_dotnetclasses/timer_dispatchertimer.gif" alt="" class="bordered w-250">
+      <figcaption>DispatcherTimer voorbeeld</figcaption>
+    </figure>
+
+  </main>
+  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+  <script src="vendor/prism.js"></script>
+  <script src="js/mode.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>

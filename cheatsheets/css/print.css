@@ -1,0 +1,27 @@
+html {
+   font-size: 40%;
+}
+
+body {
+   padding-top: 0 !important;
+}
+
+#mode, .site__nav, #up {
+   display: none !important;
+}
+
+h2 {
+   page-break-before: always;
+}
+
+h2, h3, h4, h5 {
+   page-break-after: avoid;
+}
+
+pre, div.tips {
+   break-inside: avoid;
+}
+
+.bordered {
+   border-width: 2px;
+}

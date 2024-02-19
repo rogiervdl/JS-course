@@ -1,0 +1,79 @@
+.prism-vslight pre[class*="language-"],
+pre[class*="language-"].prism-vslight {
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	background-color: #f5f2f0;
+	color: #000;
+}
+
+.prism-vslight .token.punctuation {
+	color: #000;
+}
+
+.prism-vslight .token.comment {
+	color: #008016;
+}
+
+.prism-vslight .token.string {
+	color: #E11500;
+}
+
+.prism-vslight .token.function {
+	color: #785318;
+}
+
+.prism-vslight .token.class-name {
+	color: #0491C1;
+}
+
+.prism-vslight .token.doctype,
+.prism-vslight .token.prolog {
+	color: #0491C1;
+}
+
+.prism-vslight .token.keyword {
+	color: #3200FF;
+}
+
+.prism-vslight .token.preprocessor.property {
+	color: #80807F;
+}
+
+.prism-vslight .token.preprocessor.property .keyword {
+	color: #80807F;
+}
+
+.prism-vslight .token.selector {
+	color: #B80000;
+}
+
+.prism-vslight .token.atrule {
+	color: #3200FF;
+}
+
+.prism-vslight .token.tag {
+	color: #B80000;
+}
+
+.prism-vslight .token.attr-name {
+	color: #FF0000;
+}
+
+.prism-vslight .token.attr-value {
+	color: #3200FF;
+}
+
+.prism-vslight code[class*="language-css"] {
+	color: #3200FF;
+}
+
+.prism-vslight code[class*="language-css"] .token.property {
+	color: #B80000;
+}
+
+.prism-vslight code[class*="language-css"] .token.string {
+	color: #3200FF;
+}
+
+.prism-vslight code[class*="language-markup"] .token.punctuation {
+	color: #3200FF;
+}
