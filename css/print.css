@@ -27,9 +27,9 @@ pre, div.tips {
 }
 
 .line-numbers .line-numbers-rows {
-	display: none;
+	display: none !important;
 }
 
 pre[class*="language-"].line-numbers {
-	padding-left: 1em;
+	padding-left: 1em !important;
 }

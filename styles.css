@@ -2,12 +2,18 @@
 @import url(fonts/droidsans/webfont.css);
 @import url(fonts/lato/webfont.css);
 @import url(fonts/leaguegothic/webfont.css);
+@import url(fonts/fontawesome-free/css/all.css);
 
 /* vendor */
-@import url(vendor/reveal/css/reveal.css);
-@import url(vendor/reveal/css/theme/beige.css);
-@import url(vendor/highlight/styles/vs.css);
+@import url(vendor/prism/prism-default.css);
+@import url(vendor/prism/prism-okaida.css);
+@import url(vendor/prism/prism-tomorrow.css);
+@import url(vendor/prism/prism-vslight.css);
+@import url(vendor/prism/prism-toolbar.css);
+@import url(vendor/prism/prims-line-numbers.css);
+@import url(vendor//hystmodal/hystmodal.min.css);
 
 /* local */
-@import url(css/reveal-mods.css);
 @import url(css/common.css);
+@import url(css/print.css) print;
+@import url(css/switch.css);

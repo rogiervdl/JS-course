@@ -1,1241 +1,792 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- [html-validate-disable no-trailing-whitespace] -->
+<html lang="nl">
 
 <head>
-  <meta charset="utf-8">
-  <title>Javascript &mdash; Syntax</title>
-  <meta name="author" content="Rogier van der Linde - odisee.be">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Javascript syntax | Javascript cheat sheets</title>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/01_syntax.css">
 </head>
 
-<body>
+<body class="language-javascript line-numbers">
+  <div id="mode">
+    <span>n00b</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+    <span>pro</span>
+  </div>
+  <nav class="site__nav">
+    <a href="01_syntax.html" class="main__thumb active" title="01. Javascript syntax">
+      <p class="thumb__title">01. Javascript syntax</p>
+      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+    </a>
+    <a href="02_dom.html" class="main__thumb" title="02. Document Object Model">
+      <p class="thumb__title">02. Document Object Model</p>
+      <img class="thumb__visual" src="img/02_dom/icon.png" alt="">
+    </a>
+    <a href="03_async.html" class="main__thumb" title="03. Asynchrone Javascript">
+      <p class="thumb__title">03. Asynchrone Javascript</p>
+      <img class="thumb__visual" src="img/03_async/icon.png" alt="">
+    </a>
+  </nav>
+  <h1>01. Javascript Syntax</h1>
+  <div id="toc"></div>
+  <main>
 
-  <!-- SLIDES -->
-  <div class="reveal">
-
-    <!-- Any section element inside of this container is displayed as a slide -->
-    <div class="slides">
-
-      <section class="cover">
-        <section>
-          <h1>SYNTAX</h1>
-          <p>
-            tussen []: optioneel, sterk aanbevolen voor wie wil verdergaan in web
-          </p>
-          <p>
-            gebruik pijltjestoetsen om te navigeren<br>
-            dotted codepanels zijn editeerbaar
-          </p>
-          <img src="img/01_syntax/icon.png" alt="" class="cover__icon">
-          <div class="tooltip">
-            <div>
-              This code is actually the logic of a fully functional tetris game (without keyboard events and display). There's even a version smaller than the size of a tweet; you can play it <a href="demos/01_syntax/tetris.html">here</a>
-              <br>
-              Javascript can be so compact, there's a special contest for <a href="http://js1k.com/">&lt;1k programs</a>. Some fine winners <a href="demos/01_syntax/js1k_1.html">here</a>, <a href="demos/01_syntax/js1k_2.html">here</a> and <a href="demos/01_syntax/js1k_3.html">here</a>. Also check the winners of <a href="http://js1k.com/2015-hypetrain/demo/2306">2015</a> and <a href="http://js1k.com/2016-elemental/demo/2552">2016</a>. Don't forget to check the source code.
-            </div>
-          </div>
-          <footer class="cover__footer">
-            <img src="img/me.jpg" alt="" class="cover__me"> <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
-          </footer>
-        </section>
-      </section>
-      <section class="chapter">
-        <section>
-          <h1>JAVASCRIPT SYNTAX</h1>
-          <h2>Intro</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-        </section>
-        <section data-title="Scripting languages">
-          <h2>Scripting languages (1)</h2>
-          <ul>
-            <li>
-              Scripts were originally programs written to automate tasks which could alternatively be executed one-by-one by a human.
-            </li>
-            <li>
-              Differences from classic languages like Java, C#, C++...:
-              <ul>
-                <li>
-                  Codelines aren't compiled or linked but executed on the fly (just-in-time or JIT compilation). If there's an error halfway, the first half is still executed before the script halts.
-                </li>
-                <li>
-                  Looser programming style: weak and dynamic typing, OO concepts are often different or totally absent
-                </li>
-                <li>
-                  Syntactically, scripting languages can be rather 'special'
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section data-title="">
-          <h2>Scripting languages (2)</h2>
-          <ul>
-            <li>
-              Biggest advantage of JIT compilation: better portability (text instead of machine code).
-            </li>
-            <li>
-              JIT comes with a penalty; Javascript is about 3 times slower than C++. Also, JIT makes decent intellisense and debugging much more difficult to implement.
-            </li>
-            <li>
-              Also, scripts are clear text, so harder to protect your work from other programmers
-            </li>
-            <li>
-              Quite a few scripting languages exist serverside (PHP, Python, ASP, C via CGI, Perl, Ruby...), but browsers understand only one language: <em>Javascript</em>.
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>[Javascript is not Java]</h2>
-          <div class="centered">
-            <figure>
-              <img src="img/01_syntax/hamster.png" alt="JavaScript is to Java as Ham is to Hamster" title="JavaScript is to Java as Ham is to Hamster" width="500" height="284">
-              <figcaption>Dixit <a href="http://adactio.com/">Jeremy Keith</a>, Cartoon by <a href="http://www.flickr.com/photos/manssandstrom/4132454413/in/photostream/">Brad Colbow</a></figcaption>
-            </figure>
-          </div>
-        </section>
-        <section>
-          <h2>[History]</h2>
-          <ul>
-            <li>
-              Originally created by Netscape in 1995, originally named Mocha, later LiveScript and finally Javascript
-            </li>
-            <li>
-              Microsoft introduced Javascript support in IE3, renaming it to JScript to avoid trademark issues
-            </li>
-            <li>
-              Submitted to ECMA for standardization in 1996, resulting in ECMAScript. Currently version 5 (wide support) / 6 (shaky support) / 7 (in development).
-            </li>
-            <li>
-              ECMAScript is the name of the standard, while JavaScript refers to the implementation by Mozilla (version 1.8.5).
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              <p>
-                Javascript has a strange naming history. Originally named Mocha, LiveScript and Javascript, then renamed to ECMAScript or short ES.
-              </p>
-              <p>
-                Also version numbering is confusing ECMAScript6 or ES6 (a.k.a. Harmony) is also called ES2015, where ES7 is called ES2016.
-              </p>
-              <p>
-                The name Javascript is still used, but usually refers to Mozilla's implementation, a superset with many new features of which only few will make it to the final standard. Mozilla used version numbers but stopped in 2010 at 1.8.5, vaguely relating to ES5.1
-              </p>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>[JavaScript Engines]</h2>
-          <ul>
-            <li>
-              Browsers have a built-in engine to interpret JavaScript
-              <ul>
-                <li><a href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a> in Firefox</li>
-                <li><a href="http://code.google.com/p/v8/">V8</a> in Chrome</li>
-                <li><a href="http://www.webkit.org/projects/javascript/index.html">JavaScriptCore</a> (SquirrelFish/Nitro) in Webkit/Safari</li>
-                <li><a href="http://my.opera.com/ODIN/blog/carakan-faq">Carakan</a> in Opera</li>
-                <li><a href="http://en.wikipedia.org/wiki/Chakra_%28JScript_engine%29">Chakra</a> in IE</li>
-              </ul>
-            </li>
-            <li>
-              May actually run on any system with a JS interpreter:
-              <ul>
-                <li>on Windows OS through the Windows Scripting Host</li>
-                <li>on a server with <a href="http://nodejs.org/">Node.js</a>, powered by Google's V8</li>
-                <li>on Java-enabled systems with <a href="https://developer.mozilla.org/en/Rhino">Rhino</a>, an open source JavaScript engine developed by Mozilla and written in Java</li><!-- to enable end users to script the system -->
-                <li>embedded in pdf's, OpenOffice, in Chrome, Safari or Opera extensions, Photoshop plugins, desktop Widgets...</li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              in this course we'll focus on browsers
-            </li>
-          </ul>
-        </section>
-        <section data-title="Running In the shell">
-          <h2>[Running In the shell (1)]</h2>
-          <ul>
-            <li>
-              Although Javascript is best known in browsers, you can also run it in a <i>shell</i> (i.e. command prompt). Create a file <code>test.js</code> with these contents:
-              <div>
-                <pre class="bigger"><code class="language-javascript" data-caption="test.js">WScript.StdOut.Write("Enter your name&gt; ");
-var name = WScript.StdIn.ReadLine();
-WScript.StdOut.Write('Hello ' + name);</code></pre>
-              </div>
-            </li>
-            <li>
-              Open a windows console, navigate to your script and and run it with the <code>cscript</code> command:
-              <div>
-                <pre class="bigger"><code class="donthighlight console">C:\Users\Rogier\Desktop&gt;cscript test.js
-Microsoft (R) Windows Script Host Version 5.8
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Enter your name&gt; Rogier
-Hello Rogier
-C:\Users\Rogier\Desktop&gt;</code></pre>
-              </div>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              In Mac you can use jsc (JavaScriptCore), see <a href="files/jsc.zip">jsc.zip</a> for instructions
-            </li>
-          </ul>
-        </section>
-        <section data-title="">
-          <h2>[Running In the shell (2)]</h2>
-          <ul>
-            <li>
-              You can also use command line arguments:
-              <div>
-                <pre class="bigger"><code class="language-javascript" data-caption="test.js">var numArgs = WScript.arguments.length;
-for (var i = 0; i &lt; WScript.arguments.length; i++) {
-  WScript.StdOut.Write('Hello ' + WScript.arguments(i) + '\n');
-}
-</code></pre>
-              </div>
-              <div>
-                <pre class="bigger"><code class="donthighlight console">C:\Users\Rogier\Desktop&gt;cscript test.js An Bob
-Microsoft (R) Windows Script Host Version 5.8
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Hello An
-Hello Bob
-C:\Users\Rogier\Desktop&gt;</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="chapter">
-        <section>
-          <h1>JAVASCRIPT SYNTAX</h1>
-          <h2>Getting started</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-        </section>
-        <section>
-          <h2>Browser &amp; console</h2>
-          <div class="flex-1-1">
-            <ul>
-              <li>
-                When developing, use the best browser around; currently this is Chrome
-              </li>
-              <li>
-                Make sure you have inspector always open (F12 or Shift-Ctrl-I)
-              </li>
-              <li>
-                Anything goes wrong? check the errors in your <em>console</em>!
-              </li>
-            </ul>
-            <p>
-              <img src="img/01_syntax/console.png" alt="" class="bordered">
-            </p>
-          </div>
-        </section>
-        <section data-title="Text editor">
-          <h2>Text editor (1)</h2>
-          <div class="flex-1-1">
-            <ul>
-              <li>
-                You don’t need a fancy IDE – just a really good text editor
-              </li>
-              <li>
-                Pick a decent editor, and learn to use the full power of it – no Notepad and alikes!
-              </li>
-              <li>
-                For web developers, the best editor currently is VS Code:
-                <ul>
-                  <li><a href="https://www.sublimetext.com/3">Sublime Text</a></li>
-                  <li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
-                </ul>
-              </li>
-            </ul>
-            <p>
-              <img src="img/01_syntax/editors.png" alt="">
-            </p>
-          </div>
-        </section>
-        <section data-title="">
-          <h2>Text editor (2)</h2>
-          <div class="flex-1-1">
-            <ul>
-              <li>
-                Always open your whole working folder in the editor, not just a single file
-              </li>
-              <li>
-                Just drag the folder in the editor to open the sidebar
-              </li>
-            </ul>
-            <p>
-              <img src="img/01_syntax/sidebar.png" alt="">
-            </p>
-          </div>
-        </section>
-        <section>
-          <h2>Linking scripts</h2>
-          <ul>
-            <li>
-              You can run Javascript pretty much everywhere (shell scripts, serverside, embedded on devices...), but we'll focus on scripts in HTML pages
-            </li>
-            <li>
-              The proper way to attach scripts is by <em>linking them</em>. Put them <em>at the bottom</em>, vendor scripts (= downloaded somewhere on the web) first, your scripts last:
-              <div>
-                <pre class="bigger"><code class="language-html right">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;How to include scripts&lt;/title&gt;
-  &lt;meta charset="utf-8"&gt;
-&lt;/head&gt;
+    <!-- COMMENTAAR -->
+    <h2>Werken met Javascript</h2>
+    <h3>Javascript als scriptingtaal</h3>
+    <p>
+      Javascript een <strong>scripting taal</strong>, geen echte programmeertaal zoals C#. Enkele kenmerken:
+    </p>
+    <ul>
+      <li>In Javascript gebeurt de <strong>compilatie tijdens de uitvoering</strong> van het script (JIT: just in time compilation), en niet vooraf zoals C# (naar een .exe)</li>
+      <li>Je zou verwachten dat het daardoor iets trager is dan bv. C#, maar dankzij JIT kan de code ook nog tijdens uitvoering geoptimaliseerd worden. Gemiddeld is er <strong>weinig verschil in snelheid</strong>.</li>
+      <li>Javascript is (net zoals HTML en CSS) <strong>zuiver tekst</strong>, en dus is de code moeilijker te beschermen tegen kopiëren dan een C# .exeprogramma.</li>
+      <li>Scripting talen hebben vaak een wat <strong>speciale, lossere syntax</strong>, met minder strakke regels en heel veel vrijheden en verantwoordelijkheden (dat zul je verderop nog wel merken).</li>
+      <li>Er zijn veel scripting talen &mdash; Python, PHP, Perl, Ruby... &mdash; maar er is er maar één die browsers begrijpen: <strong>Javascript</strong>.</li>
+    </ul>
+    <p>Javascript is syntactisch een erg rijke taal, die zeer compact kan zijn. Kopieer volgende fragment maar eens in een HTML document, en <a href="demos/01_syntax/js1k_3.html">bekijk het resutaat</a>...</p>
+    <pre class="prism-okaida mw-1200" data-demo="demos/01_syntax/js1k_3.html"><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
 &lt;body&gt;
-  ...
-  &lt;!-- load external libraries --&gt;
-  &lt;script src="vendor/external-script-1.js"&gt;&lt;/script&gt;
-  &lt;script src="vendor/external-script-2.js"&gt;&lt;/script&gt;
-  &lt;!-- load your scripts --&gt;
-  &lt;script src="js/my-script.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-              </div>
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              Putting your scripts at the bottom allows the HTML to load first, which creates a better user experience, especially when scripts are large. Browsers limit the number of parallel downloads of images, scripts, css..., and it is better to load the visible resources first and scripts last.
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>Script blocks</h2>
-          <ul>
-            <li>
-              Although you <i>could</i> also put your scripts directly in the HTML with <em>script blocks</em>, we won't use them: HTML, CSS and Javascript should remain separated in their own files
-              <div>
-                <pre class="bigger"><code class="language-html wrong">...
-&lt;body&gt;
-  ...
+  &lt;canvas id="c"&gt;&lt;/canvas&gt;
   &lt;script&gt;
-    // your scripts here
-    // ...
-  &lt;/script&gt;
-&lt;/body&gt;</code></pre>
-              </div>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li class="warning">
-              don't use script blocks
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Inline scripts</h2>
-          <ul>
-            <li>
-              You could also add <em>inline scripts</em> to your HTML, but as they break the separation of HTML and Javascript too, we won't use them either
-              <div>
-                <pre class="bigger"><code class="language-html overlayrun wrong">&lt;input type="button" value="I'm a button" onclick="console.log('auch')"&gt;
-&lt;p&gt;note: for most  your console&lt;/p&gt;
-              </code></pre>
-              </div>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li class="warning">
-              don't use inline scripts
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Console.log()</h2>
-          <ul>
-            <li>
-              You can use <code>console.log</code> to inspect values from the console:
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun contenteditable">const name = 'Rogier';
-console.log('Hello ' + name);
-console.log(`Hello ${name}`); // string interpolation notation</code></pre>
-              </div>
-            </li>
-            <li>
-              Any array or object can be inspected, not just primitive variables:
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun contenteditable">const names = ['Alice', 'Bob', 'Clive'];
-const person = { name: 'rogier', age: '46', isMale: true};
-console.log(person);
-console.log(names);</code></pre>
-              </div>
-            </li>
-            <li>
-              More console functions exist (<a href="https://developers.google.com/web/tools/chrome-devtools/console/api?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3#consolelogobject-object">full list here</a>), e.g.
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun contenteditable">console.table({ name: 'rogier', age: '46', isMale: true});
-console.warn('this is a serious warning');
-console.error('whoops! an error occured');</code></pre>
-              </div>
-            </li>
-
-          </ul>
-          <ul class="arrow">
-            <li>
-              note: keep the console open (F12 or Ctrl-I) to see the results of this and other demos!
-            </li>
-          </ul>
-          <div class="comments">
-            <p>
-              Writing decent editors for Javascript is difficult for JIT languages. The global classes/object tree is not known until execution, so proper code hinting and error prediction is near impossible. As for debugging: Javascript usually heavily depends on user interaction and events, so it is not always easy to know where to put breakpoints, and breakpoints halt all your code, also any background tasks that you may wish to keep running. Usually it makes the most sense to let your program run, and inspect some variables along the way.
-            </p>
-          </div>
-        </section>
-        <section>
-          <h2>[alert(), confirm(), prompt()]</h2>
-          <ul>
-            <li>
-              In a browser you can use the standard Javascript dialog windows <code>alert()</code>, <code>confirm()</code> and <code>prompt()</code>:
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun inputOutputCode">const name = prompt('Enter your name')<span class="colon">;</span>
-alert('Hello ' + name)<span class="colon">;</span>
-const doHighfive = confirm('High five?')<span class="colon">;</span>
-if (doHighfive) console.log('High five!')<span class="colon">;</span></code></pre>
-              </div>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              don't use these, not even for testing (use your console instead)!
-            </li>
-          </ul>
-        </section>
-        <section data-title="HTML, CSS and JS together">
-          <h2>HTML, CSS and JS together (1)</h2>
-          <ul>
-            <li>
-              Find HTML elements by id with <code>document.getElementById()</code>, add event listeners with <code>addEventListener()</code>, and react by changing styles and properties. A basic math quiz example:
-              <div>
-                <pre class="bigger"><code class="language-html overlayrun smallpanel smallfont">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Math quiz&lt;/title&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;style&gt;
-    input[type=text] { width: 60px; text-align: right }
-    .wrong { background-color: #fcc; }
-    .right { background-color: #cfc; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Math exam&lt;/h1&gt;
-  &lt;span id="question"&gt;&lt;/span&gt;
-  &lt;input type="text" id="answer"&gt;
-  &lt;input type="button" value="check" id="btn1"&gt;
-  &lt;script&gt;
-    const val1 = parseInt(Math.random() * 100);
-    const val2 = parseInt(Math.random() * 100);
-    const inpAnswer = document.getElementById('answer');
-    document.getElementById('question').innerHTML = `$(val1) + $(val2) = `;
-    document.getElementById('btn1').addEventListener('click', function() {
-      inpAnswer.className = inpAnswer.value == val1 + val2 ? 'right' : 'wrong';
-    });
+    for(B=i=y=u=b=i=5-5,x=10,I=[],l=[];B++&lt;304;I[B-1]=B%x?B/x%x&lt;2|B%x&lt;2?7:B/x&amp;4?0:l[i++]="ECDFBDCEAAAAAAAAIIIIIIIIMKLNJLKM@G@TSb~?A6J57IKJT576,+-48HLSUmgukgg OJNMLK&nbsp;&nbsp;IDHGFE".charCodeAt(y++)-64:7);function X(c,h,e,s){c^=8;for(var o,S,C,A,R,T,G,d=e&amp;&amp;X(c,0)&gt;1e4,n,N=-1e8,O=20,K=78-h&lt;&lt;9;++O&lt;99;)if((o=I[T=O])&amp;&amp;(G=o^c)&lt;7){A=G--&amp;2?8:4;C=o-9?l[61+G]:49;do if(!(R=I[T+=l[C]])&amp;&amp;!!G|A&lt;3||(R+1^c)&gt;9&amp;&amp;G|A&gt;2){if(!(R-2&amp;7))return K;n=G|(c?T&gt;29:T&lt;91)?o:6^c;S=(R&amp;&amp;l[R&amp;7|32]*2-h-G)+(n-o?110:!G&amp;&amp;(A&lt;2)+1);if(e&gt;h||1&lt;e&amp;e==h&amp;&amp;S&gt;2|d){I[T]=n;I[O]=0;S-=X(c,h+1,e,S-N);if(!(h||e-1|B-O|T-b|S&lt;-1e4))return W(),c&amp;&amp;setTimeout("X(8,0,2),X(8,0,1)",75);I[O]=o;I[T]=R}if(S&gt;N||!h&amp;S==N&amp;&amp;Math.random()&lt;.5)if(N=S,e&gt;1)if(h?s-S&lt;0:(B=O,b=T,0))break}while(!R&amp;G&gt;2||(T=O,(G||A&gt;2|(c?O&gt;78:O&lt;41)&amp;!R)&amp;&amp;++C*--A))}return-K+768&lt;N|d&amp;&amp;N}function W(){i="&lt;table&gt;";for(u=18;u&lt;99;document.body.innerHTML=i+=++u%x-9?"&lt;th width=60 height=60 onclick='I[b="+u+"]&gt;8?W():X(0,0,1)'style='font-size:50px'bgcolor=#"+(u-B?u*.9&amp;1||9:"d")+"0f0e0&gt;&amp;#"+(I[u]?9808+l[67+I[u]]:160):u++&amp;&amp;"&lt;tr&gt;")B=b}W()
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section data-title="">
-          <h2>HTML, CSS and JS together (2)</h2>
-          <ul>
-            <li>
-              Another example of HTML, CSS and Javascript working together to create custom video controls:
-              <pre class="bigger"><code contenteditable class="language-html overlayrun smallpanel smallfont">&lt;!DOCTYPE html&gt;
+    <ul class="arrow">
+      <li>andere voorbeelden van Javascript programma's van minder dan 1000 tekens: <a href="demos/01_syntax/js1k_1.html">Rainbow game</a>, <a href="demos/01_syntax/js1k_2.html">Particles generator</a> </li>
+    </ul>
+    <div class="tips" data-caption="🤔 NAAMGEVING">
+      <p>
+        Javascript heeft een lange voorgeschiedenis van naamgeving: oorspronkelijk <strong>Mocha</strong> gedoopt, dan <strong>LiveScript</strong> en vervolgens <strong>Javascript</strong>, om tenslotte hernoemd te worden naar de vandaag officiële naam <strong class="em">ECMAScript</strong> of kortweg ES.
+        Ook de versienummering is verwarrend: ECMAScript6 of ES6 (a.k.a. Harmony) wordt ook ES2015 genoemd, en komt ES7 dus overeen met ES2016.
+      </p>
+    </div>
+
+    <h3>Javascript in andere omgevingen</h3>
+    <p>
+      Javascript is <strong>enkel een taal</strong>, d.w.z. een set van syntaxregels; dit zegt niks over waar het uitgevoerd wordt. In principe kan het uitgevoerd worden in elke omgeving waar een Javascript engine op kan draaien.
+      De meest gekende toepassing is <strong>in webpagina’s</strong>, maar enkele andere mogelijke omgevingen zijn:
+    </p>
+    <ul>
+      <li><strong>Windows Scripting Host</strong>: shell scripts in Javascript (kan ook op MAC, zie verder)</li>
+      <li><strong>NodeJS</strong>: server scripts geschreven in Javascript</li>
+      <li><strong>Micro:bit</strong>: deze populaire microcontroller kan je programmeren met Scratch, Python maar ook met Javascript</li>
+      <li><strong>Embedded</strong>: plugins voor Adobe Acrobat, Photoshop, Chrome enz... geschreven in Javascript</li>
+      <li>...</li>
+    </ul>
+    <h4>In Windows Scripting Host</h4>
+    <p>Je kan Javascript gebruiken om scripts uit te voeren in een Windows command. Codevoorbeeld (en ter vergelijking rechts de C# Console versie):</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>/* global WScript */
+function faculteit(n) {
+  var resultaat = n;
+  for (var i = n - 1; i &gt; 1; i--) resultaat *= i;
+  return resultaat;
+}
+WScript.StdOut.WriteLine('FACULTEIT BEREKENEN');
+WScript.StdOut.WriteLine('');
+WScript.StdOut.Write('Geef een geheel getal: ');
+var getal = parseInt(WScript.StdIn.ReadLine());
+WScript.StdOut.Write('De faculteit is ' + faculteit(getal));
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers"><code>static private int Faculteit(int n) {
+  int resultaat = n;
+  for (int i = n - 1; i &gt; 1; i--) resultaat *= i;
+  return resultaat;
+}
+static void Main(string[] args) {
+  Console.WriteLine("FACULTEIT BEREKENEN");
+  Console.WriteLine();
+  Console.Write("Geef een geheel getal: ");
+  int getal = Convert.ToInt32(Console.ReadLine());
+  Console.WriteLine($"De faculteit is {Faculteit(getal)}");
+}
+</code></pre>
+    </div>
+    <p>
+      Sla het script op als <strong>demoWSH.js</strong>, en run het met het <strong>cscript commando</strong> in een command prompt:
+    </p>
+    <figure class="console">
+      <pre>C:\Users\rogie\Destkop&gt;cscript demoWSH.js
+Microsoft (R) Windows Script Host Version 5.812
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+FACULTEIT BEREKENEN
+
+Geef een geheel getal: 8
+De faculteit is 40320
+C:\Users\rogie\Destkop</pre>
+      <figcaption>resultaat in de command prompt</figcaption>
+    </figure>
+
+    <h4>Serverside Javascript met NodeJS</h4>
+    <p>
+      NodeJS is een Javascript runtime omgeving waarmee Javascript buiten de browser kan uitgevoerd worden, bijvoorbeeld om server- of desktop toepassingen te schrijven. Je moet het eerst downloaden en installeren via <a href="https://nodejs.org/en">https://nodejs.org/en</a>
+      Voorbeeldscript voor het opzetten van een eenvoudige server:
+    </p>
+    <pre class="prism-okaida"><code>const http = require('http');
+const port = 8124;
+const status = 200;
+http.createServer(function(request, response) {
+  response.writeHead(status, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(port);
+console.log('Server running at http://127.0.0.1:8124/');
+</code></pre>
+    <p>Sla dit script ergens op, bijvoorbeeld als <strong>demoNode.js</strong> op de desktop. Voer het dan uit met het <strong>node</strong> commando:</p>
+    <figure class="console">
+      <pre>C:\Users\rogie\Destkop&gt;node demoNode.js
+Server running at http://127.0.0.1:8124/</pre>
+      <figcaption>run het script in de command prompt</figcaption>
+    </figure>
+    <p>Je kan vervolgens het serveradres openen in de browser:</p>
+    <p>
+      <img src="img/01_syntax/nodejs.png" alt="array" class="w-500">
+    </p>
+
+    <h3>Javascript in een webpagina</h3>
+    <h4>Script extern linken</h4>
+    <p>
+      In de rest van de cursus beperken we ons tot Javascript in web pagina’s. De werkwijze is gelijkend aan hoe je CSS aan een webpagina toevoegt:
+    </p>
+    <ol>
+      <li>maak een <strong>map 'js'</strong> in je project</li>
+      <li>maak daarin een <strong>bestand 'script.js'</strong></li>
+      <li>link het <strong>onderaan in de &lt;body&gt;</strong> (CSS bestanden link je bovenaan in de &lt;head&gt;) je HTML document met &lt;script src="js/scripts.js"&gt;&lt;/script&gt;</li>
+      <li>open de HTML pagina in de browser (bijvoorbeeld met de Go Live knop rechtsonder)</li>
+    </ol>
+    <img src="img/01_syntax/js-in-webpagina.png" alt="" class="mw-1000">
+    <div class="tips" data-caption="💡TIP">
+      <p>Link je scripts altijd <strong>onderaan in de body</strong>, zodat alle HTML ingelezen is vóór het script uitgevoerd wordt! Als bonus krijgt de gebruiker dan sneller de inhoud van de pagina te zien, zonder eerst op het inladen van het script te moeten wachten
+      </p>
+    </div>
+
+    <p>Voorbeeldcode, HTML en Javascript en het resultaat in de webpagina:</p>
+    <pre class="prism-okaida line-numbers w-700"><code>document.getElementById('message').innerHTML = 'Hallo Wereld!';
+console.log('einde script');
+</code></pre>
+    <pre class="prism-okaida language-html line-numbers w-700"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;title&gt;Custom controls&lt;/title&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;style&gt;
-    body {
-      padding: 20px;
-    }
-    p {
-      margin-top: 0;
-    }
-    #myControls a {
-      color: #666;
-      padding: 5px 10px;
-      border: 1px solid;
-      text-decoration: none;
-      background-color: #ddd;
-    }
-    #inpSeek {
-      width: 320px;
-    }
-    video {
-      width: 320px;
-      height: 240px;
-      transition: all 0.5s ease-in-out;
-    }
-    video.funky {
-      transform: rotateZ(10deg);
-      box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.75);
-    }
-  &lt;/style&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;video src="demos/01_syntax/alltogether/media/tango.mp4" poster="demos/01_syntax/alltogether/img/meloYBratt.jpg" id="video"&gt;
-    Your browser dows not support the video tag
-  &lt;/video&gt;
-  &lt;nav id="myControls"&gt;
-    &lt;p&gt;&lt;input type="range" min="0" max="211" value="0" id="inpSeek" &gt;&lt;/p&gt;
-    &lt;p&gt;
-      &lt;a href="#" id="lnkPlay"&gt;play&lt;/a&gt;
-      &lt;a href="#" id="lnkMute"&gt;mute&lt;/a&gt;
-    &lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;&lt;input type="checkbox" id="chbFunky"&gt; funky version&lt;/label&gt;&lt;/p&gt;
-  &lt;/nav&gt;
-  &lt;script&gt;
-    const video = document.getElementById('video');
-    document.getElementById('lnkPlay').addEventListener('click', function() {
-      if (video.paused) {
-        video.play();
-        this.innerHTML = 'stop';
-      }
-      else {
-        video.pause();
-        this.innerHTML = 'play';
-      }
-      return false;
-    });
-    document.getElementById('lnkMute').addEventListener('click', function() {
-      if (video.volume &gt; 0) {
-        video.volume = 0;
-        this.innerHTML = 'unmute';
-      } else {
-        video.volume = 1;
-        this.innerHTML = 'mute';
-      }
-      return false;
-    });
-    document.getElementById('inpSeek').addEventListener('change', function() {
-      video.currentTime = this.value;
-    });
-    document.getElementById('chbFunky').addEventListener('change', function() {
-      if (this.checked) video.classList.add('funky');
-      else video.classList.remove('funky');
-    });
-  &lt;/script&gt;
+  &lt;p id="message"&gt;&lt;/p&gt;
+  &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-              <div class="demolink"><a href="demos/01_syntax/alltogether/index.html">demo</a></div>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="chapter">
-        <section>
-          <h1>JAVASCRIPT SYNTAX</h1>
-          <h2>Variables</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-        </section>
-        <section>
-          <h2>Creating variables</h2>
-          <ul>
-            <li>
-              In Javascript, declare variables with <code><em>const</em></code> by default; use <code><em>let</em></code> only if its value may change
-            </li>
-            <li>
-              A variable has a name and a value:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const quoteOfTheDay = 'Now have that tasty morning burger';
-console.log(quoteOfTheDay);</code></pre>
-              </div>
-            </li>
-            <li>
-              Javascript is <em>weakly typed</em>, i.e. you don't mention their type explicitly:
-              <div>
-                <pre class="bigger"><code class="language-javascript">const num = 3; // number
-const boo = true; // boolean
-const str = 'hello'; // string; note: you may use single or double quotes
-const fun = function(nm) { console.log('hello' + nm) }; // function
-const arr = [1, 2, 3, 5, 8, 13]; // array
-const rex = /^\d+$/ // regular expression
-const obj = { id: 2, url: 'img/me.jpg', hidden: false } // general object
-const dat = new Date(); // Date object
-</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Types</h2>
-          <ul>
-            <li>
-              Javascript is <em>dynamically typed</em>, i.e. their type can change any time:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let test; console.log(typeof test); // type is undefined
-test = 123.4; console.log(typeof test); // type is now number
-test = 'hi'; console.log(typeof test); // type is now string
-</code></pre>
-              </div>
-            </li>
-            <li>
-              You can mix types in expressions, but results aren't always intuitive:
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun">console.log(3 + '2'); // 32; both treated as string
-console.log(3 * '2'); // 6; both treated as number
-console.log(3 * ' monkeys'); // NaN &mdash; Not a Number
-console.log(3 == '3.0'); // true; both treated as number
-console.log(true == 'true'); // false; true is converted to 1 and then to '1'
-</code></pre>
-              </div>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li class="warning">
-              if possible, avoid mixing types
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Identity operator</h2>
-          <ul>
-            <li>
-              When comparing values, the identity operator <code>===</code> (compares values and types) is preferred the equals operator <code>==</code> (compares values only):
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">console.log('3' == 3); // true
-console.log('3' === 3); // false; different types
-console.log('' == false); // true
-console.log('' === false); // false; different types</code></pre>
-              </div>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              using the identity operator is preferred (in Javascript <i>and</i> in PHP)
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Undefined, NaN</h2>
-          <ul>
-            <li>
-              An unassigned variable has the value <code>undefined</code>:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const test1;
-console.log(test1); // undefined</code></pre>
-              </div>
-            </li>
-            <li>
-              A variable that should be a number but cannot be calculated has the value <code>NaN</code> (Not a Number):
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const test1 = 7 * "bladibla"; // multiplication yields numbers
-console.log(test1); // NaN</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Constants</h2>
-          <ul>
-            <li>
-              With <code>const</code>, a variable cannot be reassigned:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript">// define some constants
-const pi = 3.141592653589793;
-const numLives = 3;
+    <img src="img/01_syntax/js-in-webpagina2.png" alt="" class="mw-600">
 
-// you can't reassign a constant
-pi = 3.14; // error
-numLives--; // error
-</code></pre>
-              </div>
-            </li>
-            <li>
-              Properties of objects and values of arrays can still change though:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript">// define some constants
-const carMakes = ['Saab', 'Volvo', 'BMW'];
-const me = { name: 'Rogier', age: 48 }
-
-// you can't reassign a constant
-carMakes = ['Mercedes', 'Volvo', 'Dacia']; // error
-me = { name: 'Rogier', age: 49 }; // error
-
-// but: changes to array elements or object properties are ok
-carMakes[1] = 'Peugeot'; // ok
-carMakes.push('Tesla'); // ok
-me.age = 49; // ok
-</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Multiline strings</h2>
-          <ul>
-            <li>
-              Python-inspired multiline strings; notice the backticks <code>`...`</code>:
-              <div>
-                <pre class="bigger"><code class="language-javascript strict overlayrun" contenteditable>const message = `Ik ben voor je gevallen,
-gevallen op straat,
-Ik zag je mooie ogen
-maar de stoeprand te laat`;
-
-console.log(message);
-</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>String interpolation</h2>
-          <ul>
-            <li>
-              remember C#:
-              <div>
-                <pre class="bigger"><code class="language-cs" contenteditable>string name = "Rogier";
-string message = $"hello {name}, how are you?" // hello Rogier, how are you?</code></pre>
-              </div>
-            </li>
-            <li>
-              The notation in Javascript is similar (notice the backticks):
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const person1 = { name: 'Rogier', age: 44 };
-const myName = 'Bob';
-const message = `hello ${person1.name}, my name is ${myName}`;
-console.log(message);  // hello Rogier, my name is Bob</code></pre>
-              </div>
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>const id = 3;
-const language = 'nl';
-const url = `http://www.somedomain.com/?id=${id}&amp;lang=${language}`;
-console.log(url); // http://www.somedomain.com/?id=3&amp;lang=nl</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Array and string methods</h2>
-          <ul>
-            <li>
-              some intersting array and string methods:
-              <div>
-                <pre class="bigger"><code class="language-javascript overlayrun" contenteditable>// array
-console.log([3, 4, 2, 7, 6].find(x =&gt; x &gt; 3)); // find first: 4; uses arrow functions
-console.log([3, 4, 2, 7, 6].filter(x =&gt; x % 2 == 0)); // filter: [4, 2, 6]
-console.log([3, 4, 2, 7, 6].map(x =&gt; x * 2)); // do for each: [6, 8, 4, 14, 12]
-console.log([3, 4, 2, 7, 6].includes(7)); // contains value: true
-
-// string
-console.log("ha".repeat(3)); // hahaha
-console.log("hello".startsWith("ello", 1)) // true
-console.log("hello".endsWith("hell", 4)); // true
-console.log("hello".includes("ell")); // true
-
-// math
-console.log(Math.trunc(42.7)) // 42
-console.log(Math.sign(-7)) // -1
-</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="chapter">
-        <section>
-          <h1>JAVASCRIPT SYNTAX</h1>
-          <h2>Functions</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-        </section>
-        <section>
-          <h2>Creating functions</h2>
-          <ul>
-            <li>
-              Classical function declaration style:
-              <pre class="bigger"><code contenteditable class="language-javascript smallfont">function myFunction(par1, par2) {
-  // function statements here
-  // ...
-} </code></pre>
-            </li>
-            <li>
-              Variable declaration style:
-              <pre class="bigger"><code contenteditable class="language-javascript smallfont">const myFunction = function(par1, par2) {
-  // function statements here
-  // ...
-}; </code></pre>
-            </li>
-            <li>
-              Variable declaration style, shorthand notation:
-              <pre class="bigger"><code contenteditable class="language-javascript smallfont">const myFunction = (par1, par2) =&gt; {
-  // function statements here
-  // ...
-}; </code></pre>
-            </li>
-            <li class="arrow smallfont">
-              in this course, I'll use the shorthand notation in inline situations, and classical syntax elsewhere
-            </li>
-            <li class="arrow smallfont">
-              you are free to choose your own preferred syntax
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              <p>
-                There is a drawback when using the variable declaration syntax. This fragment will throw an error:
-              </p>
-              <pre><code class="wrong">console.log(sayHelloTo('Bill'));
-const sayHelloTo = (name) =&gt; {
-  return 'Hello ' + name;
-}
-</code></pre>
-              <p>
-                But when you use the function declaration syntax, it runs just fine:
-              </p>
-              <pre><code class="right">console.log(sayHelloTo('Bill'));
-function sayHelloTo(name) {
-  return 'Hello ' + name;
-}
-</code></pre>
-              <p>
-                The problem is that the newer syntax doesn't allow you to call a function before its definition. If that is a problem, you may want to stick to the function declaration style.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>Executing functions</h2>
-          <ul>
-            <li>
-              To execute a function, just call the () operator:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define functions
-function sayHello() {
-  console.log('hello');
-};
-function getNumVowels(str) {
-  return str.match(/[aeiou]/g).length; // don't worry too much about this line
-};
-
-sayHello(); // execute sayHello
-const text = 'The quick brown fox jumps over the lazy dog';
-const textNumVowels = getNumVowels(text); // execute getNumVowels
-console.log(`The text contains ${textNumVowels} vowels`);
-</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Functions as arguments</h2>
-          <ul>
-            <li>
-              In Javascript functions are just variables, and can be used as arguments in other functions:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">function end() {
-  console.log('Ok, that was funny 😄');
-}
-function speak(quote, callback) {
-  console.log(quote);
-  callback();
-}
-
-speak('Behind every great man is a woman rolling her eyes.', end);
-</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section id="anonymous-function">
-          <h2>Anonymous functions</h2>
-          <ul>
-            <li>
-              You can even directly create and pass a function without declaring it first:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">function speak(quote, callback) {
-  console.log(quote);
-  callback();
-}
-
-speak('Behind every great man is a woman rolling her eyes. ', () =&gt; {
-  console.log('Ok, that was funny 😄');
-});
-</code></pre>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              the callback function has no name; this is called an <em>anonymous function</em>
-            </li>
-            <li>
-              anonymous functions are used often with event handlers (see next presentation)
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="chapter">
-        <section>
-          <h1>JAVASCRIPT SYNTAX</h1>
-          <h2>Objects</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-        </section>
-        <section>
-          <h2>Creating objects</h2>
-          <ul>
-            <li>
-              You don't need a class to create an object, just use a literal:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// object Literal
-const forrest = {
-  firstName : 'Forrest',
-  lastName : 'Gump',
-  sentence : 'Stupid is as stupid does',
-  says : function() {
-    return this.sentence;
-  }
-};
-
-// accessing properties
-console.log(forrest);
-console.log(forrest['firstName']); // hash notation
-console.log(forrest.firstName); // preferred notation
-console.log(forrest.says());
-</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section data-title="Adding properties">
-          <h2>Adding properties (1)</h2>
-          <ul>
-            <li>
-              You can add arbitrary new properties to existing objects:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// create object "me"
-const me = {
-  name: 'Rogier',
-  maxBeers: 3
-}
-
-// add properties
-me.numBeers = 0;
-me.giveBeer = () =&gt; {
-  if (this.numBeers &gt;= me.maxBeers) {
-    console.log('you really had enough, ' + this.name);
-    return;
-  }
-  this.numBeers++;
-  console.log('here is your beer number ' + this.numBeers);
-}
-
-// serve
-me.giveBeer();
-me.giveBeer();
-me.giveBeer();
-me.giveBeer();
-</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section data-title="">
-          <h2>Adding properties (2)</h2>
-          <ul>
-            <li>
-              You can actually add properties to any Javascript object, not just native Javascript objects. Example where a property <code>numClicks</code> is attached to two HTML buttons:
-              <div>
-                <pre class="bigger"><code class="language-html overlayrun">&lt;!doctype html&gt;
-&lt;html&gt;
+    <h4>Meerdere scripts linken</h4>
+    <p>
+      Net zoals bij CSS, kan je ook meerdere scripts linken. Een typisch HTML bestand wordt dan:
+    </p>
+    <pre class="prism-okaida language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
 &lt;head&gt;
-  &lt;title&gt;Custom properties example&lt;/title&gt;
-  &lt;meta charset="utf-8"&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
+  &lt;link rel="stylesheet" src="vendor/fancybox.min.css"&gt;
+  &lt;link rel="stylesheet" src="vendor/owlcarousel.min.css"&gt;
+  &lt;link rel="stylesheet" src="vendor/owlcarousel.theme.min.css"&gt;
+  &lt;link rel="stylesheet" src="css/start.css"&gt;
+  &lt;link rel="stylesheet" src="css/styles.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;button id="btn1"&gt;Button 1&lt;/button&gt;
-  &lt;button id="btn2"&gt;Button 2&lt;/button&gt;
-  &lt;script&gt;
-    // note: 'this' refers to the object calling the function, i.e. the button
-    function handleClick() {
-      if (!this.numClicks) this.numClicks = 0;
-      this.numClicks++;
-      console.log('clicks on ' + this.id + ': ' + this.numClicks);
-    }
+  ...
+  &lt;script src="vendor/fancybox.js"&gt;&lt;/script&gt;
+  &lt;script src="vendor/owlcarousel.js"&gt;&lt;/script&gt;
+  &lt;script src="js/library.js"&gt;&lt;/script&gt;
+  &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
-    // attach click event handlers to the buttons
-    document.getElementById('btn1').addEventListener('click', handleClick);
-    document.getElementById('btn2').addEventListener('click', handleClick);
+    <h4>Interne scriptblokken</h4>
+    <p>In principe kan je scripts ook in de HTML pagina plaatsen, en net zoals bij CSS</p>
+    <pre class="prism-okaida language-html wrong line-numbers w-600"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p id="message"&gt;&lt;/p&gt;
+  &lt;script&gt;
+    document.getElementById('message').innerHTML = 'Hallo Wereld!';
+    console.log('einde script');
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Object as parameter</h2>
-          <ul>
-            <li>
-              Objects are often used to group properties into a single parameter:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// 'thing' should be an object
-function getDescription(thing) {
-  const lines = [];
-  lines.push(`Name: ${thing.kind}`);
-  lines.push(`Color: ${thing.color}`);
-  lines.push(`It weighs ${thing.volume * thing.density}kg`);
-  return lines.join('\n');
-}
+    <ul class="arrow warning">
+      <li>Interne script blokken getuigen van een slechte stijl. Hou je HTML, CSS en Javascript netjes in aparte bestanden!</li>
+    </ul>
 
-// build the object
-const stone = {
-  kind: 'lapis lazuli',
-  volume: 0.03, // m³
-  density: 3000, // kg/m³
-  color: 'darkblue'
-}
-
-// pass to the function and return result
-console.log(getDescription(stone));
+    <h4>Inline scripts</h4>
+    <p>Je kan scripts zelfs inline plaatsen, en net zoals bij CSS:</p>
+    <pre class="prism-okaida language-html wrong line-numbers w-600" data-demo><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Hello World demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;input type="button" value="I'm a button" onclick="console.log('auch')"&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Anonymous objects</h2>
-          <ul>
-            <li>
-              You may also directly pass the object, without declaring it first:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// 'thing' should be an object
-function toString(thing) {
-  const lines = [];
-  lines.push(`Name: ${thing.kind}`);
-  lines.push(`Color: ${thing.color}`);
-  lines.push(`It weighs ${thing.volume * thing.density}kg`);
-  return lines.join('\n');
+    <ul class="arrow warning">
+      <li>Inline scripts zijn NOT DONE. Als je dit tegenkomt op het Internet, neem het dan niet over in een oefening of project!</li>
+    </ul>
+
+
+    <h3>Browser Console</h3>
+    <p>Javascript foutmeldingen komen in de Console terecht, dus hou het altijd goed in de gaten!</p>
+    <pre class="prism-okaida line-numbers"><code>document.getElementById('messge').innerHTML = 'Hallo Wereld!'; // FOUT: element messge bestaat niet
+console.log('einde script');
+</code></pre>
+    <img src="img/01_syntax/console.png" alt="" class="mw-600">
+
+
+
+    <h2>Variabelen, types &amp; constanten</h2>
+    <h3>Variabelen</h3>
+    <p>Variabelen aanmaken is veel eenvoudiger dan in C#: je gebruikt gewoon het gereserveerd woord <code>let</code>. Een vergelijking voor de meest voorkomende types:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>let num1 = 3; // geheel getal
+let num2 = 3.14; // kommagetal
+let boo = true; // boolean
+let str = 'hello'; // string
+let arr = [1, 2, 3, 5, 8, 13]; // array
+let dat = new Date(); // Date object
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>int num1 = 3; // geheel getal
+double num2 = 3.14; // kommagetal
+bool boo = true; // boolean
+string str = "hello"; // string
+int[] arr = new int[] { 1, 2, 3, 5, 8, 13 }; // array
+DateTime dat = new DateTime(); // DateTime object
+</code></pre>
+    </div>
+    <p>In veel (oude) Javascript code zul je nog <code>var</code> zien gebruiken in plaats van <code>let</code>.</p>
+    <pre class="prism-okaida line-numbers wrong w-400"><code>var num1 = 3; // geheel getal
+var num2 = 3.14; // kommagetal
+...
+</code></pre>
+    <ul class="arrow">
+      <li>de reden is nogal technisch (<code>var</code> definieert een variabele globaal, <code>let</code> lokaal), maar de regel is: gebruik altijd <code>let</code> in plaats van <code>var</code></li>
+    </ul>
+
+    <h3>Weak typing van variabelen</h3>
+    <p>Variabelen in Javascript zijn weakly typed, d.w.z. het type kan veranderen als je er een andere waarde aan toewijst:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>let num = 3; // num is een getal
+num = "Rogier"; // num is nu een string
+num = false; // num is nu een boolean
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>int num = 3; // num is een getal
+num = "Rogier"; // FOUT!
+num = false; // FOUT!
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>hoewel een variabele veranderen van type kan, is het een bron van veel fouten en een <strong>slechte programmeerstijl</strong>!</li>
+    </ul>
+
+    <h3>Mixen van variabelen</h3>
+    <p>
+      Als je verschillende types variabelen mixt in één expressie, passen zowel Javascript als C# in bepaalde gevallen automatische conversie toe. Javascript is daarin nog een flexibeler dan C#. De verschillen zijn echter groot, zoals uit onderstaande vergelijking blijkt:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>console.log(3 + '2'); // 32; 3 omgezet naar string
+console.log(3 + "2"); // 32; 3 omgezet naar string
+console.log(3 * '2'); // 6; '2' omgezet naar getal
+console.log(3 * "2"); // 6; "2" omgezet naar getal
+console.log(3 - '2'); // 1; '2' omgezet naar getal
+console.log(3 - "2"); // 1; "2" omgezet naar getal
+console.log(3 == '3.0'); // true; '3.0' omgezet naar getal
+console.log(3 / 2); // 1.5; gewone deling
+console.log(3.0 / 2); // 1.5; gewone deling
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>Console.WriteLine(3 + '2'); // 53; '2' omgezet naar ASCII 50
+Console.WriteLine(3 + "2"); // 32; 3 naar string omgezet
+Console.WriteLine(3 * '2'); // 150; '2' omgezet naar ASCII 50
+Console.WriteLine(3 * "2"); // FOUT!
+Console.WriteLine(3 - '2'); // -47; '2' omgezet naar ASCII 50
+Console.WriteLine(3 - "2"); // FOUT!
+Console.WriteLine(3 == '3.0'); // FOUT!
+Console.WriteLine(3 / 2); // 1; gehele deling
+Console.WriteLine(3.0 / 2); // 1.5; gewone deling
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>moraal van het verhaal: <strong>vertrouw nooit op automatische conversie</strong>, noch in Javascript noch in C#! De resultaten zijn werkelijk te onvoorspelbaar, en een kweeknest van fouten</li>
+    </ul>
+
+    <h3>Conversie van variabelen</h3>
+    <p>Pas daarom bij het mixen van types in één expressie altijd conversie toe:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>const test = 3;
+console.log(test + parseInt('2')); // 5
+console.log(test.toString() + '2'); // 32
+console.log(parseFloat(test) / 2); // 1.5
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>int test = 3;
+Console.WriteLine(test + Convert.ToInt32("2")); // 5
+Console.WriteLine(Convert.ToString(test) + '2'); // 32
+Console.WriteLine(Convert.ToDouble(test) / 2); // 1.5
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>in Javascript gebruik je <code>parseInt()</code>, <code>parseFloat()</code>, <code>toString()</code></li>
+    </ul>
+
+    <h3>Infinity, NaN, undefined</h3>
+    <p>Javascript heeft drie waarden die C# niet kent: <code>Infinity</code> (oneindig), <code>NaN</code> (Not a Number of “geen getal”) en <code>undefined</code> (waarde onbekend)</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>let test1;
+console.log(test1); // undefined
+console.log(7 * "bladibla"); // NaN
+console.log(6 / 0); // Infinity
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>int test1;
+Console.WriteLine(test1); // fout! variabele heeft geen waarde
+Console.WriteLine(7 * "bladibla"); // fout! mixen van types
+Console.WriteLine(6 / 0); // fout! deling door 0
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>net zoals bij automatische conversie: maak hier best <strong>geen gebruik van</strong>, om fouten te vermijden</li>
+    </ul>
+
+    <h3>Strings</h3>
+    <p>In C# moet je dubbele quotes gebruiken voor strings, maar in Javascript kan je ook enkele quotes of backticks gebruiken. Een vergelijking:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-700"><code>let first = 'Rogier'; // enkele quotes
+let last = "van der Linde"; // dubbele quotes
+let greet1 = 'Zeg "Welkom"'; // enkel en dubbel genest
+let greet2 = "Zeg 'Welkom'"; // omgekeerd mag ook
+let message = `Welkom ${first} ${last}`; // string interpolatie: gebruik backticks
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>string first = "Rogier";
+string last = "van der Linde";
+string greet1 = "Zeg \"Hallo\""; // escape nodig
+string greet2 = "Zeg 'Hallo'"; // geen escape nodig
+string message = $"Hallo {first} {last}"; // string interpolatie
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>in Javascript mag je <strong>kiezen welke je gebruikt</strong> &mdash; al zijn enkele quotes het meest gebruikelijk</li>
+      <li>bij <strong>string interpolatie</strong> <em>moet</em> je backticks gebruiken</li>
+    </ul>
+
+    <h3>String interpolatie, multiline strings</h3>
+    <p>
+      Net zoals C# kent Javascript string interpolatie en multiline strings. In C# worden ze met $ reps. @ aangeduid, in javascript met backticks:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-700"><code>// string interpolatie
+let name = 'Rogier';
+console.log(`Welkom ${name}`);
+
+// multiline string
+console.log(`Een
+twee
+drie
+vier
+hoedje van
+hoedje van...`);
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>// string interpolatie
+string naam = "Rogier";
+Console.WriteLine($"hallo {naam}");
+
+// multiline string
+Console.WriteLine(@"Een
+twee
+drie
+vier
+hoedje van
+hoedje van...");
+</code></pre>
+    </div>
+
+    <h3>Constanten</h3>
+    <p>
+      Een variabele declareer je als constante met <code>const</code>. Het betekent dat je geen nieuwe waarde mag toekennen. Bij samengestelde types als objecten, arrays, lijsten enz... kan je wel nog steeds de individuele elementen of properties aanpassen. Ter illustratie:
+    </p>
+    <pre class="prism-okaida line-numbers w-700"><code>const test1 = "abc";
+const test2 = 123;
+const test3 = [ 12, 9, 4, 33 ];
+const test4 = new Date(1970, 6, 23);
+
+test3[1] = 10; // aanpassing één element; ok
+test4.setFullYear(1971); // aanpassing één property; ok
+
+test1 = "xyz" // FOUT! variabele overschrijven mag niet
+test2 = 456; // FOUT! variabele overschrijven mag niet
+test3 = [ 55, 67, 3 ]; // FOUT! variabele overschrijven mag niet
+test4 = new Date(1972, 8, 12); // FOUT! variabele overschrijven mag niet
+</code></pre>
+    <ul class="arrow">
+      <li>in C# kunnen samengestelde types als arrays en objecten niet <code>const</code> gedeclareerd worden; daar moet je <code>readonly</code> gebruiken</li>
+    </ul>
+
+    <h3><code>const</code>, <code>let</code> of <code>var</code>?</h3>
+    <p>De afspraken zijn:</p>
+    <ul>
+      <li>gebruik standaard <code>const</code></li>
+      <li>gebruik <code>let</code> als je van plan bent in de loop van het programma een nieuwe waarde toe te wijzen</li>
+      <li>gebruik nooit <code>var</code></li>
+    </ul>
+    <p>
+      Onthoud dus deze regel: <strong><code>const</code> wanneer mogelijk!</strong>
+    </p>
+    <p>
+      Qua hooflettergebruik voor constanten mag je vrij kiezen tussen UPPERCASE_UNDERSCORE en camelCase notatie. En mogelijke keuze is de eerste notatie enkel voor “echte” constanten als MAX_POGINGEN of CANVAS_WIDTH te gebruiken, en de tweede voor constanten die eigenlijk variabelen zijn die toevallig maar één keer toegewezen worden, zoals familieNaam of boodschappenLijst.
+    </p>
+
+    <h2>Lijsten &amp; arrays</h2>
+
+    <h3>Arrays</h3>
+    <p>Arrays in Javascript zijn veel losser dan in C#. Je mag types mixen, en onbeperkt elementen toevoegen:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const arr1 = [];
+arr1[0] = 'abc';
+arr1[1] = 'def';
+console.log(arr1.length); // 2
+
+arr1[1] = 12; // getal toevoegen
+arr1[2] = false; // boolean toevoegen: ok
+arr1[100] = 'test'; // tekst toevoegen: ok
+console.log(arr1.length); // 101
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>string[] arr1 = new string[10];
+arr1[0] = "abc";
+arr1[1] = "def";
+Console.WriteLine(arr1.Length); // 10
+
+arr1[1] = 12; // fout! is geen string
+arr1[2] = false; // fout! is geen string
+arr1[100] = "test"; // fout! buiten het bereik
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>hoewel het kan, is het <strong>mixen van types in arrays</strong> een bron van veel fouten en een <strong>slechte programmeerstijl</strong></li>
+    </ul>
+
+    <h3>Lijsten</h3>
+    <p>In Javascript bestaat geen aparte implementatie voor lijsten, maar array methodes als <code>push()</code>, <code>pop()</code> en <code>includes()</code> hebben wel veel overeenkomsten met de C# List methodes <code>Add()</code>, <code>Remove()</code> en <code>Contains()</code>:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>const list1 = ['boter', 'kaas', 'melk'];
+list1.push('eieren'); // voeg item toe
+list1.push('tomaten'); // voeg item toe
+if (list1.includes('kaas')) console.log('lijst bevat kaas');
+console.log(`lijst bevat ${list1.length} items`); // 5
+const first = list1.pop(); // verwijder laatste (tomaten)
+const last = list1.shift(); // verwijder eerste (boter)
+list1.reverse(); // keer volgorde om
+console.log(`lijst: ${list1.join(', ')}`); // eieren, melk, kaas
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-700"><code>List&lt;string&gt; list1 = new List&lt;string&gt; { "boter", "kaas", "melk" };
+list1.Add("eieren"); // voeg item toe
+list1.Add("tomaten"); // voeg item toe
+if (list1.Contains("kaas")) Console.WriteLine("lijst bevat kaas");
+Console.WriteLine($"lijst bevat ${list1.Count} items"); // 5
+list1.Remove("tomaten"); // verwijder laatste
+list1.Remove("boter"); // verwijder eerste
+list1.Reverse(); // keer volgorde om
+Console.WriteLine($"items: ${String.Join(", ", list1)}"); // melk, eieren, kaas
+</code></pre>
+    </div>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>push()</code></td>
+          <td>voeg element toe achteraan de rij</td>
+        </tr>
+        <tr>
+          <td><code>pop()</code></td>
+          <td>verwijder en return element achteraan de rij</td>
+        </tr>
+        <tr>
+          <td><code>shift()</code></td>
+          <td>verwijder en return element aan het begin de rij</td>
+        </tr>
+        <tr>
+          <td><code>contains()</code></td>
+          <td>controleert of de rij een waarde bevat</td>
+        </tr>
+        <tr>
+          <td><code>indexOf()</code></td>
+          <td>zoek een waarde en geef eerste index terug (-1 indien niet gevonden)</td>
+        </tr>
+        <tr>
+          <td><code>join()</code> en <code>split()</code></td>
+          <td>voeg elementen samen tot een string of omgekeerd</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Extensiemethodes</h3>
+    <p>Net zoals in veel andere programmeertalen, kent Javascript een aantal zgn. extensiemethodes voor arrays. De interessantste zijn <code>find()</code>, <code>filter()</code> en <code>map()</code>. Een codevoorbeeld:</p>
+    <pre class="prism-okaida line-numbers w-600"><code>const arr1 = ['boter', 'kaas', 'melk', 'eieren'];
+console.log(arr1.find(str =&gt; str.startsWith('k'))); // 'kaas'
+console.log(arr1.filter(str =&gt; str.length &gt; 4 )); // ['boter', 'eieren']
+console.log(arr1.map(str =&gt; str.length )); // [5, 4, 4, 6]
+
+const arr2 = [16, -77, 3, 4, -9 ];
+console.log(arr2.find(n =&gt; n &gt; 0 &amp;&amp; n &lt; 10 )); // 3
+console.log(arr2.filter(n =&gt; n % 2 == 0)); // [16, 4]
+console.log(arr2.map(el =&gt; el + 1 )); // [17, -76, 4, 5, -8]
+</code></pre>
+
+    <h2>Objecten</h2>
+
+    <h3>Objecten maken</h3>
+    <p>In Javascript kan je “ad hoc” objecten maken, in C# moet je eerst een <em>klasse</em> maken (zie leerstof OO Application Development):</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const myCar = {
+    make: 'Mercury Bobcat',
+    speed: 0,
+    engineOn: true,
+    constructionDate: new Date(1976, 6, 24),
+    accelerate: function(acc) {
+        if (this.engineOn) speed += acc;
+    }
 }
 
-// pass an anonymous object and return result
-console.log(toString({
-  kind: 'lapis lazuli',
-  volume: 0.03, // m³
-  density: 3000, // kg/m³
-  color: 'darkblue'
-}));
+myCar.accelerate(25);
+console.log(`current speed is ${myCar.speed}`);
 </code></pre>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              the object has no name; this is called an <em>anonymous object</em>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="chapter">
-        <section>
-          <h1>JAVASCRIPT SYNTAX</h1>
-          <h2>Quick syntax overview</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-        </section>
-        <section>
-          <h2>if-else</h2>
-          <ul>
-            <li>
-              An <em><code>if-else</code></em> isn't much different from any programming language:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const badGrades = true;
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>class Car {
+    public string Make;
+    public int Speed;
+    public bool EngineOn;
+    public DateTime ConstructionDate;
+    public void Accelerate(int acc) {
+        if (EngineOn) Speed += acc;
+    }
+}
+
+Car myCar = new Car() {
+    Make = "Mercury Bobcat",
+    Speed = 0,
+    EngineOn = true,
+    ConstructionDate = new DateTime(1978, 6, 23)
+}
+
+myCar.Accelerate(25);
+Console.WriteLine($"current speed is {myCar.Speed}");
+</code></pre>
+    </div>
+
+    <h3>Properties toevoegen</h3>
+    <p>In Javascript kan je achteraf nog onbeperkt properties toevoegen, in C# kan dat niet:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const myCar = {
+    make: 'Mercury Bobcat',
+    speed: 0,
+    engineOn: false,
+    constructionDate: new Date(1976, 6, 24),
+    accelerate: function(acc) =&gt; {
+        if (this.engineOn) speed += acc;
+    }
+}
+
+myCar.color = 'silver'; // ok; nieuwe property toegevoegd
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>class Car {
+    public string Make;
+    public int Speed;
+    public bool EngineOn;
+    public DateTime ConstructionDate;
+    public void Accelerate(int acc) {
+        if (EngineOn) Speed += acc;
+    }
+}
+
+Car myCar = new Car() {
+    Make = "Mercury Bobcat",
+    Speed = 0,
+    EngineOn = false,
+    ConstructionDate = new DateTime(1978, 6, 23)
+}
+
+myCar.Color = "silver"; // FOUT! property bestaat niet
+</code></pre>
+    </div>
+
+    <h2>Selecties en iteraties</h2>
+    <h3>Selecties</h3>
+    <p>In Javascript komt de syntax van de selecties <code>if</code>, <code>if</code>-<code>else</code> en <code>switch</code>-<code>case</code> overeen met C#. Een <code>if</code>-<code>else</code> voorbeeld:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const badGrades = true;
 if (badGrades) {
   console.log('House arrest for two weeks');
 } else {
   console.log('No house arrest');
-}</code></pre>
-            </li>
-            <li>
-              If you just have to choose between two values based on a condition, consider using a <em>ternairy operator</em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const number = 13;
-console.log(`${number} is ${number % 2 == 0 ? 'even' : 'odd'}`);</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>switch-case</h2>
-          <ul>
-            <li>
-              The <em><code>switch-case</code></em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun smallfont">const daynr = 4;
-let dayname;
-switch (daynr) {
-  case 1: dayname = 'Monday'; break;
-  case 2: dayname = 'Tuesday'; break;
-  case 3: dayname = 'Wednesday'; break;
-  case 4: dayname = 'Thursday'; break;
-  case 5: dayname = 'Friday'; break;
-  case 6: dayname = 'Saturday'; break;
-  case 7: dayname = 'Sunday'; break;
-  default: dayname = 'unknown'; break;
 }
-console.log(dayname);</code></pre>
-            </li>
-            <li>
-              Although in this case a simple array would be more practical:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun smallfont">const daynr = 4;
-const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Synday'];
-console.log(dayNames[daynr] ?? 'unknown');</code></pre>
-            </li>
-            <li class="arrow smallfont">
-              ?? is the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing">nullish coalescing operator</a>: take right-hand side if left is <code>null</code> or <code>undefined</code>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>for</h2>
-          <ul>
-            <li>
-              A classic <em><code>for</code></em> loop, for example to loop over an array:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define an array
-const forrestFriends = ['Bubba', 'Lt. Dan', 'Jenny'];
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>bool badGrades = true;
+if (badGrades) {
+    Console.WriteLine("House arrest for two weeks");
+} else {
+    Console.WriteLine("No house arrest");
+}
+</code></pre>
+    </div>
+    <p>Vergeet ook de handige ternaire operator niet:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>const number = 13;
+console.log(`${number} is ${number % 2 == 0 ? 'even' : 'odd'}`);
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>int number = 13;
+Console.WriteLine($"{number} is {(number % 2 == 0 ? "even" : "odd")}");
+</code></pre>
+    </div>
 
-// loop over its values
+    <h3>Iteraties</h3>
+    <h4><code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
+    <p>In Javascript komt de syntax van de selecties <code>while</code>, <code>do</code>-<code>while</code> en <code>for</code> overeen met C#. Een <code>for</code> voorbeeld:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-600"><code>// definieer een array
+const forrestFriends = ['Bubba', 'Lt. Dan'];
+
+// itereer over de waarden
 for (let i = 0; i &lt; forrestFriends.length; i++) {
-  console.log(`friend number ${i}: ${forrestFriends[i]}`);
+  console.log(`friend nr. ${i}: ${forrestFriends[i]}`);
 }
 </code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>for-of</h2>
-          <ul>
-            <li>
-              If you just need the array values, you can also just use <em><code>for-of</code></em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define an array
-const forrestFriends = ['Bubba', 'Lt. Dan', 'Jenny'];
+      <pre class="prism-vslight language-cs line-numbers w-600"><code>// definieer een array
+string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
-// loop over its values
+// itereer over de waarden
+for (int i = 0; i &lt; forrestFriends.Length; i++) {
+    Console.WriteLine($"friend number {i}: {forrestFriends[i]}");
+}
+</code></pre>
+    </div>
+
+    <h4><code>for</code>-<code>of</code> </h4>
+    <p>De <code>for</code>-<code>of</code> iteratie in Javascript komt overeen met <code>foreach</code>-<code>in</code> in C#:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
+const forrestFriends = ['Bubba', 'Lt. Dan'];
+
+// itereer over de waarden
 for (const friend of forrestFriends) {
-  console.log(friend);
-}</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>forEach</h2>
-          <ul>
-            <li>
-              To iterate a collection with a callback function, use <em><code>forEach</code></em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define an array
-const forrestFriends = ['Bubba', 'Lt. Dan', 'Jenny'];
-
-// iterate over array values
-forrestFriends.forEach(friend =&gt; {
-  console.log(friend);
-});</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>for-in</h2>
-          <ul>
-            <li>
-              To loop over an object's keys, use <em><code>for-in</code></em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// define object
-const forrest = {
-  firstName: 'Forrest',
-  lastName: 'Gump'
-};
-
-// loop over keys
-for (const key in forrest) {
-  console.log(`${key} = ${forrest[key]}`);
-}</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>(do) While</h2>
-          <ul>
-            <li>
-              The <em><code>while</code></em> loop:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let count1 = 5;
-while (count1 &gt; 0) {
-  console.log(count1);
-  count1--;
-}</code></pre>
-            </li>
-            <li>
-              The <em><code>do-while</code></em> loop:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">let count2 = 5;
-do {
-  console.log(count2);
-  count2--;
-} while (count2 &gt; 0);
-</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Break &amp; continue</h2>
-          <ul>
-            <li>
-              <em><code>continue</code></em> skips the current loop and moves to the next one:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">for (let x = 1; x &lt;= 20; x++) {
-  if (x % 3 == 0) continue; // skip multiples of 3
-  console.log(`processing ${x}...`);
-}</code></pre>
-            </li>
-            <li>
-              <em><code>break</code></em> completely exits the iteration:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">for (let x = 1; x &lt;= 20; x++) {
-  if (x % 3 == 0) break; // stop at multiple of 3
-  console.log(`processing ${x}...`);
-}</code></pre>
-            </li>
-          </ul>
-          <ul class="arrow warning">
-            <li>
-              don't overuse <code>continue</code> and <code>break</code>; it often reflects a poor programming style
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Throw-Try-Catch</h2>
-          <ul>
-            <li>
-              Handle errors with <em><code>throw</code></em> and <em><code>try-catch</code></em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">function getRectArea(width, height) {
-  if (isNaN(width) || isNaN(height)) {
-    throw 'Parameter is not a number!';
-  }
-  return width * height;
+  console.log(friend); // Bubba, Lt. Dan
 }
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>// defininieer een array
+string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
-try {
-  console.log(getRectArea(3, 'A'));
-} catch(e) {
-  console.warn(e);
-}</code></pre>
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              Only use try-catch when accessing external code (library, network call, database query...). Don't use it to catch possible errors in your own code and sweep them under the carpet Let your own errors happen and fix the code.
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>Built-in classes</h2>
-          <ul>
-            <li>
-              Althought Javascript has a rather limited set compared to other languages, it offers some basic built-in classes and functionality like <a href="https://www.w3schools.com/js/js_date_methods.asp">Date</a>, <a href="https://www.w3schools.com/js/js_math.asp">Math</a> and <a href="see https://www.w3schools.com/jsref/jsref_obj_array.asp">Array</a> (full overview on <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference">mozilla.org</a> or <a href="http://www.w3schools.com/js/default.asp">w3schools.com</a>):
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// Date example
+// itereer over de waarden
+foreach (string friend in forrestFriends) {
+    Console.WriteLine(friend); // Bubba, Lt. Dan
+}
+</code></pre>
+    </div>
+
+    <h4><code>forEach</code></h4>
+    <p>Javascript heeft nog een verkorte notatie (zonder C# equivalent) die velen zeer handig vinden:</p>
+    <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
+const forrestFriends = ['Bubba', 'Lt. Dan'];
+
+// itereer over de waarden
+forrestFriends.forEach(friend =&gt; {
+   console.log(friend); // Bubba, Lt. Dan
+});
+</code></pre>
+
+    <h2>Functies</h2>
+    <h3>Klassieke notatie</h3>
+    <p>Methodes in C# noemt men in Javascript <strong>functies</strong>. Een vergelijking van de syntax:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>function getFibonacciNumbers(n) {
+   if (n &lt;= 0) return [];
+   if (n == 1) return [0];
+   const arrFib = [];
+   arrFib[0] = 0;
+   arrFib[1] = 1;
+   for (let i = 2; i &lt; n; i++) {
+       arrFib[i] = arrFib[i - 2] + arrFib[i - 1];
+   }
+   return arrFib;
+}
+</code></pre>
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>private static int[] GetFibonacciNumbers(int n) {
+    if (n &lt;= 0) return new int[0] { };
+    if (n == 1) return new int[1] { 0 };
+    int[] arrFib = new int[n];
+    arrFib[0] = 0;
+    arrFib[1] = 1;
+    for (int i = 2; i &lt; n; i++) {
+        arrFib[i] = arrFib[i - 2] + arrFib[i - 1];
+    }
+    return arrFib;
+}
+</code></pre>
+    </div>
+    <h3>Notatie als constante</h3>
+    <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig (of toch bijna, er is <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een klein verschil</a>, maar dat is voor deze cursus niet zo belangrijk)</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
+    ...
+}
+</code></pre>
+      <pre class="prism-okaida language-javascript line-numbers w-500"><code>function getFibonacciNumbers(n) {
+    ...
+}
+</code></pre>
+    </div>
+    <h3>Arrow function expressies</h3>
+    <p>Een verkorte notatie die je in nog andere talen tegenkomt, is de <code>(...) =&gt; { ... }</code> vorm. Volgende notaties zijn gelijkwaardig:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
+    ...
+}
+const bepaalGgd = function(get1, get2) {
+    ...
+}
+</code></pre>
+      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = n =&gt; {
+    ...
+}
+const bepaalGgd = (get1, get2) =&gt; {
+    ...
+}
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>je komt ze vooral veel tegen in <a href="#extensiemethodes">extensie methodes</a>, zie aldaar</li>
+    </ul>
+
+    <h2>Ingebouwde klassen: Math, Date, Array, Random...</h2>
+    <p>Minder dan C#, maar Javascript heeft ook een aantal ingebouwde klassen als <code>Math</code>, <code>Date</code>, <code>Array</code>... De syntax verschilt helaas vaak veel. Een paar typische voorbeelden:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>// Date example
 const now = new Date();
 console.log(now.getFullYear());
 
@@ -1243,402 +794,225 @@ console.log(now.getFullYear());
 console.log(Math.ceil(Math.random() * 10));
 
 // Array example
-const shakefruits = ['banana', 'orange', 'apple', 'mango'];
-if (shakefruits.includes('orange')) console.log('this shake has orange');
-shakefruits.push('pear'); // add a pear to the array
-console.log(shakefruits);
+const arr1 = [ 'melk', 'boter', 'eieren' ];
+arr1.sort();
+console.log(arr1.join(', '));
 </code></pre>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="chapter">
-        <section>
-          <h1>JAVASCRIPT SYNTAX</h1>
-          <h2>Coding guidelines</h2>
-          <ul class="chapterlist">
-            <!-- to be filled by Javascript -->
-          </ul>
-        </section>
-        <section data-title="Comments">
-          <h2>Comments (1)</h2>
-          <ul>
-            <li>
-              comment abundantly and consistently; here's my suggested method
-            </li>
-            <li>
-              Each scriptfile: PHPDoc-style comment on top:
-              <pre class="bigger"><code contenteditable class="language-javascript">/**
- * Customized agenda script
- * Inspired on http://code.net//jquery-flat-timeline/
+      <pre class="prism-vslight language-cs line-numbers w-500"><code>// Date example
+DateTime now = DateTime.Now;
+Console.WriteLine(now.Year);
+
+// Math/Random example
+Random rnd = new Random();
+Console.WriteLine(Math.ceil(rnd.Next() * 10));
+
+// Array example
+string[] arr1 = { "melk", "boter", "eieren" }
+Array.Sort(arr1);
+Console.WriteLine(String.Join(", ", arr1));
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>voor een volledig overzicht zie <a href="https://www.w3schools.com/js/js_string_methods.asp">W3Schools</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">Mozilla.org</a></li>
+    </ul>
+
+    <h2>Stijlregels</h2>
+
+    <h3>Accolades</h3>
+    <p>Als je code block uit één regel bestaat, mag je in theorie de accolades weglaten. Dit is een slechte stijl, dus <strong>schrijf altijd de accolades voluit</strong>:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500 wrong"><code>if (age &lt; 6)
+  console.log('child');
+else if (age &lt; 18)
+  console.log('junior');
+else
+  console.log('adult');
+
+</code></pre>
+      <pre class="prism-okaida line-numbers w-500 right"><code>if (age &lt; 6) {
+  console.log('child');
+} else if (age &lt; 18) {
+  console.log('junior');
+} else {
+  console.log('adult');
+}
+</code></pre>
+    </div>
+    <ul class="arrow">
+      <li>het weglaten van accolades lijkt misschien een aantrekkelijk idee, maar het maakt je code foutgevoeliger, minder leesbaar en minder flexibel; je zult echte programmeurs dan ook nooit accolades zien weglaten!</li>
+    </ul>
+
+    <h3>Code commentaar</h3>
+    <p>Voorzie je code <strong>rijkelijk van commentaar</strong>. Zo blijft het leesbaar voor jou en je collega’s, vandaag en in de toekomst! Inspireer je op volgend voorbeeld:</p>
+    <pre class="prism-okaida line-numbers w-600"><code>/*
+ * Binary sudoku script
  *
  * @author Rogier van der Linde &lt;rogier.vanderlinde@odisee.be&gt;
  */
 
-// ... rest of script
-</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section data-title="">
-          <h2>Comments (2)</h2>
-          <ul>
-            <li>
-              Each function: PHPDoc-style:
-              <pre class="bigger"><code contenteditable class="language-javascript">/**
- * Executed when the module is loaded
- *
- * @param mixed $needle Value we're looking for.
- * @param array $haystack Array of values
- *
- * @return boolean
- */
-function inArray(needle, haystack) {
-  // ...
-}</code></pre>
-            </li>
-            <li class="no-style">
-              ...or single line comment on top:
-              <pre class="bigger"><code contenteditable class="language-javascript">// initializer
-function init() {
-  // ...
-}</code></pre>
-            </li>
-          </ul>
-        </section>
-        <section data-title="">
-          <h2>Comments (3)</h2>
-          <ul>
-            <li>
-              Code blocks: start each block with single comment line; separate with whitelines
-              <pre class="bigger"><code contenteditable class="language-javascript">function someFunction() {
-  // description block 1
-  statement 1;
+// ===========================================
+// FUNCTIONS
+// ===========================================
 
-  // description block 2
-  statement 2;
-  statement 3;
-  statement 4;
-  statement 5;
-
-  // description block 3
-  statement 6;
-  statement 7;
-}
-</code></pre>
-            </li>
-          </ul>
-          <ul class="arrow">
-            <li>
-              each block <i>must</i> have a description (even if it's simple); make your story complete
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Indentation</h2>
-          <ul>
-            <li>You may choose any indentation size (2-4), as long as you don't mix tabs and spaces:
-              <pre class="bigger"><code contenteditable class="language-javascript">function test() {
-...const somevar = 'some value';
-...for (let i = 0; i &lt; 10; i++) {
-......// do something here
-......// do something here too
-...}
-};</code></pre>
-            </li>
-            <li class="arrow ok">
-              <strong>Ctrl-Alt-F</strong> in Visual Studio Code is your friend
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Spaces</h2>
-          <ul>
-            <li>
-              Put spaces:
-              <ul>
-                <li class="v-style">after punctuation marks (<code>, : ;</code>), not before</li>
-                <li class="v-style">before and after operators (<code>== &lt; &amp;&amp; +</code> ...) </li>
-                <li class="v-style">after keywords (<code>if, for, while, function</code> ...)</li>
-              </ul>
-            </li>
-            <li>
-              Examples:
-              <pre class="bigger"><code contenteditable class="language-javascript wrong">for(let x=0 ; x&lt;10 ; x++) {
-  // ...
-}
-const hasItems = arrItems.length &gt; 0?true:false ;
-</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript right">for (let x = 0; x &lt; 10; x++) {
-  // ...
-}
-const hasItems = arrItems.length &gt; 0 ? true : false;</code></pre>
-            </li>
-            <li class="arrow ok">
-              <strong>Ctrl-Alt-F</strong> in Visual Studio Code is your friend
-            </li>
-          </ul>
-          <div class="tooltip">
-            <div>
-              Spaces are put after keywords to distinguish with functions.
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>Semicolons</h2>
-          <ul>
-            <li>
-              Put semicolons:
-              <ul>
-                <li class="v-style">after each statement</li>
-                <li class="v-style">after an assignment statement <code>const varName = {...};</code></li>
-                <li class="x-style">not after all other }</li>
-              </ul>
-            </li>
-            <li>
-              Examples:
-              <pre class="bigger"><code contenteditable class="language-javascript right">const test1 = function() {
-  console.log('test1 function executing'); // statement
-}; // assignment statement - add semicolon
-
-function test1() {
-  console.log('test1 function executing'); // statement
-} // no assignment - no semicolon
-
-if (x &amp;&amp; x === 9) {
-  console.log('x is nine'); // statement
-} // no assignment - no semicolon</code></pre>
-            </li>
-            <li class="arrow ok">
-              <strong>ESLint</strong> Visual Studio Code extension is your friend
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Curly braces</h2>
-          <ul>
-            <li>
-              Rules (apply to block statements only, not to object literals):
-              <ul>
-                <li class="v-style">always use them when optional</li>
-                <li class="x-style">don't put them on one line</li>
-              </ul>
-            </li>
-            <li>
-              Examples:
-              <pre class="bigger"><code contenteditable class="language-javascript wrong">if (some_condition)
+/**
+* Draws the sudoku board
+*
+* @param {number} width - board width
+* @param {number} height - board height
+* @param {array&lt;number&gt;} numbers one dimensional array of numbers
+* @returns {string} string representation of the board
+*/
+function drawBoard(width, height, numbers) {
   ...
-else
-  ...</code></pre>
-              <pre class="bigger"><code contenteditable class="language-javascript right">if (some_condition) {
-  ...
+}
+
+....
+
+// ===========================================
+// DOM
+// ===========================================
+
+// create DOM shorthands
+const divLoginModal = document.querySelector('#loginmodal');
+const btnLogin = document.querySelector('#btnLogin');
+const btnCancel = document.querySelector('#btnCancel');
+...
+
+// ===========================================
+// EVENTS
+// ===========================================
+
+// add event listener
+btnLogin.addEventListener('click', function(e) {
+  e.preventDefault();
+  divLoginModal.classList.add('show');
+});
+
+// ===========================================
+// GAME LOGIC
+// ===========================================
+
+// initialize board
+...
+</code></pre>
+
+    <h3>Code layout</h3>
+    <p>Een paar van de belangrijkere regels:</p>
+    <ul>
+      <li>maximaal <strong>één instructie per regel</strong></li>
+      <li><strong>spaties</strong> voor én na operatoren</li>
+      <li><strong>geen spaties</strong> voor puntkomma's of binnen haakjes</li>
+      <li>geen twee <strong>open regels</strong> na elkaar</li>
+      <li>bovenal: wees <strong>consequent</strong></li>
+    </ul>
+    <pre class="prism-okaida line-numbers w-500 wrong"><code>console.log ('Genereer random getal... ' );
+let random = Math.Random( ); let g1 =parseInt(random);
+console.log(`Het kwadraat is: ${g1*g1}`);
+</code></pre>
+    <pre class="prism-okaida line-numbers w-500 right"><code>console.log('Genereer random getal... ');
+let random = Math.Random();
+let g1 = parseInt(random);
+console.log(`Het kwadraat is: ${g1 * g1}`);
+</code></pre>
+    <ul class="arrow">
+      <li>VS Code shortcut voor layout: <strong>Shift-Alt-F</strong></li>
+      <li>als ESLint geen fouten geeft, is het <em>meestal</em> goed (maar controleer op het einde altijd nog eens je layout)</li>
+    </ul>
+
+    <h3>Hoofdlettergebruik</h3>
+    <p>De gewoontes in Javascript qua hoofdlettergebruik en benaming verschillen lichtjes van C#. Een vergelijking:</p>
+    <table class="grey left">
+      <thead>
+        <tr>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">C#</th>
+          <th scope="col">Javascript</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>variabelen</td>
+          <td>camelCase, bv <code>grootsteGetal</code></td>
+          <td>idem</td>
+        </tr>
+        <tr>
+          <td>constanten</td>
+          <td>PascalCase, bv <code>MaxItems</code></td>
+          <td>UPPERCASE_UNDERSCORE of camelCase, b.v. <code>MAX_ITEMS</code> of <code>maxItems</code></td>
+        </tr>
+        <tr>
+          <td>methoden (C#) / functies (Javascript)</td>
+          <td>camelCase, bv. <code>berekenGemiddelde()</code></td>
+          <td>idem</td>
+        </tr>
+        <tr>
+          <td>klassen (C#) / objecten (Javascript)</td>
+          <td>PascalCase, bv <code>Rectangle</code></td>
+          <td>idem</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Naamgeving</h3>
+    <p>Regels voor naamgeving:</p>
+    <ul>
+      <li>gebruik <strong>betekenisvolle</strong> namen, dus geen <code>g1</code>, <code>nm</code> enz... maar <code>getal1</code>, <code>klantNaam</code> enz...</li>
+      <li><strong>methodes</strong> beginnen met een <strong>werkwoord</strong>, bv. <code>berekenGemiddelde()</code>, <code>drukMenu()</code> enz...</li>
+      <li><strong>boolean</strong> variabelen, methodes en properties beginnen met werkwoord als is..., heeft... , bv. <code>bevatKlinker</code>, <code>isEven()</code>, <code>heeftSpelGestart</code> enz... </li>
+      <li>kies <strong>één taal</strong> (Engels óf Nederlands) en gebruik dat in je hele programma, dus niet de ene keer <code>name</code> en de andere keer <code>leeftijd</code></li>
+      <li>gebruik de <strong>Hongaarse notatie voor HTML elementen</strong>, dus prefix altijd met dezelfde drie letters, bv. <code>btnOk</code>, <code>lblBericht</code>, <code>sldPercentage</code>...</li>
+    </ul>
+
+    <h3>Nesting</h3>
+    <p><strong>Vermijd nesting</strong> als het eenvoudig anders kan:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500 wrong"><code>if (age &gt; 6) {
+    if (age &lt; 18) {
+        console.log('junior');
+    } else {
+        console.log('adult');
+    }
 } else {
-  ...
-}</code></pre>
-            </li>
-            <li class="arrow ok">
-              <strong>ESLint</strong> Visual Studio Code extension is your friend
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Identifiers</h2>
-          <ul>
-            <li>
-              Conventions:
-              <ul>
-                <li class="v-style">use camelCase for all identifiers (variables, functions...)</li>
-                <li class="v-style">exception: for objects PascalCase or UPPERCASE is also allowed</li>
-              </ul>
-            </li>
-            <li>
-              Examples:
-              <pre class="bigger"><code contenteditable class="language-javascript right">// variables, functions...: camelCase
-const userName = 'Rogier';
-function someFunction() {
-  // ....
-}
-
-// objects: DOM or Dom is also allowed
-const DOM = {
-  btnOk: document.querySelector('#btnOk'),
-  galleryImages: document.querySelectorAll('#gallery img'),
-  ...
+    console.log('child');
 }
 </code></pre>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Scope</h2>
-          <ul>
-            <li>
-              The <em>scope</em> is the environment in which a variable exist.
-              Variables that live everywhere, are said to be in the <em>global scope</em>.
-            </li>
-            <li>
-              In this fragment, the scope of the inner variable <code>num</code> is limited to the iteration, not interfering with the outer variable <code>num</code>:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun">const num = 100; // outer num; lives in global scope
-for (let num = 0; num &lt; 10; num++) {
-  // inner num; only lives in 'for'-scope
+      <pre class="prism-okaida line-numbers w-500 right"><code>if (age &lt; 6) {
+    console.log('child');
+} else if (age &lt; 18) {
+    console.log('junior');
+} else {
+    console.log('adult');
 }
-console.log(num); // still 100; outer num hasn't changed
-</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Don't use var</h2>
-          <ul>
-            <li>
-              On the Internet, you'll run into many fragments using <code>var</code> instead of <code>let</code> to define variables. The problem with <code>var</code> is that its scope isn't limited by control structures like it should:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript overlayrun ">var num = 100; // outer num; lives in global scope
-for (var num = 0; num &lt; 10; num++) {
-  // inner num; only lives in 'for'-scope
-}
-console.log(num); // 10; outer num is overwritten by inner num
-</code></pre>
-              </div>
-            </li>
-          </ul>
-          <ul class="arrow warning">
-            <li>never EVER use <code>var</code> to declare a variable</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Use const</h2>
-          <ul>
-            <li>
-              If a variable is assigned only once, you <i>should</i> use <em><code>const</code></em> in Javascript. Example: this fragment...
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript">let values = [];
-let message = '';
-for (let i = 0; i &lt; 10; i++) {
-   let rnd = Math.floor(Math.random() * 10 + 1);
-   message += `...adding ${rnd}\n`;
-   values.push(rnd);
-}
-console.log(message);</code></pre>
-              </div>
-              ...should be written as:
-              <div>
-                <pre class="bigger"><code contenteditable class="language-javascript"><b>const</b> values = []; // only assigned once
-let message = '';
-for (let i = 0; i &lt; 10; i++) {
-   <b>const</b> rnd = Math.floor(Math.random() * 10 + 1); // only assigned once
-   message += `...adding ${rnd}\n`;
-   values.push(rnd);
-}
-console.log(message);</code></pre>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>[How to avoid global space]</h2>
-          <ul>
-            <li>
-              Scripts are often combined with other scripts in the same page. Variables in the global space might conflict with each other.
-            </li>
-            <li>
-              To avoid conflicts, wrap your code in its own scope with a so-called <em>self invoking anonymous function</em>:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">// your code wrapped in an anonymous function
-(function() {
-  const number1 = 5;
-  const number2 = 7;
-  console.log(`the sum is ${number1 + number2}`);
-  console.log(`variable "number1" is accessible inside; its type is ${typeof number1}`);
-  console.log(`variable "number2" is accessible inside; its type is ${typeof number2}`);
-})();
 
-// someone else's code
-console.log(`variable "number1" is unaccessible outside; its type is ${typeof number1}`);
-console.log(`variable "number2" is unaccessible outside; its type is ${typeof number2}`);
+
 </code></pre>
-            </li>
-            <li class="arrow smallfont">
-              encapsulates your variables, hidden for the outside world; this will become relevant in later courses
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>[Use strict]</h2>
-          <ul>
-            <li>
-              New since ECMAScript 5 (2016); ignored in earlier versions
-            </li>
-            <li>
-              Turns Javascript in a more strict, cleaner mode:
-              <ul>
-                <li>prohibits some syntax that is likely an error (e.g. declaring the same variable twice)</li>
-                <li>makes it easier for Javascript engines to optimize code</li>
-              </ul>
-            </li>
-            <li>
-              Examples:
-              <pre class="bigger"><code contenteditable class="language-javascript overlayrun">'use strict';
-
-const somevariable;
-someVariable = 7; // might be typo; new variable not allowed without 'const'
-
-function sum(a, a, c) { // possible mistake: duplicate parameter names
-  // ...
-}
-</code></pre>
-            </li>
-            <li class="arrow smallfont">
-              less relevant since the rise of linting tools like ESLint
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Window onload event</h2>
-          <ul>
-            <li>
-              Often you'll want for all of the page's content, including images, to load before your script starts. Use the <em><code>onload</code></em> event of the <code>window</code> object:
-              <pre class="bigger"><code contenteditable class="language-javascript right">window.addEventListener('load', () =&gt; {
-  // start your script here
-  // ...
-});</code></pre>
-            </li>
-            <li class="arrow ok">this is recommended if your page contains many resources accessed by your script</li>
-          </ul>
-        </section>
-      </section>
-
     </div>
+    <ul class="arrow">
+      <li>het weglaten van accolades lijkt misschien een aantrekkelijk idee, maar het maakt je code foutgevoeliger, minder leesbaar en minder flexibel; je zult echte programmeurs dan ook nooit accolades zien weglaten!</li>
+    </ul>
+    <figure>
+      <img src="img/01_syntax/pyramid-of-doom.jpg" alt="pyramid of doom">
+      <figcaption>vermijd de <a href="https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming)">pyramid of doom</a>!</figcaption>
+    </figure>
 
-    <!-- odisee.be link -->
-    <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
 
-    <!-- index menu container -->
-    <nav id="navigator"></nav>
 
+
+  </main>
+  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+
+  <!-- popup -->
+  <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
+    <div class="hystmodal__wrap">
+      <div class="hystmodal__window" role="dialog" aria-modal="true">
+        <iframe title="demo"></iframe>
+      </div>
+    </div>
   </div>
-
-  <script src="vendor/jquery.min.js"></script>
-  <script src="vendor/reveal/lib/js/head.min.js"></script>
-  <script src="vendor/reveal/js/reveal.js"></script>
-  <script src="vendor/highlight/highlight.pack.js"></script>
-  <script src="vendor/incrementable.js"></script>
-  <script src="vendor/prefixfree.js"></script>
-  <script src="vendor/css-snippets.js"></script>
-  <script src="vendor/css-edit.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    const devtools = /./;
-    devtools.toString = function () {
-      this.opened = true;
-    }
-    console.log('%c', devtools);
-    if (!devtools.opened) {
-      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
-    }
-  </script>
-
+  <!-- scripts -->
+  <script src="vendor/prism/prism.js"></script>
+  <script src="vendor/hystmodal/hystmodal.min.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,75 @@
+/**
+ * CSS for custom switch
+ *
+ * Copyright Rogier van der Linde
+ */
+
+/* SWITCH */
+
+/* The switch - the box around the slider */
+#mode {
+   font-size: 1.2rem;
+   position: fixed;
+   right: 7rem;
+   bottom: 1.8rem;
+   z-index: 10;
+}
+ 
+.switch {
+   display: inline-block;
+   height: 2rem;
+   position: relative;
+   width: 6rem;
+}
+ 
+/* Hide default HTML checkbox */
+.switch input {
+   height: 0;
+   opacity: 0;   
+   width: 0;
+}
+ 
+/* The slider */
+.switch .slider {
+   background-color: #ccc;
+   bottom: 0;
+   cursor: pointer;
+   left: 0;
+   position: absolute;
+   right: 0;
+   top: 0;
+   transition: .4s;
+}
+ 
+.switch .slider:before {
+   background-color: white;
+   bottom: 0.4rem;
+   content: "";
+   height: 1.3rem;
+   left: 0.4rem;
+   position: absolute;
+   transition: .4s;
+   width: 1.4rem;
+}
+ 
+.switch input:checked + .slider {
+   background-color: #bcac86;
+}
+ 
+.switch input:focus + .slider {
+   box-shadow: 0 0 1px #bcac86;
+}
+ 
+.switch input:checked + .slider:before {
+   transform: translateX(3.9rem);
+}
+ 
+/* Rounded sliders */
+.switch .slider.round {
+   border-radius: 3.4rem;
+}
+ 
+.switch .slider.round:before {
+   border-radius: 50%;
+}
+

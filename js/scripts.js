@@ -1,11 +1,19 @@
 // DOM shortcuts
 const DOM = {
  	codeBlocks: [...document.querySelectorAll('pre code')],
+	diaDemoIframe: document.querySelector('#diaDemo iframe'),
    nav: document.querySelector('nav'),
+	tips: [...document.querySelectorAll('.tips')],
 	titles: [...document.querySelectorAll('h2,h3,h4,h5')],
 	toc: document.querySelector('#toc')
 };
+const myHistModal = new HystModal({});
 
+/**
+ * Startup function
+ *
+ * @param {string} str
+ */
 function startApp() {
    // part 1: assign id's to titles
 	DOM.titles.forEach((title) => {
@@ -15,7 +23,9 @@ function startApp() {
       title.innerHTML = `<span id="${id}"></span>` + title.innerHTML;
 	});
 
-   // part 2: build TOC
+	// part 2: handle tips
+
+   // part 3: build TOC
 	if (!DOM.titles.length) return;
 	let toc = '';
 
@@ -44,10 +54,27 @@ function startApp() {
    // add to dom
    DOM.toc.innerHTML = toc;
 
-   // part 3: nav scroll effect
+   // part 4: nav scroll effect
    window.addEventListener('scroll', () => {
       DOM.nav.classList.toggle('condensed', document.body.scrollTop > 50 || document.documentElement.scrollTop > 50);
    });
+
+	// part 5: prism
+	Prism.plugins.toolbar.registerButton('Demo', {
+		text: 'Demo', // required
+		onClick: function (env) { // optional
+			const src = env.element.parentNode.dataset.demo;
+			if (src === undefined) return;
+			myHistModal.open('#diaDemo');
+			if (src == '') {
+				let oDoc = (DOM.diaDemoIframe.contentWindow || DOM.diaDemoIframe.contentDocument);
+				if (oDoc.document) oDoc = oDoc.document;
+				oDoc.write(env.element.innerText);
+			} else {
+				DOM.diaDemoIframe.src = src;
+			}
+		}
+	});
 }
 
 /**

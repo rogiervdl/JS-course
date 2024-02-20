@@ -2,7 +2,7 @@
  * CSS for index.html
  *
  * Copyright Rogier van der Linde
- * Last revision 
+ * Last revision
  */
 
 /* general */
@@ -15,24 +15,23 @@
 
 html {
    background-color: #faf5e6;
-   font-size: 62.5%;
 }
 
 body {
    background: transparent;
    color: #666;
    font-family: Lato, Arial, sans-serif;
-   font-size: 1.6rem;
+   font-size: 16px;
    margin: 0 auto;
-   max-width: 160rem;
-   padding: 2rem;
+   max-width: 1600px;
+   padding: 20px;
    text-align: center;
 }
 
 h1, h2, h3 {
    color: #333;
    font-family: 'League Gothic', sans-serif;
-   text-shadow: 0 0.5rem 0.2rem rgba(150, 150, 150, 0.71);
+   text-shadow: 0px 5px 2px rgba(150, 150, 150, 0.71);
    text-transform: uppercase;
 }
 
@@ -49,10 +48,6 @@ a:hover {
    color: #c0a86e;
 }
 
-body:not(.showpro) .pro {
-   display: none !important;
-}
-
 /* header */
 
 .site__header {
@@ -60,44 +55,43 @@ body:not(.showpro) .pro {
 }
 
 .header__title {
-   font-size: 10rem;
+   font-size: 100px;
    letter-spacing: 0.02em;
-   margin-bottom: 2rem;
+   margin-bottom: 20px;
 }
 
 .header__tagline {
    color: #000;
    font-family: 'League Gothic', sans-serif;
-   font-size: 4rem;
+   font-size: 40px;
    letter-spacing: 0.02em;
-   margin-bottom: 2rem;
-   text-shadow: 0 0 0.rem rgba(0,0,0,0.2);
+   margin-bottom: 20px;
+   text-shadow: 0px 0px 6px rgba(0,0,0,0.2);
    text-transform: uppercase;
 }
 
 .header__logo {
    display: block;
-   width: 10rem;
+   width: 100px;
    text-decoration: none;
    position: absolute;
-   top: 1rem;
-   right: 1rem;
+   top: 10px;
+   right: 10px;
    z-index: 10;
    opacity: 0.75;
 }
- 
+
 .header__logo:hover {
    opacity: 1;
 }
- 
+
 .header__logo img {
    width: 100%;
 }
- 
-/* nav */
 
-.site__nav {
-   justify-content: center;
+/* main */
+
+.site__main {
    padding: 1.875em 0;
 }
 
@@ -105,7 +99,7 @@ body:not(.showpro) .pro {
    align-items: center;
    background-color: #e1d9c0;
    border: 0.25em solid #eee;
-   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
@@ -140,7 +134,7 @@ body:not(.showpro) .pro {
 /* footer */
 
 .site__footer {
-   padding: 3rem 0 5rem 0;
+   padding: 30px 0 50px 0;
 }
 
 .site__footer a {
@@ -157,21 +151,21 @@ body:not(.showpro) .pro {
 
 aside {
    background: rgba(46,49,51,0.9);
-   box-shadow: -1rem 0 2.5rem #1c1e20;
-   padding: 1.5rem 2rem;
+   box-shadow: -10px 0px 25px #1c1e20;
+   padding: 15px 20px;
    text-align: left;
 }
 
 aside p {
    color: #eee;
-   font-size: 1.5rem;
+   font-size: 15px;
    line-height: 1.4;
-   margin-bottom: 2.4rem;
+   margin-bottom: 24px;
    opacity: 0.8;
 }
 
 aside img {
-   width: 15rem;
+   width: 150px;
 }
 
 aside a {
@@ -185,14 +179,14 @@ aside a:hover {
 
 /* responsive stuff */
 
-@media (min-width: 30em) {
+@media (min-width: 480px) {
    .header__title {
-      font-size: 14rem;
+      font-size: 140px;
    }
    .header__tagline {
-      font-size: 6rem;
+      font-size: 60px;
    }
-   .site__nav {
+   .site__main {
       column-gap: 4%;
       display: flex;
       flex-wrap: wrap;
@@ -203,8 +197,8 @@ aside a:hover {
    }
 }
 
-@media (min-width: 40em) {
-   .site__nav {
+@media (min-width: 640px) {
+   .site__main {
       column-gap: 3.5%;
       row-gap: 1.2em;
    }
@@ -213,11 +207,11 @@ aside a:hover {
    }
 }
 
-@media (min-width: 60em) {
+@media (min-width: 960px) {
    .thumb__title {
       font-size: 1.8em;
    }
-   .site__nav {
+   .site__main {
       column-gap: calc(8% / 3);
       row-gap: 1.5em;
    }
@@ -225,12 +219,12 @@ aside a:hover {
       width: 23%;
    }
    aside {
-      bottom: 2.5rem;
+      bottom: 25px;
       overflow: hidden;
       transition: all .2s ease;
       position: fixed;
-      right: -35rem;
-      width: 40rem;
+      right: -350px;
+      width: 400px;
       z-index: 99999;
    }
 
@@ -240,8 +234,8 @@ aside a:hover {
 
 }
 
-@media (min-width: 75em) {
-   .site__nav {
+@media (min-width: 1200px) {
+   .site__main {
       column-gap: 2.5%;
       row-gap: 1.875em;
    }

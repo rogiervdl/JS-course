@@ -1,789 +1,650 @@
-/**
- * Common styles (in this course)
- *
- * Copyright (C) 2013-2014 Rogier van der Linde
+/* ELEMENTS */
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	counter-reset: chapter;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	font-size: 1.6rem;
+	margin: 0;
+	margin-bottom: 5rem;
+	padding: 0;
+	padding-top: 21rem;
+}
+
+a {
+	color: #00c;
+	text-decoration: none;
+}
+
+h1,
+#toc,
+main {
+	margin: 0 2.5rem;
+}
+
+main a::after {
+	content: "🔗";
+	font-size: smaller;
+	position: relative;
+	top: -0.5rem;
+}
+
+#toc a::after {
+	display: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+code,
+pre {
+	width: fit-content;
+}
+
+figure {
+	line-height: 1.2;
+	margin-left: 0;
+}
+
+figcaption {
+	font-size: smaller;
+	font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: normal;
+	margin-bottom: 1em;
+	margin-top: 1.3em;
+	padding-bottom: 0.3em;
+	width: fit-content;
+}
+
+/* h1 span,
+h2 span,
+h3 span,
+h4 span {
+	position: relative;
+	top: -5rem;
+}
  */
-
-/*********************************************
- * COVER STYLES
- *********************************************/
-
-.reveal .cover p {
-   font-size: 13px;
-   margin-bottom: 0.5em;
-}
-
-.reveal .slides section.cover a {
-   text-decoration: none;
-}
-
-.reveal .slides section.cover a:hover {
-   text-decoration: underline;
-}
-
-body .reveal img.cover__visual {
-   margin-top: 20px;
-   max-height: 250px;
-   max-width: 400px;
-}
-
-.reveal .cover__footer {
-   align-items: center;
-   display: flex;
-   justify-content: center;
-}
-
-.reveal img.cover__me {
-   border-radius: 50%;
-   height: 40px;
-   margin: 0;
-   margin-right: 10px;
-   width: 40px;
-}
-
-/*********************************************
- * GENERAL STYLES
- *********************************************/
-
-.reveal .warning {
-   color: #900;
-}
-
-.reveal .ok {
-   color: #060;
-}
-
-.reveal .greenline {
-   border-bottom: 2px solid #090;
-}
-
-.reveal .redline {
-   border-bottom: 2px solid #900;
-}
-
-.reveal em {
-   color: #564826;
-   background-color: #ddd;
-   font-style: normal;
-}
-
-p.smallfont {
-   font-size: 0.7em;
-   margin-bottom: 10px;
-}
-
-[data-fancybox] {
-   cursor: pointer;
-}
-
-.democaption {
-   font-size: 10px !important;
-   position: absolute;
-   right: 3px;
-   top: -14px;
-}
-
-/*********************************************
-  * IMAGES
-  *********************************************/
-
-/* general */
-
-body section img.bordered {
-   border: 2px solid #ccc;
-}
-
-img.bottomright {
-   bottom: 20px;
-   position: absolute;
-   right: 20px;
-}
-
-/* image rows */
-
-body section .imgrow {
-   align-items: flex-start;
-   display: flex;
-   justify-content: space-between;
-   margin-top: 20px;
-}
-
-body section .img-3 figure {
-   width: 31%;
-}
-
-body section .img-5 figure {
-   width: 18%;
-}
-
-body section .img-8 figure {
-   width: 10%;
-}
-
-/*********************************************
-  * LISTS
-  *********************************************/
-
-/* general */
-
-.reveal .slides section section:not(:first-child) ul,
-.reveal .slides section section:not(:first-child) li {
-   width: 100%;
-}
-
-.reveal ol {
-   list-style: decimal;
-}
-
-.reveal ul {
-   list-style: disc;
-}
-
-.reveal li {
-   padding-top: 10px;
-}
-
-/* nested */
-
-.reveal ol ul,
-.reveal ul ul {
-   list-style: square;
-}
-
-.reveal ol ol,
-.reveal ol ul,
-.reveal ul ul,
-.reveal ul ol {
-   font-size: 80%;
-   line-height: 1.4em;
-   margin-left: 40px;
-   margin-top: 5px;
-}
-
-.reveal li li {
-   padding-top: 0;
-}
-
-/* styles */
-
-.reveal .v-style {
-   list-style-image: url('../img/list_style_check.png');
-}
-
-.reveal .plus-style {
-   list-style-image: url('../img/list_style_plus.png');
-}
-
-.reveal .x-style {
-   list-style-image: url('../img/list_style_uncheck.png');
-}
-
-.reveal .no-style {
-   list-style-type: none;
-}
-
-/* arrows */
-
-.reveal ul.arrow {
-   list-style-type: none;
-   margin: 0;
-   margin-left: 1.25em;
-   padding: 0;
-}
-
-.reveal ul.arrow li:first-child,
-.reveal ul li.arrow {
-   margin-top: 0.3em;
-}
-
-.reveal ul li.arrow + li.arrow  {
-   margin-top: 0;
-   padding-top: 0;
-}
-
-.reveal ul.arrow li {
-   line-height: 1.2em;
-   margin: 0;
-   padding-bottom: 0;
+h1 {
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 }
 
-.reveal ul.arrow li::before,
-.reveal li.arrow::before {
-   content: '→  ';
+h2 {
+	border-bottom: 0.4rem double #ccc;
+	counter-reset: subchapter;
+	padding-bottom: 0.5rem;
 }
 
-.reveal ul.arrow li::first-letter,
-.reveal li.arrow::first-letter {
-   margin-left: -1.25em;
+h2::before {
+	counter-increment: chapter;
+	content: counter(chapter) ". ";
 }
 
-.reveal li.arrow {
-   list-style-type: none;
-   margin-left: 1.25em;
+h3 {
+	border-bottom: 0.2rem solid #ccc;
+	counter-reset: subsubchapter;
 }
 
-.reveal ul.smallfont,
-.reveal li.smallfont {
-   font-size: 0.85em;
+h3::before {
+	counter-increment: subchapter;
+	content: counter(chapter) "." counter(subchapter) " ";
 }
 
-/*********************************************
-  * BOXES & LAYOUT
-  *********************************************/
-
-blockquote.greenbig {
-   background-color: #eeffee66;
-   border: 3px dashed #999;
-   font-size: larger;
-   margin-bottom: 1em;
-   margin-top: 3em;
-   padding: 0.5em 1em;
-   text-align: center;
-   width: 45%;
-}
-
-.reveal section .shadowbox {
-   border: 1px solid #888;
-   box-shadow: 3px 5px 10px #888;
-}
-
-.flex-1-1,
-.flex-1-2,
-.flex-2-1,
-.flex-4-6,
-.flex-6-4,
-.flex-1-3 {
-   align-items: flex-start;
-   display: flex;
-   justify-content: space-between;
-}
-
-.flex-1-1 > :first-child {
-   width: 48% !important;
-}
-
-.flex-1-1 > :last-child {
-   width: 48% !important;
-}
-
-.flex-1-2 > :first-child {
-   width: 31% !important;
-}
-
-.flex-2-1 > :last-child {
-   width: 31% !important;
-}
-
-.flex-2-1 > :first-child {
-   width: 64% !important;
-}
-
-.flex-1-2 > :last-child {
-   width: 64% !important;
-}
-
-.flex-4-6 > :first-child {
-   width: 38% !important;
-}
-
-.flex-4-6 > :last-child {
-   width: 58% !important;
-}
-
-.flex-6-4 > :first-child {
-   width: 58% !important;
-}
-
-.flex-6-4 > :last-child {
-   width: 38% !important;
-}
-
-.flex-1-3 > :first-child {
-   width: 23% !important;
-}
-
-.flex-1-3 > :last-child {
-   width: 73% !important;
-}
-
-/*********************************************
- * TABLE STYLES
- *********************************************/
-
-/* general */
-
-td span.undertext {
-   font-size: smaller;
-   font-style: italic;
-   white-space: nowrap;
-}
-
-/* orientation */
-
-.reveal table td.center-h {
-   text-align: center;
-}
-
-.reveal table th.horizontal {
-   vertical-align: bottom;
-}
-
-.reveal table th.horizontal span {
-   display: inline-block;
-   margin: 0 0 5px 7px;
-   vertical-align: bottom;
-}
-
-.reveal table th.vertical {
-   height: 135px;
-   overflow: hidden;
-   position: relative;
-   text-align: left;
-   vertical-align: bottom;
-}
-
-.reveal table th.vertical>span {
-   display: inline-block;
-   margin: 0 0 0 12px;
-   text-align: left;
-   transform: rotate(-90deg);
-   transform-origin: left;
-   width: 15px;
-}
-
-/* scrollbar */
-
-.reveal .scrolltable {
-   width: 100%;
-   border-collapse: collapse;
-}
-
-.reveal .scrolltable tbody {
-   overflow: auto;
-}
-
-/* blue table */
-
-.reveal .bluetable td, .reveal .bluetable th {
-   border: 2px solid #fff;
-   padding: 3px 5px;
-}
-
-.reveal .bluetable table {
-   margin-top: 20px;
-   width: 100%;
-}
-
-.reveal .bluetable th {
-   border-bottom: 0;
-   color: #fff;
-}
-
-.reveal .bluetable tr {
-   border: 0;
-}
-
-.reveal .bluetable {
-   font-size: 14px;
-   line-height: 1.4em;
-}
-
-.reveal .bluetable td p {
-   line-height: 1.2em;
-   margin: 0 !important;
-   margin-top: 5px !important;
-   padding: 0 !important;
+h4 {
+	border-bottom: 1px dotted #ccc;
+	counter-reset: subsubsubchapter;
+	font-size: 1.4rem;
+	text-transform: uppercase;
 }
 
-.reveal .bluetable tr td p:first-child {
-   margin-top: 0 !important;
+h4::before {
+	counter-increment: subsubchapter;
+	content: counter(chapter) "." counter(subchapter) "." counter(subsubchapter) " ";
 }
 
-.reveal .bluetable th {
-   color: #fff;
+h5::before {
+	counter-increment: subsubsubchapter;
+	content: counter(chapter) "." counter(subchapter) "." counter(subsubchapter) "." counter(subsubsubchapter) " ";
 }
 
-.reveal .bluetable td {
-   color: #000;
+img {
+	max-width: 100%;
 }
 
-.reveal .bluetable tr:nth-child(even) {
-   background-color: #e9edf4;
+figure {
+	margin-bottom: 2rem;
+	margin-top: 0;
 }
 
-.reveal .bluetable tr:nth-child(odd) {
-   background-color: #d0d8e8;
+nav {
+	background-color: #faf5e6;
+	box-shadow: 0 0.5rem 1rem #ccc7;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: all 0.1s;
+	z-index: 15;
 }
 
-.reveal .bluetable thead th {
-   background-color: #4f81bd;
-   text-transform: uppercase;
-   font-weight: bold;
+p,
+table {
+	max-width: 120rem;
 }
 
-/*********************************************
-  * BRANDING
-  *********************************************/
-
-#odisee {
-   display: block;
-   width: 100px;
-   text-decoration: none;
-   position: absolute;
-   top: 10px;
-   right: 10px;
-   z-index: 10;
-   opacity: 0.75;
+table {
+	margin-bottom: 2rem;
 }
 
-#odisee:hover {
-   opacity: 1;
-}
+/* paddings */
 
-#odisee img {
-   width: 100%;
+.p-5 {
+	padding: 0.5rem;
 }
 
-/*********************************************
-  * CHAPTER LIST
-  *********************************************/
+/* widths */
 
-.reveal ul.chapterlist {
-   column-count: 2;
-   column-gap: 60px;
-   font-family: 'League Gothic', sans-serif;
-   font-size: 40px;
-   line-height: 45px;
-   list-style: none;
-   margin: 0 auto;
-   display: inline-block;
+.w-400 {
+	width: 40rem;
 }
 
-.reveal ul.chapterlist li {
-   white-space: nowrap;
-   /*transition: all 0.2s ease-in-out;*/
+.w-500 {
+	width: 50rem;
 }
 
-.reveal ul.chapterlist li::before {
-   content: "► ";
-   font-size: 20px;
-   line-height: 45px;
-   vertical-align: middle;
-   color: #e1d9c0;
+.w-600 {
+	width: 60rem;
 }
 
-.reveal ul.chapterlist li.active::before,
-.reveal ul.chapterlist li.active:hover::before {
-   color: #8b743d;
+.w-700 {
+	width: 70rem;
 }
 
-.reveal .slides ul.chapterlist a {
-   text-decoration: none;
+.w-800 {
+	width: 80rem;
 }
 
-
-/*********************************************
-  * TOOLTIPS AND INFO
-  *********************************************/
-
-.reveal .tooltip, .reveal .info {
-   background-image: url(../img/comments.png);
-   background-repeat: no-repeat;
-   text-align: left;
+.w-1200 {
+	width: 120rem;
 }
 
-.reveal .tooltip {
-   position: absolute;
-   bottom: 5px;
-   right: 5px;
-   width: 100px;
-   height: 100px;
-   background-position: bottom right;
-   z-index: 110;
-}
-
-.reveal .tooltip+.tooltip {
-   right: 45px;
-}
+/* max widths */
 
-.reveal .tooltip+.tooltip+.tooltip {
-   right: 85px;
+.mw-400 {
+	max-width: 40rem;
 }
 
-.reveal .tooltip div, .reveal .info div {
-   text-align: left;
-   display: none;
-   position: absolute;
-   z-index: 111;
-   font-size: 14px;
-   line-height: 1.4em;
-   min-width: 350px;
-   opacity: 0.95;
-   border: 2px solid #ccc;
-   padding: 10px;
-   background-color: #ffc;
-   background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 180, 0));
-   border-radius: 4px;
-   box-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 1px 0 rgba(255, 255, 255, .5) inset;
-   text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+.mw-600 {
+	max-width: 60rem;
 }
 
-.reveal .tooltip div {
-   bottom: 30px;
-   right: 40px;
+.mw-800 {
+	max-width: 80rem;
 }
 
-.reveal .info div {
-   top: 0;
-   left: 25px;
+.mw-1000 {
+	max-width: 100rem;
 }
 
-.reveal .tooltip:hover div, .reveal .info:hover div {
-   display: block;
+.mw-1200 {
+	max-width: 120rem;
 }
 
-.reveal .tooltip ul, .reveal .tooltip ol, .reveal .info ul, .reveal .info ol {
-   margin: 10px 5px 5px 20px;
-}
+/* IMG's */
 
-.reveal .tooltip ul li, .reveal .tooltip ol li {
-   margin-left: 10px;
-   line-height: 1.3em;
-   padding-bottom: 0;
-   margin-bottom: 0.4em;
+img.w-50 {
+	width: 5rem;
 }
 
-.reveal .tooltip p, .reveal .info p {
-   margin-bottom: 1em;
-   margin-top: 0;
+img.w-100 {
+	width: 10rem;
 }
 
-.reveal .tooltip p:last-child, .reveal .info p:last-child {
-   margin-bottom: 0;
+img.w-150 {
+	width: 15rem;
 }
 
-.reveal .tooltip blockquote, .reveal .info blockquote {
-   margin: 10px;
-   margin-left: 2em;
-   width: auto;
-   padding: 0;
+img.w-200 {
+	width: 20rem;
 }
 
-.reveal .tooltip pre {
-   border: none;
-   padding: 0;
-   margin: 0;
+img.w-250 {
+	width: 25rem;
 }
 
-.reveal .tooltip pre code {
-   font-size: 12px;
-   padding-bottom: 14px;
+img.w-300 {
+	width: 30rem;
 }
 
-.reveal .info.singleline div {
-   min-width: 0;
-   white-space: nowrap;
+img.w-350 {
+	width: 35rem;
 }
-
-/***********************************************
-  * CODE
-  ***********************************************/
 
-.reveal pre code {
-   border: 2px solid gray;
-   font-family: 'Droid Sans Mono', Courier, monospace;
-   font-size: 14px;
-   line-height: 1.3;
-   display: block;
-   padding: 0.5em;
-   margin: 0;
+img.w-400 {
+	width: 40rem;
 }
 
-.reveal pre code[contenteditable] {
-   border-style: dotted;
+img.w-500 {
+	width: 50rem;
 }
 
-.reveal pre code.smallpanel {
-   max-height: 300px;
+img.w-550 {
+	width: 55rem;
 }
 
-.reveal pre code.verysmallpanel {
-   max-height: 200px;
+img.w-600 {
+	width: 60rem;
 }
 
-.reveal pre code.ultrasmallpanel {
-   max-height: 150px;
+img.w-700 {
+	width: 70rem;
 }
 
-.reveal pre code.smallfont {
-   font-size: 12px;
+img.w-800 {
+	width: 80rem;
 }
 
-.reveal pre code.verysmallfont {
-   font-size: 10px;
-}
+/* UL's */
 
-.reveal pre {
-   display: block;
-   position: relative;
-   width: 100%;
-   margin: 10px 0;
-   box-shadow: none;
-   box-sizing: border-box;
+.arrow {
+	list-style-type: none;
+	margin-top: 0;
+	margin-left: 2rem;
+	padding: 0;
 }
 
-.reveal pre code.wrong {
-   background-image: url(../img/code_wrong.png) !important;
-   background-position: top right !important;
-   background-repeat: no-repeat !important;
+ul.arrow li:first-child,
+ul li.arrow {
+	margin: 0.5rem 0;
 }
 
-.reveal pre code.right {
-   background-image: url(../img/code_right.png) !important;
-   background-position: top right !important;
-   background-repeat: no-repeat !important;
+ul.arrow li::before,
+li.arrow::before {
+	content: '→  ';
 }
 
-/*********************************************
-  * VIEW FRAGMENTS
-  *********************************************/
-
-.reveal input.run {
-   position: absolute;
-   right: 0;
-   bottom: 0;
+ul.arrow li::first-letter,
+li.arrow::first-letter {
+	margin-left: -2rem;
 }
-
-/*********************************************
-  * OVERLAY
-  *********************************************/
 
-#overlayBack {
-   position: fixed;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
-   background: #000;
-   opacity: 0.7;
-   z-index: 1000;
+ul .right,
+ul .wrong {
+	list-style-type: none;
+	margin-top: 0;
+	margin-left: 2rem;
+	padding: 0;
 }
 
-#overlayContent {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   z-index: 1001;
-   background: #EFEFEF;
-   box-shadow: rgba(0, 0, 0, 0.296875) 0px 0px 6px 0px;
+ul.right li:first-child,
+ul.wrong li:first-child,
+ul li.right,
+ul li.wrong {
+	margin: 0.5rem 0;
 }
 
-/*********************************************
-  * DEMO LINKS
-  *********************************************/
-
-.reveal .demolink {
-   text-align: right;
-   font-size: smaller;
+ul.right li::before,
+ul.wrong li::before,
+ul li.right::before,
+ul li.wrong::before {
+	font-weight: bold;
+	margin-right: 1rem;
 }
-
-/*********************************************
-  * COMMENTS
-  *********************************************/
 
-.comments {
-   display: none;
+ul.right li::before,
+ul li.right::before {
+	color: #0c0;
+	content: "✓";
 }
 
-/*********************************************
-  * TABLES
-  *********************************************/
-
-.reveal table th {
-   text-shadow: none;
+ul.wrong li::before,
+ul li.wrong::before {
+	color: #c00;
+	content: "✗";
 }
 
-/***********************************************
-  * COLUMNS
-  ***********************************************/
+/* CLASSES */
 
-.columns .column {
-   float: left;
-   list-style: none;
-   margin: 0;
-   padding: 0;
+body:not(.showpro) .pro {
+	display: none !important;
 }
 
-.column-12 {
-   width: 50%;
+.bordered {
+	border: 1px solid #ccc;
 }
 
-.columns a {
-   font-size: 18px;
+.centered {
+	text-align: center;
 }
 
-/*********************************************
- * BOXES & LAYOUT
- *********************************************/
-
-blockquote.greenbig {
-   background-color: #eeffee66;
-   border: 3px dashed #999;
-   font-size: larger;
-   margin-bottom: 1em;
-   margin-top: 3em;
-   padding: 0.5em 1em;
-   text-align: center;
-   width: 45%;
+.redcomments .comment, .error {
+	color: #C00 !important;
+	font-weight: bold !important;
 }
 
-.reveal section .shadowbox {
-   border: 1px solid #888;
-   box-shadow: 3px 5px 10px #888;
+.warning {
+	color: #C00 !important;
 }
 
-.reveal .slides .flex-1-1,
-.reveal .slides .flex-1-2,
-.reveal .slides .flex-1-3 {
-   align-items: flex-start;
-   display: flex;
-   justify-content: space-between;
-}
 
-.reveal .slides .flex-1-3 > * {
-   margin-top: 0;
+html body .em {
+	background-color: #ddd;
+	color: #564826;
+	padding: 1px 0.2rem;
 }
 
-.reveal .slides .flex-1-1 > * {
-   width: 48% !important;
+html body .small {
+	font-size: smaller;
+	font-style: italic;
 }
 
-.reveal .slides .flex-1-2 > :first-child {
-   width: 32% !important;
+.tips {
+	background-color: #eee;
+	border: 0.2rem dashed #999;
+	padding: 4rem 5rem 1rem 2rem;
+	position: relative;
+	width: fit-content;
 }
 
-.reveal .slides .flex-1-2 > :last-child {
-   width: 64% !important;
+.tips::before {
+	content: attr(data-caption);
+	font-size: 2rem;
+	left: 0.5rem;
+	position: absolute;
+	top: 0.5rem;
 }
 
-.reveal .slides .flex-1-3 > :first-child {
-   width: 23% !important;
+#up {
+	bottom: 1rem;
+	color: #666;
+	font-size: 3rem;
+	position: fixed;
+	right: 1rem;
+	transition: color 0.3s;
 }
 
-.reveal .slides .flex-1-3 > :last-child {
-   width: 73% !important;
+#up:hover {
+	color: #333;
 }
 
-/*********************
- * JAVASCRIPT SPECIFIC
- *********************/
+/* NAV */
 
-.reveal .slides .centered {
+.site__nav {
+	column-gap: 2.5%;
 	display: flex;
 	justify-content: center;
+	padding: 3rem 0;
+	row-gap: 3rem;
 }
 
-code.console {
+.main__thumb {
+	align-items: center;
+	background-color: #e1d9c0;
+	border: 0.4rem solid #eee;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+	color: #333;
+	display: flex;
+	flex-direction: column;
+	font-size: 1rem;
+	font-family: 'League Gothic', sans-serif;
+	justify-content: flex-start;
+	padding: 1.65rem 0.8rem;
+	text-decoration: none;
+	text-shadow: 0 0.5rem 0.2rem rgba(150, 150, 150, 0.71);
+	text-transform: uppercase;
+	transition: all .2s linear;
+	width: 16rem;
+}
+
+.main__thumb:hover,
+.main__thumb.active {
+	border-color: #c0a86e;
+	text-decoration: none;
+}
+
+.thumb__title {
+	font-size: 2rem;
+	font-weight: normal;
+	margin-bottom: 1.3rem;
+	margin-top: 0;
+	white-space: nowrap;
+}
+
+.thumb__visual {
+	display: block;
+	margin-bottom: 1rem;
+	width: 50%;
+}
+
+/* condensed version */
+
+.site__nav.condensed:not(:hover) {
+	padding: 0.4rem 0;
+	row-gap: 0.4rem;
+}
+
+.condensed:not(:hover) .main__thumb {
+	border: 0.2rem solid #eee;
+	font-size: 0.5rem;
+	margin-bottom: 0;
+	margin-top: auto;
+	padding: 0.8rem 0.4rem;
+	width: 4rem;
+}
+
+.condensed:not(:hover) .thumb__title {
+	font-size: 0.45rem;
+	font-weight: normal;
+	margin-bottom: 0.3rem;
+	margin-top: 0;
+	white-space: nowrap;
+}
+
+/* TABLE OF CONTENTS */
+
+#toc ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+#toc ul ul {
+	padding-left: 2.5rem;
+}
+
+/* TABLES */
+
+table {
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: 0.5rem 2rem 0.5rem 0;
+	text-align: left;
+}
+
+.top td {
+	vertical-align: top;
+}
+
+table pre {
+	padding: 0.2rem 0.5rem;
+	width: 100%;
+}
+
+/* light */
+
+table.light tr+tr>td {
+	border-top: 1px solid#ccc;
+}
+
+table.light th {
+	border-bottom: 1px solid #000;
+}
+
+table.light td {
+	vertical-align: top;
+}
+
+table.light th:first-child,
+table.light td:first-child {
+	min-width: 15rem;
+}
+
+/* grey */
+
+table.grey th,
+table.grey td {
+	border: 1px solid #999;
+	padding: 0.5rem 1rem;
+	text-align: center;
+}
+
+table.grey th {
+	background-color: #ddd;
+}
+
+table.grey td.grey {
+	background-color: #eee;
+}
+
+/* table align */
+
+table.left td, table.left th {
+	text-align: left;
+}
+
+
+
+/* CODE */
+
+code {
+	font-family: Consolas, Menlo, Monaco, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 0.9em;
+	line-height: 1.357em;
+	position: relative;
+}
+
+body pre.right::after {
+	content: url(../img/code_right.png);
+	position: absolute;
+	left: -10px;
+	top: -10px;
+}
+
+body pre.wrong::after {
+	content: url(../img/code_wrong.png);
+	position: absolute;
+	left: -10px;
+	top: -10px;
+}
+
+:not(pre)>code {
+	/* inline code */
+	color: #917230;
+}
+
+pre {
+	border: 1px solid #ccc;
+	border-radius: 0.3rem;
+	font-weight: 100;
+	line-height: 1.9rem;
+	margin-bottom: 1.5em;
+	margin-top: 0;
+	overflow-wrap: break-word;
+	padding: 1em;
+	padding-top: 2em;
+	white-space: pre-wrap;
+}
+
+figure.console pre {
 	background-color: black;
-	color: white
+	background-image: url(../img/consoleheader.png);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	color: #ddd;
+	display: inline-block;
+	font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+	font-size: 0.8em;
+	line-height: 1.357em;
+	width: 40rem;
+	padding-top: 3.5rem;
+}
+
+figure pre {
+	margin: 0;
+}
+
+.codecompare {
+	display: flex;
+	column-gap: 20px;
+}
+
+/* toolbar mods */
+
+div.code-toolbar {
+	width: fit-content;
+}
+
+div.code-toolbar>.toolbar {
+	opacity: 1;
+}
+
+button.copy-to-clipboard-button {
+	cursor: pointer;
+	margin: 0 1em;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>span,
+div.code-toolbar>.toolbar>.toolbar-item>button {
+	background: none;
+	box-shadow: none;
+	color: #999;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>button:hover {
+	opacity: 1;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>button {
+	box-shadow: none;
+	line-height: 1.5;
+	padding: 0 .5em;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>button {
+	border: 1px solid;
+	opacity: 0.8;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>button:hover,
+div.code-toolbar>.toolbar>.toolbar-item>button:focus {
+	opacity: 1;
+}
+
+pre[class*="language-"]:not([data-demo]) + .toolbar .toolbar-item:last-child {
+	display: none !important;
+}
+
+/* hystmodal mods */
+
+.hystmodal iframe {
+	min-height: 600px;
+	width: 100%;
+}
+
+.hystmodal__window {
+	width: 800px;
 }

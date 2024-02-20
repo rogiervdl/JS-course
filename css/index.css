@@ -2,7 +2,7 @@
  * CSS for index.html
  *
  * Copyright Rogier van der Linde
- * Last revision
+ * Last revision 
  */
 
 /* general */
@@ -15,23 +15,24 @@
 
 html {
    background-color: #faf5e6;
+   font-size: 62.5%;
 }
 
 body {
    background: transparent;
    color: #666;
    font-family: Lato, Arial, sans-serif;
-   font-size: 16px;
+   font-size: 1.6rem;
    margin: 0 auto;
-   max-width: 1600px;
-   padding: 20px;
+   max-width: 160rem;
+   padding: 2rem;
    text-align: center;
 }
 
 h1, h2, h3 {
    color: #333;
    font-family: 'League Gothic', sans-serif;
-   text-shadow: 0px 5px 2px rgba(150, 150, 150, 0.71);
+   text-shadow: 0 0.5rem 0.2rem rgba(150, 150, 150, 0.71);
    text-transform: uppercase;
 }
 
@@ -48,6 +49,10 @@ a:hover {
    color: #c0a86e;
 }
 
+body:not(.showpro) .pro {
+   display: none !important;
+}
+
 /* header */
 
 .site__header {
@@ -55,43 +60,44 @@ a:hover {
 }
 
 .header__title {
-   font-size: 100px;
+   font-size: 10rem;
    letter-spacing: 0.02em;
-   margin-bottom: 20px;
+   margin-bottom: 2rem;
 }
 
 .header__tagline {
    color: #000;
    font-family: 'League Gothic', sans-serif;
-   font-size: 40px;
+   font-size: 4rem;
    letter-spacing: 0.02em;
-   margin-bottom: 20px;
-   text-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+   margin-bottom: 2rem;
+   text-shadow: 0 0 0.rem rgba(0,0,0,0.2);
    text-transform: uppercase;
 }
 
 .header__logo {
    display: block;
-   width: 100px;
+   width: 10rem;
    text-decoration: none;
    position: absolute;
-   top: 10px;
-   right: 10px;
+   top: 1rem;
+   right: 1rem;
    z-index: 10;
    opacity: 0.75;
 }
-
+ 
 .header__logo:hover {
    opacity: 1;
 }
-
+ 
 .header__logo img {
    width: 100%;
 }
+ 
+/* nav */
 
-/* main */
-
-.site__main {
+.site__nav {
+   justify-content: center;
    padding: 1.875em 0;
 }
 
@@ -99,7 +105,7 @@ a:hover {
    align-items: center;
    background-color: #e1d9c0;
    border: 0.25em solid #eee;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
@@ -134,7 +140,7 @@ a:hover {
 /* footer */
 
 .site__footer {
-   padding: 30px 0 50px 0;
+   padding: 3rem 0 5rem 0;
 }
 
 .site__footer a {
@@ -151,21 +157,21 @@ a:hover {
 
 aside {
    background: rgba(46,49,51,0.9);
-   box-shadow: -10px 0px 25px #1c1e20;
-   padding: 15px 20px;
+   box-shadow: -1rem 0 2.5rem #1c1e20;
+   padding: 1.5rem 2rem;
    text-align: left;
 }
 
 aside p {
    color: #eee;
-   font-size: 15px;
+   font-size: 1.5rem;
    line-height: 1.4;
-   margin-bottom: 24px;
+   margin-bottom: 2.4rem;
    opacity: 0.8;
 }
 
 aside img {
-   width: 150px;
+   width: 15rem;
 }
 
 aside a {
@@ -179,14 +185,14 @@ aside a:hover {
 
 /* responsive stuff */
 
-@media (min-width: 480px) {
+@media (min-width: 30em) {
    .header__title {
-      font-size: 140px;
+      font-size: 14rem;
    }
    .header__tagline {
-      font-size: 60px;
+      font-size: 6rem;
    }
-   .site__main {
+   .site__nav {
       column-gap: 4%;
       display: flex;
       flex-wrap: wrap;
@@ -197,8 +203,8 @@ aside a:hover {
    }
 }
 
-@media (min-width: 640px) {
-   .site__main {
+@media (min-width: 40em) {
+   .site__nav {
       column-gap: 3.5%;
       row-gap: 1.2em;
    }
@@ -207,11 +213,11 @@ aside a:hover {
    }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 60em) {
    .thumb__title {
       font-size: 1.8em;
    }
-   .site__main {
+   .site__nav {
       column-gap: calc(8% / 3);
       row-gap: 1.5em;
    }
@@ -219,12 +225,12 @@ aside a:hover {
       width: 23%;
    }
    aside {
-      bottom: 25px;
+      bottom: 2.5rem;
       overflow: hidden;
       transition: all .2s ease;
       position: fixed;
-      right: -350px;
-      width: 400px;
+      right: -35rem;
+      width: 40rem;
       z-index: 99999;
    }
 
@@ -234,8 +240,8 @@ aside a:hover {
 
 }
 
-@media (min-width: 1200px) {
-   .site__main {
+@media (min-width: 75em) {
+   .site__nav {
       column-gap: 2.5%;
       row-gap: 1.875em;
    }
