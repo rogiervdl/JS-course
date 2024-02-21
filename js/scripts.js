@@ -1,7 +1,7 @@
 // DOM shortcuts
 const DOM = {
  	codeBlocks: [...document.querySelectorAll('pre code')],
-	diaDemoIframe: document.querySelector('#diaDemo iframe'),
+	diaDemoWindow: document.querySelector('#diaDemo .hystmodal__window'),
    nav: document.querySelector('nav'),
 	tips: [...document.querySelectorAll('.tips')],
 	titles: [...document.querySelectorAll('h2,h3,h4,h5')],
@@ -63,15 +63,20 @@ function startApp() {
 	Prism.plugins.toolbar.registerButton('Demo', {
 		text: 'Demo', // required
 		onClick: function (env) { // optional
+			DOM.diaDemoWindow.innerHTML = '<iframe title="demo"></iframe>';
 			const src = env.element.parentNode.dataset.demo;
 			if (src === undefined) return;
 			myHistModal.open('#diaDemo');
+			const diaDemoIframe = document.querySelector('#diaDemo iframe');
 			if (src == '') {
-				let oDoc = (DOM.diaDemoIframe.contentWindow || DOM.diaDemoIframe.contentDocument);
+				let oDoc = (diaDemoIframe.contentWindow || diaDemoIframe.contentDocument);
 				if (oDoc.document) oDoc = oDoc.document;
-				oDoc.write(env.element.innerText);
+				let html = env.element.innerText;
+				if (env.language == 'javascript' && !html.includes('<html')) html = `<html><body><p><em>open chrome inspector en bekijk de output in de console!</em></p><script>${html}</script></body></html>`;
+				if (env.language == 'html' && !html.includes('<html')) html = `<html><body>${html}</body></html>`;
+				oDoc.write(html);
 			} else {
-				DOM.diaDemoIframe.src = src;
+				diaDemoIframe.src = src;
 			}
 		}
 	});
