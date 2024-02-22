@@ -281,7 +281,7 @@ console.error('whoops! an error occured');</code></pre>
          De console werkt <strong>asynchroon</strong>. Dit is een belangrijk begrip in programmeren in het algemeen, en Javascript in het bijzonder.
          Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover later in hoofdstuk <a href="03_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte gevolgen. Neem volgende code:
       </p>
-      <pre class="prism-okaida line-numbers" data-demo><code>let person = {
+      <pre class="prism-okaida line-numbers" data-demo><code>const person = {
   name: 'Rogier',
   age: 42
 };
@@ -1189,8 +1189,8 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
         </tr>
         <tr>
           <td>methoden (C#) / functies (Javascript)</td>
-          <td>camelCase, bv. <code>berekenGemiddelde()</code></td>
-          <td>idem</td>
+          <td>PascalCase, bv. <code>BerekenGemiddelde()</code></td>
+          <td>camellCase, bv. <code>berekenGemiddelde()</code></td>
         </tr>
         <tr>
           <td>klassen (C#) / objecten (Javascript)</td>
