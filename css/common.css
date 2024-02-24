@@ -7,7 +7,7 @@ html {
 
 body {
 	counter-reset: chapter;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", Ubuntu, "Droid Sans", sans-serif, Meiryo;
 	font-size: 1.6rem;
 	margin: 0;
 	margin-bottom: 5rem;
@@ -49,6 +49,8 @@ pre {
 figure {
 	line-height: 1.2;
 	margin-left: 0;
+	margin-bottom: 2rem;
+	margin-top: 0;
 }
 
 figcaption {
@@ -123,11 +125,6 @@ img {
 	max-width: 100%;
 }
 
-figure {
-	margin-bottom: 2rem;
-	margin-top: 0;
-}
-
 nav {
 	background-color: #faf5e6;
 	box-shadow: 0 0.5rem 1rem #ccc7;
@@ -145,6 +142,7 @@ table {
 }
 
 table {
+	border-collapse: collapse;
 	margin-bottom: 2rem;
 }
 
@@ -155,6 +153,14 @@ table {
 }
 
 /* widths */
+
+.w-200 {
+	width: 20rem;
+}
+
+.w-300 {
+	width: 30rem;
+}
 
 .w-400 {
 	width: 40rem;
@@ -174,6 +180,10 @@ table {
 
 .w-800 {
 	width: 80rem;
+}
+
+.w-1000 {
+	width: 100rem;
 }
 
 .w-1200 {
@@ -272,7 +282,7 @@ ul li.arrow {
 
 ul.arrow li::before,
 li.arrow::before {
-	content: '→  ';
+	content: '⮚ ';
 }
 
 ul.arrow li::first-letter,
@@ -316,6 +326,10 @@ ul li.wrong::before {
 }
 
 /* CLASSES */
+
+.youtube {
+	box-shadow: 0 0 10px #0009;
+}
 
 body:not(.showpro) .pro {
 	display: none !important;
@@ -464,10 +478,6 @@ html body .small {
 }
 
 /* TABLES */
-
-table {
-	border-collapse: collapse;
-}
 
 th,
 td {
@@ -619,14 +629,11 @@ div.code-toolbar>.toolbar>.toolbar-item>button:hover {
 }
 
 div.code-toolbar>.toolbar>.toolbar-item>button {
+	border: 1px solid;
 	box-shadow: none;
 	line-height: 1.5;
-	padding: 0 .5em;
-}
-
-div.code-toolbar>.toolbar>.toolbar-item>button {
-	border: 1px solid;
 	opacity: 0.8;
+	padding: 0 .5em;
 }
 
 div.code-toolbar>.toolbar>.toolbar-item>button:hover,

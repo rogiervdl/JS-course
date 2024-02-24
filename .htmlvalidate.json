@@ -1,0 +1,54 @@
+{
+   "extends": ["html-validate:recommended"],
+   "elements": [
+      "html5",
+      {
+          "b": {
+            "deprecated" : true
+          },
+          "u": {
+            "deprecated" : true
+          },
+          "i": {
+            "deprecated" : true
+          },
+         "iframe": {
+            "attributes": {
+              "frameborder": {
+                  "deprecated": false
+               },
+               "title": {
+                  "required": false
+               }
+            }
+          },
+          "th": {
+            "attributes": {
+               "scope": {
+                  "required": false
+               }
+            }
+          }
+      }
+    ],
+   "rules": {
+      "allowed-links": [
+         "warn",
+         {
+            "allowExternal": true,
+            "allowRelative": true,
+            "allowAbsolute": false,
+            "allowBase": true
+          }
+      ],
+      "no-missing-references": "error",
+      "no-trailing-whitespace": "off",
+      "prefer-button": "off",
+      "no-style-tag": "error",
+      "no-unknown-elements": "error",
+      "prefer-tbody" : "off",
+      "tel-non-breaking": "off",
+      "wcag/h30": "off"
+   } 
+
+}
