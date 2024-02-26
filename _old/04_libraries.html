@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Javascript &mdash; Libraries</title>
+  <meta name="author" content="Rogier van der Linde - ikdoeict.be">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="fonts/droidsans/webfont.css">
+  <link rel="stylesheet" href="fonts/lato/webfont.css">
+  <link rel="stylesheet" href="fonts/leaguegothic/webfont.css">
+  <link rel="stylesheet" href="vendor/reveal/css/reveal.css">
+  <link rel="stylesheet" href="vendor/reveal/css/theme/beige.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/vs.css">
+  <link rel="stylesheet" href="css/reveal-mods.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/04_libraries.css">
+</head>
+
+<body>
+
+  <!-- SLIDES -->
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <!-- 0 : Title -->
+      <section>
+        <h1>Libraries</h1>
+        <small>use the arrow keys to navigate; press space for slide overview<br /></small>
+        <figure style="width: 380px; margin: 0 auto">
+          <img src="img/04_libraries/icon.png" alt="" width="380" />
+          <figcaption>
+            image from <a href="http://webmuch.com/how-why-you-should-use-google-cdn/">Webmuch</a>
+          </figcaption>
+        </figure>
+
+        <footer>
+          <a href="http://www.odisee.be/">odisee.be</a> &mdash; <a href="mailto:rogier.vanderlinde@odisee.be">rogier.vanderlinde@odisee.be</a>
+        </footer>
+      </section>
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Frameworks</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+
+        </section>
+        <section>
+          <h2>Definition</h2>
+          <ul>
+            <li>
+              <em>Frameworks</em> support fundamentally the way we use Javascript:
+              <ul>
+                <li>extensions of the javascript language with shortcuts and extras for loops, strings, arrays...</li>
+                <li>cross browser solutions for DOM handling or events</li>
+                <li>support a specific methodology like MVC</li>
+              </ul>
+            </li>
+            <li>
+              Some popular frameworks:
+              <ul>
+                <li><a href="http://jquery.com/">jQuery</a>, <a href="http://mootools.net/">Mootools</a>, <a href="http://yuilibrary.com/">YUI</a>, <a href="http://dojotoolkit.org//">Dojo</a>: DOM / events support with lots of extras like animations, AJAX support etc...</li>
+                <li><a href="http://prototypejs.org/">Prototype</a>, <a href="http://underscorejs.org/">Underscore</a>: loose collection of language-enhancement functions (sometimes called <i>salad frameworks</i>)</li>
+                <li><a href="http://angularjs.org/">AngularJS</a>, <a href="https://facebook.github.io/react/">React</a>, <a href="http://backbonejs.org/">Backbone</a>, <a href="http://knockoutjs.com/">Knockout</a>: MVC frameworks</li>
+                <li><a href="http://jquerymobile.com/">jQuery mobile</a>, <a href="http://http://phonegap.com/">Phonegap</a>, <a href="http://xuijs.com/">XUI</a>, <a href="http://ionicframework.com/">Ionic</a>: mobile frameworks</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              A few random remarks:
+              <ul>
+                <li>
+                  The term 'framework' is by no means official; it is widely used for a library which is considered 'fundamental', whatever that means.
+                </li>
+                <li>
+                  Frameworks can be combined; a classic combination is jQuery (DOM) / RequireJS (script loader) / Backbone (MVC) / Underscore (template engine).
+                </li>
+                <li>
+                  Mobile frameworks should be very lightweight and support mobile-typical features like swipes, device orientation...
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+        <section>
+          <h2>Smallest framework ever</h2>
+          <ul>
+            <li>
+              The smallest framework ever:
+              <pre class="bigger"><code contenteditable class="language-javascript">var $ = function (s) { return document.getElementById(s); };
+</code></pre>
+            </li>
+          </ul>
+
+        </section>
+        <section>
+          <h2>YUI example</h2>
+          <pre class="bigger"><code class="language-css">.gray { background-color: #ccc; }​​</code></pre>
+          <pre class="bigger"><code class="language-html">&lt;ul id="list"&gt;
+  &lt;li class="odd"&gt;One&lt;/li&gt;
+  &lt;li class="even"&gt;Two&lt;/li&gt;
+  &lt;li class="odd"&gt;Three&lt;/li&gt;
+&lt;/ul&gt;
+&lt;input type="button" id="btn1" value="Click me" /&gt;​</code></pre>
+          <pre class="bigger"><code class="language-javascript">YUI().use('node', function(Y) {
+  Y.on("domready", function() {
+    Y.one('#btn1').on('click', function() {
+      Y.all('.odd').each(function(item) {
+        item.addClass('gray');
+      });
+    });
+  });
+});</code></pre>
+          <div class="demolink">try it out on <a href="http://jsfiddle.net/">jsFiddle</a></div>
+
+        </section>
+        <section>
+          <h2>DOJO example</h2>
+          <pre class="bigger"><code class="language-css">.gray { background-color: #ccc; }​​</code></pre>
+          <pre class="bigger"><code class="language-html">&lt;ul id="list"&gt;
+  &lt;li class="odd"&gt;One&lt;/li&gt;
+  &lt;li class="even"&gt;Two&lt;/li&gt;
+  &lt;li class="odd"&gt;Three&lt;/li&gt;
+&lt;/ul&gt;
+&lt;input type="button" id="btn1" value="Click me" /&gt;​</code></pre>
+            <pre class="bigger"><code class="language-javascript">require(["dojo/query", "dojo/dom-class", "dojo/domReady!"],
+  function(query, domClass) {
+    query("#btn1").on("click", function() {
+      query(".odd").forEach(function(node, index, nodelist) {
+        domClass.add(node, "gray");
+      });
+    });
+  }
+);​</code></pre>
+          <div class="demolink">try it out on <a href="http://jsfiddle.net/">jsFiddle</a></div>
+
+        </section>
+        <section data-title="jQuery example">
+          <h2>jQuery example</h2>
+          <pre class="bigger"><code class="language-css">.gray { background-color: #ccc; }​​</code></pre>
+          <pre class="bigger"><code class="language-html">&lt;ul id="list"&gt;
+  &lt;li class="odd"&gt;One&lt;/li&gt;
+  &lt;li class="even"&gt;Two&lt;/li&gt;
+  &lt;li class="odd"&gt;Three&lt;/li&gt;
+&lt;/ul&gt;
+&lt;input type="button" id="btn1" value="Click me" /&gt;​</code></pre>
+          <pre class="bigger"><code class="language-javascript">$(document).ready(function() {
+  $("#btn1").on("click", function() {
+    $(".odd").each(function() {
+      $(this).addClass("gray");
+    });
+  });​​
+});​​</code></pre>
+          <div class="demolink">try it out on <a href="http://jsfiddle.net/">jsFiddle</a> or <a href="http://codepen.io/">codepen</a></div>
+
+        </section>
+        <section data-title="">
+          <h2>jQuery example</h2>
+          <pre class="bigger"><code class="language-css">.gray { background-color: #ccc; }​​</code></pre>
+          <pre class="bigger"><code class="language-html">&lt;ul id="list"&gt;
+  &lt;li class="odd"&gt;One&lt;/li&gt;
+  &lt;li class="even"&gt;Two&lt;/li&gt;
+  &lt;li class="odd"&gt;Three&lt;/li&gt;
+&lt;/ul&gt;
+&lt;input type="button" id="btn1" value="Click me" /&gt;​</code></pre>
+          <pre class="bigger"><code class="language-javascript">$(document).ready(function() {
+  $("#btn1").on("click", function() {
+    $(".odd").addClass("gray"); // even shorter
+  });​​
+});​​</code></pre>
+          <div class="demolink">try it out on <a href="http://jsfiddle.net/">jsFiddle</a> or <a href="http://codepen.io/">codepen</a></div>
+
+        </section>
+        <section data-index-title="Framework popularity">
+          <h2>Framework popularity (1)</h2>
+          <figure>
+            <img src="img/04_libraries/stats1.jpg" alt="" width="600" />
+            <figcaption>
+              source: <a href="https://blog.whitehatsec.com/analysis-of-javascript-library-popularity/">https://blog.whitehatsec.com/analysis-of-javascript-library-popularity/</a>
+            </figcaption>
+          </figure>
+
+        </section>
+        <section data-index-title="">
+          <h2>Framework Popularity (2)</h2>
+          <ul>
+            <li>Maybe not very scientific, but Google Trends is also a nice popularity indication:</li>
+          </ul>
+          <figure>
+            <img src="img/04_libraries/google_trends.png" alt="" width="600" />
+            <figcaption>
+              try it out yourself on <a href="http://www.google.com/trends/">Google trends</a>
+            </figcaption>
+          </figure>
+          <div class="tooltip">
+            <div>
+              <p>Even if jQuery is the frameworks of your choice, this does not mean you should only know jQuery. Many other libraries provide solutions to problems that are not or insufficiently covered by jQuery.</p>
+              <p>When experimenting with Google Trends, be careful with the searchterms you enter; rather compare 'javascript angular, javascript polymer' or 'angular tutorial, polymer tutorial' than just 'angular, polymer' (these are also common scientific terms which have nothing to do with Javascript). Javascript libraries comparison:</p>
+              <ul>
+                <li><a href="https://www.google.com/trends/explore#q=javascript%20jQuery%2C%20javascript%20mootools%2C%20javascript%20dojo%2C%20javascript%20YUI%2C%20javascript%20Scriptaculous">jQuery, mootools, dojo, YUI, Scriptaculous</a></li>
+                <li><a href="https://www.google.com/trends/explore#q=javascript%20mootools%2C%20javascript%20dojo%2C%20javascript%20YUI%2C%20javascript%20Scriptaculous">mootools, dojo, YUI, Scriptaculous</a></li>
+              </ul>
+              <p>Javascript MVC frameworks comparison:</p>
+              <ul>
+                <li><a href="https://www.google.com/trends/explore#q=javascript%20Angular%2C%20javascript%20React%2C%20Javascript%20Backbone%2C%20Javascript%20Ember%2C%20Javascript%20Knockout&amp;date=1%2F2010%2070m&amp;cmpt=q&amp;tz=Etc%2FGMT-2">Angular, React, Backbone, Ember, Polymer, Knockout</a></li>
+                <li><a href="https://www.google.com/trends/explore#q=javascript%20React%2C%20Javascript%20Backbone%2C%20Javascript%20Ember%2C%20Javascript%20Knockout&amp;date=1%2F2010%2070m&amp;cmpt=q&amp;tz=Etc%2FGMT-2">React, Backbone, Ember, Polymer, Knockout</a></li>
+              </ul>
+              <p>CSS frameworks comparison:</p>
+              <ul>
+                <li><a href="https://www.google.com/trends/explore#q=CSS%20bootstrap%2C%20CSS%20foundation%2C%20CSS%20Semantic%20UI%2C%20CSS%20Pure&amp;date=1%2F2010%2070m&amp;cmpt=q&amp;tz=Etc%2FGMT-2">Bootstrap, Foundation, Semantic UI, Pure</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Resource loaders</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Definition</h2>
+          <ul>
+            <li>
+              <em>Resource loaders</em> take care of when, how and in what order resources should be loaded.
+            </li>
+            <li>
+              Some popular Javascript/CSS loaders (check this <a href="http://www.creativebloq.com/javascript/essential-javascript-top-five-script-loaders-8122862">overview</a>):
+              <ul>
+                <li><del><a href="http://yepnopejs.com/">Yepnope</a>: conditional CSS and Javascript loader for polyfills</del></li>
+                <li><a href="https://github.com/rgrove/lazyload/">LazyLoad</a>: ultrasmall and simple CSS and Javascript loader
+                <li><a href="http://requirejs.org/">RequireJS</a>: focus on creating and using/loading Javascript modules
+              </ul>
+            </li>
+            <li>
+              Other resource loaders:
+              <ul>
+                <li><a href="http://code.google.com/p/swfobject/wiki/documentation">SWFObject</a>: currently by far the best method to embed Flash content</li>
+                <!-- was created for cut the rope; basically works for any file -->
+                <li><a href="http://thinkpixellab.com/pxloader/">PXLoader</a>: audio &amp; images preloader for HTML5 games</li>
+                <li><a href="https://www.createjs.com/preloadjs">PreloadJS</a>: excellend all-round resource preloader (part of  <a href="https://www.createjs.com/">CreateJS</a>)</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              Problems with loading scripts:
+              <ul>
+                <li>
+                  synchronous loading of files is limited to 2-4
+                </li>
+                <li>
+                  loading a script blocks the UI, unless you put the <code>&lt;script&gt;</code> tag at the end
+                </li>
+                <li>
+                  not all script are always needed, e.g. depending on user interaction
+                </li>
+                <li>
+                  not all script are always wanted, e.g. browser specific fixes
+                </li>
+              </ul>
+              Script loaders may
+              <ul>
+                <li>
+                  determine which script to load, and under what conditions
+                </li>
+                <li>
+                  wait for a script to load before loading another, or instead allow parallel loading
+                </li>
+              </ul>
+              Script loaders are generally faster, even when compared to combining all page scripts in one single file.
+            </div>
+          </div>
+
+        </section>
+        <section>
+          <h2>Yepnope example</h2>
+          <pre class="bigger"><code class="language-javascript">yepnope({
+  test: Modernizr.geolocation,
+  yep: 'normal.js',
+  nope: ['polyfill.js', 'wrapper.js'],
+  load: 'local/jquery.min.js',
+  complete: function() { console.log('engines running'); }
+});​​</code></pre>
+          <ul>
+            <li class="arrow">
+              often used in combination with <a href="http://modernizr.com/">Modernizr</a> feature detection library to provide <i>polyfills</i> (see further)
+            </li>
+          </ul>
+
+        </section>
+        <section>
+          <h2>PxLoader example</h2>
+          <pre class="bigger"><code class="language-javascript">// Create the loader and queue our 3 images. Images will not
+// begin downloading until we tell the loader to start.
+var loader = new PxLoader();
+backgroundImg = loader.addImage('images/headerbg.jpg'),
+treesImg = loader.addImage('images/trees.png'),
+ufoImg = loader.addImage('images/ufo.png');
+
+// callback that will be run once images are ready
+loader.addCompletionListener(function() {
+  // rest of your program here
+  // ...
+});
+
+// begin downloading images
+loader.start(); </code></pre>
+          <ul>
+            <li class="arrow">
+              more demos <a href="http://thinkpixellab.com/pxloader/#sample1">here</a>
+            </li>
+          </ul>
+
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Template engines</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+
+        </section>
+        <section>
+          <h2>Definition</h2>
+          <ul>
+            <li>
+              <em>Template engines</em> allow you to work with Javascript templates, just like PHP templates:
+              <ul>
+                <li>most frameworks like <a href="http://underscorejs.org/#template">Underscore</a>, <a href="http://api.jquery.com/jQuery.template/">jQuery</a> etc... offer some kind of template engine</li>
+                <li><a href="http://mustache.github.com/">Mustache</a>: lightweight and straightforward</li>
+              </ul>
+            </li>
+          </ul>
+
+        </section>
+        <section>
+          <h2>Mustache.js example</h2>
+          <pre class="bigger"><code contenteditable class="language-html">&lt;div id="tpl"&gt;
+&lt;h1&gt;{{header}}&lt;/h1&gt;
+{{#items}}
+  {{#first}}
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;{{name}}&lt;/strong&gt;&lt;/li&gt;
+  {{/first}}
+  {{#link}}
+  &lt;li&gt;&lt;a href="{{url}}"&gt;{{name}}&lt;/a&gt;&lt;/li&gt;
+  {{/link}}
+  {{#last}}
+&lt;/ul&gt;
+  {{/last}}
+{{/items}}
+
+{{#empty}}
+&lt;p&gt;The list is empty.&lt;/p&gt;
+{{/empty}}
+&lt;/div&gt;
+&lt;script src="js/mustache.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var data = {
+  "header": "Colors",
+  "items": [
+      {"name": "red", "first": true},
+      {"name": "green", "link": true, "url": "#Green"},
+      {"name": "blue", "last": true, "link": true, "url": "#Blue"}
+    ],
+  "empty": false
+}
+document.getElementById('tpl').innerHTML
+  = Mustache.to_html(document.getElementById('tpl').innerHTML, data);
+&lt;/script&gt;</code></pre>
+          <div class="demolink"><a href="demos/04_libraries/templates/index.html">demo</a></div>
+          <ul>
+            <li class="arrow">
+              tip: if you wish to use external .tpl files, read them with AJAX
+            </li>
+          </ul>
+
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Graphic &amp; UI Libraries</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+
+        </section>
+        <section>
+          <h2>Overview</h2>
+          <ul>
+            <li>
+              UI components, animations &amp; effects
+              <ul>
+                <li><a href="http://jqueryui.com/">jQuery UI</a>, built on top of jQuery</li>
+                <li><a href="http://script.aculo.us/">Scriptaculous</a>, built on top of Prototype</li>
+                <li><a href="http://dojotoolkit.org/api/">Dijit &amp; Dojox</a>, packages of Dojo</li>
+                <li><del><a href="http://yuilibrary.com/">YUI</a> also contains tons of components</del></li>
+              </ul>
+            </li>
+            <li>
+              Sprite and game engines
+              <ul>
+                <li><a href="http://www.spritely.net">Spritely</a>: sprite and background animation</li>
+                <li><a href="https://spritejs.readthedocs.org/en/latest/">spritejs</a>: sprites and basic lightweight game engine</li>
+                <li><a href="http://threejs.org/">three.js</a>: WebGL library for dummies</li>
+                <li><a href="http://impactjs.com/">ImpactJS</a>: 2D game engine (commercial)</li>
+              </ul>
+            </li>
+            <li>
+              Other
+              <ul>
+                <li>charting: <a href="http://www.highcharts.com/">Highcharts</a>, <a href="http://www.jscharts.com/">JSCharts</a>, <a href="https://developers.google.com/chart/">Google Charts</a></li>
+                <li>mapping: <a href="https://developers.google.com/maps/?hl=nl">Google maps</a></li>
+                <li>web editors: <a href="http://www.tinymce.com/">TinyMCE</a>, <a href="http://ckeditor.com/">CKEditor</a></li>
+                <li>SVG: <a href="http://dmitrybaranovskiy.github.io/raphael/">Rapha&euml;l</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </section>
+        <section>
+          <h2>jQuery UI bounce example</h2>
+          <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;jQuery UI Effects - Effect demo&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style&gt;
+    body {
+      font: 12px Arial;
+    }
+    #box {
+      width: 200px;
+      background-color: #ccc;
+      border-radius: 10px;
+      border: 2px solid #aaa;
+      padding: 10px 20px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;&lt;input type="button" id="btn1" value="Run Effect" /&gt;&lt;/p&gt;
+  &lt;p id="box"&gt;
+    Etiam libero neque, luctus a, eleifend nec, semper at, lorem.
+    Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+  &lt;/p&gt;
+  &lt;script src="js/jquery-1.8.3.js"&gt;&lt;/script&gt;
+  &lt;script src="js/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(function() {
+      $("#btn1" ).on('click', function() {
+        $("#box").effect('bounce');
+      });
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <div class="demolink"><a href="demos/04_libraries/jquery_ui/bounce.html">demo</a></div>
+        </section>
+        <section>
+          <h2>Three.js 3D example</h2>
+          <pre class="bigger"><code style="max-height: 200px" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;three.js test&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+    body { background-color: #999; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container"&gt;&lt;/div&gt;
+  &lt;script src="js/three.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+          <pre class="bigger"><code style="max-height: 200px" class="language-js">var camera, scene, renderer;
+
+var init = function() {
+  // variables
+  var container = document.getElementById('container');
+
+  // create scene
+  scene = new THREE.Scene();
+
+  // create camera
+  camera = new THREE.OrthographicCamera(
+    window.innerWidth / -2,
+    window.innerWidth / 2,
+    window.innerHeight / 2,
+    window.innerHeight / -2,
+    -2000,
+    1000
+  );
+  camera.position.x = 200;
+  camera.position.y = 100;
+  camera.position.z = 200;
+
+  // create grid
+  var size = 500, step = 50;
+  var geometry = new THREE.Geometry();
+  for (var i = -size; i &lt;= size; i += step) {
+    geometry.vertices.push(new THREE.Vector3(-size, 0, i));
+    geometry.vertices.push(new THREE.Vector3(size, 0, i));
+    geometry.vertices.push(new THREE.Vector3(i, 0, -size));
+    geometry.vertices.push(new THREE.Vector3(i, 0, size));
+  }
+  var material = new THREE.LineBasicMaterial({ color: 0x000000, opacity: 0.2 });
+  var line = new THREE.Line(geometry, material);
+  line.type = THREE.LinePieces;
+  scene.add(line);
+
+  // add cubes
+  var geometry = new THREE.CubeGeometry(50, 50, 50);
+  var material = new THREE.MeshLambertMaterial({ color: 0xffffff, shading: THREE.FlatShading, overdraw: true });
+  for (var i = 0; i &lt; 100; i++) {
+    var cube = new THREE.Mesh(geometry, material);
+    cube.scale.y = Math.floor(Math.random() * 2 + 1);
+    cube.position.x = Math.floor((Math.random() * 1000 - 500) / 50) * 50 + 25;
+    cube.position.y = (cube.scale.y * 50) / 2;
+    cube.position.z = Math.floor((Math.random() * 1000 - 500) / 50) * 50 + 25;
+    scene.add(cube);
+  }
+
+  // add ambient light
+  var ambientLight = new THREE.AmbientLight(0x05);
+  scene.add(ambientLight);
+
+  // add directional light
+  var directionalLight = new THREE.DirectionalLight(0x00ffcc);
+  directionalLight.position.x = -0.8;
+  directionalLight.position.y = 0.3;
+  directionalLight.position.z = 0.5;
+  scene.add(directionalLight);
+
+  // create canvas
+  renderer = new THREE.CanvasRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // add canvas to container
+  container.appendChild(renderer.domElement);
+
+  // events
+  window.addEventListener('resize', onWindowResize, false);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  render();
+}
+
+function onWindowResize() {
+  console.log('ok');
+  camera.left = window.innerWidth / - 2;
+  camera.right = window.innerWidth / 2;
+  camera.top = window.innerHeight / 2;
+  camera.bottom = window.innerHeight / - 2;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function render() {
+  var timer = Date.now() * 0.0001;
+  camera.position.x = Math.cos(timer) * 200;
+  camera.position.z = Math.sin(timer) * 200;
+  camera.lookAt(scene.position);
+  renderer.render(scene, camera);
+}
+
+// start your engines
+init();
+animate();</code></pre>
+          <div class="demolink"><a href="demos/04_libraries/three/index.html">demo</a></div>
+        </section>
+        <section>
+          <h2>TinyMCE web editor example</h2>
+          <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Word processor example&lt;/title&gt;
+  &lt;script type="text/javascript" src="js/tiny_mce/tiny_mce.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+    tinyMCE.init({
+      // General options
+      mode : "textareas",
+      plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups,autosave",
+
+      // Theme options
+      theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+      theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form method="post" action="#"&gt;
+    &lt;p&gt;
+      &lt;textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 650px"&gt;
+        &lt;p&gt;This is the first paragraph.&lt;/p&gt;
+        &lt;p&gt;This is the second paragraph.&lt;/p&gt;
+        &lt;p&gt;This is the third paragraph.&lt;/p&gt;
+      &lt;/textarea&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;input type="submit" name="save" value="Submit" /&gt;
+      &lt;input type="reset" name="reset" value="Reset" /&gt;
+    &lt;/p&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+          <div class="demolink"><a href="demos/04_libraries/tinymce/index.html">demo</a></div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Widgets, plugins &amp; polyfills</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Definitions</h2>
+          <ul>
+            <li>
+              The difference is roughly as follows:
+              <ul>
+                <li>a <em>widget</em> is HTML, CSS and Javascript mixed in a more or less independent component, e.g. slider, calendar, tooltip...</li>
+                <li>a <em>plugin</em> is an (often third-party) extension to an existing framework, e.g. <a href="http://www.jacklmoore.com/colorbox">colorbox</a></li>
+                <li>a <em>polyfill</em> is a Javascript fix when a browser fails to implement an expected behaviour (also called <em>shim</em> or <em>shiv</em>), e.g. <a href="http://afarkas.github.com/webshim/demos/index.html">Webshims Lib</a> for HTML5 or the notorious <a href="http://code.google.com/p/html5shiv/">html5shiv</a> for IE</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              In other words:
+              <ul>
+                <li>
+                  A widget contains HTML, CSS and Javascript
+                </li>
+                <li>
+                  A plugin, polyfill or shim basically just contains Javascript
+                </li>
+              </ul>
+              But then again, plugins may need some CSS too and polyfills may generate DOM elements too, so the division is not really sharp.
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>jQueryUI dialog widget example</h2>
+          <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;jQuery UI Dialog - Default functionality&lt;/title&gt;
+  &lt;link rel="stylesheet" href="js/jquery-ui-1.9.2.custom/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="dialog" title="Basic dialog"&gt;
+    &lt;p&gt;
+      This is the default dialog which is useful for displaying information.
+      The dialog window can be moved, resized and closed with the 'x' icon.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;script src="js/jquery-1.8.3.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(function() {
+      $("#dialog").dialog();
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <div class="demolink"><a href="demos/04_libraries/jquery_ui/dialog.html">demo</a></div>
+        </section>
+        <section>
+          <h2>jQuery Colorbox plugin example</h2>
+          <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset='utf-8'/&gt;
+  &lt;title&gt;ColorBox Examples&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font: 12px Verdana, sans-serif;
+      padding: 0 10px;
+    }
+  &lt;/style&gt;
+  &lt;link rel="stylesheet" href="js/jquery.colorbox.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;ColorBox Demonstration&lt;/h1&gt;
+  &lt;ul id="photos"&gt;
+    &lt;li&gt;&lt;a href="images/photo1.jpg" title="3,000 BC tombs in the shadow of Jebel Misht"&gt;photo1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="images/photo2.jpg" title="Algeria desert lake"&gt;photo2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="images/photo3.jpg" title="Carthago ruins"&gt;photo3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="images/photo4.jpg" title="Sexy dunes"&gt;photo4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="images/photo5.jpg" title="Guess who"&gt;photo5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="images/photo6.jpg" title="Algeria dune sea"&gt;photo6&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;script src="js/jquery-1.4.2.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/jquery.colorbox.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(document).ready(function(){
+      $("#photos a").colorbox({rel:'group1', slideshow:true});
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <div class="demolink"><a href="demos/04_libraries/slideshow/index.html">demo</a></div>
+          <ul>
+            <li class="arrow smaller">
+              you can also <a href="http://docs.jquery.com/Plugins/Authoring">create your own jQuery plugins</a>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              A question that may arise is: why bother learning Javascript if plugins solve all problems? The reality is: you're stuck to the functionality of the plugin, and surprisingly often it's difficult to find and configure one that exactly fits your needs. Many times I end up writing it myself from scratch, which goes quite fast once you get the hang of Javascript. Also, this saves you from loading tons of libraries and plugins in your application.
+            </div>
+          </div>
+
+        </section>
+        <section>
+          <h2>Border radius polyfill example</h2>
+          <ul>
+            <li>
+              Border radius polyfill with Modernizr feature detection and html5shiv IE fix example:
+              <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Border radius shiv demo&lt;/title&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;!--[if lt IE 9]&gt;
+  &lt;script src="js/html5shiv.js"&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+  &lt;link href="css/style.css" rel="stylesheet" /&gt;
+  &lt;style&gt;
+    article p {
+      margin: 0;
+      padding: 0;
+    }
+    article {
+      width: 400px;
+      padding: 10px 20px;
+      font: 16px Arial, sans-serif;
+      background-color: #cc9;
+      border-radius: 10px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;article&gt;
+    &lt;p&gt;Fusce vitae orci. Lorem ipsum dolor sit amet, consectetuer adipiscing  elit.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;script src="js/modernizr-1.5.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/jquery-1.4.2.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+    if (!Modernizr.borderradius) {
+      $.getScript("js/jquery.corner.js", function () {
+        $("article").corner();
+      });
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              <div class="demolink"><a href="demos/04_libraries/polyfill/index.html">demo</a></div>
+            </li>
+          </ul>
+          <div class="tooltip">
+            <div>
+              <ul>
+                <li>
+                  Note how IE7 is emulated with the X-UA-Compatible meta tag
+                </li>
+                <li>
+                  Open it in Internet Explorer, remove the html5shiv, and see how Internet Explorer fails to style the new HTML5 elements
+                </li>
+                <li>
+                  Open it in Internet Explorer, remove the borderradius shiv and see how the rounded corners disappear in Internet Explorer.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Double range polyfill example</h2>
+          <ul>
+            <li>
+              An <code>&lt;input type="range"&gt;</code> is supposed to support multiple values, but browsers aren't ready. Fix it with a <a href="http://leaverou.github.io/multirange/">polyfill</a>:
+              <pre class="bigger"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Double range input polyfill demo&lt;/title&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src="js/html5shiv.js"&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+    &lt;link href="css/multirange.css" rel="stylesheet" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;input type="range" multiple value="10,80" /&gt;
+    &lt;script src="js/multirange.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              <div class="demolink"><a href="demos/04_libraries/double-range-polyfill/index.html">demo</a></div>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Libraries</h1>
+          <h2>Node.js</h2>
+          <ul class="chapterlist">
+            <!-- to be filled by Javascript -->
+          </ul>
+        </section>
+        <section>
+          <h2>Node.js example</h2>
+          <ul>
+            <li>
+              <a href="http://nodejs.org/">Node.js</a> is actually not a library, but a platform built on Chrome's V8 Javascript runtime to build network applications. A simple webserver example (install Node first):
+              <pre class="bigger"><code class="language-javascript">var http = require('http');
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+
+console.log('Server running at http://127.0.0.1:8124/');</code></pre>
+              <div class="demolink">example.js</div>
+            </li>
+            <li>
+              In the command prompt:
+              <pre class="bigger" style="background-color: black; color: white"><code class="donthighlight">&gt; node example.js
+Server running at http://127.0.0.1:8124/</code></pre>
+            </li>
+            <li class="arrow">
+              now open this link in your browser...
+            </li>
+          </ul>
+        </section>
+      </section>
+
+    </div>
+
+    <!-- odisee.be link -->
+    <a href="http://www.odisee.be/" title="odisee.be" id="odisee"><img src="img/odisee.png" alt="Odisee logo"></a>
+
+
+    <!-- Index Link -->
+    <aside class="back">
+      <nav>
+        <p><a href="index.html">&larr; Back to index</a></p>
+      </nav>
+    </aside>
+
+  </div>
+
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/reveal/lib/js/head.min.js"></script>
+  <script src="vendor/reveal/js/reveal.js"></script>
+  <script src="vendor/highlight/highlight.pack.js"></script>
+  <script src="vendor/incrementable.js"></script>
+  <script src="vendor/prefixfree.js"></script>
+  <script src="vendor/css-snippets.js"></script>
+  <script src="vendor/css-edit.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    var devtools = /./;
+      devtools.toString = function() {
+      this.opened = true;
+    }
+    console.log('%c', devtools);
+    if (!devtools.opened) {
+      alert('some demos show their results in the console, so keep it open (press F12 or Shift-Ctrl-I)');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Testpagina</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <img id="img1" src="img/photo1-s.jpg" alt="random image">
+  <script>
+    const photos = [
+      'img/photo1-s.jpg',
+      'img/photo17-s.jpg',
+      'img/photo6-s.jpg',
+      'img/photo3-s.jpg',
+      'img/photo20-s.jpg'
+    ];
+    const img1 = document.querySelector('#img1');
+    console.log(`oorspronkelijke url: ${img1.src}`);
+
+    const i = Math.floor(Math.random() * photos.length);
+    img1.src = photos[i];
+    img1.alt = `photo ${i}`;
+
+    console.log(`foto ${i} geladen`);
+    console.log(`huidige url: ${img1.src}`);
+  </script>
+</body>
+
+</html>

@@ -23,13 +23,17 @@
       <p class="thumb__title">01. Javascript syntax</p>
       <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
     </a>
-    <a href="02_dom.html" class="main__thumb" title="02. Document Object Model">
-      <p class="thumb__title">02. Document Object Model</p>
-      <img class="thumb__visual" src="img/02_dom/icon.png" alt="">
+    <a href="02_dom1.html" class="main__thumb" title="02. DOM deel 1">
+      <p class="thumb__title">02. DOM deel 1</p>
+      <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
     </a>
-    <a href="03_async.html" class="main__thumb" title="03. Asynchrone Javascript">
-      <p class="thumb__title">03. Asynchrone Javascript</p>
-      <img class="thumb__visual" src="img/03_async/icon.png" alt="">
+    <a href="02_dom2.html" class="main__thumb" title="03. DOM deel2">
+      <p class="thumb__title">03. DOM deel 2</p>
+      <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
+    </a>
+    <a href="04_async.html" class="main__thumb" title="04. Asynchrone Javascript">
+      <p class="thumb__title">04. Asynchrone Javascript</p>
+      <img class="thumb__visual" src="img/04_async/icon.png" alt="">
     </a>
   </nav>
   <h1>01. Javascript Syntax</h1>
@@ -38,7 +42,12 @@
 
     <!-- VIDEO -->
     <h2>On Youtube</h2>
-    <iframe class="youtube" width="1000" height="630" src="https://www.youtube.com/embed/Rxn-qPPa5TI?si=nNw3_oAiwVj0Nopj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <h3>Video: Javascript syntax</h3>
+    <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/Rxn-qPPa5TI?si=nNw3_oAiwVj0Nopj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <figure class="print">
+      <a href="https://www.youtube.com/embed/Rxn-qPPa5TI"><img src="img/01_syntax/01.DWD-syntax.png" alt="" class="w-500"></a>
+      <figcaption><a href="https://www.youtube.com/embed/Rxn-qPPa5TI">https://www.youtube.com/embed/Rxn-qPPa5TI</a></figcaption>
+    </figure>
 
     <!-- COMMENTAAR -->
     <h2>Werken met Javascript</h2>
@@ -283,7 +292,7 @@ console.error('whoops! an error occured');</code></pre>
       <h4>debugger</h4>
       <p>
          De console werkt <strong>asynchroon</strong>. Dit is een belangrijk begrip in programmeren in het algemeen, en Javascript in het bijzonder.
-         Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover later in hoofdstuk <a href="03_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte gevolgen. Neem volgende code:
+         Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover later in hoofdstuk <a href="04_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte gevolgen. Neem volgende code:
       </p>
       <pre class="prism-okaida line-numbers" data-demo><code>const person = {
   name: 'Rogier',
@@ -336,7 +345,7 @@ var num2 = 3.14; // kommagetal
     </ul>
 
     <h3>Weak typing van variabelen</h3>
-    <p>Variabelen in Javascript zijn weakly typed, d.w.z. het type kan veranderen als je er een andere waarde aan toewijst:</p>
+    <p>Variabelen in Javascript zijn <strong>weakly typed</strong>, d.w.z. het type kan veranderen als je er een andere waarde aan toewijst:</p>
     <div class="codecompare">
       <pre class="prism-okaida line-numbers w-500"><code>let num = 3; // num is een getal
 num = "Rogier"; // num is nu een string

@@ -26,7 +26,7 @@ main {
 	margin: 0 2.5rem;
 }
 
-main a::after {
+main a:not([href*=http])::after {
 	content: "🔗";
 	font-size: smaller;
 	position: relative;
@@ -125,6 +125,11 @@ img {
 	max-width: 100%;
 }
 
+mark {
+	background-color: #FFCD00;
+	font-weight: bold;
+}
+
 nav {
 	background-color: #faf5e6;
 	box-shadow: 0 0.5rem 1rem #ccc7;
@@ -134,6 +139,10 @@ nav {
 	top: 0;
 	transition: all 0.1s;
 	z-index: 15;
+}
+
+p {
+	margin-top: 0;
 }
 
 p,
@@ -146,6 +155,32 @@ table {
 	margin-bottom: 2rem;
 }
 
+/* CLASSES */
+
+/* general */
+
+.bordered {
+	border: 1px solid #ccc;
+}
+
+.centered {
+	text-align: center;
+}
+
+.print {
+	display: none;
+}
+
+.redcomments .comment, .error {
+	color: #C00 !important;
+	font-weight: bold !important;
+}
+
+.warning {
+	color: #C00 !important;
+}
+
+
 /* paddings */
 
 .p-5 {
@@ -154,24 +189,56 @@ table {
 
 /* widths */
 
+.w-50 {
+	width: 5rem;
+}
+
+.w-100 {
+	width: 10rem;
+}
+
+.w-150 {
+	width: 15rem;
+}
+
 .w-200 {
 	width: 20rem;
+}
+
+.w-250 {
+	width: 25rem;
 }
 
 .w-300 {
 	width: 30rem;
 }
 
+.w-350 {
+	width: 35rem;
+}
+
 .w-400 {
 	width: 40rem;
+}
+
+.w-450 {
+	width: 45rem;
 }
 
 .w-500 {
 	width: 50rem;
 }
 
+.w-550 {
+	width: 55rem;
+}
+
 .w-600 {
 	width: 60rem;
+}
+
+.w-650 {
+	width: 65rem;
 }
 
 .w-700 {
@@ -196,6 +263,10 @@ table {
 	max-width: 40rem;
 }
 
+.mw-500 {
+	max-width: 50rem;
+}
+
 .mw-600 {
 	max-width: 60rem;
 }
@@ -212,63 +283,27 @@ table {
 	max-width: 120rem;
 }
 
-/* IMG's */
+/* TAG-CLASSES */
 
-img.w-50 {
-	width: 5rem;
+/* rectangles */
+
+.precontainer {
+	position: relative;
 }
 
-img.w-100 {
-	width: 10rem;
+.rectangle {
+	border: 3px solid #688031BB;
+	position: absolute;
 }
 
-img.w-150 {
-	width: 15rem;
+.rectangle--error {
+	border-color: #C06000;
 }
 
-img.w-200 {
-	width: 20rem;
-}
+/* lists */
 
-img.w-250 {
-	width: 25rem;
-}
-
-img.w-300 {
-	width: 30rem;
-}
-
-img.w-350 {
-	width: 35rem;
-}
-
-img.w-400 {
-	width: 40rem;
-}
-
-img.w-500 {
-	width: 50rem;
-}
-
-img.w-550 {
-	width: 55rem;
-}
-
-img.w-600 {
-	width: 60rem;
-}
-
-img.w-700 {
-	width: 70rem;
-}
-
-img.w-800 {
-	width: 80rem;
-}
-
-/* UL's */
-
-.arrow {
+ul.arrow,
+li.arrow {
 	list-style-type: none;
 	margin-top: 0;
 	margin-left: 2rem;
@@ -277,7 +312,7 @@ img.w-800 {
 
 ul.arrow li:first-child,
 ul li.arrow {
-	margin: 0.5rem 0;
+	margin-top: 0.5rem 0;
 }
 
 ul.arrow li::before,
@@ -325,31 +360,45 @@ ul li.wrong::before {
 	content: "✗";
 }
 
-/* CLASSES */
+/* youtube video's */
 
-.youtube {
+iframe.youtube {
+	border: 1px solid #ccc;
 	box-shadow: 0 0 10px #0009;
 }
 
+.youtube_toc ul {
+	font-size: 14px;
+	list-style: square;
+   margin: 0;
+	padding-left: 2em;
+}
+
+.youtube_toc ul ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.youtube_toc ul ul li::before {
+	content: '— ';
+}
+
+/* flex containers */
+
+.flexcontainer {
+   column-gap: 30px;
+   display: flex;
+   row-gap: 10px;
+}
+
+.flexcontainer.wrap {
+   flex-wrap: wrap;
+}
+
+/* n00b/pro switch's */
+
 body:not(.showpro) .pro {
 	display: none !important;
-}
-
-.bordered {
-	border: 1px solid #ccc;
-}
-
-.centered {
-	text-align: center;
-}
-
-.redcomments .comment, .error {
-	color: #C00 !important;
-	font-weight: bold !important;
-}
-
-.warning {
-	color: #C00 !important;
 }
 
 
@@ -364,9 +413,12 @@ html body .small {
 	font-style: italic;
 }
 
+/* tips */
+
 .tips {
 	background-color: #eee;
 	border: 0.2rem dashed #999;
+	margin-bottom: 1em;
 	padding: 4rem 5rem 1rem 2rem;
 	position: relative;
 	width: fit-content;
@@ -379,6 +431,8 @@ html body .small {
 	position: absolute;
 	top: 0.5rem;
 }
+
+/* back to top */
 
 #up {
 	bottom: 1rem;
@@ -536,8 +590,6 @@ table.left td, table.left th {
 	text-align: left;
 }
 
-
-
 /* CODE */
 
 code {
@@ -598,7 +650,6 @@ figure pre {
 }
 
 .codecompare {
-	display: flex;
 	column-gap: 20px;
 }
 
@@ -609,12 +660,20 @@ div.code-toolbar {
 }
 
 div.code-toolbar>.toolbar {
+	direction: rtl;
 	opacity: 1;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item {
+	margin: 0 5px;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>span {
+	padding: 0;
 }
 
 button.copy-to-clipboard-button {
 	cursor: pointer;
-	margin: 0 1em;
 }
 
 div.code-toolbar>.toolbar>.toolbar-item>span,
@@ -641,10 +700,6 @@ div.code-toolbar>.toolbar>.toolbar-item>button:focus {
 	opacity: 1;
 }
 
-pre[class*="language-"]:not([data-demo]) + .toolbar .toolbar-item:last-child {
-	display: none !important;
-}
-
 /* hystmodal mods */
 
 .hystmodal iframe {
@@ -655,3 +710,12 @@ pre[class*="language-"]:not([data-demo]) + .toolbar .toolbar-item:last-child {
 .hystmodal__window {
 	width: 800px;
 }
+
+/* MEDIA QUERIES */
+@media(min-width: 1000px) {
+	.codecompare {
+		display: flex;
+		column-gap: 40px;
+	}
+}
+

@@ -6,8 +6,12 @@ body {
    padding-top: 0 !important;
 }
 
-#mode, .site__nav, #up {
+#mode, .site__nav, #up, .rectangle, iframe {
    display: none !important;
+}
+
+.print {
+   display: block !important;
 }
 
 h2 {

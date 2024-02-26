@@ -1,0 +1,14 @@
+body {
+    font-family: roboto;
+    font-size: 14px;
+}
+label {
+   display: block;
+}
+label, input, button {
+   margin: 5px 0;
+}
+.message {
+   color: #900;
+   font-style: italic;
+}

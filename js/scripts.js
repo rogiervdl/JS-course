@@ -1,8 +1,10 @@
+/* global Prism, HystModal */
+
 // DOM shortcuts
 const DOM = {
- 	codeBlocks: [...document.querySelectorAll('pre code')],
+	codeBlocks: [...document.querySelectorAll('pre code')],
 	diaDemoWindow: document.querySelector('#diaDemo .hystmodal__window'),
-   nav: document.querySelector('nav'),
+	nav: document.querySelector('nav'),
 	tips: [...document.querySelectorAll('.tips')],
 	titles: [...document.querySelectorAll('h2,h3,h4,h5')],
 	toc: document.querySelector('#toc')
@@ -15,54 +17,57 @@ const myHistModal = new HystModal({});
  * @param {string} str
  */
 function startApp() {
-   // part 1: assign id's to titles
+	// part 1: assign id's to titles
 	DOM.titles.forEach((title) => {
-      const id = createIdFrom(title.textContent);
-      title.dataset.id = id;
-      title.dataset.text = title.innerHTML;
-      title.innerHTML = `<span id="${id}"></span>` + title.innerHTML;
+		const id = createIdFrom(title.textContent);
+		title.dataset.id = id;
+		title.dataset.text = title.innerHTML;
+		title.innerHTML = `<span id="${id}"></span>` + title.innerHTML;
 	});
 
 	// part 2: handle tips
 
-   // part 3: build TOC
+	// part 3: build TOC
 	if (!DOM.titles.length) return;
 	let toc = '';
 
 	// iterate titles
-   const titleNrs = [0, 0, 0, 0, 0, 0];
+	const titleNrs = [0, 0, 0, 0, 0, 0];
 	DOM.titles.filter(t => !t.dataset.dontlist).forEach((title) => {
-      // get title number and create link
-      const titleNr = title.nodeName.substring(1);
-      const lnk = `<a href="#${title.dataset.id}">${title.dataset.text}</a>`;
+		// get title number and create link
+		const titleNr = title.nodeName.substring(1);
+		const lnk = `<a href="#${title.dataset.id}">${title.dataset.text}</a>`;
 
-      // increment title count
-      titleNrs[titleNr - 1]++;
-      if (titleNrs[titleNr - 1] == 1) toc += '<ul>';
+		// increment title count
+		titleNrs[titleNr - 1]++;
+		if (titleNrs[titleNr - 1] == 1) toc += '<ul>';
 
-      // reset all subtitle counts
-      for (let i = titleNr; i < titleNrs.length; i++) {
-         if (titleNrs[i] == 0) continue;
-         toc += '</ul>';
-         titleNrs[i] = 0;
-      }
-      const prefix = titleNrs.filter(t => t != 0).join('.');
-      const ispro = title.closest('.pro') != null;
-      toc += `<li${ispro ? ' class="pro"' : ''}>${prefix} ${lnk}</li>\n`;
-   });
+		// reset all subtitle counts
+		for (let i = titleNr; i < titleNrs.length; i++) {
+			if (titleNrs[i] == 0) continue;
+			toc += '</ul>';
+			titleNrs[i] = 0;
+		}
+		const prefix = titleNrs.filter(t => t != 0).join('.');
+		const ispro = title.closest('.pro') != null;
+		toc += `<li${ispro ? ' class="pro"' : ''}>${prefix} ${lnk}</li>\n`;
+	});
 
-   // add to dom
-   DOM.toc.innerHTML = toc;
+	// add to dom
+	DOM.toc.innerHTML = toc;
 
-   // part 4: nav scroll effect
-   window.addEventListener('scroll', () => {
-      DOM.nav.classList.toggle('condensed', document.body.scrollTop > 50 || document.documentElement.scrollTop > 50);
-   });
+	// part 4: nav scroll effect
+	window.addEventListener('scroll', () => {
+		DOM.nav.classList.toggle('condensed', document.body.scrollTop > 50 || document.documentElement.scrollTop > 50);
+	});
 
 	// part 5: prism
-	Prism.plugins.toolbar.registerButton('Demo', {
-		text: 'Demo', // required
-		onClick: function (env) { // optional
+	Prism.plugins.toolbar.registerButton('Demo', (env) => {
+		const pre = env.element.parentNode;
+		if (pre.dataset.demo == undefined) return;
+		const button = document.createElement('button');
+		button.textContent = 'Demo';
+		button.onclick = function() {
 			DOM.diaDemoWindow.innerHTML = '<iframe title="demo"></iframe>';
 			const src = env.element.parentNode.dataset.demo;
 			if (src === undefined) return;
@@ -78,7 +83,17 @@ function startApp() {
 			} else {
 				diaDemoIframe.src = src;
 			}
-		}
+		};
+		return button;
+	});
+	Prism.plugins.toolbar.registerButton('show-language', (env) => {
+		const pre = env.element.parentNode;
+		if (!pre || !/pre/i.test(pre.nodeName)) return;
+		const caption = pre.getAttribute('data-caption') || pre.getAttribute('data-language') || env.language;
+		if (!caption) return;
+		const element = document.createElement('span');
+		element.textContent = caption;
+		return element;
 	});
 }
 
@@ -96,31 +111,6 @@ function createIdFrom(str) {
 		id = `${str}-${i++}`;
 	}
 	return id;
-}
-
-/**
- * Creates title from chapter or slide
- *
- * @param {HTMLElement} section
- */
-function createTitle(section) {
-	if (section.dataset.title) return section.dataset.title;
-	const h2 = section.querySelector('h2');
-	if (!h2) return null;
-	return stripHTML(h2.innerHTML);
-}
-
-/**
- * Strip HTML from a string
- *
- * @param {string} strHtml
- */
-function stripHTML(html) {
-	let tmp = document.createElement('div');
-	tmp.innerHTML = html;
-	const toReturn = tmp.textContent || tmp.innerText;
-	tmp = null;
-	return toReturn;
 }
 
 // start your engines!

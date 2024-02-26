@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Verdana;
+    font-size: 14px;
+    max-width: 800px;
+    padding: 20px;
+}
+img {
+    max-width: 100%;
+}
+.thumbs {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-bottom: 10px;;
+}
+.thumbs li {
+    display: flex;
+    list-style: none;
+    margin-right: 5px;
+}
+.thumbs img {
+    filter: grayscale(1);
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+.thumbs img:hover {
+   filter: grayscale(0);
+   opacity: 1;
+}
+#figBig {
+    margin-right: 5px;
+}
