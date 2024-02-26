@@ -46,7 +46,7 @@
     <div class="flexcontainer youtubecontainer">
       <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/oPhKAHd3GA8?si=Lyz5xTy_erknRLlB" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <figure class="print">
-        <a href="https://www.youtube.com/embed/oPhKAHd3GA8"><img src="img/02_dom/03.DWD-dom2.png" alt="" class="w-500"></a>
+        <a href="https://www.youtube.com/embed/oPhKAHd3GA8"><img src="img/02_dom1/03.DWD-dom2.png" alt="" class="w-500"></a>
         <figcaption><a href="https://www.youtube.com/embed/oPhKAHd3GA8">https://www.youtube.com/embed/oPhKAHd3GA8</a></figcaption>
       </figure>
       <div class="youtube_toc">
@@ -96,6 +96,266 @@
         </ul>
       </div>
     </div>
+
+    <h2>DOM tree navigatie</h2>
+    <p>
+      Eenmaal je een node gevonden hebt (bv. met <code>querySelector()</code>) kan je verder <strong>navigeren in de boomstructuur</strong> met properties als <code>parentNode</code>, <code>children</code>, <code>nextElementSibling</code> enz...:
+    </p>
+    <div class="codecompare">
+      <div>
+        <div class="precontainer">
+          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/dom-navigation/index.html"><code>&lt;header&gt;
+  &lt;h1&gt;DOM navigation&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav&gt;
+  &lt;ul id="mainmenu"&gt;
+    &lt;li&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+        </div>
+        <div class="precontainer">
+          <pre class="prism-okaida line-numbers w-550"><code>const menu = document.querySelector('#mainmenu');
+
+console.log(`menu's parent node:`);
+console.log(menu.parentNode);
+console.log(`menu's child nodes:`);
+console.log(menu.children);
+
+const nav = document.querySelector('nav');
+console.log(`nav's previous sibling:`);
+console.log(nav.previousElementSibling);
+</code></pre>
+        </div>
+      </div>
+      <div>
+        <img src="img/03_dom2/dom-navigation.png" alt="" class="w-400">
+      </div>
+    </div>
+    <p>Belangrijkste properties:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">property</th>
+          <th scope="col">omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>node.children</code></td>
+          <td>collectie van children van de huidige node</td>
+        </tr>
+        <tr>
+          <td><code>node.firstElementChild</code></td>
+          <td>eerste child van de huidige node</td>
+        </tr>
+        <tr>
+          <td><code>node.lastElementChild</code></td>
+          <td>laatste child van de huidige node</td>
+        </tr>
+        <tr>
+          <td><code>node.nextElementSibling</code></td>
+          <td>volgende sibling (null indien niet gevonden)</td>
+        </tr>
+        <tr>
+          <td><code>node.parentNode</code></td>
+          <td>parent van de huidige node</td>
+        </tr>
+        <tr>
+          <td><code>node.previousElementSibling</code></td>
+          <td>vorige sibling (null indien niet gevonden)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Een handige methode is ook <code>closest()</code>, die de eerste ancestor zoekt die voldoet aan de meegegeven selector</p>
+    <pre class="prism-okaida line-numbers"><code>const nav = someLink.closest('nav'); // search from some link up the tree till you find 'nav'</code></pre>
+
+    <h2>Speciale nodes</h2>
+    <p>
+      Een node in Javascript stelt bijna altijd een HTML element in het document voor. Er zijn echter nog een paar nodes die daarbuiten vallen, waarvan de belangrijkste zijn:
+    </p>
+    <ul>
+      <li><code>window</code>: het browservenster</li>
+      <li><code>document</code>: het HTML document</li>
+      <li><code>location</code>: de adresbalk</li>
+    </ul>
+    <p>
+      Deze noden bestaan ook, maar zijn ofwel verouderd, ofwel voor ons niet relevant:
+    </p>
+    <ul>
+      <li><code>navigator</code>: gebruikte browser (niet meer relevant)</li>
+      <li><code>screen</code>: het scherm van de gebruiker (vervangen door media queries)</li>
+      <li><code>history</code>: browse historiek</li>
+    </ul>
+    <h3>Window node</h3>
+    <p>
+      Deze node stelt het <mark>browservenster</mark> voor. De <a href="https://www.w3schools.com/jsref/obj_window.asp">lijst properties en methodes</a> bevat voor ons niet zoveel interssants. Een paar mogelijks interessante zijn <code>window.print()</code>, <code>window.scrollTo()</code> en <code>window.alert()</code>. Een voorbeeld van die laatste (dialoogvenster):
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-400"><code>window.alert('hallo wereld!');</code></pre>
+      <img src="img/03_dom2/alert.png" alt="" class="w-500">
+    </div>
+    <h3>Document node</h3>
+    <p>
+      Deze node stelt het <mark>HTML document</mark> voor. De <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">lijst properties en methodes</a> is lang; je herkent o.a. de methodes <code>document.querySelector()</code> en <code>document.querySelectorAll()</code>.
+      De rest is weinig gebruikt of verouderd; de enige nog (een beetje) interssante property is <code>document.title</code>, die verwijst naar &lt;title&gt;, de titel getoond op het browser tabblad:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-400"><code>document.title = 'kot kot kedei';</code></pre>
+      <img src="img/03_dom2/document-title.png" alt="" class="w-500">
+    </div>
+    <h3>Location node</h3>
+    <p>
+      Deze node stelt de adresbalk voor. In de <a href="https://www.w3schools.com/jsref/obj_location.asp">lijst properties en methodes</a> vind je o.a. de properties <code>location.href</code> (het adres) en <code>location.search</code> (alles na "?"), en de <code>location.reload()</code> methode.
+      Een voorbeeld van een redirect met <code>location.href</code>:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers w-500"><code>if (location.search == '?gotogoogle') {
+   location.href = 'https://www.google.com';  // redirect
+}
+</code></pre>
+      <img src="img/03_dom2/location.png" alt="" class="w-500">
+    </div>
+
+    <h2>CSS manipulatie</h2>
+    <p>
+      We hebben in de vorige presentatie al twee manieren gezien om nodes te manipuleren:
+    </p>
+    <ul class="arrow">
+      <li><strong>HTML attributen</strong>: deze zijn in Javascript beschikbaar onder properties met dezelfde naam</li>
+      <li><strong>DOM properties</strong>: bijkomende properties van nodes die niet overeenkomen met HTML attributen</li>
+    </ul>
+    <p>
+      We bekijken nu nog twee andere manieren:
+    </p>
+    <ul class="arrow">
+      <li><mark>style</mark>: via deze property kan je rechtstreeks CSS properties aanpassen (enkel indien <code>classList</code> geen optie is)</li>
+      <li><mark>classList</mark>: via deze property kan je CSS classes toevoegen of verwijderen (aanbevolen waar mogelijk)</li>
+    </ul>
+
+    <h3>style property</h3>
+    <p>
+      Je kan vanuit Javascript <strong>alle CSS eigenschappen</strong> van een node aanpassen met de <mark>style property</mark>. De namen zijn gelijk, al wordt b.v. <code>background-color</code> wel geCamelCased tot <code>backgroundColor</code>.
+      Voorbeeld waarbij in een lijst het huidige jaar gemarkeerd wordt:
+    </p>
+    <div class="codecompare">
+      <div>
+        <div class="precontainer">
+          <pre class="prism-okaida language-html line-numbers w-550"><code>&lt;ul id="jaar"&gt;
+  &lt;li&gt;2021&lt;/li&gt;
+  &lt;li&gt;2022&lt;/li&gt;
+  &lt;li&gt;2023&lt;/li&gt;
+  &lt;li&gt;2024&lt;/li&gt;
+  &lt;li&gt;2025&lt;/li&gt;
+  &lt;li&gt;2026&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        </div>
+        <div class="precontainer">
+          <pre class="prism-okaida line-numbers w-550"><code>const currentYear = new Date().getFullYear();
+const years = document.querySelectorAll('#jaar li');
+years.forEach(li =&gt; {
+  if (li.innerHTML == currentYear) {
+    li.style.border = '3px dotted black';
+    li.style.backgroundColor = '#aaf';
+    li.style.color = 'white';
+    li.style.fontStyle = 'italic';
+  }
+});
+</code></pre>
+          <div class="rectangle" style="left: 87px;top: 107px;height: 82px;width: 157px;"></div>
+        </div>
+      </div>
+      <div>
+        <img src="img/03_dom2/style.png" alt="" class="w-400">
+      </div>
+    </div>
+
+    <h3>classList property</h3>
+    <p>
+      Meestal is het makkelijker gewoon opmaak te groeperen onder een <strong>CSS class</strong>, en die dan toe te wijzen (of te verwijderen) via de <mark>classList property</mark> met de methodes <code>add()</code>, <code>remove()</code>, <code>toggle()</code> en <code>contains()</code>. Ze verschijnen in de HTML bij de class attribuut. Het vorige voorbeeld herschreven:
+    </p>
+    <div class="codecompare">
+      <div>
+        <div class="precontainer">
+          <pre class="prism-okaida language-html line-numbers w-550"><code>&lt;header&gt;
+  &lt;h1&gt;DOM navigation&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav&gt;
+  &lt;ul id="mainmenu"&gt;
+    &lt;li&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+        </div>
+        <div class="precontainer">
+          <pre class="prism-okaida language-css line-numbers w-550"><code>.todayYear {
+  border: 3px dotted black;
+  background-color: #aaf;
+  color: white;
+  font-style: italic;
+}
+</code></pre>
+        </div>
+        <div class="precontainer">
+          <pre class="prism-okaida line-numbers w-550"><code>const currentYear = new Date().getFullYear();
+const years = document.querySelectorAll('#jaar li');
+years.forEach(li =&gt; {
+  if (li.innerHTML == currentYear) {
+    li.classList.add('todayYear')
+  }
+});
+</code></pre>
+          <div class="rectangle" style="left: 88px;top: 109px;height: 19px;width: 136px;"></div>
+        </div>
+      </div>
+      <div>
+        <img src="img/03_dom2/classlist.png" alt="" class="w-400">
+      </div>
+    </div>
+
+    <h3>data-* attributen</h3>
+    <p>
+      Wat in WPF kan met de Tag attribuut &mdash; bijkomende informatie aan controls koppelen &mdash; kan in Javascript met <mark>data-* attributen</mark>.
+      De regel is: je mag vrij attributen verzinnen toevoegen aan je HTML, zolang ze maar geprefixed zijn met <code>data-</code>. Gebruik de <code>dataset</code> property om ze te lezen en schrijven. Een voorbeeld:
+    </p>
+    <div class="codecompare">
+      <div>
+        <div class="precontainer">
+          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/dom-navigation/index.html"><code>&lt;ul id="zaden"&gt;
+  &lt;li data-afstand="10cm" data-zaaitijd="maart tot juni"&gt;wortelen&lt;/li&gt;
+  &lt;li data-afstand="30cm" data-zaaitijd="februari tot maart"&gt;selder&lt;/li&gt;
+  &lt;li data-afstand="3cm" data-zaaitijd="maart tot september"&gt;radijs&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <div class="rectangle" style="left: 105px;top: 51px;height: 57px;width: 99px;"></div>
+          <div class="rectangle" style="left: 256px;top: 50px;height: 58px;width: 115px;"></div>
+        </div>
+        <div class="precontainer">
+          <pre class="prism-okaida line-numbers w-650"><code>const zaden = document.querySelectorAll('#zaden li');
+console.log(zaden.length);
+
+zaden.forEach(zaad =&gt; {
+  console.log(`
+plant: ${zaad.innerHTML}
+planttijd: ${zaad.dataset.zaaitijd}
+afstand: ${zaad.dataset.afstand}`);
+});
+</code></pre>
+          <div class="rectangle" style="left: 180px;top: 147px;height: 40px;width: 155px;"></div>
+        </div>
+      </div>
+      <div>
+        <img src="img/03_dom2/datapng.png" alt="" class="w-400">
+      </div>
+    </div>
+
+
+
+
+
 
   </main>
   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>

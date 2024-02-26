@@ -302,6 +302,10 @@ table {
 
 /* lists */
 
+ul {
+	list-style: square;
+}
+
 ul.arrow,
 li.arrow {
 	list-style-type: none;
