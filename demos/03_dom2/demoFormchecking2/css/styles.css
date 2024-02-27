@@ -1,0 +1,23 @@
+body {
+   font-family: roboto;
+   font-size: 14px;
+}
+label {
+  display: block;
+}
+label, input, button {
+  margin: 5px 0;
+}
+.message {
+  color: #900;
+  display: none;
+  font-size: smaller;
+  font-style: italic;
+}
+.message.show {
+   display: block;
+}
+
+div.highlight {
+   background-color: #f9c;
+}

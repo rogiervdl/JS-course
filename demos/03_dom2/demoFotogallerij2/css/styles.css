@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Verdana;
+    font-size: 14px;
+    max-width: 800px;
+    padding: 20px;
+}
+img {
+    max-width: 100%;
+}
+.thumbs {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-bottom: 10px;;
+}
+.thumbs img {
+    filter: grayscale(1);
+    opacity: 0.8;
+    transition: opacity 0.5s, filter 0.5s;
+}
+.thumbs img:hover,
+.thumbs .current img {
+    opacity: 1;
+}
+.thumbs .visited img {
+    filter: grayscale(0);
+}

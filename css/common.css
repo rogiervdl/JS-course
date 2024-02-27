@@ -249,6 +249,10 @@ table {
 	width: 80rem;
 }
 
+.w-900 {
+	width: 90rem;
+}
+
 .w-1000 {
 	width: 100rem;
 }
@@ -707,7 +711,7 @@ div.code-toolbar>.toolbar>.toolbar-item>button:focus {
 /* hystmodal mods */
 
 .hystmodal iframe {
-	min-height: 600px;
+	min-height: 700px;
 	width: 100%;
 }
 

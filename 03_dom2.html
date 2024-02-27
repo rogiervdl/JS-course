@@ -44,7 +44,7 @@
     <h2>On Youtube</h2>
     <h3>Video: tree navigatie, speciale nodes, classList, style, data-*, mouse en keyboard</h3>
     <div class="flexcontainer youtubecontainer">
-      <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/oPhKAHd3GA8?si=Lyz5xTy_erknRLlB" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/oPhKAHd3GA8?si=Lyz5xTy_erknRLlB" allowfullscreen></iframe>
       <figure class="print">
         <a href="https://www.youtube.com/embed/oPhKAHd3GA8"><img src="img/02_dom1/03.DWD-dom2.png" alt="" class="w-500"></a>
         <figcaption><a href="https://www.youtube.com/embed/oPhKAHd3GA8">https://www.youtube.com/embed/oPhKAHd3GA8</a></figcaption>
@@ -102,7 +102,7 @@
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/dom-navigation/index.html"><code>&lt;header&gt;
+          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/demoDomNavigation/index.html"><code>&lt;header&gt;
   &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
 &lt;nav&gt;
@@ -241,7 +241,7 @@ console.log(nav.previousElementSibling);
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-550"><code>&lt;ul id="jaar"&gt;
+          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/demoYearsStyle/index.html"><code>&lt;ul id="jaar"&gt;
   &lt;li&gt;2021&lt;/li&gt;
   &lt;li&gt;2022&lt;/li&gt;
   &lt;li&gt;2023&lt;/li&gt;
@@ -277,7 +277,7 @@ years.forEach(li =&gt; {
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-550"><code>&lt;header&gt;
+          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/demoYearsClassList/index.html"><code>&lt;header&gt;
   &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
 &lt;nav&gt;
@@ -323,7 +323,7 @@ years.forEach(li =&gt; {
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/dom-navigation/index.html"><code>&lt;ul id="zaden"&gt;
+          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/demoSeeds/index.html"><code>&lt;ul id="zaden"&gt;
   &lt;li data-afstand="10cm" data-zaaitijd="maart tot juni"&gt;wortelen&lt;/li&gt;
   &lt;li data-afstand="30cm" data-zaaitijd="februari tot maart"&gt;selder&lt;/li&gt;
   &lt;li data-afstand="3cm" data-zaaitijd="maart tot september"&gt;radijs&lt;/li&gt;
@@ -350,6 +350,241 @@ afstand: ${zaad.dataset.afstand}`);
       </div>
     </div>
 
+    <h2>Input events</h2>
+    <h3>Toetsenbord</h3>
+    <p>Bij keyboard events bevat het event object <code>e</code> alle eigenschappen van de ingedrukte toets.</p>
+    <div class="codecompare">
+      <div>
+        <div class="precontainer">
+          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
+&lt;p&gt;&lt;input type="text" id="inp1" /&gt;&lt;/p&gt;
+&lt;p&gt;
+  karakter: &lt;span id="kar"&gt;&lt;/span&gt;
+  &lt;br&gt;code: &lt;span id="code"&gt;&lt;/span&gt;
+  &lt;br&gt;shift: &lt;span id="shift"&gt;&lt;/span&gt;
+&lt;/p&gt;
+</code></pre>
+        </div>
+        <div class="precontainer">
+          <pre class="prism-okaida line-numbers w-650"><code>const inp = document.querySelector('#inp1');
+inp.addEventListener('keydown', function(e) {
+  console.log(e); // gebruik console.log() om alle properties te inspecteren
+  document.querySelector('#kar').innerHTML = e.key;
+  document.querySelector('#code').innerHTML = e.keyCode;
+  document.querySelector('#shift').innerHTML = e.shiftKey ? 'ja' : 'nee ';
+});
+</code></pre>
+        <div class="rectangle" style="left: 412px;top: 92px;height: 64px;width: 101px;"></div>
+      </div>
+      </div>
+      <div>
+        <img src="img/03_dom2/toetsenbord.png" alt="" class="w-400">
+      </div>
+    </div>
+    <h3>Muis</h3>
+    <p>Bij mouse events bevat het event object <code>e</code> alle eigenschappen van de muisklik.</p>
+    <div class="codecompare">
+      <div>
+        <div class="precontainer">
+          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/demoMouse/index.html"><code>&lt;p&gt;klik ergens in de pagina...&lt;/p&gt;
+&lt;p&gt;
+  positie: &lt;span id="pos"&gt;&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+        </div>
+        <div class="precontainer">
+          <pre class="prism-okaida line-numbers w-650"><code>const body = document.querySelector('body');
+body.addEventListener('click', function(e) {
+  console.log(e); // gebruik console.log() om alle properties te inspecteren
+  document.querySelector('#pos').innerHTML = `(${e.clientX}, ${e.clientY})`;
+});
+</code></pre>
+          <div class="rectangle" style="left: 446px;top: 95px;height: 18px;width: 186px;"></div>
+        </div>
+      </div>
+      <div>
+        <img src="img/03_dom2/muis.png" alt="" class="w-400">
+      </div>
+    </div>
+    <h2>Herwerkte voorbeelden</h2>
+    <h3>Foto gallerij herwerkt</h3>
+    <p>
+      Ter illustratie herwerken we de fotogalerij, met volgende aanpassingen:
+    </p>
+    <ul class="arrow">
+      <li>we gebruiken <strong><code>&lt;div&gt;</code></strong>'s in plaats van <code>&lt;ul&gt;&lt;li&gt;&lt;a&gt;</code>'s</li>
+      <li>we gebruiken <strong><code>data-photo</code></strong> attributen in plaats van de href van de <code>&lt;a&gt;</code>'s om de url naar de foto te onthouden</li>
+      <li>we voegen een <strong>CSS class <code>current</code></strong> toe aan de actieve <code>&lt;div&gt;</code> (getoonde foto)</li>
+    </ul>
+    <p>De oude HTML:</p>
+    <div class="precontainer">
+      <pre class="prism-okaida language-html line-numbers w-1000"><code>&lt;ul class="thumbs"&gt;
+  &lt;li&gt;&lt;a href="img/photo1.jpg"&gt;&lt;img src="img/photo1-s.jpg" alt="Amman, Jordanië"&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="img/photo17.jpg"&gt;&lt;img src="img/photo17-s.jpg" alt="Noorderlicht, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="img/photo6.jpg"&gt;&lt;img src="img/photo6-s.jpg" alt="mozaïek, Isfahan, Iran"&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="img/photo3.jpg"&gt;&lt;img src="img/photo3-s.jpg" alt="Atlas, Marokko"&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="img/photo20.jpg"&gt;&lt;img src="img/photo20-s.jpg" alt="bevroren bomen, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure id="figBig"&gt;
+  &lt;img src="img/photo1.jpg" alt=""&gt;
+  &lt;figcaption&gt;Amman, Jordanië&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    </div>
+    <p>De vernieuwe HTML:</p>
+    <div class="precontainer">
+      <pre class="prism-okaida language-html line-numbers right w-1000" data-demo="demos/03_dom2/demoFotogallerij2/index.html"><code>&lt;div class="thumbs"&gt;
+  &lt;div data-photo="img/photo1.jpg" data-desc="Amman, Jordanië" class="current"&gt;&lt;img src="img/photo1-s.jpg" alt=""&gt;&lt;/div&gt;
+  &lt;div data-photo="img/photo17.jpg" data-desc="Noorderlicht, Lapland"&gt;&lt;img src="img/photo17-s.jpg" alt=""&gt;&lt;/div&gt;
+  &lt;div data-photo="img/photo6.jpg" data-desc="mozaïek, Isfahan"&gt;&lt;img src="img/photo6-s.jpg" alt=", Iran"&gt;&lt;/div&gt;
+  &lt;div data-photo="img/photo3.jpg" data-desc="Atlas, Marokko"&gt;&lt;img src="img/photo3-s.jpg" alt=""&gt;&lt;/div&gt;
+  &lt;div data-photo="img/photo20.jpg" data-desc="bevroren bomen, Lapland"&gt;&lt;img src="img/photo20-s.jpg" alt=""&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;figure id="figBig"&gt;
+  &lt;img src="img/photo1.jpg" alt="random image"&gt;
+  &lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+      <div class="rectangle" style="left: 112px;top: 53px;height: 100px;width: 86px;"></div>
+      <div class="rectangle" style="left: 335px;top: 53px;height: 100px;width: 86px;"></div>
+      <div class="rectangle" style="left: 559px;top: 53px;height: 18px;width: 122px;"></div>
+    </div>
+    <p>We voegen ook nog een visueel effect toe, waarbij standaard alle thumbnails in grijswaarden staan, en de reeds bezochte in kleur gezet worden met een <strong>CSS class <code>visited</code></strong>. De aangepaste CSS:</p>
+    <div class="precontainer">
+      <pre class="prism-okaida language-css line-numbers right"><code>...
+
+.thumbs img {
+  filter: grayscale(1);
+  opacity: 0.8;
+  transition: opacity 0.5s, filter 0.5s;
+}
+.thumbs img:hover,
+.thumbs .current img {
+  opacity: 1;
+}
+.thumbs .visited img {
+  filter: grayscale(0);
+}
+</code></pre>
+    </div>
+    <p>De vernieuwde Javascript:</p>
+    <div class="precontainer">
+      <pre class="prism-okaida line-numbers right"><code>const figBig = document.querySelector('#figBig');
+const thumbs = document.querySelectorAll('.thumbs div');
+
+thumbs.forEach(thn =&gt; {
+  thn.addEventListener('click', function () {
+    // verwijder current class van vorige thumb
+    document.querySelector('.current').classList.remove('current');
+
+    // voeg current en visited class toe aan huidige thumb
+    thn.classList.add('current');
+    thn.classList.add('visited');
+
+    // pas afbeelding en beschrijving aan
+    figBig.querySelector('img').src = thn.dataset.photo;
+    figBig.querySelector('figcaption').innerHTML = thn.dataset.desc;
+  });
+});
+</code></pre>
+    </div>
+    <p>Je herkent volgende nieuwe technieken:</p>
+    <ul class="arrow">
+      <li>gebruik <code>classList</code> om de huidige en visited thumbnails te markeren</li>
+      <li>gebruik <code>data</code>-attributen in combinatie met <code>dataset</code> voor de url en beschrijving</li>
+    </ul>
+
+    <h3>Form checking herwerkt</h3>
+    <p>
+      In <a href="02_dom1.html#form-checking">de eerste versie</a> stonden de teksten van foutmeldingen in de Javascript, terwijl het content is en dus eigenlijk thuishoort in de HTML.
+      We herwerken het met gebruik van o.a. <strong><code>classList</code></strong> en <strong><code>parentNode</code></strong>. Bekijk zeker de uitleg in <a href="#video-tree-navigatie-speciale-nodes-classlist-style-data-mouse-en-keyboard">de video</a>. De aangepaste HTML:
+    </p>
+    <div class="precontainer">
+      <pre class="prism-okaida language-html line-numbers right w-1000" data-demo="demos/03_dom2/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
+  &lt;h1&gt;Registreren&lt;/h1&gt;
+  &lt;div&gt;
+    &lt;label for="email"&gt;Email: &lt;/label&gt;
+    &lt;input type="email" id="email" required&gt;
+    &lt;span class="message is-empty"&gt;email mag niet leeg zijn&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for="pw"&gt;Paswoord: &lt;/label&gt;
+    &lt;input type="password" id="pw" required&gt;
+    &lt;span class="message is-empty"&gt;paswoord mag niet leeg zijn&lt;/span&gt;
+    &lt;span class="message has-no-capital"&gt;paswoord moet een hoofdletter bevatten&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;input type="submit" value="Inloggen"&gt;
+&lt;/form&gt;
+</code></pre>
+    <div class="rectangle" style="left: 87px;top: 125px;height: 25px;width: 497px;"></div>
+    <div class="rectangle" style="left: 87px;top: 223px;height: 45px;width: 655px;"></div>
+  </div>
+  <p>In de aangepaste CSS verbergen we standaard de foutmeldingen:</p>
+  <div class="precontainer">
+    <pre class="prism-okaida language-css line-numbers w-400 right"><code>label {
+  display: block;
+}
+
+label, input {
+  margin: 5px 0;
+}
+
+.message {
+  color: #900;
+  display: none;
+  font-size: smaller;
+  font-style: italic;
+}
+
+.message.show {
+   display: block;
+}
+</code></pre>
+    <div class="rectangle" style="left: 71px;top: 223px;height: 25px;width: 117px;"></div>
+    <div class="rectangle" style="left: 56px;top: 322px;height: 62px;width: 145px;"></div>
+  </div>
+  <p>In de Javascript tonen we de nodige foutmeldingen:</p>
+  <div class="precontainer">
+    <pre class="prism-okaida line-numbers right"><code>const frmLogin = document.querySelector('#frmLogin');
+const inpEmail = frmLogin.querySelector('#email');
+const inpPw = frmLogin.querySelector('#pw');
+const msgEmailIsEmpty = inpEmail.parentNode.querySelector('.message.is-empty');
+const msgPwIsEmpty = inpPw.parentNode.querySelector('.message.is-empty');
+const msgPwHasNoCapital = inpPw.parentNode.querySelector('.message.has-no-capital');
+
+// disable HTML5 validation
+frmLogin.setAttribute('novalidate', 'novalidate');
+
+// halt form submissions and check form
+frmLogin.addEventListener('submit', function (e) {
+   e.preventDefault();
+   // clear all messages
+   msgEmailIsEmpty.classList.remove('show');
+   msgPwIsEmpty.classList.remove('show')
+   msgPwHasNoCapital.classList.remove('show')
+
+   // email can't be empty
+   if (inpEmail.value == '') {
+      msgEmailIsEmpty.classList.add('show');
+   }
+
+   // password must have at least one capital letter
+   if (inpPw.value.toUpperCase() == inpPw.value) {
+      msgPwHasNoCapital.classList.add('show');
+   }
+
+   // password can't be empty
+   if (inpPw.value == '') {
+      msgPwIsEmpty.classList.add('show');
+   }
+
+   // if all ok; submit form
+   if (frmLogin.querySelector('.message.show').length == 0) frmLogin.submit();
+});
+</code></pre>
+  </div>
+  <div class="tips" data-caption="📝 OPMERKING">
+    <p>Er zijn tal van versies mogelijk, niet alleen voor de Foto gallerij of de Form checking, maar voor elke toepassing. Het is aan jou om daar je eigen stijl in te zoeken!</p>
+  </div>
+
 
 
 
@@ -368,10 +603,8 @@ afstand: ${zaad.dataset.afstand}`);
   <!-- scripts -->
   <script src="vendor/prism/prism.js"></script>
   <script src="vendor/hystmodal/hystmodal.min.js"></script>
-  <script src="https://www.youtube.com/player_api"></script>`
   <script src="js/mode.js"></script>
   <script src="js/scripts.js"></script>
-  <script src="js/youtube.js"></script>
 </body>
 
 </html>

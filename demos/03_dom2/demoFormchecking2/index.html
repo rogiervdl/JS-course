@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Form checking vs 2</title>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+   <form id="frmLogin">
+      <h1>Registreren</h1>
+      <p>gelieve te registreren</p>
+      <div>
+         <label for="email">Name: </label>
+         <input type="email" id="email" required>
+         <span class="message is-empty">email mag niet leeg zijn</span>
+      </div>
+      <div>
+         <label for="pw">Paswoord: </label>
+         <input type="password" id="pw" required>
+         <span class="message is-empty">paswoord mag niet leeg zijn</span>
+         <span class="message has-no-capital">paswoord moet een hoofdletter bevatten</span>
+      </div>
+      <button type="submit">Inloggen</button>
+   </form>
+   <script src="js/scripts.js"></script>
+</body>
+
+</html>
