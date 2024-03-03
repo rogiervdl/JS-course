@@ -1,4 +1,4 @@
-# HTML course
+# Javascript course
 
 The materials are developed and maintained by Rogier van der Linde, lecturer ICT at Odisee.
 
