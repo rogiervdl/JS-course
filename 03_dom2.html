@@ -188,12 +188,17 @@ console.log(nav.previousElementSibling);
     </ul>
     <h3>Window node</h3>
     <p>
-      Deze node stelt het <mark>browservenster</mark> voor. De <a href="https://www.w3schools.com/jsref/obj_window.asp">lijst properties en methodes</a> bevat voor ons niet zoveel interssants. Een paar mogelijks interessante zijn <code>window.print()</code>, <code>window.scrollTo()</code> en <code>window.alert()</code>. Een voorbeeld van die laatste (dialoogvenster):
+      Deze node stelt het <mark>browservenster</mark> voor. De <a href="https://www.w3schools.com/jsref/obj_window.asp">lijst properties en methodes</a> bevat voor ons niet zoveel interssants. Een paar gekende zijn <code>window.print()</code>, <code>window.scrollTo()</code> en <code>window.alert()</code>. Een voorbeeld van die laatste (dialoogvenster):
     </p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-400"><code>window.alert('hallo wereld!');</code></pre>
+      <pre class="prism-okaida line-numbers wrong w-400"><code>window.alert('hallo wereld!');</code></pre>
       <img src="img/03_dom2/alert.png" alt="" class="w-500">
     </div>
+    <p>&nbsp;</p>
+    <div class="tips" data-caption="💣 PAS OP">
+      <p>De methodes <code>alert()</code>, <code>confirm()</code> en <code>prompt()</code> zijn UI blokkerende dialoogvensters (i.e. je kan niks meer doen tot je ze weggeklikt hebt) en mogen dus <strong>niet</strong> gebruikt worden in deze cursus.</p>
+    </div>
+
     <h3>Document node</h3>
     <p>
       Deze node stelt het <mark>HTML document</mark> voor. De <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">lijst properties en methodes</a> is lang; je herkent o.a. de methodes <code>document.querySelector()</code> en <code>document.querySelectorAll()</code>.
