@@ -608,6 +608,69 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
     </div>
 
     <h2>Events</h2>
+    <h3>Soorten events</h3>
+    <p><mark>Events</mark> zijn gebeurtenissen op HTML elementen als muiskliks, form submits enz... Een event heeft dus altijd een <a href="#event-target"><code>target</code></a>, i.e. het element waarop het event plaatsvindt. Je kan functies verbinden aan events met <a href="#events-koppelen-met-addeventlistener-juist"><code>addEventListener()</code></a>. Enkele veel voorkomende events:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">event</th>
+          <th scope="col">omschrijving</th>
+          <th scope="col">typische targets</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>click</code></td>
+          <td>muisklik</td>
+          <td>alle elementen</td>
+        </tr>
+        <tr>
+          <td><code>mouseover</code></td>
+          <td>muis erboven</td>
+          <td>alle elementen</td>
+        </tr>
+        <tr>
+          <td><code>mouseout</code></td>
+          <td>muis ervan weg</td>
+          <td>alle elementen</td>
+        </tr>
+        <tr>
+          <td><code>keydown</code></td>
+          <td>toets ingedrukt</td>
+          <td>tekst elementen</td>
+        </tr>
+        <tr>
+          <td><code>keyup</code></td>
+          <td>toets losgelaten</td>
+          <td>tekst elementen</td>
+        </tr>
+        <tr>
+          <td><code>focus</code></td>
+          <td>element krijgt focus</td>
+          <td>form elementen</td>
+        </tr>
+        <tr>
+          <td><code>blur</code></td>
+          <td>element verliest focus</td>
+          <td>form elementen</td>
+        </tr>
+        <tr>
+          <td><code>submit</code></td>
+          <td>formulier wordt verstuurd</td>
+          <td><code>&lt;form&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>input</code></td>
+          <td>waarde wordt veranderd</td>
+          <td><code>&lt;input&gt;</code> en <code>&lt;textarea&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>change</code></td>
+          <td>waarde is veranderd</td>
+          <td><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code></td>
+        </tr>
+      </tbody>
+    </table>
     <h3>Events inline koppelen (fout!)</h3>
     <p>In Javascript kan je <em>in theorie</em> event handlers net zoals bij WPF koppelen <strong>via een attribuut</strong>. Vergelijk de WPF versie:</p>
     <div class="codecompare">
