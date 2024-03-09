@@ -562,8 +562,8 @@ frmLogin.addEventListener('submit', function (e) {
    e.preventDefault();
    // clear all messages
    msgEmailIsEmpty.classList.remove('show');
-   msgPwIsEmpty.classList.remove('show')
-   msgPwHasNoCapital.classList.remove('show')
+   msgPwIsEmpty.classList.remove('show');
+   msgPwHasNoCapital.classList.remove('show');
 
    // email can't be empty
    if (inpEmail.value == '') {
@@ -571,7 +571,7 @@ frmLogin.addEventListener('submit', function (e) {
    }
 
    // password must have at least one capital letter
-   if (inpPw.value.toUpperCase() == inpPw.value) {
+   if (inpPw.value.toLowerCase() == inpPw.value) {
       msgPwHasNoCapital.classList.add('show');
    }
 
@@ -581,7 +581,9 @@ frmLogin.addEventListener('submit', function (e) {
    }
 
    // if all ok; submit form
-   if (frmLogin.querySelector('.message.show').length == 0) frmLogin.submit();
+   if (frmLogin.querySelectorAll('.message.show').length == 0) {
+      frmLogin.submit();
+   }
 });
 </code></pre>
   </div>
