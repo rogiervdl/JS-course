@@ -571,7 +571,7 @@ frmLogin.addEventListener('submit', function (e) {
    }
 
    // password must have at least one capital letter
-   if (inpPw.value.toUpperCase() == inpPw.value) {
+   if (inpPw.value.toLowerCase() == inpPw.value) {
       msgPwHasNoCapital.classList.add('show');
    }
 
