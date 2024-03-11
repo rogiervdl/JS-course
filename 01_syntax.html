@@ -31,9 +31,13 @@
       <p class="thumb__title">03. DOM deel 2</p>
       <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
     </a>
-    <a href="04_async.html" class="main__thumb" title="04. Asynchrone Javascript">
-      <p class="thumb__title">04. Asynchrone Javascript</p>
+    <a href="04_async.html" class="main__thumb" title="04. Web API's">
+      <p class="thumb__title">04. Web API's</p>
       <img class="thumb__visual" src="img/04_async/icon.png" alt="">
+    </a>
+    <a href="05_summary.html" class="main__thumb" title="05. samenvatting">
+      <p class="thumb__title">05. samenvatting</p>
+      <img class="thumb__visual" src="img/05_summary/icon.png" alt="">
     </a>
   </nav>
   <h1>01. Javascript Syntax</h1>
@@ -629,7 +633,7 @@ console.log('hello'.includes('ell')); // true</code></pre>
         </tr>
         <tr>
           <td><code>trim()</code></td>
-          <td>verwiijder spaties aan begin en einde</td>
+          <td>verwijder spaties aan begin en einde</td>
         </tr>
       </tbody>
     </table>
@@ -905,7 +909,7 @@ Console.WriteLine($"{number} is {(number % 2 == 0 ? "even" : "odd")}");
     </div>
 
     <h3>Iteraties</h3>
-    <h4><code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
+    <h4>herhalingsstructuren <code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
     <p>In Javascript komt de syntax van de selecties <code>while</code>, <code>do</code>-<code>while</code> en <code>for</code> overeen met C#. Een <code>for</code> voorbeeld:</p>
     <div class="codecompare">
       <pre class="prism-okaida line-numbers w-600"><code>// definieer een array
@@ -926,7 +930,7 @@ for (int i = 0; i &lt; forrestFriends.Length; i++) {
 </code></pre>
     </div>
 
-    <h4><code>for</code>-<code>of</code> </h4>
+    <h4>itereren over arrays met <code>for</code>-<code>of</code> </h4>
     <p>De <code>for</code>-<code>of</code> iteratie in Javascript komt overeen met <code>foreach</code>-<code>in</code> in C#:</p>
     <div class="codecompare">
       <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
@@ -947,7 +951,7 @@ foreach (string friend in forrestFriends) {
 </code></pre>
     </div>
 
-    <h4><code>forEach</code></h4>
+    <h4>itereren over collecties met <code>forEach</code></h4>
     <p>Javascript heeft nog een verkorte notatie (zonder C# equivalent) die velen zeer handig vinden:</p>
     <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
@@ -957,6 +961,29 @@ forrestFriends.forEach(friend =&gt; {
    console.log(friend); // Bubba, Lt. Dan
 });
 </code></pre>
+
+    <h4>Itereren over object keys met <code>for</code>-<code>in</code> </h4>
+    <p>Dit heeft niet direct een C# equivalent. Je kan het gebruiken om te itereren over de keys van een <a href="#objecten">object</a>:</p>
+      <pre class="prism-okaida line-numbers w-500"><code>const myCar = {
+    make: 'Mercury Bobcat',
+    speed: 0,
+    engineOn: true,
+    constructionDate: new Date(1976, 6, 24),
+    accelerate: function(acc) {
+        if (this.engineOn) speed += acc;
+    }
+}
+for (const key in myCar) {
+   console.log(`${key} is een ${typeof myCar[key]}`)
+}</code></pre>
+<figure class="console">
+  <pre>make is een string
+speed is een number
+engineOn is een boolean
+constructionDate is een object
+accelerate is een function</pre>
+  <figcaption>resultaat in de console</figcaption>
+</figure>
 
     <h2>Functies</h2>
     <h3>Klassieke notatie</h3>

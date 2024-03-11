@@ -9,7 +9,7 @@ const DOM = {
 	titles: [...document.querySelectorAll('h2,h3,h4,h5')],
 	toc: document.querySelector('#toc')
 };
-const myHistModal = new HystModal({});
+const myHistModal = HystModal ? new HystModal({}) : undefined;
 
 /**
  * Startup function
@@ -54,7 +54,7 @@ function startApp() {
 	});
 
 	// add to dom
-	DOM.toc.innerHTML = toc;
+	if (DOM.toc) DOM.toc.innerHTML = toc;
 
 	// part 4: nav scroll effect
 	window.addEventListener('scroll', () => {
@@ -89,6 +89,7 @@ function startApp() {
 	Prism.plugins.toolbar.registerButton('show-language', (env) => {
 		const pre = env.element.parentNode;
 		if (!pre || !/pre/i.test(pre.nodeName)) return;
+		if (pre.dataset.notoolbar != undefined) return;
 		const caption = pre.getAttribute('data-caption') || pre.getAttribute('data-language') || env.language;
 		if (!caption) return;
 		const element = document.createElement('span');

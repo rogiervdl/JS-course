@@ -641,7 +641,7 @@ pre {
 
 figure.console pre {
 	background-color: black;
-	background-image: url(../img/consoleheader.png);
+	background-image: url(../img/console-top.png);
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	color: #ddd;
@@ -650,7 +650,7 @@ figure.console pre {
 	font-size: 0.8em;
 	line-height: 1.357em;
 	width: 40rem;
-	padding-top: 3.5rem;
+	padding-top: 4.5rem;
 }
 
 figure pre {
