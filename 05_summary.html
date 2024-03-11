@@ -538,23 +538,6 @@ tekenTekst('hallo', '#338'); // size blijft 14, geen icoon
 </code></pre>
             </td>
           </tr>
-          <tr>
-            <td>
-              gebruik als callback
-            </td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>function end() {
-  console.log('Ok, that was funny 😄');
-}
-function speak(quote, callback) {
-  console.log(quote);
-  callback(); // voer de tweede parameter uit
-}
-// roep speak() op met end() als argument
-speak('Behind every great man is a woman rolling her eyes.', end);
-</code></pre>
-            </td>
-          </tr>
         </tbody>
       </table>
 

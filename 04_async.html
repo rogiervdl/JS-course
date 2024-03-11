@@ -209,7 +209,7 @@ btnRandomDogs.addEventListener('click', function() {
 }</code></pre>
     <img src="img/04_async/dog-fetch2.png" alt="" class="w-600 bordered">
 
-    <h3>codevoorbeeld 1: 5 random foto's ophalen</h3>
+    <h3>toepassing 1: 5 random foto's ophalen</h3>
     <p>Met <code>fetch()</code> kan je zo'n URL dynamisch opvragen en de data gebruiken:</p>
     <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoDogApi2/index.html"><code>const btnRandomDogs = document.querySelector('#btnRandomDogs');
 const divDogs = document.querySelector('#dogs');
@@ -246,9 +246,9 @@ btnRandomDogs.addEventListener('click', async function() {
     </div>
     <figure>
       <img src="img/04_async/dog-fetch2.png" alt="" class="w-600 bordered">
-      <figcaption>codevoorbeeld 1: gegevens worden dynamisch opgehaald</figcaption>
+      <figcaption>toepassing 1: gegevens worden dynamisch opgehaald</figcaption>
     </figure>
-    <h3>codevoorbeeld 2: foto's van een specifiek ras ophalen </h3>
+    <h3>toepassing 2: foto's van een specifiek ras ophalen </h3>
     <p>Een iets uitgebreider voorbeeld, waarbij eerst de hondenrassen opgehaald worden in een lijstje:</p>
     <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoDogApi3/index.html"><code>const selBreeds = document.querySelector('#selBreeds');
 const parMessage = document.querySelector('#parMessage');
@@ -307,7 +307,7 @@ doFetch();
 </code></pre>
     <figure>
       <img src="img/04_async/dog-fetch3.png" alt="" class="w-600 bordered">
-      <figcaption>codevoorbeeld 2: eerste fetch() dient om het lijstje op te bouwen, tweede fetch() om foto's op te halen</figcaption>
+      <figcaption>toepassing 2: eerste fetch() dient om het lijstje op te bouwen, tweede fetch() om foto's op te halen</figcaption>
     </figure>
 
 
@@ -328,7 +328,7 @@ doFetch();
       Een aantal van deze opties zullen we meesturen als <strong>request parameters</strong>.
     </p>
     <img src="img/04_async/flickr-photosearch.png" alt="" class="w-600">
-    <h3>dynamisch ophalen met fetch()</h3>
+    <h3>toepassing: zoeken op foto's</h3>
     <p>Verwerkt in een eenvoudige toepassing:</p>
     <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoFlickrAPI/index.html"><code>const pics = document.querySelector('#pics');
 const frmSearch = document.querySelector('#frmSearch');
@@ -499,9 +499,162 @@ doGetRepos();
     <img src="img/04_async/rapid-key.png" alt="" class="w-600">
     <figcaption>Rapid API API key aanvragen</figcaption>
   </figure>
+  <h3>toepassing: Currency Exchange API</h3>
+  <p>
+    Bij wijze van voorbeeld testen we de <a href="https://rapidapi.com/fyhao/api/currency-exchange/">Currency Exchange API</a>.
+    Het biedt twee methodes: <strong>listquotes</strong> en <strong>exchange</strong> (panel links) met telkens een code voorbeeld (panel rechts; kies Javascript uit de dropdown).
+  </p>
+  <p>
+    Het (kleine) verschil met het Flickr voorbeeld is dat je de <strong>API key als header</strong>, en niet als URL parameter moet meegeven.
+  </p>
+  <img src="img/04_async/currency-doc.png" alt="" class="w-600">
+  <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoRapidAPI/index.html"><code>const frmCurrencies = document.querySelector('#frmCurrencies');
+const parMessage = document.querySelector('#parMessage');
+const selFrom = document.querySelector('#selFrom');
+const selTo = document.querySelector('#selTo');
+const fetchOptions = {
+   method: 'GET',
+   headers: {
+      'X-RapidAPI-Key': '8bd0826a8amshbaea...', // vul je eigen key in!
+      'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
+   }
+};
 
+// get an array of all available currencies
+async function getAllCurrencies() {
+   // build request
+   const url = 'https://currency-exchange.p.rapidapi.com/listquotes';
 
+   // fetch
+   const resp = await fetch(url, fetchOptions);
+   if (!resp.ok) {
+      console.log('opvragen lijst munten mislukt');
+      return;
+   }
+   const data = await resp.json();
 
+   // return data
+   return data;
+}
+
+// get the exchange rate for two currencies
+async function getExchangeRate(curr1, curr2) {
+   // build request
+   const params = new URLSearchParams();
+   params.append('from', curr1);
+   params.append('to', curr2);
+   const url = `https://currency-exchange.p.rapidapi.com/exchange?${params.toString()}`;
+
+   // fetch
+   const resp = await fetch(url, fetchOptions);
+   if (!resp.ok) {
+      console.log('opvragen wisselkoers mislukt');
+      return;
+   }
+   const data = await resp.json();
+
+   // return data
+   return data;
+}
+
+// populate dropdowns
+async function startApp() {
+   const currencies = await getAllCurrencies();
+   currencies.sort().forEach(curr =&gt; {
+      selFrom.innerHTML += `&lt;option&gt;${curr}&lt;/option&gt;`;
+      selTo.innerHTML += `&lt;option&gt;${curr}&lt;/option&gt;`;
+   });
+   frmCurrencies.classList.remove('hide');
+   selFrom.value = 'EUR';
+   selTo.value = 'USD';
+   parMessage.innerHTML = 'selecteer twee munten...';
+}
+
+// handle form submits
+frmCurrencies.addEventListener('submit', async function(e) {
+   e.preventDefault();
+   const rate = await getExchangeRate(selFrom.value, selTo.value);
+   parMessage.innerHTML = `1 ${selFrom.value} = ${rate} ${selTo.value}`;
+});
+
+// start your engines
+startApp();
+</code></pre>
+        <pre class="prism-okaida language-html line-numbers w-400"><code> &lt;form id="frmCurrencies" class="hide" &gt;
+  &lt;p &gt;
+    &lt;label for="selFrom" &gt;Van:  &lt;/label &gt;
+    &lt;select id="selFrom" &gt; &lt;/select &gt;
+  &lt;/p &gt;
+  &lt;p &gt;
+    &lt;label for="selTo" &gt;Naar:  &lt;/label &gt;
+    &lt;select id="selTo" &gt; &lt;/select &gt;
+  &lt;/p &gt;
+  &lt;p &gt;
+    &lt;button type="submit" &gt;zoek wisselkoers &lt;/button &gt;
+  &lt;/p &gt;
+ &lt;/form &gt;
+ &lt;p id="parMessage" &gt;opvragen lijst munten... &lt;/p &gt;
+</code></pre>
+        <pre class="prism-okaida language-css line-numbers w-400"><code>body, input {
+  font-family: Verdana;
+  font-size: 14px;
+}
+button, select {
+  border: 1px solid #666;
+  padding: 3px 5px;
+}
+form &gt; p {
+  display: flex;
+}
+form &gt; p label {
+  width: 100px;
+}
+form &gt; p:last-child {
+  padding-left: 100px;
+}
+.hide {
+  visibility: hidden;
+}</code></pre>
+        <img src="img/04_async/currency-fetch.gif" alt="" class="w-400 bordered">
+    <h2>Async/await</h2>
+    <h3>Aaynchrone functies</h3>
+    <p>
+      Bij sommige functies als fetch() <strong>weet je niet wanneer ze resultaat geven</strong>. Men zegt dat ze <mark>asynchroon</mark> zijn: de rest van de code wacht niet en loopt ondertussen gewoon verder! Een screenshot:
+    </p>
+    <img src="img/04_async/asynchroon.png" alt="" class="w-1000">
+    <h3>async/await</h3>
+    <p>
+      Met <mark>async</mark> ("dit kan even duren, wacht niet op het resultaat") en <mark>await</mark> ("ik wacht liever op het resultaat") kan je het asynchroon gedrag sturen. Weer een screenshot:
+    </p>
+    <img src="img/04_async/asyncawait.png" alt="" class="w-1000">
+    <p>
+      Async / await is in het begin een beetje verwarrend, maar volgende principes kunnen helpen:
+    </p>
+    <ul>
+      <li>bepaalde functies waarvan de resultaten even op zich kunnen laten wachten zoals fetch() zijn asynchroon uitgevoerd: het vervolg van de code wacht niet met uitvoering</li>
+      <li>als je toch wil wachten op het resultaat, roep je de functie op met <strong>await</strong></li>
+      <li>functies waarin <strong>await</strong> gebruikt wordt, zijn zelf <strong>async</strong> &mdash; de resultaten kunnen hier immers ook even op zich laten wachten</li>
+    </ul>
+    <p>
+      Er kunnen situaties zijn waarin het wenselijk is asynchrone functies zonder await op te roepen, bijvoorbeeld als de uitvoering geen gevolgen heeft voor het verdere verloop van de code, of als je meerdere processen in parallel wil laten lopen, maar je ben altijd veilig met volgende regels:
+    </p>
+    <div class="tips" data-caption="☝️ async/await">
+      <ul>
+        <li>roep asynchrone functies standaard altijd op met <strong>await</strong></li>
+        <li>maak functies die await bevatten asynchroon met <strong>async</strong></li>
+      </ul>
+    </div>
+    <h2>API tester &mdash; Postman app</h2>
+    <p>
+      Met de <a href="https://www.postman.com/downloads/">postman app</a> kan je API's testen zonder code. Je kan URL's ingeven, request parameters, headers enz... en de response inspecteren in verschillende formaten.
+    </p>
+    <p>
+      Een aanrader voor wie in detail de request/responses wil testen.
+    </p>
+    <figure>
+      <img src="img/04_async/postman.png" alt="">
+      <figcaption>API's testen met Postman</figcaption>
+    </figure>
   </main>
   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
   <!-- popup -->
