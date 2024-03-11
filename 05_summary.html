@@ -161,7 +161,7 @@ console.log(test) // undefined</code></pre>
             </td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>const test;
-  console.log(test) // undefined</code></pre>
+console.log(test) // undefined</code></pre>
             </td>
           </tr>
         </tbody>
@@ -175,7 +175,7 @@ console.log(test) // undefined</code></pre>
               gebruik quotes
             </td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>const name = 'Rogier'; // enekel quotes krijgen de voorkeur
+              <pre class="prism-vslight" data-notoolbar><code>const name = 'Rogier'; // enkel quotes krijgen de voorkeur
 const name = "Rogier"; // mag, maar liever niet
 const name = `Rogier`; // mag ook, maar wordt enkel gebruikt bij multiline strings en string interpolatie </code></pre>
             </td>
@@ -415,7 +415,7 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
             </td>
             <td>aantal elementen</td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.length); // 5</code></pre>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.length); // 4</code></pre>
             </td>
           </tr>
           <tr>
@@ -424,8 +424,7 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
             </td>
             <td>controleert of de rij <code>item</code> bevat</td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.indexOf('melk')); // 2
-console.log(arr1.indexOf('brood')); // -1</code></pre>
+					<pre class="prism-vslight" data-notoolbar><code>console.log(arr1.contains('melk')); // true</code></pre>
             </td>
           </tr>
           <tr>
@@ -434,7 +433,9 @@ console.log(arr1.indexOf('brood')); // -1</code></pre>
             </td>
             <td>eerste index van <code>item</code> (-1 indien niet gevonden)</td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.contains('melk')); // true</code></pre>
+					<pre class="prism-vslight" data-notoolbar><code>console.log(arr1.indexOf('melk')); // 2
+						console.log(arr1.indexOf('brood')); // -1</code></pre>
+              
             </td>
           </tr>
           <tr>
@@ -471,6 +472,15 @@ console.log(arr1.indexOf('brood')); // -1</code></pre>
             <td>verwijder en return element aan het begin de rij</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.shift()); // 'boter'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>unshift(item)</code>
+            </td>
+            <td>voeg <code>item</code> toe vooraan de rij</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.unshift('brood'));</code></pre>
             </td>
           </tr>
         </tbody>
@@ -533,10 +543,15 @@ tekenTekst('hallo', '#338'); // size blijft 14, geen icoon
               gebruik als callback
             </td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>function tekenTekst(txt, color = '#090', size = 14, withIcon = false) {
-  ...
+              <pre class="prism-vslight" data-notoolbar><code>function end() {
+  console.log('Ok, that was funny 😄');
 }
-tekenTekst('hallo', '#338'); // size blijft 14, geen icoon
+function speak(quote, callback) {
+  console.log(quote);
+  callback(); // voer de tweede parameter uit 
+}
+// roep speak() op met end() als argument
+speak('Behind every great man is a woman rolling her eyes.', end);
 </code></pre>
             </td>
           </tr>
@@ -691,7 +706,7 @@ for (const friend of friends) {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>for-of</code></pre>
+              <pre class="prism-vslight" data-notoolbar><code>for-in</code></pre>
             </td>
             <td>iteratie over de keys van een object</td>
             <td>
