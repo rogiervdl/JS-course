@@ -1,0 +1,25 @@
+body, input {
+   font-family: Verdana;
+   font-size: 14px;
+}
+
+button, select {
+   border: 1px solid #666;
+   padding: 3px 5px;
+}
+
+form > p {
+   display: flex;
+}
+
+form > p label {
+   width: 100px;
+}
+
+form > p:last-child {
+   padding-left: 100px;
+}
+
+.hide {
+   visibility: hidden;
+}

@@ -160,7 +160,7 @@ table {
 /* general */
 
 .bordered {
-	border: 1px solid #ccc;
+	border: 2px solid #999;
 }
 
 .centered {

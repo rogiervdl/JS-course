@@ -1,5 +1,5 @@
 /* PrismJS 1.29.0
-https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+csharp+json+json5+jsonp+markup-templating+php+sql&plugins=line-numbers+jsonp-highlight+toolbar+copy-to-clipboard */
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+csharp&plugins=line-highlight+line-numbers+toolbar+copy-to-clipboard */
 /// <reference lib="WebWorker"/>
 
 var _self = (typeof window !== 'undefined')
@@ -2088,566 +2088,352 @@ Prism.languages.js = Prism.languages.javascript;
 
 }(Prism));
 
-// https://www.json.org/json-en.html
-Prism.languages.json = {
-	'property': {
-		pattern: /(^|[^\\])"(?:\\.|[^\\"\r\n])*"(?=\s*:)/,
-		lookbehind: true,
-		greedy: true
-	},
-	'string': {
-		pattern: /(^|[^\\])"(?:\\.|[^\\"\r\n])*"(?!\s*:)/,
-		lookbehind: true,
-		greedy: true
-	},
-	'comment': {
-		pattern: /\/\/.*|\/\*[\s\S]*?(?:\*\/|$)/,
-		greedy: true
-	},
-	'number': /-?\b\d+(?:\.\d+)?(?:e[+-]?\d+)?\b/i,
-	'punctuation': /[{}[\],]/,
-	'operator': /:/,
-	'boolean': /\b(?:false|true)\b/,
-	'null': {
-		pattern: /\bnull\b/,
-		alias: 'keyword'
+(function () {
+
+	if (typeof Prism === 'undefined' || typeof document === 'undefined' || !document.querySelector) {
+		return;
 	}
-};
 
-Prism.languages.webmanifest = Prism.languages.json;
-
-(function (Prism) {
-
-	var string = /("|')(?:\\(?:\r\n?|\n|.)|(?!\1)[^\\\r\n])*\1/;
-
-	Prism.languages.json5 = Prism.languages.extend('json', {
-		'property': [
-			{
-				pattern: RegExp(string.source + '(?=\\s*:)'),
-				greedy: true
-			},
-			{
-				pattern: /(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*:)/,
-				alias: 'unquoted'
-			}
-		],
-		'string': {
-			pattern: string,
-			greedy: true
-		},
-		'number': /[+-]?\b(?:NaN|Infinity|0x[a-fA-F\d]+)\b|[+-]?(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:[eE][+-]?\d+\b)?/
-	});
-
-}(Prism));
-
-Prism.languages.jsonp = Prism.languages.extend('json', {
-	'punctuation': /[{}[\]();,.]/
-});
-
-Prism.languages.insertBefore('jsonp', 'punctuation', {
-	'function': /(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*\()/
-});
-
-(function (Prism) {
+	var LINE_NUMBERS_CLASS = 'line-numbers';
+	var LINKABLE_LINE_NUMBERS_CLASS = 'linkable-line-numbers';
+	var NEW_LINE_EXP = /\n(?!$)/g;
 
 	/**
-	 * Returns the placeholder for the given language id and index.
-	 *
-	 * @param {string} language
-	 * @param {string|number} index
-	 * @returns {string}
+	 * @param {string} selector
+	 * @param {ParentNode} [container]
+	 * @returns {HTMLElement[]}
 	 */
-	function getPlaceholder(language, index) {
-		return '___' + language.toUpperCase() + index + '___';
+	function $$(selector, container) {
+		return Array.prototype.slice.call((container || document).querySelectorAll(selector));
 	}
 
-	Object.defineProperties(Prism.languages['markup-templating'] = {}, {
-		buildPlaceholders: {
+	/**
+	 * Returns whether the given element has the given class.
+	 *
+	 * @param {Element} element
+	 * @param {string} className
+	 * @returns {boolean}
+	 */
+	function hasClass(element, className) {
+		return element.classList.contains(className);
+	}
+
+	/**
+	 * Calls the given function.
+	 *
+	 * @param {() => any} func
+	 * @returns {void}
+	 */
+	function callFunction(func) {
+		func();
+	}
+
+	// Some browsers round the line-height, others don't.
+	// We need to test for it to position the elements properly.
+	var isLineHeightRounded = (function () {
+		var res;
+		return function () {
+			if (typeof res === 'undefined') {
+				var d = document.createElement('div');
+				d.style.fontSize = '13px';
+				d.style.lineHeight = '1.5';
+				d.style.padding = '0';
+				d.style.border = '0';
+				d.innerHTML = '&nbsp;<br />&nbsp;';
+				document.body.appendChild(d);
+				// Browsers that round the line-height should have offsetHeight === 38
+				// The others should have 39.
+				res = d.offsetHeight === 38;
+				document.body.removeChild(d);
+			}
+			return res;
+		};
+	}());
+
+	/**
+	 * Returns the top offset of the content box of the given parent and the content box of one of its children.
+	 *
+	 * @param {HTMLElement} parent
+	 * @param {HTMLElement} child
+	 */
+	function getContentBoxTopOffset(parent, child) {
+		var parentStyle = getComputedStyle(parent);
+		var childStyle = getComputedStyle(child);
+
+		/**
+		 * Returns the numeric value of the given pixel value.
+		 *
+		 * @param {string} px
+		 */
+		function pxToNumber(px) {
+			return +px.substr(0, px.length - 2);
+		}
+
+		return child.offsetTop
+			+ pxToNumber(childStyle.borderTopWidth)
+			+ pxToNumber(childStyle.paddingTop)
+			- pxToNumber(parentStyle.paddingTop);
+	}
+
+	/**
+	 * Returns whether the Line Highlight plugin is active for the given element.
+	 *
+	 * If this function returns `false`, do not call `highlightLines` for the given element.
+	 *
+	 * @param {HTMLElement | null | undefined} pre
+	 * @returns {boolean}
+	 */
+	function isActiveFor(pre) {
+		if (!pre || !/pre/i.test(pre.nodeName)) {
+			return false;
+		}
+
+		if (pre.hasAttribute('data-line')) {
+			return true;
+		}
+
+		if (pre.id && Prism.util.isActive(pre, LINKABLE_LINE_NUMBERS_CLASS)) {
+			// Technically, the line numbers plugin is also necessary but this plugin doesn't control the classes of
+			// the line numbers plugin, so we can't assume that they are present.
+			return true;
+		}
+
+		return false;
+	}
+
+	var scrollIntoView = true;
+
+	Prism.plugins.lineHighlight = {
+		/**
+		 * Highlights the lines of the given pre.
+		 *
+		 * This function is split into a DOM measuring and mutate phase to improve performance.
+		 * The returned function mutates the DOM when called.
+		 *
+		 * @param {HTMLElement} pre
+		 * @param {string | null} [lines]
+		 * @param {string} [classes='']
+		 * @returns {() => void}
+		 */
+		highlightLines: function highlightLines(pre, lines, classes) {
+			lines = typeof lines === 'string' ? lines : (pre.getAttribute('data-line') || '');
+
+			var ranges = lines.replace(/\s+/g, '').split(',').filter(Boolean);
+			var offset = +pre.getAttribute('data-line-offset') || 0;
+
+			var parseMethod = isLineHeightRounded() ? parseInt : parseFloat;
+			var lineHeight = parseMethod(getComputedStyle(pre).lineHeight);
+			var hasLineNumbers = Prism.util.isActive(pre, LINE_NUMBERS_CLASS);
+			var codeElement = pre.querySelector('code');
+			var parentElement = hasLineNumbers ? pre : codeElement || pre;
+			var mutateActions = /** @type {(() => void)[]} */ ([]);
+			var lineBreakMatch = codeElement.textContent.match(NEW_LINE_EXP);
+			var numberOfLines = lineBreakMatch ? lineBreakMatch.length + 1 : 1;
 			/**
-			 * Tokenize all inline templating expressions matching `placeholderPattern`.
+			 * The top offset between the content box of the <code> element and the content box of the parent element of
+			 * the line highlight element (either `<pre>` or `<code>`).
 			 *
-			 * If `replaceFilter` is provided, only matches of `placeholderPattern` for which `replaceFilter` returns
-			 * `true` will be replaced.
+			 * This offset might not be zero for some themes where the <code> element has a top margin. Some plugins
+			 * (or users) might also add element above the <code> element. Because the line highlight is aligned relative
+			 * to the <pre> element, we have to take this into account.
 			 *
-			 * @param {object} env The environment of the `before-tokenize` hook.
-			 * @param {string} language The language id.
-			 * @param {RegExp} placeholderPattern The matches of this pattern will be replaced by placeholders.
-			 * @param {(match: string) => boolean} [replaceFilter]
+			 * This offset will be 0 if the parent element of the line highlight element is the `<code>` element.
 			 */
-			value: function (env, language, placeholderPattern, replaceFilter) {
-				if (env.language !== language) {
+			var codePreOffset = !codeElement || parentElement == codeElement ? 0 : getContentBoxTopOffset(pre, codeElement);
+
+			ranges.forEach(function (currentRange) {
+				var range = currentRange.split('-');
+
+				var start = +range[0];
+				var end = +range[1] || start;
+				end = Math.min(numberOfLines + offset, end);
+
+				if (end < start) {
 					return;
 				}
 
-				var tokenStack = env.tokenStack = [];
+				/** @type {HTMLElement} */
+				var line = pre.querySelector('.line-highlight[data-range="' + currentRange + '"]') || document.createElement('div');
 
-				env.code = env.code.replace(placeholderPattern, function (match) {
-					if (typeof replaceFilter === 'function' && !replaceFilter(match)) {
-						return match;
-					}
-					var i = tokenStack.length;
-					var placeholder;
-
-					// Check for existing strings
-					while (env.code.indexOf(placeholder = getPlaceholder(language, i)) !== -1) {
-						++i;
-					}
-
-					// Create a sparse array
-					tokenStack[i] = match;
-
-					return placeholder;
+				mutateActions.push(function () {
+					line.setAttribute('aria-hidden', 'true');
+					line.setAttribute('data-range', currentRange);
+					line.className = (classes || '') + ' line-highlight';
 				});
 
-				// Switch the grammar to markup
-				env.grammar = Prism.languages.markup;
-			}
-		},
-		tokenizePlaceholders: {
-			/**
-			 * Replace placeholders with proper tokens after tokenizing.
-			 *
-			 * @param {object} env The environment of the `after-tokenize` hook.
-			 * @param {string} language The language id.
-			 */
-			value: function (env, language) {
-				if (env.language !== language || !env.tokenStack) {
-					return;
-				}
+				// if the line-numbers plugin is enabled, then there is no reason for this plugin to display the line numbers
+				if (hasLineNumbers && Prism.plugins.lineNumbers) {
+					var startNode = Prism.plugins.lineNumbers.getLine(pre, start);
+					var endNode = Prism.plugins.lineNumbers.getLine(pre, end);
 
-				// Switch the grammar back
-				env.grammar = Prism.languages[language];
+					if (startNode) {
+						var top = startNode.offsetTop + codePreOffset + 'px';
+						mutateActions.push(function () {
+							line.style.top = top;
+						});
+					}
 
-				var j = 0;
-				var keys = Object.keys(env.tokenStack);
+					if (endNode) {
+						var height = (endNode.offsetTop - startNode.offsetTop) + endNode.offsetHeight + 'px';
+						mutateActions.push(function () {
+							line.style.height = height;
+						});
+					}
+				} else {
+					mutateActions.push(function () {
+						line.setAttribute('data-start', String(start));
 
-				function walkTokens(tokens) {
-					for (var i = 0; i < tokens.length; i++) {
-						// all placeholders are replaced already
-						if (j >= keys.length) {
-							break;
+						if (end > start) {
+							line.setAttribute('data-end', String(end));
 						}
 
-						var token = tokens[i];
-						if (typeof token === 'string' || (token.content && typeof token.content === 'string')) {
-							var k = keys[j];
-							var t = env.tokenStack[k];
-							var s = typeof token === 'string' ? token : token.content;
-							var placeholder = getPlaceholder(language, k);
+						line.style.top = (start - offset - 1) * lineHeight + codePreOffset + 'px';
 
-							var index = s.indexOf(placeholder);
-							if (index > -1) {
-								++j;
-
-								var before = s.substring(0, index);
-								var middle = new Prism.Token(language, Prism.tokenize(t, env.grammar), 'language-' + language, t);
-								var after = s.substring(index + placeholder.length);
-
-								var replacement = [];
-								if (before) {
-									replacement.push.apply(replacement, walkTokens([before]));
-								}
-								replacement.push(middle);
-								if (after) {
-									replacement.push.apply(replacement, walkTokens([after]));
-								}
-
-								if (typeof token === 'string') {
-									tokens.splice.apply(tokens, [i, 1].concat(replacement));
-								} else {
-									token.content = replacement;
-								}
-							}
-						} else if (token.content /* && typeof token.content !== 'string' */) {
-							walkTokens(token.content);
-						}
-					}
-
-					return tokens;
+						line.textContent = new Array(end - start + 2).join(' \n');
+					});
 				}
 
-				walkTokens(env.tokens);
+				mutateActions.push(function () {
+					line.style.width = pre.scrollWidth + 'px';
+				});
+
+				mutateActions.push(function () {
+					// allow this to play nicely with the line-numbers plugin
+					// need to attack to pre as when line-numbers is enabled, the code tag is relatively which screws up the positioning
+					parentElement.appendChild(line);
+				});
+			});
+
+			var id = pre.id;
+			if (hasLineNumbers && Prism.util.isActive(pre, LINKABLE_LINE_NUMBERS_CLASS) && id) {
+				// This implements linkable line numbers. Linkable line numbers use Line Highlight to create a link to a
+				// specific line. For this to work, the pre element has to:
+				//  1) have line numbers,
+				//  2) have the `linkable-line-numbers` class or an ascendant that has that class, and
+				//  3) have an id.
+
+				if (!hasClass(pre, LINKABLE_LINE_NUMBERS_CLASS)) {
+					// add class to pre
+					mutateActions.push(function () {
+						pre.classList.add(LINKABLE_LINE_NUMBERS_CLASS);
+					});
+				}
+
+				var start = parseInt(pre.getAttribute('data-start') || '1');
+
+				// iterate all line number spans
+				$$('.line-numbers-rows > span', pre).forEach(function (lineSpan, i) {
+					var lineNumber = i + start;
+					lineSpan.onclick = function () {
+						var hash = id + '.' + lineNumber;
+
+						// this will prevent scrolling since the span is obviously in view
+						scrollIntoView = false;
+						location.hash = hash;
+						setTimeout(function () {
+							scrollIntoView = true;
+						}, 1);
+					};
+				});
 			}
+
+			return function () {
+				mutateActions.forEach(callFunction);
+			};
 		}
-	});
-
-}(Prism));
-
-/**
- * Original by Aaron Harun: http://aahacreative.com/2012/07/31/php-syntax-highlighting-prism/
- * Modified by Miles Johnson: http://milesj.me
- * Rewritten by Tom Pavelec
- *
- * Supports PHP 5.3 - 8.0
- */
-(function (Prism) {
-	var comment = /\/\*[\s\S]*?\*\/|\/\/.*|#(?!\[).*/;
-	var constant = [
-		{
-			pattern: /\b(?:false|true)\b/i,
-			alias: 'boolean'
-		},
-		{
-			pattern: /(::\s*)\b[a-z_]\w*\b(?!\s*\()/i,
-			greedy: true,
-			lookbehind: true,
-		},
-		{
-			pattern: /(\b(?:case|const)\s+)\b[a-z_]\w*(?=\s*[;=])/i,
-			greedy: true,
-			lookbehind: true,
-		},
-		/\b(?:null)\b/i,
-		/\b[A-Z_][A-Z0-9_]*\b(?!\s*\()/,
-	];
-	var number = /\b0b[01]+(?:_[01]+)*\b|\b0o[0-7]+(?:_[0-7]+)*\b|\b0x[\da-f]+(?:_[\da-f]+)*\b|(?:\b\d+(?:_\d+)*\.?(?:\d+(?:_\d+)*)?|\B\.\d+)(?:e[+-]?\d+)?/i;
-	var operator = /<?=>|\?\?=?|\.{3}|\??->|[!=]=?=?|::|\*\*=?|--|\+\+|&&|\|\||<<|>>|[?~]|[/^|%*&<>.+-]=?/;
-	var punctuation = /[{}\[\](),:;]/;
-
-	Prism.languages.php = {
-		'delimiter': {
-			pattern: /\?>$|^<\?(?:php(?=\s)|=)?/i,
-			alias: 'important'
-		},
-		'comment': comment,
-		'variable': /\$+(?:\w+\b|(?=\{))/,
-		'package': {
-			pattern: /(namespace\s+|use\s+(?:function\s+)?)(?:\\?\b[a-z_]\w*)+\b(?!\\)/i,
-			lookbehind: true,
-			inside: {
-				'punctuation': /\\/
-			}
-		},
-		'class-name-definition': {
-			pattern: /(\b(?:class|enum|interface|trait)\s+)\b[a-z_]\w*(?!\\)\b/i,
-			lookbehind: true,
-			alias: 'class-name'
-		},
-		'function-definition': {
-			pattern: /(\bfunction\s+)[a-z_]\w*(?=\s*\()/i,
-			lookbehind: true,
-			alias: 'function'
-		},
-		'keyword': [
-			{
-				pattern: /(\(\s*)\b(?:array|bool|boolean|float|int|integer|object|string)\b(?=\s*\))/i,
-				alias: 'type-casting',
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /([(,?]\s*)\b(?:array(?!\s*\()|bool|callable|(?:false|null)(?=\s*\|)|float|int|iterable|mixed|object|self|static|string)\b(?=\s*\$)/i,
-				alias: 'type-hint',
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /(\)\s*:\s*(?:\?\s*)?)\b(?:array(?!\s*\()|bool|callable|(?:false|null)(?=\s*\|)|float|int|iterable|mixed|never|object|self|static|string|void)\b/i,
-				alias: 'return-type',
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /\b(?:array(?!\s*\()|bool|float|int|iterable|mixed|object|string|void)\b/i,
-				alias: 'type-declaration',
-				greedy: true
-			},
-			{
-				pattern: /(\|\s*)(?:false|null)\b|\b(?:false|null)(?=\s*\|)/i,
-				alias: 'type-declaration',
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /\b(?:parent|self|static)(?=\s*::)/i,
-				alias: 'static-context',
-				greedy: true
-			},
-			{
-				// yield from
-				pattern: /(\byield\s+)from\b/i,
-				lookbehind: true
-			},
-			// `class` is always a keyword unlike other keywords
-			/\bclass\b/i,
-			{
-				// https://www.php.net/manual/en/reserved.keywords.php
-				//
-				// keywords cannot be preceded by "->"
-				// the complex lookbehind means `(?<!(?:->|::)\s*)`
-				pattern: /((?:^|[^\s>:]|(?:^|[^-])>|(?:^|[^:]):)\s*)\b(?:abstract|and|array|as|break|callable|case|catch|clone|const|continue|declare|default|die|do|echo|else|elseif|empty|enddeclare|endfor|endforeach|endif|endswitch|endwhile|enum|eval|exit|extends|final|finally|fn|for|foreach|function|global|goto|if|implements|include|include_once|instanceof|insteadof|interface|isset|list|match|namespace|never|new|or|parent|print|private|protected|public|readonly|require|require_once|return|self|static|switch|throw|trait|try|unset|use|var|while|xor|yield|__halt_compiler)\b/i,
-				lookbehind: true
-			}
-		],
-		'argument-name': {
-			pattern: /([(,]\s*)\b[a-z_]\w*(?=\s*:(?!:))/i,
-			lookbehind: true
-		},
-		'class-name': [
-			{
-				pattern: /(\b(?:extends|implements|instanceof|new(?!\s+self|\s+static))\s+|\bcatch\s*\()\b[a-z_]\w*(?!\\)\b/i,
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /(\|\s*)\b[a-z_]\w*(?!\\)\b/i,
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /\b[a-z_]\w*(?!\\)\b(?=\s*\|)/i,
-				greedy: true
-			},
-			{
-				pattern: /(\|\s*)(?:\\?\b[a-z_]\w*)+\b/i,
-				alias: 'class-name-fully-qualified',
-				greedy: true,
-				lookbehind: true,
-				inside: {
-					'punctuation': /\\/
-				}
-			},
-			{
-				pattern: /(?:\\?\b[a-z_]\w*)+\b(?=\s*\|)/i,
-				alias: 'class-name-fully-qualified',
-				greedy: true,
-				inside: {
-					'punctuation': /\\/
-				}
-			},
-			{
-				pattern: /(\b(?:extends|implements|instanceof|new(?!\s+self\b|\s+static\b))\s+|\bcatch\s*\()(?:\\?\b[a-z_]\w*)+\b(?!\\)/i,
-				alias: 'class-name-fully-qualified',
-				greedy: true,
-				lookbehind: true,
-				inside: {
-					'punctuation': /\\/
-				}
-			},
-			{
-				pattern: /\b[a-z_]\w*(?=\s*\$)/i,
-				alias: 'type-declaration',
-				greedy: true
-			},
-			{
-				pattern: /(?:\\?\b[a-z_]\w*)+(?=\s*\$)/i,
-				alias: ['class-name-fully-qualified', 'type-declaration'],
-				greedy: true,
-				inside: {
-					'punctuation': /\\/
-				}
-			},
-			{
-				pattern: /\b[a-z_]\w*(?=\s*::)/i,
-				alias: 'static-context',
-				greedy: true
-			},
-			{
-				pattern: /(?:\\?\b[a-z_]\w*)+(?=\s*::)/i,
-				alias: ['class-name-fully-qualified', 'static-context'],
-				greedy: true,
-				inside: {
-					'punctuation': /\\/
-				}
-			},
-			{
-				pattern: /([(,?]\s*)[a-z_]\w*(?=\s*\$)/i,
-				alias: 'type-hint',
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /([(,?]\s*)(?:\\?\b[a-z_]\w*)+(?=\s*\$)/i,
-				alias: ['class-name-fully-qualified', 'type-hint'],
-				greedy: true,
-				lookbehind: true,
-				inside: {
-					'punctuation': /\\/
-				}
-			},
-			{
-				pattern: /(\)\s*:\s*(?:\?\s*)?)\b[a-z_]\w*(?!\\)\b/i,
-				alias: 'return-type',
-				greedy: true,
-				lookbehind: true
-			},
-			{
-				pattern: /(\)\s*:\s*(?:\?\s*)?)(?:\\?\b[a-z_]\w*)+\b(?!\\)/i,
-				alias: ['class-name-fully-qualified', 'return-type'],
-				greedy: true,
-				lookbehind: true,
-				inside: {
-					'punctuation': /\\/
-				}
-			}
-		],
-		'constant': constant,
-		'function': {
-			pattern: /(^|[^\\\w])\\?[a-z_](?:[\w\\]*\w)?(?=\s*\()/i,
-			lookbehind: true,
-			inside: {
-				'punctuation': /\\/
-			}
-		},
-		'property': {
-			pattern: /(->\s*)\w+/,
-			lookbehind: true
-		},
-		'number': number,
-		'operator': operator,
-		'punctuation': punctuation
 	};
 
-	var string_interpolation = {
-		pattern: /\{\$(?:\{(?:\{[^{}]+\}|[^{}]+)\}|[^{}])+\}|(^|[^\\{])\$+(?:\w+(?:\[[^\r\n\[\]]+\]|->\w+)?)/,
-		lookbehind: true,
-		inside: Prism.languages.php
-	};
 
-	var string = [
-		{
-			pattern: /<<<'([^']+)'[\r\n](?:.*[\r\n])*?\1;/,
-			alias: 'nowdoc-string',
-			greedy: true,
-			inside: {
-				'delimiter': {
-					pattern: /^<<<'[^']+'|[a-z_]\w*;$/i,
-					alias: 'symbol',
-					inside: {
-						'punctuation': /^<<<'?|[';]$/
-					}
-				}
-			}
-		},
-		{
-			pattern: /<<<(?:"([^"]+)"[\r\n](?:.*[\r\n])*?\1;|([a-z_]\w*)[\r\n](?:.*[\r\n])*?\2;)/i,
-			alias: 'heredoc-string',
-			greedy: true,
-			inside: {
-				'delimiter': {
-					pattern: /^<<<(?:"[^"]+"|[a-z_]\w*)|[a-z_]\w*;$/i,
-					alias: 'symbol',
-					inside: {
-						'punctuation': /^<<<"?|[";]$/
-					}
-				},
-				'interpolation': string_interpolation
-			}
-		},
-		{
-			pattern: /`(?:\\[\s\S]|[^\\`])*`/,
-			alias: 'backtick-quoted-string',
-			greedy: true
-		},
-		{
-			pattern: /'(?:\\[\s\S]|[^\\'])*'/,
-			alias: 'single-quoted-string',
-			greedy: true
-		},
-		{
-			pattern: /"(?:\\[\s\S]|[^\\"])*"/,
-			alias: 'double-quoted-string',
-			greedy: true,
-			inside: {
-				'interpolation': string_interpolation
-			}
-		}
-	];
+	function applyHash() {
+		var hash = location.hash.slice(1);
 
-	Prism.languages.insertBefore('php', 'variable', {
-		'string': string,
-		'attribute': {
-			pattern: /#\[(?:[^"'\/#]|\/(?![*/])|\/\/.*$|#(?!\[).*$|\/\*(?:[^*]|\*(?!\/))*\*\/|"(?:\\[\s\S]|[^\\"])*"|'(?:\\[\s\S]|[^\\'])*')+\](?=\s*[a-z$#])/im,
-			greedy: true,
-			inside: {
-				'attribute-content': {
-					pattern: /^(#\[)[\s\S]+(?=\]$)/,
-					lookbehind: true,
-					// inside can appear subset of php
-					inside: {
-						'comment': comment,
-						'string': string,
-						'attribute-class-name': [
-							{
-								pattern: /([^:]|^)\b[a-z_]\w*(?!\\)\b/i,
-								alias: 'class-name',
-								greedy: true,
-								lookbehind: true
-							},
-							{
-								pattern: /([^:]|^)(?:\\?\b[a-z_]\w*)+/i,
-								alias: [
-									'class-name',
-									'class-name-fully-qualified'
-								],
-								greedy: true,
-								lookbehind: true,
-								inside: {
-									'punctuation': /\\/
-								}
-							}
-						],
-						'constant': constant,
-						'number': number,
-						'operator': operator,
-						'punctuation': punctuation
-					}
-				},
-				'delimiter': {
-					pattern: /^#\[|\]$/,
-					alias: 'punctuation'
-				}
-			}
-		},
-	});
+		// Remove pre-existing temporary lines
+		$$('.temporary.line-highlight').forEach(function (line) {
+			line.parentNode.removeChild(line);
+		});
 
-	Prism.hooks.add('before-tokenize', function (env) {
-		if (!/<\?/.test(env.code)) {
+		var range = (hash.match(/\.([\d,-]+)$/) || [, ''])[1];
+
+		if (!range || document.getElementById(hash)) {
 			return;
 		}
 
-		var phpPattern = /<\?(?:[^"'/#]|\/(?![*/])|("|')(?:\\[\s\S]|(?!\1)[^\\])*\1|(?:\/\/|#(?!\[))(?:[^?\n\r]|\?(?!>))*(?=$|\?>|[\r\n])|#\[|\/\*(?:[^*]|\*(?!\/))*(?:\*\/|$))*?(?:\?>|$)/g;
-		Prism.languages['markup-templating'].buildPlaceholders(env, 'php', phpPattern);
-	});
+		var id = hash.slice(0, hash.lastIndexOf('.'));
+		var pre = document.getElementById(id);
 
-	Prism.hooks.add('after-tokenize', function (env) {
-		Prism.languages['markup-templating'].tokenizePlaceholders(env, 'php');
-	});
-
-}(Prism));
-
-Prism.languages.sql = {
-	'comment': {
-		pattern: /(^|[^\\])(?:\/\*[\s\S]*?\*\/|(?:--|\/\/|#).*)/,
-		lookbehind: true
-	},
-	'variable': [
-		{
-			pattern: /@(["'`])(?:\\[\s\S]|(?!\1)[^\\])+\1/,
-			greedy: true
-		},
-		/@[\w.$]+/
-	],
-	'string': {
-		pattern: /(^|[^@\\])("|')(?:\\[\s\S]|(?!\2)[^\\]|\2\2)*\2/,
-		greedy: true,
-		lookbehind: true
-	},
-	'identifier': {
-		pattern: /(^|[^@\\])`(?:\\[\s\S]|[^`\\]|``)*`/,
-		greedy: true,
-		lookbehind: true,
-		inside: {
-			'punctuation': /^`|`$/
+		if (!pre) {
+			return;
 		}
-	},
-	'function': /\b(?:AVG|COUNT|FIRST|FORMAT|LAST|LCASE|LEN|MAX|MID|MIN|MOD|NOW|ROUND|SUM|UCASE)(?=\s*\()/i, // Should we highlight user defined functions too?
-	'keyword': /\b(?:ACTION|ADD|AFTER|ALGORITHM|ALL|ALTER|ANALYZE|ANY|APPLY|AS|ASC|AUTHORIZATION|AUTO_INCREMENT|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADED?|CASE|CHAIN|CHAR(?:ACTER|SET)?|CHECK(?:POINT)?|CLOSE|CLUSTERED|COALESCE|COLLATE|COLUMNS?|COMMENT|COMMIT(?:TED)?|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS(?:TABLE)?|CONTINUE|CONVERT|CREATE|CROSS|CURRENT(?:_DATE|_TIME|_TIMESTAMP|_USER)?|CURSOR|CYCLE|DATA(?:BASES?)?|DATE(?:TIME)?|DAY|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DELIMITERS?|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE|DROP|DUMMY|DUMP(?:FILE)?|DUPLICATE|ELSE(?:IF)?|ENABLE|ENCLOSED|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPED?|EXCEPT|EXEC(?:UTE)?|EXISTS|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR(?: EACH ROW)?|FORCE|FOREIGN|FREETEXT(?:TABLE)?|FROM|FULL|FUNCTION|GEOMETRY(?:COLLECTION)?|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|HOUR|IDENTITY(?:COL|_INSERT)?|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTERVAL|INTO|INVOKER|ISOLATION|ITERATE|JOIN|KEYS?|KILL|LANGUAGE|LAST|LEAVE|LEFT|LEVEL|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONG(?:BLOB|TEXT)|LOOP|MATCH(?:ED)?|MEDIUM(?:BLOB|INT|TEXT)|MERGE|MIDDLEINT|MINUTE|MODE|MODIFIES|MODIFY|MONTH|MULTI(?:LINESTRING|POINT|POLYGON)|NATIONAL|NATURAL|NCHAR|NEXT|NO|NONCLUSTERED|NULLIF|NUMERIC|OFF?|OFFSETS?|ON|OPEN(?:DATASOURCE|QUERY|ROWSET)?|OPTIMIZE|OPTION(?:ALLY)?|ORDER|OUT(?:ER|FILE)?|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREPARE|PREV|PRIMARY|PRINT|PRIVILEGES|PROC(?:EDURE)?|PUBLIC|PURGE|QUICK|RAISERROR|READS?|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEAT(?:ABLE)?|REPLACE|REPLICATION|REQUIRE|RESIGNAL|RESTORE|RESTRICT|RETURN(?:ING|S)?|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROW(?:COUNT|GUIDCOL|S)?|RTREE|RULE|SAVE(?:POINT)?|SCHEMA|SECOND|SELECT|SERIAL(?:IZABLE)?|SESSION(?:_USER)?|SET(?:USER)?|SHARE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|SQL|START(?:ING)?|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLES?|TABLESPACE|TEMP(?:ORARY|TABLE)?|TERMINATED|TEXT(?:SIZE)?|THEN|TIME(?:STAMP)?|TINY(?:BLOB|INT|TEXT)|TOP?|TRAN(?:SACTIONS?)?|TRIGGER|TRUNCATE|TSEQUAL|TYPES?|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNIQUE|UNLOCK|UNPIVOT|UNSIGNED|UPDATE(?:TEXT)?|USAGE|USE|USER|USING|VALUES?|VAR(?:BINARY|CHAR|CHARACTER|YING)|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH(?: ROLLUP|IN)?|WORK|WRITE(?:TEXT)?|YEAR)\b/i,
-	'boolean': /\b(?:FALSE|NULL|TRUE)\b/i,
-	'number': /\b0x[\da-f]+\b|\b\d+(?:\.\d*)?|\B\.\d+\b/i,
-	'operator': /[-+*\/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?|\b(?:AND|BETWEEN|DIV|ILIKE|IN|IS|LIKE|NOT|OR|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b/i,
-	'punctuation': /[;[\]()`,.]/
-};
+
+		if (!pre.hasAttribute('data-line')) {
+			pre.setAttribute('data-line', '');
+		}
+
+		var mutateDom = Prism.plugins.lineHighlight.highlightLines(pre, range, 'temporary ');
+		mutateDom();
+
+		if (scrollIntoView) {
+			document.querySelector('.temporary.line-highlight').scrollIntoView();
+		}
+	}
+
+	var fakeTimer = 0; // Hack to limit the number of times applyHash() runs
+
+	Prism.hooks.add('before-sanity-check', function (env) {
+		var pre = env.element.parentElement;
+		if (!isActiveFor(pre)) {
+			return;
+		}
+
+		/*
+		 * Cleanup for other plugins (e.g. autoloader).
+		 *
+		 * Sometimes <code> blocks are highlighted multiple times. It is necessary
+		 * to cleanup any left-over tags, because the whitespace inside of the <div>
+		 * tags change the content of the <code> tag.
+		 */
+		var num = 0;
+		$$('.line-highlight', pre).forEach(function (line) {
+			num += line.textContent.length;
+			line.parentNode.removeChild(line);
+		});
+		// Remove extra whitespace
+		if (num && /^(?: \n)+$/.test(env.code.slice(-num))) {
+			env.code = env.code.slice(0, -num);
+		}
+	});
+
+	Prism.hooks.add('complete', function completeHook(env) {
+		var pre = env.element.parentElement;
+		if (!isActiveFor(pre)) {
+			return;
+		}
+
+		clearTimeout(fakeTimer);
+
+		var hasLineNumbers = Prism.plugins.lineNumbers;
+		var isLineNumbersLoaded = env.plugins && env.plugins.lineNumbers;
+
+		if (hasClass(pre, LINE_NUMBERS_CLASS) && hasLineNumbers && !isLineNumbersLoaded) {
+			Prism.hooks.add('line-numbers', completeHook);
+		} else {
+			var mutateDom = Prism.plugins.lineHighlight.highlightLines(pre);
+			mutateDom();
+			fakeTimer = setTimeout(applyHash, 1);
+		}
+	});
+
+	window.addEventListener('hashchange', applyHash);
+	window.addEventListener('resize', function () {
+		var actions = $$('pre')
+			.filter(isActiveFor)
+			.map(function (pre) {
+				return Prism.plugins.lineHighlight.highlightLines(pre);
+			});
+		actions.forEach(callFunction);
+	});
+
+}());
 
 (function () {
 
@@ -2899,310 +2685,6 @@ Prism.languages.sql = {
 		env.plugins = env.plugins || {};
 		env.plugins.lineNumbers = true;
 	});
-
-}());
-
-(function () {
-
-	if (typeof Prism === 'undefined' || typeof document === 'undefined') {
-		return;
-	}
-
-	/**
-	 * @callback Adapter
-	 * @param {any} response
-	 * @param {HTMLPreElement} [pre]
-	 * @returns {string | null}
-	 */
-
-	/**
-	 * The list of adapter which will be used if `data-adapter` is not specified.
-	 *
-	 * @type {Array<{adapter: Adapter, name: string}>}
-	 */
-	var adapters = [];
-
-	/**
-	 * Adds a new function to the list of adapters.
-	 *
-	 * If the given adapter is already registered or not a function or there is an adapter with the given name already,
-	 * nothing will happen.
-	 *
-	 * @param {Adapter} adapter The adapter to be registered.
-	 * @param {string} [name] The name of the adapter. Defaults to the function name of `adapter`.
-	 */
-	function registerAdapter(adapter, name) {
-		name = name || adapter.name;
-		if (typeof adapter === 'function' && !getAdapter(adapter) && !getAdapter(name)) {
-			adapters.push({ adapter: adapter, name: name });
-		}
-	}
-	/**
-	 * Returns the given adapter itself, if registered, or a registered adapter with the given name.
-	 *
-	 * If no fitting adapter is registered, `null` will be returned.
-	 *
-	 * @param {string|Function} adapter The adapter itself or the name of an adapter.
-	 * @returns {Adapter} A registered adapter or `null`.
-	 */
-	function getAdapter(adapter) {
-		if (typeof adapter === 'function') {
-			for (var i = 0, item; (item = adapters[i++]);) {
-				if (item.adapter.valueOf() === adapter.valueOf()) {
-					return item.adapter;
-				}
-			}
-		} else if (typeof adapter === 'string') {
-			// eslint-disable-next-line no-redeclare
-			for (var i = 0, item; (item = adapters[i++]);) {
-				if (item.name === adapter) {
-					return item.adapter;
-				}
-			}
-		}
-		return null;
-	}
-	/**
-	 * Remove the given adapter or the first registered adapter with the given name from the list of
-	 * registered adapters.
-	 *
-	 * @param {string|Function} adapter The adapter itself or the name of an adapter.
-	 */
-	function removeAdapter(adapter) {
-		if (typeof adapter === 'string') {
-			adapter = getAdapter(adapter);
-		}
-		if (typeof adapter === 'function') {
-			var index = adapters.findIndex(function (item) {
-				return item.adapter === adapter;
-			});
-			if (index >= 0) {
-				adapters.splice(index, 1);
-			}
-		}
-	}
-
-	registerAdapter(function github(rsp) {
-		if (rsp && rsp.meta && rsp.data) {
-			if (rsp.meta.status && rsp.meta.status >= 400) {
-				return 'Error: ' + (rsp.data.message || rsp.meta.status);
-			} else if (typeof (rsp.data.content) === 'string') {
-				return typeof (atob) === 'function'
-					? atob(rsp.data.content.replace(/\s/g, ''))
-					: 'Your browser cannot decode base64';
-			}
-		}
-		return null;
-	}, 'github');
-	registerAdapter(function gist(rsp, el) {
-		if (rsp && rsp.meta && rsp.data && rsp.data.files) {
-			if (rsp.meta.status && rsp.meta.status >= 400) {
-				return 'Error: ' + (rsp.data.message || rsp.meta.status);
-			}
-
-			var files = rsp.data.files;
-			var filename = el.getAttribute('data-filename');
-			if (filename == null) {
-				// Maybe in the future we can somehow render all files
-				// But the standard <script> include for gists does that nicely already,
-				// so that might be getting beyond the scope of this plugin
-				for (var key in files) {
-					if (files.hasOwnProperty(key)) {
-						filename = key;
-						break;
-					}
-				}
-			}
-
-			if (files[filename] !== undefined) {
-				return files[filename].content;
-			}
-			return 'Error: unknown or missing gist file ' + filename;
-		}
-		return null;
-	}, 'gist');
-	registerAdapter(function bitbucket(rsp) {
-		if (rsp && rsp.node && typeof (rsp.data) === 'string') {
-			return rsp.data;
-		}
-		return null;
-	}, 'bitbucket');
-
-
-	var jsonpCallbackCounter = 0;
-	/**
-	 * Makes a JSONP request.
-	 *
-	 * @param {string} src The URL of the resource to request.
-	 * @param {string | undefined | null} callbackParameter The name of the callback parameter. If falsy, `"callback"`
-	 * will be used.
-	 * @param {(data: unknown) => void} onSuccess
-	 * @param {(reason: "timeout" | "network") => void} onError
-	 * @returns {void}
-	 */
-	function jsonp(src, callbackParameter, onSuccess, onError) {
-		var callbackName = 'prismjsonp' + jsonpCallbackCounter++;
-
-		var uri = document.createElement('a');
-		uri.href = src;
-		uri.href += (uri.search ? '&' : '?') + (callbackParameter || 'callback') + '=' + callbackName;
-
-		var script = document.createElement('script');
-		script.src = uri.href;
-		script.onerror = function () {
-			cleanup();
-			onError('network');
-		};
-
-		var timeoutId = setTimeout(function () {
-			cleanup();
-			onError('timeout');
-		}, Prism.plugins.jsonphighlight.timeout);
-
-		function cleanup() {
-			clearTimeout(timeoutId);
-			document.head.removeChild(script);
-			delete window[callbackName];
-		}
-
-		// the JSONP callback function
-		window[callbackName] = function (response) {
-			cleanup();
-			onSuccess(response);
-		};
-
-		document.head.appendChild(script);
-	}
-
-	var LOADING_MESSAGE = 'Loading…';
-	var MISSING_ADAPTER_MESSAGE = function (name) {
-		return '✖ Error: JSONP adapter function "' + name + '" doesn\'t exist';
-	};
-	var TIMEOUT_MESSAGE = function (url) {
-		return '✖ Error: Timeout loading ' + url;
-	};
-	var UNKNOWN_FAILURE_MESSAGE = '✖ Error: Cannot parse response (perhaps you need an adapter function?)';
-
-	var STATUS_ATTR = 'data-jsonp-status';
-	var STATUS_LOADING = 'loading';
-	var STATUS_LOADED = 'loaded';
-	var STATUS_FAILED = 'failed';
-
-	var SELECTOR = 'pre[data-jsonp]:not([' + STATUS_ATTR + '="' + STATUS_LOADED + '"])'
-		+ ':not([' + STATUS_ATTR + '="' + STATUS_LOADING + '"])';
-
-
-	Prism.hooks.add('before-highlightall', function (env) {
-		env.selector += ', ' + SELECTOR;
-	});
-
-	Prism.hooks.add('before-sanity-check', function (env) {
-		var pre = /** @type {HTMLPreElement} */ (env.element);
-		if (pre.matches(SELECTOR)) {
-			env.code = ''; // fast-path the whole thing and go to complete
-
-			// mark as loading
-			pre.setAttribute(STATUS_ATTR, STATUS_LOADING);
-
-			// add code element with loading message
-			var code = pre.appendChild(document.createElement('CODE'));
-			code.textContent = LOADING_MESSAGE;
-
-			// set language
-			var language = env.language;
-			code.className = 'language-' + language;
-
-			// preload the language
-			var autoloader = Prism.plugins.autoloader;
-			if (autoloader) {
-				autoloader.loadLanguages(language);
-			}
-
-			var adapterName = pre.getAttribute('data-adapter');
-			var adapter = null;
-			if (adapterName) {
-				if (typeof window[adapterName] === 'function') {
-					adapter = window[adapterName];
-				} else {
-					// mark as failed
-					pre.setAttribute(STATUS_ATTR, STATUS_FAILED);
-
-					code.textContent = MISSING_ADAPTER_MESSAGE(adapterName);
-					return;
-				}
-			}
-
-			var src = pre.getAttribute('data-jsonp');
-
-			jsonp(
-				src,
-				pre.getAttribute('data-callback'),
-				function (response) {
-					// interpret the received data using the adapter(s)
-					var data = null;
-					if (adapter) {
-						data = adapter(response, pre);
-					} else {
-						for (var i = 0, l = adapters.length; i < l; i++) {
-							data = adapters[i].adapter(response, pre);
-							if (data !== null) {
-								break;
-							}
-						}
-					}
-
-					if (data === null) {
-						// mark as failed
-						pre.setAttribute(STATUS_ATTR, STATUS_FAILED);
-
-						code.textContent = UNKNOWN_FAILURE_MESSAGE;
-					} else {
-						// mark as loaded
-						pre.setAttribute(STATUS_ATTR, STATUS_LOADED);
-
-						code.textContent = data;
-						Prism.highlightElement(code);
-					}
-				},
-				function () {
-					// mark as failed
-					pre.setAttribute(STATUS_ATTR, STATUS_FAILED);
-
-					code.textContent = TIMEOUT_MESSAGE(src);
-				}
-			);
-		}
-	});
-
-
-	Prism.plugins.jsonphighlight = {
-		/**
-		 * The timeout after which an error message will be displayed.
-		 *
-		 * __Note:__ If the request succeeds after the timeout, it will still be processed and will override any
-		 * displayed error messages.
-		 */
-		timeout: 5000,
-		registerAdapter: registerAdapter,
-		removeAdapter: removeAdapter,
-
-		/**
-		 * Highlights all `pre` elements under the given container with a `data-jsonp` attribute by requesting the
-		 * specified JSON and using the specified adapter or a registered adapter to extract the code to highlight
-		 * from the response. The highlighted code will be inserted into the `pre` element.
-		 *
-		 * Note: Elements which are already loaded or currently loading will not be touched by this method.
-		 *
-		 * @param {Element | Document} [container=document]
-		 */
-		highlight: function (container) {
-			var elements = (container || document).querySelectorAll(SELECTOR);
-
-			for (var i = 0, element; (element = elements[i++]);) {
-				Prism.highlightElement(element);
-			}
-		}
-	};
 
 }());
 

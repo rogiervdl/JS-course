@@ -3,7 +3,7 @@
 <html lang="nl">
 
 <head>
-  <title>Asynchrone Javascript | Javascript cheat sheets</title>
+  <title>Web API's | Javascript cheat sheets</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -60,8 +60,448 @@
           <li><a href="https://www.youtube.com/watch?v=4OFHIhSFNgI&t=2879s">47:59 RapidAP (async/await, requests chainen)</a></li>
         </ul>
       </div>
-
     </div>
+    <h2>Over web API's</h2>
+    <h3>Wat is een web API</h3>
+    <p>
+      Algemeen in programmeren is een <mark>API</mark> of <strong>Application Programming Interface</strong>, een <strong>set van methodes</strong> die je als developer kan gebruiken om <strong>informatie uit te wisselen</strong> met jouw toepassing.
+    </p>
+    <p>
+      Een <mark>Web API</mark> is hetzelfde maar dan op het web, dus een dienst die je kan integreren in jouw webtoepassing. Denk aan:
+    </p>
+    <ul>
+      <li>opvragen van de <strong>laatste Twitter tweets</strong> rond een bepaald onderwerp</li>
+      <li>integratie <strong>Google ads</strong> in je website</li>
+      <li>gebruik <strong>route-informatie</strong> van Google Maps (b.v. afstanden)</li>
+      <li><strong>random quotes</strong> opvragen van een random quote generator</li>
+      <li><strong>machine learning &amp; AI</strong>, bv. tekst- of fotoherkenning</li>
+      <li><strong>weather service</strong> gebruiken</li>
+      <li><strong>sportuitslagen</strong> opvragen</li>
+      <li>...</li>
+    </ul>
+    <h3>Web API's vinden</h3>
+    <p>
+      Er zijn massa's dergelijke API's te vinden!
+      Bijna alle grote webtoepassingen als <a href="https://developers.google.com/youtube/v3">Youtube</a>, <a href="https://developers.google.com/maps">Google Maps</a>, <a href="https://www.dropbox.com/developers/documentation/http/documentation">Dropbox</a>, <a href="https://developer.twitter.com/en/docs/twitter-api">Twitter</a>, <a href="https://www.flickr.com/services/api/">Flickr</a> enz... hebben er één (zoek via google, bv. "Flickr API"). Kleinere (en vaak makkelijker te gebruiken) API's bestaan ook: weather service, random quotes...
+    </p>
+    <figure>
+      <img src="img/04_async/flickr-docs.png" alt="" class="w-500">
+      <figcaption>Flickr API documentatie</figcaption>
+    </figure>
+    <p>
+      <a href="https://rapidapi.com/marketplace">RapidAPI</a> heeft een uitgebreide collectie op haar website, en je hoeft maar één keer te registreren:
+    </p>
+    <figure>
+      <img src="img/04_async/rapid-docs.png" alt="" class="w-500">
+      <figcaption>overzicht API's op rapidapi.com</figcaption>
+    </figure>
+    <h3>Web API's gebruiken</h3>
+    <p>
+      Hoe je een Web API moet gebruiken varieert enorm, van heel eenvoudig tot zeer moeilijk. Enkele aspecten om rekening mee te houden:
+    </p>
+    <ul>
+      <li>
+        <strong>wat biedt de API?</strong>
+        <ul>
+          <li>welke informatie, welke <strong>methodes en parameters</strong> zijn beschikbaar?</li>
+          <li>hoe goed is de <strong>documentatie</strong> (vaak een zwak punt)?</li>
+          <li>welke <strong>formaten</strong> worden gebruikt voor de request en response informatie?</li>
+        </ul>
+      </li>
+      <li>
+        <strong>hoe verloopt de authenticatie?</strong>
+        <ul>
+          <li>volledig <strong>open</strong> (geen authenticatie nodig) &rarr; super simpel; komt minder en minder voor</li>
+          <li>registratie nodig; je krijgt een <strong>API key of token</strong> die je met elke request moet meesturen &rarr; goed te doen</li>
+          <li>registratie nodig; <strong>complexe authenticatiemethodes</strong> als OAuth &rarr; te moeilijk voor deze cursus</li>
+        </ul>
+      </li>
+      <li>
+        <strong>wat zijn de prijzen/quota?</strong>
+        <ul>
+          <li>volledig <strong>gratis</strong> en zonder limieten &rarr; komt minder en minder voor</li>
+          <li>gratis maar <strong>gelimiteerd</strong>, bv. dagelijkse / maandelijkse quota gelinkt aan de API key &rarr; kunnen we gebruiken</li>
+          <li><strong>betalend</strong>, bv. een vast bedrag per request &rarr; geen optie voor deze cursus </li>
+        </ul>
+      </li>
+    </ul>
+    <h2>Dog API voorbeeld: open API, geen API key</h2>
+    <p>
+      Een API waar geen registratie of key voor nodig is, heet een <mark>open API</mark>. Er is geen enkele controle of limiet op het gebruik. Een voorbeeld is de <a href="https://dog.ceo/dog-api/documentation/">Dog API</a>, waar je informatie kan vinden over honden:
+    </p>
+    <ul class="arrow">
+      <li>lijst van alle hondenrassen</li>
+      <li>een random foto</li>
+      <li>foto's van een specifiek hondenras</li>
+      <li>...</li>
+    </ul>
+    <h3>documentatie</h3>
+    <figure>
+      <img src="img/04_async/dog-api.png" alt="" class="w-600">
+      <figcaption>dog API documentatie</figcaption>
+    </figure>
+    <p>
+      Zoals je ziet in de documentatie, bestaat deze eenvoudige API uit een <strong>set URL's</strong> waarmee je informatie kan opvragen, bv.
+      <br><a href="https://dog.ceo/api/breeds/list/all">https://dog.ceo/api/breeds/list/all</a>
+      <br><a href="https://dog.ceo/api/breeds/image/random">https://dog.ceo/api/breeds/image/random</a>
+      <br><a href="https://dog.ceo/api/breed/schnauzer/images">https://dog.ceo/api/breed/schnauzer/images</a>
+    </p>
+    <h3>request en response</h3>
+    <p>Vragen we bijvoorbeeld via <a href="https://dog.ceo/api/breed/hound/images/random/5">https://dog.ceo/api/breed/hound/images/random/5</a> vijf random foto's op van het ras "hound" (de <mark>request</mark>), dan krijg je volgende informatie terug (de <mark>response</mark>): </p>
+    <figure>
+      <img src="img/04_async/dog-api-request.png" alt="" class="w-600">
+      <figcaption>API request (cfr. adresbalk) en response</figcaption>
+    </figure>
+    <ul class="arrow">
+      <li>de response is geen HTML, maar <mark>JSON</mark> (<mark>Javascript Object Notation</mark>)</li>
+      <li>er bestaan andere response formaten (XML, SOAP, CSV...) maar dit formaat is het meest gebruikt bij API's</li>
+    </ul>
+    <h3>JSON</h3>
+    <p><mark>JSON</mark> of <strong>Javascript Object Notation</strong> is technisch gezien de notatie van een object in Javascript</p>
+    <pre class="prism-okaida language-json line-numbers w-700"><code>{"message":["https:\/\/images.dog.ceo\/breeds\/hound-afghan\/n02088094_2292.jpg","https:\/\/images.dog.ceo\/breeds\/hound-blood\/n02088466_7091.jpg","https:\/\/images.dog.ceo\/breeds\/hound-blood\/n02088466_7609.jpg","https:\/\/images.dog.ceo\/breeds\/hound-english\/n02089973_208.jpg","https:\/\/images.dog.ceo\/breeds\/hound-ibizan\/n02091244_2820.jpg"],"status":"success"}</code></pre>
+    <p>Je zou de response zelfs kunnen kopiëren in een Javascript variabele en gebruiken in je pagina:</p>
+    <pre class="prism-okaida line-numbers w-700"><code>const data = {
+  message: [
+    'https://images.dog.ceo/breeds/hound-afghan/n02088094_2292.jpg',
+    'https://images.dog.ceo/breeds/hound-blood/n02088466_7091.jpg',
+    'https://images.dog.ceo/breeds/hound-blood/n02088466_7609.jpg',
+    'https://images.dog.ceo/breeds/hound-english/n02089973_208.jpg',
+    'https://images.dog.ceo/breeds/hound-ibizan/n02091244_2820.jpg'
+  ],
+  status: 'success'
+}
+</code></pre>
+    <p>Verwerkt in een eenvoudige toepassing:</p>
+    <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoDogApi1/index.html"><code>const btnRandomDogs = document.querySelector('#btnRandomDogs');
+const divDogs = document.querySelector('#dogs');
+
+function fetchRandomDogs() {
+  // data
+  const data = {
+    message: [
+      'https://images.dog.ceo/breeds/hound-afghan/n02088094_2292.jpg',
+      'https://images.dog.ceo/breeds/hound-blood/n02088466_7091.jpg',
+      'https://images.dog.ceo/breeds/hound-blood/n02088466_7609.jpg',
+      'https://images.dog.ceo/breeds/hound-english/n02089973_208.jpg',
+      'https://images.dog.ceo/breeds/hound-ibizan/n02091244_2820.jpg'
+    ],
+    status: 'success'
+  };
+
+  // generate images
+  if (data.status == 'success') {
+    data.message.forEach(url =&gt; {
+      const img = `&lt;img src="${url}" alt=""&gt;`;
+      divDogs.innerHTML += img;
+    });
+  }
+}
+
+btnRandomDogs.addEventListener('click', function() {
+   fetchRandomDogs();
+});
+
+</code></pre>
+    <pre class="prism-okaida language-html line-numbers w-400"><code>&lt;div id="dogs"&gt;&lt;/p&gt;</code></pre>
+    <pre class="prism-okaida language-css line-numbers w-400"><code>img {
+  margin: 10px;
+  height: 200px;
+}</code></pre>
+    <img src="img/04_async/dog-fetch2.png" alt="" class="w-600 bordered">
+
+    <h3>codevoorbeeld 1: 5 random foto's ophalen</h3>
+    <p>Met <code>fetch()</code> kan je zo'n URL dynamisch opvragen en de data gebruiken:</p>
+    <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoDogApi2/index.html"><code>const btnRandomDogs = document.querySelector('#btnRandomDogs');
+const divDogs = document.querySelector('#dogs');
+
+async function fetchRandomDogs() {
+  // build request
+  const url = 'https://dog.ceo/api/breed/hound/images/random/5';
+
+  // fetch data
+  const resp = await fetch(url);
+  if (!resp.ok) {
+    console.log('opvragen random dogs mislukt');
+    return;
+  }
+  const data = await resp.json();
+
+  // process data
+  data.message.forEach(url =&gt; {
+    divDogs.innerHTML += `&lt;img src="${url}" alt=""&gt;`;
+  });
+}
+
+// start fetching on click
+btnRandomDogs.addEventListener('click', async function() {
+  console.log('start feching dogs...');
+  await fetchRandomDogs();
+  console.log('...fetch finished');
+});
+</code></pre>
+    <div class="tips" data-caption="💡 async/await">
+      <p>
+        de uitleg over async/await volgt later nog, maar kort gezegd betekent <mark>async</mark>: <strong>"dit kan even duren, doe alvast verder met de rest"</strong>, en <mark>await</mark>: <strong>"nee nee, ik wacht wel tot het resultaat binnen is"</strong>
+      </p>
+    </div>
+    <figure>
+      <img src="img/04_async/dog-fetch2.png" alt="" class="w-600 bordered">
+      <figcaption>codevoorbeeld 1: gegevens worden dynamisch opgehaald</figcaption>
+    </figure>
+    <h3>codevoorbeeld 2: foto's van een specifiek ras ophalen </h3>
+    <p>Een iets uitgebreider voorbeeld, waarbij eerst de hondenrassen opgehaald worden in een lijstje:</p>
+    <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoDogApi3/index.html"><code>const selBreeds = document.querySelector('#selBreeds');
+const parMessage = document.querySelector('#parMessage');
+const divImages = document.querySelector('#divImages');
+
+selBreeds.addEventListener('change', async function() {
+  // build request
+  parMessage.innerHTML = `fetching images for ${this.value}`;
+  const url = `https://dog.ceo/api/breed/${this.value}/images`;
+
+  // fetch data
+  const resp = await fetch(url);
+  const data = await resp.json();
+  if (data.status != 'success') {
+    console.log('fetching breeds failed');
+    return;
+  }
+
+  // show photos
+  data.message.forEach(src =&gt; {
+    divImages.innerHTML += `&lt;img src="${src}" alt=""&gt;`;
+  });
+  parMessage.innerHTML = `done fetching images for ${this.value}!`;
+});
+
+async function fetchBreeds() {
+  // build request
+  const url = 'https://dog.ceo/api/breeds/list/all';
+
+  // fetch data
+  const resp = await fetch(url);
+  const data = await resp.json();
+  if (data.status != 'success') {
+    console.log('fetching breeds failed');
+    return;
+  }
+
+  // populate list of breeds and show list
+  for (const breed in data.message) {
+    selBreeds.innerHTML += `&lt;option&gt;${breed}&lt;/option&gt;`;
+  }
+  selBreeds.classList.remove('hide');
+}
+
+async function doFetch() {
+  parMessage.innerHTML = 'fetching breeds...';
+  await fetchBreeds();
+  parMessage.innerHTML = 'done fetching';
+}
+
+doFetch();
+</code></pre>
+    <pre class="prism-okaida language-html line-numbers w-400"><code>&lt;select id="selBreeds" class="hide"&gt;&lt;/select&gt;
+&lt;p id="parMessage"&gt;&nbsp;&lt;/p&gt;
+&lt;div id="divImages"&gt;&lt;/div&gt;
+</code></pre>
+    <figure>
+      <img src="img/04_async/dog-fetch3.png" alt="" class="w-600 bordered">
+      <figcaption>codevoorbeeld 2: eerste fetch() dient om het lijstje op te bouwen, tweede fetch() om foto's op te halen</figcaption>
+    </figure>
+
+
+
+    <h2>Flickr API voorbeeld: API key, request parameters</h2>
+    <h3>API key aanvragen</h3>
+    <p>
+      Flickr is een foto community met een zeer <a href="https://www.flickr.com/services/api/">uitgebreide API</a>. Het verschil met het vorige voorbeeld is dat je (na <a href="https://identity.flickr.com/sign-up">registratie</a>) een <strong>API key</strong> moet aanvragen,
+      en die meesturen met elke request. De key is <strong>gratis</strong>, maar het geeft hen, in tegenstelling tot open API's, wel een beetje <strong>controle op je verbruik</strong>.
+    </p>
+    <figure>
+      <img src="img/04_async/flickr-registration.png" alt="" class="w-600">
+      <figcaption>API key aanvraag bij Flickr.com</figcaption>
+    </figure>
+    <h3>documentatie</h3>
+    <p>
+      In de uitgebreide documentatie vinden we een methode <a href="https://www.flickr.com/services/api/flickr.photos.search.html">flickr.photos.search</a>, met alle mogelijke opties.
+      Een aantal van deze opties zullen we meesturen als <strong>request parameters</strong>.
+    </p>
+    <img src="img/04_async/flickr-photosearch.png" alt="" class="w-600">
+    <h3>dynamisch ophalen met fetch()</h3>
+    <p>Verwerkt in een eenvoudige toepassing:</p>
+    <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoFlickrAPI/index.html"><code>const pics = document.querySelector('#pics');
+const frmSearch = document.querySelector('#frmSearch');
+const inpSearch = frmSearch.querySelector('#inpSearch');
+const API_KEY = '60dce28390e0....'; // vul je eigen key in!
+
+async function makeSearch(searchval) {
+  // build request
+  let url = 'https://api.flickr.com/services/rest/';
+  const params = new URLSearchParams();
+  params.append('api_key', API_KEY);
+  params.append('extras', 'url_m');
+  params.append('format', 'json');
+  params.append('method', 'flickr.photos.search');
+  params.append('per_page', 20);
+  params.append('nojsoncallback', 1);
+  params.append('text', searchval);
+  url += '?' + params.toString();
+
+  // fetch data
+  const resp = await fetch(url);
+  if (!resp.ok) {
+    console.log('opvragen foto\'s mislukt');
+    return;
+  }
+  const data = await resp.json();
+
+  // process data
+  data.photos.photo.forEach(photo =&gt; {
+    pics.innerHTML += `&lt;img src="${photo.url_m}" alt=""&gt;`;
+  });
+}
+
+frmSearch.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  pics.innerHTML = '';
+  console.log('start fetching photos...');
+  await makeSearch(inpSearch.value);
+  console.log('...done!');
+});</code></pre>
+          <pre class="prism-okaida language-html line-numbers w-900"><code>&lt;form action="" id="frmSearch"&gt;
+  &lt;label&gt;search: &lt;input id="inpSearch" type="text" placeholder="enter keyword (.e.g. Eiffel)" /&gt;&lt;/label&gt;
+&lt;/form&gt;
+&lt;div id="pics"&gt;&lt;/div&gt;
+</code></pre>
+          <pre class="prism-okaida language-css line-numbers w-400"><code>i#pics {
+  display: flex;
+  flex-flow: row wrap;
+}
+#pics img {
+  height: 200px;
+  display: block;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+#search {
+  width: 200px;
+}</code></pre>
+
+    <h2>Github API voorbeeld: token, request headers</h2>
+    <h3>open gebruik &mdash; beperkt</h3>
+    <p>Je kan in principe de Github API oopne gebruiken, zonder API key of token:</p>
+    <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoGithubApi/index.html"><code>const lstRepos = document.querySelector('#lstRepos');
+async function getMyRepos() {
+  // build request
+  const username = 'rogiervdl';
+  const url = `https://api.github.com/users/${username}/repos`;
+
+  // fetch data
+  const resp = await fetch(url);
+  if (!resp.ok) {
+    console.log('opvragen github repos mislukt');
+    return;
+  }
+  const data = await resp.json();
+
+  // show repos
+  data.forEach(entry =&gt; {
+    lstRepos.innerHTML += `&lt;li&gt;
+      &lt;a href="${entry.html_url}"&gt;${entry.full_name}&lt;/a&gt;
+      mdash; ${entry.description}&lt;/li&gt;`;
+  });
+}
+async function doGetRepos() {
+  console.log('fetching repos...');
+  await getMyRepos();
+  console.log('...done');
+}
+doGetRepos();
+</code></pre>
+          <pre class="prism-okaida language-html line-numbers w-900"><code>&lt;form action="" id="frmSearch"&gt;
+  &lt;label&gt;search: &lt;input id="inpSearch" type="text" placeholder="enter keyword (.e.g. Eiffel)" /&gt;&lt;/label&gt;
+&lt;/form&gt;
+&lt;div id="pics"&gt;&lt;/div&gt;
+</code></pre>
+    <figure>
+      <img src="img/04_async/github-fetch1.png" alt="" class="w-500 bordered">
+      <figcaption>ophalen en weergeven repos via Github API</figcaption>
+    </figure>
+    <p>Het aantal requests is voor anonieme gebruikers echter standaard beperkt tot amper 60 per uur. Je kan het je kan het aantal resterende requests terugvinden in de response headers onder Network (klik links op de AJAX request):</p>
+    <figure>
+      <img src="img/04_async/github-limit1.png" alt="" class="w-600 bordered">
+      <figcaption>aantal requests voor anonieme gebruikers is beperkt tot 60 per uur</figcaption>
+    </figure>
+    <h3>met bearer token</h3>
+    <p>Je kan als geregistreerde gebruiker dit optrekken naar 5000 per uur door een token te genereren: </p>
+    <ul class="arrow">
+      <li>ga naar je profiel, settings, developer settings, <strong>personal access tokens</strong></li>
+      <li>klik op <strong>Generate new token</strong></li>
+      <li>kies een naam, expiration date, en duid de <strong>nodige rechten</strong> aan</li>
+      <li>je krijgt een <strong>token string</strong>, b.v. <small><code>ghp_fIWhq1DrL4668baCWMuF7WNO56TvdT1DCdXc</code></small></li>
+    </ul>
+    <figure>
+      <img src="img/04_async/github-token.png" alt="" class="w-600">
+      <figcaption>aanvraag Github bearer token</figcaption>
+    </figure>
+    <p>Deze token geef je mee met de headers van je request:</p>
+    <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoGithubApi/index.html"><code>const lstRepos = document.querySelector('#lstRepos');
+async function getMyRepos() {
+  // build request
+  const username = 'rogiervdl';
+  const url = `https://api.github.com/users/${username}/repos`;
+  const options = {
+    headers: {
+      'Authorization': 'Bearer ghp_fIWhq1DrL...' // geef hier je eigen token mee!
+    }
+  };
+
+  // fetch data
+  const resp = await fetch(url, options); // voeg options toe als tweede parameter
+  if (!resp.ok) {
+    console.log('opvragen github repos mislukt');
+    return;
+  }
+  const data = await resp.json();
+
+  // show repos
+  data.forEach(entry =&gt; {
+    lstRepos.innerHTML += `&lt;li&gt;
+      &lt;a href="${entry.html_url}"&gt;${entry.full_name}&lt;/a&gt;
+      mdash; ${entry.description}&lt;/li&gt;`;
+  });
+}
+async function doGetRepos() {
+  console.log('fetching repos...');
+  await getMyRepos();
+  console.log('...done');
+}
+doGetRepos();
+</code></pre>
+  <p>Je krijgt nu 5000 requests per uur:</p>
+  <figure>
+    <img src="img/04_async/github-limit2.png" alt="" class="w-600 bordered">
+    <figcaption>aantal requests met token is opgetrokken tot 5000 per uur</figcaption>
+  </figure>
+
+  <h2>Rapid API voorbeeld: API key, request headers</h2>
+  <h3>registratie en API key aanmaken</h3>
+  <p>
+    Rapid API is niet één API, maar een grote verzameling API's die je kan gebruiken met wisselende gebruiksvoorwaarden.
+    Het grote voordeel is dat je <strong>maar één keer een API key</strong> hoeft aan te vragen voor alle API's. Maak na <a href="https://rapidapi.com/signup">registratie</a> een app aan en ontvang je API key:
+  </p>
+  <figure>
+    <img src="img/04_async/rapid-register.png" alt="" class="w-600">
+    <figcaption>Rapid API registratie</figcaption>
+  </figure>
+  <figure>
+    <img src="img/04_async/rapid-key.png" alt="" class="w-600">
+    <figcaption>Rapid API API key aanvragen</figcaption>
+  </figure>
+
+
+
   </main>
   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
   <!-- popup -->

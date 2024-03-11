@@ -116,5 +116,3 @@ function createIdFrom(str) {
 
 // start your engines!
 startApp();
-
-

@@ -435,7 +435,7 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
             <td>
 					<pre class="prism-vslight" data-notoolbar><code>console.log(arr1.indexOf('melk')); // 2
 						console.log(arr1.indexOf('brood')); // -1</code></pre>
-              
+
             </td>
           </tr>
           <tr>
@@ -548,7 +548,7 @@ tekenTekst('hallo', '#338'); // size blijft 14, geen icoon
 }
 function speak(quote, callback) {
   console.log(quote);
-  callback(); // voer de tweede parameter uit 
+  callback(); // voer de tweede parameter uit
 }
 // roep speak() op met end() als argument
 speak('Behind every great man is a woman rolling her eyes.', end);
@@ -1080,7 +1080,51 @@ lnk1.addEventListener('click', (e) =&gt; {
       </table>
 
     </section>
+    <section class="w-700">
+      <h2>Web API</h2>
+      <p>Schematisch de code van een <code>fetch()</code> (schrap de stukken code die je niet nodig hebt):</p>
+      <pre class="prism-okaida line-numbers w-700"><code>
+async function getApiData() {
+  // build request url
+  const url = 'https://api.somedomain.com/api/method/...`;
+  const params = new URLSearchParams();
+  params.append('api_key', API_KEY);
+  params.append('param1', 'val1');
+  params.append('param2', 'val2');
+  params.append('...', '...');
+  url += '?' + params.toString();
 
+  // build options
+  const options = {
+    method: '...',
+    headers: {
+      'Authorization': 'Bearer ghp_fIWhq1DrL...'
+      ...
+    }
+    ...
+  };
+
+  // fetch data with options
+  const resp = await fetch(url, options);
+  if (!resp.ok) {
+    console.log('opvragen github repos mislukt');
+    return;
+  }
+  const data = await resp.json();
+
+  // process data
+  data.forEach(entry =&gt; {
+    ...
+  });
+}
+async function doFetch() {
+  console.log('fetching data...');
+  await getApiData();
+  console.log('...done');
+}
+doFetch();
+</code></pre>
+    </section>
 
     <section>
       <h2>Debugging</h2>
