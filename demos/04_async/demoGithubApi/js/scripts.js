@@ -5,7 +5,7 @@ async function getMyRepos() {
    const url = `https://api.github.com/users/${username}/repos`;
    const options = {
       headers: {
-         'Authorization': 'Bearer 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' // vul je eigen token in!
+         'Authorization': 'Bearer ghp_fIWhq1Dr....' // vul je eigen token in!
       }
    };
 
