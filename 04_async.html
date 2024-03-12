@@ -617,9 +617,9 @@ form &gt; p:last-child {
 }</code></pre>
         <img src="img/04_async/currency-fetch.gif" alt="" class="w-400 bordered">
     <h2>Async/await</h2>
-    <h3>Aaynchrone functies</h3>
+    <h3>Asynchrone functies</h3>
     <p>
-      Bij sommige functies als fetch() <strong>weet je niet wanneer ze resultaat geven</strong>. Men zegt dat ze <mark>asynchroon</mark> zijn: de rest van de code wacht niet en loopt ondertussen gewoon verder! Een screenshot:
+      Bij sommige functies &mdash; zoals fetch() &mdash; <strong>weet je niet wanneer ze resultaat geven</strong>. Men zegt dat ze <mark>asynchroon</mark> zijn: de rest van de code wacht niet en loopt ondertussen gewoon verder! Een screenshot:
     </p>
     <img src="img/04_async/asynchroon.png" alt="" class="w-1000">
     <h3>async/await</h3>
@@ -631,7 +631,7 @@ form &gt; p:last-child {
       Async / await is in het begin een beetje verwarrend, maar volgende principes kunnen helpen:
     </p>
     <ul>
-      <li>bepaalde functies waarvan de resultaten even op zich kunnen laten wachten zoals fetch() zijn asynchroon uitgevoerd: het vervolg van de code wacht niet met uitvoering</li>
+      <li>bepaalde functies waarvan de resultaten even op zich kunnen laten wachten &mdash; zoals fetch() &mdash; worden asynchroon uitgevoerd: het vervolg van de code wacht niet met uitvoering</li>
       <li>als je toch wil wachten op het resultaat, roep je de functie op met <strong>await</strong></li>
       <li>functies waarin <strong>await</strong> gebruikt wordt, zijn zelf <strong>async</strong> &mdash; de resultaten kunnen hier immers ook even op zich laten wachten</li>
     </ul>
