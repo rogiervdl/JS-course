@@ -562,113 +562,122 @@
     Het (kleine) verschil met het Flickr voorbeeld is dat je de <strong>API key als header</strong>, en niet als URL parameter moet meegeven.
   </p>
   <img src="img/04_async/currency-doc.png" alt="" class="w-600">
-  <pre class="prism-okaida line-numbers w-700" data-demo="demos/04_async/demoRapidAPI/index.html"><code>const frmCurrencies = document.querySelector('#frmCurrencies');
-const parMessage = document.querySelector('#parMessage');
-const selFrom = document.querySelector('#selFrom');
-const selTo = document.querySelector('#selTo');
-const fetchOptions = {
-   method: 'GET',
-   headers: {
-      'X-RapidAPI-Key': '8bd0826a8amshbaea...', // vul je eigen key in!
-      'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
-   }
-};
+    <pre class="prism-okaida line-numbers w-800 h-400 language-html" data-demo="demos/04_async/demoRapidAPI/index.html"><code>&lt;!-- HTML --&gt;
+&lt;form id="frmCurrencies" class="hide" &gt;
+&lt;p &gt;
+  &lt;label for="selFrom" &gt;Van:  &lt;/label &gt;
+  &lt;select id="selFrom" &gt; &lt;/select &gt;
+&lt;/p &gt;
+&lt;p &gt;
+  &lt;label for="selTo" &gt;Naar:  &lt;/label &gt;
+  &lt;select id="selTo" &gt; &lt;/select &gt;
+&lt;/p &gt;
+&lt;p &gt;
+  &lt;button type="submit" &gt;zoek wisselkoers &lt;/button &gt;
+&lt;/p &gt;
+&lt;/form &gt;
+&lt;p id="parMessage" &gt;opvragen lijst munten... &lt;/p &gt;
 
-// get an array of all available currencies
-async function getAllCurrencies() {
-   // build request
-   const url = 'https://currency-exchange.p.rapidapi.com/listquotes';
+&lt;!-- CSS --&gt;
+&lt;style&gt;
+  body, input {
+    font-family: Verdana;
+    font-size: 14px;
+  }
+  button, select {
+    border: 1px solid #666;
+    padding: 3px 5px;
+  }
+  form &gt; p {
+    display: flex;
+  }
+  form &gt; p label {
+    width: 100px;
+  }
+  form &gt; p:last-child {
+    padding-left: 100px;
+  }
+  .hide {
+    visibility: hidden;
+  }
+&lt;/style&gt;
 
-   // fetch
-   const resp = await fetch(url, fetchOptions);
-   if (!resp.ok) {
-      console.log('opvragen lijst munten mislukt');
-      return;
-   }
-   const data = await resp.json();
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const frmCurrencies = document.querySelector('#frmCurrencies');
+  const parMessage = document.querySelector('#parMessage');
+  const selFrom = document.querySelector('#selFrom');
+  const selTo = document.querySelector('#selTo');
+  const fetchOptions = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '8bd0826a8amshbaea...', // vul je eigen key in!
+        'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
+    }
+  };
 
-   // return data
-   return data;
-}
+  // get an array of all available currencies
+  async function getAllCurrencies() {
+    // build request
+    const url = 'https://currency-exchange.p.rapidapi.com/listquotes';
 
-// get the exchange rate for two currencies
-async function getExchangeRate(curr1, curr2) {
-   // build request
-   const params = new URLSearchParams();
-   params.append('from', curr1);
-   params.append('to', curr2);
-   const url = `https://currency-exchange.p.rapidapi.com/exchange?${params.toString()}`;
+    // fetch
+    const resp = await fetch(url, fetchOptions);
+    if (!resp.ok) {
+        console.log('opvragen lijst munten mislukt');
+        return;
+    }
+    const data = await resp.json();
 
-   // fetch
-   const resp = await fetch(url, fetchOptions);
-   if (!resp.ok) {
-      console.log('opvragen wisselkoers mislukt');
-      return;
-   }
-   const data = await resp.json();
+    // return data
+    return data;
+  }
 
-   // return data
-   return data;
-}
+  // get the exchange rate for two currencies
+  async function getExchangeRate(curr1, curr2) {
+    // build request
+    const params = new URLSearchParams();
+    params.append('from', curr1);
+    params.append('to', curr2);
+    const url = `https://currency-exchange.p.rapidapi.com/exchange?${params.toString()}`;
 
-// populate dropdowns
-async function startApp() {
-   const currencies = await getAllCurrencies();
-   currencies.sort().forEach(curr =&gt; {
-      selFrom.innerHTML += `&lt;option&gt;${curr}&lt;/option&gt;`;
-      selTo.innerHTML += `&lt;option&gt;${curr}&lt;/option&gt;`;
-   });
-   frmCurrencies.classList.remove('hide');
-   selFrom.value = 'EUR';
-   selTo.value = 'USD';
-   parMessage.innerHTML = 'selecteer twee munten...';
-}
+    // fetch
+    const resp = await fetch(url, fetchOptions);
+    if (!resp.ok) {
+        console.log('opvragen wisselkoers mislukt');
+        return;
+    }
+    const data = await resp.json();
 
-// handle form submits
-frmCurrencies.addEventListener('submit', async function(e) {
-   e.preventDefault();
-   const rate = await getExchangeRate(selFrom.value, selTo.value);
-   parMessage.innerHTML = `1 ${selFrom.value} = ${rate} ${selTo.value}`;
-});
+    // return data
+    return data;
+  }
 
-// start your engines
-startApp();
-</code></pre>
-        <pre class="prism-okaida language-html line-numbers w-400"><code> &lt;form id="frmCurrencies" class="hide" &gt;
-  &lt;p &gt;
-    &lt;label for="selFrom" &gt;Van:  &lt;/label &gt;
-    &lt;select id="selFrom" &gt; &lt;/select &gt;
-  &lt;/p &gt;
-  &lt;p &gt;
-    &lt;label for="selTo" &gt;Naar:  &lt;/label &gt;
-    &lt;select id="selTo" &gt; &lt;/select &gt;
-  &lt;/p &gt;
-  &lt;p &gt;
-    &lt;button type="submit" &gt;zoek wisselkoers &lt;/button &gt;
-  &lt;/p &gt;
- &lt;/form &gt;
- &lt;p id="parMessage" &gt;opvragen lijst munten... &lt;/p &gt;
-</code></pre>
-        <pre class="prism-okaida language-css line-numbers w-400"><code>body, input {
-  font-family: Verdana;
-  font-size: 14px;
-}
-button, select {
-  border: 1px solid #666;
-  padding: 3px 5px;
-}
-form &gt; p {
-  display: flex;
-}
-form &gt; p label {
-  width: 100px;
-}
-form &gt; p:last-child {
-  padding-left: 100px;
-}
-.hide {
-  visibility: hidden;
-}</code></pre>
+  // populate dropdowns
+  async function startApp() {
+    const currencies = await getAllCurrencies();
+    currencies.sort().forEach(curr =&gt; {
+        selFrom.innerHTML += `&lt;option&gt;${curr}&lt;/option&gt;`;
+        selTo.innerHTML += `&lt;option&gt;${curr}&lt;/option&gt;`;
+    });
+    frmCurrencies.classList.remove('hide');
+    selFrom.value = 'EUR';
+    selTo.value = 'USD';
+    parMessage.innerHTML = 'selecteer twee munten...';
+  }
+
+  // handle form submits
+  frmCurrencies.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const rate = await getExchangeRate(selFrom.value, selTo.value);
+    parMessage.innerHTML = `1 ${selFrom.value} = ${rate} ${selTo.value}`;
+  });
+
+  // start your engines
+  startApp();
+
+&lt;/script&gt;</code></pre>
+
         <img src="img/04_async/currency-fetch.gif" alt="" class="w-400 bordered">
     <h2>Async/await</h2>
     <h3>Asynchrone functies</h3>
@@ -706,7 +715,7 @@ form &gt; p:last-child {
       Een aanrader voor wie in detail de request/responses wil testen.
     </p>
     <figure>
-      <img src="img/04_async/postman.png" alt="">
+      <img src="img/04_async/postman.png" alt="" class="w-800">
       <figcaption>API's testen met Postman</figcaption>
     </figure>
   </main>

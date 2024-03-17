@@ -60,7 +60,7 @@
     <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
     <h4>tekst bewaren</h4>
     <p>Eenvoudig voorbeeld waar de gekozen waarde uit een lijst persisteert:</p>
-    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- HTML --&gt;
 &lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
 &lt;select id="selTest"&gt;
   &lt;option selected&gt;keuze 1&lt;/option&gt;
@@ -86,7 +86,7 @@
     </figure>
     <h4>objecten bewaren</h4>
     <p>Met localStorage kan je enkel strings bewaren. Je kan objecten wel omzetten naar strings en terug met <code>JSON.parse()</code> en <code>JSON.stringify()</code>:</p>
-    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- HTML --&gt;
 &lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Naam: &lt;input id="inpName" type="text" value="Rogier"&gt;&lt;/label&gt;&lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Leeftijd: &lt;input id="inpAge" type="number" value="54"&gt;&lt;/label&gt;&lt;/p&gt;
@@ -128,7 +128,7 @@
     <h3>Drag drop</h3>
     <h4>teksten verslepen</h4>
     <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
-    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- CSS --&gt;
 &lt;style&gt;
   body {
     width: 500px;
@@ -167,7 +167,7 @@
 
     <h4>afbeeldingen verslepen</h4>
     <p>Voorbeeld met afbeeldingen (tweede afbeelding is niet draggable wegens <code>draggable="false"</code>): </p>
-    <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
 &lt;style&gt;
   #dropzone {
     border: 2px ridge;
@@ -272,7 +272,7 @@
     <h3>Webcam</h3>
     <p>De webcam gebruiken is heel eenvoudig: vraag een webcamstream op via <code>navigator.mediaDevices.getUserMedia()</code>, en stel het in als bron van een <code>&lt;video&gt;</code> element.</p>
     <h4>Voorbeeld 1: weergave webcam in een video element</h4>
-    <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
 &lt;style&gt;
   #webcam {
     border: 1px dotted #999;
@@ -307,7 +307,7 @@
     </figure>
     <h4>Voorbeeld 2: photobooth</h4>
     <p>Een iets uitgebreider voorbeeld, met filters en de mogelijkheid snapshots te nemen:</p>
-    <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
 &lt;style&gt;
   /* general */
   body {
@@ -418,14 +418,14 @@
       </figure>
       <h3>Geolocation</h3>
       <p>De positie van de gebruiker is eenvoudig te bepalen via <code>navigator.geolocation</code>:</p>
-      <pre class="prism-okaida w-700" data-demo><code>if (navigator.geolocation) {
+      <pre class="prism-okaida" data-demo><code>if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(pos) {
     console.log(`je positie: ${pos.coords.longitude}, ${pos.coords.latitude}`);
   });
 }
 </code></pre>
       <h4>Voorbeeld: positie met custom marker tonen op kaart (OpenLayers)</h4>
-      <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!DOCTYPE html&gt;
+      <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 
 &lt;head&gt;
@@ -502,7 +502,7 @@
 
     <h3>Device orientation</h3>
     <p>Indien aanwezig op het toestel, kan je de gyroscoop, accelerometer, kompas enz... gebruiken in Javascript. Voorbeeld voor de kanteling van het toestel (werkt enkel op smartphones en sommige laptops als bepaalde Macbooks), dat gebruik maakt van het <code>deviceorientation</code> event van <code>window</code>:</p>
-    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- CSS --&gt;
 &lt;style&gt;
   .layer {
     position: absolute; /* stapel layers bovenop elkaar */

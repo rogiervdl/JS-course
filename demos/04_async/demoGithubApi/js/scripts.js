@@ -5,7 +5,7 @@ async function getMyRepos() {
    const url = `https://api.github.com/users/${username}/repos`;
    const options = {
       headers: {
-         'Authorization': 'Bearer ghp_fIWhq1Dr....' // vul je eigen token in!
+         'Authorization': 'Bearer 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' // vul je eigen token in!
       }
    };
 
@@ -22,8 +22,7 @@ async function getMyRepos() {
    // process data
    data.forEach(entry => {
       lstRepos.innerHTML += `<li>
-    <a href="${entry.html_url}">${entry.full_name}</a> &mdash; ${entry.description}
-</li>`;
+    <a href="${entry.html_url}">${entry.full_name}</a> &mdash; ${entry.description}</li>`;
    });
 }
 async function doGetRepos() {
