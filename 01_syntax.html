@@ -96,7 +96,7 @@
       <li>Er zijn veel scripting talen &mdash; Python, PHP, Perl, Ruby... &mdash; maar er is er maar één die browsers begrijpen: <strong>Javascript</strong>.</li>
     </ul>
     <p>Javascript is syntactisch een erg rijke taal, die zeer compact kan zijn. Kopieer volgende fragment maar eens in een HTML document, en <a href="demos/01_syntax/js1k_3.html">bekijk het resutaat</a>...</p>
-    <pre class="prism-okaida mw-1200" data-demo="demos/01_syntax/js1k_3.html"><code class="language-html">&lt;!doctype html&gt;
+    <pre class="prism-okaida w-1200" data-demo="demos/01_syntax/js1k_3.html"><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 &lt;body&gt;
   &lt;canvas id="c"&gt;&lt;/canvas&gt;
@@ -142,6 +142,7 @@ WScript.StdOut.WriteLine('');
 WScript.StdOut.Write('Geef een geheel getal: ');
 var getal = parseInt(WScript.StdIn.ReadLine());
 WScript.StdOut.Write('De faculteit is ' + faculteit(getal));
+
 </code></pre>
       <pre class="prism-vslight language-cs line-numbers"><code>static private int Faculteit(int n) {
   int resultaat = n;
@@ -209,17 +210,17 @@ Server running at http://127.0.0.1:8124/</pre>
       <li>link het <strong>onderaan in de &lt;body&gt;</strong> (CSS bestanden link je bovenaan in de &lt;head&gt;) je HTML document met &lt;script src="js/scripts.js"&gt;&lt;/script&gt;</li>
       <li>open de HTML pagina in de browser (bijvoorbeeld met de Go Live knop rechtsonder)</li>
     </ol>
-    <img src="img/01_syntax/js-in-webpagina.png" alt="" class="mw-1000">
+    <img src="img/01_syntax/js-in-webpagina.png" alt="" class="w-1000">
     <div class="tips" data-caption="💡TIP">
       <p>Link je scripts altijd <strong>onderaan in de body</strong>, zodat alle HTML ingelezen is vóór het script uitgevoerd wordt! Als bonus krijgt de gebruiker dan sneller de inhoud van de pagina te zien, zonder eerst op het inladen van het script te moeten wachten
       </p>
     </div>
 
     <p>Voorbeeldcode, HTML en Javascript en het resultaat in de webpagina:</p>
-    <pre class="prism-okaida line-numbers w-700"><code>document.getElementById('message').innerHTML = 'Hallo Wereld!';
+    <pre class="prism-okaida line-numbers"><code>document.getElementById('message').innerHTML = 'Hallo Wereld!';
 console.log('einde script');
 </code></pre>
-    <pre class="prism-okaida language-html line-numbers w-700" data-demo="demos/01_syntax/basic/index.html"><code>&lt;!DOCTYPE html&gt;
+    <pre class="prism-okaida language-html line-numbers" data-demo="demos/01_syntax/basic/index.html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -232,7 +233,7 @@ console.log('einde script');
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-    <img src="img/01_syntax/js-in-webpagina2.png" alt="" class="mw-600">
+    <img src="img/01_syntax/js-in-webpagina2.png" alt="" class="w-600">
 
     <h4>Meerdere scripts linken</h4>
     <p>
@@ -262,7 +263,7 @@ console.log('einde script');
 
     <h4>Interne scriptblokken</h4>
     <p>In principe kan je scripts ook in de HTML pagina plaatsen, en net zoals bij CSS</p>
-    <pre class="prism-okaida language-html wrong line-numbers w-600" data-demo><code>&lt;!DOCTYPE html&gt;
+    <pre class="prism-okaida language-html wrong line-numbers" data-demo><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -284,7 +285,7 @@ console.log('einde script');
 
     <h4>Inline scripts</h4>
     <p>Je kan scripts zelfs inline plaatsen, en net zoals bij CSS:</p>
-    <pre class="prism-okaida language-html wrong line-numbers w-600" data-demo><code>&lt;!DOCTYPE html&gt;
+    <pre class="prism-okaida language-html wrong line-numbers" data-demo><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -305,21 +306,21 @@ console.log('einde script');
     <p>In de inspector van Chrome (<strong>F12</strong> of <strong>Shift-Ctrl-I</strong>) vind je onder het tabblad "Console" allerlei browser berichten: fouten, waarschuwingen, meldingen... Je kan er ook zelf naar schrijven, wat de Console tot een debugging instrument bij uitstek maakt.</p>
     <h4>Browsermeldingen</h4>
     <p>Javascript foutmeldingen komen in de Console terecht, dus hou het altijd goed in de gaten!</p>
-    <pre class="prism-okaida line-numbers"><code>document.getElementById('messge').innerHTML = 'Hallo Wereld!'; // FOUT: element messge bestaat niet
+    <pre class="prism-okaida line-numbers w-900"><code>document.getElementById('messge').innerHTML = 'Hallo Wereld!'; // FOUT: element messge bestaat niet
 console.log('einde script');
 </code></pre>
-    <img src="img/01_syntax/console.png" alt="" class="mw-600">
+    <img src="img/01_syntax/console.png" alt="" class="w-600">
     <h4>Zelf schrijven naar de console</h4>
     <p>Je kan met <code>console.log()</code> teksten naar de console schrijven:</p>
-    <pre class="prism-okaida line-numbers w-500" data-demo><code>const name = 'Rogier';
+    <pre class="prism-okaida line-numbers" data-demo><code>const name = 'Rogier';
 console.log(`Hello ${name}`);</code></pre>
     <p>Je kan het ook gebruiken om variabelen of zelfs hele arrays of objecten te inspecteren:</p>
-    <pre class="prism-okaida line-numbers w-500" data-demo><code>const names = ['Alice', 'Bob', 'Clive'];
+    <pre class="prism-okaida line-numbers" data-demo><code>const names = ['Alice', 'Bob', 'Clive'];
 const person = { name: 'rogier', age: '46', isMale: true};
 console.log(person);
 console.log(names);</code></pre>
     <p>Er zijn trouwens nog een hele waslijst andere functies voor <code>console</code> (volledige lijst zie <a href="https://developer.chrome.com/docs/devtools/console/api">https://developer.chrome.com/docs/devtools/console/api</a>):</p>
-    <pre class="prism-okaida line-numbers w-500" data-demo><code>console.table({ name: 'rogier', age: '46', isMale: true});
+    <pre class="prism-okaida line-numbers" data-demo><code>console.table({ name: 'rogier', age: '46', isMale: true});
 console.warn('this is a serious warning');
 console.error('whoops! an error occured');</code></pre>
       <h4>debugger</h4>
@@ -335,7 +336,7 @@ console.log(person); // schrijf 'person' naar de console
 person.age = 54; // verander achteraf de waarde 'age' naar 54
 </code></pre>
       <p>In de console zie je de waarde '54' staan die pas ingesteld is nádat <code>console.log()</code> opgeroepen werd.</p>
-      <p><img src="img/01_syntax/console-async.png" alt="" class="mw-400"></p>
+      <p><img src="img/01_syntax/console-async.png" alt="" class="w-400"></p>
       <p>De reden is dat waarden in de console niet noodzakelijk verschijnen op het moment in de code waarop <code>console.log()</code> opgeroepen wordt. Je kan handmatig het script pauzeren met <code>debugger</code>, en dan klopt de waarde wel:</p>
       <pre class="prism-okaida line-numbers" data-demo><code>let person = {
   name: 'Rogier',
@@ -346,21 +347,21 @@ debugger; // pauzeer het script
 person.age = 54; // verander achteraf de waarde 'age' naar 54
 </code></pre>
       <p>De weergegeven waarde is nu wel correct:</p>
-      <p><img src="img/01_syntax/console-sync.png" alt="" class="mw-400"></p>
+      <p><img src="img/01_syntax/console-sync.png" alt="" class="w-400"></p>
 
 
     <h2>Variabelen, types &amp; constanten</h2>
     <h3>Variabelen</h3>
     <p>Variabelen aanmaken is veel eenvoudiger dan in C#: je gebruikt gewoon het gereserveerd woord <code>let</code>. Een vergelijking voor de meest voorkomende types:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>let num1 = 3; // geheel getal
+      <pre class="prism-okaida line-numbers"><code>let num1 = 3; // geheel getal
 let num2 = 3.14; // kommagetal
 let boo = true; // boolean
 let str = 'hello'; // string
 let arr = [1, 2, 3, 5, 8, 13]; // array
 let dat = new Date(); // Date object
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>int num1 = 3; // geheel getal
+      <pre class="prism-vslight language-cs line-numbers"><code>int num1 = 3; // geheel getal
 double num2 = 3.14; // kommagetal
 bool boo = true; // boolean
 string str = "hello"; // string
@@ -369,7 +370,7 @@ DateTime dat = new DateTime(); // DateTime object
 </code></pre>
     </div>
     <p>In veel (oude) Javascript code zul je nog <code>var</code> zien gebruiken in plaats van <code>let</code>.</p>
-    <pre class="prism-okaida line-numbers wrong w-400"><code>var num1 = 3; // geheel getal
+    <pre class="prism-okaida line-numbers wrong"><code>var num1 = 3; // geheel getal
 var num2 = 3.14; // kommagetal
 ...
 </code></pre>
@@ -380,11 +381,11 @@ var num2 = 3.14; // kommagetal
     <h3>Weak typing van variabelen</h3>
     <p>Variabelen in Javascript zijn <strong>weakly typed</strong>, d.w.z. het type kan veranderen als je er een andere waarde aan toewijst:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>let num = 3; // num is een getal
+      <pre class="prism-okaida line-numbers"><code>let num = 3; // num is een getal
 num = "Rogier"; // num is nu een string
 num = false; // num is nu een boolean
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>int num = 3; // num is een getal
+      <pre class="prism-vslight language-cs line-numbers"><code>int num = 3; // num is een getal
 num = "Rogier"; // FOUT!
 num = false; // FOUT!
 </code></pre>
@@ -398,7 +399,7 @@ num = false; // FOUT!
       Als je verschillende types variabelen mixt in één expressie, passen zowel Javascript als C# in bepaalde gevallen automatische conversie toe. Javascript is daarin nog een flexibeler dan C#. De verschillen zijn echter groot, zoals uit onderstaande vergelijking blijkt:
     </p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>console.log(3 + '2'); // 32; 3 omgezet naar string
+      <pre class="prism-okaida line-numbers" data-demo><code>console.log(3 + '2'); // 32; 3 omgezet naar string
 console.log(3 + "2"); // 32; 3 omgezet naar string
 console.log(3 * '2'); // 6; '2' omgezet naar getal
 console.log(3 * "2"); // 6; "2" omgezet naar getal
@@ -408,7 +409,7 @@ console.log(3 == '3.0'); // true; '3.0' omgezet naar getal
 console.log(3 / 2); // 1.5; gewone deling
 console.log(3.0 / 2); // 1.5; gewone deling
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-600"><code>Console.WriteLine(3 + '2'); // 53; '2' omgezet naar ASCII 50
+      <pre class="prism-vslight language-cs line-numbers"><code>Console.WriteLine(3 + '2'); // 53; '2' omgezet naar ASCII 50
 Console.WriteLine(3 + "2"); // 32; 3 naar string omgezet
 Console.WriteLine(3 * '2'); // 150; '2' omgezet naar ASCII 50
 Console.WriteLine(3 * "2"); // FOUT!
@@ -426,12 +427,12 @@ Console.WriteLine(3.0 / 2); // 1.5; gewone deling
     <h3>Conversie van variabelen</h3>
     <p>Pas daarom bij het mixen van types in één expressie altijd conversie toe:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-600"><code>const test = 3;
+      <pre class="prism-okaida line-numbers"><code>const test = 3;
 console.log(test + parseInt('2')); // 5
 console.log(test.toString() + '2'); // 32
 console.log(parseFloat(test) / 2); // 1.5
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-600"><code>int test = 3;
+      <pre class="prism-vslight language-cs line-numbers"><code>int test = 3;
 Console.WriteLine(test + Convert.ToInt32("2")); // 5
 Console.WriteLine(Convert.ToString(test) + '2'); // 32
 Console.WriteLine(Convert.ToDouble(test) / 2); // 1.5
@@ -443,7 +444,7 @@ Console.WriteLine(Convert.ToDouble(test) / 2); // 1.5
 
     <h3>Identity operator</h3>
     <p>Er is een verschil tussen de identity operator === (vergelijkt waarde én type) en de equals operator == (vergelijkt enkel waarden):</p>
-    <pre class="prism-okaida line-numbers w-600"><code>console.log('3' == 3); // true
+    <pre class="prism-okaida line-numbers"><code>console.log('3' == 3); // true
 console.log('3' === 3); // false; verschillende types
 console.log('' == false); // true
 console.log('' === false); // false; verschillende types</code></pre>
@@ -510,13 +511,13 @@ test4 = new Date(1972, 8, 12); // FOUT! variabele overschrijven mag niet
     <h3>Drie soorten quotes</h3>
     <p>In C# moet je dubbele quotes gebruiken voor strings, maar in Javascript kan je ook enkele quotes of backticks gebruiken. Een vergelijking:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-700"><code>let first = 'Rogier'; // enkele quotes
+      <pre class="prism-okaida line-numbers"><code>let first = 'Rogier'; // enkele quotes
 let last = "van der Linde"; // dubbele quotes
 let greet1 = 'Zeg "Welkom"'; // enkel en dubbel genest
 let greet2 = "Zeg 'Welkom'"; // omgekeerd mag ook
 let message = `Welkom ${first} ${last}`; // string interpolatie: gebruik backticks
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-600"><code>string first = "Rogier";
+      <pre class="prism-vslight language-cs line-numbers"><code>string first = "Rogier";
 string last = "van der Linde";
 string greet1 = "Zeg \"Hallo\""; // escape nodig
 string greet2 = "Zeg 'Hallo'"; // geen escape nodig
@@ -533,7 +534,7 @@ string message = $"Hallo {first} {last}"; // string interpolatie
       Net zoals C# kent Javascript string interpolatie en multiline strings. In C# worden ze met $ reps. @ aangeduid, in javascript met backticks:
     </p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-400"><code>// string interpolatie
+      <pre class="prism-okaida line-numbers"><code>// string interpolatie
 let name = 'Rogier';
 console.log(`Welkom ${name}`);
 
@@ -545,7 +546,7 @@ vier
 hoedje van
 hoedje van...`);
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-400"><code>// string interpolatie
+      <pre class="prism-vslight language-cs line-numbers"><code>// string interpolatie
 string naam = "Rogier";
 Console.WriteLine($"hallo {naam}");
 
@@ -648,7 +649,7 @@ console.log('hello'.includes('ell')); // true</code></pre>
     <h3>Arrays</h3>
     <p>Arrays in Javascript zijn veel losser dan in C#. Je mag types mixen, en onbeperkt elementen toevoegen:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>const arr1 = [];
+      <pre class="prism-okaida line-numbers"><code>const arr1 = [];
 arr1[0] = 'abc';
 arr1[1] = 'def';
 console.log(arr1.length); // 2
@@ -658,7 +659,7 @@ arr1[2] = false; // boolean toevoegen: ok
 arr1[100] = 'test'; // tekst toevoegen: ok
 console.log(arr1.length); // 101
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>string[] arr1 = new string[10];
+      <pre class="prism-vslight language-cs line-numbers"><code>string[] arr1 = new string[10];
 arr1[0] = "abc";
 arr1[1] = "def";
 Console.WriteLine(arr1.Length); // 10
@@ -666,6 +667,7 @@ Console.WriteLine(arr1.Length); // 10
 arr1[1] = 12; // fout! is geen string
 arr1[2] = false; // fout! is geen string
 arr1[100] = "test"; // fout! buiten het bereik
+
 </code></pre>
     </div>
     <ul class="arrow">
@@ -675,7 +677,7 @@ arr1[100] = "test"; // fout! buiten het bereik
     <h3>Lijsten</h3>
     <p>In Javascript bestaat geen aparte implementatie voor lijsten, maar array methodes als <code>push()</code>, <code>pop()</code> en <code>includes()</code> hebben wel veel overeenkomsten met de C# List methodes <code>Add()</code>, <code>Remove()</code> en <code>Contains()</code>:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-600"><code>const list1 = ['boter', 'kaas', 'melk'];
+      <pre class="prism-okaida line-numbers w-700"><code>const list1 = ['boter', 'kaas', 'melk'];
 list1.push('eieren'); // voeg item toe
 list1.push('tomaten'); // voeg item toe
 if (list1.includes('kaas')) console.log('lijst bevat kaas');
@@ -750,7 +752,7 @@ Console.WriteLine($"items: ${String.Join(", ", list1)}"); // melk, eieren, kaas
     </table>
     <h3>Extensiemethodes</h3>
     <p>Net zoals in veel andere programmeertalen, kent Javascript een aantal zgn. extensiemethodes voor arrays. De interessantste zijn <code>find()</code>, <code>filter()</code> en <code>map()</code>. Een codevoorbeeld:</p>
-    <pre class="prism-okaida line-numbers w-600"><code>const arr1 = ['boter', 'kaas', 'melk', 'eieren'];
+    <pre class="prism-okaida line-numbers"><code>const arr1 = ['boter', 'kaas', 'melk', 'eieren'];
 console.log(arr1.find(str =&gt; str.startsWith('k'))); // 'kaas'
 console.log(arr1.filter(str =&gt; str.length &gt; 4 )); // ['boter', 'eieren']
 console.log(arr1.map(str =&gt; str.length )); // [5, 4, 4, 6]
@@ -769,7 +771,7 @@ console.log(arr2.map(el =&gt; el + 1 )); // [17, -76, 4, 5, -8]
     <h3>Objecten maken</h3>
     <p>In Javascript kan je “ad hoc” objecten maken, in C# moet je eerst een <em>klasse</em> maken (zie leerstof OO Application Development):</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>const myCar = {
+      <pre class="prism-okaida line-numbers"><code>const myCar = {
     make: 'Mercury Bobcat',
     speed: 0,
     engineOn: true,
@@ -781,8 +783,15 @@ console.log(arr2.map(el =&gt; el + 1 )); // [17, -76, 4, 5, -8]
 
 myCar.accelerate(25);
 console.log(`current speed is ${myCar.speed}`);
+
+
+
+
+
+
+
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>class Car {
+      <pre class="prism-vslight language-cs line-numbers"><code>class Car {
     public string Make;
     public int Speed;
     public bool EngineOn;
@@ -807,7 +816,7 @@ Console.WriteLine($"current speed is {myCar.Speed}");
     <h3>Properties toevoegen</h3>
     <p>In Javascript kan je achteraf nog onbeperkt properties toevoegen, in C# kan dat niet:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>const myCar = {
+      <pre class="prism-okaida line-numbers"><code>const myCar = {
     make: 'Mercury Bobcat',
     speed: 0,
     engineOn: false,
@@ -818,8 +827,15 @@ Console.WriteLine($"current speed is {myCar.Speed}");
 }
 
 myCar.color = 'silver'; // ok; nieuwe property toegevoegd
+
+
+
+
+
+
+
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>class Car {
+      <pre class="prism-vslight language-cs line-numbers"><code>class Car {
     public string Make;
     public int Speed;
     public bool EngineOn;
@@ -843,7 +859,7 @@ myCar.Color = "silver"; // FOUT! property bestaat niet
     <div class="pro">
       <h3>Objecten als parameter</h3>
       <p>Objecten worden vaak gebruikt om properties in één variabele te groeperen, die dan makkelijk als parameter kan doorgegeven worden:</p>
-      <pre class="prism-okaida line-numbers w-500" data-demo><code>// functie met één 'thing' parameter
+      <pre class="prism-okaida line-numbers" data-demo><code>// functie met één 'thing' parameter
 function getDescription(thing) {
   const lines = [];
   lines.push(`Name: ${thing.kind}`);
@@ -865,7 +881,7 @@ console.log(getDescription(stone));</code></pre>
 
       <h3>Anonieme objecten</h3>
       <p>Net zoals bij <a href="#anonieme-functies">anonieme functies</a>, kan je ook ad hoc objecten aanmaken en meegeven zonder ze eerst een naam te geven:</p>
-      <pre class="prism-okaida line-numbers w-500" data-demo><code>// functie met één 'thing' parameter
+      <pre class="prism-okaida line-numbers" data-demo><code>// functie met één 'thing' parameter
 function getDescription(thing) {
   const lines = [];
   lines.push(`Name: ${thing.kind}`);
@@ -888,14 +904,14 @@ console.log(getDescription({
     <h3>Selecties</h3>
     <p>In Javascript komt de syntax van de selecties <code>if</code>, <code>if</code>-<code>else</code> en <code>switch</code>-<code>case</code> overeen met C#. Een <code>if</code>-<code>else</code> voorbeeld:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>const badGrades = true;
+      <pre class="prism-okaida line-numbers"><code>const badGrades = true;
 if (badGrades) {
   console.log('House arrest for two weeks');
 } else {
   console.log('No house arrest');
 }
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>bool badGrades = true;
+      <pre class="prism-vslight language-cs line-numbers"><code>bool badGrades = true;
 if (badGrades) {
     Console.WriteLine("House arrest for two weeks");
 } else {
@@ -917,7 +933,7 @@ Console.WriteLine($"{number} is {(number % 2 == 0 ? "even" : "odd")}");
     <h4>herhalingsstructuren <code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
     <p>In Javascript komt de syntax van de selecties <code>while</code>, <code>do</code>-<code>while</code> en <code>for</code> overeen met C#. Een <code>for</code> voorbeeld:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-600"><code>// definieer een array
+      <pre class="prism-okaida line-numbers w-550"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -925,7 +941,7 @@ for (let i = 0; i &lt; forrestFriends.length; i++) {
   console.log(`friend nr. ${i}: ${forrestFriends[i]}`);
 }
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-600"><code>// definieer een array
+      <pre class="prism-vslight language-cs line-numbers w-550"><code>// definieer een array
 string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
 // itereer over de waarden
@@ -938,7 +954,7 @@ for (int i = 0; i &lt; forrestFriends.Length; i++) {
     <h4>itereren over arrays met <code>for</code>-<code>of</code> </h4>
     <p>De <code>for</code>-<code>of</code> iteratie in Javascript komt overeen met <code>foreach</code>-<code>in</code> in C#:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
+      <pre class="prism-okaida line-numbers"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -946,7 +962,7 @@ for (const friend of forrestFriends) {
   console.log(friend); // Bubba, Lt. Dan
 }
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>// defininieer een array
+      <pre class="prism-vslight language-cs line-numbers"><code>// defininieer een array
 string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
 // itereer over de waarden
@@ -958,7 +974,7 @@ foreach (string friend in forrestFriends) {
 
     <h4>itereren over collecties met <code>forEach</code></h4>
     <p>Javascript heeft nog een verkorte notatie (zonder C# equivalent) die velen zeer handig vinden:</p>
-    <pre class="prism-okaida line-numbers w-500"><code>// definieer een array
+    <pre class="prism-okaida line-numbers"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -969,7 +985,7 @@ forrestFriends.forEach(friend =&gt; {
 
     <h4>Itereren over object keys met <code>for</code>-<code>in</code> </h4>
     <p>Dit heeft niet direct een C# equivalent. Je kan het gebruiken om te itereren over de keys van een <a href="#objecten">object</a>:</p>
-      <pre class="prism-okaida line-numbers w-500"><code>const myCar = {
+      <pre class="prism-okaida line-numbers"><code>const myCar = {
     make: 'Mercury Bobcat',
     speed: 0,
     engineOn: true,
@@ -994,7 +1010,7 @@ accelerate is een function</pre>
     <h3>Klassieke notatie</h3>
     <p>Methodes in C# noemt men in Javascript <strong>functies</strong>. Een vergelijking van de syntax:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>function getFibonacciNumbers(n) {
+      <pre class="prism-okaida line-numbers"><code>function getFibonacciNumbers(n) {
    if (n &lt;= 0) return [];
    if (n == 1) return [0];
    const arrFib = [];
@@ -1006,7 +1022,7 @@ accelerate is een function</pre>
    return arrFib;
 }
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>private static int[] GetFibonacciNumbers(int n) {
+      <pre class="prism-vslight language-cs line-numbers"><code>private static int[] GetFibonacciNumbers(int n) {
     if (n &lt;= 0) return new int[0] { };
     if (n == 1) return new int[1] { 0 };
     int[] arrFib = new int[n];
@@ -1022,11 +1038,11 @@ accelerate is een function</pre>
     <h3>Notatie als constante</h3>
     <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig (of toch bijna, er is <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een klein verschil</a>, maar dat is voor deze cursus niet zo belangrijk)</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
+      <pre class="prism-okaida line-numbers"><code>const getFibonacciNumbers = function(n) {
     ...
 }
 </code></pre>
-      <pre class="prism-okaida language-javascript line-numbers w-500"><code>function getFibonacciNumbers(n) {
+      <pre class="prism-okaida language-javascript line-numbers"><code>function getFibonacciNumbers(n) {
     ...
 }
 </code></pre>
@@ -1034,14 +1050,14 @@ accelerate is een function</pre>
     <h3>Arrow expression notatie</h3>
     <p>Een verkorte notatie die je in nog andere talen tegenkomt, is de <code>(...) =&gt; { ... }</code> vorm. Volgende notaties zijn gelijkwaardig:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = function(n) {
+      <pre class="prism-okaida line-numbers"><code>const getFibonacciNumbers = function(n) {
     ...
 }
 const bepaalGgd = function(get1, get2) {
     ...
 }
 </code></pre>
-      <pre class="prism-okaida line-numbers w-500"><code>const getFibonacciNumbers = n =&gt; {
+      <pre class="prism-okaida line-numbers"><code>const getFibonacciNumbers = n =&gt; {
     ...
 }
 const bepaalGgd = (get1, get2) =&gt; {
@@ -1102,7 +1118,7 @@ speak('Behind every great man is a woman rolling her eyes.', () =&gt; {
     <h2>Ingebouwde klassen: Math, Date, Array, Random...</h2>
     <p>Minder dan C#, maar Javascript heeft ook een aantal ingebouwde klassen als <code>Math</code>, <code>Date</code>, <code>Array</code>... De syntax verschilt helaas vaak veel. Een paar typische voorbeelden:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>// Date example
+      <pre class="prism-okaida line-numbers"><code>// Date example
 const now = new Date();
 console.log(now.getFullYear());
 
@@ -1114,7 +1130,7 @@ const arr1 = [ 'melk', 'boter', 'eieren' ];
 arr1.sort();
 console.log(arr1.join(', '));
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-500"><code>// Date example
+      <pre class="prism-vslight language-cs line-numbers"><code>// Date example
 DateTime now = DateTime.Now;
 Console.WriteLine(now.Year);
 
@@ -1137,7 +1153,7 @@ Console.WriteLine(String.Join(", ", arr1));
     <h3>Accolades</h3>
     <p>Als je code block uit één regel bestaat, mag je in theorie de accolades weglaten. Dit is een slechte stijl, dus <strong>schrijf altijd de accolades voluit</strong>:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500 wrong"><code>if (age &lt; 6)
+      <pre class="prism-okaida line-numbers wrong"><code>if (age &lt; 6)
   console.log('child');
 else if (age &lt; 18)
   console.log('junior');
@@ -1145,7 +1161,7 @@ else
   console.log('adult');
 
 </code></pre>
-      <pre class="prism-okaida line-numbers w-500 right"><code>if (age &lt; 6) {
+      <pre class="prism-okaida line-numbers right"><code>if (age &lt; 6) {
   console.log('child');
 } else if (age &lt; 18) {
   console.log('junior');
@@ -1160,7 +1176,7 @@ else
 
     <h3>Code commentaar</h3>
     <p>Voorzie je code <strong>rijkelijk van commentaar</strong>. Zo blijft het leesbaar voor jou en je collega’s, vandaag en in de toekomst! Inspireer je op volgend voorbeeld:</p>
-    <pre class="prism-okaida line-numbers w-600"><code>/*
+    <pre class="prism-okaida line-numbers"><code>/*
  * Binary sudoku script
  *
  * @author Rogier van der Linde &lt;rogier.vanderlinde@odisee.be&gt;
@@ -1221,11 +1237,11 @@ btnLogin.addEventListener('click', function(e) {
       <li>geen twee <strong>open regels</strong> na elkaar</li>
       <li>bovenal: wees <strong>consequent</strong></li>
     </ul>
-    <pre class="prism-okaida line-numbers w-500 wrong"><code>console.log ('Genereer random getal... ' );
+    <pre class="prism-okaida line-numbers wrong"><code>console.log ('Genereer random getal... ' );
 let random = Math.Random( ); let g1 =parseInt(random);
 console.log(`Het kwadraat is: ${g1*g1}`);
 </code></pre>
-    <pre class="prism-okaida line-numbers w-500 right"><code>console.log('Genereer random getal... ');
+    <pre class="prism-okaida line-numbers right"><code>console.log('Genereer random getal... ');
 let random = Math.Random();
 let g1 = parseInt(random);
 console.log(`Het kwadraat is: ${g1 * g1}`);
@@ -1282,7 +1298,7 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
     <h3>Nesting</h3>
     <p><strong>Vermijd nesting</strong> als het eenvoudig anders kan:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500 wrong"><code>if (age &gt; 6) {
+      <pre class="prism-okaida line-numbers wrong"><code>if (age &gt; 6) {
     if (age &lt; 18) {
         console.log('junior');
     } else {
@@ -1292,7 +1308,7 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
     console.log('child');
 }
 </code></pre>
-      <pre class="prism-okaida line-numbers w-500 right"><code>if (age &lt; 6) {
+      <pre class="prism-okaida line-numbers right"><code>if (age &lt; 6) {
     console.log('child');
 } else if (age &lt; 18) {
     console.log('junior');

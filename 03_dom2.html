@@ -176,7 +176,7 @@ console.log(nav.previousElementSibling);
       </tbody>
     </table>
     <p>Een handige methode is ook <code>closest()</code>, die de eerste ancestor zoekt die voldoet aan de meegegeven selector</p>
-    <pre class="prism-okaida line-numbers"><code>const nav = someLink.closest('nav'); // search from some link up the tree till you find 'nav'</code></pre>
+    <pre class="prism-okaida line-numbers w-800"><code>const nav = someLink.closest('nav'); // search from some link up the tree till you find 'nav'</code></pre>
 
     <h2>Speciale nodes</h2>
     <p>
@@ -511,7 +511,7 @@ thumbs.forEach(thn =&gt; {
       We herwerken het met gebruik van o.a. <strong><code>classList</code></strong> en <strong><code>parentNode</code></strong>. Bekijk zeker de uitleg in <a href="#video-tree-navigatie-speciale-nodes-classlist-style-data-mouse-en-keyboard">de video</a>. De aangepaste HTML:
     </p>
     <div class="precontainer">
-      <pre class="prism-okaida language-html line-numbers right w-1000" data-demo="demos/03_dom2/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
+      <pre class="prism-okaida language-html line-numbers right" data-demo="demos/03_dom2/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
   &lt;h1&gt;Registreren&lt;/h1&gt;
   &lt;div&gt;
     &lt;label for="email"&gt;Email: &lt;/label&gt;
@@ -532,7 +532,7 @@ thumbs.forEach(thn =&gt; {
   </div>
   <p>In de aangepaste CSS verbergen we standaard de foutmeldingen:</p>
   <div class="precontainer">
-    <pre class="prism-okaida language-css line-numbers w-400 right"><code>label {
+    <pre class="prism-okaida language-css line-numbers right"><code>label {
   display: block;
 }
 

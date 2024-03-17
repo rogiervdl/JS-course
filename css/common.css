@@ -43,6 +43,7 @@ a:hover {
 
 code,
 pre {
+	max-width: 1000px;
 	width: fit-content;
 }
 
@@ -189,101 +190,119 @@ table {
 
 /* widths */
 
-.w-50 {
+body main .w-50 {
+	max-width: 100%;
 	width: 5rem;
 }
 
-.w-100 {
+body main .w-100 {
+	max-width: 100%;
 	width: 10rem;
 }
 
-.w-150 {
+body main .w-150 {
+	max-width: 100%;
 	width: 15rem;
 }
 
-.w-200 {
+body main .w-200 {
+	max-width: 100%;
 	width: 20rem;
 }
 
-.w-250 {
+body main .w-250 {
+	max-width: 100%;
 	width: 25rem;
 }
 
-.w-300 {
+body main .w-300 {
+	max-width: 100%;
 	width: 30rem;
 }
 
-.w-350 {
+body main .w-350 {
+	max-width: 100%;
 	width: 35rem;
 }
 
-.w-400 {
+body main .w-400 {
+	max-width: 100%;
 	width: 40rem;
 }
 
-.w-450 {
+body main .w-450 {
+	max-width: 100%;
 	width: 45rem;
 }
 
-.w-500 {
+body main .w-500 {
+	max-width: 100%;
 	width: 50rem;
 }
 
-.w-550 {
+body main .w-550 {
+	max-width: 100%;
 	width: 55rem;
 }
 
-.w-600 {
+body main .w-600 {
+	max-width: 100%;
 	width: 60rem;
 }
 
-.w-650 {
+body main .w-650 {
+	max-width: 100%;
 	width: 65rem;
 }
 
-.w-700 {
+body main .w-700 {
+	max-width: 100%;
 	width: 70rem;
 }
 
-.w-800 {
+body main .w-800 {
+	max-width: 100%;
 	width: 80rem;
 }
 
-.w-900 {
+body main .w-900 {
+	max-width: 100%;
 	width: 90rem;
 }
 
-.w-1000 {
+body main .w-1000 {
+	max-width: 100%;
 	width: 100rem;
 }
 
-.w-1200 {
+body main .w-1200 {
+	max-width: 100%;
 	width: 120rem;
 }
 
 /* max widths */
 
-.mw-400 {
+body main .mw-400 {
 	max-width: 40rem;
 }
 
-.mw-500 {
+body main .mw-500 {
 	max-width: 50rem;
 }
 
-.mw-600 {
+body main .mw-600 {
 	max-width: 60rem;
 }
 
-.mw-800 {
+body main .mw-800 {
 	max-width: 80rem;
 }
 
-.mw-1000 {
+body main .mw-1000 {
 	max-width: 100rem;
 }
 
-.mw-1200 {
+body main .mw-1200 {
 	max-width: 120rem;
 }
 
@@ -660,10 +679,12 @@ pre {
 	line-height: 1.9rem;
 	margin-bottom: 1.5em;
 	margin-top: 0;
+	max-width: 100%;
 	overflow-wrap: break-word;
 	padding: 1em;
 	padding-top: 2em;
 	white-space: pre-wrap;
+	width: 700px;
 }
 
 figure.console pre {
@@ -686,6 +707,10 @@ figure pre {
 
 .codecompare {
 	column-gap: 20px;
+}
+
+.codecompare pre {
+	width: 500px;
 }
 
 /* toolbar mods */
