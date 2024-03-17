@@ -56,7 +56,7 @@
     <p>
       Dit hoofdstuk is &ldquo;Games&rdquo; gedoopt omdat het een verzameling bevat van allerlei leuke en eenvoudige technieken (waaronder een paar in CSS) die van pas kunnen komen in game-achtige toepassingen.
     </p>
-    <h3><code>localStorage</code></h3>
+    <h3>Local storage</h3>
     <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
     <h4>tekst bewaren</h4>
     <p>Eenvoudig voorbeeld waar de gekozen waarde uit een lijst persisteert:</p>
@@ -416,6 +416,13 @@
         <img src="img/05_games/photobooth-small.gif" alt="" class="bordered">
         <figcaption>photobooth voorbeeld</figcaption>
       </figure>
+      <p>Nog meer online experimenten:</p>
+      <ul class="arrow">
+        <li>de uitgebreide photobooth versie op <a href="https://webcamtoy.com/">https://webcamtoy.com/</a></li>
+        <li>zandpartikels op <a href="https://lab.cheron.works/webgl-gpgpu-particles/">https://lab.cheron.works/webgl-gpgpu-particles/</a></li>
+        <li>webcam xylofoon op <a href="https://www.soundstep.com/blog/experiments/jsdetection/">https://www.soundstep.com/blog/experiments/jsdetection/</a></li>
+      </ul>
+
       <h3>Geolocation</h3>
       <p>De positie van de gebruiker is eenvoudig te bepalen via <code>navigator.geolocation</code>:</p>
       <pre class="prism-okaida" data-demo><code>if (navigator.geolocation) {
@@ -528,10 +535,41 @@
     }
   });
 &lt;/script&gt;</code></pre>
+    <figure class="w-300">
+      <img src="img/05_games/orientation.gif" alt="" class="bordered">
+      <figcaption>detectie kantelhoek device</figcaption>
+    </figure>
+    <ul class="arrow">
+      <li>nog een mooi experiment op <a href="https://paperplanes.world/">https://paperplanes.world/</a>: gooi een papieren vliegtuig met je gsm</li>
+    </ul>
 
+    <h3>Notificaties</h3>
+    <p>Toon taskbar notificaties rechtsonder:</p>
+    <pre class="prism-okaida w-1000" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;input type="button" id="lnkNotifyMe" value="Notify Me"&gt;
 
-
-
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  function showNotification(title, msg, icon) {
+    const notification = new Notification(title, { body: msg, icon: icon } );
+  }
+  document.getElementById('lnkNotifyMe').addEventListener('click', function() {
+    if (Notification.permission == 'denied') return;
+    if (Notification.permission == 'granted') {
+      showNotification('Some notification', 'Hi there!', 'img/avatar.jpg');
+      return;
+    }
+    Notification.requestPermission(function (permission) {
+      if (permission === 'granted') {
+        showNotification('Some notification', 'Hi there!', 'img/avatar.jpg');
+      }
+    });
+  });
+&lt;/script&gt;</code></pre>
+<figure class="w-300">
+  <img src="img/05_games/notification.png" alt="">
+  <figcaption>taskbar notificaties met Javascript</figcaption>
+</figure>
 
   </main>
   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>

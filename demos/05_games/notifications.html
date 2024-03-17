@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Notification demo </title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<input type="button" id="lnkNotifyMe" value="Notify Me">
+	<script>
+
+    function showNotification(title, msg, icon) {
+        const notification = new Notification(title, { body: msg, icon: icon } );
+      }
+      document.getElementById('lnkNotifyMe').addEventListener('click', function() {
+        if (Notification.permission == 'denied') return;
+        if (Notification.permission == 'granted') {
+          showNotification('Some notification', 'Hi there!', 'img/avatar.jpg');
+          return;
+        }
+        Notification.requestPermission(function (permission) {
+          if (permission === 'granted') {
+            showNotification('Some notification', 'Hi there!', 'img/avatar.jpg');
+          }
+        });
+      });
+
+	</script>
+</body>
+</html>
