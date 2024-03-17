@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!-- [html-validate-disable no-trailing-whitespace] -->
+<!-- [html-validate-disable no-inline-style] -->
+<html lang="nl">
+
+<head>
+  <title>Javascript API's | Javascript cursus</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="language-javascript">
+  <div id="mode">
+    <span>n00b</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+    <span>pro</span>
+  </div>
+  <nav class="site__nav">
+    <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
+      <p class="thumb__title">01. Javascript syntax</p>
+      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+    </a>
+    <a href="02_dom1.html" class="main__thumb active" title="02. DOM deel 1">
+      <p class="thumb__title">02. DOM deel 1</p>
+      <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
+    </a>
+    <a href="03_dom2.html" class="main__thumb" title="03. DOM deel2">
+      <p class="thumb__title">03. DOM deel 2</p>
+      <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
+    </a>
+    <a href="04_async.html" class="main__thumb" title="04. Web API's">
+      <p class="thumb__title">04. Web API's</p>
+      <img class="thumb__visual" src="img/04_async/icon.png" alt="">
+    </a>
+    <a href="05_games.html" class="main__thumb" title="05. games">
+      <p class="thumb__title">05. Games</p>
+      <img class="thumb__visual" src="img/05_games/icon.png" alt="">
+    </a>
+    <a href="summary.html" class="main__thumb" title="05. samenvatting">
+      <p class="thumb__title">samenvatting</p>
+      <img class="thumb__visual" src="img/summary/icon.png" alt="">
+    </a>
+  </nav>
+  <h1>Games</h1>
+  <div id="toc"></div>
+
+  <main>
+    <h2>Javascript API's</h2>
+    <p>
+      Een <mark>Javascript api</mark> is heel iets anders dan een web API: het gaat eveneens om een set methodes die de programmeur kan gebruiken in zijn Javascript toepassing, maar dan op het gebied van <strong>webcam</strong>, <strong>bluetooth</strong>, <strong>fullscreen</strong>, <strong>speech recognition</strong>, <strong>3D</strong> enz... Een uitgebreide lijst vind je op <a href="https://developer.mozilla.org/en-US/docs/Web/API">https://developer.mozilla.org/en-US/docs/Web/API</a>
+    </p>
+    <p>
+      Dit hoofdstuk is &ldquo;Games&rdquo; gedoopt omdat het een verzameling bevat van allerlei leuke en eenvoudige technieken (waaronder een paar in CSS) die van pas kunnen komen in game-achtige toepassingen.
+    </p>
+    <h3><code>localStorage</code></h3>
+    <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
+    <h4>tekst bewaren</h4>
+    <p>Eenvoudig voorbeeld waar de gekozen waarde uit een lijst persisteert:</p>
+    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
+&lt;select id="selTest"&gt;
+  &lt;option selected&gt;keuze 1&lt;/option&gt;
+  &lt;option&gt;keuze 2&lt;/option&gt;
+  &lt;option&gt;keuze 3&lt;/option&gt;
+  &lt;option&gt;keuze 4&lt;/option&gt;
+&lt;/select&gt;
+&lt;p&gt;&lt;em&gt;&rarr; merk op dat de keuze persisteert&lt;/em&gt;&lt;/p&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const selTest = document.querySelector('#selTest');
+  const savedValue = localStorage.getItem('selectValue');
+  if (savedValue != undefined) selTest.value = savedValue;
+  selTest.addEventListener('change', function() {
+    console.log(this.value)
+    localStorage.setItem('selectValue', this.value);
+  });
+&lt;/script&gt;</code></pre>
+    <figure class="w-400">
+      <img src="img/05_games/localStorage-simple.gif" alt="">
+      <figcaption>geselecteerde waarde blijft bewaard</figcaption>
+    </figure>
+    <h4>objecten bewaren</h4>
+    <p>Met localStorage kan je enkel strings bewaren. Je kan objecten wel omzetten naar strings en terug met <code>JSON.parse()</code> en <code>JSON.stringify()</code>:</p>
+    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
+&lt;p&gt;&lt;label&gt;Naam: &lt;input id="inpName" type="text" value="Rogier"&gt;&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;&lt;label&gt;Leeftijd: &lt;input id="inpAge" type="number" value="54"&gt;&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;button type="button" id="btnSave"&gt;opslaan&lt;/button&gt;
+  &lt;button type="button" id="btnHerstel"&gt;herstellen&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const inpName = document.querySelector('#inpName');
+  const inpAge = document.querySelector('#inpAge');
+  document.querySelector('#btnSave').addEventListener('click', function() {
+    const person = {
+      name: inpName.value,
+      age: inpAge.value,
+    };
+    localStorage.setItem('person', JSON.stringify(person));
+  });
+  document.querySelector('#btnHerstel').addEventListener('click', function() {
+    if (!localStorage.getItem('person')) return;
+    const person = JSON.parse(localStorage.getItem('person'));
+    inpName.value = person.name;
+    inpAge.value = person.age;
+  });
+&lt;/script&gt;</code></pre>
+    <figure class="w-400">
+      <img src="img/05_games/localStorage-object.gif" alt="">
+      <figcaption>herstellen naar laatst opgeslagen object</figcaption>
+    </figure>
+
+    <h4>opgeslagen items bekijken</h4>
+    <p>De localStorage items worden bewaard per site. Je kan ze altijd terugvinden in de inspector onder de <strong>Application</strong> tab:</p>
+    <figure class="w-600">
+      <img src="img/05_games/localStorage.png" alt="">
+      <figcaption>opgeslagen localStorage items vind je onder de Application tab</figcaption>
+    </figure>
+
+    <h3>Drag drop</h3>
+    <h4>teksten verslepen</h4>
+    <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
+    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+&lt;style&gt;
+  body {
+    width: 500px;
+  }
+  textarea {
+    border: 2px ridge;
+    height: 200px;
+    width: 100%;
+  }
+&lt;/style&gt;
+
+&lt;!-- HTML --&gt;
+&lt;p&gt;
+  In alteration insipidity impression by travelling reasonable up motionless. Of
+  regard warmth by unable sudden garden ladies. No kept hung am size spot no. Likewise
+  led and dissuade rejoiced welcomed husbands boy. Do listening on he suspected
+  resembled. Water would still if to. Position boy required law moderate was may.
+&lt;/p&gt;
+&lt;textarea placeholder="...selecteer een stuk tekst hierboven, en sleep het hierin..."&gt;&lt;/textarea&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const dropZone = document.querySelector('textarea');
+  dropZone.addEventListener('dragover', (e)  =&gt; e.preventDefault() );
+  dropZone.addEventListener('dragenter', (e)  =&gt; e.preventDefault() );
+  dropZone.addEventListener('drop', function(e) {
+    e.preventDefault();
+    txtPassed = e.dataTransfer.getData('text/plain');
+    this.innerHTML = txtPassed;
+  });
+&lt;/script&gt;</code></pre>
+    <figure class="w-500">
+      <img src="img/05_games/dragdrop-text.gif" alt="">
+      <figcaption>drag drop van teksten</figcaption>
+    </figure>
+
+    <h4>afbeeldingen verslepen</h4>
+    <p>Voorbeeld met afbeeldingen (tweede afbeelding is niet draggable wegens <code>draggable="false"</code>): </p>
+    <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+&lt;style&gt;
+  #dropzone {
+    border: 2px ridge;
+    height: 200px;
+    width: 400px;
+  }
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+  ol li {
+    display: inline-block;
+  }
+&lt;/style&gt;
+
+&lt;!-- HTML --&gt;
+&lt;div id="dragzone"&gt;
+  &lt;img src="img/product1.jpg" alt=""&gt;
+  &lt;img src="img/product2.jpg" alt="" draggable="false"&gt;
+  &lt;img src="img/product3.jpg" alt=""&gt;
+&lt;/div&gt;
+&lt;div id="dropzone"&gt;
+  ...drop item here...
+&lt;/div&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const dropZone = document.querySelector('#dropzone');
+  dropZone.addEventListener('dragover', (e) =&gt; e.preventDefault());
+  dropZone.addEventListener('dragenter', (e) =&gt; e.preventDefault());
+  dropZone.addEventListener('drop', function (e) {
+    imgPassed = e.dataTransfer.getData('text/uri-list');
+    this.innerHTML = "&lt;img src='" + imgPassed + "'/&gt;";
+    e.stopPropagation();
+    e.preventDefault();
+  });
+&lt;/script&gt;</code></pre>
+    <figure class="w-500">
+      <img src="img/05_games/dragdrop-image.gif" alt="">
+      <figcaption>drag drop van afbeeldingen</figcaption>
+    </figure>
+
+    <h4>afbeeldingen van desktop naar pagina slepen</h4>
+    <p>Voorbeeld met afbeeldingen vanuit verkenner naar een webpagina slepen: </p>
+    <pre class="prism-okaida w-900 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+&lt;style&gt;
+  #dropzone {
+    height: 150px;
+    border: 2px dashed #0687FF;
+  }
+  #thumbnails {
+    height: 125px;
+    margin-top: 10px;
+  }
+  #thumbnails img {
+    height: 100px;
+    margin: 10px
+  }
+&lt;/style&gt;
+
+&lt;!-- HTML --&gt;
+&lt;div id="dropzone"&gt;Drop in images from your desktop&lt;/div&gt;
+&lt;div id="thumbnails"&gt;&lt;/div&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+
+  // drop area
+  const dropzone = document.querySelector('#dropzone');
+  const thumbnails = document.querySelector('#thumbnails');
+
+  // dropzone events
+  dropzone.addEventListener('dragenter', (e) =&gt; { e.preventDefault(); });
+  dropzone.addEventListener('dragover', (e) =&gt; { e.preventDefault(); });
+  dropzone.addEventListener('dragleave', (e) =&gt; { e.preventDefault(); });
+  dropzone.addEventListener('drop', function (e) {
+    e.preventDefault();
+
+    // fetch dropped files
+    for (const file of e.dataTransfer.files) {
+      // images only
+      if (!file.type.match(/image.*/)) continue;
+
+      // create reader for dropped file
+      const reader = new FileReader();
+      reader.addEventListener('load', function (e) {
+        thumbnails.innerHTML = `${thumbnails.innerHTML}&lt;img src="${e.target.result}" alt="${file.name}"&gt;`;
+      });
+      reader.addEventListener('error', () =&gt; { alert('an error occurred'); });
+
+      // feed dropped file to reader
+      reader.readAsDataURL(file);
+    }
+  });
+
+&lt;/script&gt;</code></pre>
+    <figure class="w-500">
+      <img src="img/05_games/dragin-image.gif" alt="" class="bordered">
+      <figcaption>sleep afbeeldingen in een pagina</figcaption>
+    </figure>
+
+    <h3>Webcam</h3>
+    <p>De webcam gebruiken is heel eenvoudig: vraag een webcamstream op via <code>navigator.mediaDevices.getUserMedia()</code>, en stel het in als bron van een <code>&lt;video&gt;</code> element.</p>
+    <h4>Voorbeeld 1: weergave webcam in een video element</h4>
+    <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+&lt;style&gt;
+  #webcam {
+    border: 1px dotted #999;
+    height: 240px;
+    width: 320px;
+  }
+&lt;/style&gt;
+
+&lt;!-- HTML --&gt;
+&lt;video id="webcam"&gt;&lt;/video&gt;
+&lt;p&gt;&lt;button type="button" id="start"&gt;start webcam&lt;/button&gt;&lt;/p&gt;
+&lt;p id="message"&gt;&lt;/p&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const vidWebcam = document.querySelector('#webcam');
+  const btnStart = document.querySelector('#start');
+  const parMessage = document.querySelector('#message');
+  btnStart.addEventListener('click', async () =&gt; {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      vidWebcam.srcObject = stream;
+      vidWebcam.autoplay = true;
+    } catch {
+      parMessage.innerHTML = 'weergave webcam mislukt';
+    }
+  });
+&lt;/script&gt;</code></pre>
+    <figure class="w-300">
+      <img src="img/05_games/webcam.gif" alt="" class="bordered">
+      <figcaption>webcam voorbeeld</figcaption>
+    </figure>
+    <h4>Voorbeeld 2: photobooth</h4>
+    <p>Een iets uitgebreider voorbeeld, met filters en de mogelijkheid snapshots te nemen:</p>
+    <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+&lt;style&gt;
+  /* general */
+  body {
+    margin: 20px auto;
+    width: 640px;
+  }
+  /* webcam */
+  #webcamstream {
+    height: 480px;
+    width: 640px;
+  }
+  /* snapshots */
+  canvas {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+  }
+  canvas + canvas {
+    margin-left: 29px;
+  }
+  /* buttons */
+  button {
+    background-color: #428bca;
+    border: 1px solid #2a6496;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 3px 6px;
+    text-transform: uppercase;
+  }
+  #dosnap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  /* filters */
+  .sepia {
+    filter: sepia(1);
+  }
+  .blur {
+    filter: blur(5px);
+  }
+  .grayscale {
+    filter: grayscale(1);
+  }
+  .invert {
+    filter: invert(1);
+  }
+  .hue-rotate {
+    filter: hue-rotate(90deg);
+  }
+&lt;/style&gt;
+
+&lt;!-- HTML --&gt;
+&lt;video id="webcamstream"&gt;&lt;/video&gt;
+&lt;div id="filters"&gt;
+  &lt;button type="button" data-filter="natural"&gt;natural&lt;/button&gt;
+  &lt;button type="button" data-filter="sepia"&gt;sepia&lt;/button&gt;
+  &lt;button type="button" data-filter="blur"&gt;blur&lt;/button&gt;
+  &lt;button type="button" data-filter="grayscale"&gt;grayscale&lt;/button&gt;
+  &lt;button type="button" data-filter="invert"&gt;invert&lt;/button&gt;
+  &lt;button type="button" data-filter="hue-rotate"&gt;hue-rotate&lt;/button&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;button type="button" id="btnsnap"&gt;take snapshot&lt;/button&gt;&lt;/p&gt;
+&lt;div id="canvases"&gt;
+  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  // inits
+  const vidWebcam = document.querySelector('#webcamstream');
+  const btnSnap = document.querySelector('#btnsnap');
+  const snapshots = document.querySelectorAll('canvas');
+  const btnsFilter = document.querySelector('#filters');
+  let nr = 0;
+
+  // take snapshot
+  btnSnap.addEventListener('click', function () {
+    const context = snapshots[nr].getContext('2d');
+    context.filter = getComputedStyle(vidWebcam).getPropertyValue('filter');
+    context.drawImage(vidWebcam, 0, 0, 133, 100);
+    nr = (nr + 1) % 4;
+  });
+
+  // apply filter
+  btnsFilter.addEventListener('click', function (e) {
+    btnsFilter.querySelectorAll('button').forEach(btn =&gt; {
+      vidWebcam.classList.remove(btn.dataset.filter);
+    });
+    vidWebcam.classList.add(e.target.getAttribute('data-filter'));
+  });
+
+  // capture webcam
+  async function startWebcam() {
+    vidWebcam.autoplay = true;
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    vidWebcam.srcObject = stream;
+  };
+  startWebcam();
+
+&lt;/script&gt;</code></pre>
+      <figure class="w-300">
+        <img src="img/05_games/photobooth-small.gif" alt="" class="bordered">
+        <figcaption>photobooth voorbeeld</figcaption>
+      </figure>
+      <h3>Geolocation</h3>
+      <p>De positie van de gebruiker is eenvoudig te bepalen via <code>navigator.geolocation</code>:</p>
+      <pre class="prism-okaida w-700" data-demo><code>if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    console.log(`je positie: ${pos.coords.longitude}, ${pos.coords.latitude}`);
+  });
+}
+</code></pre>
+      <h4>Voorbeeld: positie met custom marker tonen op kaart (OpenLayers)</h4>
+      <pre class="prism-okaida w-700 h-400" data-demo><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;Geolocation demo&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v9.0.0/ol.css"&gt;
+  &lt;style&gt;
+    #map {
+      height: 300px;
+      width: 500px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;p&gt;&lt;button type="button" id="btn1"&gt;Show Position&lt;/button&gt;&lt;/p&gt;
+  &lt;div id="map"&gt;&lt;/div&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/ol@v9.0.0/dist/ol.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    // show map with custom marker on current position
+    function showPosition(position) {
+      const longitude = position.coords.longitude
+      const latitude = position.coords.latitude
+
+      // create marker
+      const marker = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([longitude, latitude]))
+      });
+
+      // custom marker icon
+      marker.setStyle(new ol.style.Style({
+        image: new ol.style.Icon({
+          src: 'img/marker.png'
+        })
+      }));
+
+      // create layer with marker
+      const vectorLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+          features: [marker]
+        })
+      });
+
+      // create map with layer
+      const map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          vectorLayer
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([longitude, latitude]),
+          zoom: 12 // Zoom level
+        })
+      });
+    }
+
+    // button click event
+    document.querySelector('#btn1').addEventListener('click', function () {
+      if (!navigator.geolocation) return;
+      navigator.geolocation.getCurrentPosition(showPosition);
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+    <figure class="w-400">
+      <img src="img/05_games/openstreetmap.png" alt="" class="bordered">
+      <figcaption>tonen van huidige positie op een OpenLayers kaart</figcaption>
+    </figure>
+
+    <h3>Device orientation</h3>
+    <p>Indien aanwezig op het toestel, kan je de gyroscoop, accelerometer, kompas enz... gebruiken in Javascript. Voorbeeld voor de kanteling van het toestel (werkt enkel op smartphones en sommige laptops als bepaalde Macbooks), dat gebruik maakt van het <code>deviceorientation</code> event van <code>window</code>:</p>
+    <pre class="prism-okaida w-700" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+&lt;style&gt;
+  .layer {
+    position: absolute; /* stapel layers bovenop elkaar */
+  }
+&lt;/style&gt;
+
+&lt;!-- HTML --&gt;
+&lt;img src="img/chrome-layer-01.png" alt="" class="layer"&gt;
+&lt;img src="img/chrome-layer-02.png" alt="" class="layer"&gt;
+&lt;img src="img/chrome-layer-03.png" alt="" class="layer"&gt;
+&lt;img src="img/chrome-layer-04.png" alt="" class="layer"&gt;
+&lt;img src="img/chrome-layer-05.png" alt="" class="layer"&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  window.addEventListener('deviceorientation', function(e) {
+    const layers = document.querySelectorAll('.layer');
+    for (let i = 0; i &lt; layers.length; i++) {
+      const layer = layers[i];
+      layer.style.left = `${Math.round(e.gamma * i)}px`;
+      layer.style.top = `${Math.round(e.beta * i)}px`;
+    }
+  });
+&lt;/script&gt;</code></pre>
+
+
+
+
+
+  </main>
+  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+  <!-- popup -->
+  <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
+    <div class="hystmodal__wrap">
+      <div class="hystmodal__window" role="dialog" aria-modal="true">
+        <iframe title="demo"></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- scripts -->
+  <script src="vendor/prism/prism.js"></script>
+  <script src="vendor/hystmodal/hystmodal.min.js"></script>
+  <script src="js/mode.js"></script>
+  <script src="js/scripts.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-33VMW730V9');
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>localStorage simple</title>
+</head>
+<body>
+  <p>selecteer een waarde uit de lijst, en refresh:</p>
+  <p><label>Naam: <input id="inpName" type="text" value="Rogier"></label></p>
+  <p><label>Leeftijd: <input id="inpAge" type="number" value="54"></label></p>
+  <p>
+    <button type="button" id="btnSave">opslaan</button>
+    <button type="button" id="btnHerstel">herstellen</button>
+  </p>
+  <script>
+    const inpName = document.querySelector('#inpName');
+    const inpAge = document.querySelector('#inpAge');
+    document.querySelector('#btnSave').addEventListener('click', function() {
+      console.log(document.querySelector('#inpName'));
+      const person = {
+        name: inpName.value,
+        age: inpAge.value,
+      };
+      localStorage.setItem('person', JSON.stringify(person));
+    });
+    document.querySelector('#btnHerstel').addEventListener('click', function() {
+      if (!localStorage.getItem('person')) return;
+      const person = JSON.parse(localStorage.getItem('person'));
+      inpName.value = person.name;
+      inpAge.value = person.age;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> Dragging images demo </title>
+  <meta charset="UTF-8">
+  <style>
+    #dropzone {
+      height: 200px;
+      width: 400px;
+      border: 2px ridge;
+    }
+
+    ol {
+      list-style: none;
+      padding: 0;
+    }
+
+    ol li {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dragzone">
+    <img src="img/product1.jpg" alt="">
+    <img src="img/product2.jpg" alt="" draggable="false">
+    <img src="img/product3.jpg" alt="">
+  </div>
+  <div id="dropzone">
+    ...drop item here...
+  </div>
+  <script>
+    const dropZone = document.querySelector('#dropzone');
+    dropZone.addEventListener('dragover', (e) => e.preventDefault());
+    dropZone.addEventListener('dragenter', (e) => e.preventDefault());
+    dropZone.addEventListener('drop', function (e) {
+      imgPassed = e.dataTransfer.getData('text/uri-list');
+      this.innerHTML = "<img src='" + imgPassed + "'/>";
+      e.stopPropagation();
+      e.preventDefault();
+    });
+  </script>
+</body>
+
+</html>

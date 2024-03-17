@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Photobooth demo</title>
+  <meta charset="UTF-8">
+  <style>
+    /* general */
+    body { width: 640px; margin: 20px auto }
+
+    /* webcam */
+    #webcamstream { width: 640px; height: 480px; }
+
+    /* snapshots */
+    canvas { margin: 10px 0; border: 1px solid #ccc; }
+    canvas + canvas { margin-left: 29px; }
+
+    /* buttons */
+    button {
+      border-radius: 4px;
+      border: 1px solid #2a6496;
+      background-color: #428bca;
+      text-transform: uppercase;
+      padding: 3px 6px;
+      color: white;
+      cursor: pointer;
+    }
+    #dosnap { position: absolute; top: 10px; right: 10px; }
+
+    /* filters */
+    .sepia { filter: sepia(1); }
+    .blur { filter: blur(5px); }
+    .grayscale { filter: grayscale(1); }
+    .invert { filter: invert(1); }
+    .hue-rotate { filter: hue-rotate(90deg); }
+  </style>
+
+</head>
+
+<body>
+  <video id="webcamstream"></video>
+  <div id="filters">
+    <button type="button" data-filter="natural">natural</button>
+    <button type="button" data-filter="sepia">sepia</button>
+    <button type="button" data-filter="blur">blur</button>
+    <button type="button" data-filter="grayscale">grayscale</button>
+    <button type="button" data-filter="invert">invert</button>
+    <button type="button" data-filter="hue-rotate">hue-rotate</button>
+  </div>
+  <p><button type="button" id="btnsnap">take snapshot</button></p>
+  <div id="canvases">
+    <canvas width="133" height="100"></canvas>
+    <canvas width="133" height="100"></canvas>
+    <canvas width="133" height="100"></canvas>
+    <canvas width="133" height="100"></canvas>
+  </div>
+  <script>
+    // inits
+    const vidWebcam = document.querySelector('#webcamstream');
+    const btnSnap = document.querySelector('#btnsnap');
+    const snapshots = document.querySelectorAll('canvas');
+    const btnsFilter = document.querySelector('#filters');
+    let nr = 0;
+
+    // take snapshot
+    btnSnap.addEventListener('click', function () {
+      const context = snapshots[nr].getContext('2d');
+      context.filter = getComputedStyle(vidWebcam).getPropertyValue('filter');
+      context.drawImage(vidWebcam, 0, 0, 133, 100);
+      nr = (nr + 1) % 4;
+    });
+
+    // apply filter
+    btnsFilter.addEventListener('click', function (e) {
+      btnsFilter.querySelectorAll('button').forEach(btn => {
+        vidWebcam.classList.remove(btn.dataset.filter);
+      });
+      vidWebcam.classList.add(e.target.getAttribute('data-filter'));
+    });
+
+    // capture webcam
+    async function startWebcam() {
+      vidWebcam.autoplay = true;
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      vidWebcam.srcObject = stream;
+    };
+    startWebcam();
+
+  </script>
+</body>
+
+</html>

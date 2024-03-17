@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Geolocation demo</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <script>
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    console.log(`je positie: ${pos.coords.longitude}, ${pos.coords.latitude}`);
+  });
+}
+  </script>
+</body>
+
+</html>

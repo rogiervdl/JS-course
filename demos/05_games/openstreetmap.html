@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Geolocation demo</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v9.0.0/ol.css">
+  <style>
+    #map {
+      height: 300px;
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <p><button type="button" id="btn1">Show Position</button></p>
+  <div id="map"></div>
+  <script src="https://cdn.jsdelivr.net/npm/ol@v9.0.0/dist/ol.js"></script>
+  <script>
+    // show map with custom marker on current position
+    function showPosition(position) {
+      const longitude = position.coords.longitude
+      const latitude = position.coords.latitude
+
+      // create marker
+      const marker = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([longitude, latitude]))
+      });
+
+      // custom marker icon
+      marker.setStyle(new ol.style.Style({
+        image: new ol.style.Icon({
+          src: 'img/marker.png'
+        })
+      }));
+
+      // create layer with marker
+      const vectorLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+          features: [marker]
+        })
+      });
+
+      // create map with layer
+      const map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          vectorLayer
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([longitude, latitude]),
+          zoom: 12 // Zoom level
+        })
+      });
+    }
+
+    // button click event
+    document.querySelector('#btn1').addEventListener('click', function () {
+      if (!navigator.geolocation) return;
+      navigator.geolocation.getCurrentPosition(showPosition);
+    });
+  </script>
+</body>
+
+</html>

@@ -287,6 +287,33 @@ table {
 	max-width: 120rem;
 }
 
+/* heights */
+
+.h-300 {
+	height: 300px;
+	overflow-y: scroll;
+}
+
+.h-400 {
+	height: 400px;
+	overflow-y: scroll;
+}
+
+.h-500 {
+	height: 500px;
+	overflow-y: scroll;
+}
+
+.h-600 {
+	height: 600px;
+	overflow-y: scroll;
+}
+
+.h-800 {
+	height: 800px;
+	overflow-y: scroll;
+}
+
 /* TAG-CLASSES */
 
 /* rectangles */
@@ -670,10 +697,11 @@ div.code-toolbar {
 div.code-toolbar>.toolbar {
 	direction: rtl;
 	opacity: 1;
+	right: 20px;
 }
 
 div.code-toolbar>.toolbar>.toolbar-item {
-	margin: 0 5px;
+	margin: 5px;
 }
 
 div.code-toolbar>.toolbar>.toolbar-item>span {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Webcam demo</title>
+  <meta charset="UTF-8">
+  <style>
+    #webcam {
+      border: 1px dotted #999;
+      height: 240px;
+      width: 320px;
+    }
+  </style>
+</head>
+
+<body>
+  <video id="webcam"></video>
+  <p><button type="button" id="start">start webcam</button></p>
+  <p id="message"></p>
+  <script>
+    const vidWebcam = document.querySelector('#webcam');
+    const btnStart = document.querySelector('#start');
+    const parMessage = document.querySelector('#message');
+    btnStart.addEventListener('click', async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        vidWebcam.srcObject = stream;
+        vidWebcam.autoplay = true;
+      } catch {
+        parMessage.innerHTML = 'weergave webcam mislukt';
+      }
+    });
+  </script>
+</body>
+
+</html>

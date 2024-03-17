@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Desktop Drag-In demo </title>
+  <meta charset="utf-8">
+  <style>
+    #dropzone {
+      height: 150px;
+      border: 2px dashed #0687FF;
+    }
+
+    #thumbnails {
+      height: 125px;
+      margin-top: 10px;
+    }
+
+    #thumbnails img {
+      height: 100px;
+      margin: 10px
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dropzone">Drop in images from your desktop</div>
+  <div id="thumbnails"></div>
+
+  <script>
+
+    // drop area
+    const dropzone = document.querySelector('#dropzone');
+    const thumbnails = document.querySelector('#thumbnails');
+
+    // dropzone events
+    dropzone.addEventListener('dragenter', (e) => { e.preventDefault(); });
+    dropzone.addEventListener('dragover', (e) => { e.preventDefault(); });
+    dropzone.addEventListener('dragleave', (e) => { e.preventDefault(); });
+    dropzone.addEventListener('drop', function (e) {
+      e.preventDefault();
+
+      // fetch dropped files
+      for (const file of e.dataTransfer.files) {
+        // images only
+        if (!file.type.match(/image.*/)) continue;
+
+        // create reader for dropped file
+        const reader = new FileReader();
+        reader.addEventListener('load', function (e) {
+          thumbnails.innerHTML = `${thumbnails.innerHTML}<img src="${e.target.result}" alt="${file.name}">`;
+        });
+        reader.addEventListener('error', () => { alert('an error occurred'); });
+
+        // feed dropped file to reader
+        reader.readAsDataURL(file);
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

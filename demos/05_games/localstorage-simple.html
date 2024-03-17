@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>localStorage simple</title>
+</head>
+<body>
+  <p>selecteer een waarde uit de lijst, en refresh:</p>
+  <select id="selTest">
+    <option selected>keuze 1</option>
+    <option>keuze 2</option>
+    <option>keuze 3</option>
+    <option>keuze 4</option>
+  </select>
+  <p><em>&rarr; merk op dat de keuze persisteert</em></p>
+  <script>
+    const selTest = document.querySelector('#selTest');
+    const savedValue = localStorage.getItem('selectValue');
+    if (savedValue != undefined) selTest.value = savedValue;
+    selTest.addEventListener('change', function() {
+      console.log(this.value)
+      localStorage.setItem('selectValue', this.value);
+    });
+  </script>
+
+</body>
+</html>

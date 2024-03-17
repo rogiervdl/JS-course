@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Dragging text demo </title>
+	<meta charset="utf-8">
+	<style>
+    body {
+			width: 500px;
+    }
+    textarea {
+			border: 2px ridge;
+			height: 200px;
+      width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		In alteration insipidity impression by travelling reasonable up motionless. Of regard warmth by unable sudden garden ladies. No kept hung am size spot no. Likewise led and dissuade rejoiced welcomed husbands boy. Do listening on he suspected resembled. Water would still if to. Position boy required law moderate was may.
+	</p>
+	<textarea placeholder="...selecteer een stuk tekst hierboven, en sleep het hierin..."></textarea>
+	<script>
+    const dropZone = document.querySelector('textarea');
+    dropZone.addEventListener('dragover', (e)  => e.preventDefault() );
+    dropZone.addEventListener('dragenter', (e)  => e.preventDefault() );
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      txtPassed = e.dataTransfer.getData('text/plain');
+      this.innerHTML = txtPassed;
+    });
+	</script>
+</body>
+</html>

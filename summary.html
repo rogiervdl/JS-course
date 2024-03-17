@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<!-- [html-validate-disable no-trailing-whitespace] -->
+<!-- [html-validate-disable no-inline-style] -->
+<html lang="nl">
+
+<head>
+  <title>Samenvatting | Javascript cursus</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/summary.css">
+</head>
+
+<body class="language-javascript">
+  <div id="mode">
+    <span>n00b</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+    <span>pro</span>
+  </div>
+  <nav class="site__nav">
+    <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
+      <p class="thumb__title">01. Javascript syntax</p>
+      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+    </a>
+    <a href="02_dom1.html" class="main__thumb" title="02. DOM deel 1">
+      <p class="thumb__title">02. DOM deel 1</p>
+      <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
+    </a>
+    <a href="03_dom2.html" class="main__thumb" title="03. DOM deel2">
+      <p class="thumb__title">03. DOM deel 2</p>
+      <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
+    </a>
+    <a href="04_async.html" class="main__thumb" title="04. Web API's">
+      <p class="thumb__title">04. Web API's</p>
+      <img class="thumb__visual" src="img/04_async/icon.png" alt="">
+    </a>
+    <a href="05_games.html" class="main__thumb" title="05. games">
+      <p class="thumb__title">05. games</p>
+      <img class="thumb__visual" src="img/05_games/icon.png" alt="">
+    </a>
+    <a href="summary.html" class="main__thumb active" title="05. samenvatting">
+      <p class="thumb__title">05. samenvatting</p>
+      <img class="thumb__visual" src="img/summary/icon.png" alt="">
+    </a>
+  </nav>
+  <h1>05. Javascript samenvatting</h1>
+  <div id="toc"></div>
+  <main>
+    <section>
+      <h2>Variabelen en objecten</h2>
+      <h3>declaratie</h3>
+      <table class="single">
+        <tbody>
+          <tr>
+            <td>
+              variabelen
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>let num1 = 3; // geheel getal
+let num2 = 3.14; // kommagetal
+let boo = true; // boolean
+let str = 'hello'; // string
+let dat = new Date(); // Date object</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>conversie</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              parseInt
+            </td>
+            <td>
+              zet teksten e.d. om naar een geheel getal
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(parseInt(3.66)) // 3 - rond af naar beneden
+console.log(parseInt('10')) // 10 - het is nu een getal i.p.v. een string
+console.log(parseInt('12 monkeys')) // 12 (ok: getal staat in het begin)
+console.log(parseInt('he is 40')) // NaN - Not a Number</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              parseFloat
+            </td>
+            <td>
+              zet teksten e.d. om naar een kommagetal
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(parseFloat(3.66)) // 3.66
+console.log(parseFloat('5.5 beers')) // 5.5 (ok: getal staat in het begin)
+console.log(parseFloat('the value of PI is 3.14')) // NaN - Not a Number</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              +
+            </td>
+            <td>
+              zet tekst om naar een getal
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(+'3.66') // 3.66 - het is nu een getal i.p.v. een string
+console.log(+'12 monkeys') // NaN - Not a Number</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>NaN, Infinity, undefined, null</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">waarde</th>
+            <th scope="col">betekenis</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code>NaN</code>, <code>isNaN()</code>
+            </td>
+            <td>
+              zou een getal moeten zijn, maar is het niet
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(parseInt('hello')) // NaN
+const test = isNaN(3 * 'hello'); // true</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>Infinity</code>
+            </td>
+            <td>
+              oneindige waarde
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(10 / 0) // Infinity</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>undefined</code>
+            </td>
+            <td>
+              heeft nog geen waarde gekregen
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const test = null; // heeft bewust geen waarde</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>null</code>
+            </td>
+            <td>
+              idem als <code>undefined</code>, maar betekent eerder "heeft bewust geen waarde"
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const test;
+console.log(test) // undefined</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Strings</h2>
+      <h3>declaratie</h3>
+      <table class="single">
+        <tbody>
+          <tr>
+            <td>
+              gebruik quotes
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const name = 'Rogier'; // enkel quotes krijgen de voorkeur
+const name = "Rogier"; // mag, maar liever niet
+const name = `Rogier`; // mag ook, maar wordt enkel gebruikt bij multiline strings en string interpolatie </code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              string interpolatie
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const name = 'Rogier';
+const length = 1.92;
+const weight = 87;
+console.log(`Welkom ${name}, je bmi is ${weight / (length * length)}`);
+</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              multiline string
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(`Een
+twee
+drie
+vier
+hoedje van
+hoedje van...`);</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>string properties en methodes</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">property/methode</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const str1 = 'Straks maakt mama macaroni klaar';</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>length</code>
+            </td>
+            <td>aantal karakters</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.length); // 32</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>endsWith(str)</code>
+            </td>
+            <td>controleert of een string eindigt met <code>str</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.endsWith('ar')); // true</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>includes(str)</code>
+            </td>
+            <td>controleert of een string <code>str</code> bevat</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.contains('pasta')); // false</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>indexOf(str)</code>
+            </td>
+            <td>eerste positie van <code>str</code> (-1 indien niet gevonden)</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.indexOf('ma')); // 7
+console.log(str1.indexOf('pa')); // -1</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>lastIndexOf(str)</code>
+            </td>
+            <td>laatste positie van <code>str</code> (-1 indien niet gevonden)</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.lastIndexOf('ma')); // 18</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>replace(str1, str2)</code>
+            </td>
+            <td>vervangt de eerste <code>str1</code> door <code>str2</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.replace('mama', 'papa')); // 'Straks maakt papa macaroni klaar'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>replaceAll(str1, str2)</code>
+            </td>
+            <td>vervangt alle <code>str1</code> door <code>str2</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.replace(' ', '-')); // 'Straks-maakt-mama-macaroni-klaar'</code></pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <code>split(separator)</code>
+            </td>
+            <td>splitst een string in een array</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.split(' ')); // ['Straks', 'maakt', 'mama', 'macaroni', 'klaar']</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>startsWith(str)</code>
+            </td>
+            <td>controleert of een string begint met <code>str</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.startsWith('Stra')); // true</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>substr(start, num)</code>
+            </td>
+            <td>substring vanaf positie <code>start</code> en <code>num</code> karakters</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.substr(10, 15)); // 'kt mama macaron'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>substring(start, end)</code>
+            </td>
+            <td>substring van posities <code>start</code> tot <code>end</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.substring(10, 15)); // 'kt ma'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>toLowerCase()</code>
+            </td>
+            <td>	zet om naar kleine letters</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.toLowerCase()); // 'straks maakt mama macaroni klaar'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>toUpperCase()</code>
+            </td>
+            <td>	zet om naar kleine letters</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.toUpperCase()); // 'STRAKS MAAKT MAMA MACARONI KLAAR'</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Arrays en objecten</h2>
+      <h3>declaratie</h3>
+      <table class="single">
+        <tbody>
+          <tr>
+            <td>
+              arrays
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>// declaratie
+const arr = [1, 2, 3, 5, 8, 13]; // arrays zijn meestal constanten
+
+// items aanspreken
+console.log(arr[2]); // 3
+arr[4]++; // wordt 9
+</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              objecten
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>// declaratie (objecten zijn meestal constanten)
+const options = {
+  color: '#0F0',
+  showIcon: true
+};
+
+// achteraf nog een property toevoegen
+options.size = 14;
+
+// properties aanspreken
+console.log(`opties: kleur ${options.color}, grootte ${options.size} ${options.showIcon ? 'met' : 'zonder'} icoon`);
+
+// alternatieve syntax
+console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${options['showIcon'] ? 'met' : 'zonder'} icoon`); </code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>array properties en methodes</h3>
+      <p>Opmerking: Javascript kent geen onderscheid tussen arrays, lijsten, stacks, queues enz... zoals in C#; alles is een array.</p>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">property/methode</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const arr1 = ['boter', 'kaas', 'melk', 'eieren'];</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>length</code>
+            </td>
+            <td>aantal elementen</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.length); // 4</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>contains(item)</code>
+            </td>
+            <td>controleert of de rij <code>item</code> bevat</td>
+            <td>
+					<pre class="prism-vslight" data-notoolbar><code>console.log(arr1.contains('melk')); // true</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>indexOf(item)</code>
+            </td>
+            <td>eerste index van <code>item</code> (-1 indien niet gevonden)</td>
+            <td>
+					<pre class="prism-vslight" data-notoolbar><code>console.log(arr1.indexOf('melk')); // 2
+						console.log(arr1.indexOf('brood')); // -1</code></pre>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>join(glue)</code>
+            </td>
+            <td>voeg items samen tot een string</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.join(', ')); // 'boter, kaas, melk, eieren'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>pop()</code>
+            </td>
+            <td>verwijder en return element achteraan de rij</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.pop()); // 'eieren'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>push(item)</code>
+            </td>
+            <td>voeg <code>item</code> toe achteraan de rij</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.push('brood'));</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>shift()</code>
+            </td>
+            <td>verwijder en return element aan het begin de rij</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.shift()); // 'boter'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>unshift(item)</code>
+            </td>
+            <td>voeg <code>item</code> toe vooraan de rij</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.unshift('brood'));</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Functies</h2>
+      <table class="single">
+        <tbody>
+          <tr>
+            <td>
+              klassieke declaratie
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>function vindGgd(a, b) {
+  while (b !== 0) {
+    const temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return a;
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              declaratie als constante
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const vindGgd = function(a, b) {
+  ...
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              declaratie met arrow expressie
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const vindGgd = (a, b) =&gt; {
+  ...
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              optionele parameters
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>function tekenTekst(txt, color = '#090', size = 14, withIcon = false) {
+  ...
+}
+tekenTekst('hallo', '#338'); // size blijft 14, geen icoon
+</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section>
+      <h2>Controlestructuren</h2>
+      <h3>selecties</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">code</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>if</code></pre>
+            </td>
+            <td>als</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const badGrades = true;
+if (badGrades) {
+  console.log('House arrest for two weeks');
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>if - else </code></pre>
+            </td>
+            <td>als - dan</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const badGrades = true;
+if (badGrades) {
+  console.log('House arrest for two weeks');
+} else {
+  console.log('No house arrest');
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>voorwaarde1 ? waarde1 : waarde2</code></pre>
+            </td>
+            <td>ternaire operator</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const badGrades = true;
+console.log(badGrades ? 'House arrest for two weeks' : 'No house arrest');
+</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>if - else - if </code></pre>
+            </td>
+            <td>als - dan - als</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const seasonNr = 3;
+const seasonName;
+if (seasonNr == 1) {
+  seasonName = 'lente';
+} else if (seasonNr == 2) {
+  seasonName = 'zomer';
+} else if (seasonNr == 3) {
+  seasonName = 'herfst';
+} else if (seasonNr == 4) {
+  seasonName = 'winter';
+} else {
+  seasonName = 'onbekend seizoen';
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>switch - case</code></pre>
+            </td>
+            <td>cascade selectiestructuur</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const seasonNr = 3;
+let seasonName;
+switch (seasonNr)
+{
+   case (1): seasonName = 'lente'; break;
+   case (2): seasonName = 'zomer'; break;
+   case (3): seasonName = 'herfst'; break;
+   case (4): seasonName = 'winter'; break;
+   default: seasonName = 'onbekend seizoen';
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>voorwaarde1 ? waarde1
+: voorwaarde2 ? waarde2
+: voorwaarde3 ? waarde3
+: defaultwaarde
+</code></pre>
+            </td>
+            <td>getrapte ternaire operator</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const seasonNr = 3;
+const seasonName = seasonNr == 1 ? 'lente'
+   : seasonNr == 2 ? 'zomer'
+   : seasonNr == 3 ? 'herfst'
+   : seasonNr == 4 ? 'winter'
+   : 'onbekend seizoen';
+</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h3>iteraties</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">code</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>for</code></pre>
+            </td>
+            <td>iteratie met vaste grenzen</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const friends = [ 'Bubba', 'Lt. Dan' ];
+for (let i = 0; i &lt; friends.length; i++) {
+    console.log(friends[i]);
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>for-of</code></pre>
+            </td>
+            <td>iteratie over een array</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const friends = ['Bubba', 'Lt. Dan'];
+for (const friend of friends) {
+  console.log(friend);
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>for-in</code></pre>
+            </td>
+            <td>iteratie over de keys van een object</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const options = {
+  color: '#0F0',
+  size: 14,
+  showIcon: true
+};
+for (const key in myCar) {
+   console.log(`the value of ${key} is ${options[key]}`);
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>forEach()</code></pre>
+            </td>
+            <td>iteratie met callback methode</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const lnksMenu = document.querySelectorAll('nav a');
+lnksMenu.forEach(lnk =&gt; {
+   ...
+});
+</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Document Object Model</h2>
+      <h3>querying</h3>
+      <p>Opmerking: alle andere methodes als <code>getElementById()</code> enz... mogen <em>niet</em> gebruikt worden</p>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">functie</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>querySelector()</code></pre>
+            </td>
+            <td>zoek eerste element op basis van een CSS selector</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const btnSubmit = document.querySelector('#frm1 [type=submit]');</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>querySelectorAll()</code></pre>
+            </td>
+            <td>zoek alle elementen op basis van een CSS selector</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const lnksMenu = document.querySelectorAll('nav a');
+lnksMenu.forEach(lnk =&gt; { // itereer met forEach
+  ...
+});              </code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>navigatie</h3>
+      <table class="single">
+        <thead>
+          <tr>
+            <th scope="col">property</th>
+            <th scope="col">omschrijving</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>node.children</code></td>
+            <td>collectie van children van de huidige node</td>
+          </tr>
+          <tr>
+            <td><code>node.firstElementChild</code></td>
+            <td>eerste child van de huidige node</td>
+          </tr>
+          <tr>
+            <td><code>node.lastElementChild</code></td>
+            <td>laatste child van de huidige node</td>
+          </tr>
+          <tr>
+            <td><code>node.nextElementSibling</code></td>
+            <td>volgende sibling (null indien niet gevonden)</td>
+          </tr>
+          <tr>
+            <td><code>node.parentNode</code></td>
+            <td>parent van de huidige node</td>
+          </tr>
+          <tr>
+            <td><code>node.previousElementSibling</code></td>
+            <td>vorige sibling (null indien niet gevonden)</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>manipulatie</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">property</th>
+            <th scope="col">betekenis</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+              <pre class="prism-vslight language-html" data-notoolbar><code>&lt;div id="test" class="message box" data-lastviewed="2024-03-11" data-tag="quote"&gt;
+  &lt;p&gt;dit is &lt;em&gt;regel 1&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<p></p>
+<pre class="prism-vslight" data-notoolbar><code>const divTest = document.querySelector('#test');</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>innerHTML</code>
+            </td>
+            <td>
+              HTML code binnen een element
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.innerHTML); // '&lt;p&gt;dit is &lt;em&gt;regel 1&lt;/em&gt;&lt;/p&gt;'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>innerText</code>
+            </td>
+            <td>
+              tekst binnen een element (zonder tags)
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.innerText); // 'dit is regel 1'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>value</code>, <code>src</code>, <code>href</code>...
+            </td>
+            <td>
+              HTML attributen verschijnen als Javascript properties
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>imgPhotoBig.src = 'img/photo1.jpg';
+chbAccept.checked = true;
+if (inpEmail.value == '') ...;</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>classList</code>
+            </td>
+            <td>
+              lijst van CSS classes voor dit element
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.classList.contains('box')); // true
+divTest.classList.add('green', 'small'); // classList value is 'message box green small'
+divTest.classList.remove('message'); // classList value is 'box green small'
+divTest.classList.toggle('box'); // classList value is 'green small'
+divTest.classList.toggle('box'); // classList value is 'box green small'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>style</code>
+            </td>
+            <td>
+              geeft rechtstreeks toegang tot CSS properties
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>divTest.style.color = '#690';
+divTest.style.boxShadow = '10px 10px 5px #888'; // box-shadow wordt boxShadow</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>dataset</code>
+            </td>
+            <td>
+              geeft toegang tot custom data-* attributen
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.dataset.tag); // 'quote'
+divTest.dataset.lastviewed = '2024-04-01'; // data-lastviewed waarde aangepast</code></pre>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+    <section>
+      <h2>Events</h2>
+      <h3>event listeners</h3>
+      <p>Events voeg je <strong>altijd</strong> toe met <code>addEventListener(event, callback)</code>. Enkele codefragmenten:</p>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">code</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeelden</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>addEventListener(evt, callback)</code></pre>
+            </td>
+            <td>voer <code>callback()</code> uit als <code>event</code> optreedt</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const btn1 = document.querySelector('#btn1');
+
+// met anonieme callback methode
+btn1.addEventListener('click', (e) =&gt; {
+  console.log('btn1 clicked');
+});
+
+// met expliciete callback methode
+function handleBtn1Click(e) {
+  console.log('btn1 clicked');
+}
+btn1.addEventListener('click', handleBtn1Click);</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>e.target</code></pre>
+            </td>
+            <td>element waar het event op plaatsvond</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const btn1 = document.querySelector('#btn1');
+function handleBtn1Click(e) {
+  console.log(`${e.target.id} clicked`');
+}
+btn1.addEventListener('click', handleBtn1Click);
+</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>e.preventDefault()</code></pre>
+            </td>
+            <td>verhinder de standaardactie van links, submitknoppen enz...</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const lnk1 = document.querySelector('nav a');
+lnk1.addEventListener('click', (e) =&gt; {
+  e.preventDefault();
+  console.log(`link default actie disabled`');
+});
+</code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>soorten events</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">event</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">typische targets</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>click</code></td>
+            <td>muisklik</td>
+            <td>alle elementen</td>
+          </tr>
+          <tr>
+            <td><code>mouseover</code></td>
+            <td>muis erboven</td>
+            <td>alle elementen</td>
+          </tr>
+          <tr>
+            <td><code>mouseout</code></td>
+            <td>muis ervan weg</td>
+            <td>alle elementen</td>
+          </tr>
+          <tr>
+            <td><code>keydown</code></td>
+            <td>toets ingedrukt</td>
+            <td>tekst elementen</td>
+          </tr>
+          <tr>
+            <td><code>keyup</code></td>
+            <td>toets losgelaten</td>
+            <td>tekst elementen</td>
+          </tr>
+          <tr>
+            <td><code>focus</code></td>
+            <td>element krijgt focus</td>
+            <td>form elementen</td>
+          </tr>
+          <tr>
+            <td><code>blur</code></td>
+            <td>element verliest focus</td>
+            <td>form elementen</td>
+          </tr>
+          <tr>
+            <td><code>submit</code></td>
+            <td>formulier wordt verstuurd</td>
+            <td><code>&lt;form&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>input</code></td>
+            <td>waarde wordt veranderd</td>
+            <td><code>&lt;input&gt;</code> en <code>&lt;textarea&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>change</code></td>
+            <td>waarde is veranderd</td>
+            <td><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>event object</h3>
+      <p>Het event object <code>e</code> in <code>...addEventListener('keydown', (e) =&gt; { ... });</code> bevat informatie over het event.</p>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">property</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">event type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>e.target</code></td>
+            <td>het element waarop het event plaatsvond</td>
+            <td>alle event types</td>
+          </tr>
+          <tr>
+            <td><code>e.key</code></td>
+            <td>ingedrukte toets, b.v <code>'Z'</code></td>
+            <td>toetsenbord</td>
+          </tr>
+          <tr>
+            <td><code>e.keyCode</code></td>
+            <td>ASCII nummer van de ingedrukte toets, b.v <code>90</code></td>
+            <td>toetsenbord</td>
+          </tr>
+          <tr>
+            <td><code>e.shiftKey</code></td>
+            <td>werd de shift ingedrukt, b.v <code>true</code></td>
+            <td>toetsenbord</td>
+          </tr>
+          <tr>
+            <td><code>e.clientX</code></td>
+            <td>horizontale positie van de muis (naar rechts)</td>
+            <td>muis</td>
+          </tr>
+          <tr>
+            <td><code>e.clientY</code></td>
+            <td>verticale positie van de muis (naar onder)</td>
+            <td>muis</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section class="w-700">
+      <h2>Web API</h2>
+      <p>Schematisch de code van een <code>fetch()</code> (schrap de stukken code die je niet nodig hebt):</p>
+      <pre class="prism-okaida line-numbers w-700"><code>
+async function getApiData() {
+  // build request url
+  const url = 'https://api.somedomain.com/api/method/...';
+  const params = new URLSearchParams();
+  params.append('api_key', API_KEY);
+  params.append('param1', 'val1');
+  params.append('param2', 'val2');
+  params.append('...', '...');
+  url += '?' + params.toString();
+
+  // build options
+  const options = {
+    method: '...',
+    headers: {
+      'Authorization': 'Bearer ghp_fIWhq1DrL...'
+      ...
+    }
+    ...
+  };
+
+  // fetch data with options
+  const resp = await fetch(url, options);
+  if (!resp.ok) {
+    console.log('opvragen github repos mislukt');
+    return;
+  }
+  const data = await resp.json();
+
+  // process data
+  data.forEach(entry =&gt; {
+    ...
+  });
+}
+async function doFetch() {
+  console.log('fetching data...');
+  await getApiData();
+  console.log('...done');
+}
+doFetch();
+</code></pre>
+    </section>
+
+    <section>
+      <h2>Debugging</h2>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">code</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log()</code></pre>
+            </td>
+            <td>schrijf tekst naar de console</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log('deze mededeling komt in de console');</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.error()</code></pre>
+            </td>
+            <td>schrijf fout naar de console</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log('deze foutmelding komt in de console');</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>debugger</code></pre>
+            </td>
+            <td>plaats een breekpunt</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log('opdracht regel 1');
+debugger; // pauzeer hier
+console.log('opdracht regel 2');
+          </code></pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+  <!-- popup -->
+  <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
+    <div class="hystmodal__wrap">
+      <div class="hystmodal__window" role="dialog" aria-modal="true">
+        <iframe title="demo"></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- scripts -->
+  <script src="vendor/prism/prism.js"></script>
+  <script src="vendor/hystmodal/hystmodal.min.js"></script>
+  <script src="js/mode.js"></script>
+  <script src="js/scripts.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-33VMW730V9');
+  </script>
+
+</body>
+
+</html>
