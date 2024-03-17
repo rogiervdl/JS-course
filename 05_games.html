@@ -23,7 +23,7 @@
       <p class="thumb__title">01. Javascript syntax</p>
       <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
     </a>
-    <a href="02_dom1.html" class="main__thumb active" title="02. DOM deel 1">
+    <a href="02_dom1.html" class="main__thumb" title="02. DOM deel 1">
       <p class="thumb__title">02. DOM deel 1</p>
       <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
     </a>
@@ -35,7 +35,7 @@
       <p class="thumb__title">04. Web API's</p>
       <img class="thumb__visual" src="img/04_async/icon.png" alt="">
     </a>
-    <a href="05_games.html" class="main__thumb" title="05. games">
+    <a href="05_games.html" class="main__thumb active" title="05. games">
       <p class="thumb__title">05. Games</p>
       <img class="thumb__visual" src="img/05_games/icon.png" alt="">
     </a>
@@ -519,10 +519,11 @@
 &lt;script&gt;
   window.addEventListener('deviceorientation', function(e) {
     const layers = document.querySelectorAll('.layer');
+    const offset = 50;
     for (let i = 0; i &lt; layers.length; i++) {
       const layer = layers[i];
-      layer.style.left = `${Math.round(e.gamma * i)}px`;
-      layer.style.top = `${Math.round(e.beta * i)}px`;
+      layer.style.left = `${Math.round(e.gamma * i) + offset}px`;
+      layer.style.top = `${Math.round(e.beta * i) + offset}px`;
     }
   });
 &lt;/script&gt;</code></pre>
