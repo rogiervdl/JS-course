@@ -56,7 +56,7 @@
     <p>
       Dit hoofdstuk is &ldquo;Games&rdquo; gedoopt omdat het een verzameling bevat van allerlei leuke en eenvoudige technieken (waaronder een paar in CSS) die van pas kunnen komen in game-achtige toepassingen.
     </p>
-    <h3>Local storage</h3>
+    <h3>Local storage API</h3>
     <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
     <h4>tekst bewaren</h4>
     <p>Eenvoudig voorbeeld waar de gekozen waarde uit een lijst persisteert:</p>
@@ -125,7 +125,7 @@
       <figcaption>opgeslagen localStorage items vind je onder de Application tab</figcaption>
     </figure>
 
-    <h3>Drag drop</h3>
+    <h3>Drag drop API</h3>
     <h4>teksten verslepen</h4>
     <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
     <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- CSS --&gt;
@@ -269,7 +269,7 @@
       <figcaption>sleep afbeeldingen in een pagina</figcaption>
     </figure>
 
-    <h3>Webcam</h3>
+    <h3>Webcam API</h3>
     <p>De webcam gebruiken is heel eenvoudig: vraag een webcamstream op via <code>navigator.mediaDevices.getUserMedia()</code>, en stel het in als bron van een <code>&lt;video&gt;</code> element.</p>
     <h4>Voorbeeld 1: weergave webcam in een video element</h4>
     <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
@@ -423,7 +423,7 @@
         <li>webcam xylofoon op <a href="https://www.soundstep.com/blog/experiments/jsdetection/">https://www.soundstep.com/blog/experiments/jsdetection/</a></li>
       </ul>
 
-      <h3>Geolocation</h3>
+      <h3>Geolocation API</h3>
       <p>De positie van de gebruiker is eenvoudig te bepalen via <code>navigator.geolocation</code>:</p>
       <pre class="prism-okaida" data-demo><code>if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(pos) {
@@ -507,7 +507,7 @@
       <figcaption>tonen van huidige positie op een OpenLayers kaart</figcaption>
     </figure>
 
-    <h3>Device orientation</h3>
+    <h3>Device orientation API</h3>
     <p>Indien aanwezig op het toestel, kan je de gyroscoop, accelerometer, kompas enz... gebruiken in Javascript. Voorbeeld voor de kanteling van het toestel (werkt enkel op smartphones en sommige laptops als bepaalde Macbooks), dat gebruik maakt van het <code>deviceorientation</code> event van <code>window</code>:</p>
     <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- CSS --&gt;
 &lt;style&gt;
@@ -543,7 +543,7 @@
       <li>nog een mooi experiment op <a href="https://paperplanes.world/">https://paperplanes.world/</a>: gooi een papieren vliegtuig met je gsm</li>
     </ul>
 
-    <h3>Notificaties</h3>
+    <h3>Notification API</h3>
     <p>Toon taskbar notificaties rechtsonder:</p>
     <pre class="prism-okaida w-1000" data-demo><code class="language-html">&lt;!-- HTML --&gt;
 &lt;input type="button" id="lnkNotifyMe" value="Notify Me"&gt;
@@ -570,6 +570,247 @@
   <img src="img/05_games/notification.png" alt="">
   <figcaption>taskbar notificaties met Javascript</figcaption>
 </figure>
+    <h3>SpeechRecognition API</h3>
+    <p>Basisvoorbeeld:</p>
+    <pre class="prism-okaida w-1000" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;p&gt;&lt;button id="btnStart"&gt;Start listening&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You said:&lt;/strong&gt; &lt;em id="echo"&gt;nothing yet&lt;/em&gt;.&lt;/p&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const btnStart = document.querySelector('#btnStart');
+  const emEcho = document.querySelector('#echo');
+
+  btnStart.addEventListener('click', function() {
+    const recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+    recognition.lang = 'en-US';
+    recognition.start();
+    recognition.addEventListener('result', function(e) {
+        emEcho.innerHTML = e.results[0][0].transcript;
+    });
+  });
+&lt;/script&gt;</code></pre>
+    <h3>Audio en video</h3>
+    <p>Je kan eenvoudig audio en video laden, afspelen, volume instellen enz... Meest voorkomende properties en methodes:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">property</th>
+          <th scope="col">omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>currentTime</code></td>
+          <td>huidige speelpositie in seconden</td>
+        </tr>
+        <tr>
+          <td><code>duration</code></td>
+          <td>lengte van het bestand in seconden</td>
+        </tr>
+        <tr>
+          <td><code>isPaused</code></td>
+          <td>is het gepauzeerd of niet (<code>true</code> of <code>false</code>)</td>
+        </tr>
+        <tr>
+          <td><code>loop</code></td>
+          <td>herhalen of niet (<code>true</code> of <code>false</code>)</td>
+        </tr>
+        <tr>
+          <td><code>src</code></td>
+          <td>bron van het geluidsbestand (URL)</td>
+        </tr>
+        <tr>
+          <td><code>volume</code></td>
+          <td>volume (getal tussen 0 en 1)</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">methode</th>
+          <th scope="col">omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>play()</code></td>
+          <td>speel af</td>
+        </tr>
+        <tr>
+          <td><code>pause()</code></td>
+          <td>pauzeer</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Voorbeeld 1: geluidseffecten</h4>
+    <pre class="prism-okaida w-900" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;p&gt;&lt;button id="btnRight"&gt;&lt;img src="img/code_right.png" height="20" alt=""&gt; RIGHT&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button id="btnWrong"&gt;&lt;img src="img/code_wrong.png" height="20" alt=""&gt; WRONG&lt;/button&gt;&lt;/p&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const sfxRight = new Audio('media/right.mp3');
+  const sfxWrong = new Audio('media/wrong.mp3');
+  document.querySelector('#btnRight').addEventListener('click', function() {
+    sfxRight.play();
+  });
+  document.querySelector('#btnWrong').addEventListener('click', function() {
+    sfxWrong.play();
+  });
+&lt;/script&gt;
+</code></pre>
+    <figure>
+      <img src="img/05_games/audiobuttons.png" alt="" class="bordered w-200">
+      <figcaption>twee buttons die geluidsfragment afspelen (zie demo)</figcaption>
+    </figure>
+    <h4>Voorbeeld 2: muziekdoos</h4>
+    <p>Tik een reeks van namen van noten in, en laat het muziekje afspelen:</p>
+    <pre class="prism-okaida w-900 h-400" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;p&gt;
+  &lt;label&gt;notes: &lt;input type="text" value="A Cs D F A" id="inpSong"&gt;&lt;/label&gt;
+  &lt;input type="button" id="btnPlay" value="play"&gt;
+&lt;/p&gt;
+&lt;p id="msg"&gt;&lt;/p&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  // inits
+  const msg = document.querySelector('#msg');
+  let notes;
+
+  // play note i
+  function playNextNote() {
+    if (!notes.length) {
+        msg.innerHTML = 'finished';
+        return;
+    }
+    note = notes.shift();
+    msg.innerHTML = `playing ${note}`;
+    const audio = new Audio(`media/notes/violin-${note}.mp3`);
+    audio.addEventListener('ended', playNextNote);
+    audio.play();
+  }
+
+  // add event listener to button
+  document.querySelector('#btnPlay').addEventListener('click', function() {
+    notes = document.querySelector('#inpSong').value.trim().split(' ');
+    playNextNote();
+  });
+&lt;/script&gt;
+</code></pre>
+    <figure>
+      <img src="img/05_games/muziekspeler.png" alt="" class="bordered w-200">
+      <figcaption>eenvoudige muziekspeler waar ingegeven noten in volgorde afgespeeld worden</figcaption>
+    </figure>
+
+
+    <h4>Voorbeeld 3: video kiezen en afspelen met weergave tijd</h4>
+    <pre class="prism-okaida w-900 h-400" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;p&gt;
+   &lt;select id="selVideo"&gt;
+     &lt;option value=""&gt;selecteer video...&lt;/option&gt;
+     &lt;option&gt;dinosaur.mp4&lt;/option&gt;
+     &lt;option&gt;fish.mp4&lt;/option&gt;
+     &lt;option&gt;toys.mp4&lt;/option&gt;
+   &lt;/select&gt;
+ &lt;/p&gt;
+ &lt;p&gt;&lt;video id="theVideo" width="640" height="360"&gt;&lt;/video&gt;&lt;/p&gt;
+ &lt;p&gt;tijd: &lt;span id="elapsed"&gt;-&lt;/span&gt;&lt;/p&gt;
+
+ &lt;!-- CSS --&gt;
+ &lt;style&gt;
+   video {
+     background-color: #ccc;
+   }
+ &lt;/style&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  const video = document.querySelector('#theVideo');
+  const elapsed = document.querySelector('#elapsed');
+  document.querySelector('#selVideo').addEventListener('change', function() {
+    if (this.value == '') return;
+    video.src = `media/${this.value}`
+    video.play();
+  });
+  setInterval(function() {
+    if (!video.src) return;
+    elapsed.innerHTML = `${video.currentTime.toFixed(1)}/${video.duration.toFixed(1)}s`;
+  }, 50);
+&lt;/script&gt;
+</code></pre>
+    <figure>
+      <img src="img/05_games/videoselect.png" alt="" class="bordered w-600">
+      <figcaption>video afspelen uit lisjtje met weergave verstreken tijd</figcaption>
+    </figure>
+
+    <h3>Sound API</h3>
+    <p>Dit is een zeer uitgebreide API waarmee je zowat alles kan wat met geluid te maken heeft:</p>
+    <ul class="right">
+      <li><strong>filteren</strong>: low pass, notch, peak...</li>
+      <li><strong>sound mixen</strong>: volume, gain, cross-fadings, mixing...</li>
+      <li><strong>rauwe data bewerken</strong>: lezen en schrijven (wat erop neerkomt dat eigenlijk alles mogelijk is)</li>
+      <li>...</li>
+    </ul>
+    <p>Enkele mooie online voorbeelden:</p>
+    <ul>
+      <li>DinahMoe heeft mooie demo's, zoals <a href="http://dinahmoelabs.com/rickastley">Rick Ashtley</a> of <a href="http://dinahmoelabs.com/tonecraft">Tonecraft</a></li>
+      <li>een eenvoudige <a href="demos/equalizer/index.html">equalizer</a></li>
+      <li><a href="http://daftpunk.themaninblue.com/">Daftpunk Anatomy of a Mashup</a></li>
+      <li>nog een <a href="https://musiclab.chromeexperiments.com/Spectrogram/">audio visualizer</a></li>
+    </ul>
+    <h4>Voorbeeld: eenvoudige oscillator met versterker</h4>
+    <p>Merk op hoe in de code als het ware toestellen aan elkaar gekoppeld worden:</p>
+    <pre class="prism-okaida w-900 h-400" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+&lt;p&gt;&lt;label&gt;Frequency: &lt;input type="range" min="200" value="1100" max="2000" id="rngFrequency"&gt;&lt;/label&gt; &lt;/p&gt;
+&lt;p&gt;&lt;label&gt;Volume: &lt;input type="range" min="0" value="0.5" max="1" id="rngVolume" step="0.01"&gt;&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button id="btnStop"&gt;stop&lt;/button&gt;&lt;/p&gt;
+
+&lt;!-- SCRIPT --&gt;
+&lt;script&gt;
+  // create audio context
+  const audioContext = new AudioContext();
+
+  // create oscillator
+  const oscillator = audioContext.createOscillator();
+  oscillator.frequency.value = 1000;
+
+  // create amp
+  const amp = audioContext.createGain();
+  amp.gain.value = 0.5;
+
+  // connect oscillator to amp, and amp to output
+  oscillator.connect(amp);
+  amp.connect(audioContext.destination);
+
+  // start oscillator
+  oscillator.start();
+
+  // bind events
+  document.querySelector('#rngFrequency').addEventListener('input', function() {
+    oscillator.frequency.value = this.value;
+  });
+  document.querySelector('#rngVolume').addEventListener('input', function() {
+    amp.gain.value = this.value;
+  });
+  document.querySelector('#btnStop').addEventListener('click', function() {
+    oscillator.stop();
+    this.disabled = true;
+  });
+&lt;/script&gt;</code></pre>
+    <figure>
+      <img src="img/05_games/oscillator.png" alt="" class="bordered w-200">
+      <figcaption>afspelen sinusgolf en regelen volume en frequentie</figcaption>
+    </figure>
+
+    <h3>Nog meer API's: battery API, gamepad API, bluetooth API...</h3>
+    <p>
+      Er zijn nog veel meer API's te ontdekken &mdash; velen gevestigd, sommigen nog experimenteel. Een uitgebreide lijst vind je op <a href="https://developer.mozilla.org/en-US/docs/Web/API">https://developer.mozilla.org/en-US/docs/Web/API</a>
+    </p>
+
+
 
   </main>
   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>

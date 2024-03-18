@@ -380,7 +380,9 @@ li.arrow::first-letter {
 }
 
 ul .right,
-ul .wrong {
+ul .wrong,
+ul.right,
+ul.wrong {
 	list-style-type: none;
 	margin-top: 0;
 	margin-left: 2rem;

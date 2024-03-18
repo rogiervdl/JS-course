@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video demo</title>
+  <style>
+    video {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <select id="selVideo">
+      <option value="">selecteer video...</option>
+      <option>dinosaur.mp4</option>
+      <option>fish.mp4</option>
+      <option>toys.mp4</option>
+    </select>
+  </p>
+  <p><video id="theVideo" width="640" height="360"></video></p>
+  <p>tijd: <span id="elapsed">-</span></p>
+  <script>
+    const video = document.querySelector('#theVideo');
+    const elapsed = document.querySelector('#elapsed');
+    document.querySelector('#selVideo').addEventListener('change', function() {
+      if (this.value == '') return;
+      video.src = `media/${this.value}`
+      video.play();
+    });
+    setInterval(function() {
+      if (!video.src) return;
+      elapsed.innerHTML = `${video.currentTime.toFixed(1)}/${video.duration.toFixed(1)}s`;
+    }, 50);
+  </script>
+</body>
+</html>

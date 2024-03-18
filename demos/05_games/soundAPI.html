@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <title> Webforms demo </title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 40em;
+    }
+  </style>
+</head>
+<body>
+  <p><label>Frequency: <input type="range" min="200" value="1100" max="2000" id="rngFrequency"></label> </p>
+  <p><label>Volume: <input type="range" min="0" value="0.5" max="1" id="rngVolume" step="0.01"></label></p>
+  <p><button id="btnStop">stop</button></p>
+<script>
+  // create audio context
+  const audioContext = new AudioContext();
+
+  // create oscillator
+  const oscillator = audioContext.createOscillator();
+  oscillator.frequency.value = 1000;
+
+  // create amp
+  const amp = audioContext.createGain();
+  amp.gain.value = 0.5;
+
+  // connect oscillator to amp, and amp to output
+  oscillator.connect(amp);
+  amp.connect(audioContext.destination);
+
+  // start oscillator
+  oscillator.start();
+
+  // bind events
+  document.querySelector('#rngFrequency').addEventListener('input', function() {
+    oscillator.frequency.value = this.value;
+  });
+  document.querySelector('#rngVolume').addEventListener('input', function() {
+    amp.gain.value = this.value;
+  });
+  document.querySelector('#btnStop').addEventListener('click', function() {
+    oscillator.stop();
+    this.disabled = true;
+  });
+
+  </script>
+</body>
+</html>

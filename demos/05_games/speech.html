@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Speech demo </title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<button id="btnStart">Start listening</button>
+	<p><strong>You said:</strong> <em id="echo">nothing yet</em>.</p>
+	<script>
+
+    const btnStart = document.querySelector('#btnStart');
+    const emEcho = document.querySelector('#echo');
+
+		btnStart.addEventListener('click', function() {
+			const recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+			recognition.lang = 'en-US';
+			recognition.start();
+			recognition.addEventListener('result', function(e) {
+			    emEcho.innerHTML = e.results[0][0].transcript;
+			});
+		});
+
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio demo</title>
+</head>
+<body>
+  <p><button id="btnRight"><img src="img/code_right.png" height="20" alt=""> RIGHT</button></p>
+  <p><button id="btnWrong"><img src="img/code_wrong.png" height="20" alt=""> WRONG</button></p>
+  <script>
+    const sfxRight = new Audio('media/right.mp3');
+    const sfxWrong = new Audio('media/wrong.mp3');
+    document.querySelector('#btnRight').addEventListener('click', function() {
+      sfxRight.play(); // other methods: stop(), pause() etc...
+    });
+    document.querySelector('#btnWrong').addEventListener('click', function() {
+      sfxWrong.play(); // other methods: stop(), pause() etc...
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+<body>
+  <p>
+    <label>notes: <input type="text" value="A Cs D F A" id="inpSong"></label>
+    <input type="button" id="btnPlay" value="play">
+  </p>
+  <p id="msg">
+
+  </p>
+
+  <script>
+    // inits
+    const msg = document.querySelector('#msg');
+    let notes;
+
+    // play note i
+    function playNextNote() {
+      if (!notes.length) {
+        msg.innerHTML = 'finished';
+        return;
+      }
+      note = notes.shift();
+      msg.innerHTML = `playing ${note}`;
+      const src = `media/notes/violin-${note}.mp3`;
+      const audio = new Audio(src);
+      audio.addEventListener('ended', playNextNote);
+      audio.play();
+    }
+
+    // add event listener to button
+    document.querySelector('#btnPlay').addEventListener('click', function() {
+      notes = document.querySelector('#inpSong').value.trim().split(' ');
+      playNextNote();
+    });
+  </script>
+</body>
+</html>
