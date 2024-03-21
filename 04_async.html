@@ -462,7 +462,7 @@
     data.forEach(entry =&gt; {
       lstRepos.innerHTML += `&lt;li&gt;
         &lt;a href="${entry.html_url}"&gt;${entry.full_name}&lt;/a&gt;
-        mdash; ${entry.description}&lt;/li&gt;`;
+        &amp;mdash; ${entry.description}&lt;/li&gt;`;
     });
   }
   async function doGetRepos() {
