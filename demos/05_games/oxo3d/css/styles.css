@@ -1,0 +1,56 @@
+/**
+ * Tic tac toe styles
+ *
+ * @author Rogier van der Linde <rogier.vanderlinde@odisee.be>
+ */
+
+body {
+    margin: 0;
+    background-color: #bbb;
+    overflow: hidden;
+}        
+
+#result {
+	color: #3f6c12;
+	font-family: "Chee Bleed";
+	font-size: 80px;
+	font-variation-settings: "grvt" 500, "temp" 0;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px white;
+	top: 50px;
+	z-index: 1000;
+}
+#result.animate {
+	font-variation-settings: "grvt" 0, "temp" 1000;
+	animation: variation 6s linear 1;
+	opacity: 1;
+}
+
+/* https://v-fonts.com/ */
+@font-face {
+	font-family: "Chee Bleed";
+	src: url("../fonts/chee_bleed/Cheee_Variable1.woff2");
+}
+@keyframes variation {
+	0% {
+		font-variation-settings: "grvt" 500, "temp" 0;
+		opacity: 0;
+	}
+	20% {
+		font-variation-settings: "grvt" 500, "temp" 0;
+		opacity: 1;
+	}
+	50% {
+		font-variation-settings: "grvt" 500, "temp" 0;
+		opacity: 1;
+	}
+	90% {
+		font-variation-settings: "grvt" 0, "temp" 1000;
+		opacity: 1;
+	}
+}
+

@@ -444,7 +444,7 @@ Console.WriteLine(Convert.ToDouble(test) / 2); // 1.5
 
     <h3>Identity operator</h3>
     <p>Er is een verschil tussen de identity operator === (vergelijkt waarde én type) en de equals operator == (vergelijkt enkel waarden):</p>
-    <pre class="prism-okaida line-numbers"><code>console.log('3' == 3); // true
+    <pre class="prism-okaida line-numbers w-600"><code>console.log('3' == 3); // true
 console.log('3' === 3); // false; verschillende types
 console.log('' == false); // true
 console.log('' === false); // false; verschillende types</code></pre>
@@ -725,7 +725,7 @@ Console.WriteLine($"items: ${String.Join(", ", list1)}"); // melk, eieren, kaas
       </thead>
       <tbody>
         <tr>
-          <td><code>contains()</code></td>
+          <td><code>includes()</code></td>
           <td>controleert of de rij een waarde bevat</td>
         </tr>
         <tr>
@@ -921,10 +921,10 @@ if (badGrades) {
     </div>
     <p>Vergeet ook de handige ternaire operator niet:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-600"><code>const number = 13;
+      <pre class="prism-okaida line-numbers"><code>const number = 13;
 console.log(`${number} is ${number % 2 == 0 ? 'even' : 'odd'}`);
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-600"><code>int number = 13;
+      <pre class="prism-vslight language-cs line-numbers w-700"><code>int number = 13;
 Console.WriteLine($"{number} is {(number % 2 == 0 ? "even" : "odd")}");
 </code></pre>
     </div>
@@ -933,7 +933,7 @@ Console.WriteLine($"{number} is {(number % 2 == 0 ? "even" : "odd")}");
     <h4>herhalingsstructuren <code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
     <p>In Javascript komt de syntax van de selecties <code>while</code>, <code>do</code>-<code>while</code> en <code>for</code> overeen met C#. Een <code>for</code> voorbeeld:</p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-550"><code>// definieer een array
+      <pre class="prism-okaida line-numbers"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -941,7 +941,7 @@ for (let i = 0; i &lt; forrestFriends.length; i++) {
   console.log(`friend nr. ${i}: ${forrestFriends[i]}`);
 }
 </code></pre>
-      <pre class="prism-vslight language-cs line-numbers w-550"><code>// definieer een array
+      <pre class="prism-vslight language-cs line-numbers"><code>// definieer een array
 string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
 // itereer over de waarden
@@ -974,7 +974,7 @@ foreach (string friend in forrestFriends) {
 
     <h4>itereren over collecties met <code>forEach</code></h4>
     <p>Javascript heeft nog een verkorte notatie (zonder C# equivalent) die velen zeer handig vinden:</p>
-    <pre class="prism-okaida line-numbers"><code>// definieer een array
+    <pre class="prism-okaida line-numbers w-600"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -985,7 +985,7 @@ forrestFriends.forEach(friend =&gt; {
 
     <h4>Itereren over object keys met <code>for</code>-<code>in</code> </h4>
     <p>Dit heeft niet direct een C# equivalent. Je kan het gebruiken om te itereren over de keys van een <a href="#objecten">object</a>:</p>
-      <pre class="prism-okaida line-numbers"><code>const myCar = {
+      <pre class="prism-okaida line-numbers w-600"><code>const myCar = {
     make: 'Mercury Bobcat',
     speed: 0,
     engineOn: true,
@@ -1071,7 +1071,7 @@ const bepaalGgd = (get1, get2) =&gt; {
 
     <h3>Optionele parameters</h3>
     <p>Je kan net zoals in C# standaardwaarden instellen voor parameters. Waar je geen waarden opgeeft, worden standaardwaarden genomen:</p>
-    <pre class="prism-okaida line-numbers" data-demo><code>function orderDetails(verkoper, product, prijs, klant = null, aantal = 1, kortingPerc = 0) {
+    <pre class="prism-okaida line-numbers w-900" data-demo><code>function orderDetails(verkoper, product, prijs, klant = null, aantal = 1, kortingPerc = 0) {
    return `
 Verkoper: ${verkoper}
 Klant: ${(klant == null ? '(onbekend)' : klant)}
@@ -1085,7 +1085,7 @@ console.log(orderDetails('Gift shop', 'Red Mug', 12.5));</code></pre>
     <div class="pro">
       <h3>Functies als parameters</h3>
       <p>Aangezien je functies als variabelen (of constanten) kan noteren, kan je ze ook als argument meegeven aan functies:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// declareer methode end()
+      <pre class="prism-okaida line-numbers w-900" data-demo><code>// declareer methode end()
 function end() {
   console.log('Ok, that was funny 😄');
 }
@@ -1100,7 +1100,7 @@ function speak(quote, callback) {
 speak('Behind every great man is a woman rolling her eyes.', end);</code></pre>
       <h3>Anonieme functies</h3>
       <p>Je kan trouwens ook rechtstreeks een methode meegeven, b.v. met de arrow expression notatie:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// declareer methode speak(), die als laatste parameter een functie 'callback' accepteert
+      <pre class="prism-okaida line-numbers w-900" data-demo><code>// declareer methode speak(), die als laatste parameter een functie 'callback' accepteert
 function speak(quote, callback) {
   console.log(quote);
   callback(); // voer de tweede parameter uit
@@ -1326,7 +1326,6 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
       <img src="img/01_syntax/pyramid-of-doom.jpg" alt="pyramid of doom">
       <figcaption>vermijd de <a href="https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming)">pyramid of doom</a>!</figcaption>
     </figure>
-
 
 
 

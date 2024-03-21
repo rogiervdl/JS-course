@@ -224,7 +224,7 @@
 
     <h3>toepassing 1: 5 random foto's ophalen</h3>
     <p>Met <code>fetch()</code> kan je zo'n URL <strong>dynamisch</strong> opvragen en de data gebruiken:</p>
-    <pre class="prism-okaida line-numbers w-700 h-400 language-html" data-demo><code>&lt;!-- HTML --&gt;
+    <pre class="prism-okaida line-numbers w-800 h-400 language-html" data-demo><code>&lt;!-- HTML --&gt;
 &lt;button type="button" id="btnRandomDogs"&gt;FETCH DOGS&lt;/button&gt;
 &lt;div id="dogs"&gt;&lt;/div&gt;
 
@@ -277,7 +277,7 @@
     </figure>
     <h3>toepassing 2: foto's van een specifiek ras ophalen </h3>
     <p>Een iets uitgebreider voorbeeld, waarbij eerst de hondenrassen opgehaald worden in een lijstje:</p>
-    <pre class="prism-okaida line-numbers w-700 h-400 language-html" data-demo><code>&lt;!-- HTML --&gt;
+    <pre class="prism-okaida line-numbers w-800 h-400 language-html" data-demo><code>&lt;!-- HTML --&gt;
 &lt;select id="selBreeds" class="hide"&gt;&lt;/select&gt;
 &lt;p id="parMessage"&gt;&nbsp;&lt;/p&gt;
 &lt;div id="divImages"&gt;&lt;/div&gt;
@@ -368,7 +368,7 @@
     <img src="img/04_async/flickr-photosearch.png" alt="" class="w-600">
     <h3>toepassing: zoeken op foto's</h3>
     <p>Verwerkt in een eenvoudige toepassing:</p>
-    <pre class="prism-okaida line-numbers w-800 h-400 language-html" data-demo="demos/04_async/demoFlickrAPI/index.html"><code>&lt;!-- HTML --&gt;
+    <pre class="prism-okaida line-numbers w-900 h-400 language-html" data-demo="demos/04_async/demoFlickrAPI/index.html"><code>&lt;!-- HTML --&gt;
 &lt;form action="" id="frmSearch"&gt;
   &lt;label&gt;search: &lt;input id="inpSearch" type="text" placeholder="enter keyword (.e.g. Eiffel)"&gt;&lt;/label&gt;
 &lt;/form&gt;
@@ -462,7 +462,7 @@
     data.forEach(entry =&gt; {
       lstRepos.innerHTML += `&lt;li&gt;
         &lt;a href="${entry.html_url}"&gt;${entry.full_name}&lt;/a&gt;
-        mdash; ${entry.description}&lt;/li&gt;`;
+        &amp;mdash; ${entry.description}&lt;/li&gt;`;
     });
   }
   async function doGetRepos() {

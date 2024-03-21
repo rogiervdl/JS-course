@@ -110,7 +110,7 @@
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/demoDomNavigation/index.html"><code>&lt;header&gt;
+          <pre class="prism-okaida language-html line-numbers" data-demo="demos/03_dom2/demoDomNavigation/index.html"><code>&lt;header&gt;
   &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
 &lt;nav&gt;
@@ -123,7 +123,7 @@
 </code></pre>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida line-numbers w-550"><code>const menu = document.querySelector('#mainmenu');
+          <pre class="prism-okaida line-numbers"><code>const menu = document.querySelector('#mainmenu');
 
 console.log(`menu's parent node:`);
 console.log(menu.parentNode);
@@ -176,7 +176,7 @@ console.log(nav.previousElementSibling);
       </tbody>
     </table>
     <p>Een handige methode is ook <code>closest()</code>, die de eerste ancestor zoekt die voldoet aan de meegegeven selector</p>
-    <pre class="prism-okaida line-numbers w-800"><code>const nav = someLink.closest('nav'); // search from some link up the tree till you find 'nav'</code></pre>
+    <pre class="prism-okaida line-numbers w-900"><code>const nav = someLink.closest('nav'); // search from some link up the tree till you find 'nav'</code></pre>
 
     <h2>Speciale nodes</h2>
     <p>
@@ -200,7 +200,7 @@ console.log(nav.previousElementSibling);
       Deze node stelt het <mark>browservenster</mark> voor. De <a href="https://www.w3schools.com/jsref/obj_window.asp">lijst properties en methodes</a> bevat voor ons niet zoveel interssants. Een paar gekende zijn <code>window.print()</code>, <code>window.scrollTo()</code> en <code>window.alert()</code>. Een voorbeeld van die laatste (dialoogvenster):
     </p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers wrong w-400"><code>window.alert('hallo wereld!');</code></pre>
+      <pre class="prism-okaida line-numbers wrong w-500"><code>window.alert('hallo wereld!');</code></pre>
       <img src="img/03_dom2/alert.png" alt="" class="w-500">
     </div>
     <p>&nbsp;</p>
@@ -214,7 +214,7 @@ console.log(nav.previousElementSibling);
       De rest is weinig gebruikt of verouderd; de enige nog (een beetje) interssante property is <code>document.title</code>, die verwijst naar &lt;title&gt;, de titel getoond op het browser tabblad:
     </p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-400"><code>document.title = 'kot kot kedei';</code></pre>
+      <pre class="prism-okaida line-numbers w-500"><code>document.title = 'kot kot kedei';</code></pre>
       <img src="img/03_dom2/document-title.png" alt="" class="w-500">
     </div>
     <h3>Location node</h3>
@@ -223,7 +223,7 @@ console.log(nav.previousElementSibling);
       Een voorbeeld van een redirect met <code>location.href</code>:
     </p>
     <div class="codecompare">
-      <pre class="prism-okaida line-numbers w-500"><code>if (location.search == '?gotogoogle') {
+      <pre class="prism-okaida line-numbers"><code>if (location.search == '?gotogoogle') {
    location.href = 'https://www.google.com';  // redirect
 }
 </code></pre>
@@ -254,7 +254,7 @@ console.log(nav.previousElementSibling);
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/demoYearsStyle/index.html"><code>&lt;ul id="jaar"&gt;
+          <pre class="prism-okaida language-html line-numbers" data-demo="demos/03_dom2/demoYearsStyle/index.html"><code>&lt;ul id="jaar"&gt;
   &lt;li&gt;2021&lt;/li&gt;
   &lt;li&gt;2022&lt;/li&gt;
   &lt;li&gt;2023&lt;/li&gt;
@@ -264,7 +264,7 @@ console.log(nav.previousElementSibling);
 &lt;/ul&gt;</code></pre>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida line-numbers w-550"><code>const currentYear = new Date().getFullYear();
+          <pre class="prism-okaida line-numbers"><code>const currentYear = new Date().getFullYear();
 const years = document.querySelectorAll('#jaar li');
 years.forEach(li =&gt; {
   if (li.innerHTML == currentYear) {
@@ -275,7 +275,7 @@ years.forEach(li =&gt; {
   }
 });
 </code></pre>
-          <div class="rectangle" style="left: 87px;top: 107px;height: 82px;width: 157px;"></div>
+          <div class="rectangle" style="left: 87px;top: 113px;height: 87px;width: 157px;"></div>
         </div>
       </div>
       <div>
@@ -290,7 +290,7 @@ years.forEach(li =&gt; {
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-550" data-demo="demos/03_dom2/demoYearsClassList/index.html"><code>&lt;header&gt;
+          <pre class="prism-okaida language-html line-numbers" data-demo="demos/03_dom2/demoYearsClassList/index.html"><code>&lt;header&gt;
   &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
 &lt;nav&gt;
@@ -303,7 +303,7 @@ years.forEach(li =&gt; {
 </code></pre>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida language-css line-numbers w-550"><code>.todayYear {
+          <pre class="prism-okaida language-css line-numbers"><code>.todayYear {
   border: 3px dotted black;
   background-color: #aaf;
   color: white;
@@ -312,7 +312,7 @@ years.forEach(li =&gt; {
 </code></pre>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida line-numbers w-550"><code>const currentYear = new Date().getFullYear();
+          <pre class="prism-okaida line-numbers"><code>const currentYear = new Date().getFullYear();
 const years = document.querySelectorAll('#jaar li');
 years.forEach(li =&gt; {
   if (li.innerHTML == currentYear) {
@@ -320,7 +320,7 @@ years.forEach(li =&gt; {
   }
 });
 </code></pre>
-          <div class="rectangle" style="left: 88px;top: 109px;height: 19px;width: 136px;"></div>
+          <div class="rectangle" style="left: 88px;top: 114px;height: 25px;width: 136px;"></div>
         </div>
       </div>
       <div>
@@ -336,16 +336,16 @@ years.forEach(li =&gt; {
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/demoSeeds/index.html"><code>&lt;ul id="zaden"&gt;
+          <pre class="prism-okaida language-html line-numbers w-700" data-demo="demos/03_dom2/demoSeeds/index.html"><code>&lt;ul id="zaden"&gt;
   &lt;li data-afstand="10cm" data-zaaitijd="maart tot juni"&gt;wortelen&lt;/li&gt;
   &lt;li data-afstand="30cm" data-zaaitijd="februari tot maart"&gt;selder&lt;/li&gt;
   &lt;li data-afstand="3cm" data-zaaitijd="maart tot september"&gt;radijs&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-          <div class="rectangle" style="left: 105px;top: 51px;height: 57px;width: 99px;"></div>
-          <div class="rectangle" style="left: 256px;top: 50px;height: 58px;width: 115px;"></div>
+          <div class="rectangle" style="left: 105px;top: 51px;height: 67px;width: 109px;"></div>
+          <div class="rectangle" style="left: 256px;top: 50px;height: 67px;width: 125px;"></div>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida line-numbers w-650"><code>const zaden = document.querySelectorAll('#zaden li');
+          <pre class="prism-okaida line-numbers w-700"><code>const zaden = document.querySelectorAll('#zaden li');
 console.log(zaden.length);
 
 zaden.forEach(zaad =&gt; {
@@ -355,7 +355,7 @@ planttijd: ${zaad.dataset.zaaitijd}
 afstand: ${zaad.dataset.afstand}`);
 });
 </code></pre>
-          <div class="rectangle" style="left: 180px;top: 147px;height: 40px;width: 155px;"></div>
+          <div class="rectangle" style="left: 180px;top: 152px;height: 50px;width: 165px;"></div>
         </div>
       </div>
       <div>
@@ -369,7 +369,7 @@ afstand: ${zaad.dataset.afstand}`);
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
+          <pre class="prism-okaida language-html line-numbers w-700" data-demo="demos/03_dom2/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
 &lt;p&gt;&lt;input type="text" id="inp1" /&gt;&lt;/p&gt;
 &lt;p&gt;
   karakter: &lt;span id="kar"&gt;&lt;/span&gt;
@@ -379,15 +379,15 @@ afstand: ${zaad.dataset.afstand}`);
 </code></pre>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida line-numbers w-650"><code>const inp = document.querySelector('#inp1');
+          <pre class="prism-okaida line-numbers w-700"><code>const inp = document.querySelector('#inp1');
 inp.addEventListener('keydown', function(e) {
-  console.log(e); // gebruik console.log() om alle properties te inspecteren
+  console.log(e); // inspecteer alle properties met console.log()
   document.querySelector('#kar').innerHTML = e.key;
   document.querySelector('#code').innerHTML = e.keyCode;
   document.querySelector('#shift').innerHTML = e.shiftKey ? 'ja' : 'nee ';
 });
 </code></pre>
-        <div class="rectangle" style="left: 412px;top: 92px;height: 64px;width: 101px;"></div>
+        <div class="rectangle" style="left: 412px;top: 92px;height: 70px;width: 111px;"></div>
       </div>
       </div>
       <div>
@@ -399,19 +399,19 @@ inp.addEventListener('keydown', function(e) {
     <div class="codecompare">
       <div>
         <div class="precontainer">
-          <pre class="prism-okaida language-html line-numbers w-650" data-demo="demos/03_dom2/demoMouse/index.html"><code>&lt;p&gt;klik ergens in de pagina...&lt;/p&gt;
+          <pre class="prism-okaida language-html line-numbers w-700" data-demo="demos/03_dom2/demoMouse/index.html"><code>&lt;p&gt;klik ergens in de pagina...&lt;/p&gt;
 &lt;p&gt;
   positie: &lt;span id="pos"&gt;&lt;/span&gt;
 &lt;/p&gt;</code></pre>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida line-numbers w-650"><code>const body = document.querySelector('body');
+          <pre class="prism-okaida line-numbers w-700"><code>const body = document.querySelector('body');
 body.addEventListener('click', function(e) {
-  console.log(e); // gebruik console.log() om alle properties te inspecteren
+  console.log(e); // inspecteer alle properties met console.log()
   document.querySelector('#pos').innerHTML = `(${e.clientX}, ${e.clientY})`;
 });
 </code></pre>
-          <div class="rectangle" style="left: 446px;top: 95px;height: 18px;width: 186px;"></div>
+          <div class="rectangle" style="left: 442px;top: 93px;height: 25px;width: 196px;"></div>
         </div>
       </div>
       <div>
@@ -430,7 +430,7 @@ body.addEventListener('click', function(e) {
     </ul>
     <p>De oude HTML:</p>
     <div class="precontainer">
-      <pre class="prism-okaida language-html line-numbers w-1000"><code>&lt;ul class="thumbs"&gt;
+      <pre class="prism-okaida language-html line-numbers w-1100"><code>&lt;ul class="thumbs"&gt;
   &lt;li&gt;&lt;a href="img/photo1.jpg"&gt;&lt;img src="img/photo1-s.jpg" alt="Amman, Jordanië"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo17.jpg"&gt;&lt;img src="img/photo17-s.jpg" alt="Noorderlicht, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo6.jpg"&gt;&lt;img src="img/photo6-s.jpg" alt="mozaïek, Isfahan, Iran"&gt;&lt;/a&gt;&lt;/li&gt;
@@ -444,7 +444,7 @@ body.addEventListener('click', function(e) {
     </div>
     <p>De vernieuwe HTML:</p>
     <div class="precontainer">
-      <pre class="prism-okaida language-html line-numbers right w-1000" data-demo="demos/03_dom2/demoFotogallerij2/index.html"><code>&lt;div class="thumbs"&gt;
+      <pre class="prism-okaida language-html line-numbers right w-1100" data-demo="demos/03_dom2/demoFotogallerij2/index.html"><code>&lt;div class="thumbs"&gt;
   &lt;div data-photo="img/photo1.jpg" data-desc="Amman, Jordanië" class="current"&gt;&lt;img src="img/photo1-s.jpg" alt=""&gt;&lt;/div&gt;
   &lt;div data-photo="img/photo17.jpg" data-desc="Noorderlicht, Lapland"&gt;&lt;img src="img/photo17-s.jpg" alt=""&gt;&lt;/div&gt;
   &lt;div data-photo="img/photo6.jpg" data-desc="mozaïek, Isfahan"&gt;&lt;img src="img/photo6-s.jpg" alt=", Iran"&gt;&lt;/div&gt;
@@ -511,7 +511,7 @@ thumbs.forEach(thn =&gt; {
       We herwerken het met gebruik van o.a. <strong><code>classList</code></strong> en <strong><code>parentNode</code></strong>. Bekijk zeker de uitleg in <a href="#video-tree-navigatie-speciale-nodes-classlist-style-data-mouse-en-keyboard">de video</a>. De aangepaste HTML:
     </p>
     <div class="precontainer">
-      <pre class="prism-okaida language-html line-numbers right" data-demo="demos/03_dom2/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
+      <pre class="prism-okaida language-html line-numbers right w-800" data-demo="demos/03_dom2/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
   &lt;h1&gt;Registreren&lt;/h1&gt;
   &lt;div&gt;
     &lt;label for="email"&gt;Email: &lt;/label&gt;
@@ -527,8 +527,8 @@ thumbs.forEach(thn =&gt; {
   &lt;input type="submit" value="Inloggen"&gt;
 &lt;/form&gt;
 </code></pre>
-    <div class="rectangle" style="left: 87px;top: 125px;height: 25px;width: 497px;"></div>
-    <div class="rectangle" style="left: 87px;top: 223px;height: 45px;width: 655px;"></div>
+    <div class="rectangle" style="left: 87px;top: 135px;height: 25px;width: 507px;"></div>
+    <div class="rectangle" style="left: 87px;top: 238px;height: 45px;width: 665px;"></div>
   </div>
   <p>In de aangepaste CSS verbergen we standaard de foutmeldingen:</p>
   <div class="precontainer">
@@ -551,12 +551,12 @@ label, input {
    display: block;
 }
 </code></pre>
-    <div class="rectangle" style="left: 71px;top: 223px;height: 25px;width: 117px;"></div>
-    <div class="rectangle" style="left: 56px;top: 322px;height: 62px;width: 145px;"></div>
+    <div class="rectangle" style="left: 71px;top: 233px;height: 30px;width: 117px;"></div>
+    <div class="rectangle" style="left: 56px;top: 339px;height: 67px;width: 145px;"></div>
   </div>
   <p>In de Javascript tonen we de nodige foutmeldingen:</p>
   <div class="precontainer">
-    <pre class="prism-okaida line-numbers right"><code>const frmLogin = document.querySelector('#frmLogin');
+    <pre class="prism-okaida line-numbers right w-800"><code>const frmLogin = document.querySelector('#frmLogin');
 const inpEmail = frmLogin.querySelector('#email');
 const inpPw = frmLogin.querySelector('#pw');
 const msgEmailIsEmpty = inpEmail.parentNode.querySelector('.message.is-empty');

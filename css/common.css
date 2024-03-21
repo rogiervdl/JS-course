@@ -1,5 +1,9 @@
 /* ELEMENTS */
 
+* {
+	box-sizing: border-box;
+}
+
 html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
@@ -260,6 +264,11 @@ body main .w-700 {
 	width: 70rem;
 }
 
+body main .w-750 {
+	max-width: 100%;
+	width: 75rem;
+}
+
 body main .w-800 {
 	max-width: 100%;
 	width: 80rem;
@@ -273,6 +282,11 @@ body main .w-900 {
 body main .w-1000 {
 	max-width: 100%;
 	width: 100rem;
+}
+
+body main .w-1100 {
+	max-width: 100%;
+	width: 110rem;
 }
 
 body main .w-1200 {
@@ -486,6 +500,20 @@ html body .small {
 	left: 0.5rem;
 	position: absolute;
 	top: 0.5rem;
+}
+
+.tips.topmessage {
+	margin: 0 2.5rem;
+}
+
+/* blockquotes */
+
+blockquote.dotted {
+	border: 4px dotted #ccc;
+	font-size: 1.2em;
+	font-style: italic;
+	margin-left: 0;
+	padding: 10px 20px;
 }
 
 /* back to top */
@@ -712,7 +740,7 @@ figure pre {
 }
 
 .codecompare pre {
-	width: 500px;
+	width: 600px;
 }
 
 /* toolbar mods */
