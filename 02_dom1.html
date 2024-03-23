@@ -25,11 +25,11 @@
       <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
     </a>
     <a href="02_dom1.html" class="main__thumb active" title="02. DOM deel 1">
-      <p class="thumb__title">02. DOM deel 1</p>
+      <p class="thumb__title">02. DOM 1</p>
       <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
     </a>
     <a href="03_dom2.html" class="main__thumb" title="03. DOM deel2">
-      <p class="thumb__title">03. DOM deel 2</p>
+      <p class="thumb__title">03. DOM 2</p>
       <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
     </a>
     <a href="04_async.html" class="main__thumb" title="04. Web API's">
@@ -249,16 +249,16 @@
     &lt;Label x:Name="lblMessage" Content="" ... /&gt;
   &lt;/Grid&gt;
 &lt;/Window&gt;</code></pre>
-          <div class="rectangle" style="left: 227px;top: 70px;height: 25px;width: 75px;"></div>
-          <div class="rectangle" style="left: 211px;top: 90px;height: 25px;width: 95px;"></div>
+          <div class="codemarker" data-text="inpTest"></div>
+          <div class="codemarker" data-text="lblMessage"></div>
         </div>
         <div class="precontainer">
           <pre class="prism-vslight language-cs line-numbers w-600"><code>public MainWindow() {
   InitializeComponent();
   lblMessage.Content = $"tekst in het tekstvak: {inpTest.Text}";
 }</code></pre>
-          <div class="rectangle" style="left: 440px;top: 70px;height: 25px;width: 75px;"></div>
-          <div class="rectangle" style="left: 72px;top: 70px;height: 25px;width: 95px;"></div>
+          <div class="codemarker" data-text="inpTest"></div>
+          <div class="codemarker" data-text="lblMessage"></div>
         </div>
       </div>
       <div>
@@ -284,13 +284,13 @@
   &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <div class="rectangle" style="left: 420px;top: 187px;height: 25px;width: 75px;"></div>
-          <div class="rectangle" style="left: 122px;top: 210px;height: 25px;width: 95px;"></div>
+          <div class="codemarker" data-text="inpTest"></div>
+          <div class="codemarker" data-text="lblMessage"></div>
         </div>
         <div class="precontainer">
           <pre class="prism-okaida line-numbers"><code>lblMessage.innerHTML = `tekst in het tekstvak: ${inpTest.value}`;</code></pre>
-          <div class="rectangle" style="left: 54px;top: 30px;height: 25px;width: 95px;"></div>
-          <div class="rectangle" style="left: 435px;top: 30px;height: 25px;width: 75px;"></div>
+          <div class="codemarker" data-text="inpTest"></div>
+          <div class="codemarker" data-text="lblMessage"></div>
         </div>
       </div>
       <div>
@@ -387,8 +387,8 @@
   &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <div class="rectangle" style="left: 420px;top: 187px;height: 25px;width: 75px;"></div>
-          <div class="rectangle" style="left: 122px;top: 207px;height: 25px;width: 95px;"></div>
+          <div class="codemarker" data-text="inpTest"></div>
+          <div class="codemarker" data-text="lblMessage"></div>
         </div>
         <div class="precontainer">
           <pre class="prism-okaida line-numbers"><code>const lbl = document.querySelector('#lblMessage');
@@ -396,8 +396,8 @@ const inp = document.querySelector('#inpTest');
 
 lbl.innerHTML = `tekst in het tekstvak: ${inp.value}`;
 </code></pre>
-          <div class="rectangle" style="left: 338px;top: 31px;height: 25px;width: 95px;"></div>
-          <div class="rectangle" style="left: 342px;top: 51px;height: 25px;width: 75px;"></div>
+          <div class="codemarker" data-text="#inpTest"></div>
+          <div class="codemarker" data-text="#lblMessage"></div>
         </div>
       </div>
       <div>
@@ -423,7 +423,7 @@ lbl.innerHTML = `tekst in het tekstvak: ${inp.value}`;
 console.log(`actief menu item is "${activeLink.innerHTML}"`);
 console.log(`dit item linkt naar ${activeLink.href}`);
 </code></pre>
-          <div class="rectangle" style="left: 392px;top: 30px;height: 25px;width: 134px;"></div>
+          <div class="codemarker" data-text="nav li.active a"></div>
         </div>
       </div>
       <div>
@@ -475,7 +475,7 @@ navLinks.forEach(lnk =&gt; {
   console.log(`menu item: "${lnk.innerHTML}"`);
 });
 </code></pre>
-          <div class="rectangle" style="left: 258px;top: 31px;height: 25px;width: 203px;"></div>
+          <div class="codemarker" data-text=".querySelectorAll('nav a')"></div>
         </div>
       </div>
       <div>
@@ -503,7 +503,7 @@ const cells = table1.querySelectorAll('td');
 
 console.log(`tabel bevat: ${rows.length} rijen ${cells.length} cellen`);
 </code></pre>
-          <div class="rectangle" style="left: 160px;top: 55px;height: 38px;width: 65px;"></div>
+          <div class="codemarker" data-text="table1.q" data-height="42"></div>
         </div>
       </div>
       <div>
@@ -530,8 +530,8 @@ console.log(`tabel bevat: ${rows.length} rijen ${cells.length} cellen`);
         <div class="precontainer">
           <pre class="prism-okaida" data-demo="demos/02_dom1/dom-mainpulatie-attributen.html"><code class="language-html">&lt;img id="img1" src="img/photo1-s.jpg" alt="random image"&gt;
           </code></pre>
-          <div class="rectangle" style="left: 311px; top: 31px; height: 25px; width: 40px;"></div>
-          <div class="rectangle" style="left: 129px; top: 31px; height: 25px; width: 40px;"></div>
+          <div class="codemarker" data-text="src="></div>
+          <div class="codemarker" data-text="alt="></div>
         </div>
         <div class="precontainer">
           <pre class="prism-okaida"><code>const photos = [
@@ -552,9 +552,9 @@ console.log(`foto ${i} geladen`);
 console.log(`huidige url: ${img1.src}`);
 </code>
 </pre>
-          <div class="rectangle" style="left: 295px; top: 185px; height: 25px; width: 80px;"></div>
-          <div class="rectangle" style="left: 5px; top: 245px; height: 45px; width: 80px;"></div>
-          <div class="rectangle" style="left: 230px; top: 325px; height: 25px; width: 80px;"></div>
+          <div class="codemarker" data-text="${img1.src}"></div>
+          <div class="codemarker" data-text="img1.src " data-height="43"></div>
+          <div class="codemarker" data-text="${img1.src}" data-nth="2"></div>
         </div>
       </div>
       <div>
@@ -579,9 +579,9 @@ console.log(`huidige url: ${img1.src}`);
 const msg = document.querySelector('#message');
 msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</code>
 </pre>
-          <div class="rectangle" style="left: 41px; top: 70px; height: 25px; width: 80px;"></div>
-          <div class="rectangle" style="left: 298px; top: 70px; height: 25px; width: 98px;"></div>
-          <div class="rectangle" style="left: 480px; top: 70px; height: 25px; width: 106px;"></div>
+          <div class="codemarker" data-text=".innerHTML"></div>
+          <div class="codemarker" data-text=".naturalWidth"></div>
+          <div class="codemarker" data-text=".naturalHeight"></div>
         </div>
       </div>
       <div>
@@ -609,8 +609,8 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
   }
   let numImages = document.querySelectorAll('#content img').length;
   msg.innerHTML = `content contains ${numImages} images`;</code></pre>
-          <div class="rectangle" style="left: 115px;top: 90px;height: 25px;width: 75px;"></div>
-          <div class="rectangle" style="left: 59px;top: 167px;height: 25px;width: 75px;"></div>
+          <div class="codemarker" data-text=".innerHTML"></div>
+          <div class="codemarker" data-text=".innerHTML" data-nth="2"></div>
         </div>
       </div>
       <div>
@@ -690,14 +690,14 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
           <pre data-caption="XAML" class="prism-vslight language-html line-numbers w-700"><code>&lt;Button x:Name="btnHello" Content="Toon Hallo" Click="btnHello_Click" ... /&gt;
 &lt;Label x:Name="lblMessage" Content="" ... /&gt;
 </code></pre>
-          <div class="rectangle" style="left: 430px;top: 30px;height: 25px;width: 175px;"></div>
+          <div class="codemarker" data-text="Click=&quot;btnHello_Click&quot;"></div>
         </div>
         <div class="precontainer">
           <pre class="prism-vslight language-cs line-numbers w-700"><code>private void btnHello_Click(object sender, RoutedEventArgs e) {
     lblMessage.Content = "Hallo daar";
 }
 </code></pre>
-          <div class="rectangle" style="left: 160px;top: 30px;height: 25px;width: 114px;"></div>
+          <div class="codemarker" data-text="btnHello_Click"></div>
         </div>
       </div>
       <div>
@@ -710,7 +710,7 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
         <div class="precontainer">
           <pre class="prism-okaida language-html wrong line-numbers w-700"><code>&lt;button id="btnHello" onclick="zegHallo()"&gt;Toon Hallo&lt;/button&gt;
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
-          <div class="rectangle rectangle--error" style="left: 231px;top: 30px;height: 25px;width: 161px;"></div>
+          <div class="codemarker" data-text="onclick=&quot;zegHallo()&quot;" data-color="#C06000"></div>
         </div>
         <div class="precontainer">
           <pre class="prism-okaida line-numbers w-700"><code>const lblMessage = document.querySelector('#lblMessage');
@@ -718,7 +718,7 @@ function zegHallo() {
   lblMessage.innerHTML = 'Hallo daar';
 }
 </code></pre>
-          <div class="rectangle" style="left: 127px;top: 50px;height: 25px;width: 82px;"></div>
+          <div class="codemarker" data-text="zegHallo()"></div>
         </div>
       </div>
       <div>
@@ -742,7 +742,7 @@ function zegHallo() {
   lblMessage.innerHTML = 'Hallo daar';
 }
 btnHello.onclick = zegHallo; // zegHallo zonder haakjes ()</code></pre>
-          <div class="rectangle rectangle--error" style="left: 124px;top: 130px;height: 25px;width: 75px;"></div>
+          <div class="codemarker" data-color="#C06000" data-text=".onclick"></div>
         </div>
       </div>
       <div>
@@ -765,7 +765,7 @@ function zegHallo() {
   lblMessage.innerHTML = 'Hallo daar';
 }
 btnHello.addEventListener('click', zegHallo);</code></pre>
-          <div class="rectangle" style="left: 124px;top: 130px;height: 25px;width: 133px;"></div>
+          <div class="codemarker" data-text=".addEventListener"></div>
         </div>
       </div>
       <div>
@@ -839,7 +839,7 @@ btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>
   lblBericht.Content = $"{btn.Content} geklikt";
 }
 </code></pre>
-          <div class="rectangle" style="left: 235px;top: 30px;height: 25px;width: 114px;"></div>
+          <div class="codemarker" data-text="object sender"></div>
         </div>
       </div>
       <div>
@@ -868,7 +868,7 @@ buttons.forEach(btn =&gt; {
   });
 });
 </code></pre>
-          <div class="rectangle" style="left: 301px;top: 110px;height: 25px;width: 75px;"></div>
+          <div class="codemarker" data-text="e.target"></div>
         </div>
       </div>
       <div>
@@ -891,10 +891,12 @@ buttons.forEach(btn =&gt; {
         </div>
         <div class="precontainer">
           <pre class="prism-okaida line-numbers"><code>const table = document.querySelector('#board');
+
 // definieer event op de hele tabel
 table.addEventListener('click', function(e) {
   // enkel indien TD aangeklikt is
   if (e.target.nodeName != 'TD') return;
+
   // toon aangeklikte cel
   console.log(`${e.target.innerHTML} geklikt`);
 });
@@ -983,7 +985,7 @@ links.forEach(lnk =&gt; {
   });
 });
 </code></pre>
-        <div class="rectangle" style="left: 85px;top: 113px;height: 25px;width: 156px;"></div>
+        <div class="codemarker" data-text="e.preventDefault()"></div>
       </div>
       <div>
         <img src="img/02_dom1/preventdefault2.png" alt="" class="w-400">

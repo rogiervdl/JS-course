@@ -6,7 +6,6 @@
 
 html {
 	font-size: 62.5%;
-	scroll-behavior: smooth;
 }
 
 body {
@@ -15,8 +14,9 @@ body {
 	font-size: 1.6rem;
 	margin: 0;
 	margin-bottom: 5rem;
+	margin-top: 20px;
 	padding: 0;
-	padding-top: 21rem;
+	padding-top: 19rem;
 }
 
 a {
@@ -130,7 +130,6 @@ nav {
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: all 0.1s;
 	z-index: 15;
 }
 
@@ -142,6 +141,12 @@ table {
 /* CLASSES */
 
 /* general */
+
+.title__anchor {
+	margin-top: -100px; /* Size of fixed header */
+	padding-bottom: 100px;
+	display: block;
+}
 
 .bordered {
 	border: 2px solid #999;
@@ -305,27 +310,22 @@ body main .w-1200 {
 
 /* TAG-CLASSES */
 
-/* rectangles */
+/* markers */
 
-.precontainer {
-	position: relative;
-	max-width: 100%;
-}
-
-.rectangle {
+.marker {
 	border: 3px solid #688031BB;
-	display: none;
 	position: absolute;
 }
 
-.rectangle--error {
-	border-color: #C06000;
+.prism-okaida .marker {
+	opacity: 0.8;
 }
 
 /* lists */
 
 ul {
 	list-style: square;
+   padding-left: 10px;
 }
 
 ul.arrow,
@@ -338,7 +338,7 @@ li.arrow {
 
 ul.arrow li:first-child,
 ul li.arrow {
-	margin-top: 0.5rem 0;
+	/* margin-top: 0.5rem 0; */
 }
 
 ul.arrow li::before,
@@ -351,8 +351,8 @@ li.arrow::first-letter {
 	margin-left: -2rem;
 }
 
-ul .right,
-ul .wrong,
+ul li.right,
+ul li.wrong,
 ul.right,
 ul.wrong {
 	list-style-type: none;
@@ -365,7 +365,7 @@ ul.right li:first-child,
 ul.wrong li:first-child,
 ul li.right,
 ul li.wrong {
-	margin: 0.5rem 0;
+	/* margin: 0.5rem 0; */
 }
 
 ul.right li::before,
@@ -493,7 +493,9 @@ blockquote.dotted {
 .site__nav {
 	column-gap: 2.5%;
 	display: flex;
+   flex-wrap: wrap;
 	justify-content: center;
+	overflow-x: auto;
 	padding: 3rem 0;
 	row-gap: 3rem;
 }
@@ -509,9 +511,10 @@ blockquote.dotted {
 	font-size: 1rem;
 	font-family: 'League Gothic', sans-serif;
 	justify-content: flex-start;
+	min-width: 16rem;
 	padding: 1.65rem 0.8rem;
 	text-decoration: none;
-	text-shadow: 0 0.5rem 0.2rem rgba(150, 150, 150, 0.71);
+	text-shadow: 0 0.2rem 0.2rem rgba(150, 150, 150, 0.71);
 	text-transform: uppercase;
 	transition: all .2s linear;
 	width: 16rem;
@@ -526,14 +529,13 @@ blockquote.dotted {
 .thumb__title {
 	font-size: 2rem;
 	font-weight: normal;
-	margin-bottom: 1.3rem;
+	margin-bottom: 1.2rem;
 	margin-top: 0;
 	white-space: nowrap;
 }
 
 .thumb__visual {
 	display: block;
-	margin-bottom: 1rem;
 	width: 50%;
 }
 
@@ -544,11 +546,14 @@ blockquote.dotted {
 	row-gap: 0.4rem;
 }
 
+.condensed .main__thumb {
+	min-width: 6rem;
+}
+
 .condensed:not(:hover) .main__thumb {
 	border: 0.2rem solid #eee;
 	font-size: 0.5rem;
 	margin-bottom: 0;
-	margin-top: auto;
 	padding: 0.8rem 0.4rem;
 	width: 4rem;
 }
@@ -559,6 +564,10 @@ blockquote.dotted {
 	margin-bottom: 0.3rem;
 	margin-top: 0;
 	white-space: nowrap;
+}
+
+.condensed .thumb__small {
+	display: none;
 }
 
 /* TABLE OF CONTENTS */
@@ -640,12 +649,15 @@ code {
 	position: relative;
 }
 
-body .right,
-body .wrong {
+body pre.right,
+body div.right,
+body pre.wrong,
+body div.wrong {
 	position: relative;
 }
 
-body .right::after {
+body pre.right::after,
+body div.right::after {
 	content: url(../img/code_right.png);
 	position: absolute;
 	left: -10px;
@@ -653,7 +665,8 @@ body .right::after {
    z-index: 10;
 }
 
-body .wrong::after {
+body pre.wrong::after,
+body div.wrong::after {
 	content: url(../img/code_wrong.png);
 	position: absolute;
 	left: -10px;
@@ -742,9 +755,6 @@ figure.console pre {
 	.codecompare {
 		display: flex;
 		column-gap: 40px;
-	}
-	.rectangle {
-		display: block;
 	}
 }
 

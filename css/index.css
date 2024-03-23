@@ -2,7 +2,7 @@
  * CSS for index.html
  *
  * Copyright Rogier van der Linde
- * Last revision 
+ * Last revision
  */
 
 /* general */
@@ -56,11 +56,12 @@ body:not(.showpro) .pro {
 /* header */
 
 .site__header {
+   padding-top: 70px;
    position: relative;
 }
 
 .header__title {
-   font-size: 10rem;
+   font-size: 5rem;
    letter-spacing: 0.02em;
    margin-bottom: 2rem;
 }
@@ -85,15 +86,15 @@ body:not(.showpro) .pro {
    z-index: 10;
    opacity: 0.75;
 }
- 
+
 .header__logo:hover {
    opacity: 1;
 }
- 
+
 .header__logo img {
    width: 100%;
 }
- 
+
 /* nav */
 
 .site__nav {
@@ -109,6 +110,7 @@ body:not(.showpro) .pro {
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
+   margin-bottom: 20px;
    padding: 1em 0.5em;
    text-decoration: none;
    transition: all .2s linear;
@@ -119,22 +121,21 @@ body:not(.showpro) .pro {
 }
 
 .thumb__title {
-   font-size: 1.6em;
+   font-size: 1.4em;
    font-weight: normal;
-   margin-bottom: 0.75em;
+   margin-bottom: 1em;
    white-space: nowrap;
+}
+
+.thumb__small {
+   font-size: 0.8em;
+   margin-bottom: 1em;
 }
 
 .thumb__visual {
    display: block;
    margin-bottom: 1em;
    width: 50%;
-}
-
-.thumb__small {
-   font-size: 0.5em;
-   margin-bottom: 0;
-   margin-top: auto;
 }
 
 /* footer */
@@ -185,9 +186,9 @@ aside a:hover {
 
 /* responsive stuff */
 
-@media (min-width: 30em) {
+@media (min-width: 35em) {
    .header__title {
-      font-size: 14rem;
+      font-size: 10rem;
    }
    .header__tagline {
       font-size: 6rem;
@@ -203,7 +204,7 @@ aside a:hover {
    }
 }
 
-@media (min-width: 40em) {
+@media (min-width: 50em) {
    .site__nav {
       column-gap: 3.5%;
       row-gap: 1.2em;
@@ -215,7 +216,7 @@ aside a:hover {
 
 @media (min-width: 60em) {
    .thumb__title {
-      font-size: 1.8em;
+      font-size: 1.3em;
    }
    .site__nav {
       column-gap: calc(8% / 3);
