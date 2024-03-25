@@ -25,7 +25,7 @@ function drawCodeMarkers() {
 		const markers = pc.querySelectorAll('.codemarker');
 		const code = pc.querySelector('code');
 
-		// backup innerHTML, and replace with innerText
+      // backup innerHTML, and replace with innerText
 		const innerHTML = code.innerHTML;
 		code.innerHTML = code.innerText.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 
@@ -52,8 +52,11 @@ function drawCodeMarkers() {
 			div.style.top = `${m.dataset.top ?? coords.top - 4}px`;
 			div.style.height = `${m.dataset.height ?? coords.height + 8}px`;
 			div.style.width = `${m.dataset.width ?? coords.width + 8}px`;
-			if (m.dataset.color) div.style.borderColor = m.dataset.color;
-			code.parentNode.appendChild(div);
+			if (m.dataset.color) {
+            if (m.dataset.color.startsWith('#')) div.style.borderColor = m.dataset.color;
+            else div.classList.add(m.dataset.color);
+         }
+         code.parentNode.appendChild(div);
 		});
 
 		// restore innerHTML
@@ -75,7 +78,7 @@ function repaint() {
  * @param {string} str
  */
 function startApp() {
-	// part 1: assign id's to titles
+	// part 1: assign id's to titles and toctitles
 	DOM.titles.forEach((title) => {
 		const id = createIdFrom(title.textContent);
 		title.dataset.id = id;
@@ -96,12 +99,12 @@ function startApp() {
 
 		// increment title count
 		titleNrs[titleNr - 1]++;
-		if (titleNrs[titleNr - 1] == 1) toc += '<ul>';
+		if (titleNrs[titleNr - 1] == 1) toc += `${toc.includes('<li>')? '<li>' : ''}<ul>`;
 
 		// reset all subtitle counts
 		for (let i = titleNr; i < titleNrs.length; i++) {
 			if (titleNrs[i] == 0) continue;
-			toc += '</ul>';
+			toc += `</ul>${toc.includes('</li>')? '</li>' : ''}`;
 			titleNrs[i] = 0;
 		}
 		const prefix = titleNrs.filter(t => t != 0).join('.');
@@ -167,7 +170,11 @@ function startApp() {
 
 	// part 5: code markers
 	window.addEventListener('resize', repaint);
-	window.addEventListener('load', repaint);
+
+   // part 6: error comment markers
+   document.querySelectorAll('code .token.comment').forEach(t => {
+      if (t.innerText.toLowerCase().includes('// fout')) t.classList.add('error');
+   });
 }
 
 /**
@@ -187,4 +194,7 @@ function createIdFrom(str) {
 }
 
 // start your engines!
-startApp();
+window.addEventListener('load', function() {
+   repaint();
+   startApp();
+});

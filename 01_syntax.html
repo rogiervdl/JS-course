@@ -323,22 +323,22 @@ console.log(names);</code></pre>
     <pre class="prism-okaida line-numbers" data-demo><code>console.table({ name: 'rogier', age: '46', isMale: true});
 console.warn('this is a serious warning');
 console.error('whoops! an error occured');</code></pre>
-      <h4>debugger</h4>
-      <p>
-         De console werkt <strong>asynchroon</strong>. Dit is een belangrijk begrip in programmeren in het algemeen, en Javascript in het bijzonder.
-         Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover later in hoofdstuk <a href="04_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte gevolgen. Neem volgende code:
-      </p>
-      <pre class="prism-okaida line-numbers" data-demo><code>const person = {
+    <h4>debugger</h4>
+    <p>
+      De console werkt <strong>asynchroon</strong>. Dit is een belangrijk begrip in programmeren in het algemeen, en Javascript in het bijzonder.
+      Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover later in hoofdstuk <a href="04_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte gevolgen. Neem volgende code:
+    </p>
+    <pre class="prism-okaida line-numbers" data-demo><code>const person = {
   name: 'Rogier',
   age: 42
 };
 console.log(person); // schrijf 'person' naar de console
 person.age = 54; // verander achteraf de waarde 'age' naar 54
 </code></pre>
-      <p>In de console zie je de waarde '54' staan die pas ingesteld is nádat <code>console.log()</code> opgeroepen werd.</p>
-      <p><img src="img/01_syntax/console-async.png" alt="" class="w-400"></p>
-      <p>De reden is dat waarden in de console niet noodzakelijk verschijnen op het moment in de code waarop <code>console.log()</code> opgeroepen wordt. Je kan handmatig het script pauzeren met <code>debugger</code>, en dan klopt de waarde wel:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>let person = {
+    <p>In de console zie je de waarde '54' staan die pas ingesteld is nádat <code>console.log()</code> opgeroepen werd.</p>
+    <p><img src="img/01_syntax/console-async.png" alt="" class="w-400"></p>
+    <p>De reden is dat waarden in de console niet noodzakelijk verschijnen op het moment in de code waarop <code>console.log()</code> opgeroepen wordt. Je kan handmatig het script pauzeren met <code>debugger</code>, en dan klopt de waarde wel:</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>let person = {
   name: 'Rogier',
   age: 42
 };
@@ -346,8 +346,8 @@ console.log(person); // schrijf 'person' naar de console
 debugger; // pauzeer het script
 person.age = 54; // verander achteraf de waarde 'age' naar 54
 </code></pre>
-      <p>De weergegeven waarde is nu wel correct:</p>
-      <p><img src="img/01_syntax/console-sync.png" alt="" class="w-400"></p>
+    <p>De weergegeven waarde is nu wel correct:</p>
+    <p><img src="img/01_syntax/console-sync.png" alt="" class="w-400"></p>
 
 
     <h2>Variabelen, types &amp; constanten</h2>
@@ -985,7 +985,7 @@ forrestFriends.forEach(friend =&gt; {
 
     <h4>Itereren over object keys met <code>for</code>-<code>in</code> </h4>
     <p>Dit heeft niet direct een C# equivalent. Je kan het gebruiken om te itereren over de keys van een <a href="#objecten">object</a>:</p>
-      <pre class="prism-okaida line-numbers w-600"><code>const myCar = {
+    <pre class="prism-okaida line-numbers w-600"><code>const myCar = {
     make: 'Mercury Bobcat',
     speed: 0,
     engineOn: true,
@@ -997,14 +997,14 @@ forrestFriends.forEach(friend =&gt; {
 for (const key in myCar) {
    console.log(`${key} is een ${typeof myCar[key]}`)
 }</code></pre>
-<figure class="console">
-  <pre>make is een string
+    <figure class="console">
+      <pre>make is een string
 speed is een number
 engineOn is een boolean
 constructionDate is een object
 accelerate is een function</pre>
-  <figcaption>resultaat in de console</figcaption>
-</figure>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
 
     <h2>Functies</h2>
     <h3>Klassieke notatie</h3>
@@ -1330,6 +1330,10 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
 
 
   </main>
+  <footer>
+    <img src="img/thats-all.jpg" alt="">
+    <p>@2014, Rogier van der Linde</p>
+  </footer>
   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
 
   <!-- popup -->
@@ -1349,7 +1353,7 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-33VMW730V9');
