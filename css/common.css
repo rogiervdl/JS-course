@@ -376,12 +376,20 @@ ul {
 	list-style: square;
 }
 
+ul ul {
+	list-style: none;
+}
+
 ul.arrow,
 li.arrow {
 	list-style-type: none;
 	margin-top: 0.5em;
 	margin-left: 4rem;
 	padding: 0;
+}
+
+ul.arrow ul {
+	padding-left: 1em;
 }
 
 ul.arrow li:first-child,
@@ -392,6 +400,12 @@ ul li.arrow {
 ul.arrow li::before,
 li.arrow::before {
 	content: '⮚ ';
+}
+
+ul.arrow ul li::before,
+ul.arrow ul li.arrow::before {
+	content: '— ';
+	margin-right: 5px;
 }
 
 ul.arrow li::first-letter,
