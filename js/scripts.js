@@ -85,6 +85,11 @@ function startApp() {
 		title.dataset.text = title.innerHTML;
 		title.innerHTML = title.innerHTML + `<span class="title__anchor" id="${id}"></span>`;
 	});
+	const anchor = location.hash.substring(1);
+	if (anchor.length) {
+		const elem = document.getElementById(anchor);
+		if (elem) elem.scrollIntoView();
+	}
 
 	// part 2: build TOC
 	if (!DOM.titles.length) return;
