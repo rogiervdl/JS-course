@@ -1,0 +1,90 @@
+pre {
+	position: relative;
+}
+
+pre.padtop {
+	padding-top: 2.5em;
+}
+
+/* color mods */
+
+.prism-default code[class*="language-"],
+.prism-okaida code[class*="language-"],
+.prism-tomorrow code[class*="language-"],
+.prism-vslight code[class*="language-"] {
+   background-color: transparent;
+}
+
+/* toolbar mods */
+
+div.code-toolbar {
+	max-width: 100%;
+	width: 100%;
+}
+
+div.code-toolbar > .toolbar {
+	direction: rtl;
+	opacity: 1;
+	right: 20px;
+}
+
+div.code-toolbar > .toolbar * {
+	direction: ltr;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item {
+	margin: 5px;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>span {
+	padding: 0;
+}
+
+button.copy-to-clipboard-button {
+	cursor: pointer;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>span,
+div.code-toolbar>.toolbar>.toolbar-item>button {
+	background: none;
+	box-shadow: none;
+	color: #999;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>button:hover {
+	opacity: 1;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>button {
+	border: 1px solid;
+	box-shadow: none;
+	line-height: 1.5;
+	opacity: 0.8;
+	padding: 0 .5em;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>button:hover,
+div.code-toolbar>.toolbar>.toolbar-item>button:focus {
+	opacity: 1;
+}
+
+/* hystmodal mods */
+
+.hystmodal iframe {
+	min-height: 700px;
+	width: 100%;
+}
+
+.hystmodal__window {
+	width: 800px;
+}
+
+/* MEDIA QUERIES */
+/* ============= */
+
+@media(min-width: 800px) {
+	div.code-toolbar {
+		width: fit-content;
+	}
+}
+

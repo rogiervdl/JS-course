@@ -15,6 +15,7 @@
 
 /* local */
 @import url(css/common.css);
+@import url(css/mods.css);
 @import url(css/common-js.css);
 @import url(css/print.css) print;
 @import url(css/switch.css);
