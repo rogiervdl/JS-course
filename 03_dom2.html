@@ -7,7 +7,8 @@
 	<title>DOM deel 2 | Javascript cursus</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="common/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="language-javascript">
@@ -126,7 +127,7 @@
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html line-numbers"
+					<pre class="prism-default language-html line-numbers"
 						data-demo="demos/03_dom2/demoDomNavigation/index.html"><code>&lt;header&gt;
   &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
@@ -192,10 +193,8 @@ console.log(nav.previousElementSibling);
 				</tr>
 			</tbody>
 		</table>
-		<p>Een handige methode is ook <code>closest()</code>, die de eerste ancestor zoekt die voldoet aan de meegegeven
-			selector</p>
-		<pre
-			class="prism-okaida line-numbers w-900"><code>const nav = someLink.closest('nav'); // search from some link up the tree till you find 'nav'</code></pre>
+		<p>Een handige methode is ook <code>closest()</code>, die de eerste ancestor zoekt die voldoet aan de meegegeven selector</p>
+		<pre class="prism-okaida line-numbers w-900"><code>const nav = someLink.closest('nav'); // search from some link up the tree till you find 'nav'</code></pre>
 
 		<h2>Speciale nodes</h2>
 		<p>
@@ -333,7 +332,7 @@ years.forEach(li =&gt; {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html line-numbers"
+					<pre class="prism-default language-html line-numbers"
 						data-demo="demos/03_dom2/demoYearsClassList/index.html"><code>&lt;header&gt;
   &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
@@ -382,7 +381,7 @@ years.forEach(li =&gt; {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html line-numbers w-700"
+					<pre class="prism-default language-html line-numbers w-700"
 						data-demo="demos/03_dom2/demoSeeds/index.html"><code>&lt;ul id="zaden"&gt;
   &lt;li data-afstand="10cm" data-zaaitijd="maart tot juni"&gt;wortelen&lt;/li&gt;
   &lt;li data-afstand="30cm" data-zaaitijd="februari tot maart"&gt;selder&lt;/li&gt;
@@ -416,8 +415,7 @@ afstand: ${zaad.dataset.afstand}`);
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html line-numbers w-700"
-						data-demo="demos/03_dom2/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
+					<pre class="prism-default language-html line-numbers w-700" data-demo="demos/03_dom2/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
 &lt;p&gt;&lt;input type="text" id="inp1" /&gt;&lt;/p&gt;
 &lt;p&gt;
   karakter: &lt;span id="kar"&gt;&lt;/span&gt;
@@ -447,8 +445,7 @@ inp.addEventListener('keydown', function(e) {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html line-numbers w-700"
-						data-demo="demos/03_dom2/demoMouse/index.html"><code>&lt;p&gt;klik ergens in de pagina...&lt;/p&gt;
+					<pre class="prism-default language-html line-numbers w-700" data-demo="demos/03_dom2/demoMouse/index.html"><code>&lt;p&gt;klik ergens in de pagina...&lt;/p&gt;
 &lt;p&gt;
   positie: &lt;span id="pos"&gt;&lt;/span&gt;
 &lt;/p&gt;</code></pre>
@@ -484,7 +481,7 @@ body.addEventListener('click', function(e) {
 		</ul>
 		<p>De oude HTML:</p>
 		<div class="precontainer">
-			<pre class="prism-okaida language-html line-numbers w-1100"><code>&lt;ul class="thumbs"&gt;
+			<pre class="prism-default language-html line-numbers w-1100"><code>&lt;ul class="thumbs"&gt;
   &lt;li&gt;&lt;a href="img/photo1.jpg"&gt;&lt;img src="img/photo1-s.jpg" alt="Amman, Jordanië"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo17.jpg"&gt;&lt;img src="img/photo17-s.jpg" alt="Noorderlicht, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo6.jpg"&gt;&lt;img src="img/photo6-s.jpg" alt="mozaïek, Isfahan, Iran"&gt;&lt;/a&gt;&lt;/li&gt;
@@ -498,7 +495,7 @@ body.addEventListener('click', function(e) {
 		</div>
 		<p>De vernieuwe HTML:</p>
 		<div class="precontainer">
-			<pre class="prism-okaida language-html line-numbers right w-1100"
+			<pre class="prism-default language-html line-numbers right w-1100"
 				data-demo="demos/03_dom2/demoFotogallerij2/index.html"><code>&lt;div class="thumbs"&gt;
   &lt;div data-photo="img/photo1.jpg" data-desc="Amman, Jordanië" class="current"&gt;&lt;img src="img/photo1-s.jpg" alt=""&gt;&lt;/div&gt;
   &lt;div data-photo="img/photo17.jpg" data-desc="Noorderlicht, Lapland"&gt;&lt;img src="img/photo17-s.jpg" alt=""&gt;&lt;/div&gt;
@@ -518,8 +515,7 @@ body.addEventListener('click', function(e) {
 		<p>We voegen ook nog een visueel effect toe, waarbij standaard alle thumbnails in grijswaarden staan, en de reeds
 			bezochte in kleur gezet worden met een <strong>CSS class <code>visited</code></strong>. De aangepaste CSS:</p>
 		<div class="precontainer">
-			<pre class="prism-okaida language-css line-numbers right"><code>...
-
+			<pre class="prism-atom-dark language-css line-numbers right"><code>...
 .thumbs img {
   filter: grayscale(1);
   opacity: 0.8;
@@ -572,7 +568,7 @@ thumbs.forEach(thn =&gt; {
 			aangepaste HTML:
 		</p>
 		<div class="precontainer">
-			<pre class="prism-okaida language-html line-numbers right w-800"
+			<pre class="prism-default language-html line-numbers right w-800"
 				data-demo="demos/03_dom2/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
   &lt;h1&gt;Registreren&lt;/h1&gt;
   &lt;div&gt;
@@ -597,7 +593,7 @@ thumbs.forEach(thn =&gt; {
 		</div>
 		<p>In de aangepaste CSS verbergen we standaard de foutmeldingen:</p>
 		<div class="precontainer">
-			<pre class="prism-okaida language-css line-numbers right"><code>label {
+			<pre class="prism-atom-dark language-css line-numbers right"><code>label {
   display: block;
 }
 
@@ -686,10 +682,10 @@ frmLogin.addEventListener('submit', function (e) {
 		</div>
 	</div>
 	<!-- scripts -->
-	<script src="vendor/prism/prism.js"></script>
-	<script src="vendor/hystmodal/hystmodal.min.js"></script>
-	<script src="js/mode.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="common/vendor/prism/prism.js"></script>
+	<script src="common/vendor/hystmodal/hystmodal.min.js"></script>
+	<script src="common/js/mode.js"></script>
+	<script src="common/js/scripts.js"></script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
 	<script>

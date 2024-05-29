@@ -1,0 +1,139 @@
+.prism-atom-dark pre[class*="language-"],
+body pre[class*="language-"].prism-atom-dark,
+.prism-atom-dark pre > code[class*="language-"],
+body pre[class*="language-"].prism-atom-dark > code {
+	background: #1d1f21;
+	color: #7C7C7C;
+}
+
+.prism-atom-dark .token.comment,
+pre.prism-atom-dark .token.comment,
+.prism-atom-dark .token.prolog,
+pre.prism-atom-dark .token.prolog,
+.prism-atom-dark .token.doctype,
+pre.prism-atom-dark .token.doctype,
+.prism-atom-dark .token.cdata,
+pre.prism-atom-dark .token.cdata {
+	color: #7C7C7C;
+}
+
+.prism-atom-dark .token.punctuation,
+pre.prism-atom-dark .token.punctuation {
+	color: #c5c8c6;
+}
+
+.prism-atom-dark .namespace,
+pre.prism-atom-dark .namespace {
+	opacity: .7;
+}
+
+.prism-atom-dark .token.property,
+pre.prism-atom-dark .token.property,
+.prism-atom-dark .token.keyword,
+pre.prism-atom-dark .token.keyword,
+.prism-atom-dark .token.tag,
+pre.prism-atom-dark .token.tag {
+	color: #96CBFE;
+}
+
+.prism-atom-dark .token.class-name,
+pre.prism-atom-dark .token.class-name {
+	color: #FFFFB6;
+	text-decoration: underline;
+}
+
+.prism-atom-dark .token.boolean,
+pre.prism-atom-dark .token.boolean,
+.prism-atom-dark .token.constant,
+pre.prism-atom-dark .token.constant {
+	color: #99CC99;
+}
+
+.prism-atom-dark .token.symbol,
+pre.prism-atom-dark .token.symbol,
+.prism-atom-dark .token.deleted,
+pre.prism-atom-dark .token.deleted {
+	color: #f92672;
+}
+
+.prism-atom-dark .token.number,
+pre.prism-atom-dark .token.number {
+	color: #FF73FD;
+}
+
+.prism-atom-dark .token.selector,
+pre.prism-atom-dark .token.selector,
+.prism-atom-dark .token.attr-name,
+pre.prism-atom-dark .token.attr-name,
+.prism-atom-dark .token.string,
+pre.prism-atom-dark .token.string,
+.prism-atom-dark .token.char,
+pre.prism-atom-dark .token.char,
+.prism-atom-dark .token.builtin,
+pre.prism-atom-dark .token.builtin,
+.prism-atom-dark .token.inserted,
+pre.prism-atom-dark .token.inserted {
+	color: #A8FF60;
+}
+
+.prism-atom-dark .token.variable,
+pre.prism-atom-dark .token.variable {
+	color: #C6C5FE;
+}
+
+.prism-atom-dark .token.operator,
+pre.prism-atom-dark .token.operator {
+	color: #EDEDED;
+}
+
+.prism-atom-dark .token.entity,
+pre.prism-atom-dark .token.entity {
+	color: #FFFFB6;
+	cursor: help;
+}
+
+.prism-atom-dark .token.url,
+pre.prism-atom-dark .token.url {
+	color: #96CBFE;
+}
+
+.language-css .token.string,
+pre.language-css .token.string,
+.style .token.string,
+pre.style .token.string {
+	color: #87C38A;
+}
+
+.prism-atom-dark .token.atrule,
+pre.prism-atom-dark .token.atrule,
+.prism-atom-dark .token.attr-value,
+pre.prism-atom-dark .token.attr-value {
+	color: #F9EE98;
+}
+
+.prism-atom-dark .token.function,
+pre.prism-atom-dark .token.function {
+	color: #DAD085;
+}
+
+.prism-atom-dark .token.regex,
+pre.prism-atom-dark .token.regex {
+	color: #E9C062;
+}
+
+.prism-atom-dark .token.important,
+pre.prism-atom-dark .token.important {
+	color: #fd971f;
+}
+
+.prism-atom-dark .token.important,
+pre.prism-atom-dark .token.important,
+.prism-atom-dark .token.bold,
+pre.prism-atom-dark .token.bold {
+	font-weight: bold;
+}
+
+.prism-atom-dark .token.italic,
+pre.prism-atom-dark .token.italic {
+	font-style: italic;
+}

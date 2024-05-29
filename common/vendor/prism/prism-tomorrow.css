@@ -1,0 +1,120 @@
+.prism-tomorrow pre[class*="language-"],
+body pre[class*="language-"].prism-tomorrow,
+.prism-tomorrow pre > code[class*="language-"],
+body pre[class*="language-"].prism-tomorrow > code {
+	background-color: #F5F2F0;
+	color: #ccc;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.prism-tomorrow .token.block-comment,
+pre.prism-tomorrow .token.block-comment,
+.prism-tomorrow .token.cdata,
+pre.prism-tomorrow .token.cdata,
+.prism-tomorrow .token.comment,
+pre.prism-tomorrow .token.comment,
+.prism-tomorrow .token.doctype,
+pre.prism-tomorrow .token.doctype,
+.prism-tomorrow .token.prolog,
+pre.prism-tomorrow .token.prolog {
+	color: #999
+}
+
+.prism-tomorrow .token.punctuation,
+pre.prism-tomorrow .token.punctuation {
+	color: #ccc
+}
+
+.prism-tomorrow .token.attr-name,
+pre.prism-tomorrow .token.builtin,
+.prism-tomorrow .token.deleted,
+pre.prism-tomorrow .token.deleted,
+.prism-tomorrow .token.namespace,
+pre.prism-tomorrow .token.namespace,
+.prism-tomorrow .token.tag,
+pre.prism-tomorrow .token.tag {
+	color: #e2777a
+}
+
+.prism-tomorrow .token.function-name,
+pre.prism-tomorrow .token.function-name {
+	color: #6196cc
+}
+
+.prism-tomorrow .token.boolean,
+pre.prism-tomorrow .token.boolean,
+.prism-tomorrow .token.function,
+pre.prism-tomorrow .token.function,
+.prism-tomorrow .token.number,
+pre.prism-tomorrow .token.number {
+	color: #f08d49
+}
+
+.prism-tomorrow .token.class-name,
+pre.prism-tomorrow .token.class-name,
+.prism-tomorrow .token.constant,
+pre.prism-tomorrow .token.constant,
+.prism-tomorrow .token.property,
+pre.prism-tomorrow .token.property,
+.prism-tomorrow .token.symbol,
+pre.prism-tomorrow .token.symbol {
+	color: #f8c555
+}
+
+.prism-tomorrow .token.atrule,
+pre.prism-tomorrow .token.atrule,
+.prism-tomorrow .token.builtin,
+pre.prism-tomorrow .token.builtin,
+.prism-tomorrow .token.important,
+pre.prism-tomorrow .token.important,
+.prism-tomorrow .token.keyword,
+pre.prism-tomorrow .token.keyword,
+.prism-tomorrow .token.selector,
+pre.prism-tomorrow .token.selector {
+	color: #cc99cd
+}
+
+.prism-tomorrow .token.attr-value,
+pre.prism-tomorrow .token.attr-value,
+.prism-tomorrow .token.char,
+pre.prism-tomorrow .token.char,
+.prism-tomorrow .token.regex,
+pre.prism-tomorrow .token.regex,
+.prism-tomorrow .token.string,
+pre.prism-tomorrow .token.string,
+.prism-tomorrow .token.variable,
+pre.prism-tomorrow .token.variable {
+	color: #7ec699
+}
+
+.prism-tomorrow .token.entity,
+pre.prism-tomorrow .token.entity,
+.prism-tomorrow .token.operator,
+pre.prism-tomorrow .token.operator,
+.prism-tomorrow .token.url,
+pre.prism-tomorrow .token.url {
+	color: #67cdcc;
+	background: transparent;
+}
+
+.prism-tomorrow .token.bold,
+pre.prism-tomorrow .token.bold,
+.prism-tomorrow .token.important,
+pre.prism-tomorrow .token.important {
+	font-weight: 700
+}
+
+.prism-tomorrow .token.italic,
+pre.prism-tomorrow .token.italic {
+	font-style: italic
+}
+
+.prism-tomorrow .token.entity,
+pre.prism-tomorrow .token.entity {
+	cursor: help
+}
+
+.prism-tomorrow .token.inserted,
+pre.prism-tomorrow .token.inserted {
+	color: green
+}

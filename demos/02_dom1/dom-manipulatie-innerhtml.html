@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Testpagina</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <div id="content"></div>
+  <p id="message"></p>
+  <script>
+    const content = document.querySelector('#content');
+    const msg = document.querySelector('#message');
+    for (let i = 1; i < 5; i++) {
+      content.innerHTML += `<img id="img${i}"
+      src="https://rvdl.be/img/photo${i}-s.jpg" alt=""><br>`;
+    }
+    let numImages = document.querySelectorAll('#content img').length;
+    msg.innerHTML = `content contains ${numImages} images`;
+  </script>
+</body>
+
+</html>

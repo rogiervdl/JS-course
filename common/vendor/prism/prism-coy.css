@@ -1,0 +1,164 @@
+.prism-coy pre[class*="language-"],
+body pre[class*="language-"].prism-coy {
+	background-color: #fdfdfd;
+	background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+	background-size: 3em 3em;
+	background-origin: content-box;
+	background-attachment: local;
+}
+
+.prism-coy pre > code[class*="language-"],
+body pre[class*="language-"].prism-coy > code {
+	color: #ccc;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.prism-coy .token.comment,
+pre.prism-coy .token.comment,
+.prism-coy .token.block-comment,
+pre.prism-coy .token.block-comment,
+.prism-coy .token.prolog,
+pre.prism-coy .token.prolog,
+.prism-coy .token.doctype,
+pre.prism-coy .token.doctype,
+.prism-coy .token.cdata,
+pre.prism-coy .token.cdata {
+	color: #7D8B99;
+}
+
+.prism-coy .token.punctuation,
+pre.prism-coy .token.punctuation {
+	color: #5F6364;
+}
+
+.prism-coy .token.property,
+pre.prism-coy .token.property,
+.prism-coy .token.tag,
+pre.prism-coy .token.tag,
+.prism-coy .token.boolean,
+pre.prism-coy .token.boolean,
+.prism-coy .token.number,
+pre.prism-coy .token.number,
+.prism-coy .token.function-name,
+pre.prism-coy .token.function-name,
+.prism-coy .token.constant,
+pre.prism-coy .token.constant,
+.prism-coy .token.symbol,
+pre.prism-coy .token.symbol,
+.prism-coy .token.deleted,
+pre.prism-coy .token.deleted {
+	color: #c92c2c;
+}
+
+.prism-coy .token.selector,
+pre.prism-coy .token.selector,
+.prism-coy .token.attr-name,
+pre.prism-coy .token.attr-name,
+.prism-coy .token.string,
+pre.prism-coy .token.string,
+.prism-coy .token.char,
+pre.prism-coy .token.char,
+.prism-coy .token.function,
+pre.prism-coy .token.function,
+.prism-coy .token.builtin,
+pre.prism-coy .token.builtin,
+.prism-coy .token.inserted,
+pre.prism-coy .token.inserted {
+	color: #2f9c0a;
+}
+
+.prism-coy .token.operator,
+pre.prism-coy .token.operator,
+.prism-coy .token.entity,
+pre.prism-coy .token.entity,
+.prism-coy .token.url,
+pre.prism-coy .token.url,
+.prism-coy .token.variable,
+pre.prism-coy .token.variable {
+	color: #a67f59;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.prism-coy .token.atrule,
+pre.prism-coy .token.atrule,
+.prism-coy .token.attr-value,
+pre.prism-coy .token.attr-value,
+.prism-coy .token.keyword,
+pre.prism-coy .token.keyword,
+.prism-coy .token.class-name,
+pre.prism-coy .token.class-name {
+	color: #1990b8;
+}
+
+.prism-coy .token.regex,
+pre.prism-coy .token.regex,
+.prism-coy .token.important,
+pre.prism-coy .token.important {
+	color: #e90;
+}
+
+.prism-coy .language-css .token.string,
+pre.prism-coy .language-css .token.string,
+.prism-coy .style .token.string,
+pre.prism-coy .style .token.string {
+	color: #a67f59;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.prism-coy .token.important,
+pre.prism-coy .token.important {
+	font-weight: normal;
+}
+
+.prism-coy .token.bold,
+pre.prism-coy .token.bold {
+	font-weight: bold;
+}
+.prism-coy .token.italic,
+pre.prism-coy .token.italic {
+	font-style: italic;
+}
+
+.prism-coy .token.entity,
+pre.prism-coy .token.entity {
+	cursor: help;
+}
+
+.prism-coy .token.namespace,
+pre.prism-coy .token.namespace {
+	opacity: .7;
+}
+
+/* Plugin styles: Line Numbers */
+.prism-coy pre[class*="language-"].line-numbers.line-numbers,
+body pre[class*="language-"].prism-coy.line-numbers.line-numbers {
+	padding-left: 0;
+}
+
+.prism-coy pre[class*="language-"].line-numbers.line-numbers code,
+body pre[class*="language-"].prism-coy.line-numbers.line-numbers code{
+	padding-left: 3.8em;
+}
+
+.prism-coy pre[class*="language-"].line-numbers.line-numbers .line-numbers-rows,
+body pre[class*="language-"].prism-coy.line-numbers.line-numbers .line-numbers-rows {
+	left: 0;
+}
+
+/* Plugin styles: Line Highlight */
+.prism-coy pre[class*="language-"][data-line],
+body pre[class*="language-"][data-line].prism-coy {
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+}
+.prism-coy pre[data-line] code,
+body pre[data-line].prism-coy code {
+	position: relative;
+	padding-left: 4em;
+}
+.prism-coy pre .line-highlight,
+body pre.prism-coy .line-highlight {
+	margin-top: 0;
+}
+

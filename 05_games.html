@@ -6,8 +6,9 @@
 <head>
   <title>Javascript API's | Javascript cursus</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="common/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="language-javascript">
@@ -60,7 +61,7 @@
     <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
     <h4>tekst bewaren</h4>
     <p>Eenvoudig voorbeeld waar de gekozen waarde uit een lijst persisteert:</p>
-    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
 &lt;select id="selTest"&gt;
   &lt;option selected&gt;keuze 1&lt;/option&gt;
@@ -86,7 +87,7 @@
     </figure>
     <h4>objecten bewaren</h4>
     <p>Met localStorage kan je enkel strings bewaren. Je kan objecten wel omzetten naar strings en terug met <code>JSON.parse()</code> en <code>JSON.stringify()</code>:</p>
-    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Naam: &lt;input id="inpName" type="text" value="Rogier"&gt;&lt;/label&gt;&lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Leeftijd: &lt;input id="inpAge" type="number" value="54"&gt;&lt;/label&gt;&lt;/p&gt;
@@ -128,7 +129,7 @@
     <h3>Drag drop API</h3>
     <h4>teksten verslepen</h4>
     <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
-    <pre class="prism-okaida w-800" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida language-html w-800" data-demo><code>&lt;!-- CSS --&gt;
 &lt;style&gt;
   body {
     width: 500px;
@@ -167,7 +168,7 @@
 
     <h4>afbeeldingen verslepen</h4>
     <p>Voorbeeld met afbeeldingen (tweede afbeelding is niet draggable wegens <code>draggable="false"</code>): </p>
-    <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!-- CSS --&gt;
 &lt;style&gt;
   #dropzone {
     border: 2px ridge;
@@ -212,7 +213,7 @@
 
     <h4>afbeeldingen van desktop naar pagina slepen</h4>
     <p>Voorbeeld met afbeeldingen vanuit verkenner naar een webpagina slepen: </p>
-    <pre class="prism-okaida w-900 h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida language-html w-900 h-400" data-demo><code>&lt;!-- CSS --&gt;
 &lt;style&gt;
   #dropzone {
     height: 150px;
@@ -272,7 +273,7 @@
     <h3>Webcam API</h3>
     <p>De webcam gebruiken is heel eenvoudig: vraag een webcamstream op via <code>navigator.mediaDevices.getUserMedia()</code>, en stel het in als bron van een <code>&lt;video&gt;</code> element.</p>
     <h4>Voorbeeld 1: weergave webcam in een video element</h4>
-    <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!-- CSS --&gt;
 &lt;style&gt;
   #webcam {
     border: 1px dotted #999;
@@ -307,7 +308,7 @@
     </figure>
     <h4>Voorbeeld 2: photobooth</h4>
     <p>Een iets uitgebreider voorbeeld, met filters en de mogelijkheid snapshots te nemen:</p>
-    <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!-- CSS --&gt;
 &lt;style&gt;
   /* general */
   body {
@@ -432,7 +433,7 @@
 }
 </code></pre>
     <h4>Voorbeeld: positie met custom marker tonen op kaart (OpenLayers)</h4>
-    <pre class="prism-okaida h-400" data-demo><code class="language-html">&lt;!DOCTYPE html&gt;
+    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 
 &lt;head&gt;
@@ -509,7 +510,7 @@
 
     <h3>Device orientation API</h3>
     <p>Indien aanwezig op het toestel, kan je de gyroscoop, accelerometer, kompas enz... gebruiken in Javascript. Voorbeeld voor de kanteling van het toestel (werkt enkel op smartphones en sommige laptops als bepaalde Macbooks), dat gebruik maakt van het <code>deviceorientation</code> event van <code>window</code>:</p>
-    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- CSS --&gt;
+    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- CSS --&gt;
 &lt;style&gt;
   .layer {
     position: absolute; /* stapel layers bovenop elkaar */
@@ -545,7 +546,7 @@
 
     <h3>Notification API</h3>
     <p>Toon taskbar notificaties rechtsonder:</p>
-    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
 &lt;input type="button" id="lnkNotifyMe" value="Notify Me"&gt;
 
 &lt;!-- SCRIPT --&gt;
@@ -572,7 +573,7 @@
     </figure>
     <h3>SpeechRecognition API</h3>
     <p>Basisvoorbeeld:</p>
-    <pre class="prism-okaida" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;&lt;button id="btnStart"&gt;Start listening&lt;/button&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;You said:&lt;/strong&gt; &lt;em id="echo"&gt;nothing yet&lt;/em&gt;&lt;/p&gt;
 
@@ -650,7 +651,7 @@
       </tbody>
     </table>
     <h4>Voorbeeld 1: geluidseffecten</h4>
-    <pre class="prism-okaida w-800" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html w-800" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;&lt;button id="btnRight"&gt;&lt;img src="img/code_right.png" height="20" alt=""&gt; RIGHT&lt;/button&gt;&lt;/p&gt;
 &lt;p&gt;&lt;button id="btnWrong"&gt;&lt;img src="img/code_wrong.png" height="20" alt=""&gt; WRONG&lt;/button&gt;&lt;/p&gt;
 
@@ -672,7 +673,7 @@
     </figure>
     <h4>Voorbeeld 2: muziekdoos</h4>
     <p>Tik een reeks van namen van noten in, en laat het muziekje afspelen:</p>
-    <pre class="prism-okaida w-800 h-400" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html w-800 h-400" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;
   &lt;label&gt;notes: &lt;input type="text" value="A Cs D F A" id="inpSong"&gt;&lt;/label&gt;
   &lt;input type="button" id="btnPlay" value="play"&gt;
@@ -712,7 +713,7 @@
 
 
     <h4>Voorbeeld 3: video kiezen en afspelen met weergave tijd</h4>
-    <pre class="prism-okaida w-800 h-400" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html w-800 h-400" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;
    &lt;select id="selVideo"&gt;
      &lt;option value=""&gt;selecteer video...&lt;/option&gt;
@@ -768,7 +769,7 @@
     </ul>
     <h4>Voorbeeld: eenvoudige oscillator met versterker</h4>
     <p>Merk op hoe in de code als het ware toestellen aan elkaar gekoppeld worden:</p>
-    <pre class="prism-okaida w-900 h-400" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html w-900 h-400" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;&lt;label&gt;Frequency: &lt;input type="range" min="200" value="1100" max="2000" id="rngFrequency"&gt;&lt;/label&gt; &lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Volume: &lt;input type="range" min="0" value="0.5" max="1" id="rngVolume" step="0.01"&gt;&lt;/label&gt;&lt;/p&gt;
 &lt;p&gt;&lt;button id="btnStop"&gt;stop&lt;/button&gt;&lt;/p&gt;
@@ -850,7 +851,7 @@
     <h3>Animaties met <code>setInterval()</code></h3>
     <p>De methode <code>setInterval(callback, ms)</code> voert een methode <code>callback</code> uit met vaste tussenposen van <code>ms</code> milliseconden. De timer kan gestopt worden met <code>clearInterval()</code>. Eenvoudig voorbeeld:</p>
     <h4>Voorbeeld 1: klok</h4>
-    <pre class="prism-okaida w-800" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html w-800" data-demo><code>&lt;!-- HTML --&gt;
 &lt;p&gt;de tijd is &lt;span id="clock"&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;button id="btnStop"&gt;stop de tijd&lt;/button&gt;&lt;/p&gt;
 
@@ -876,7 +877,7 @@
 
     <h4>Voorbeeld 2: stuiterende bal</h4>
     <p>Je <em>zou</em> <code>setInterval()</code> ook kunnen gebruiken om animaties in je game te timen. Eenvoudig voorbeeld met een stuitende bal:</p>
-    <pre class="prism-okaida h-400 wrong" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html h-400 wrong" data-demo><code>&lt;!-- HTML --&gt;
 &lt;div id="app"&gt;&lt;img src="img/ball.png" id="ball" alt=""&gt;&lt;/div&gt;
 
 &lt;!-- CSS --&gt;
@@ -943,7 +944,7 @@ doLoop(); // start the loop</code></pre>
 
     <h4>Voorbeeld 1: stuiterende bal</h4>
     <p>Het stuiterende bal voorbeeld herschreven met <code>requestAnimationFrame()</code>:</p>
-    <pre class="prism-okaida h-400 right" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html h-400 right" data-demo><code>&lt;!-- HTML --&gt;
 &lt;div id="app"&gt;&lt;img src="img/ball.png" id="ball" alt=""&gt;&lt;/div&gt;
 
 &lt;!-- CSS --&gt;
@@ -989,7 +990,7 @@ doLoop(); // start the loop</code></pre>
     </figure>
     <h4>Voorbeeld 2: gunman game</h4>
     <p>Een compleet voorbeeld met animaties, besturing en geluidseffecten:</p>
-    <pre class="prism-okaida h-400 right" data-demo><code class="language-html">&lt;!-- HTML --&gt;
+    <pre class="prism-okaida language-html h-400 right" data-demo><code>&lt;!-- HTML --&gt;
 &lt;div id="app"&gt;
   &lt;img id="gunman" alt=""&gt;
   &lt;div class="buttons"&gt;
@@ -1202,9 +1203,9 @@ doLoop(); // start the loop</code></pre>
     <p>Er zijn verschillende libraries die het werken met 3D in Javascript vereenvoudigen, maar een uitstekende is <a href="https://threejs.org/docs/">Three.js</a>.</p>
     <h4>Voorbeeld 1: roterende donut eenvoudig</h4>
     <p>Codevoorbeeld van een roterende donut:</p>
-    <pre class="prism-okaida h-400 w-800" data-demo><code class="language-html">
+    <pre class="prism-okaida language-html h-400 w-800" data-demo><code>
 &lt;!-- SCRIPTS --&gt;
-&lt;script src="vendor/three.min.js"&gt;&lt;/script&gt;
+&lt;script src="common/vendor/three.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   // init scene
   const scene = new THREE.Scene();
@@ -1316,10 +1317,10 @@ doLoop(); // start the loop</code></pre>
     </div>
   </div>
   <!-- scripts -->
-  <script src="vendor/prism/prism.js"></script>
-  <script src="vendor/hystmodal/hystmodal.min.js"></script>
-  <script src="js/mode.js"></script>
-  <script src="js/scripts.js"></script>
+  <script src="common/vendor/prism/prism.js"></script>
+  <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
+  <script src="common/js/mode.js"></script>
+  <script src="common/js/scripts.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
   <script>

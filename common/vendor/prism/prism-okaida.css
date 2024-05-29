@@ -1,0 +1,123 @@
+.prism-okaida pre[class*="language-"],
+body pre[class*="language-"].prism-okaida,
+.prism-okaida pre > code[class*="language-"],
+body pre[class*="language-"].prism-okaida > code {
+	background-color: #1F1F1F;
+	color: #f8f8f2;
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.prism-okaida .token.cdata,
+pre.prism-okaida .token.cdata,
+.prism-okaida .token.comment,
+pre.prism-okaida .token.comment,
+.prism-okaida .token.doctype,
+pre.prism-okaida .token.doctype,
+.prism-okaida .token.prolog,
+pre.prism-okaida .token.prolog {
+	color: #8292a2;
+}
+
+.prism-okaida .token.punctuation,
+pre.prism-okaida .token.punctuation {
+	color: #f8f8f2;
+}
+
+.prism-okaida .token.namespace,
+pre.prism-okaida .token.namespace {
+	opacity: .7;
+}
+
+.prism-okaida .token.constant,
+pre.prism-okaida .token.constant,
+.prism-okaida .token.deleted,
+pre.prism-okaida .token.deleted,
+.prism-okaida .token.property,
+pre.prism-okaida .token.property,
+.prism-okaida .token.symbol,
+pre.prism-okaida .token.symbol,
+.prism-okaida .token.tag,
+pre.prism-okaida .token.tag
+{
+	color: #f92672;
+}
+
+.prism-okaida .token.boolean,
+pre.prism-okaida .token.boolean,
+.prism-okaida .token.number,
+pre.prism-okaida .token.number {
+	color: #ae81ff;
+}
+
+.prism-okaida .token.attr-name,
+pre.prism-okaida .token.attr-name,
+.prism-okaida .token.builtin,
+pre.prism-okaida .token.builtin,
+.prism-okaida .token.char,
+pre.prism-okaida .token.char,
+.prism-okaida .token.inserted,
+pre.prism-okaida .token.inserted,
+.prism-okaida .token.selector,
+pre.prism-okaida .token.selector,
+.prism-okaida .token.string,
+pre.prism-okaida .token.string {
+	color: #a6e22e;
+}
+
+.prism-okaida .language-css .token.string,
+pre.prism-okaida .language-css .token.string,
+.prism-okaida .style .token.string,
+pre.prism-okaida .style .token.string,
+.prism-okaida .token.entity,
+pre.prism-okaida .token.entity,
+.prism-okaida .token.operator,
+pre.prism-okaida .token.operator,
+.prism-okaida .token.url,
+pre.prism-okaida .token.url {
+	color: #f8f8f2;
+}
+
+.prism-okaida .token.variable,
+pre.prism-okaida .token.variable {
+	color: #f8f8f2;
+}
+
+.prism-okaida .token.atrule,
+pre.prism-okaida .token.atrule,
+.prism-okaida .token.attr-value,
+pre.prism-okaida .token.attr-value,
+.prism-okaida .token.class-name,
+pre.prism-okaida .token.class-name,
+.prism-okaida .token.function,
+pre.prism-okaida .token.function {
+	color: #e6db74;
+}
+
+.prism-okaida .token.keyword,
+pre.prism-okaida .token.keyword {
+	color: #66d9ef;
+}
+
+.prism-okaida .token.important,
+pre.prism-okaida .token.important,
+.prism-okaida .token.regex,
+pre.prism-okaida .token.regex {
+	color: #fd971f;
+}
+
+.prism-okaida .token.bold,
+pre.prism-okaida .token.bold,
+.prism-okaida .token.important,
+pre.prism-okaida .token.important {
+	font-weight: 700;
+}
+
+.prism-okaida .token.italic,
+pre.prism-okaida .token.italic {
+	font-style: italic;
+}
+
+.prism-okaida .token.entity,
+pre.prism-okaida .token.entity {
+	cursor: help;
+}

@@ -7,7 +7,8 @@
 	<title>DOM deel 1 | Javascript cursus</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="common/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="language-javascript line-numbers">
@@ -184,7 +185,7 @@
 			<li>er ligt <strong>één rootnode aan de basis</strong> waar alle andere nodes hun oorsprong vinden</li>
 		</ul>
 		<p>Neem volgend eenvoudig HTML document:</p>
-		<pre class="prism-okaida"><code class="language-html">&lt;!doctype html&gt;
+		<pre class="prism-default language-html"><code>&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;title&gt;testpagina&lt;/title&gt;
@@ -264,8 +265,7 @@
 				teksten...)?</li>
 			<li>hoe kan ik met mijn script <strong>properties en methodes gebruiken</strong> om die objecten te
 				manipuleren?</li>
-			<li>hoe kan mijn script <strong>reageren op events</strong> (interactie van de gebruiker, pagina is geladen,
-				video afgelopen...)?</li>
+			<li>hoe kan mijn script <strong>reageren op events</strong> (interactie van de gebruiker, pagina is geladen, video afgelopen...)?</li>
 		</ol>
 		<h2>DOM querying</h2>
 		<h3>XAML nodes vinden in C#</h3>
@@ -274,7 +274,7 @@
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre data-caption="XAML" class="prism-vslight language-html w-600"><code>&lt;Window Title="Button Test" Background="#FFF4F2CB" ...&gt;
+					<pre class="prism-vslight language-html language-xaml w-600" data-caption="XAML"><code>&lt;Window Title="Button Test" Background="#FFF4F2CB" ...&gt;
   &lt;Grid&gt;
     &lt;TextBox x:Name="inpTest" Text="kot kot kedei" ... /&gt;
     &lt;Label x:Name="lblMessage" Content="" ... /&gt;
@@ -298,12 +298,11 @@
 		</div>
 
 		<h3>HTML elementen vinden in Javascript</h3>
-		<p>In <strong>Javascript</strong> bestaat <em>in theorie</em> een gelijkaardige optie, nl. nodes rechstreeks
-			aanspreken via hun HTML <code>id</code> attribuut. Het vorig voorbeeld, de HTML/Javascript versie:</p>
+		<p>In <strong>Javascript</strong> bestaat <em>in theorie</em> een gelijkaardige optie, nl. nodes rechstreeks aanspreken via hun HTML <code>id</code> attribuut. Het vorig voorbeeld, de HTML/Javascript versie:</p>
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;!DOCTYPE html&gt;
+					<pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="nl"&gt;
 &lt;head&gt;
   &lt;title&gt; Button Test &lt;/title&gt;
@@ -320,8 +319,7 @@
 					<div class="codemarker" data-text="lblMessage"></div>
 				</div>
 				<div class="precontainer">
-					<pre
-						class="prism-okaida padtop"><code>lblMessage.innerHTML = `tekst in het tekstvak: ${inpTest.value}`;</code></pre>
+					<pre class="prism-okaida padtop"><code>lblMessage.innerHTML = `tekst in het tekstvak: ${inpTest.value}`;</code></pre>
 					<div class="codemarker" data-text="inpTest"></div>
 					<div class="codemarker" data-text="lblMessage"></div>
 				</div>
@@ -354,12 +352,12 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="w-200"><img src="img/code_right.png" alt="" width="20"> <code>querySelector</code></td>
+						<td class="w-200"><span class="wrong"></span> <code>querySelector</code></td>
 						<td><code>document.querySelector('#frm1 [type=submit]')</code></td>
 						<td>zoek eerste node in document op basis van een CSS selector</td>
 					</tr>
 					<tr>
-						<td class="w-200"><img src="img/code_right.png" alt="" width="20"> <code>querySelectorAll</code></td>
+						<td class="w-200"><span class="right"></span> <code>querySelectorAll</code></td>
 						<td><code>document.querySelectorAll('nav a')</code></td>
 						<td>zoek alle nodes in document op basis van een CSS selector</td>
 					</tr>
@@ -381,26 +379,26 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="w-220"><img src="img/code_wrong.png" alt="" width="20"> <code>getElementById</code></td>
+						<td class="w-220"><span class="wrong"></span> <code>getElementById</code></td>
 						<td><code>document.getElementById('btnOk')</code></td>
 						<td><code>document.querySelector('#btnOk')</code></td>
 						<td>zoek node in document op basis van een <code>id</code></td>
 					</tr>
 					<tr>
-						<td class="w-220"><img src="img/code_wrong.png" alt="" width="20"> <code>getElementsByClassName</code>
+						<td class="w-220"><span class="wrong"></span> <code>getElementsByClassName</code>
 						</td>
 						<td><code>document.getElementsByClassName('green')</code></td>
 						<td><code>document.querySelectorAll('.green')</code></td>
 						<td>zoek node in document op basis van een <code>class</code> attribuut</td>
 					</tr>
 					<tr>
-						<td class="w-220"><img src="img/code_wrong.png" alt="" width="20"> <code>getElementsByName</code></td>
+						<td class="w-220"><span class="wrong"></span> <code>getElementsByName</code></td>
 						<td><code>document.getElementsByName('grpGender')</code></td>
 						<td><code>document.querySelectorAll('[name=grpGender]')</code></td>
 						<td>zoek node in document op basis van een <code>name</code> attribuut</td>
 					</tr>
 					<tr>
-						<td class="w-220"><img src="img/code_wrong.png" alt="" width="20"> <code>getElementsByTagName</code>
+						<td class="w-220"><span class="wrong"></span> <code>getElementsByTagName</code>
 						</td>
 						<td><code>document.getElementsByTagName('img')</code></td>
 						<td><code>document.querySelectorAll('img')</code></td>
@@ -414,7 +412,7 @@
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;!DOCTYPE html&gt;
+					<pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="nl"&gt;
 &lt;head&gt;
   &lt;title&gt; Button Test &lt;/title&gt;
@@ -448,7 +446,7 @@ lbl.innerHTML = `tekst in het tekstvak: ${inp.value}`;
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;nav&gt;
+					<pre class="prism-default language-html"><code>&lt;nav&gt;
   &lt;ul&gt;
     &lt;li class="active"&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
@@ -475,7 +473,7 @@ console.log(`dit item linkt naar ${activeLink.href}`);
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;nav&gt;
+					<pre class="prism-default language-html"><code>&lt;nav&gt;
   &lt;ul&gt;
     &lt;li class="active"&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
@@ -500,7 +498,7 @@ console.log(`eerste menu item: "${firstLink.innerHTML}"`);
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;nav&gt;
+					<pre class="prism-default language-html"><code>&lt;nav&gt;
   &lt;ul&gt;
     &lt;li class="active"&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
@@ -529,7 +527,7 @@ navLinks.forEach(lnk =&gt; {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html w-700"><code>&lt;table id="sample-table"&gt;
+					<pre class="prism-default language-html w-700"><code>&lt;table id="sample-table"&gt;
   &lt;tr&gt;&lt;th&gt;*&lt;/th&gt;&lt;th&gt;*&lt;/th&gt;&lt;th&gt;*&lt;/th&gt;&lt;th&gt;*&lt;/th&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;/tr&gt;
@@ -558,15 +556,10 @@ console.log(`tabel bevat: ${rows.length} rijen ${cells.length} cellen`);
 			bijvoorbeeld als je gegevens dynamisch inlaadt, maar dat komt later aan bod.</p>
 		<p>Er zijn in Javascript ruwweg vier categorieën van eigenschappen die je kan veranderen:</p>
 		<ul>
-			<li><strong>HTML attributen</strong>: in Javascript zijn <strong>HTML attributen als Javascript
-					properties</strong> beschikbaar onder dezelfde naam</li>
-			<li><strong>DOM properties</strong>: dit zijn <strong>bijkomende Javascript properties</strong> die niet
-				bestaan als HTML attributen</li>
-			<li><strong>CSS classes</strong>: je kan <strong>CSS classes</strong> aanpassen via de <code>classList</code>
-				property</li>
-			<li><strong>CSS stijlen</strong>: je kan <strong>rechtstreeks CSS properties</strong> aanpassen via de
-				<code>style</code> property
-			</li>
+			<li><strong>HTML attributen</strong>: in Javascript zijn <strong>HTML attributen als Javascript properties</strong> beschikbaar onder dezelfde naam</li>
+			<li><strong>DOM properties</strong>: dit zijn <strong>bijkomende Javascript properties</strong> die niet bestaan als HTML attributen</li>
+			<li><strong>CSS classes</strong>: je kan <strong>CSS classes</strong> aanpassen via de <code>classList</code> property</li>
+			<li><strong>CSS stijlen</strong>: je kan <strong>rechtstreeks CSS properties</strong> aanpassen via de <code>style</code> property</li>
 		</ul>
 		<p>We bekijken ze elk apart.</p>
 		<h3>HTML attributen</h3>
@@ -578,7 +571,7 @@ console.log(`tabel bevat: ${rows.length} rijen ${cells.length} cellen`);
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida padtop" data-demo="demos/02_dom1/dom-mainpulatie-attributen.html"><code class="language-html">&lt;img id="img1" src="img/photo1-s.jpg" alt="random image"&gt;
+					<pre class="prism-default language-html padtop" data-demo="demos/02_dom1/dom-manipulatie-attributen.html"><code>&lt;img id="img1" src="img/photo1-s.jpg" alt="random image"&gt;
           </code></pre>
 					<div class="codemarker" data-text="src="></div>
 					<div class="codemarker" data-text="alt="></div>
@@ -614,19 +607,16 @@ console.log(`huidige url: ${img1.src}`);
 
 		<h3>DOM properties</h3>
 		<p>
-			Naast HTML attributen hebben nodes in Javascript nog een pak andere DOM properties. Een uitstekende referentie
-			is <a href="https://w3schools.com/jsref/">https://w3schools.com/jsref/</a>.
-			Sommige zijn voor <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">alle soorten nodes</a>, sommige
-			enkel voor specifieke nodes als <a href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;a&gt;</a>, <a
-				href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;form&gt;</a> enz... Voorbeeld voor
+			Naast HTML attributen hebben nodes in Javascript nog een pak andere DOM properties. Een uitstekende referentie is <a href="https://w3schools.com/jsref/">https://w3schools.com/jsref/</a>.
+			Sommige zijn voor <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">alle soorten nodes</a>, sommige enkel voor specifieke nodes als <a href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;a&gt;</a>,
+      <a href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;form&gt;</a> enz... Voorbeeld voor
 			<code>innerHTML</code> (zie <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">alle nodes</a>) en
-			<code>naturalWidth</code>/<code>naturalWidth</code> (zie <a
-				href="https://www.w3schools.com/jsref/dom_obj_image.asp">&lt;img&gt;</a>):
+			<code>naturalWidth</code>/<code>naturalWidth</code> (zie <a href="https://www.w3schools.com/jsref/dom_obj_image.asp">&lt;img&gt;</a>):
 		</p>
 		<div class="codecompare">
 			<div class="w-700">
 				<div class="precontainer">
-					<pre class="prism-okaida w-700" data-demo="demos/02_dom1/dom-mainpulatie-attributen.html"><code class="language-html">&lt;img id="img1" src="https://rvdl.be/img/photo1-s.jpg" alt=""&gt;
+					<pre class="prism-okaida language-html w-700"><code>&lt;img id="img1" src="https://rvdl.be/img/photo1-s.jpg" alt=""&gt;
 &lt;p id="message"&gt;&lt;/p&gt;
 </code></pre>
 				</div>
@@ -641,7 +631,7 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
 				</div>
 			</div>
 			<div>
-				<img src="img/02_dom1/demo-domproperties.png" alt="" class="w-400 bordered">
+				<img src="img/02_dom1/demo-domproperties.png" alt="" class="w-400">
 			</div>
 		</div>
 
@@ -653,25 +643,25 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida" data-demo="demos/02_dom1/dom-mainpulatie-attributen.html"><code class="language-html">&lt;div id="content"&gt;&lt;/div&gt;
+					<pre class="prism-default language-html"><code>&lt;div id="content"&gt;&lt;/div&gt;
 &lt;p id="message"&gt;&lt;/p&gt;
 </code></pre>
 				</div>
 				<div class="precontainer">
-					<pre class="prism-okaida"><code>const content = document.querySelector('#content');
-  const msg = document.querySelector('#message');
-  for (let i = 1; i &lt; 5; i++) {
-     content.innerHTML += `&lt;img id="img${i}"
-       src="https://rvdl.be/img/photo${i}-s.jpg" alt=""&gt;&lt;br&gt;`;
-  }
-  let numImages = document.querySelectorAll('#content img').length;
-  msg.innerHTML = `content contains ${numImages} images`;</code></pre>
+					<pre class="prism-okaida" data-demo="demos/02_dom1/dom-manipulatie-innerhtml.html"><code>const content = document.querySelector('#content');
+const msg = document.querySelector('#message');
+for (let i = 1; i &lt; 5; i++) {
+    content.innerHTML += `&lt;img id="img${i}"
+      src="https://rvdl.be/img/photo${i}-s.jpg" alt=""&gt;&lt;br&gt;`;
+}
+let numImages = document.querySelectorAll('#content img').length;
+msg.innerHTML = `content contains ${numImages} images`;</code></pre>
 					<div class="codemarker" data-text=".innerHTML"></div>
 					<div class="codemarker" data-text=".innerHTML" data-nth="2"></div>
 				</div>
 			</div>
 			<div>
-				<img src="img/02_dom1/demo-domproperties.png" alt="" class="w-400 bordered">
+				<img src="img/02_dom1/demo-innerhtml.png" alt="" class="w-150 bordered">
 			</div>
 		</div>
 
@@ -749,7 +739,7 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
 		<div class="codecompare">
 			<div class="w-700">
 				<div class="precontainer">
-					<pre data-caption="XAML" class="prism-vslight language-html w-700"><code>&lt;Button x:Name="btnHello" Content="Toon Hallo" Click="btnHello_Click" ... /&gt;
+					<pre class="prism-vslight language-html language-xaml w-700" data-caption="XAML"><code>&lt;Button x:Name="btnHello" Content="Toon Hallo" Click="btnHello_Click" ... /&gt;
 &lt;Label x:Name="lblMessage" Content="" ... /&gt;
 </code></pre>
 					<div class="codemarker" data-text="Click=&quot;btnHello_Click&quot;"></div>
@@ -770,7 +760,7 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html wrong w-700"><code>&lt;button id="btnHello" onclick="zegHallo()"&gt;Toon Hallo&lt;/button&gt;
+					<pre class="prism-default language-html wrong w-700"><code>&lt;button id="btnHello" onclick="zegHallo()"&gt;Toon Hallo&lt;/button&gt;
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
 					<div class="codemarker" data-text="onclick=&quot;zegHallo()&quot;" data-color="#C06000"></div>
 				</div>
@@ -796,7 +786,7 @@ function zegHallo() {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
+					<pre class="prism-default language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
 				</div>
 				<div class="precontainer">
@@ -819,7 +809,7 @@ btnHello.onclick = zegHallo; // zegHallo zonder haakjes ()</code></pre>
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
+					<pre class="prism-default language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
 				</div>
 				<div class="precontainer">
@@ -841,8 +831,7 @@ btnHello.addEventListener('click', zegHallo);</code></pre>
 			<li>je kan <strong>meerdere event handlers</strong> koppelen aan één click event (wat bij WPF niet kan)</li>
 			<li>het is een <strong>moderne syntax</strong> die je ook in veel andere programmeertalen ziet (bv. Java)</li>
 		</ul>
-		<p>Je kan de code nog wat inkorten door gebruik te maken van een <a
-				href="01_syntax.html#anonieme-functies">anonieme functie</a>:</p>
+		<p>Je kan de code nog wat inkorten door gebruik te maken van een <a href="01_syntax.html#anonieme-functies">anonieme functie</a>:</p>
 		<pre class="prism-okaida right"><code>const lblMessage = document.querySelector('#lblMessage');
 const btnHello = document.querySelector('#btnHello');
 btnHello.addEventListener('click', function() { // anonieme functie
@@ -850,8 +839,7 @@ btnHello.addEventListener('click', function() { // anonieme functie
 });</code></pre>
 
 		<h3>Aparte event handler methodes</h3>
-		<p>Bij grotere programma's is je code leesbaarder als je expliciete functies definieert voor het afhandelen van
-			events. Neem volgend schematisch fragment:</p>
+		<p>Bij grotere programma's is je code leesbaarder als je expliciete functies definieert voor het afhandelen van events. Neem volgend schematisch fragment:</p>
 		<pre class="prism-okaida"><code>
 frm1.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -864,8 +852,7 @@ lnkFilter.addEventListener('click', function(e) {
 btnAdd.addEventListener('click', function() {
   // ...code handling button click
 });</code></pre>
-		<p>Door de event handler functies apart te houden van de koppeling aan events, is je code veel beter
-			gestructureerd:</p>
+		<p>Door de event handler functies apart te houden van de koppeling aan events, is je code veel beter gestructureerd:</p>
 		<pre class="prism-okaida right"><code>// EVENT HANDLERS
 function handleFormSubmit(e) {
   e.preventDefault();
@@ -892,7 +879,7 @@ btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre data-caption="XAML" class="prism-vslight language-html w-650"><code>&lt;Button x:Name="btn1" Content="KNOP 1" Click="btn_Click" ... /&gt;
+					<pre class="prism-vslight language-html language-xaml w-650" data-caption="XAML"><code>&lt;Button x:Name="btn1" Content="KNOP 1" Click="btn_Click" ... /&gt;
 &lt;Button x:Name="btn2" Content="KNOP 2" Click="btn_Click" ... /&gt;
 &lt;Button x:Name="btn3" Content="KNOP 3" Click="btn_Click" ... /&gt;
 &lt;Button x:Name="btn4" Content="KNOP 4" Click="btn_Click" ... /&gt;
@@ -918,7 +905,7 @@ btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;button&gt;KNOP 1&lt;/button&gt;
+					<pre class="prism-default language-html"><code>&lt;button&gt;KNOP 1&lt;/button&gt;
 &lt;button&gt;KNOP 2&lt;/button&gt;
 &lt;button&gt;KNOP 3&lt;/button&gt;
 &lt;button&gt;KNOP 4&lt;/button&gt;
@@ -953,7 +940,7 @@ buttons.forEach(btn =&gt; {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;table id="board"&gt;
+					<pre class="prism-default language-html"><code>&lt;table id="board"&gt;
   &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
@@ -1021,7 +1008,7 @@ table.addEventListener('click', function(e) {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"><code>&lt;p&gt;Kies je zoekmachine:&lt;/p&gt;
+					<pre class="prism-default language-html"><code>&lt;p&gt;Kies je zoekmachine:&lt;/p&gt;
 &lt;ul id="engines"&gt;
   &lt;li&gt;&lt;a href="https://bing.com/"&gt;Bing&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://google.com/"&gt;Google&lt;/a&gt;&lt;/li&gt;
@@ -1085,18 +1072,18 @@ links.forEach(lnk =&gt; {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html w-800"
+					<pre class="prism-default language-html w-800"
 						data-demo="demos/02_dom1/demoFotogallerij1/index.html"><code>&lt;ul class="thumbs"&gt;
   &lt;li&gt;&lt;a href="img/photo1.jpg"&gt;
-      &lt;img src="img/photo1-s.jpg" alt="Amman, Jordanië"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;img src="img/photo1-s.jpg" alt="Amman, Jordanië"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo17.jpg"&gt;
-      &lt;img src="img/photo17-s.jpg" alt="Noorderlicht, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;img src="img/photo17-s.jpg" alt="Noorderlicht, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo6.jpg"&gt;
-      &lt;img src="img/photo6-s.jpg" alt="mozaïek, Isfahan, Iran"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;img src="img/photo6-s.jpg" alt="mozaïek, Isfahan, Iran"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo3.jpg"&gt;
-      &lt;img src="img/photo3-s.jpg" alt="Atlas, Marokko"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;img src="img/photo3-s.jpg" alt="Atlas, Marokko"&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="img/photo20.jpg"&gt;
-      &lt;img src="img/photo20-s.jpg" alt="bevroren bomen, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;img src="img/photo20-s.jpg" alt="bevroren bomen, Lapland"&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure id="figBig"&gt;
   &lt;img src="img/photo1.jpg" alt=""&gt;
@@ -1122,7 +1109,7 @@ thumbLinks.forEach(lnk =&gt; {
 			</div>
 		</div>
 		<div class="precontainer">
-			<pre class="prism-okaida language-css"><code>* {
+			<pre class="prism-atom-dark language-css"><code>* {
   margin: 0;
   padding: 0;
 }
@@ -1176,8 +1163,7 @@ img {
 		<div class="codecompare">
 			<div>
 				<div class="precontainer">
-					<pre class="prism-okaida language-html"
-						data-demo="demos/02_dom1/demoFormchecking1/index.html"><code>&lt;form id="frmLogin"&gt;
+					<pre class="prism-default language-html" data-demo="demos/02_dom1/demoFormchecking1/index.html"><code>&lt;form id="frmLogin"&gt;
   &lt;h1 class="form__title"&gt;Registreren&lt;/h1&gt;
   &lt;div class="form__control ctrlEmail"&gt;
     &lt;label for="email"&gt;Email: &lt;/label&gt;
@@ -1253,7 +1239,7 @@ frmLogin.addEventListener('submit', function (e) {
 			</div>
 		</div>
 		<div class="precontainer">
-			<pre class="prism-okaida language-css"><code>body {
+			<pre class="prism-atom-dark language-css"><code>body {
   font-family: roboto;
   font-size: 14px;
 }
@@ -1284,10 +1270,10 @@ label, input {
 		</div>
 	</div>
 	<!-- scripts -->
-	<script src="vendor/prism/prism.js"></script>
-	<script src="vendor/hystmodal/hystmodal.min.js"></script>
-	<script src="js/mode.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="common/vendor/prism/prism.js"></script>
+	<script src="common/vendor/hystmodal/hystmodal.min.js"></script>
+	<script src="common/js/mode.js"></script>
+	<script src="common/js/scripts.js"></script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
 	<script>
