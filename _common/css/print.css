@@ -1,0 +1,39 @@
+html {
+   font-size: 40%;
+}
+
+body {
+   padding-top: 0 !important;
+}
+
+#mode, .site__nav, #up, .marker, iframe {
+   display: none !important;
+}
+
+.print {
+   display: block !important;
+}
+
+h2 {
+   page-break-before: always;
+}
+
+h2, h3, h4, h5 {
+   page-break-after: avoid;
+}
+
+pre, div.tips {
+   break-inside: avoid;
+}
+
+.bordered {
+   border-width: 2px;
+}
+
+.line-numbers .line-numbers-rows {
+	display: none !important;
+}
+
+pre[class*="language-"].line-numbers {
+	padding-left: 1em !important;
+}

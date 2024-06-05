@@ -7,7 +7,7 @@ const DOM = {
 	diaDemoWindow: document.querySelector('#diaDemo .hystmodal__window'),
 	nav: document.querySelector('nav'),
 	tips: [...document.querySelectorAll('.tips')],
-	titles: [...document.querySelectorAll('main > h2, main > h3, main > h4, main > h5, main > .pre > h2, main > .pre > h3, main > .pre > h4, main > .pre > h5, .pro > h2, .pro > h3, .pro > h4, .pro > h5')],
+	titles: [...document.querySelectorAll('h2,h3,h4,h5')],
 	toc: document.querySelector('#toc')
 };
 const myHistModal = typeof HystModal === 'undefined' ? undefined : new HystModal({});
@@ -70,69 +70,6 @@ function drawCodeMarkers() {
 function repaint() {
 	drawCodeMarkers();
 	document.body.style.paddingTop = `${document.querySelector('nav').offsetHeight}px`;
-}
-
-/**
- * Handles window changes
- */
-function repaint() {
-	drawCodeMarkers();
-	document.body.style.paddingTop = `${document.querySelector('nav').offsetHeight}px`;
-}
-
-/**
- * Minimizes CSS: remove comments and newlines
- *
- * @param {string} strCss
- */
-function minimizeCss(strCss) {
-   strCss = strCss.replace(/(\/\*.*\*\/)|(\n|\r)+|\t*/g, '');
-   strCss = strCss.replace(/\s{2,}/g, ' ');
-   return strCss;
-}
-
-/**
- * Applies CSS snippet to selector, basically by prefixing snippet rule selectors with selector
- *
- * @param {str} strSelector selector to apply CSS to
- * @param {str} strCss string containing CSS snippet
- */
-function cssApplySnippet(strSelector, strCss) {
-	// create <style> block
-   let demostyles = document.querySelector('#demostyles');
-   if (!demostyles) {
-      demostyles = document.createElement('style');
-      demostyles.id = 'demostyles';
-      document.head.appendChild(demostyles);
-   }
-
-	// parse css
-	const parser = new cssjs();
-	strCss = parser.stripComments(strCss);
-	const parsed = parser.parseCSS(strCss);
-
-	// prefix rules
-	const prefixed = [];
-	for (let style of parsed) {
-		if (style.styles) {
-			prefixed.push(style.styles);
-		} else {
-			prefixed.push(`${strSelector} ${style.selector} { ${parser.getCSSOfRules(style.rules)} }`);
-		}
-	}
-
-   // remove existing style block
-   const rex = new RegExp(`\\s*\\/\\* ${strSelector} \\*\\/[^\\/]*\\/\\* \\/${strSelector} \\*\\/\\s*`, 'm');
-   demostyles.innerHTML = demostyles.innerHTML.replace(rex, '\n\n');
-
-   // inject new style block
-   const strPrefixed = minimizeCss(prefixed.join(' '));
-   const strInjectCss = `/* ${strSelector} */
-${strPrefixed}
-/* /${strSelector} */
-
-`;
-   demostyles.innerHTML += strInjectCss;
 }
 
 /**
@@ -205,44 +142,6 @@ function startApp() {
 	document.querySelectorAll('code .token.comment').forEach(t => {
 		if (t.innerText.toLowerCase().includes('// fout')) t.classList.add('error');
 	});
-
-	// part 6: apply css snippets to targets
-	document.querySelectorAll('[data-target][contenteditable]').forEach(cssBlock => {
-		const targetId = cssBlock.dataset.target;
-		if (!targetId || !document.querySelector(targetId)) return;
-		cssApplySnippet(targetId, cssBlock.innerText);
-		cssBlock.addEventListener('keyup', function () {
-			cssApplySnippet(targetId, this.innerText);
-		});
-	});
-
-	// part 7: make code editable
-	document.querySelectorAll('pre code').forEach(c => {
-		c.setAttribute('contenteditable', 'true');
-	});
-	document.querySelectorAll('[contenteditable]').forEach(prismBlock => {
-		prismBlock.addEventListener('blur', () => {
-			Prism.highlightElement(prismBlock);
-		});
-	});
-
-	// part 7: container range slider
-	document.querySelectorAll('.range-container-width').forEach(rcw => {
-		const container = rcw.parentNode.querySelector('.container');
-		const btnReset = rcw.parentNode.querySelector('.range-reset');
-		const min = parseInt(rcw.min ?? 0);
-		const max = parseInt(rcw.max ?? 9999);
-		const width = parseInt(container.offsetWidth);
-		rcw.value = width < min ? min : width > max ? max : width;
-		btnReset.dataset.initvalue = rcw.value;
-		rcw.addEventListener('input', () => {
-			container.style.width = `${rcw.value}px`;
-		});
-		btnReset.addEventListener('click', () => {
-			rcw.value = btnReset.dataset.initvalue;
-			container.style.width = `${rcw.value}px`;
-		});
-	});
 }
 
 /**
@@ -278,14 +177,9 @@ window.addEventListener('load', function () {
 		const button = document.createElement('button');
 		button.textContent = 'Demo';
 		button.onclick = function () {
+			DOM.diaDemoWindow.innerHTML = '<iframe title="demo"></iframe>';
 			const src = env.element.parentNode.dataset.demo;
 			if (src === undefined) return;
-			if (env.element.parentNode.dataset.demoTarget == '_blank') {
-				const specs = 'width=1200,height=900,menubar=no,toolbar=no,location=no,status=no,scrollbars=yes,resizable=yes';
-				window.open(src, '_blank', specs);
-				return;
-			}
-			DOM.diaDemoWindow.innerHTML = '<iframe title="demo"></iframe>';
 			myHistModal.open('#diaDemo');
 			const diaDemoIframe = document.querySelector('#diaDemo iframe');
 			if (src == '') {
@@ -297,14 +191,10 @@ window.addEventListener('load', function () {
 				}
 				else if (env.language == 'html' && !html.includes('<html')) {
 					const demoContainer = pre.closest('.democontainer');
-					if (demoContainer) {
-						const demoCss = demoContainer?.querySelector('pre.language-css')?.innerText ?? '';
-						const demoJs = demoContainer?.querySelector('pre.language-javascript')?.innerText ?? '';
-						const demoHtml = demoContainer?.querySelector('pre.language-html')?.innerText ?? '';
-						html = `<html><head><style>${demoCss}</style></head><body>${demoHtml}</body><script>${demoJs}</script></html>`;
-					} else {
-						html = `<html><body>${html}</body></html>`;
-					}
+					const demoCss = demoContainer?.querySelector('pre.language-css')?.innerText ?? '';
+					const demoJs = demoContainer?.querySelector('pre.language-javascript')?.innerText ?? '';
+					const demoHtml = demoContainer?.querySelector('pre.language-html')?.innerText ?? '';
+					html = `<html><head><style>${demoCss}</style></head><body>${demoHtml}</body><script>${demoJs}</script></html>`;
 				}
 				oDoc.write(html);
 			} else {
@@ -320,8 +210,7 @@ window.addEventListener('load', function () {
 			const pre = env.element.parentNode;
 			if (!pre || !/pre/i.test(pre.nodeName)) return;
 			if (pre.dataset.notoolbar != undefined) return;
-			let caption = pre.dataset.caption || pre.getAttribute('data-language');
-			if (!caption && pre.hasAttribute('data-caption')) caption = env.language;
+			const caption = pre.getAttribute('data-caption') || pre.getAttribute('data-language');
 			if (!caption) return;
 			const element = document.createElement('span');
 			element.textContent = caption == 'cs' ? 'c#' : caption;

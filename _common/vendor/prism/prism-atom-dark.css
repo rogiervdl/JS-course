@@ -3,7 +3,7 @@ body pre[class*="language-"].prism-atom-dark,
 .prism-atom-dark pre > code[class*="language-"],
 body pre[class*="language-"].prism-atom-dark > code {
 	background: #1d1f21;
-	color: #999;
+	color: #7C7C7C;
 }
 
 .prism-atom-dark .token.comment,
@@ -14,14 +14,8 @@ pre.prism-atom-dark .token.prolog,
 pre.prism-atom-dark .token.doctype,
 .prism-atom-dark .token.cdata,
 pre.prism-atom-dark .token.cdata {
-	color: #999;
+	color: #7C7C7C;
 }
-
-.prism-atom-dark .token.comment strong,
-pre.prism-atom-dark .token.comment strong{
-	color: #ccc
-}
-
 
 .prism-atom-dark .token.punctuation,
 pre.prism-atom-dark .token.punctuation {

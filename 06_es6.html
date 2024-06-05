@@ -46,7 +46,7 @@
       </a>
    </nav>
    <h1>06. ES6</h1>
-   <div class="tips topmessage" data-caption="✋ VERBODEN TERREIN!">
+   <div class="tips topmessage" data-caption="✋ STOP!">
       <p>Let op! De technieken uit dit hoofdstuk mag je niet gebruiken zonder expliciete toestemming van de docent.</p>
    </div>
    <div id="toc"></div>
@@ -54,28 +54,19 @@
 
       <!-- VIDEO -->
       <h2>Over ES6</h2>
-      <p><mark>ES6</mark> is een gevoelige uitbreiding en modernisering van Javascript als taal. Dit gebeurt in
-         verschillende stappen, genoemd naar het jaartal waarin ze doorgevoerd zijn. Enkele voorbeelden: </p>
+      <p><mark>ES6</mark> is een gevoelige uitbreiding en modernisering van Javascript als taal. Dit gebeurt in verschillende stappen, genoemd naar het jaartal waarin ze doorgevoerd zijn. Enkele voorbeelden: </p>
       <ul>
-         <li><span class="em">ECMAScript 2015</span>: <code>let</code> en <code>const</code>, default parameters voor
-            methodes, <code>Array.find()</code>...</li>
-         <li><span class="em">ECMAScript 2016</span>: exponentiële operator <code>**</code>,
-            <code>Array.includes()</code>...
-         </li>
+         <li><span class="em">ECMAScript 2015</span>: <code>let</code> en <code>const</code>, default parameters voor methodes, <code>Array.find()</code>...</li>
+         <li><span class="em">ECMAScript 2016</span>: exponentiële operator <code>**</code>, <code>Array.includes()</code>...</li>
          <li><span class="em">ECMAScript 2017</span>: async methodes, <code>Object.values()</code>...</li>
-         <li><span class="em">ECMAScript 2018</span>: rest / spread oproperties, aanvullingen voor reguliere
-            expressies...</li>
-         <li><span class="em">ECMAScript 2019</span>: <code>String.trimStart()</code> en <code>String.trimEnd()</code>,
-            <code>Array.flat()</code>...
-         </li>
+         <li><span class="em">ECMAScript 2018</span>: rest / spread oproperties, aanvullingen voor reguliere expressies...</li>
+         <li><span class="em">ECMAScript 2019</span>: <code>String.trimStart()</code> en <code>String.trimEnd()</code>, <code>Array.flat()</code>...</li>
          <li><span class="em">ECMAScript 2020</span>: nullish coalescing operator <code>??</code></li>
          <li><span class="em">ECMAScript 2021</span>: <code>String.replaceAll()</code>, private methodes...</li>
          <li><span class="em">ECMAScript 2022</span>: top level await, static class fields en methodes...</li>
-         <li><span class="em">ECMAScript 2023</span>: <code>Array.findLast()</code>, <code>Array.toSorted()</code>...
-         </li>
+         <li><span class="em">ECMAScript 2023</span>: <code>Array.findLast()</code>, <code>Array.toSorted()</code>...</li>
       </ul>
-      <p>Kort door de bocht is ES5 oude javascript, en ES6 nieuwe. Elk jaar komen er features bij. In dit hoofdstuk
-         geven we er een paar van de meest interessante.</p>
+      <p>Kort door de bocht is ES5 oude javascript, en ES6 nieuwe. Elk jaar komen er features bij. In dit hoofdstuk geven we er een paar van de meest interessante.</p>
 
       <!-- ECMASCRIPT 2015 -->
       <h2>Operators</h2>
@@ -93,7 +84,7 @@ console.log(2 ** 3); // 8</code></pre>
       <div class="codecompare">
          <pre class="prism-okaida line-numbers"><code>// ES5
 var name = 'Bobby', age = 42;
-const person = {name: name, age: age};</code></pre>
+var person = {name: name, age: age};</code></pre>
          <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const name = 'Bobby', age = 42;
 const person = {name, age}; // shorthand</code></pre>
@@ -102,9 +93,9 @@ const person = {name, age}; // shorthand</code></pre>
       <div class="codecompare">
          <pre class="prism-okaida line-numbers"><code>// ES5
 var obj = {
-  sum: function(a, b) {
-    return a + b;
-  }
+   sum: function(a, b) {
+      return a + b;
+   }
 };
 console.log(obj.sum(6, 8)); // 14</code></pre>
          <pre class="prism-okaida line-numbers" data-demo><code>// ES6
@@ -135,23 +126,22 @@ const extendedOptions = [1, 2, ...options]; // [1, 2, "green", true, 7]</code></
 const arr = [1, 2, ...[3, 4, 5], 6, 7];
 console.log(arr); // [1, 2, 3, 4, 5, 6, 7] </code></pre>
       <p>Kan ook gebruikt worden om <code>querySelectorAll()</code> te converteren naar een array:</p>
-      <pre class="prism-okaida line-numbers w-1000" data-demo><code class="language-html">&lt;!-- HTML --&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=""&gt;link 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=""&gt;link 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=""&gt;link 3&lt;/a&gt;&lt;/li&gt;
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;ul&gt;
+   &lt;li&gt;&lt;a href=""&gt;link 1&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=""&gt;link 2&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=""&gt;link 3&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p id="msg"&gt;&lt;/p&gt;
-
-&lt;!-- ES6 SCRIPT --&gt;
-&lt;script&gt;
-  const links = document.querySelectorAll('ul a');
-  const arrLinks = [...links];
-  document.querySelector('#msg').innerHTML = `
-    &lt;code&gt;document.querySelectorAll('ul a')&lt;/code&gt;: ${Array.isArray(links) ? 'wel' : 'geen'} array
-    &lt;br&gt;&lt;code&gt;[...document.querySelectorAll('ul a')]&lt;/code&gt;: ${Array.isArray(arrLinks) ? 'wel' : 'geen'} array`;
-&lt;/script&gt;
 </code></pre>
+         <pre class="prism-okaida w-1000" data-caption="es6"><code>const links = document.querySelectorAll('ul a');
+const arrLinks = [...links];
+document.querySelector('#msg').innerHTML = `
+   &lt;code&gt;document.querySelectorAll('ul a')&lt;/code&gt;: ${Array.isArray(links) ? 'wel' : 'geen'} array
+   &lt;br&gt;&lt;code&gt;[...document.querySelectorAll('ul a')]&lt;/code&gt;: ${Array.isArray(arrLinks) ? 'wel' : 'geen'} array`;
+</code></pre>
+      </div>
+
       <h3>destructureren</h3>
       <p>Destructureren verdeelt een array over variabelen.</p>
       <h4>voorbeeld 1: waarden verdelen over een array</h4>
@@ -196,7 +186,7 @@ const [a, b] = [b, a]; // waarden worden verwisseld</code></pre>
       <h4>voorbeeld 4: meerdere waarden retourneren uit een methode</h4>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const func = function() {
-  return [1, true, 'hello', {}]; // return multiple values
+   return [1, true, 'hello', {}]; // return multiple values
 }
 
 const [a, , b, ] = func();
@@ -207,12 +197,12 @@ console.log(b); // 'hello'</code></pre>
       <h4>voorbeeld 5: een object destructureren in variabelen</h4>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const test = {
-  name: 'Rogier',
-  address: {
-    street: 'Kerkstraat',
-    number: 33
-  },
-  age: 42
+   name: 'Rogier',
+   address: {
+      street: 'Kerkstraat',
+      number: 33
+   },
+   age: 42
 };
 
 const { name, address } = test; // object destructuring
@@ -223,13 +213,13 @@ console.log(address.number); // 33</code></pre>
       <p>Voorbeeld met expliciete namen van variabelen en deep matching:</p>
       <pre class="prism-okaida line-numbers w-750" data-demo><code>// ES6
 const test = {
-  name: 'Rogier',
-  address: {
-    street: 'Kerkstraat',
-    number: 33
-  },
-  age: 42,
-  isMale: true
+   name: 'Rogier',
+   address: {
+      street: 'Kerkstraat',
+      number: 33
+   },
+   age: 42,
+   isMale: true
 };
 
 const { name: n, address: {street: s}, age: a } = test; // object destructuring
@@ -259,9 +249,9 @@ console.log(sum(2,4)); // 6</code></pre>
       <div class="codecompare">
          <pre class="prism-okaida line-numbers"><code>// ES5
 var highpass = function highpass(cutoff) {
-  return function (n) {
-    return n &gt;= cutoff;
-  };
+   return function (n) {
+      return n &gt;= cutoff;
+   };
 };
 const gt4 = highpass(4);
 console.log(gt4(6)); // true
@@ -282,13 +272,13 @@ console.log(gt4(3)); // false
       <div class="codecompare">
          <pre class="prism-okaida line-numbers"><code>// ES5
 function f (x, y, z) {
-  if (y === undefined) y = 7;
-  if (z === undefined) z = 42;
-  return x + y + z;
+   if (y === undefined) y = 7;
+   if (z === undefined) z = 42;
+   return x + y + z;
 };</code></pre>
          <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 function f (x, y = 7, z = 42) {
-  return x + y + z;
+   return x + y + z;
 }
 
 
@@ -296,16 +286,15 @@ function f (x, y = 7, z = 42) {
       </div>
 
       <h3>generator functies</h3>
-      <p>Een <mark>generator</mark> is een functie die elke keer een verschillende waarde teruggeeft. Telkens
-         <code>next()</code> opgeroepen wordt, loopt het tot de volgende <code>yield</code>.
+      <p>Een <mark>generator</mark> is een functie die elke keer een verschillende waarde teruggeeft. Telkens <code>next()</code> opgeroepen wordt, loopt het tot de volgende <code>yield</code>.
       </p>
       <h4>generator basisvoorbeeld</h4>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 // define a generator
-const someGenerator = function*(){
-  yield 'hello';
-  yield 9;
-  yield true;
+const someGenerator = function*() {
+   yield 'hello';
+   yield 9;
+   yield true;
 }
 
 // calling the generator returns an iterator object
@@ -318,9 +307,9 @@ console.log(gen.next().value); // true
 console.log(gen.next().value); // undefined</code></pre>
       <p>In feite geeft <code>next()</code> een object terug van de vorm <code>{ value: ..., done: ... }</code></p>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
-const someGenerator = function*(){
-  yield 'an';
-  yield 'bob';
+const someGenerator = function*() {
+   yield 'an';
+   yield 'bob';
 }
 
 const gen = someGenerator();
@@ -332,11 +321,11 @@ console.log(gen.next()); // {value: undefined, done: true}</code></pre>
       <p>Voorbeeld met parameters:</p>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const counterGenerator = function*(start, step) {
-  const number = start;
-  while(true) {
-    yield number;
-    number += step;
-  }
+   const number = start;
+   while(true) {
+      yield number;
+      number += step;
+   }
 }
 
 const gen = counterGenerator(100, 3);
@@ -347,14 +336,14 @@ console.log(gen.next().value); // 106</code></pre>
       <h4>Fibonacci met generator</h4>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 function* fibonacci(n) {
-  const infinite = !n &amp;&amp; n !== 0;
-  let current = 0;
-  let next = 1;
+   const infinite = !n &amp;&amp; n !== 0;
+   let current = 0;
+   let next = 1;
 
-  while (infinite || n--) {
-    yield current;
-    [current, next] = [next, current + next];
-  }
+   while (infinite || n--) {
+      yield current;
+      [current, next] = [next, current + next];
+   }
 }
 
 // oldskool:
@@ -371,27 +360,26 @@ console.log(first10); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</code></pre>
       <p>Je kan vanuit één generator delegeren naar een andere:</p>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 function* g1() {
-  yield 2;
-  yield 3;
-  yield 4;
+   yield 2;
+   yield 3;
+   yield 4;
 }
 
 function* g2() {
-  yield 1;
-  yield* g1();
-  yield 5;
+   yield 1;
+   yield* g1();
+   yield 5;
 }
 
 const iterator = g2();
 
 const next = iterator.next();
 while(!next.done) {
-  console.log(next.value); // 1 2 3 4 5
-  next = iterator.next();
+   console.log(next.value); // 1 2 3 4 5
+   next = iterator.next();
 }</code></pre>
       <ul class="arrow">
-         <li>voor een meer diepgaande uitleg zie <a
-               href="https://ponyfoo.com/articles/es6-generators-in-depth">ponyfoo.com</a></li>
+         <li>voor een meer diepgaande uitleg zie <a href="https://ponyfoo.com/articles/es6-generators-in-depth">ponyfoo.com</a></li>
       </ul>
       <h2>Collecties</h2>
       <h3>Set</h3>
@@ -415,7 +403,7 @@ console.log(`The set has 8: ${x.has(8)}`); // false
 //    5
 //    6
 for (const value of x) {
-  console.log(value);
+   console.log(value);
 }</code></pre>
       <ul class="arrow">
          <li>andere methodes zijn <code>clear()</code>, <code>forEach()</code> en <code>values()</code></li>
@@ -426,20 +414,20 @@ for (const value of x) {
       </p>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const x = new Map([
-  [(new Date()).toLocaleDateString('be-NL'), function today () {}],
-  [y =&gt; y * 2, { pony: 'foo' }],
-  ['items', [1, 2]]
+   [(new Date()).toLocaleDateString('be-NL'), function today () {}],
+   [y =&gt; y * 2, { pony: 'foo' }],
+   ['items', [1, 2]]
 ]);
 
 x.delete('items');
 x.set('author', 'Rogier');
 
 // output:
-//   3/20/2024: function today () {}
-//   y =&gt; y * 2: [object Object]
-//   author: Rogier
+//    3/20/2024: function today () {}
+//    y =&gt; y * 2: [object Object]
+//    author: Rogier
 for (const [key, value] of x) {
-  console.log(`${key}: ${value}`);
+   console.log(`${key}: ${value}`);
 }</code></pre>
       <ul class="arrow">
          <li>andere methodes zijn <code>clear()</code>, <code>forEach()</code> en <code>values()</code></li>
@@ -452,31 +440,28 @@ for (const [key, value] of x) {
          <li>je kan enkel objecten toevoegen (WeakSet) of als keys gebruiken (<code>WeakMap</code>)</li>
          <li>je kan niet itereren, dus geen <code>size</code>, <code>for...in</code> enz...</li>
       </ul>
-      <p>Belangrijkste voordeel: elke item wordt automatisch opgekuist door de garbage collector als er geen referenties
-         meer zijn. Een vergelijking van <code>Set</code> en <code>WeakSet</code>:</p>
+      <p>Belangrijkste voordeel: elke item wordt automatisch opgekuist door de garbage collector als er geen referenties meer zijn. Een vergelijking van <code>Set</code> en <code>WeakSet</code>:</p>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const set = new Set();
 const weakset = new WeakSet();
 
 (function() {
-  const a = {x: 12};
-  const b = {y: 12};
+   const a = {x: 12};
+   const b = {y: 12};
 
-  set.add(a);
-  weakset.add(b);
+   set.add(a);
+   weakset.add(b);
 })(); // a and b only exist within function
 
 console.log(set); // set bevat a tot je het manueel verwijdert
 console.log(weakset); // weakset bevat b tot garbage collected</code></pre>
-      <p>Gebruik weak collections in plaats van <code>Map</code> en <code>Set</code> waar mogelijk om geheugenleks te
-         vermijden. Typische use cases:</p>
+      <p>Gebruik weak collections in plaats van <code>Map</code> en <code>Set</code> waar mogelijk om geheugenleks te vermijden. Typische use cases:</p>
       <ul>
          <li>organiseer objecten in groepen (<code>WeakSet</code>)</li>
          <li>hou bij welke objecten al zijn verwerkt (<code>WeakSet</code>)</li>
          <li>breid objecten uit zonder de garbagecollection te verstoren (<code>WeakMap</code>)</li>
       </ul>
-      <p>Weak collections zijn alleen nuttig voor garbage collection van objecten; het heeft dus geen zin object
-         literals als keys te gebruiken:</p>
+      <p>Weak collections zijn alleen nuttig voor garbage collection van objecten; het heeft dus geen zin object literals als keys te gebruiken:</p>
       <pre class="prism-okaida line-numbers wrong w-600" data-demo><code>// ES6
 const weakmap = new WeakMap();
 weakmap.set(new Date(), 111); // heeft geen zin
@@ -492,95 +477,95 @@ weakmap.set({}, 222); // heeft geen zin</code></pre>
 const foo = {};
 
 foo[Symbol.iterator] = function() {
-  const items = ['alice', 'bob', 'clive', 'dave'];
-  return {
-    next: function () {
-      return {
-        done: items.length === 0,
-        value: items.shift()
+   const items = ['alice', 'bob', 'clive', 'dave'];
+   return {
+      next: function () {
+         return {
+            done: items.length === 0,
+            value: items.shift()
+         }
       }
-    }
-  }
+   }
 };
 
 for (const item of foo) {
-  console.log(item); // alice bob clive dave
+   console.log(item); // alice bob clive dave
 }</code></pre>
       <p>Kortere syntax:</p>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const foo = {};
 
 foo[Symbol.iterator]() {
-  return {
-    items: ['alice', 'bob', 'clive', 'dave'],
-    next: function () {
-      return {
-        done: this.items.length === 0,
-        value: this.items.shift()
+   return {
+      items: ['alice', 'bob', 'clive', 'dave'],
+      next: function () {
+         return {
+            done: this.items.length === 0,
+            value: this.items.shift()
+         }
       }
-    }
-  }
+   }
 };
 
 for (const item of foo) {
-  console.log(item); // alice bob clive dave
+   console.log(item); // alice bob clive dave
 }</code></pre>
       <h4>Voorbeeld 2: Fibonacci</h4>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const fibonacci = {
-  [Symbol.iterator]() {
-    let pre = 0, cur = 1;
-    return {
-      next () {
-        [pre, cur] = [cur, pre + cur];
-        return { done: false, value: cur };
-      }
-    };
-  }
+   [Symbol.iterator]() {
+      let pre = 0, cur = 1;
+      return {
+         next () {
+            [pre, cur] = [cur, pre + cur];
+            return { done: false, value: cur };
+         }
+      };
+   }
 };
 
 for (const n of fibonacci) {
-  if (n &gt; 1000) break;
-  console.log(n);
+   if (n &gt; 1000) break;
+   console.log(n);
 };</code></pre>
       <h4>Voorbeeld 3: prioriteiten</h4>
       <pre class="prism-okaida line-numbers w-600 h-400" data-demo><code>// ES6
 const custom_collection = {
-  elements: [
-    {val: 111, priority: 1},
-    {val: 222, priority: 2},
-    {val: 333, priority: 1},
-    {val: 444, priority: 3},
-    {val: 555, priority: 2}
-  ],
-  [Symbol.iterator]: function() {
-    const e = this.elements;
-    const setDone = new WeakSet();
-    let numReturned = 0;
-    return {
-      next: function() {
-        if (numReturned == e.length) {
-          return { value: undefined, done: true };
-        }
-        let prior = -1;
-        let retval = undefined;
-        for (const elem of e) {
-          if (setDone.has(elem)) continue;
-          if (elem.priority &gt; prior) {
-            prior = elem.priority;
-            retval = elem;
-          }
-        }
-        numReturned++;
-        setDone.add(retval);
-        return { value: retval.val, done: false };
-      },
-    };
-  }
+   elements: [
+      {val: 111, priority: 1},
+      {val: 222, priority: 2},
+      {val: 333, priority: 1},
+      {val: 444, priority: 3},
+      {val: 555, priority: 2}
+   ],
+   [Symbol.iterator]: function() {
+      const e = this.elements;
+      const setDone = new WeakSet();
+      let numReturned = 0;
+      return {
+         next: function() {
+            if (numReturned == e.length) {
+               return { value: undefined, done: true };
+            }
+            let prior = -1;
+            let retval = undefined;
+            for (const elem of e) {
+               if (setDone.has(elem)) continue;
+               if (elem.priority &gt; prior) {
+                  prior = elem.priority;
+                  retval = elem;
+               }
+            }
+            numReturned++;
+            setDone.add(retval);
+            return { value: retval.val, done: false };
+         },
+      };
+   }
 }
 
 for(const i of custom_collection) {
-  console.log(i); // 444 222 555 111 333
+   console.log(i); // 444 222 555 111 333
 };</code></pre>
 
       <h2>OO concepten</h2>
@@ -588,11 +573,11 @@ for(const i of custom_collection) {
       <div class="codecompare">
          <pre class="prism-okaida line-numbers"><code>// ES5
 var Shape = function (id, x, y) {
-  this.id = id;
-  this.move(x, y) = function (x, y) {
-    this.x = x;
-    this.y = y;
-  };
+   this.id = id;
+   this.move(x, y) = function (x, y) {
+      this.x = x;
+      this.y = y;
+   };
 };
 
 
@@ -604,14 +589,14 @@ var Shape = function (id, x, y) {
 </code></pre>
          <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 class Shape {
-  constructor (id, x, y) {
-    this.id = id;
-    this.move(x, y);
-  }
-  move (x, y) {
-    this.x = x;
-    this.y = y;
-  }
+   constructor (id, x, y) {
+      this.id = id;
+      this.move(x, y);
+   }
+   move (x, y) {
+      this.x = x;
+      this.y = y;
+   }
 };
 
 const dot1 = new Shape('dot 1', 25, 50);
@@ -621,10 +606,10 @@ console.log(`shape ${dot1.id} has position (${dot1.x},${dot1.y})`);</code></pre>
       <h3>Static class members</h3>
       <pre class="prism-okaida line-numbers w-600"><code>// ES6
 class Rectangle {
-  ...
-  static defaultRectangle () {
-    return new Rectangle("default", 0, 0, 100, 100)
-  }
+   ...
+   static defaultRectangle () {
+      return new Rectangle("default", 0, 0, 100, 100)
+   }
 }
 const defRectangle = Rectangle.defaultRectangle();</code></pre>
 
@@ -632,31 +617,31 @@ const defRectangle = Rectangle.defaultRectangle();</code></pre>
       <div class="codecompare">
          <pre class="prism-okaida line-numbers"><code>// ES5
 var Rectangle = function (id, x, y, width, height) {
-  Shape.call(this, id, x, y);
-  this.width  = width;
-  this.height = height;
+   Shape.call(this, id, x, y);
+   this.width  = width;
+   this.height = height;
 };
 Rectangle.prototype = Object.create(Shape.prototype);
 Rectangle.prototype.constructor = Rectangle;
 var Circle = function (id, x, y, radius) {
-  Shape.call(this, id, x, y);
-  this.radius = radius;
+   Shape.call(this, id, x, y);
+   this.radius = radius;
 };
 Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;</code></pre>
          <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 class Rectangle extends Shape {
-  constructor (id, x, y, width, height) {
-    super(id, x, y);
-    this.width  = width;
-    this.height = height;
-  }
+   constructor (id, x, y, width, height) {
+      super(id, x, y);
+      this.width  = width;
+      this.height = height;
+   }
 }
 class Circle extends Shape {
-  constructor (id, x, y, radius) {
-    super(id, x, y);
-    this.radius = radius;
-  }
+   constructor (id, x, y, radius) {
+      super(id, x, y);
+      this.radius = radius;
+   }
 }</code></pre>
       </div>
 
@@ -717,17 +702,17 @@ console.log(proxy.b); // property get; identical to target.b</code></pre>
       <p>Met getter en setter code:</p>
       <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const handler = {
-  // proxy trap for 'get'
-  get (target, key) {
-    console.info(`Get on property ${key}`);
-    return target[key];
-  },
-  // proxy trap for 'set'
-  set (target, key, value) {
-    console.info(`Set on property ${key}`);
-    target[key] = value;
-    return true;
-  }
+   // proxy trap for 'get'
+   get (target, key) {
+      console.info(`Get on property ${key}`);
+      return target[key];
+   },
+   // proxy trap for 'set'
+   set (target, key, value) {
+      console.info(`Set on property ${key}`);
+      target[key] = value;
+      return true;
+   }
 };
 const target = {};
 const proxy = new Proxy(target, handler)
@@ -741,16 +726,16 @@ console.log(proxy.b); // property get</code></pre>
       <p>Proxies laten toe de toegang tot properties te controleren, b.v. maak alle '_'-prefixed properties private:</p>
       <pre class="prism-okaida line-numbers w-900" data-demo><code>// ES6
 const handler = {
-  get (target, key) {
-    if (key[0] === '_') throw new Error(`Invalid attempt to get private "${key}" property`);
-    console.info(`Get on property ${key}`);
-    return target[key];
-  },
-  set (target, key, value) {
-    if (key[0] === '_') throw new Error(`Invalid attempt to set private "${key}" property`);
-    console.info(`Set on property ${key}`);
-    return true;
-  }
+   get (target, key) {
+      if (key[0] === '_') throw new Error(`Invalid attempt to get private "${key}" property`);
+      console.info(`Get on property ${key}`);
+      return target[key];
+   },
+   set (target, key, value) {
+      if (key[0] === '_') throw new Error(`Invalid attempt to set private "${key}" property`);
+      console.info(`Set on property ${key}`);
+      return true;
+   }
 };
 const target = {};
 const proxy = new Proxy(target, handler);
@@ -760,10 +745,10 @@ proxy._c = 'Clive';</code></pre>
       <p>Validatie met een proxy:</p>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const handler = {
-  set (target, key, value) {
-    if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
-    return true;
-  },
+   set (target, key, value) {
+      if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
+      return true;
+   },
 };
 const person = {};
 const proxy = new Proxy(person, handler);
@@ -771,10 +756,10 @@ proxy.age = -1; // throws an error</code></pre>
       <p>Helemaal veilig is het nog niet. Merk op dat je de properties nog steeds rechtstreeks kan veranderen:</p>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const handler = {
-  set (target, key, value) {
-    if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
-    return true;
-  }
+   set (target, key, value) {
+      if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
+      return true;
+   }
 };
 const person = {};
 const proxy = new Proxy(person, handler);
@@ -804,52 +789,52 @@ person.age = -1; // no problem</code></pre>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
-  else reject();
+   if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
+   else reject();
 })
 
 // mom's reactions
 cleanRoom
-  .then(function() { console.log('well done — here is your candy') })
-  .catch(function() { console.log('boo — I\'ll have to tell dad') });</code></pre>
+   .then(function() { console.log('well done — here is your candy') })
+   .catch(function() { console.log('boo — I\'ll have to tell dad') });</code></pre>
 
       <p>Ietsje netter geschreven met arrow notaties:</p>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
-  else reject();
+   if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
+   else reject();
 })
 
 // mom's reactions
 cleanRoom
-  .then(() =&gt; console.log('well done — here is your candy'))
-  .catch(() =&gt; console.log('boo — I\'ll have to tell dad'));</code></pre>
+   .then(() =&gt; console.log('well done — here is your candy'))
+   .catch(() =&gt; console.log('boo — I\'ll have to tell dad'));</code></pre>
       <p>Zelfde, maar dan met de <code>.then(result =&gt; {...}, error =&gt; {...})</code> otatie:</p>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
-  else reject();
+   if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
+   else reject();
 })
 
 // mom's reactions
 cleanRoom.then(
-  () =&gt; console.log('well done — here is your candy'),
-  () =&gt; console.log('boo — I\'ll have to tell dad')
+   () =&gt; console.log('well done — here is your candy'),
+   () =&gt; console.log('boo — I\'ll have to tell dad')
 );</code></pre>
       <p>Een promise kan maar één keer gesettled worden (d.w.z. veranderen van pending naar resolved of rejected)</p>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const promise = new Promise(function (resolve, reject) {
-  console.log('pending');
-  const delay = 6000; // change to 2000 and run again
-  setTimeout(resolve, delay);
-  setTimeout(reject, 3000);
+   console.log('pending');
+   const delay = 6000; // change to 2000 and run again
+   setTimeout(resolve, delay);
+   setTimeout(reject, 3000);
 });
 
 promise
-  .then(() =&gt; console.log('settled (resolved)'))
-  .catch(() =&gt; console.log('settled (rejected)'));</code></pre>
+   .then(() =&gt; console.log('settled (resolved)'))
+   .catch(() =&gt; console.log('settled (rejected)'));</code></pre>
 
       <h3>Data meegeven</h3>
       <blockquote class="dotted w-900">
@@ -859,15 +844,15 @@ promise
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
-  // 50% chance that promise is kept
-  if (Math.random() &gt; 0.5) resolve('chocolate bar');
-  else reject('fell asleep');
+   // 50% chance that promise is kept
+   if (Math.random() &gt; 0.5) resolve('chocolate bar');
+   else reject('fell asleep');
 })
 
 // mom's reactions
 cleanRoom
-  .then(result =&gt; console.log(`well done — here is your ${result}`))
-  .catch(error =&gt; console.log(`boo — you ${error}`));</code></pre>
+   .then(result =&gt; console.log(`well done — here is your ${result}`))
+   .catch(error =&gt; console.log(`boo — you ${error}`));</code></pre>
       <h3>Multiple branches</h3>
       <blockquote class="dotted w-900">
          [daughter] — "I promise to clean my room today"
@@ -877,14 +862,14 @@ cleanRoom
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
-  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
-  else reject();
+   if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
+   else reject();
 })
 
 // mom's reactions: she only awards
 cleanRoom
-  .then(() =&gt; console.log('well done — here is your candy'))
-  .catch(() =&gt; {});
+   .then(() =&gt; console.log('well done — here is your candy'))
+   .catch(() =&gt; {});
 
 // dad's reactions: he only punishes
 cleanRoom.catch(error =&gt; console.log('Here is your spanking'));</code></pre>
@@ -899,114 +884,115 @@ cleanRoom.catch(error =&gt; console.log('Here is your spanking'));</code></pre>
       <pre class="prism-okaida line-numbers h-400 w-800" data-demo><code>// ES6
 // dad's promise
 const fixCar = new Promise(function (resolve, reject) {
-  // 50% chance dad fixes the car
-  if (Math.random() &gt; 0.5) resolve('it was the carburator');
-  else reject('dad didn\'t find the problem');
+   // 50% chance dad fixes the car
+   if (Math.random() &gt; 0.5) resolve('it was the carburator');
+   else reject('dad didn\'t find the problem');
 });
 
 // mom's promise
 const goToPark = new Promise(function (resolve, reject) {
-  // 25% chance mom's got a headache
-  if (Math.random() &gt; 0.75) {
-    reject('mom has a headache');
-    fixCar.catch(() =&gt; {}); // it doesn't matter if the car gets fixed or not
-  }
-  // depends on whether dad gets the car fixed or not
-  else fixCar.then(res =&gt; resolve(res), err =&gt; reject(err));
+   // 25% chance mom's got a headache
+   if (Math.random() &gt; 0.75) {
+      reject('mom has a headache');
+      fixCar.catch(() =&gt; {}); // it doesn't matter if the car gets fixed or not
+   }
+   // depends on whether dad gets the car fixed or not
+   else fixCar.then(res =&gt; resolve(res), err =&gt; reject(err));
 });
 
 // big brother's promise
 const tellLittleBrother = new Promise(function (resolve, reject) {
-  goToPark.then(
-    res =&gt; {
-      resolve({msg: `ok, we can go, ${res}`, success: true});
-    },
-    err =&gt; {
-      resolve({msg: `sorry bro', we cannot go, ${err}`, success: false});
-    })
+   goToPark.then(
+      res =&gt; {
+         resolve({msg: `ok, we can go, ${res}`, success: true});
+      },
+      err =&gt; {
+         resolve({msg: `sorry bro', we cannot go, ${err}`, success: false});
+      }
+   );
 });
 
 // little brother's reaction
 tellLittleBrother.then(
-  res =&gt; {
-    console.log(`[big brother] ${res.msg}`);
-    if(res.success) {
-      console.log('[little brother] yippeee!');
-    } else {
-      console.log('[little brother] wèèèh!');
-    }
-  }
+   res =&gt; {
+      console.log(`[big brother] ${res.msg}`);
+      if(res.success) {
+         console.log('[little brother] yippeee!');
+      } else {
+         console.log('[little brother] wèèèh!');
+      }
+   }
 ); // no need to catch here; big brother always keeps his promise</code></pre>
 
       <p>Met extra berichten en een paar delays om het realistischer te maken:</p>
       <pre class="prism-okaida line-numbers h-400 w-800" data-demo><code>// ES6
 const fixCar = new Promise(function (resolve, reject) {
-  console.log('---- dad starts fixing the car');
-  // 50% chance dad fixes the car
-  setTimeout(
-    Math.random() &gt; 0.5 ?
-      () =&gt; {
-        console.log('---- dad found the problem');
-        resolve('it was the carburator')
-      } : () =&gt; {
-        console.log('---- dad gives up');
-        reject('dad didn\'t find the problem')
-      },
-    2000
-  );
+   console.log('---- dad starts fixing the car');
+   // 50% chance dad fixes the car
+   setTimeout(
+      Math.random() &gt; 0.5 ?
+         () =&gt; {
+            console.log('---- dad found the problem');
+            resolve('it was the carburator')
+         } : () =&gt; {
+            console.log('---- dad gives up');
+            reject('dad didn\'t find the problem')
+         },
+      2000
+   );
 });
 
 // mom's promise
 const goToPark = new Promise(function (resolve, reject) {
-  // 25% chance mom's got a headache
-  if (Math.random() &gt; 0.75) {
-    console.log('---- mom starts developing a headache');
-    setTimeout(() =&gt; reject('mom has a headache'), 300);
-    fixCar.catch(() =&gt; {}); // it doesn't matter if the car gets fixed or not
-  }
-  // depends on whether dad gets the car fixed or not
-  else {
-    fixCar.then(
-      res =&gt; {
-        console.log('---- mom notifies big brother');
-        setTimeout(() =&gt; resolve(res), 1000)
-      },
-      err =&gt; {
-        console.log('---- mom notifies big brother');
-        setTimeout(() =&gt; reject(err), 1000)
-      }
-    );
-  }
+   // 25% chance mom's got a headache
+   if (Math.random() &gt; 0.75) {
+      console.log('---- mom starts developing a headache');
+      setTimeout(() =&gt; reject('mom has a headache'), 300);
+      fixCar.catch(() =&gt; {}); // it doesn't matter if the car gets fixed or not
+   }
+   // depends on whether dad gets the car fixed or not
+   else {
+      fixCar.then(
+         res =&gt; {
+            console.log('---- mom notifies big brother');
+            setTimeout(() =&gt; resolve(res), 1000)
+         },
+         err =&gt; {
+            console.log('---- mom notifies big brother');
+            setTimeout(() =&gt; reject(err), 1000)
+         }
+      );
+   }
 });
 
 // big brother's promise
 const tellLittleBrother = new Promise(function (resolve, reject) {
-  goToPark.then(
-    res =&gt; {
-      console.log('---- big brother runs to little brother with a smile');
-      setTimeout(() =&gt; {
-        resolve({msg: `ok, we can go, ${res}`, success: true});
-      }, 1000)
-    },
-    err =&gt; {
-      console.log('---- big brother runs to little brother with a frown');
-      setTimeout(() =&gt; {
-        resolve({msg: `sorry bro', we cannot go, ${err}`, success: false});
-      }, 1000)
-    }
-  )
+   goToPark.then(
+      res =&gt; {
+         console.log('---- big brother runs to little brother with a smile');
+         setTimeout(() =&gt; {
+            resolve({msg: `ok, we can go, ${res}`, success: true});
+         }, 1000)
+      },
+      err =&gt; {
+         console.log('---- big brother runs to little brother with a frown');
+         setTimeout(() =&gt; {
+            resolve({msg: `sorry bro', we cannot go, ${err}`, success: false});
+         }, 1000)
+      }
+   )
 });
 
 // little brother's reaction
 tellLittleBrother.then(
-  res =&gt; {
-    console.log(`[big brother] ${res.msg}`);
-    if(res.success) {
-      console.log('[little brother] yippeee!');
-    } else {
-      console.log('[little brother] wèèèh!');
-    }
-  }
+   res =&gt; {
+      console.log(`[big brother] ${res.msg}`);
+      if(res.success) {
+         console.log('[little brother] yippeee!');
+      } else {
+         console.log('[little brother] wèèèh!');
+      }
+   }
 ); // no need to catch here; big brother always keeps his promise</code></pre>
 
       <h3>Promise.All</h3>
@@ -1017,20 +1003,20 @@ tellLittleBrother.then(
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // kid1 promise
 const cleanRoom1 = new Promise(function (resolve, reject) {
-  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
-  else reject('kid 1 failed');
+   if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
+   else reject('kid 1 failed');
 })
 
 // kid2 promise
 const cleanRoom2 = new Promise(function (resolve, reject) {
-  if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
-  else reject('kid 2 failed');
+   if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
+   else reject('kid 2 failed');
 })
 
 // all promises must be resolved:
 Promise.all([
-  cleanRoom1,
-  cleanRoom2
+   cleanRoom1,
+   cleanRoom2
 ]).then(() =&gt; console.log('well done, we go')).catch(err =&gt; console.log(err));</code></pre>
 
       <h3>Promise.race</h3>
@@ -1040,25 +1026,25 @@ Promise.all([
       </blockquote>
       <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // kid1 promise
-const cleanRoom1 = new Promise(function (resolve, reject) {
-  setTimeout(
-    () =&gt; resolve('kid 1 cleaned his room'),
-    Math.random() * 2000
-  )
+   const cleanRoom1 = new Promise(function (resolve, reject) {
+   setTimeout(
+      () =&gt; resolve('kid 1 cleaned his room'),
+      Math.random() * 2000
+   )
 })
 
 // kid2 promise
 const cleanRoom2 = new Promise(function (resolve, reject) {
-  setTimeout(
-    () =&gt; resolve('kid 2 cleaned his room'),
-    Math.random() * 2000
-  )
+   setTimeout(
+      () =&gt; resolve('kid 2 cleaned his room'),
+      Math.random() * 2000
+   )
 })
 
 // first promise wins
 Promise.race([
-  cleanRoom1,
-  cleanRoom2
+   cleanRoom1,
+   cleanRoom2
 ]).then(res =&gt; console.log(`${res} first and gets the candy`));</code></pre>
 
       <h2>Case study</h2>
@@ -1069,14 +1055,14 @@ Promise.race([
          <li>Node modules om de HTML naar markup te parsen en te processen</li>
       </ul>
       <p>Nodige mode modules:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code class="language-json">{
-  ...
-  "dependencies": {
-    "hget": "^3.1.0",
-    "marked": "^0.3.6",
-    "marked-terminal": "^2.0.0",
-    "request": "^2.79.0"
-  }
+      <pre class="prism-okaida line-numbers" data-demo data-caption="package.json"><code class="language-json">{
+   ...
+   "dependencies": {
+      "hget": "^3.1.0",
+      "marked": "^0.3.6",
+      "marked-terminal": "^2.0.0",
+      "request": "^2.79.0"
+   }
 }</code></pre>
       <p>Het volledige script:</p>
       <pre class="prism-okaida line-numbers h-400" data-demo><code>// ES6
@@ -1089,49 +1075,49 @@ const MarkedTerminal = require('marked-terminal');
 
 // define and create a generator for URL's
 const urlGenerator = function*(){
-  const urls = [
-    'https://ikdoeict.be/',
-    'https://ikdoeict.be/opleiding-ict/'
-  ];
-  while (urls.length) yield urls.shift();
+   const urls = [
+      'https://ikdoeict.be/',
+      'https://ikdoeict.be/opleiding-ict/'
+   ];
+   while (urls.length) yield urls.shift();
 }
 const urlGen = urlGenerator();
 
 // returns a promise to return the content found at an URL
 const getNextPage = function () {
-  const url = urlGen.next();
-  return new Promise((resolve, reject) =&gt; {
-    if (url.done) {
-      reject('Done! No more pages');
-      return;
-    }
-    console.log(`Fetching next page at ${url.value}...`);
-    request(url.value, (err, res, body) =&gt; {
-      if (err) {
-        reject(err);
-        return;
+   const url = urlGen.next();
+   return new Promise((resolve, reject) =&gt; {
+      if (url.done) {
+         reject('Done! No more pages');
+         return;
       }
-      resolve(body);
-    });
-  });
+      console.log(`Fetching next page at ${url.value}...`);
+      request(url.value, (err, res, body) =&gt; {
+         if (err) {
+            reject(err);
+            return;
+         }
+         resolve(body);
+      });
+   });
 };
 
 // displays and parses the content
 const displayNextPage = function() {
-  getNextPage()
-    .then(html =&gt; hget(html, {
-      markdown: true,
-      root: 'div.main-content',
-      ignore: '.at-subscribe,.mm-comments,.de-sidebar'
-    }))
-    .then(md =&gt; marked(md, {
-      renderer: new MarkedTerminal()
-    }))
-    .then(txt =&gt; {
-      console.log(txt);
-      displayNextPage();
-    })
-    .catch(reason =&gt; console.error(reason));
+   getNextPage()
+      .then(html =&gt; hget(html, {
+         markdown: true,
+         root: 'div.main-content',
+         ignore: '.at-subscribe,.mm-comments,.de-sidebar'
+      }))
+      .then(md =&gt; marked(md, {
+         renderer: new MarkedTerminal()
+      }))
+      .then(txt =&gt; {
+         console.log(txt);
+         displayNextPage();
+      })
+      .catch(reason =&gt; console.error(reason));
 }
 
 // start recursive page call
@@ -1145,8 +1131,6 @@ displayNextPage();</code></pre>
          <img src="img/06_es6/casestudy.png" alt="" class="w-600">
          <figcaption>resultaat</figcaption>
       </figure>
-
-
 
       <h2>Nuttige links</h2>
       <ul>

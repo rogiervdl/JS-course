@@ -1,0 +1,253 @@
+/**
+ * CSS for index.html
+ *
+ * Copyright Rogier van der Linde
+ * Last revision
+ */
+
+/* general */
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   background-color: #faf5e6;
+   font-size: 62.5%;
+}
+
+body {
+   background: transparent;
+   color: #666;
+   font-family: Lato, Arial, sans-serif;
+   font-size: 1.6rem;
+   margin: 0 auto;
+   max-width: 160rem;
+   padding: 2rem;
+   text-align: center;
+}
+
+h1, h2, h3 {
+   color: #333;
+   font-family: 'League Gothic', sans-serif;
+   text-shadow: 0 0.5rem 0.2rem rgba(150, 150, 150, 0.71);
+   text-transform: uppercase;
+}
+
+p {
+   margin-bottom: 1em;
+}
+
+a {
+   color: #8b743d;
+   text-decoration: none;
+}
+
+a:hover {
+   color: #c0a86e;
+}
+
+body:not(.showpro) .pro {
+   display: none !important;
+}
+
+/* header */
+
+.site__header {
+   padding-top: 70px;
+   position: relative;
+}
+
+.header__title {
+   font-size: 5rem;
+   letter-spacing: 0.02em;
+   margin-bottom: 2rem;
+}
+
+.header__tagline {
+   color: #000;
+   font-family: 'League Gothic', sans-serif;
+   font-size: 4rem;
+   letter-spacing: 0.02em;
+   margin-bottom: 2rem;
+   text-shadow: 0 0 0.rem rgba(0,0,0,0.2);
+   text-transform: uppercase;
+}
+
+.header__logo {
+   display: block;
+   width: 10rem;
+   text-decoration: none;
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+   z-index: 10;
+   opacity: 0.75;
+}
+
+.header__logo:hover {
+   opacity: 1;
+}
+
+.header__logo img {
+   width: 100%;
+}
+
+/* nav */
+
+.site__nav {
+   justify-content: center;
+   padding: 1.875em 0;
+}
+
+.main__thumb {
+   align-items: center;
+   background-color: #e1d9c0;
+   border: 0.25em solid #eee;
+   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   margin-bottom: 20px;
+   padding: 1em 0.5em;
+   text-decoration: none;
+   transition: all .2s linear;
+}
+
+.main__thumb:hover {
+   border-color: #c0a86e;
+}
+
+.thumb__title {
+   font-size: 1.4em;
+   font-weight: normal;
+   margin-bottom: 1em;
+   white-space: nowrap;
+}
+
+.thumb__small {
+   font-size: 0.8em;
+   margin-bottom: 1em;
+}
+
+.thumb__visual {
+   display: block;
+   margin-bottom: 1em;
+   width: 50%;
+}
+
+/* footer */
+
+.site__footer {
+   padding: 3rem 0 5rem 0;
+}
+
+.site__footer a {
+   color: #333;
+   text-decoration: underline;
+}
+
+.site__footer a:hover {
+   color: #666;
+   text-decoration: none;
+}
+
+/* aside */
+
+aside {
+   background: rgba(46,49,51,0.9);
+   box-shadow: -1rem 0 2.5rem #1c1e20;
+   padding: 1.5rem 2rem;
+   text-align: left;
+}
+
+aside p {
+   color: #eee;
+   font-size: 1.5rem;
+   line-height: 1.4;
+   margin-bottom: 2.4rem;
+   opacity: 0.8;
+}
+
+aside img {
+   width: 15rem;
+}
+
+aside a {
+   color: #e1d9c0;
+   text-decoration: none;
+}
+
+aside a:hover {
+   color: #faf5e6;
+}
+
+/* responsive stuff */
+
+@media (min-width: 35em) {
+   .header__title {
+      font-size: 10rem;
+   }
+   .header__tagline {
+      font-size: 6rem;
+   }
+   .site__nav {
+      column-gap: 4%;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 1em;
+   }
+   .main__thumb {
+      width: 48%;
+   }
+}
+
+@media (min-width: 50em) {
+   .site__nav {
+      column-gap: 3.5%;
+      row-gap: 1.2em;
+   }
+   .main__thumb {
+      width: 31%;
+   }
+}
+
+@media (min-width: 60em) {
+   .thumb__title {
+      font-size: 1.3em;
+   }
+   .site__nav {
+      column-gap: calc(8% / 3);
+      row-gap: 1.5em;
+   }
+   .main__thumb {
+      width: 23%;
+   }
+   aside {
+      bottom: 2.5rem;
+      overflow: hidden;
+      transition: all .2s ease;
+      position: fixed;
+      right: -35rem;
+      width: 40rem;
+      z-index: 99999;
+   }
+
+   aside:hover {
+      right: 0;
+   }
+
+}
+
+@media (min-width: 75em) {
+   .site__nav {
+      column-gap: 2.5%;
+      row-gap: 1.875em;
+   }
+   .main__thumb {
+      width: 18%;
+   }
+}
+

@@ -4,928 +4,855 @@
 <html lang="nl">
 
 <head>
-  <title>Javascript API's | Javascript cursus</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="common/styles.css">
-	<link rel="stylesheet" href="css/styles.css">
+   <title>Javascript API's | Javascript cursus</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="common/styles.css">
+   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="language-javascript">
-  <div id="mode">
-    <span>n00b</span>
-    <label class="switch">
-      <input type="checkbox" checked>
-      <span class="slider round"></span>
-    </label>
-    <span>pro</span>
-  </div>
-  <nav class="site__nav">
-    <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
-      <p class="thumb__title">01. Javascript syntax</p>
-      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
-    </a>
-    <a href="02_dom1.html" class="main__thumb" title="02. DOM deel 1">
-      <p class="thumb__title">02. DOM 1</p>
-      <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
-    </a>
-    <a href="03_dom2.html" class="main__thumb" title="03. DOM deel2">
-      <p class="thumb__title">03. DOM 2</p>
-      <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
-    </a>
-    <a href="04_async.html" class="main__thumb" title="04. Web API's">
-      <p class="thumb__title">04. Web API's</p>
-      <img class="thumb__visual" src="img/04_async/icon.png" alt="">
-    </a>
-    <a href="05_games.html" class="main__thumb active" title="05. games">
-      <p class="thumb__title">05. Games</p>
-      <img class="thumb__visual" src="img/05_games/icon.png" alt="">
-    </a>
-    <a href="summary.html" class="main__thumb" title="05. samenvatting">
-      <p class="thumb__title">samenvatting</p>
-      <img class="thumb__visual" src="img/summary/icon.png" alt="">
-    </a>
-  </nav>
-  <h1>Games</h1>
-  <div id="toc"></div>
+   <div id="mode">
+      <span>n00b</span>
+      <label class="switch">
+         <input type="checkbox" checked>
+         <span class="slider round"></span>
+      </label>
+      <span>pro</span>
+   </div>
+   <nav class="site__nav">
+      <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
+         <p class="thumb__title">01. Javascript syntax</p>
+         <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+      </a>
+      <a href="02_dom1.html" class="main__thumb" title="02. DOM deel 1">
+         <p class="thumb__title">02. DOM 1</p>
+         <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
+      </a>
+      <a href="03_dom2.html" class="main__thumb" title="03. DOM deel2">
+         <p class="thumb__title">03. DOM 2</p>
+         <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
+      </a>
+      <a href="04_async.html" class="main__thumb" title="04. Web API's">
+         <p class="thumb__title">04. Web API's</p>
+         <img class="thumb__visual" src="img/04_async/icon.png" alt="">
+      </a>
+      <a href="05_games.html" class="main__thumb active" title="05. games">
+         <p class="thumb__title">05. Games</p>
+         <img class="thumb__visual" src="img/05_games/icon.png" alt="">
+      </a>
+      <a href="summary.html" class="main__thumb" title="05. samenvatting">
+         <p class="thumb__title">samenvatting</p>
+         <img class="thumb__visual" src="img/summary/icon.png" alt="">
+      </a>
+   </nav>
+   <h1>Games</h1>
+   <div id="toc"></div>
 
-  <main>
-    <h2>Javascript API's</h2>
-    <p>
-      Een <mark>Javascript api</mark> is heel iets anders dan een web API: het gaat eveneens om een set methodes die de programmeur kan gebruiken in zijn Javascript toepassing, maar dan op het gebied van <strong>webcam</strong>, <strong>bluetooth</strong>, <strong>fullscreen</strong>, <strong>speech recognition</strong>, <strong>3D</strong> enz... Een uitgebreide lijst vind je op <a href="https://developer.mozilla.org/en-US/docs/Web/API">https://developer.mozilla.org/en-US/docs/Web/API</a>
-    </p>
-    <p>
-      Dit hoofdstuk is &ldquo;Games&rdquo; gedoopt omdat het een verzameling bevat van allerlei leuke en eenvoudige technieken (waaronder een paar in CSS) die van pas kunnen komen in game-achtige toepassingen.
-    </p>
-    <h3>Local storage API</h3>
-    <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
-    <h4>tekst bewaren</h4>
-    <p>Eenvoudig voorbeeld waar de gekozen waarde uit een lijst persisteert:</p>
-    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
+   <main>
+      <h2>Javascript API's</h2>
+      <p>
+         Een <mark>Javascript api</mark> is heel iets anders dan een web API: het gaat eveneens om een set methodes die de programmeur kan gebruiken in zijn Javascript toepassing, maar dan op het gebied van <strong>webcam</strong>, <strong>bluetooth</strong>, <strong>fullscreen</strong>, <strong>speech recognition</strong>, <strong>3D</strong> enz... Een uitgebreide lijst vind je op <a href="https://developer.mozilla.org/en-US/docs/Web/API">https://developer.mozilla.org/en-US/docs/Web/API</a>
+      </p>
+      <p>
+         Dit hoofdstuk is &ldquo;Games&rdquo; gedoopt omdat het een verzameling bevat van allerlei leuke en eenvoudige technieken (waaronder een paar in CSS) die van pas kunnen komen in game-achtige toepassingen.
+      </p>
+      <h3>Local storage API</h3>
+      <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
+      <h4>tekst bewaren</h4>
+      <p>Eenvoudig voorbeeld waar de gekozen waarde uit een lijst persisteert:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html padtop" data-caption data-demo><code>&lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
 &lt;select id="selTest"&gt;
-  &lt;option selected&gt;keuze 1&lt;/option&gt;
-  &lt;option&gt;keuze 2&lt;/option&gt;
-  &lt;option&gt;keuze 3&lt;/option&gt;
-  &lt;option&gt;keuze 4&lt;/option&gt;
+   &lt;option selected&gt;keuze 1&lt;/option&gt;
+   &lt;option&gt;keuze 2&lt;/option&gt;
+   &lt;option&gt;keuze 3&lt;/option&gt;
+   &lt;option&gt;keuze 4&lt;/option&gt;
 &lt;/select&gt;
-&lt;p&gt;&lt;em&gt;&rarr; merk op dat de keuze persisteert&lt;/em&gt;&lt;/p&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const selTest = document.querySelector('#selTest');
-  const savedValue = localStorage.getItem('selectValue');
-  if (savedValue != undefined) selTest.value = savedValue;
-  selTest.addEventListener('change', function() {
-    console.log(this.value)
-    localStorage.setItem('selectValue', this.value);
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-400">
-      <img src="img/05_games/localStorage-simple.gif" alt="">
-      <figcaption>geselecteerde waarde blijft bewaard</figcaption>
-    </figure>
-    <h4>objecten bewaren</h4>
-    <p>Met localStorage kan je enkel strings bewaren. Je kan objecten wel omzetten naar strings en terug met <code>JSON.parse()</code> en <code>JSON.stringify()</code>:</p>
-    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&rarr; merk op dat de keuze persisteert&lt;/em&gt;&lt;/p&gt;</code></pre>
+         <pre class="prism-okaida" data-caption><code>const selTest = document.querySelector('#selTest');
+const savedValue = localStorage.getItem('selectValue');
+if (savedValue != undefined) selTest.value = savedValue;
+selTest.addEventListener('change', function() {
+   console.log(this.value)
+   localStorage.setItem('selectValue', this.value);
+});</code></pre>
+      </div>
+      <figure class="w-400">
+         <img src="img/05_games/localStorage-simple.gif" alt="">
+         <figcaption>geselecteerde waarde blijft bewaard</figcaption>
+      </figure>
+      <h4>objecten bewaren</h4>
+      <p>Met localStorage kan je enkel strings bewaren. Je kan objecten wel omzetten naar strings en terug met <code>JSON.parse()</code> en <code>JSON.stringify()</code>:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html" data-caption data-demo><code>&lt;p&gt;selecteer een waarde uit de lijst, en refresh:&lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Naam: &lt;input id="inpName" type="text" value="Rogier"&gt;&lt;/label&gt;&lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Leeftijd: &lt;input id="inpAge" type="number" value="54"&gt;&lt;/label&gt;&lt;/p&gt;
 &lt;p&gt;
-  &lt;button type="button" id="btnSave"&gt;opslaan&lt;/button&gt;
-  &lt;button type="button" id="btnHerstel"&gt;herstellen&lt;/button&gt;
-&lt;/p&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const inpName = document.querySelector('#inpName');
-  const inpAge = document.querySelector('#inpAge');
-  document.querySelector('#btnSave').addEventListener('click', function() {
-    const person = {
+   &lt;button type="button" id="btnSave"&gt;opslaan&lt;/button&gt;
+   &lt;button type="button" id="btnHerstel"&gt;herstellen&lt;/button&gt;
+&lt;/p&gt;</code></pre>
+         <pre class="prism-okaida" data-caption><code>const inpName = document.querySelector('#inpName');
+const inpAge = document.querySelector('#inpAge');
+document.querySelector('#btnSave').addEventListener('click', function() {
+   const person = {
       name: inpName.value,
       age: inpAge.value,
-    };
-    localStorage.setItem('person', JSON.stringify(person));
-  });
-  document.querySelector('#btnHerstel').addEventListener('click', function() {
-    if (!localStorage.getItem('person')) return;
-    const person = JSON.parse(localStorage.getItem('person'));
-    inpName.value = person.name;
-    inpAge.value = person.age;
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-400">
-      <img src="img/05_games/localStorage-object.gif" alt="">
-      <figcaption>herstellen naar laatst opgeslagen object</figcaption>
-    </figure>
+   };
+   localStorage.setItem('person', JSON.stringify(person));
+});
+document.querySelector('#btnHerstel').addEventListener('click', function() {
+   if (!localStorage.getItem('person')) return;
+   const person = JSON.parse(localStorage.getItem('person'));
+   inpName.value = person.name;
+   inpAge.value = person.age;
+});</code></pre>
+      </div>
 
-    <h4>opgeslagen items bekijken</h4>
-    <p>De localStorage items worden bewaard per site. Je kan ze altijd terugvinden in de inspector onder de <strong>Application</strong> tab:</p>
-    <figure class="w-600">
-      <img src="img/05_games/localStorage.png" alt="">
-      <figcaption>opgeslagen localStorage items vind je onder de Application tab</figcaption>
-    </figure>
+      <figure class="w-400">
+         <img src="img/05_games/localStorage-object.gif" alt="">
+         <figcaption>herstellen naar laatst opgeslagen object</figcaption>
+      </figure>
 
-    <h3>Drag drop API</h3>
-    <h4>teksten verslepen</h4>
-    <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
-    <pre class="prism-okaida language-html w-800" data-demo><code>&lt;!-- CSS --&gt;
-&lt;style&gt;
-  body {
-    width: 500px;
-  }
-  textarea {
-    border: 2px ridge;
-    height: 200px;
-    width: 100%;
-  }
-&lt;/style&gt;
+      <h4>opgeslagen items bekijken</h4>
+      <p>De localStorage items worden bewaard per site. Je kan ze altijd terugvinden in de inspector onder de <strong>Application</strong> tab:</p>
+      <figure class="w-600">
+         <img src="img/05_games/localStorage.png" alt="">
+         <figcaption>opgeslagen localStorage items vind je onder de Application tab</figcaption>
+      </figure>
 
-&lt;!-- HTML --&gt;
-&lt;p&gt;
-  In alteration insipidity impression by travelling reasonable up motionless. Of
-  regard warmth by unable sudden garden ladies. No kept hung am size spot no. Likewise
-  led and dissuade rejoiced welcomed husbands boy. Do listening on he suspected
-  resembled. Water would still if to. Position boy required law moderate was may.
+      <h3>Drag drop API</h3>
+      <h4>teksten verslepen</h4>
+      <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-800" data-caption data-demo><code>&lt;p&gt;
+   In alteration insipidity impression by travelling reasonable up motionless. Of
+   regard warmth by unable sudden garden ladies. No kept hung am size spot no. Likewise
+   led and dissuade rejoiced welcomed husbands boy. Do listening on he suspected
+   resembled. Water would still if to. Position boy required law moderate was may.
 &lt;/p&gt;
-&lt;textarea placeholder="...selecteer een stuk tekst hierboven, en sleep het hierin..."&gt;&lt;/textarea&gt;
+&lt;textarea placeholder="...selecteer een stuk tekst, en sleep het hierin..."&gt;&lt;/textarea&gt;</code></pre>
+         <pre class="prism-atom-dark language-css w-800" data-caption><code>body {
+   width: 500px;
+}
+textarea {
+   border: 2px ridge;
+   height: 200px;
+   width: 100%;
+}</code></pre>
+         <pre class="prism-okaida w-800" data-caption><code>const dropZone = document.querySelector('textarea');
+dropZone.addEventListener('dragover', (e)  =&gt; e.preventDefault() );
+dropZone.addEventListener('dragenter', (e)  =&gt; e.preventDefault() );
+dropZone.addEventListener('drop', function(e) {
+   e.preventDefault();
+   txtPassed = e.dataTransfer.getData('text/plain');
+   this.innerHTML = txtPassed;
+});</code></pre>
+      </div>
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const dropZone = document.querySelector('textarea');
-  dropZone.addEventListener('dragover', (e)  =&gt; e.preventDefault() );
-  dropZone.addEventListener('dragenter', (e)  =&gt; e.preventDefault() );
-  dropZone.addEventListener('drop', function(e) {
-    e.preventDefault();
-    txtPassed = e.dataTransfer.getData('text/plain');
-    this.innerHTML = txtPassed;
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-500">
-      <img src="img/05_games/dragdrop-text.gif" alt="">
-      <figcaption>drag drop van teksten</figcaption>
-    </figure>
+      <figure class="w-500">
+         <img src="img/05_games/dragdrop-text.gif" alt="">
+         <figcaption>drag drop van teksten</figcaption>
+      </figure>
 
-    <h4>afbeeldingen verslepen</h4>
-    <p>Voorbeeld met afbeeldingen (tweede afbeelding is niet draggable wegens <code>draggable="false"</code>): </p>
-    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!-- CSS --&gt;
-&lt;style&gt;
-  #dropzone {
-    border: 2px ridge;
-    height: 200px;
-    width: 400px;
-  }
-  ol {
-    list-style: none;
-    padding: 0;
-  }
-  ol li {
-    display: inline-block;
-  }
-&lt;/style&gt;
-
-&lt;!-- HTML --&gt;
-&lt;div id="dragzone"&gt;
-  &lt;img src="img/product1.jpg" alt=""&gt;
-  &lt;img src="img/product2.jpg" alt="" draggable="false"&gt;
-  &lt;img src="img/product3.jpg" alt=""&gt;
+      <h4>afbeeldingen verslepen</h4>
+      <p>Voorbeeld met afbeeldingen (tweede afbeelding is niet draggable wegens <code>draggable="false"</code>): </p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600" data-caption data-demo><code>&lt;div id="dragzone"&gt;
+   &lt;img src="img/product1.jpg" alt=""&gt;
+   &lt;img src="img/product2.jpg" alt="" draggable="false"&gt;
+   &lt;img src="img/product3.jpg" alt=""&gt;
 &lt;/div&gt;
 &lt;div id="dropzone"&gt;
-  ...drop item here...
-&lt;/div&gt;
+   ...drop item here...
+&lt;/div&gt;</code></pre>
+      <pre class="prism-atom-dark language-css w-600" data-caption><code>#dropzone {
+   border: 2px ridge;
+   height: 200px;
+   width: 400px;
+}
+</code></pre>
+         <pre class="prism-okaida w-600" data-caption><code>const dropZone = document.querySelector('#dropzone');
+dropZone.addEventListener('dragover', (e) =&gt; e.preventDefault());
+dropZone.addEventListener('dragenter', (e) =&gt; e.preventDefault());
+dropZone.addEventListener('drop', function (e) {
+   imgPassed = e.dataTransfer.getData('text/uri-list');
+   this.innerHTML = "&lt;img src='" + imgPassed + "'/&gt;";
+   e.stopPropagation();
+   e.preventDefault();
+});</code></pre>
+      </div>
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const dropZone = document.querySelector('#dropzone');
-  dropZone.addEventListener('dragover', (e) =&gt; e.preventDefault());
-  dropZone.addEventListener('dragenter', (e) =&gt; e.preventDefault());
-  dropZone.addEventListener('drop', function (e) {
-    imgPassed = e.dataTransfer.getData('text/uri-list');
-    this.innerHTML = "&lt;img src='" + imgPassed + "'/&gt;";
-    e.stopPropagation();
-    e.preventDefault();
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-500">
-      <img src="img/05_games/dragdrop-image.gif" alt="">
-      <figcaption>drag drop van afbeeldingen</figcaption>
-    </figure>
+      <figure class="w-500">
+         <img src="img/05_games/dragdrop-image.gif" alt="">
+         <figcaption>drag drop van afbeeldingen</figcaption>
+      </figure>
 
-    <h4>afbeeldingen van desktop naar pagina slepen</h4>
-    <p>Voorbeeld met afbeeldingen vanuit verkenner naar een webpagina slepen: </p>
-    <pre class="prism-okaida language-html w-900 h-400" data-demo><code>&lt;!-- CSS --&gt;
-&lt;style&gt;
-  #dropzone {
-    height: 150px;
-    border: 2px dashed #0687FF;
-  }
-  #thumbnails {
-    height: 125px;
-    margin-top: 10px;
-  }
-  #thumbnails img {
-    height: 100px;
-    margin: 10px
-  }
-&lt;/style&gt;
-
-&lt;!-- HTML --&gt;
-&lt;div id="dropzone"&gt;Drop in images from your desktop&lt;/div&gt;
+      <h4>afbeeldingen van desktop naar pagina slepen</h4>
+      <p>Voorbeeld met afbeeldingen vanuit verkenner naar een webpagina slepen: </p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;div id="dropzone"&gt;Drop in images from your desktop&lt;/div&gt;
 &lt;div id="thumbnails"&gt;&lt;/div&gt;
+</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>#dropzone {
+   height: 150px;
+   border: 2px dashed #0687FF;
+}
+#thumbnails {
+   height: 125px;
+   margin-top: 10px;
+}
+#thumbnails img {
+   height: 100px;
+   margin: 10px
+}
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// drop area
+const dropzone = document.querySelector('#dropzone');
+const thumbs = document.querySelector('#thumbnails');
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
+// dropzone events
+dropzone.addEventListener('dragenter', (e) =&gt; { e.preventDefault(); });
+dropzone.addEventListener('dragover', (e) =&gt; { e.preventDefault(); });
+dropzone.addEventListener('dragleave', (e) =&gt; { e.preventDefault(); });
+dropzone.addEventListener('drop', function (e) {
+   e.preventDefault();
 
-  // drop area
-  const dropzone = document.querySelector('#dropzone');
-  const thumbnails = document.querySelector('#thumbnails');
-
-  // dropzone events
-  dropzone.addEventListener('dragenter', (e) =&gt; { e.preventDefault(); });
-  dropzone.addEventListener('dragover', (e) =&gt; { e.preventDefault(); });
-  dropzone.addEventListener('dragleave', (e) =&gt; { e.preventDefault(); });
-  dropzone.addEventListener('drop', function (e) {
-    e.preventDefault();
-
-    // fetch dropped files
-    for (const file of e.dataTransfer.files) {
+   // fetch dropped files
+   for (const file of e.dataTransfer.files) {
       // images only
       if (!file.type.match(/image.*/)) continue;
 
       // create reader for dropped file
       const reader = new FileReader();
       reader.addEventListener('load', function (e) {
-        thumbnails.innerHTML = `${thumbnails.innerHTML}&lt;img src="${e.target.result}" alt="${file.name}"&gt;`;
+         thumbs.innerHTML += `&lt;img src="${e.target.result}" alt="${file.name}"&gt;`;
       });
       reader.addEventListener('error', () =&gt; { alert('an error occurred'); });
 
       // feed dropped file to reader
       reader.readAsDataURL(file);
-    }
-  });
-
-&lt;/script&gt;</code></pre>
-    <figure class="w-500">
-      <img src="img/05_games/dragin-image.gif" alt="" class="bordered">
-      <figcaption>sleep afbeeldingen in een pagina</figcaption>
-    </figure>
-
-    <h3>Webcam API</h3>
-    <p>De webcam gebruiken is heel eenvoudig: vraag een webcamstream op via <code>navigator.mediaDevices.getUserMedia()</code>, en stel het in als bron van een <code>&lt;video&gt;</code> element.</p>
-    <h4>Voorbeeld 1: weergave webcam in een video element</h4>
-    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!-- CSS --&gt;
-&lt;style&gt;
-  #webcam {
-    border: 1px dotted #999;
-    height: 240px;
-    width: 320px;
-  }
-&lt;/style&gt;
-
-&lt;!-- HTML --&gt;
-&lt;video id="webcam"&gt;&lt;/video&gt;
+   }
+});
+</code></pre>
+      </div>
+      <figure class="w-500">
+         <img src="img/05_games/dragin-image.gif" alt="" class="bordered">
+         <figcaption>sleep afbeeldingen in een pagina</figcaption>
+      </figure>
+      <h3>Webcam API</h3>
+      <p>De webcam gebruiken is heel eenvoudig: vraag een webcamstream op via <code>navigator.mediaDevices.getUserMedia()</code>, en stel het in als bron van een <code>&lt;video&gt;</code> element.</p>
+      <h4>Voorbeeld 1: weergave webcam in een video element</h4>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;video id="webcam"&gt;&lt;/video&gt;
 &lt;p&gt;&lt;button type="button" id="start"&gt;start webcam&lt;/button&gt;&lt;/p&gt;
-&lt;p id="message"&gt;&lt;/p&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const vidWebcam = document.querySelector('#webcam');
-  const btnStart = document.querySelector('#start');
-  const parMessage = document.querySelector('#message');
-  btnStart.addEventListener('click', async () =&gt; {
-    try {
+&lt;p id="message"&gt;&lt;/p&gt;</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>#webcam {
+   border: 1px dotted #999;
+   height: 240px;
+   width: 320px;
+}
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>const vidWebcam = document.querySelector('#webcam');
+const btnStart = document.querySelector('#start');
+const parMessage = document.querySelector('#message');
+btnStart.addEventListener('click', async () =&gt; {
+   try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       vidWebcam.srcObject = stream;
       vidWebcam.autoplay = true;
-    } catch {
+   } catch {
       parMessage.innerHTML = 'weergave webcam mislukt';
-    }
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-300">
-      <img src="img/05_games/webcam.gif" alt="" class="bordered">
-      <figcaption>webcam voorbeeld</figcaption>
-    </figure>
-    <h4>Voorbeeld 2: photobooth</h4>
-    <p>Een iets uitgebreider voorbeeld, met filters en de mogelijkheid snapshots te nemen:</p>
-    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!-- CSS --&gt;
-&lt;style&gt;
-  /* general */
-  body {
-    margin: 20px auto;
-    width: 640px;
-  }
-  /* webcam */
-  #webcamstream {
-    height: 480px;
-    width: 640px;
-  }
-  /* snapshots */
-  canvas {
-    border: 1px solid #ccc;
-    margin: 10px 0;
-  }
-  canvas + canvas {
-    margin-left: 29px;
-  }
-  /* buttons */
-  button {
-    background-color: #428bca;
-    border: 1px solid #2a6496;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    padding: 3px 6px;
-    text-transform: uppercase;
-  }
-  #dosnap {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  /* filters */
-  .sepia {
-    filter: sepia(1);
-  }
-  .blur {
-    filter: blur(5px);
-  }
-  .grayscale {
-    filter: grayscale(1);
-  }
-  .invert {
-    filter: invert(1);
-  }
-  .hue-rotate {
-    filter: hue-rotate(90deg);
-  }
-&lt;/style&gt;
+   }
+});</code></pre>
+      </div>
+      <figure class="w-300">
+         <img src="img/05_games/webcam.gif" alt="" class="bordered">
+         <figcaption>webcam voorbeeld</figcaption>
+      </figure>
 
-&lt;!-- HTML --&gt;
-&lt;video id="webcamstream"&gt;&lt;/video&gt;
+      <h4>Voorbeeld 2: photobooth</h4>
+      <p>Een iets uitgebreider voorbeeld, met filters en de mogelijkheid snapshots te nemen:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;video id="webcamstream"&gt;&lt;/video&gt;
 &lt;div id="filters"&gt;
-  &lt;button type="button" data-filter="natural"&gt;natural&lt;/button&gt;
-  &lt;button type="button" data-filter="sepia"&gt;sepia&lt;/button&gt;
-  &lt;button type="button" data-filter="blur"&gt;blur&lt;/button&gt;
-  &lt;button type="button" data-filter="grayscale"&gt;grayscale&lt;/button&gt;
-  &lt;button type="button" data-filter="invert"&gt;invert&lt;/button&gt;
-  &lt;button type="button" data-filter="hue-rotate"&gt;hue-rotate&lt;/button&gt;
+   &lt;button type="button" data-filter="natural"&gt;natural&lt;/button&gt;
+   &lt;button type="button" data-filter="sepia"&gt;sepia&lt;/button&gt;
+   &lt;button type="button" data-filter="blur"&gt;blur&lt;/button&gt;
+   &lt;button type="button" data-filter="grayscale"&gt;grayscale&lt;/button&gt;
+   &lt;button type="button" data-filter="invert"&gt;invert&lt;/button&gt;
+   &lt;button type="button" data-filter="hue-rotate"&gt;hue-rotate&lt;/button&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;button type="button" id="btnsnap"&gt;take snapshot&lt;/button&gt;&lt;/p&gt;
 &lt;div id="canvases"&gt;
-  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
-  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
-  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
-  &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+   &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+   &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+   &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
+   &lt;canvas width="133" height="100"&gt;&lt;/canvas&gt;
 &lt;/div&gt;
+</code></pre>
+         <pre class="prism-atom-dark language-css w-600 h-400" data-caption><code>/* general */
+body {
+   margin: 20px auto;
+   width: 640px;
+}
+/* webcam */
+#webcamstream {
+   height: 480px;
+   width: 640px;
+}
+/* snapshots */
+canvas {
+   border: 1px solid #ccc;
+   margin: 10px 0;
+}
+canvas + canvas {
+   margin-left: 29px;
+}
+/* buttons */
+button {
+   background-color: #428bca;
+   border: 1px solid #2a6496;
+   border-radius: 4px;
+   color: white;
+   cursor: pointer;
+   padding: 3px 6px;
+   text-transform: uppercase;
+}
+#dosnap {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+}
+/* filters */
+.sepia {
+   filter: sepia(1);
+}
+.blur {
+   filter: blur(5px);
+}
+.grayscale {
+   filter: grayscale(1);
+}
+.invert {
+   filter: invert(1);
+}
+.hue-rotate {
+   filter: hue-rotate(90deg);
+}</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// inits
+const vidWebcam = document.querySelector('#webcamstream');
+const btnSnap = document.querySelector('#btnsnap');
+const snapshots = document.querySelectorAll('canvas');
+const btnsFilter = document.querySelector('#filters');
+let nr = 0;
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  // inits
-  const vidWebcam = document.querySelector('#webcamstream');
-  const btnSnap = document.querySelector('#btnsnap');
-  const snapshots = document.querySelectorAll('canvas');
-  const btnsFilter = document.querySelector('#filters');
-  let nr = 0;
+// take snapshot
+btnSnap.addEventListener('click', function () {
+   const context = snapshots[nr].getContext('2d');
+   context.filter = getComputedStyle(vidWebcam).getPropertyValue('filter');
+   context.drawImage(vidWebcam, 0, 0, 133, 100);
+   nr = (nr + 1) % 4;
+});
 
-  // take snapshot
-  btnSnap.addEventListener('click', function () {
-    const context = snapshots[nr].getContext('2d');
-    context.filter = getComputedStyle(vidWebcam).getPropertyValue('filter');
-    context.drawImage(vidWebcam, 0, 0, 133, 100);
-    nr = (nr + 1) % 4;
-  });
+// apply filter
+btnsFilter.addEventListener('click', function (e) {
+   btnsFilter.querySelectorAll('button').forEach(btn =&gt; {
+   vidWebcam.classList.remove(btn.dataset.filter);
+   });
+   vidWebcam.classList.add(e.target.getAttribute('data-filter'));
+});
 
-  // apply filter
-  btnsFilter.addEventListener('click', function (e) {
-    btnsFilter.querySelectorAll('button').forEach(btn =&gt; {
-      vidWebcam.classList.remove(btn.dataset.filter);
-    });
-    vidWebcam.classList.add(e.target.getAttribute('data-filter'));
-  });
+// capture webcam
+async function startWebcam() {
+   vidWebcam.autoplay = true;
+   const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+   vidWebcam.srcObject = stream;
+};
+startWebcam();</code></pre>
+      </div>
+      <figure class="w-300">
+         <img src="img/05_games/photobooth-small.gif" alt="" class="bordered">
+         <figcaption>photobooth voorbeeld</figcaption>
+      </figure>
+      <p>Nog meer online experimenten:</p>
+      <ul class="arrow">
+         <li>de uitgebreide photobooth versie op <a href="https://webcamtoy.com/">https://webcamtoy.com/</a></li>
+         <li>zandpartikels op <a href="https://lab.cheron.works/webgl-gpgpu-particles/">https://lab.cheron.works/webgl-gpgpu-particles/</a></li>
+         <li>webcam xylofoon op <a href="https://www.soundstep.com/blog/experiments/jsdetection/">https://www.soundstep.com/blog/experiments/jsdetection/</a></li>
+      </ul>
 
-  // capture webcam
-  async function startWebcam() {
-    vidWebcam.autoplay = true;
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    vidWebcam.srcObject = stream;
-  };
-  startWebcam();
-
-&lt;/script&gt;</code></pre>
-    <figure class="w-300">
-      <img src="img/05_games/photobooth-small.gif" alt="" class="bordered">
-      <figcaption>photobooth voorbeeld</figcaption>
-    </figure>
-    <p>Nog meer online experimenten:</p>
-    <ul class="arrow">
-      <li>de uitgebreide photobooth versie op <a href="https://webcamtoy.com/">https://webcamtoy.com/</a></li>
-      <li>zandpartikels op <a href="https://lab.cheron.works/webgl-gpgpu-particles/">https://lab.cheron.works/webgl-gpgpu-particles/</a></li>
-      <li>webcam xylofoon op <a href="https://www.soundstep.com/blog/experiments/jsdetection/">https://www.soundstep.com/blog/experiments/jsdetection/</a></li>
-    </ul>
-
-    <h3>Geolocation API</h3>
-    <p>De positie van de gebruiker is eenvoudig te bepalen via <code>navigator.geolocation</code>:</p>
-    <pre class="prism-okaida" data-demo><code>if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(pos) {
-    console.log(`je positie: ${pos.coords.longitude}, ${pos.coords.latitude}`);
-  });
+      <h3>Geolocation API</h3>
+      <p>De positie van de gebruiker is eenvoudig te bepalen via <code>navigator.geolocation</code>:</p>
+      <pre class="prism-okaida" data-demo><code>if (navigator.geolocation) {
+   navigator.geolocation.getCurrentPosition(function(pos) {
+      console.log(`je positie: ${pos.coords.longitude}, ${pos.coords.latitude}`);
+   });
 }
 </code></pre>
-    <h4>Voorbeeld: positie met custom marker tonen op kaart (OpenLayers)</h4>
-    <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!DOCTYPE html&gt;
+      <h4>Voorbeeld: positie met custom marker tonen op kaart (OpenLayers)</h4>
+      <pre class="prism-okaida language-html h-400" data-demo><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 
 &lt;head&gt;
-  &lt;title&gt;Geolocation demo&lt;/title&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v9.0.0/ol.css"&gt;
-  &lt;style&gt;
-    #map {
-      height: 300px;
-      width: 500px;
-    }
-  &lt;/style&gt;
+   &lt;title&gt;Geolocation demo&lt;/title&gt;
+   &lt;meta charset="utf-8"&gt;
+   &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v9.0.0/ol.css"&gt;
+   &lt;style&gt;
+      #map {
+         height: 300px;
+         width: 500px;
+      }
+   &lt;/style&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
-  &lt;p&gt;&lt;button type="button" id="btn1"&gt;Show Position&lt;/button&gt;&lt;/p&gt;
-  &lt;div id="map"&gt;&lt;/div&gt;
-  &lt;script src="https://cdn.jsdelivr.net/npm/ol@v9.0.0/dist/ol.js"&gt;&lt;/script&gt;
-  &lt;script&gt;
-    // show map with custom marker on current position
-    function showPosition(position) {
-      const longitude = position.coords.longitude
-      const latitude = position.coords.latitude
+   &lt;p&gt;&lt;button type="button" id="btn1"&gt;Show Position&lt;/button&gt;&lt;/p&gt;
+   &lt;div id="map"&gt;&lt;/div&gt;
+   &lt;script src="https://cdn.jsdelivr.net/npm/ol@v9.0.0/dist/ol.js"&gt;&lt;/script&gt;
+   &lt;script&gt;
+      // show map with custom marker on current position
+      function showPosition(position) {
+         const longitude = position.coords.longitude
+         const latitude = position.coords.latitude
 
-      // create marker
-      const marker = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([longitude, latitude]))
+         // create marker
+         const marker = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.fromLonLat([longitude, latitude]))
+         });
+
+         // custom marker icon
+         marker.setStyle(new ol.style.Style({
+            image: new ol.style.Icon({
+               src: 'img/marker.png'
+            })
+         }));
+
+         // create layer with marker
+         const vectorLayer = new ol.layer.Vector({
+            source: new ol.source.Vector({
+               features: [marker]
+            })
+         });
+
+         // create map with layer
+         const map = new ol.Map({
+            target: 'map',
+            layers: [
+               new ol.layer.Tile({
+                  source: new ol.source.OSM()
+               }),
+               vectorLayer
+            ],
+            view: new ol.View({
+               center: ol.proj.fromLonLat([longitude, latitude]),
+               zoom: 12 // Zoom level
+            })
+         });
+      }
+
+      // button click event
+      document.querySelector('#btn1').addEventListener('click', function () {
+         if (!navigator.geolocation) return;
+         navigator.geolocation.getCurrentPosition(showPosition);
       });
-
-      // custom marker icon
-      marker.setStyle(new ol.style.Style({
-        image: new ol.style.Icon({
-          src: 'img/marker.png'
-        })
-      }));
-
-      // create layer with marker
-      const vectorLayer = new ol.layer.Vector({
-        source: new ol.source.Vector({
-          features: [marker]
-        })
-      });
-
-      // create map with layer
-      const map = new ol.Map({
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          }),
-          vectorLayer
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([longitude, latitude]),
-          zoom: 12 // Zoom level
-        })
-      });
-    }
-
-    // button click event
-    document.querySelector('#btn1').addEventListener('click', function () {
-      if (!navigator.geolocation) return;
-      navigator.geolocation.getCurrentPosition(showPosition);
-    });
-  &lt;/script&gt;
+   &lt;/script&gt;
 &lt;/body&gt;
 
 &lt;/html&gt;
 </code></pre>
-    <figure class="w-400">
-      <img src="img/05_games/openstreetmap.png" alt="" class="bordered">
-      <figcaption>tonen van huidige positie op een OpenLayers kaart</figcaption>
-    </figure>
+      <figure class="w-400">
+         <img src="img/05_games/openstreetmap.png" alt="" class="bordered">
+         <figcaption>tonen van huidige positie op een OpenLayers kaart</figcaption>
+      </figure>
 
-    <h3>Device orientation API</h3>
-    <p>Indien aanwezig op het toestel, kan je de gyroscoop, accelerometer, kompas enz... gebruiken in Javascript. Voorbeeld voor de kanteling van het toestel (werkt enkel op smartphones en sommige laptops als bepaalde Macbooks), dat gebruik maakt van het <code>deviceorientation</code> event van <code>window</code>:</p>
-    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- CSS --&gt;
-&lt;style&gt;
-  .layer {
-    position: absolute; /* stapel layers bovenop elkaar */
-  }
-&lt;/style&gt;
-
-&lt;!-- HTML --&gt;
-&lt;img src="img/chrome-layer-01.png" alt="" class="layer"&gt;
+      <h3>Device orientation API</h3>
+      <p>Indien aanwezig op het toestel, kan je de gyroscoop, accelerometer, kompas enz... gebruiken in Javascript. Voorbeeld voor de kanteling van het toestel (werkt enkel op smartphones en sommige laptops als bepaalde Macbooks), dat gebruik maakt van het <code>deviceorientation</code> event van <code>window</code>:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;img src="img/chrome-layer-01.png" alt="" class="layer"&gt;
 &lt;img src="img/chrome-layer-02.png" alt="" class="layer"&gt;
 &lt;img src="img/chrome-layer-03.png" alt="" class="layer"&gt;
 &lt;img src="img/chrome-layer-04.png" alt="" class="layer"&gt;
-&lt;img src="img/chrome-layer-05.png" alt="" class="layer"&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  window.addEventListener('deviceorientation', function(e) {
-    const layers = document.querySelectorAll('.layer');
-    const offset = 50;
-    for (let i = 0; i &lt; layers.length; i++) {
+&lt;img src="img/chrome-layer-05.png" alt="" class="layer"&gt;</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>.layer {
+   position: absolute; /* stapel layers bovenop elkaar */
+}</code></pre>
+         <pre class="prism-okaida w-600" data-caption><code>window.addEventListener('deviceorientation', function(e) {
+   const layers = document.querySelectorAll('.layer');
+   const offset = 50;
+   for (let i = 0; i &lt; layers.length; i++) {
       const layer = layers[i];
       layer.style.left = `${Math.round(e.gamma * i) + offset}px`;
       layer.style.top = `${Math.round(e.beta * i) + offset}px`;
-    }
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-300">
-      <img src="img/05_games/orientation.gif" alt="" class="bordered">
-      <figcaption>detectie kantelhoek device</figcaption>
-    </figure>
-    <ul class="arrow">
-      <li>nog een mooi experiment op <a href="https://paperplanes.world/">https://paperplanes.world/</a>: gooi een papieren vliegtuig met je gsm</li>
-    </ul>
+   }
+});</code></pre>
+      </div>
 
-    <h3>Notification API</h3>
-    <p>Toon taskbar notificaties rechtsonder:</p>
-    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
-&lt;input type="button" id="lnkNotifyMe" value="Notify Me"&gt;
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  function showNotification(title, msg, icon) {
-    const notification = new Notification(title, { body: msg, icon: icon } );
-  }
-  document.getElementById('lnkNotifyMe').addEventListener('click', function() {
-    if (Notification.permission == 'denied') return;
-    if (Notification.permission == 'granted') {
+      <figure class="w-300">
+         <img src="img/05_games/orientation.gif" alt="" class="bordered">
+         <figcaption>detectie kantelhoek device</figcaption>
+      </figure>
+      <ul class="arrow">
+         <li>nog een mooi experiment op <a href="https://paperplanes.world/">https://paperplanes.world/</a>: gooi een papieren vliegtuig met je gsm</li>
+      </ul>
+
+      <h3>Notification API</h3>
+      <p>Toon taskbar notificaties rechtsonder:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;input type="button" id="lnkNotifyMe" value="Notify Me"&gt;</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>function showNotification(title, msg, icon) {
+   const notification = new Notification(title, { body: msg, icon: icon } );
+}
+document.getElementById('lnkNotifyMe').addEventListener('click', function() {
+   if (Notification.permission == 'denied') return;
+   if (Notification.permission == 'granted') {
       showNotification('Some notification', 'Hi there!', 'img/avatar.jpg');
       return;
-    }
-    Notification.requestPermission(function (permission) {
+   }
+   Notification.requestPermission(function (permission) {
       if (permission === 'granted') {
-        showNotification('Some notification', 'Hi there!', 'img/avatar.jpg');
+         showNotification('Some notification', 'Hi there!', 'img/avatar.jpg');
       }
-    });
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-300">
-      <img src="img/05_games/notification.png" alt="">
-      <figcaption>taskbar notificaties met Javascript</figcaption>
-    </figure>
-    <h3>SpeechRecognition API</h3>
-    <p>Basisvoorbeeld:</p>
-    <pre class="prism-okaida language-html" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;&lt;button id="btnStart"&gt;Start listening&lt;/button&gt;&lt;/p&gt;
+   });
+});</code></pre>
+      </div>
+      <figure class="w-300">
+         <img src="img/05_games/notification.png" alt="">
+         <figcaption>taskbar notificaties met Javascript</figcaption>
+      </figure>
+
+      <h3>SpeechRecognition API</h3>
+      <p>Basisvoorbeeld:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnStart"&gt;Start listening&lt;/button&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;You said:&lt;/strong&gt; &lt;em id="echo"&gt;nothing yet&lt;/em&gt;&lt;/p&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const btnStart = document.querySelector('#btnStart');
-  const emEcho = document.querySelector('#echo');
-
-  btnStart.addEventListener('click', function() {
-    const recognition = new (webkitSpeechRecognition || SpeechRecognition)();
-    recognition.lang = 'en-US';
-    recognition.start();
-    recognition.addEventListener('result', function(e) {
-        emEcho.innerHTML = e.results[0][0].transcript;
-    });
-  });
-&lt;/script&gt;</code></pre>
-    <figure class="w-300">
-      <img src="img/05_games/speech.gif" alt="" class="bordered">
-      <figcaption>stemherkenning met Javascript</figcaption>
-    </figure>
-
-    <h3>Audio en video</h3>
-    <p>Je kan eenvoudig audio en video laden, afspelen, volume instellen enz... Meest voorkomende properties en methodes:</p>
-    <table class="light">
-      <thead>
-        <tr>
-          <th scope="col">property</th>
-          <th scope="col">omschrijving</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>currentTime</code></td>
-          <td>huidige speelpositie in seconden</td>
-        </tr>
-        <tr>
-          <td><code>duration</code></td>
-          <td>lengte van het bestand in seconden</td>
-        </tr>
-        <tr>
-          <td><code>isPaused</code></td>
-          <td>is het gepauzeerd of niet (<code>true</code> of <code>false</code>)</td>
-        </tr>
-        <tr>
-          <td><code>loop</code></td>
-          <td>herhalen of niet (<code>true</code> of <code>false</code>)</td>
-        </tr>
-        <tr>
-          <td><code>src</code></td>
-          <td>bron van het geluidsbestand (URL)</td>
-        </tr>
-        <tr>
-          <td><code>volume</code></td>
-          <td>volume (getal tussen 0 en 1)</td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="light">
-      <thead>
-        <tr>
-          <th scope="col">methode</th>
-          <th scope="col">omschrijving</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>play()</code></td>
-          <td>speel af</td>
-        </tr>
-        <tr>
-          <td><code>pause()</code></td>
-          <td>pauzeer</td>
-        </tr>
-      </tbody>
-    </table>
-    <h4>Voorbeeld 1: geluidseffecten</h4>
-    <pre class="prism-okaida language-html w-800" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;&lt;button id="btnRight"&gt;&lt;img src="img/code_right.png" height="20" alt=""&gt; RIGHT&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;button id="btnWrong"&gt;&lt;img src="img/code_wrong.png" height="20" alt=""&gt; WRONG&lt;/button&gt;&lt;/p&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const sfxRight = new Audio('media/right.mp3');
-  const sfxWrong = new Audio('media/wrong.mp3');
-  document.querySelector('#btnRight').addEventListener('click', function() {
-    sfxRight.play();
-  });
-  document.querySelector('#btnWrong').addEventListener('click', function() {
-    sfxWrong.play();
-  });
-&lt;/script&gt;
 </code></pre>
-    <figure>
-      <img src="img/05_games/audiobuttons.png" alt="" class="bordered w-200">
-      <figcaption>twee buttons die geluidsfragment afspelen (zie demo)</figcaption>
-    </figure>
-    <h4>Voorbeeld 2: muziekdoos</h4>
-    <p>Tik een reeks van namen van noten in, en laat het muziekje afspelen:</p>
-    <pre class="prism-okaida language-html w-800 h-400" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;
-  &lt;label&gt;notes: &lt;input type="text" value="A Cs D F A" id="inpSong"&gt;&lt;/label&gt;
-  &lt;input type="button" id="btnPlay" value="play"&gt;
+         <pre class="prism-okaida w-700" data-caption><code>const btnStart = document.querySelector('#btnStart');
+const emEcho = document.querySelector('#echo');
+
+btnStart.addEventListener('click', function() {
+   const recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+   recognition.lang = 'en-US';
+   recognition.start();
+   recognition.addEventListener('result', function(e) {
+      emEcho.innerHTML = e.results[0][0].transcript;
+   });
+});</code></pre>
+      </div>
+      <figure class="w-300">
+         <img src="img/05_games/speech.gif" alt="" class="bordered">
+         <figcaption>stemherkenning met Javascript</figcaption>
+      </figure>
+
+      <h3>Audio en video</h3>
+      <p>Je kan eenvoudig audio en video laden, afspelen, volume instellen enz... Meest voorkomende properties en methodes:</p>
+      <table class="light">
+         <thead>
+         <tr>
+            <th scope="col">property</th>
+            <th scope="col">omschrijving</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr>
+            <td><code>currentTime</code></td>
+            <td>huidige speelpositie in seconden</td>
+         </tr>
+         <tr>
+            <td><code>duration</code></td>
+            <td>lengte van het bestand in seconden</td>
+         </tr>
+         <tr>
+            <td><code>isPaused</code></td>
+            <td>is het gepauzeerd of niet (<code>true</code> of <code>false</code>)</td>
+         </tr>
+         <tr>
+            <td><code>loop</code></td>
+            <td>herhalen of niet (<code>true</code> of <code>false</code>)</td>
+         </tr>
+         <tr>
+            <td><code>src</code></td>
+            <td>bron van het geluidsbestand (URL)</td>
+         </tr>
+         <tr>
+            <td><code>volume</code></td>
+            <td>volume (getal tussen 0 en 1)</td>
+         </tr>
+         </tbody>
+      </table>
+      <table class="light">
+         <thead>
+         <tr>
+            <th scope="col">methode</th>
+            <th scope="col">omschrijving</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr>
+            <td><code>play()</code></td>
+            <td>speel af</td>
+         </tr>
+         <tr>
+            <td><code>pause()</code></td>
+            <td>pauzeer</td>
+         </tr>
+         </tbody>
+      </table>
+       <h4>Voorbeeld 1: geluidseffecten</h4>
+       <div class="democontainer">
+         <pre class="prism-default language-html w-800 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnRight"&gt;&lt;img src="img/code_right.png" height="20" alt=""&gt; RIGHT&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button id="btnWrong"&gt;&lt;img src="img/code_wrong.png" height="20" alt=""&gt; WRONG&lt;/button&gt;&lt;/p&gt;</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>const sfxRight = new Audio('media/right.mp3');
+const sfxWrong = new Audio('media/wrong.mp3');
+document.querySelector('#btnRight').addEventListener('click', function() {
+   sfxRight.play();
+});
+document.querySelector('#btnWrong').addEventListener('click', function() {
+   sfxWrong.play();
+});</code></pre>
+      </div>
+      <figure>
+         <img src="img/05_games/audiobuttons.png" alt="" class="bordered w-200">
+         <figcaption>twee buttons die geluidsfragment afspelen (zie demo)</figcaption>
+      </figure>
+      <h4>Voorbeeld 2: muziekdoos</h4>
+      <p>Tik een reeks van namen van noten in, en laat het muziekje afspelen:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-700" data-caption data-demo><code contenteditable>&lt;p&gt;
+   &lt;label&gt;notes: &lt;input type="text" value="A Cs D F A" id="inpSong"&gt;&lt;/label&gt;
+   &lt;input type="button" id="btnPlay" value="play"&gt;
 &lt;/p&gt;
 &lt;p id="msg"&gt;&lt;/p&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  // inits
-  const msg = document.querySelector('#msg');
-  let notes;
-
-  // play note i
-  function playNextNote() {
-    if (!notes.length) {
-        msg.innerHTML = 'finished';
-        return;
-    }
-    note = notes.shift();
-    msg.innerHTML = `playing ${note}`;
-    const audio = new Audio(`media/notes/violin-${note}.mp3`);
-    audio.addEventListener('ended', playNextNote);
-    audio.play();
-  }
-
-  // add event listener to button
-  document.querySelector('#btnPlay').addEventListener('click', function() {
-    notes = document.querySelector('#inpSong').value.trim().split(' ');
-    playNextNote();
-  });
-&lt;/script&gt;
 </code></pre>
-    <figure>
-      <img src="img/05_games/muziekspeler.png" alt="" class="bordered w-200">
-      <figcaption>eenvoudige muziekspeler waar ingegeven noten in volgorde afgespeeld worden</figcaption>
-    </figure>
+         <pre class="prism-okaida w-700" data-caption><code>// inits
+const msg = document.querySelector('#msg');
+let notes;
 
-
-    <h4>Voorbeeld 3: video kiezen en afspelen met weergave tijd</h4>
-    <pre class="prism-okaida language-html w-800 h-400" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;
-   &lt;select id="selVideo"&gt;
-     &lt;option value=""&gt;selecteer video...&lt;/option&gt;
-     &lt;option&gt;dinosaur.mp4&lt;/option&gt;
-     &lt;option&gt;fish.mp4&lt;/option&gt;
-     &lt;option&gt;toys.mp4&lt;/option&gt;
-   &lt;/select&gt;
- &lt;/p&gt;
- &lt;p&gt;&lt;video id="theVideo" width="640" height="360"&gt;&lt;/video&gt;&lt;/p&gt;
- &lt;p&gt;tijd: &lt;span id="elapsed"&gt;-&lt;/span&gt;&lt;/p&gt;
-
- &lt;!-- CSS --&gt;
- &lt;style&gt;
-   video {
-     background-color: #ccc;
+// play note i
+function playNextNote() {
+   if (!notes.length) {
+      msg.innerHTML = 'finished';
+      return;
    }
- &lt;/style&gt;
+   note = notes.shift();
+   msg.innerHTML = `playing ${note}`;
+   const audio = new Audio(`media/notes/violin-${note}.mp3`);
+   audio.addEventListener('ended', playNextNote);
+   audio.play();
+}
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  const video = document.querySelector('#theVideo');
-  const elapsed = document.querySelector('#elapsed');
-  document.querySelector('#selVideo').addEventListener('change', function() {
-    if (this.value == '') return;
-    video.src = `media/${this.value}`
-    video.play();
-  });
-  setInterval(function() {
-    if (!video.src) return;
-    elapsed.innerHTML = `${video.currentTime.toFixed(1)}/${video.duration.toFixed(1)}s`;
-  }, 50);
-&lt;/script&gt;
+// add event listener to button
+document.querySelector('#btnPlay').addEventListener('click', function() {
+   notes = document.querySelector('#inpSong').value.trim().split(' ');
+   playNextNote();
+});
 </code></pre>
-    <figure>
-      <img src="img/05_games/videoselect.png" alt="" class="bordered w-600">
-      <figcaption>video afspelen uit lisjtje met weergave verstreken tijd</figcaption>
-    </figure>
+      </div>
+      <figure>
+         <img src="img/05_games/muziekspeler.png" alt="" class="bordered w-200">
+         <figcaption>eenvoudige muziekspeler waar ingegeven noten in volgorde afgespeeld worden</figcaption>
+      </figure>
 
-    <h3>Sound API</h3>
-    <p>Dit is een zeer uitgebreide API waarmee je zowat alles kan wat met geluid te maken heeft:</p>
-    <ul class="right">
-      <li><strong>filteren</strong>: low pass, notch, peak...</li>
-      <li><strong>sound mixen</strong>: volume, gain, cross-fadings, mixing...</li>
-      <li><strong>rauwe data bewerken</strong>: lezen en schrijven (wat erop neerkomt dat eigenlijk alles mogelijk is)</li>
-      <li>...</li>
-    </ul>
-    <p>Enkele mooie online voorbeelden:</p>
-    <ul>
-      <li>DinahMoe heeft mooie demo's, zoals <a href="http://dinahmoelabs.com/rickastley">Rick Ashtley</a> of <a href="http://dinahmoelabs.com/tonecraft">Tonecraft</a></li>
-      <li>een eenvoudige <a href="demos/equalizer/index.html">equalizer</a></li>
-      <li><a href="http://daftpunk.themaninblue.com/">Daftpunk Anatomy of a Mashup</a></li>
-      <li>nog een <a href="https://musiclab.chromeexperiments.com/Spectrogram/">audio visualizer</a></li>
-    </ul>
-    <h4>Voorbeeld: eenvoudige oscillator met versterker</h4>
-    <p>Merk op hoe in de code als het ware toestellen aan elkaar gekoppeld worden:</p>
-    <pre class="prism-okaida language-html w-900 h-400" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;&lt;label&gt;Frequency: &lt;input type="range" min="200" value="1100" max="2000" id="rngFrequency"&gt;&lt;/label&gt; &lt;/p&gt;
+      <h4>Voorbeeld 3: video kiezen en afspelen met weergave tijd</h4>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600" data-caption data-demo><code>&lt;p&gt;
+   &lt;select id="selVideo"&gt;
+      &lt;option value=""&gt;selecteer video...&lt;/option&gt;
+      &lt;option&gt;dinosaur.mp4&lt;/option&gt;
+      &lt;option&gt;fish.mp4&lt;/option&gt;
+      &lt;option&gt;toys.mp4&lt;/option&gt;
+   &lt;/select&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;video id="theVideo" width="640" height="360"&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;tijd: &lt;span id="elapsed"&gt;-&lt;/span&gt;&lt;/p&gt;
+</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>video {
+   background-color: #ccc;
+}</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>const vid = document.querySelector('#theVideo');
+const elapsed = document.querySelector('#elapsed');
+document.querySelector('#selVideo').addEventListener('change', function() {
+   if (this.value == '') return;
+   vid.src = `media/${this.value}`
+   vid.play();
+});
+setInterval(function() {
+   if (!video.src) return;
+   elapsed.innerHTML = `${vid.currentTime.toFixed(1)}/${vid.duration.toFixed(1)}s`;
+}, 50);</code></pre>
+      </div>
+      <figure>
+         <img src="img/05_games/videoselect.png" alt="" class="bordered w-600">
+         <figcaption>video afspelen uit lisjtje met weergave verstreken tijd</figcaption>
+      </figure>
+      <h3>Sound API</h3>
+      <p>Dit is een zeer uitgebreide API waarmee je zowat alles kan wat met geluid te maken heeft:</p>
+      <ul class="right">
+         <li><strong>filteren</strong>: low pass, notch, peak...</li>
+         <li><strong>sound mixen</strong>: volume, gain, cross-fadings, mixing...</li>
+         <li><strong>rauwe data bewerken</strong>: lezen en schrijven (wat erop neerkomt dat eigenlijk alles mogelijk is)</li>
+         <li>...</li>
+      </ul>
+      <p>Enkele mooie online voorbeelden:</p>
+      <ul>
+         <li>DinahMoe heeft mooie demo's, zoals <a href="http://dinahmoelabs.com/rickastley">Rick Ashtley</a> of <a href="http://dinahmoelabs.com/tonecraft">Tonecraft</a></li>
+         <li>een eenvoudige <a href="demos/equalizer/index.html">equalizer</a></li>
+         <li><a href="http://daftpunk.themaninblue.com/">Daftpunk Anatomy of a Mashup</a></li>
+         <li>nog een <a href="https://musiclab.chromeexperiments.com/Spectrogram/">audio visualizer</a></li>
+      </ul>
+      <h4>Voorbeeld: eenvoudige oscillator met versterker</h4>
+      <p>Merk op hoe in de code als het ware toestellen aan elkaar gekoppeld worden:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-900 padtop" data-caption data-demo><code>&lt;p&gt;&lt;label&gt;Frequency: &lt;input type="range" min="200" value="1100" max="2000" id="rngFrequency"&gt;&lt;/label&gt; &lt;/p&gt;
 &lt;p&gt;&lt;label&gt;Volume: &lt;input type="range" min="0" value="0.5" max="1" id="rngVolume" step="0.01"&gt;&lt;/label&gt;&lt;/p&gt;
 &lt;p&gt;&lt;button id="btnStop"&gt;stop&lt;/button&gt;&lt;/p&gt;
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// create audio context
+const audioContext = new AudioContext();
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  // create audio context
-  const audioContext = new AudioContext();
+// create oscillator
+const oscillator = audioContext.createOscillator();
+oscillator.frequency.value = 1000;
 
-  // create oscillator
-  const oscillator = audioContext.createOscillator();
-  oscillator.frequency.value = 1000;
+// create amp
+const amp = audioContext.createGain();
+amp.gain.value = 0.5;
 
-  // create amp
-  const amp = audioContext.createGain();
-  amp.gain.value = 0.5;
+// connect oscillator to amp, and amp to output
+oscillator.connect(amp);
+amp.connect(audioContext.destination);
 
-  // connect oscillator to amp, and amp to output
-  oscillator.connect(amp);
-  amp.connect(audioContext.destination);
+// start oscillator
+oscillator.start();
 
-  // start oscillator
-  oscillator.start();
-
-  // bind events
-  document.querySelector('#rngFrequency').addEventListener('input', function() {
-    oscillator.frequency.value = this.value;
-  });
-  document.querySelector('#rngVolume').addEventListener('input', function() {
-    amp.gain.value = this.value;
-  });
-  document.querySelector('#btnStop').addEventListener('click', function() {
-    oscillator.stop();
-    this.disabled = true;
-  });
-&lt;/script&gt;</code></pre>
-    <figure>
-      <img src="img/05_games/oscillator.png" alt="" class="bordered w-200">
-      <figcaption>afspelen sinusgolf en regelen volume en frequentie</figcaption>
-    </figure>
-
-    <h3>Nog meer API's: battery API, gamepad API, bluetooth API...</h3>
-    <p>
-      Er zijn nog veel meer API's te ontdekken &mdash; velen gevestigd, sommigen nog experimenteel. Een uitgebreide lijst vind je op <a href="https://developer.mozilla.org/en-US/docs/Web/API">https://developer.mozilla.org/en-US/docs/Web/API</a>
-    </p>
-
-    <h2>Animaties</h2>
-    <h3>Wat is een animatie?</h3>
-    <p>Een animatie is in essentie een snelle opeenvolging van stilstaande afbeeldingen of <mark>frames</mark>, die een illusie van een vloeiende beweging creëren:</p>
-    <div class="flexcontainer wrap">
+// bind events
+document.querySelector('#rngFrequency').addEventListener('input', function() {
+   oscillator.frequency.value = this.value;
+});
+document.querySelector('#rngVolume').addEventListener('input', function() {
+   amp.gain.value = this.value;
+});
+document.querySelector('#btnStop').addEventListener('click', function() {
+   oscillator.stop();
+   this.disabled = true;
+});</code></pre>
+      </div>
       <figure>
-        <img src="img/05_games/stopmotion.png" alt="">
-        <figcaption>stop motion – <a href="https://www.youtube.com/watch?v=i3CEE9xKKZc">bekijk online</a></figcaption>
+         <img src="img/05_games/oscillator.png" alt="" class="bordered w-200">
+         <figcaption>afspelen sinusgolf en regelen volume en frequentie</figcaption>
       </figure>
+      <h3>Nog meer API's: battery API, gamepad API, bluetooth API...</h3>
+      <p>
+         Er zijn nog veel meer API's te ontdekken &mdash; velen gevestigd, sommigen nog experimenteel. Een uitgebreide lijst vind je op <a href="https://developer.mozilla.org/en-US/docs/Web/API">https://developer.mozilla.org/en-US/docs/Web/API</a>
+      </p>
+
+      <h2>Animaties</h2>
+      <h3>Wat is een animatie?</h3>
+      <p>Een animatie is in essentie een snelle opeenvolging van stilstaande afbeeldingen of <mark>frames</mark>, die een illusie van een vloeiende beweging creëren:</p>
+      <div class="flexcontainer wrap">
+         <figure>
+            <img src="img/05_games/stopmotion.png" alt="">
+            <figcaption>stop motion – <a href="https://www.youtube.com/watch?v=i3CEE9xKKZc">bekijk online</a></figcaption>
+         </figure>
+         <figure>
+            <img src="img/05_games/zoetrope.png" alt="">
+            <figcaption>zoetrope – bekijk <a href="https://www.youtube.com/watch?v=SBg6dAE3mI0">hier</a> of <a href="https://www.youtube.com/watch?v=AfS2kGO5lg8">hier</a></figcaption>
+         </figure>
+         <figure>
+            <img src="img/05_games/flipbook.png" alt="">
+            <figcaption>flip book – <a href="https://giphy.com/gifs/museums-pVjNltXcTkJfq/fullscreen">bekijk online</a></figcaption>
+         </figure>
+      </div>
+      <h3>Sprites</h3>
+      <p>De meeste computerspellen bevatten bewegende objecten of <mark>sprites</mark>, die geanimeerd worden. Enkele definities:</p>
+      <ul>
+         <li><span class="em">scene</span>: de wereld waarin het spel wordt gespeeld</li>
+         <li><span class="em">sprite</span>: een object in de scène dat kan worden geanimeerd (Super Mario, munt, kogel, bom...)</li>
+         <li><span class="em">spriteblad</span>: een afbeelding die alle afbeeldingsversies van de sprite bevat</li>
+         <li><span class="em">gameloop</span>: een stukje code dat x keer per seconde iteratief wordt uitgevoerd</li>
+         <li><span class="em">frame</span>: een stilstaand beeld van een animatie</li>
+         <li><span class="em">FPS</span>: frames per seconde</li>
+      </ul>
+      <p><mark>Spritesheets</mark> zijn afbeeldingen die alle mogelijke versies van één object bevatten. Een voorbeeld uit de klassieker Doom I:</p>
       <figure>
-        <img src="img/05_games/zoetrope.png" alt="">
-        <figcaption>zoetrope – bekijk <a href="https://www.youtube.com/watch?v=SBg6dAE3mI0">hier</a> of <a href="https://www.youtube.com/watch?v=AfS2kGO5lg8">hier</a></figcaption>
+         <img src="img/sprite.png" alt="" class="w-1000">
+         <figcaption>spritesheet van een karakter uit Doom I</figcaption>
       </figure>
-      <figure>
-        <img src="img/05_games/flipbook.png" alt="">
-        <figcaption>flip book – <a href="https://giphy.com/gifs/museums-pVjNltXcTkJfq/fullscreen">bekijk online</a></figcaption>
-      </figure>
-    </div>
-    <h3>Sprites</h3>
-    <p>De meeste computerspellen bevatten bewegende objecten of <mark>sprites</mark>, die geanimeerd worden. Enkele definities:</p>
-    <ul>
-      <li><span class="em">scene</span>: de wereld waarin het spel wordt gespeeld</li>
-      <li><span class="em">sprite</span>: een object in de scène dat kan worden geanimeerd (Super Mario, munt, kogel, bom...)</li>
-      <li><span class="em">spriteblad</span>: een afbeelding die alle afbeeldingsversies van de sprite bevat</li>
-      <li><span class="em">gameloop</span>: een stukje code dat x keer per seconde iteratief wordt uitgevoerd</li>
-      <li><span class="em">frame</span>: een stilstaand beeld van een animatie</li>
-      <li><span class="em">FPS</span>: frames per seconde</li>
-    </ul>
-    <p><mark>Spritesheets</mark> zijn afbeeldingen die alle mogelijke versies van één object bevatten. Een voorbeeld uit de klassieker Doom I:</p>
-    <figure>
-      <img src="img/sprite.png" alt="" class="w-1000">
-      <figcaption>spritesheet van een karakter uit Doom I</figcaption>
-    </figure>
-    <h3>Animaties met <code>setInterval()</code></h3>
-    <p>De methode <code>setInterval(callback, ms)</code> voert een methode <code>callback</code> uit met vaste tussenposen van <code>ms</code> milliseconden. De timer kan gestopt worden met <code>clearInterval()</code>. Eenvoudig voorbeeld:</p>
-    <h4>Voorbeeld 1: klok</h4>
-    <pre class="prism-okaida language-html w-800" data-demo><code>&lt;!-- HTML --&gt;
-&lt;p&gt;de tijd is &lt;span id="clock"&gt;&lt;/span&gt;&lt;/p&gt;
+
+      <h3>Animaties met <code>setInterval()</code></h3>
+      <p>De methode <code>setInterval(callback, ms)</code> voert een methode <code>callback</code> uit met vaste tussenposen van <code>ms</code> milliseconden. De timer kan gestopt worden met <code>clearInterval()</code>. Eenvoudig voorbeeld:</p>
+      <h4>Voorbeeld 1: klok</h4>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;de tijd is &lt;span id="clock"&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;button id="btnStop"&gt;stop de tijd&lt;/button&gt;&lt;/p&gt;
-
-&lt;script&gt;
-  function padZeros(n) {
-    return ('0' + n).slice(-2);
-  }
-  function displayCurrentTime() {
-    const now = new Date();
-    var hours = padZeros(now.getHours());
-    var minutes = padZeros(now.getMinutes());
-    var seconds = padZeros(now.getSeconds());
-    document.querySelector('#clock').innerHTML = `${hours}:${minutes}:${seconds}`;
-  }
-  const timer = setInterval(displayCurrentTime, 100);
-  document.querySelector('#btnStop').addEventListener('click', () =&gt; clearInterval(timer));
-&lt;/script&gt;
 </code></pre>
-    <figure class="w-200">
-      <img src="img/05_games/interval-klok.gif" alt="" class="bordered">
-      <figcaption>eenvoudige klok</figcaption>
-    </figure>
+         <pre class="prism-okaida w-700" data-caption><code>
+const btnStop = document.querySelector('#btnStop');
+const clock = document.querySelector('#clock');
 
-    <h4>Voorbeeld 2: stuiterende bal</h4>
-    <p>Je <em>zou</em> <code>setInterval()</code> ook kunnen gebruiken om animaties in je game te timen. Eenvoudig voorbeeld met een stuitende bal:</p>
-    <pre class="prism-okaida language-html h-400 wrong" data-demo><code>&lt;!-- HTML --&gt;
-&lt;div id="app"&gt;&lt;img src="img/ball.png" id="ball" alt=""&gt;&lt;/div&gt;
+function padZeros(n) {
+   return ('0' + n).slice(-2);
+}
+function displayCurrentTime() {
+   const now = new Date();
+   const hours = padZeros(now.getHours());
+   const minutes = padZeros(now.getMinutes());
+   const seconds = padZeros(now.getSeconds());
+   clock.innerHTML = `${hours}:${minutes}:${seconds}`;
+}
+const timer = setInterval(displayCurrentTime, 100);
+btnStop.addEventListener('click', () =&gt; clearInterval(timer));</code></pre>
+      </div>
+      <figure class="w-200">
+         <img src="img/05_games/interval-klok.gif" alt="" class="bordered">
+         <figcaption>eenvoudige klok</figcaption>
+      </figure>
 
-&lt;!-- CSS --&gt;
-&lt;style&gt;
-  #app {
-    background-color: #eee;
-    height: 200px;
-    position: relative;
-    width: 400px;
-  }
+      <h4>Voorbeeld 2: stuiterende bal</h4>
+      <p>Je <em>zou</em> <code>setInterval()</code> ook kunnen gebruiken om animaties in je game te timen. Eenvoudig voorbeeld met een stuitende bal:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;div id="app"&gt;&lt;img src="img/ball.png" id="ball" alt=""&gt;&lt;/div&gt;</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>#app {
+   background-color: #eee;
+   height: 200px;
+   position: relative;
+   width: 400px;
+}
 
-  #ball {
-    height: 50px;
-    left: 10px;
-    position: absolute;
-    top: 100px;
-    width: 50px;
-  }
-&lt;/style&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  let speedX = 10; let speedY = 5; let speedR = 10;
-  let x = 10; let y = 100; let r = 0;
-  const ball = document.querySelector('#ball');
-  function doLoop() {
-    x += speedX;
-    y += speedY;
-    r += speedR;
-    ball.style.left = `${x}px`;
-    ball.style.top = `${y}px`;
-    ball.style.transform = `rotate(${r}deg)`;
-    if (x &lt; 0 || x &gt; 350) { speedX *= -1; speedR *= -1; }
-    if (y &lt; 0 || y &gt; 150) { speedY *= -1; speedR *= -1; }
-  }
-  setInterval(doLoop, 20); // herhaal elke 20ms
-&lt;/script&gt;
+#ball {
+   height: 50px;
+   left: 10px;
+   position: absolute;
+   top: 100px;
+   width: 50px;
+}</code></pre>
+         <pre class="prism-okaida w-600" data-caption><code>let speedX = 10; let speedY = 5; let speedR = 10;
+let x = 10; let y = 100; let r = 0;
+const ball = document.querySelector('#ball');
+function doLoop() {
+   x += speedX;
+   y += speedY;
+   r += speedR;
+   ball.style.left = `${x}px`;
+   ball.style.top = `${y}px`;
+   ball.style.transform = `rotate(${r}deg)`;
+   if (x &lt; 0 || x &gt; 350) { speedX *= -1; speedR *= -1; }
+   if (y &lt; 0 || y &gt; 150) { speedY *= -1; speedR *= -1; }
+}
+setInterval(doLoop, 20); // herhaal elke 20ms
 </code></pre>
-    <figure class="w-300">
-      <img src="img/05_games/interval-ball.gif" alt="" class="bordered">
-      <figcaption>stuiterende bal</figcaption>
-    </figure>
-    <p>De animatieframes worden exact om de 20ms berekend en getoond. Dit is ok bij heel eenvoudige games en animaties, maar bij complexere games kan het zijn dan de GPU niet meer kan volgen, en dat animaties schokkerig of onvolledig worden. Daarom gebruiken we voor games <code>requestAnimationFrame()</code> (zie volgend onderdeel).</p>
+      </div>
+      <figure class="w-300">
+         <img src="img/05_games/interval-ball.gif" alt="" class="bordered">
+         <figcaption>stuiterende bal</figcaption>
+      </figure>
+      <p>De animatieframes worden exact om de 20ms berekend en getoond. Dit is ok bij heel eenvoudige games en animaties, maar bij complexere games kan het zijn dan de GPU niet meer kan volgen, en dat animaties schokkerig of onvolledig worden. Daarom gebruiken we voor games <code>requestAnimationFrame()</code> (zie volgend onderdeel).</p>
 
-    <h3>Animaties met <code>requestAnimationFrame()</code></h3>
-    <p>De <code>requestAnimationFrame()</code> is speciaal bedoeld voor games: het wordt opgeroepen standaard 60 keer per seconde, maar <strong>niet eerder dan de GPU klaar is voor het volgende frame</strong>. Vergelijk volgende fragmenten:</p>
-    <div class="codecompare">
-      <pre class="prism-okaida line-numbers"><code>function doLoop() {
+      <h3>Animaties met <code>requestAnimationFrame()</code></h3>
+      <p>De <code>requestAnimationFrame()</code> is speciaal bedoeld voor games: het wordt opgeroepen standaard 60 keer per seconde, maar <strong>niet eerder dan de GPU klaar is voor het volgende frame</strong>. Vergelijk volgende fragmenten:</p>
+      <div class="codecompare">
+         <pre class="prism-okaida line-numbers"><code>function doLoop() {
   // animatie logica hier
   // ...
 }
@@ -933,149 +860,137 @@ setInterval(doLoop, 20); // voer doLoop() elke 20ms uit
 
 
 </code></pre>
-      <pre class="prism-okaida line-numbers"><code>function doLoop() {
+         <pre class="prism-okaida line-numbers"><code>function doLoop() {
   // animatie logica hier
   // ...
   // voer doLoop() pas weer uit als de GPU klaar is
   requestAnimationFrame(doLoop);
 }
-doLoop(); // start the loop</code></pre>
-    </div>
+doLoop(); // start de loop</code></pre>
+      </div>
 
-    <h4>Voorbeeld 1: stuiterende bal</h4>
-    <p>Het stuiterende bal voorbeeld herschreven met <code>requestAnimationFrame()</code>:</p>
-    <pre class="prism-okaida language-html h-400 right" data-demo><code>&lt;!-- HTML --&gt;
-&lt;div id="app"&gt;&lt;img src="img/ball.png" id="ball" alt=""&gt;&lt;/div&gt;
+      <h4>Voorbeeld 1: stuiterende bal</h4>
+      <p>Het stuiterende bal voorbeeld herschreven met <code>requestAnimationFrame()</code>:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;div id="app"&gt;&lt;img src="img/ball.png" id="ball" alt=""&gt;&lt;/div&gt;</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>#app {
+   background-color: #eee;
+   height: 200px;
+   position: relative;
+   width: 400px;
+}
 
-&lt;!-- CSS --&gt;
-&lt;style&gt;
-  #app {
-    background-color: #eee;
-    height: 200px;
-    position: relative;
-    width: 400px;
-  }
-
-  #ball {
-    height: 50px;
-    left: 10px;
-    position: absolute;
-    top: 100px;
-    width: 50px;
-  }
-&lt;/style&gt;
-
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  let speedX = 10; let speedY = 5; let speedR = 10;
-  let x = 10; let y = 100; let r = 0;
-  const ball = document.querySelector('#ball');
-  function doLoop() {
-    x += speedX;
-    y += speedY;
-    r += speedR;
-    ball.style.left = `${x}px`;
-    ball.style.top = `${y}px`;
-    ball.style.transform = `rotate(${r}deg)`;
-    if (x &lt; 0 || x &gt; 350) { speedX *= -1; speedR *= -1; }
-    if (y &lt; 0 || y &gt; 150) { speedY *= -1; speedR *= -1; }
-    requestAnimationFrame(doLoop); // call next frame whenever the CPU is ready
-  }
-  doLoop(); // start the loop
-&lt;/script&gt;
+#ball {
+   height: 50px;
+   left: 10px;
+   position: absolute;
+   top: 100px;
+   width: 50px;
+}
 </code></pre>
-    <figure class="w-300">
-      <img src="img/05_games/interval-ball.gif" alt="" class="bordered">
-      <figcaption>stuiterende bal</figcaption>
-    </figure>
-    <h4>Voorbeeld 2: gunman game</h4>
-    <p>Een compleet voorbeeld met animaties, besturing en geluidseffecten:</p>
-    <pre class="prism-okaida language-html h-400 right" data-demo><code>&lt;!-- HTML --&gt;
-&lt;div id="app"&gt;
-  &lt;img id="gunman" alt=""&gt;
-  &lt;div class="buttons"&gt;
-    &lt;button id="btnStop"&gt;stop&lt;/button&gt;
-    &lt;button id="btnWalk"&gt;walk&lt;/button&gt;
-    &lt;button id="btnRun"&gt;run&lt;/button&gt;
-    &lt;button id="btnShoot"&gt;shoot&lt;/button&gt;
-    &lt;button id="btnDie"&gt;die&lt;/button&gt;
-    &lt;button id="btnTurn"&gt;turn&lt;/button&gt;
-  &lt;/div&gt;
+         <pre class="prism-okaida w-800" data-caption><code>let speedX = 10; let speedY = 5; let speedR = 10;
+let x = 10; let y = 100; let r = 0;
+const ball = document.querySelector('#ball');
+function doLoop() {
+   x += speedX;
+   y += speedY;
+   r += speedR;
+   ball.style.left = `${x}px`;
+   ball.style.top = `${y}px`;
+   ball.style.transform = `rotate(${r}deg)`;
+   if (x &lt; 0 || x &gt; 350) { speedX *= -1; speedR *= -1; }
+   if (y &lt; 0 || y &gt; 150) { speedY *= -1; speedR *= -1; }
+   requestAnimationFrame(doLoop); // toon volgende frame wanneer CPU er klaar voor is
+}
+doLoop(); // start de loop
+</code></pre>
+      </div>
+      <figure class="w-300">
+         <img src="img/05_games/interval-ball.gif" alt="" class="bordered">
+         <figcaption>stuiterende bal</figcaption>
+      </figure>
+      <h4>Voorbeeld 2: gunman game</h4>
+      <p>Een compleet voorbeeld met animaties, besturing en geluidseffecten:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;div id="app"&gt;
+   &lt;img id="gunman" alt=""&gt;
+   &lt;div class="buttons"&gt;
+      &lt;button id="btnStop"&gt;stop&lt;/button&gt;
+      &lt;button id="btnWalk"&gt;walk&lt;/button&gt;
+      &lt;button id="btnRun"&gt;run&lt;/button&gt;
+      &lt;button id="btnShoot"&gt;shoot&lt;/button&gt;
+      &lt;button id="btnDie"&gt;die&lt;/button&gt;
+      &lt;button id="btnTurn"&gt;turn&lt;/button&gt;
+   &lt;/div&gt;
 &lt;/div&gt;
+</code></pre>
+         <pre class="prism-atom-dark language-css w-600 h-400" data-caption><code>body {
+   background-color: #333;
+}
 
-&lt;!-- CSS --&gt;
-&lt;style&gt;
-  body {
-    background-color: #333;
-  }
+#app {
+   background-color: rgb(112, 61, 61);
+   background-image: url(img/panorama.jpg);
+   background-position: -750px 0;
+   width: 780px;
+   height: 500px;
+   margin: 0 auto;
+   position:  relative;
+}
 
-  #app {
-    background-color: rgb(112, 61, 61);
-    background-image: url(img/panorama.jpg);
-    background-position: -750px 0;
-    width: 780px;
-    height: 500px;
-    margin: 0 auto;
-    position:  relative;
-  }
+.buttons {
+   display: flex;
+   left: 20px;
+   position: absolute;
+   top: 20px;
+   z-index: 10;
+}
 
-  .buttons {
-    display: flex;
-    left: 20px;
-    position: absolute;
-    top: 20px;
-    z-index: 10;
-  }
+.buttons button {
+   margin: 0 5px;
+}
 
-  .buttons button {
-    margin: 0 5px;
-  }
+#gunman {
+   background-image: url(img/sprite.png);
+   bottom: 100px;
+   display: block;
+   height: 150px;
+   left: 400px;
+   overflow: hidden;
+   position: absolute;
+   width: 150px;
+}</code></pre>
+         <pre class="prism-okaida w-600 h-400" data-caption><code>// sprites list
+const sprites = [];
 
-  #gunman {
-    background-image: url(img/sprite.png);
-    bottom: 100px;
-    display: block;
-    height: 150px;
-    left: 400px;
-    overflow: hidden;
-    position: absolute;
-    width: 150px;
-  }
-&lt;/style&gt;
+// sound fx
+const sndSplash = new Audio('media/splash.mp3');
+const sndGun = new Audio('media/gun.mp3');
+sndGun.loop = true;
 
-&lt;!-- SCRIPT --&gt;
-&lt;script&gt;
-  // sprites list
-  const sprites = [];
+// DOM elements
+const app = document.querySelector('#app');
+const btnStop = document.querySelector('#btnStop');
+const btnWalk = document.querySelector('#btnWalk');
+const btnRun = document.querySelector('#btnRun');
+const btnShoot = document.querySelector('#btnShoot');
+const btnDie = document.querySelector('#btnDie');
+const btnTurn = document.querySelector('#btnTurn');
 
-  // sound fx
-  const sndSplash = new Audio('media/splash.mp3');
-  const sndGun = new Audio('media/gun.mp3');
-  sndGun.loop = true;
+// background offset
+let bgOffsetX = -750;
 
-  // DOM elements
-  const app = document.querySelector('#app');
-  const btnStop = document.querySelector('#btnStop');
-  const btnWalk = document.querySelector('#btnWalk');
-  const btnRun = document.querySelector('#btnRun');
-  const btnShoot = document.querySelector('#btnShoot');
-  const btnDie = document.querySelector('#btnDie');
-  const btnTurn = document.querySelector('#btnTurn');
-
-  // background offset
-  let bgOffsetX = -750;
-
-  // gunman
-  const gunman = {
-    el: document.querySelector('#gunman'), // DOM element
-    w: 150, // sprite width
-    h: 150, // sprite height
-    fps: 5, // frames per second
-    isDead: false,
-    startTime: new Date(), // in milliseconds
-    direction: 1, // 1 = left, -1 = right
-    state: 'walk', // stop, walk, die, shoot
-    setState: function(state) { // sets sprite state
+// gunman
+const gunman = {
+   el: document.querySelector('#gunman'), // DOM element
+   w: 150, // sprite width
+   h: 150, // sprite height
+   fps: 5, // frames per second
+   isDead: false,
+   startTime: new Date(), // in milliseconds
+   direction: 1, // 1 = left, -1 = right
+   state: 'walk', // stop, walk, die, shoot
+   setState: function(state) { // sets sprite state
       sndGun.pause();
       this.startTime = new Date();
       this.state = state;
@@ -1085,125 +1000,125 @@ doLoop(); // start the loop</code></pre>
       if (state == 'stop') this.fps = 3;
       if (state == 'die') sndSplash.play();
       if (state == 'shoot') sndGun.play();
-    },
-    frames: { // series of images from sprite sheet
+   },
+   frames: { // series of images from sprite sheet
       stop: [
-        [0, 0]
+         [0, 0]
       ],
       walk: [
-        [2, 0],
-        [3, 0],
-        [4, 0]
+         [2, 0],
+         [3, 0],
+         [4, 0]
       ],
       run: [
-        [2, 0],
-        [3, 0],
-        [4, 0]
+         [2, 0],
+         [3, 0],
+         [4, 0]
       ],
       die: [
-        [0, 1],
-        [1, 1],
-        [2, 1],
-        [3, 1],
-        [4, 1],
-        [5, 1],
-        [6, 1],
-        [7, 1],
-        [8, 1],
-        [9, 1]
+         [0, 1],
+         [1, 1],
+         [2, 1],
+         [3, 1],
+         [4, 1],
+         [5, 1],
+         [6, 1],
+         [7, 1],
+         [8, 1],
+         [9, 1]
       ],
       shoot: [
-        [0, 0],
-        [0, 0],
-        [1, 0],
-        [1, 0]
+         [0, 0],
+         [0, 0],
+         [1, 0],
+         [1, 0]
       ]
-    }
-  };
+   }
+};
 
-  // add gunman to sprites list
-  sprites.push(gunman);
+// add gunman to sprites list
+sprites.push(gunman);
 
-  // render a sprite
-  function renderSprite(sprite) {
-    // ignore dead sprites
-    if (sprite.isDead) return;
+// render a sprite
+function renderSprite(sprite) {
+   // ignore dead sprites
+   if (sprite.isDead) return;
 
-    // detect death
-    const timePassed = new Date() - sprite.startTime;
-    const currFrames = sprite.frames[sprite.state];
-    let frameNr = parseInt(timePassed * sprite.fps / 1000);
-    if (sprite.state == 'die' &amp;&amp; frameNr &gt;= currFrames.length) {
+   // detect death
+   const timePassed = new Date() - sprite.startTime;
+   const currFrames = sprite.frames[sprite.state];
+   let frameNr = parseInt(timePassed * sprite.fps / 1000);
+   if (sprite.state == 'die' &amp;&amp; frameNr &gt;= currFrames.length) {
       sprite.isDead = true;
       return;
-    }
+   }
 
-    // adjust frame
-    frameNr = frameNr % currFrames.length;
-    sprite.el.style.backgroundPositionX = `-${sprite.w * currFrames[frameNr][0]}px`;
-    sprite.el.style.backgroundPositionY = `-${sprite.h * currFrames[frameNr][1]}px`;
-    sprite.el.style.transform = `scaleX(${sprite.direction})`;
+   // adjust frame
+   frameNr = frameNr % currFrames.length;
+   sprite.el.style.backgroundPositionX = `-${sprite.w * currFrames[frameNr][0]}px`;
+   sprite.el.style.backgroundPositionY = `-${sprite.h * currFrames[frameNr][1]}px`;
+   sprite.el.style.transform = `scaleX(${sprite.direction})`;
 
-    // adjust background
-    if (sprite.state == 'walk' || sprite.state == 'run') bgOffsetX += sprite.direction * sprite.fps / 5;
-    app.style.backgroundPositionX = `${bgOffsetX}px`;
-  }
+   // adjust background
+   if (sprite.state == 'walk' || sprite.state == 'run') bgOffsetX += sprite.direction * sprite.fps / 5;
+   app.style.backgroundPositionX = `${bgOffsetX}px`;
+}
 
-  function doLoop() {
-    for (const sprite of sprites) renderSprite(sprite);
-    requestAnimationFrame(doLoop);
-  }
+function doLoop() {
+   for (const sprite of sprites) renderSprite(sprite);
+   requestAnimationFrame(doLoop);
+}
 
-  btnStop.addEventListener('click', function() {
-    gunman.setState('stop');
-  });
-  btnWalk.addEventListener('click', function() {
-    gunman.setState('walk');
-  });
-  btnRun.addEventListener('click', function() {
-    gunman.setState('run');
-  });
-  btnShoot.addEventListener('click', function() {
-    sndGun.play();
-    gunman.setState('shoot');
-  });
-  btnDie.addEventListener('click', function() {
-    gunman.setState('die');
-  });
-  btnTurn.addEventListener('click', function() {
-    gunman.direction = gunman.direction * -1;
-  });
+btnStop.addEventListener('click', function() {
+   gunman.setState('stop');
+});
+btnWalk.addEventListener('click', function() {
+   gunman.setState('walk');
+});
+btnRun.addEventListener('click', function() {
+   gunman.setState('run');
+});
+btnShoot.addEventListener('click', function() {
+   sndGun.play();
+   gunman.setState('shoot');
+});
+btnDie.addEventListener('click', function() {
+   gunman.setState('die');
+});
+btnTurn.addEventListener('click', function() {
+   gunman.direction = gunman.direction * -1;
+});
 
-  // start the game
-  doLoop();&lt;/script&gt;
-</code></pre>
-    <figure>
-      <img src="img/05_games/gunman.png" alt="" class="w-600">
-      <figcaption>screenshot van de gunman game</figcaption>
-    </figure>
-    <h2>3D in Javascript</h2>
-    <h3>3D begrippen</h3>
-    <p>Voor 3D graphics en animaties hebben we het volgende nodig:</p>
-    <ul>
-      <li>een <span class="em">scene</span> met alle objecten, lichten enz...</li>
-      <li>enkele <span class="em">objecten</span> (kleur, textuur, materiaal, vorm, positie, rotatie...)</li>
-      <li><span class="em">belichting</span> (kleur, diafragma, positie, richting...)</li>
-      <li>één of meerdere <span class="em">cameras</span> (positie, doel...)</li>
-      <li>waarschijnlijk ook <span class="em">geluidseffecten</span></li>
-    </ul>
-    <p>Om die scene effectief weer te geven (<mark>renderen</mark>) moet je ook denken aan:</p>
-    <ul>
-      <li>welke objecten kunnen <span class="em">schaduw ontvangen</span>?</li>
-      <li>welke objecten kunnen <span class="em">schaduw geven</span>?</li>
-      <li>wat zijn de <span class="em">reflectie eigenschappen</span> van objecten (glans, absorptie...)?</li>
-    </ul>
-    <p>Tenslotte hebben we voor animaties ook één of andere <span class="em">game loop</span> nodig die de frames weergeeft.</p>
-    <img src="img/05_games/3dscene.jpg" alt="" class="w-600">
-    <h3>3D met Three.js library</h3>
-    <p>Er zijn verschillende libraries die het werken met 3D in Javascript vereenvoudigen, maar een uitstekende is <a href="https://threejs.org/docs/">Three.js</a>.</p>
-    <h4>Voorbeeld 1: roterende donut eenvoudig</h4>
-    <p>Codevoorbeeld van een roterende donut:</p>
-    <pre class="prism-okaida language-html h-400 w-800" data-demo><code>
+// start the game
+doLoop();</code></pre>
+      </div>
+      <figure>
+         <img src="img/05_games/gunman.png" alt="" class="w-600">
+         <figcaption>screenshot van de gunman game</figcaption>
+      </figure>
+      <h2>3D in Javascript</h2>
+      <h3>3D begrippen</h3>
+      <p>Voor 3D graphics en animaties hebben we het volgende nodig:</p>
+      <ul>
+         <li>een <span class="em">scene</span> met alle objecten, lichten enz...</li>
+         <li>enkele <span class="em">objecten</span> (kleur, textuur, materiaal, vorm, positie, rotatie...)</li>
+         <li><span class="em">belichting</span> (kleur, diafragma, positie, richting...)</li>
+         <li>één of meerdere <span class="em">cameras</span> (positie, doel...)</li>
+         <li>waarschijnlijk ook <span class="em">geluidseffecten</span></li>
+      </ul>
+      <p>Om die scene effectief weer te geven (<mark>renderen</mark>) moet je ook denken aan:</p>
+      <ul>
+         <li>welke objecten kunnen <span class="em">schaduw ontvangen</span>?</li>
+         <li>welke objecten kunnen <span class="em">schaduw geven</span>?</li>
+         <li>wat zijn de <span class="em">reflectie eigenschappen</span> van objecten (glans, absorptie...)?</li>
+      </ul>
+      <p>Tenslotte hebben we voor animaties ook één of andere <span class="em">game loop</span> nodig die de frames weergeeft.</p>
+      <img src="img/05_games/3dscene.jpg" alt="" class="w-600">
+      <h3>3D met Three.js library</h3>
+      <p>Er zijn verschillende libraries die het werken met 3D in Javascript vereenvoudigen, maar een uitstekende is <a href="https://threejs.org/docs/">Three.js</a>.</p>
+      <h4>Voorbeeld 1: roterende donut eenvoudig</h4>
+      <p>Codevoorbeeld van een roterende donut:</p>
+       <pre class="prism-okaida language-html h-400 w-800" data-demo><code>
 &lt;!-- SCRIPTS --&gt;
 &lt;script src="common/vendor/three.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -1283,25 +1198,22 @@ doLoop(); // start the loop</code></pre>
   }
   render();
 &lt;/script&gt;</code></pre>
-    <figure>
-      <img src="img/05_games/3dsimple.png" alt="" class="w-600">
-      <figcaption>roterende donut in Three.js</figcaption>
-    </figure>
+      <figure>
+         <img src="img/05_games/3dsimple.png" alt="" class="w-600">
+         <figcaption>roterende donut in Three.js</figcaption>
+      </figure>
 
-    <h4>Voorbeeld 2: roterende donut geavanceerd</h4>
-    <p>Geavanceerde versie van de roterende donut (<a href="demos/05_games/threejsfull/">demo hier</a>, <a href="demos/05_games/threejsfull/threejs-full-example.zip">zip met code hier</a>):</p>
-    <a href="demos/05_games/threejsfull/"><img src="img/05_games/threejs-full.png" alt="" class="w-800"></a>
+      <h4>Voorbeeld 2: roterende donut geavanceerd</h4>
+      <p>Geavanceerde versie van de roterende donut (<a href="demos/05_games/threejsfull/">demo hier</a>, <a href="demos/05_games/threejsfull/threejs-full-example.zip">zip met code hier</a>):</p>
+      <a href="demos/05_games/threejsfull/"><img src="img/05_games/threejs-full.png" alt="" class="w-800"></a>
 
-    <h4>Voorbeeld 3: vier op een rij in 3D</h4>
-    <p>Vier op een rij in 3D (<a href="demos/05_games/vieropeenrij/">demo hier</a>, <a href="demos/05_games/vieropeenrij/vieropeenrij.zip">zip met code hier</a>):</p>
-    <a href="demos/05_games/vieropeenrij/"><img src="img/05_games/vieropeenrij.png" alt="" class="w-800 bordered"></a>
+      <h4>Voorbeeld 3: vier op een rij in 3D</h4>
+      <p>Vier op een rij in 3D (<a href="demos/05_games/vieropeenrij/">demo hier</a>, <a href="demos/05_games/vieropeenrij/vieropeenrij.zip">zip met code hier</a>):</p>
+      <a href="demos/05_games/vieropeenrij/"><img src="img/05_games/vieropeenrij.png" alt="" class="w-800 bordered"></a>
 
-    <h4>Voorbeeld 4: 3D OXO</h4>
-    <p>OXO in 3D (<a href="demos/05_games/oxo3d/">demo hier</a>, <a href="demos/05_games/oxo3d/oxo3d.zip">zip met code hier</a>):</p>
-    <a href="demos/05_games/oxo3d/"><img src="img/05_games/oxo3d.png" alt="" class="w-800 bordered"></a>
-
-
-
+      <h4>Voorbeeld 4: 3D OXO</h4>
+      <p>OXO in 3D (<a href="demos/05_games/oxo3d/">demo hier</a>, <a href="demos/05_games/oxo3d/oxo3d.zip">zip met code hier</a>):</p>
+      <a href="demos/05_games/oxo3d/"><img src="img/05_games/oxo3d.png" alt="" class="w-800 bordered"></a>
   </main>
   <footer>
     <img src="img/thats-all.jpg" alt="">
