@@ -4,7 +4,7 @@
 <html lang="nl">
 
 <head>
-   <title>DOM deel 1 | Javascript cursus</title>
+   <title>HTML manipulatie | Javascript cursus</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="common/styles.css">
@@ -25,28 +25,36 @@
          <p class="thumb__title">01. Javascript syntax</p>
          <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
       </a>
-      <a href="02_dom1.html" class="main__thumb active" title="02. DOM deel 1">
-         <p class="thumb__title">02. DOM 1</p>
-         <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
+      <a href="02_domhtml.html" class="main__thumb active" title="02. HTML manipulatie">
+         <p class="thumb__title">02. HTML manipulatie</p>
+         <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
       </a>
-      <a href="03_dom2.html" class="main__thumb" title="03. DOM deel2">
-         <p class="thumb__title">03. DOM 2</p>
-         <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
+      <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
+         <p class="thumb__title">03. CSS manipulatie</p>
+         <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
       </a>
       <a href="04_async.html" class="main__thumb" title="04. Web API's">
          <p class="thumb__title">04. Web API's</p>
          <img class="thumb__visual" src="img/04_async/icon.png" alt="">
       </a>
-      <a href="05_games.html" class="main__thumb" title="05. games">
-         <p class="thumb__title">05. Games</p>
-         <img class="thumb__visual" src="img/05_games/icon.png" alt="">
+      <a href="05_nodejs.html" class="main__thumb" title="05. NodeJS">
+        <p class="thumb__title">05. NodeJS</p>
+        <img class="thumb__visual" src="img/05_nodejs/icon.png" alt="">
+      </a>
+      <a href="games.html" class="main__thumb" title="games">
+         <p class="thumb__title">Games</p>
+         <img class="thumb__visual" src="img/games/icon.png" alt="">
+      </a>
+      <a href="es6.html" class="main__thumb" title="ES6">
+        <p class="thumb__title">ES6</p>
+        <img class="thumb__visual" src="img/es6/icon.png" alt="">
       </a>
       <a href="summary.html" class="main__thumb" title="05. samenvatting">
          <p class="thumb__title">samenvatting</p>
          <img class="thumb__visual" src="img/summary/icon.png" alt="">
       </a>
    </nav>
-   <h1>02. DOM deel 1</h1>
+   <h1>02. HTML manipulatie</h1>
    <div id="toc"></div>
 
    <main>
@@ -57,7 +65,7 @@
          <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/tXkV_vuJT8s?enablejsapi=1"
             allowfullscreen></iframe>
          <figure class="print">
-            <a href="https://www.youtube.com/embed/tXkV_vuJT8s"><img src="img/02_dom1/03.DWD-dom1.png" alt=""
+            <a href="https://www.youtube.com/embed/tXkV_vuJT8s"><img src="img/02_domhtml/03.DWD-dom1.png" alt=""
                   class="w-500"></a>
             <figcaption><a
                   href="https://www.youtube.com/embed/tXkV_vuJT8s">https://www.youtube.com/embed/tXkV_vuJT8s</a>
@@ -183,7 +191,7 @@
 &lt;/html&gt;
 </code></pre>
       <p>Grafisch kan je de structuur als volgt voorstellen:</p>
-      <img src="img/02_dom1/domtree.png" alt="" class="w-500">
+      <img src="img/02_domhtml/domtree.png" alt="" class="w-500">
       <p>De <code>html</code> node noemt men de <strong>root</strong>, de <code>title</code> is een <strong>child</strong> van de <code>head</code>, <code>h1</code>, <code>p</code> en <code>ul</code> zijn <strong>siblings</strong> enz... Samengevat:</p>
       <table class="light">
          <thead>
@@ -225,7 +233,7 @@
          </tbody>
       </table>
       <p>Visueel voorgesteld:</p>
-      <img src="img/02_dom1/domtree2.png" alt="" class="w-500">
+      <img src="img/02_domhtml/domtree2.png" alt="" class="w-500">
       <h3>Document Object Model</h3>
       <div class="tips" data-caption="💡 WAT IS HET DOM?">
          <p>
@@ -265,7 +273,7 @@
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/button-test.png" alt="" class="w-400">
+            <img src="img/02_domhtml/button-test.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -297,7 +305,7 @@
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/button-test-js.png" alt="" class="w-400">
+            <img src="img/02_domhtml/button-test-js.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -406,7 +414,7 @@ lbl.innerHTML = `tekst in het tekstvak: ${inp.value}`;
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/button-test-js.png" alt="" class="w-400">
+            <img src="img/02_domhtml/button-test-js.png" alt="" class="w-400">
          </div>
       </div>
       <p>Je kan niet alleen id-selectoren, maar elke geldige CSS selector meegeven als argument:</p>
@@ -432,7 +440,7 @@ console.log(`dit item linkt naar ${activeLink.href}`);
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/nav-test.png" alt="" class="w-400">
+            <img src="img/02_domhtml/nav-test.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -456,7 +464,7 @@ console.log(`eerste menu item: "${firstLink.innerHTML}"`);
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/nav-test2.png" alt="" class="w-400">
+            <img src="img/02_domhtml/nav-test2.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -484,7 +492,7 @@ navLinks.forEach(lnk =&gt; {
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/nav-test3.png" alt="" class="w-400">
+            <img src="img/02_domhtml/nav-test3.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -512,7 +520,7 @@ console.log(`tabel bevat: ${rows.length} rijen ${cells.length} cellen`);
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/table-test.png" alt="" class="w-400">
+            <img src="img/02_domhtml/table-test.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -539,7 +547,7 @@ console.log(`tabel bevat: ${rows.length} rijen ${cells.length} cellen`);
       <div class="codecompare">
          <div>
             <div class="precontainer">
-               <pre class="prism-default language-html padtop" data-demo="demos/02_dom1/dom-manipulatie-attributen.html"><code>&lt;img id="img1" src="img/photo1-s.jpg" alt="random image"&gt;</code></pre>
+               <pre class="prism-default language-html padtop" data-demo="demos/02_domhtml/dom-manipulatie-attributen.html"><code>&lt;img id="img1" src="img/photo1-s.jpg" alt="random image"&gt;</code></pre>
                <div class="codemarker" data-text="src="></div>
                <div class="codemarker" data-text="alt="></div>
             </div>
@@ -568,7 +576,7 @@ console.log(`huidige url: ${img1.src}`);
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/random-test.gif" alt="" class="w-400 bordered">
+            <img src="img/02_domhtml/random-test.gif" alt="" class="w-400 bordered">
          </div>
       </div>
 
@@ -598,7 +606,7 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/demo-domproperties.png" alt="" class="w-400">
+            <img src="img/02_domhtml/demo-domproperties.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -615,7 +623,7 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
 </code></pre>
             </div>
             <div class="precontainer">
-               <pre class="prism-okaida" data-demo="demos/02_dom1/dom-manipulatie-innerhtml.html"><code>const content = document.querySelector('#content');
+               <pre class="prism-okaida" data-demo="demos/02_domhtml/dom-manipulatie-innerhtml.html"><code>const content = document.querySelector('#content');
 const msg = document.querySelector('#message');
 for (let i = 1; i &lt; 5; i++) {
       content.innerHTML += `&lt;img id="img${i}"
@@ -628,7 +636,7 @@ msg.innerHTML = `content contains ${numImages} images`;</code></pre>
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/demo-innerhtml.png" alt="" class="w-150 bordered">
+            <img src="img/02_domhtml/demo-innerhtml.png" alt="" class="w-150 bordered">
          </div>
       </div>
 
@@ -720,7 +728,7 @@ msg.innerHTML = `content contains ${numImages} images`;</code></pre>
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/event-inline-wpf.png" alt="" class="w-400">
+            <img src="img/02_domhtml/event-inline-wpf.png" alt="" class="w-400">
          </div>
       </div>
       <p>met de Javascript versie:</p>
@@ -741,7 +749,7 @@ function zegHallo() {
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/event-inline-js.png" alt="" class="w-400">
+            <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
          </div>
       </div>
       <p>Dit is <strong>niet</strong> de manier waarop het gedaan wordt in Javascript! Net zomin als we inline CSS gebruiken, zullen we ook geen inline Javascript gebruiken.</p>
@@ -765,7 +773,7 @@ btnHello.onclick = zegHallo; // zegHallo zonder haakjes ()</code></pre>
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/event-inline-js.png" alt="" class="w-400">
+            <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -788,7 +796,7 @@ btnHello.addEventListener('click', zegHallo);</code></pre>
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/event-inline-js.png" alt="" class="w-400">
+            <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
          </div>
       </div>
       <ul class="arrow">
@@ -862,7 +870,7 @@ btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/sender-wpf.png" alt="" class="w-300">
+            <img src="img/02_domhtml/sender-wpf.png" alt="" class="w-300">
          </div>
       </div>
       <p>Javascript versie:</p>
@@ -891,7 +899,7 @@ buttons.forEach(btn =&gt; {
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/target.png" alt="" class="w-400">
+            <img src="img/02_domhtml/target.png" alt="" class="w-400">
          </div>
       </div>
       <h3>Event bubbling</h3>
@@ -925,7 +933,7 @@ table.addEventListener('click', function(e) {
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/bubbling.png" alt="" class="w-400">
+            <img src="img/02_domhtml/bubbling.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -991,7 +999,7 @@ links.forEach(lnk =&gt; {
             </div>
          </div>
          <div>
-            <img src="img/02_dom1/preventdefault1.png" alt="" class="w-400">
+            <img src="img/02_domhtml/preventdefault1.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -1010,7 +1018,7 @@ links.forEach(lnk =&gt; {
             <div class="codemarker" data-text="e.preventDefault()"></div>
          </div>
          <div>
-            <img src="img/02_dom1/preventdefault2.png" alt="" class="w-400">
+            <img src="img/02_domhtml/preventdefault2.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -1021,7 +1029,7 @@ links.forEach(lnk =&gt; {
          grijs; de bekeken foto's zetten we om in kleur.
          Ook voorzien we een opacity hover effectje. In <a
             href="#video-1-trees-dom-document-queries-dom-manipulatie-events">de video</a> kan je de volledige uitleg
-         vinden. Een <a href="demos/02_dom1/demoFotogallerij1/index.html">demo vind je hier</a>.
+         vinden. Een <a href="demos/02_domhtml/demoFotogallerij1/index.html">demo vind je hier</a>.
       </p>
       <p>Je herkent heel wat geziene technieken:</p>
       <ul class="arrow">
@@ -1035,7 +1043,7 @@ links.forEach(lnk =&gt; {
          <div>
             <div class="precontainer">
                <pre class="prism-default language-html w-800"
-                  data-demo="demos/02_dom1/demoFotogallerij1/index.html"><code>&lt;ul class="thumbs"&gt;
+                  data-demo="demos/02_domhtml/demoFotogallerij1/index.html"><code>&lt;ul class="thumbs"&gt;
    &lt;li&gt;&lt;a href="img/photo1.jpg"&gt;
       &lt;img src="img/photo1-s.jpg" alt="Amman, Jordanië"&gt;&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href="img/photo17.jpg"&gt;
@@ -1067,7 +1075,7 @@ thumbLinks.forEach(lnk =&gt; {
             </div>
          </div>
          <div>
-            <p><img src="img/02_dom1/gallery2.png" alt="" class="w-600"></p>
+            <p><img src="img/02_domhtml/gallery2.png" alt="" class="w-600"></p>
          </div>
       </div>
       <div class="precontainer">
@@ -1114,7 +1122,7 @@ img {
       <p>
          Form checking is een absolute klassieker onder de Javascripts, en mag niet ontbreken.
          Bekijk zeker de uitleg in <a href="#video-1-trees-dom-document-queries-dom-manipulatie-events">de video</a>.
-         Een <a href="demos/02_dom1/demoFormchecking1/index.html">demo vind je hier</a>.
+         Een <a href="demos/02_domhtml/demoFormchecking1/index.html">demo vind je hier</a>.
          We beperken het formulier tot een eenvoudige registratie. Er zitten nog een tweetal nieuwigheden in (uitleg zie
          video):
       </p>
@@ -1125,7 +1133,7 @@ img {
       <div class="codecompare">
          <div>
             <div class="precontainer">
-               <pre class="prism-default language-html" data-demo="demos/02_dom1/demoFormchecking1/index.html"><code>&lt;form id="frmLogin"&gt;
+               <pre class="prism-default language-html" data-demo="demos/02_domhtml/demoFormchecking1/index.html"><code>&lt;form id="frmLogin"&gt;
    &lt;h1 class="form__title"&gt;Registreren&lt;/h1&gt;
    &lt;div class="form__control ctrlEmail"&gt;
       &lt;label for="email"&gt;Email: &lt;/label&gt;
@@ -1197,7 +1205,7 @@ frmLogin.addEventListener('submit', function (e) {
             </div>
          </div>
          <div>
-            <p><img src="img/02_dom1/formchecking.gif" alt="" class="w-400 bordered"></p>
+            <p><img src="img/02_domhtml/formchecking.gif" alt="" class="w-400 bordered"></p>
          </div>
       </div>
       <div class="precontainer">

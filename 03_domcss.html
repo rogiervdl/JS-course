@@ -4,7 +4,7 @@
 <html lang="nl">
 
 <head>
-   <title>DOM deel 2 | Javascript cursus</title>
+   <title>CSS manipulatie | Javascript cursus</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="common/styles.css">
@@ -25,28 +25,36 @@
          <p class="thumb__title">01. Javascript syntax</p>
          <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
       </a>
-      <a href="02_dom1.html" class="main__thumb" title="02. DOM deel 1">
-         <p class="thumb__title">02. DOM 1</p>
-         <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
+      <a href="02_domhtml.html" class="main__thumb" title="02. HTML manipulatie">
+         <p class="thumb__title">02. HTML manipulatie</p>
+         <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
       </a>
-      <a href="03_dom2.html" class="main__thumb active" title="03. DOM deel2">
-         <p class="thumb__title">03. DOM 2</p>
-         <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
+      <a href="03_domcss.html" class="main__thumb active" title="03. CSS manipulatie">
+         <p class="thumb__title">03. CSS manipulatie</p>
+         <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
       </a>
       <a href="04_async.html" class="main__thumb" title="04. Web API's">
          <p class="thumb__title">04. Web API's</p>
          <img class="thumb__visual" src="img/04_async/icon.png" alt="">
       </a>
-      <a href="05_games.html" class="main__thumb" title="05. games">
-         <p class="thumb__title">05. Games</p>
-         <img class="thumb__visual" src="img/05_games/icon.png" alt="">
+      <a href="05_nodejs.html" class="main__thumb" title="05. NodeJS">
+        <p class="thumb__title">05. NodeJS</p>
+        <img class="thumb__visual" src="img/05_nodejs/icon.png" alt="">
+      </a>
+      <a href="games.html" class="main__thumb" title="games">
+         <p class="thumb__title">Games</p>
+         <img class="thumb__visual" src="img/games/icon.png" alt="">
+      </a>
+      <a href="es6.html" class="main__thumb" title="ES6">
+        <p class="thumb__title">ES6</p>
+        <img class="thumb__visual" src="img/es6/icon.png" alt="">
       </a>
       <a href="summary.html" class="main__thumb" title="05. samenvatting">
          <p class="thumb__title">samenvatting</p>
          <img class="thumb__visual" src="img/summary/icon.png" alt="">
       </a>
    </nav>
-   <h1>03. DOM deel 2</h1>
+   <h1>03. CSS manipulatie</h1>
    <div id="toc"></div>
 
    <main>
@@ -56,7 +64,7 @@
       <div class="flexcontainer youtubecontainer">
          <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/oPhKAHd3GA8?si=Lyz5xTy_erknRLlB" allowfullscreen></iframe>
          <figure class="print">
-            <a href="https://www.youtube.com/embed/oPhKAHd3GA8"><img src="img/02_dom1/03.DWD-dom2.png" alt="" class="w-500"></a>
+            <a href="https://www.youtube.com/embed/oPhKAHd3GA8"><img src="img/02_domhtml/03.DWD-dom2.png" alt="" class="w-500"></a>
             <figcaption><a href="https://www.youtube.com/embed/oPhKAHd3GA8">https://www.youtube.com/embed/oPhKAHd3GA8</a></figcaption>
          </figure>
          <div class="youtube_toc">
@@ -112,7 +120,7 @@
       <div class="codecompare">
          <div>
             <div class="precontainer">
-               <pre class="prism-default language-html line-numbers" data-demo="demos/03_dom2/demoDomNavigation/index.html"><code>&lt;header&gt;
+               <pre class="prism-default language-html line-numbers" data-demo="demos/03_domcss/demoDomNavigation/index.html"><code>&lt;header&gt;
    &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
 &lt;nav&gt;
@@ -139,7 +147,7 @@ console.log(nav.previousElementSibling);
             </div>
          </div>
          <div>
-            <img src="img/03_dom2/dom-navigation.png" alt="" class="w-400">
+            <img src="img/03_domcss/dom-navigation.png" alt="" class="w-400">
          </div>
       </div>
       <p>Belangrijkste properties:</p>
@@ -206,7 +214,7 @@ console.log(nav.previousElementSibling);
       </p>
       <div class="codecompare">
          <pre class="prism-okaida line-numbers wrong w-500"><code>window.alert('hallo wereld!');</code></pre>
-         <img src="img/03_dom2/alert.png" alt="" class="w-500">
+         <img src="img/03_domcss/alert.png" alt="" class="w-500">
       </div>
       <p>&nbsp;</p>
       <div class="tips" data-caption="💣 PAS OP">
@@ -227,7 +235,7 @@ console.log(nav.previousElementSibling);
       </p>
       <div class="codecompare">
          <pre class="prism-okaida line-numbers w-500"><code>document.title = 'kot kot kedei';</code></pre>
-         <img src="img/03_dom2/document-title.png" alt="" class="w-500">
+         <img src="img/03_domcss/document-title.png" alt="" class="w-500">
       </div>
       <h3>Location node</h3>
       <p>
@@ -241,7 +249,7 @@ console.log(nav.previousElementSibling);
    location.href = 'https://www.google.com';  // redirect
 }
 </code></pre>
-         <img src="img/03_dom2/location.png" alt="" class="w-500">
+         <img src="img/03_domcss/location.png" alt="" class="w-500">
       </div>
 
       <h2>CSS manipulatie</h2>
@@ -274,7 +282,7 @@ console.log(nav.previousElementSibling);
       <div class="codecompare">
          <div>
             <div class="precontainer">
-               <pre class="prism-okaida language-html line-numbers" data-demo="demos/03_dom2/demoYearsStyle/index.html"><code>&lt;ul id="jaar"&gt;
+               <pre class="prism-okaida language-html line-numbers" data-demo="demos/03_domcss/demoYearsStyle/index.html"><code>&lt;ul id="jaar"&gt;
    &lt;li&gt;2021&lt;/li&gt;
    &lt;li&gt;2022&lt;/li&gt;
    &lt;li&gt;2023&lt;/li&gt;
@@ -302,7 +310,7 @@ years.forEach(li =&gt; {
             </div>
          </div>
          <div>
-            <img src="img/03_dom2/style.png" alt="" class="w-400">
+            <img src="img/03_domcss/style.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -317,7 +325,7 @@ years.forEach(li =&gt; {
          <div>
             <div class="precontainer">
                <pre class="prism-default language-html line-numbers"
-                  data-demo="demos/03_dom2/demoYearsClassList/index.html"><code>&lt;header&gt;
+                  data-demo="demos/03_domcss/demoYearsClassList/index.html"><code>&lt;header&gt;
   &lt;h1&gt;DOM navigation&lt;/h1&gt;
 &lt;/header&gt;
 &lt;nav&gt;
@@ -351,7 +359,7 @@ years.forEach(li =&gt; {
             </div>
          </div>
          <div>
-            <img src="img/03_dom2/classlist.png" alt="" class="w-400">
+            <img src="img/03_domcss/classlist.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -366,7 +374,7 @@ years.forEach(li =&gt; {
          <div>
             <div class="precontainer">
                <pre class="prism-default language-html line-numbers w-700"
-                  data-demo="demos/03_dom2/demoSeeds/index.html"><code>&lt;ul id="zaden"&gt;
+                  data-demo="demos/03_domcss/demoSeeds/index.html"><code>&lt;ul id="zaden"&gt;
    &lt;li data-afstand="10cm" data-zaaitijd="maart tot juni"&gt;wortelen&lt;/li&gt;
    &lt;li data-afstand="30cm" data-zaaitijd="februari tot maart"&gt;selder&lt;/li&gt;
    &lt;li data-afstand="3cm" data-zaaitijd="maart tot september"&gt;radijs&lt;/li&gt;
@@ -389,7 +397,7 @@ afstand: ${zaad.dataset.afstand}`);
             </div>
          </div>
          <div>
-            <img src="img/03_dom2/datapng.png" alt="" class="w-400">
+            <img src="img/03_domcss/datapng.png" alt="" class="w-400">
          </div>
       </div>
 
@@ -399,7 +407,7 @@ afstand: ${zaad.dataset.afstand}`);
       <div class="codecompare">
          <div>
             <div class="precontainer">
-               <pre class="prism-default language-html line-numbers w-700" data-demo="demos/03_dom2/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
+               <pre class="prism-default language-html line-numbers w-700" data-demo="demos/03_domcss/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
 &lt;p&gt;&lt;input type="text" id="inp1" /&gt;&lt;/p&gt;
 &lt;p&gt;
    karakter: &lt;span id="kar"&gt;&lt;/span&gt;
@@ -421,7 +429,7 @@ inp.addEventListener('keydown', function(e) {
             </div>
          </div>
          <div>
-            <img src="img/03_dom2/toetsenbord.png" alt="" class="w-400">
+            <img src="img/03_domcss/toetsenbord.png" alt="" class="w-400">
          </div>
       </div>
       <h3>Muis</h3>
@@ -429,7 +437,7 @@ inp.addEventListener('keydown', function(e) {
       <div class="codecompare">
          <div>
             <div class="precontainer">
-               <pre class="prism-default language-html line-numbers w-700" data-demo="demos/03_dom2/demoMouse/index.html"><code>&lt;p&gt;klik ergens in de pagina...&lt;/p&gt;
+               <pre class="prism-default language-html line-numbers w-700" data-demo="demos/03_domcss/demoMouse/index.html"><code>&lt;p&gt;klik ergens in de pagina...&lt;/p&gt;
 &lt;p&gt;
   positie: &lt;span id="pos"&gt;&lt;/span&gt;
 &lt;/p&gt;</code></pre>
@@ -445,7 +453,7 @@ body.addEventListener('click', function(e) {
             </div>
          </div>
          <div>
-            <img src="img/03_dom2/muis.png" alt="" class="w-400">
+            <img src="img/03_domcss/muis.png" alt="" class="w-400">
          </div>
       </div>
       <h2>Herwerkte voorbeelden</h2>
@@ -477,7 +485,7 @@ body.addEventListener('click', function(e) {
       <p>De vernieuwe HTML:</p>
       <div class="precontainer">
          <pre class="prism-default language-html line-numbers right w-1100"
-            data-demo="demos/03_dom2/demoFotogallerij2/index.html"><code>&lt;div class="thumbs"&gt;
+            data-demo="demos/03_domcss/demoFotogallerij2/index.html"><code>&lt;div class="thumbs"&gt;
    &lt;div data-photo="img/photo1.jpg" data-desc="Amman, Jordanië" class="current"&gt;&lt;img src="img/photo1-s.jpg" alt=""&gt;&lt;/div&gt;
    &lt;div data-photo="img/photo17.jpg" data-desc="Noorderlicht, Lapland"&gt;&lt;img src="img/photo17-s.jpg" alt=""&gt;&lt;/div&gt;
    &lt;div data-photo="img/photo6.jpg" data-desc="mozaïek, Isfahan"&gt;&lt;img src="img/photo6-s.jpg" alt=", Iran"&gt;&lt;/div&gt;
@@ -541,7 +549,7 @@ thumbs.forEach(thn =&gt; {
 
       <h3>Form checking herwerkt</h3>
       <p>
-         In <a href="02_dom1.html#form-checking">de eerste versie</a> stonden de teksten van foutmeldingen in de
+         In <a href="02_domhtml.html#form-checking">de eerste versie</a> stonden de teksten van foutmeldingen in de
          Javascript, terwijl het content is en dus eigenlijk thuishoort in de HTML.
          We herwerken het met gebruik van o.a. <strong><code>classList</code></strong> en
          <strong><code>parentNode</code></strong>. Bekijk zeker de uitleg in <a href="#video-tree-navigatie-speciale-nodes-classlist-style-data-mouse-en-keyboard">de video</a>.
@@ -549,7 +557,7 @@ thumbs.forEach(thn =&gt; {
       </p>
       <div class="precontainer">
          <pre class="prism-default language-html line-numbers right w-800"
-            data-demo="demos/03_dom2/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
+            data-demo="demos/03_domcss/demoFormchecking2/index.html"><code>&lt;form id="frmLogin"&gt;
    &lt;h1&gt;Registreren&lt;/h1&gt;
    &lt;div&gt;
       &lt;label for="email"&gt;Email: &lt;/label&gt;

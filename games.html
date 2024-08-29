@@ -25,21 +25,29 @@
          <p class="thumb__title">01. Javascript syntax</p>
          <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
       </a>
-      <a href="02_dom1.html" class="main__thumb" title="02. DOM deel 1">
-         <p class="thumb__title">02. DOM 1</p>
-         <img class="thumb__visual" src="img/02_dom1/icon.png" alt="">
+      <a href="02_domhtml.html" class="main__thumb" title="02. HTML manipulatie">
+         <p class="thumb__title">02. HTML manipulatie</p>
+         <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
       </a>
-      <a href="03_dom2.html" class="main__thumb" title="03. DOM deel2">
-         <p class="thumb__title">03. DOM 2</p>
-         <img class="thumb__visual" src="img/03_dom2/icon.png" alt="">
+      <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
+         <p class="thumb__title">03. CSS manipulatie</p>
+         <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
       </a>
       <a href="04_async.html" class="main__thumb" title="04. Web API's">
          <p class="thumb__title">04. Web API's</p>
          <img class="thumb__visual" src="img/04_async/icon.png" alt="">
       </a>
-      <a href="05_games.html" class="main__thumb active" title="05. games">
-         <p class="thumb__title">05. Games</p>
-         <img class="thumb__visual" src="img/05_games/icon.png" alt="">
+      <a href="05_nodejs.html" class="main__thumb" title="05. NodeJS">
+        <p class="thumb__title">05. NodeJS</p>
+        <img class="thumb__visual" src="img/05_nodejs/icon.png" alt="">
+      </a>
+      <a href="games.html" class="main__thumb active" title="games">
+         <p class="thumb__title">Games</p>
+         <img class="thumb__visual" src="img/games/icon.png" alt="">
+      </a>
+      <a href="es6.html" class="main__thumb" title="ES6">
+        <p class="thumb__title">ES6</p>
+        <img class="thumb__visual" src="img/es6/icon.png" alt="">
       </a>
       <a href="summary.html" class="main__thumb" title="05. samenvatting">
          <p class="thumb__title">samenvatting</p>
@@ -79,7 +87,7 @@ selTest.addEventListener('change', function() {
 });</code></pre>
       </div>
       <figure class="w-400">
-         <img src="img/05_games/localStorage-simple.gif" alt="">
+         <img src="img/games/localStorage-simple.gif" alt="">
          <figcaption>geselecteerde waarde blijft bewaard</figcaption>
       </figure>
       <h4>objecten bewaren</h4>
@@ -110,14 +118,14 @@ document.querySelector('#btnHerstel').addEventListener('click', function() {
       </div>
 
       <figure class="w-400">
-         <img src="img/05_games/localStorage-object.gif" alt="">
+         <img src="img/games/localStorage-object.gif" alt="">
          <figcaption>herstellen naar laatst opgeslagen object</figcaption>
       </figure>
 
       <h4>opgeslagen items bekijken</h4>
       <p>De localStorage items worden bewaard per site. Je kan ze altijd terugvinden in de inspector onder de <strong>Application</strong> tab:</p>
       <figure class="w-600">
-         <img src="img/05_games/localStorage.png" alt="">
+         <img src="img/games/localStorage.png" alt="">
          <figcaption>opgeslagen localStorage items vind je onder de Application tab</figcaption>
       </figure>
 
@@ -151,7 +159,7 @@ dropZone.addEventListener('drop', function(e) {
       </div>
 
       <figure class="w-500">
-         <img src="img/05_games/dragdrop-text.gif" alt="">
+         <img src="img/games/dragdrop-text.gif" alt="">
          <figcaption>drag drop van teksten</figcaption>
       </figure>
 
@@ -184,7 +192,7 @@ dropZone.addEventListener('drop', function (e) {
       </div>
 
       <figure class="w-500">
-         <img src="img/05_games/dragdrop-image.gif" alt="">
+         <img src="img/games/dragdrop-image.gif" alt="">
          <figcaption>drag drop van afbeeldingen</figcaption>
       </figure>
 
@@ -237,7 +245,7 @@ dropzone.addEventListener('drop', function (e) {
 </code></pre>
       </div>
       <figure class="w-500">
-         <img src="img/05_games/dragin-image.gif" alt="" class="bordered">
+         <img src="img/games/dragin-image.gif" alt="" class="bordered">
          <figcaption>sleep afbeeldingen in een pagina</figcaption>
       </figure>
       <h3>Webcam API</h3>
@@ -267,7 +275,7 @@ btnStart.addEventListener('click', async () =&gt; {
 });</code></pre>
       </div>
       <figure class="w-300">
-         <img src="img/05_games/webcam.gif" alt="" class="bordered">
+         <img src="img/games/webcam.gif" alt="" class="bordered">
          <figcaption>webcam voorbeeld</figcaption>
       </figure>
 
@@ -372,7 +380,7 @@ async function startWebcam() {
 startWebcam();</code></pre>
       </div>
       <figure class="w-300">
-         <img src="img/05_games/photobooth-small.gif" alt="" class="bordered">
+         <img src="img/games/photobooth-small.gif" alt="" class="bordered">
          <figcaption>photobooth voorbeeld</figcaption>
       </figure>
       <p>Nog meer online experimenten:</p>
@@ -462,7 +470,7 @@ startWebcam();</code></pre>
 &lt;/html&gt;
 </code></pre>
       <figure class="w-400">
-         <img src="img/05_games/openstreetmap.png" alt="" class="bordered">
+         <img src="img/games/openstreetmap.png" alt="" class="bordered">
          <figcaption>tonen van huidige positie op een OpenLayers kaart</figcaption>
       </figure>
 
@@ -490,7 +498,7 @@ startWebcam();</code></pre>
 
 
       <figure class="w-300">
-         <img src="img/05_games/orientation.gif" alt="" class="bordered">
+         <img src="img/games/orientation.gif" alt="" class="bordered">
          <figcaption>detectie kantelhoek device</figcaption>
       </figure>
       <ul class="arrow">
@@ -518,7 +526,7 @@ document.getElementById('lnkNotifyMe').addEventListener('click', function() {
 });</code></pre>
       </div>
       <figure class="w-300">
-         <img src="img/05_games/notification.png" alt="">
+         <img src="img/games/notification.png" alt="">
          <figcaption>taskbar notificaties met Javascript</figcaption>
       </figure>
 
@@ -541,7 +549,7 @@ btnStart.addEventListener('click', function() {
 });</code></pre>
       </div>
       <figure class="w-300">
-         <img src="img/05_games/speech.gif" alt="" class="bordered">
+         <img src="img/games/speech.gif" alt="" class="bordered">
          <figcaption>stemherkenning met Javascript</figcaption>
       </figure>
 
@@ -613,7 +621,7 @@ document.querySelector('#btnWrong').addEventListener('click', function() {
 });</code></pre>
       </div>
       <figure>
-         <img src="img/05_games/audiobuttons.png" alt="" class="bordered w-200">
+         <img src="img/games/audiobuttons.png" alt="" class="bordered w-200">
          <figcaption>twee buttons die geluidsfragment afspelen (zie demo)</figcaption>
       </figure>
       <h4>Voorbeeld 2: muziekdoos</h4>
@@ -650,7 +658,7 @@ document.querySelector('#btnPlay').addEventListener('click', function() {
 </code></pre>
       </div>
       <figure>
-         <img src="img/05_games/muziekspeler.png" alt="" class="bordered w-200">
+         <img src="img/games/muziekspeler.png" alt="" class="bordered w-200">
          <figcaption>eenvoudige muziekspeler waar ingegeven noten in volgorde afgespeeld worden</figcaption>
       </figure>
 
@@ -683,7 +691,7 @@ setInterval(function() {
 }, 50);</code></pre>
       </div>
       <figure>
-         <img src="img/05_games/videoselect.png" alt="" class="bordered w-600">
+         <img src="img/games/videoselect.png" alt="" class="bordered w-600">
          <figcaption>video afspelen uit lisjtje met weergave verstreken tijd</figcaption>
       </figure>
       <h3>Sound API</h3>
@@ -739,7 +747,7 @@ document.querySelector('#btnStop').addEventListener('click', function() {
 });</code></pre>
       </div>
       <figure>
-         <img src="img/05_games/oscillator.png" alt="" class="bordered w-200">
+         <img src="img/games/oscillator.png" alt="" class="bordered w-200">
          <figcaption>afspelen sinusgolf en regelen volume en frequentie</figcaption>
       </figure>
       <h3>Nog meer API's: battery API, gamepad API, bluetooth API...</h3>
@@ -752,15 +760,15 @@ document.querySelector('#btnStop').addEventListener('click', function() {
       <p>Een animatie is in essentie een snelle opeenvolging van stilstaande afbeeldingen of <mark>frames</mark>, die een illusie van een vloeiende beweging creëren:</p>
       <div class="flexcontainer wrap">
          <figure>
-            <img src="img/05_games/stopmotion.png" alt="">
+            <img src="img/games/stopmotion.png" alt="">
             <figcaption>stop motion – <a href="https://www.youtube.com/watch?v=i3CEE9xKKZc">bekijk online</a></figcaption>
          </figure>
          <figure>
-            <img src="img/05_games/zoetrope.png" alt="">
+            <img src="img/games/zoetrope.png" alt="">
             <figcaption>zoetrope – bekijk <a href="https://www.youtube.com/watch?v=SBg6dAE3mI0">hier</a> of <a href="https://www.youtube.com/watch?v=AfS2kGO5lg8">hier</a></figcaption>
          </figure>
          <figure>
-            <img src="img/05_games/flipbook.png" alt="">
+            <img src="img/games/flipbook.png" alt="">
             <figcaption>flip book – <a href="https://giphy.com/gifs/museums-pVjNltXcTkJfq/fullscreen">bekijk online</a></figcaption>
          </figure>
       </div>
@@ -805,7 +813,7 @@ const timer = setInterval(displayCurrentTime, 100);
 btnStop.addEventListener('click', () =&gt; clearInterval(timer));</code></pre>
       </div>
       <figure class="w-200">
-         <img src="img/05_games/interval-klok.gif" alt="" class="bordered">
+         <img src="img/games/interval-klok.gif" alt="" class="bordered">
          <figcaption>eenvoudige klok</figcaption>
       </figure>
 
@@ -844,7 +852,7 @@ setInterval(doLoop, 20); // herhaal elke 20ms
 </code></pre>
       </div>
       <figure class="w-300">
-         <img src="img/05_games/interval-ball.gif" alt="" class="bordered">
+         <img src="img/games/interval-ball.gif" alt="" class="bordered">
          <figcaption>stuiterende bal</figcaption>
       </figure>
       <p>De animatieframes worden exact om de 20ms berekend en getoond. Dit is ok bij heel eenvoudige games en animaties, maar bij complexere games kan het zijn dan de GPU niet meer kan volgen, en dat animaties schokkerig of onvolledig worden. Daarom gebruiken we voor games <code>requestAnimationFrame()</code> (zie volgend onderdeel).</p>
@@ -906,7 +914,7 @@ doLoop(); // start de loop
 </code></pre>
       </div>
       <figure class="w-300">
-         <img src="img/05_games/interval-ball.gif" alt="" class="bordered">
+         <img src="img/games/interval-ball.gif" alt="" class="bordered">
          <figcaption>stuiterende bal</figcaption>
       </figure>
       <h4>Voorbeeld 2: gunman game</h4>
@@ -1093,7 +1101,7 @@ btnTurn.addEventListener('click', function() {
 doLoop();</code></pre>
       </div>
       <figure>
-         <img src="img/05_games/gunman.png" alt="" class="w-600">
+         <img src="img/games/gunman.png" alt="" class="w-600">
          <figcaption>screenshot van de gunman game</figcaption>
       </figure>
       <h2>3D in Javascript</h2>
@@ -1113,7 +1121,7 @@ doLoop();</code></pre>
          <li>wat zijn de <span class="em">reflectie eigenschappen</span> van objecten (glans, absorptie...)?</li>
       </ul>
       <p>Tenslotte hebben we voor animaties ook één of andere <span class="em">game loop</span> nodig die de frames weergeeft.</p>
-      <img src="img/05_games/3dscene.jpg" alt="" class="w-600">
+      <img src="img/games/3dscene.jpg" alt="" class="w-600">
       <h3>3D met Three.js library</h3>
       <p>Er zijn verschillende libraries die het werken met 3D in Javascript vereenvoudigen, maar een uitstekende is <a href="https://threejs.org/docs/">Three.js</a>.</p>
       <h4>Voorbeeld 1: roterende donut eenvoudig</h4>
@@ -1199,21 +1207,21 @@ doLoop();</code></pre>
   render();
 &lt;/script&gt;</code></pre>
       <figure>
-         <img src="img/05_games/3dsimple.png" alt="" class="w-600">
+         <img src="img/games/3dsimple.png" alt="" class="w-600">
          <figcaption>roterende donut in Three.js</figcaption>
       </figure>
 
       <h4>Voorbeeld 2: roterende donut geavanceerd</h4>
-      <p>Geavanceerde versie van de roterende donut (<a href="demos/05_games/threejsfull/">demo hier</a>, <a href="demos/05_games/threejsfull/threejs-full-example.zip">zip met code hier</a>):</p>
-      <a href="demos/05_games/threejsfull/"><img src="img/05_games/threejs-full.png" alt="" class="w-800"></a>
+      <p>Geavanceerde versie van de roterende donut (<a href="demos/games/threejsfull/">demo hier</a>, <a href="demos/games/threejsfull/threejs-full-example.zip">zip met code hier</a>):</p>
+      <a href="demos/games/threejsfull/"><img src="img/games/threejs-full.png" alt="" class="w-800"></a>
 
       <h4>Voorbeeld 3: vier op een rij in 3D</h4>
-      <p>Vier op een rij in 3D (<a href="demos/05_games/vieropeenrij/">demo hier</a>, <a href="demos/05_games/vieropeenrij/vieropeenrij.zip">zip met code hier</a>):</p>
-      <a href="demos/05_games/vieropeenrij/"><img src="img/05_games/vieropeenrij.png" alt="" class="w-800 bordered"></a>
+      <p>Vier op een rij in 3D (<a href="demos/games/vieropeenrij/">demo hier</a>, <a href="demos/games/vieropeenrij/vieropeenrij.zip">zip met code hier</a>):</p>
+      <a href="demos/games/vieropeenrij/"><img src="img/games/vieropeenrij.png" alt="" class="w-800 bordered"></a>
 
       <h4>Voorbeeld 4: 3D OXO</h4>
-      <p>OXO in 3D (<a href="demos/05_games/oxo3d/">demo hier</a>, <a href="demos/05_games/oxo3d/oxo3d.zip">zip met code hier</a>):</p>
-      <a href="demos/05_games/oxo3d/"><img src="img/05_games/oxo3d.png" alt="" class="w-800 bordered"></a>
+      <p>OXO in 3D (<a href="demos/games/oxo3d/">demo hier</a>, <a href="demos/games/oxo3d/oxo3d.zip">zip met code hier</a>):</p>
+      <a href="demos/games/oxo3d/"><img src="img/games/oxo3d.png" alt="" class="w-800 bordered"></a>
   </main>
   <footer>
     <img src="img/thats-all.jpg" alt="">
