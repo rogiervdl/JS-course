@@ -5,6 +5,7 @@
 const DOM = {
 	codeBlocks: [...document.querySelectorAll('pre code')],
 	diaDemoWindow: document.querySelector('#diaDemo .hystmodal__window'),
+	h1: document.querySelector('h1'),
 	nav: document.querySelector('nav'),
 	tips: [...document.querySelectorAll('.tips')],
 	titles: [...document.querySelectorAll('main > h2, main > h3, main > h4, main > h5, main > .pre > h2, main > .pre > h3, main > .pre > h4, main > .pre > h5, .pro > h2, .pro > h3, .pro > h4, .pro > h5')],
@@ -134,6 +135,7 @@ ${strPrefixed}
  */
 function startApp() {
 	// part 1: assign id's to titles and toctitles
+	DOM.h1.innerHTML = DOM.h1.innerHTML + `<span class="title__anchor"></span>`;
 	DOM.titles.forEach((title) => {
 		const id = createIdFrom(title.textContent);
 		title.dataset.id = id;
@@ -174,8 +176,7 @@ function startApp() {
 
 	// add to dom
 	if (DOM.toc) DOM.toc.innerHTML = toc;
-	const h1Anchor = document.querySelector('#h1__anchor');
-	if (h1Anchor) h1Anchor.scrollIntoView({
+	document.querySelector('h1 .title__anchor').scrollIntoView({
 		behavior: 'smooth', // Optional: makes the scroll smooth
 		block: 'start'      // Scrolls to the top of the element
 	});
