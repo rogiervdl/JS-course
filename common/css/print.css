@@ -6,7 +6,7 @@ body {
    padding-top: 0 !important;
 }
 
-#mode, .site__nav, #up, .marker, iframe {
+#mode, .site__nav, #up, .marker, iframe, .noprint, video {
    display: none !important;
 }
 

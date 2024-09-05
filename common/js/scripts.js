@@ -73,14 +73,6 @@ function repaint() {
 }
 
 /**
- * Handles window changes
- */
-function repaint() {
-	drawCodeMarkers();
-	document.body.style.paddingTop = `${document.querySelector('nav').offsetHeight}px`;
-}
-
-/**
  * Minimizes CSS: remove comments and newlines
  *
  * @param {string} strCss
@@ -182,6 +174,11 @@ function startApp() {
 
 	// add to dom
 	if (DOM.toc) DOM.toc.innerHTML = toc;
+	const h1Anchor = document.querySelector('#h1__anchor');
+	if (h1Anchor) h1Anchor.scrollIntoView({
+		behavior: 'smooth', // Optional: makes the scroll smooth
+		block: 'start'      // Scrolls to the top of the element
+	});
 
 	// part 3: nav scroll effect
 	window.addEventListener('scroll', () => {
@@ -262,7 +259,7 @@ function createIdFrom(str) {
 }
 
 // start your engines!
-window.addEventListener('load', function () {
+document.addEventListener('DOMContentLoaded', () => {
 	repaint();
 	startApp();
 });
