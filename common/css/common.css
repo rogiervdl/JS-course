@@ -203,7 +203,7 @@ table {
 	font-size: smaller;
 }
 
-.redcomments .comment,
+.redcomments .comment, 
 .error {
 	color: #C00 !important;
 }
@@ -484,9 +484,9 @@ ul.lower-latin {
 	list-style: lower-latin;
 }
 
-ul:has(.arrow, .right, .wrong) {
+ul:has(.arrow, .right, .warn, .wrong) {
 	padding: 0;
-}
+} 
 
 ul.arrow,
 li.arrow {
@@ -507,8 +507,10 @@ li.arrow::first-letter {
 }
 
 ul li.right,
+ul li.warn,
 ul li.wrong,
 ul.right,
+ul.warn,
 ul.wrong {
 	list-style-type: none;
 	margin-top: 0;
@@ -517,15 +519,19 @@ ul.wrong {
 }
 
 ul ul li.right,
+ul ul li.warn,
 ul ul li.wrong,
 ul ul.right,
+ul ul.warn,
 ul ul.wrong {
 	margin-left: 0;
 }
 
 ul.right > li::before,
+ul.warn > li::before,
 ul.wrong > li::before,
 ul li.right::before,
+ul li.warn::before,
 ul li.wrong::before {
 	margin-right: 1rem;
 }
@@ -536,6 +542,14 @@ ul li.right::before,
 ul ul li.right::before {
 	color: #0c0;
 	content: "✓";
+}
+
+ul.warn > li::before,
+ul ul.warn > li::before,
+ul li.warn::before,
+ul ul li.warn::before {
+	color: #c90;
+	content: "⚠";
 }
 
 ul.wrong > li::before,
@@ -805,7 +819,7 @@ table.blue {
    border: 1px solid #ccc;
 }
 
-table.blue th,
+table.blue th, 
 table.blue td {
 	padding: 2px 5px;
 }
@@ -1058,7 +1072,7 @@ footer img {
 	.footer__bottom {
 		display: flex;
 		justify-content: space-between;
-	}
+	}	
 }
 
 @media(min-width: 1300px) {
