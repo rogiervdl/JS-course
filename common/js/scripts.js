@@ -1,5 +1,5 @@
 /* eslint-disable no-magic-numbers */
-/* global Prism, HystModal */
+/* global Prism, HystModal, cssjs */
 
 // DOM shortcuts
 const DOM = {
@@ -106,7 +106,7 @@ function cssApplySnippet(strSelector, strCss) {
 
 	// prefix rules
 	const prefixed = [];
-	for (let style of parsed) {
+	for (const style of parsed) {
 		if (style.styles) {
 			prefixed.push(style.styles);
 		} else {
@@ -135,9 +135,9 @@ ${strPrefixed}
  */
 function startApp() {
 	// part 1: assign id's to titles and toctitles
-	DOM.h1.innerHTML = DOM.h1.innerHTML + `<span class="title__anchor"></span>`;
+	DOM.h1.innerHTML = DOM.h1.innerHTML + '<span class="title__anchor"></span>';
 	DOM.titles.forEach((title) => {
-		const id = createIdFrom(title.textContent);
+		const id = title.id || createIdFrom(title.textContent);
 		title.dataset.id = id;
 		title.dataset.text = title.innerHTML;
 		title.innerHTML = title.innerHTML + `<span class="title__anchor" id="${id}"></span>`;
@@ -178,7 +178,7 @@ function startApp() {
 	if (DOM.toc) DOM.toc.innerHTML = toc;
 	document.querySelector('h1 .title__anchor').scrollIntoView({
 		behavior: 'smooth', // Optional: makes the scroll smooth
-		block: 'start'      // Scrolls to the top of the element
+		block: 'start' // Scrolls to the top of the element
 	});
 
 	// part 3: nav scroll effect
@@ -188,7 +188,7 @@ function startApp() {
 		// }
 		if (DOM.nav.classList.contains('condensed') && !(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)) {
 			DOM.nav.classList.remove('condensed');
-			setTimeout(function () { document.body.style.paddingTop = `${document.querySelector('nav').offsetHeight}px`; }, 500);
+			setTimeout(function() { document.body.style.paddingTop = `${document.querySelector('nav').offsetHeight}px`; }, 500);
 		}
 		if (!DOM.nav.classList.contains('condensed') && (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)) {
 			DOM.nav.classList.add('condensed');
@@ -209,7 +209,7 @@ function startApp() {
 		const targetId = cssBlock.dataset.target;
 		if (!targetId || !document.querySelector(targetId)) return;
 		cssApplySnippet(targetId, cssBlock.innerText);
-		cssBlock.addEventListener('keyup', function () {
+		cssBlock.addEventListener('keyup', function() {
 			cssApplySnippet(targetId, this.innerText);
 		});
 	});
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // toolbar buttons
-(function () {
+(function() {
 	if (typeof Prism === 'undefined' || typeof document === 'undefined' || !document.querySelector) return;
 
 	// demo button
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (pre.dataset.demo == undefined) return;
 		const button = document.createElement('button');
 		button.textContent = 'Demo';
-		button.onclick = function () {
+		button.onclick = function() {
 			const src = env.element.parentNode.dataset.demo;
 			if (src === undefined) return;
 			if (env.element.parentNode.dataset.demoTarget == '_blank') {
