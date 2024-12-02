@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- [html-validate-disable no-trailing-whitespace] -->
+<html lang="nl">
+
+<head>
+  <title>NodeJS | Javascript cursus</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="common/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="language-javascript">
+  <div id="mode">
+    <span>n00b</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+    <span>pro</span>
+  </div>
+  <nav class="site__nav">
+    <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
+      <p class="thumb__title">01. Javascript syntax</p>
+      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+    </a>
+    <a href="02_domhtml.html" class="main__thumb" title="02. HTML manipulatie">
+      <p class="thumb__title">02. HTML manipulatie</p>
+      <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
+    </a>
+    <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
+      <p class="thumb__title">03. CSS manipulatie</p>
+      <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
+    </a>
+    <a href="04_games.html" class="main__thumb" title="04. Games">
+      <p class="thumb__title">04. Games</p>
+      <img class="thumb__visual" src="img/04_games/icon.png" alt="">
+    </a>
+    <a href="05_async.html" class="main__thumb" title="05. Web API's">
+      <p class="thumb__title">05. Web API's</p>
+      <img class="thumb__visual" src="img/05_async/icon.png" alt="">
+    </a>
+    <a href="06_nodejs.html" class="main__thumb active pro" title="06. NodeJS">
+      <p class="thumb__title">06. NodeJS</p>
+      <img class="thumb__visual" src="img/06_nodejs/icon.png" alt="">
+    </a>
+    <a href="es6.html" class="main__thumb pro" title="ES6">
+      <p class="thumb__title">ES6</p>
+      <img class="thumb__visual" src="img/es6/icon.png" alt="">
+    </a>
+    <a href="summary.html" class="main__thumb" title="05. samenvatting">
+      <p class="thumb__title">samenvatting</p>
+      <img class="thumb__visual" src="img/summary/icon.png" alt="">
+    </a>
+  </nav>
+  <h1>06. NodeJS</h1>
+  <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
+  <div id="toc"></div>
+  <main>
+    <p>(hopefully) coming soon</p>
+  </main>
+  <footer>
+    <img src="common/img/thats-all.jpg" alt="">
+    <div class="footer__bottom">
+      <p>@2024, Rogier van der Linde</p>
+      <p>cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a> &mdash; <a href="https://rogiervdl.github.io/CSS-course/">CSS</a> &mdash; <a href="https://rogiervdl.github.io/CS-course/">C#</a> &mdash; <a href="https://rogiervdl.github.io/DEVENV-course/">ontwikkelomgeving</a></p>
+    </div>
+  </footer>
+  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+  <!-- popup -->
+  <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
+    <div class="hystmodal__wrap">
+      <div class="hystmodal__window" role="dialog" aria-modal="true">
+        <iframe title="demo"></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- scripts -->
+  <script src="common/vendor/prism/prism.js"></script>
+  <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
+  <script src="common/js/mode.js"></script>
+  <script src="common/js/scripts.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-33VMW730V9');
+  </script>
+</body>
+
+</html>

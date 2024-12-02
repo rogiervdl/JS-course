@@ -3,159 +3,159 @@
 <html lang="nl">
 
 <head>
-   <title>ES6 | Javascript cursus</title>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="common/styles.css">
-   <link rel="stylesheet" href="css/styles.css">
+  <title>ES6 | Javascript cursus</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="common/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="language-javascript line-numbers">
-   <div id="mode">
-      <span>n00b</span>
-      <label class="switch">
-         <input type="checkbox" checked>
-         <span class="slider round"></span>
-      </label>
-      <span>pro</span>
-   </div>
-   <nav class="site__nav">
-      <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
-         <p class="thumb__title">01. Javascript syntax</p>
-         <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
-      </a>
-      <a href="02_domhtml.html" class="main__thumb" title="02. HTML manipulatie">
-         <p class="thumb__title">02. HTML manipulatie</p>
-         <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
-      </a>
-      <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
-         <p class="thumb__title">03. CSS manipulatie</p>
-         <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
-      </a>
-      <a href="04_async.html" class="main__thumb" title="04. Web API's">
-         <p class="thumb__title">04. Web API's</p>
-         <img class="thumb__visual" src="img/04_async/icon.png" alt="">
-      </a>
-      <a href="05_nodejs.html" class="main__thumb pro" title="05. NodeJS">
-        <p class="thumb__title">05. NodeJS</p>
-        <img class="thumb__visual" src="img/05_nodejs/icon.png" alt="">
-      </a>
-      <a href="games.html" class="main__thumb pro" title="games">
-         <p class="thumb__title">Games</p>
-         <img class="thumb__visual" src="img/games/icon.png" alt="">
-      </a>
-      <a href="es6.html" class="main__thumb active pro" title="ES6">
-        <p class="thumb__title">ES6</p>
-        <img class="thumb__visual" src="img/es6/icon.png" alt="">
-      </a>
-      <a href="summary.html" class="main__thumb" title="05. samenvatting">
-         <p class="thumb__title">samenvatting</p>
-         <img class="thumb__visual" src="img/summary/icon.png" alt="">
-      </a>
-   </nav>
-   <h1>ES6</h1>
-   <div class="tips topmessage" data-caption="⛔ STOP!">
-      <p>Let op! De technieken uit dit hoofdstuk mag je niet gebruiken zonder expliciete toestemming van de docent.</p>
-   </div>
-   <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
-   <div id="toc"></div>
-   <main>
+  <div id="mode">
+    <span>n00b</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+    <span>pro</span>
+  </div>
+  <nav class="site__nav">
+    <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
+      <p class="thumb__title">01. Javascript syntax</p>
+      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+    </a>
+    <a href="02_domhtml.html" class="main__thumb" title="02. HTML manipulatie">
+      <p class="thumb__title">02. HTML manipulatie</p>
+      <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
+    </a>
+    <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
+      <p class="thumb__title">03. CSS manipulatie</p>
+      <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
+    </a>
+    <a href="04_games.html" class="main__thumb" title="04. Games">
+      <p class="thumb__title">04. Games</p>
+      <img class="thumb__visual" src="img/04_games/icon.png" alt="">
+    </a>
+    <a href="05_async.html" class="main__thumb" title="05. Web API's">
+      <p class="thumb__title">05. Web API's</p>
+      <img class="thumb__visual" src="img/05_async/icon.png" alt="">
+    </a>
+    <a href="06_nodejs.html" class="main__thumb pro" title="06. NodeJS">
+      <p class="thumb__title">06. NodeJS</p>
+      <img class="thumb__visual" src="img/06_nodejs/icon.png" alt="">
+    </a>
+    <a href="es6.html" class="main__thumb active pro" title="ES6">
+      <p class="thumb__title">ES6</p>
+      <img class="thumb__visual" src="img/es6/icon.png" alt="">
+    </a>
+    <a href="summary.html" class="main__thumb" title="05. samenvatting">
+      <p class="thumb__title">samenvatting</p>
+      <img class="thumb__visual" src="img/summary/icon.png" alt="">
+    </a>
+  </nav>
+  <h1>ES6</h1>
+  <div class="tips topmessage" data-caption="⛔ STOP!">
+    <p>Let op! De technieken uit dit hoofdstuk mag je niet gebruiken zonder expliciete toestemming van de docent.</p>
+  </div>
+  <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
+  <div id="toc"></div>
+  <main>
 
-      <!-- VIDEO -->
-      <h2>Over ES6</h2>
-      <p><mark>ES6</mark> is een gevoelige uitbreiding en modernisering van Javascript als taal. Dit gebeurt in verschillende stappen, genoemd naar het jaartal waarin ze doorgevoerd zijn. Enkele voorbeelden: </p>
-      <ul>
-         <li><span class="em">ECMAScript 2015</span>: <code>let</code> en <code>const</code>, default parameters voor methodes, <code>Array.find()</code>...</li>
-         <li><span class="em">ECMAScript 2016</span>: exponentiële operator <code>**</code>, <code>Array.includes()</code>...</li>
-         <li><span class="em">ECMAScript 2017</span>: async methodes, <code>Object.values()</code>...</li>
-         <li><span class="em">ECMAScript 2018</span>: rest / spread oproperties, aanvullingen voor reguliere expressies...</li>
-         <li><span class="em">ECMAScript 2019</span>: <code>String.trimStart()</code> en <code>String.trimEnd()</code>, <code>Array.flat()</code>...</li>
-         <li><span class="em">ECMAScript 2020</span>: nullish coalescing operator <code>??</code></li>
-         <li><span class="em">ECMAScript 2021</span>: <code>String.replaceAll()</code>, private methodes...</li>
-         <li><span class="em">ECMAScript 2022</span>: top level await, static class fields en methodes...</li>
-         <li><span class="em">ECMAScript 2023</span>: <code>Array.findLast()</code>, <code>Array.toSorted()</code>...</li>
-      </ul>
-      <p>Kort door de bocht is ES5 oude javascript, en ES6 nieuwe. Elk jaar komen er features bij. In dit hoofdstuk geven we er een paar van de meest interessante.</p>
+    <!-- VIDEO -->
+    <h2>Over ES6</h2>
+    <p><mark>ES6</mark> is een gevoelige uitbreiding en modernisering van Javascript als taal. Dit gebeurt in verschillende stappen, genoemd naar het jaartal waarin ze doorgevoerd zijn. Enkele voorbeelden: </p>
+    <ul>
+      <li><span class="em">ECMAScript 2015</span>: <code>let</code> en <code>const</code>, default parameters voor methodes, <code>Array.find()</code>...</li>
+      <li><span class="em">ECMAScript 2016</span>: exponentiële operator <code>**</code>, <code>Array.includes()</code>...</li>
+      <li><span class="em">ECMAScript 2017</span>: async methodes, <code>Object.values()</code>...</li>
+      <li><span class="em">ECMAScript 2018</span>: rest / spread oproperties, aanvullingen voor reguliere expressies...</li>
+      <li><span class="em">ECMAScript 2019</span>: <code>String.trimStart()</code> en <code>String.trimEnd()</code>, <code>Array.flat()</code>...</li>
+      <li><span class="em">ECMAScript 2020</span>: nullish coalescing operator <code>??</code></li>
+      <li><span class="em">ECMAScript 2021</span>: <code>String.replaceAll()</code>, private methodes...</li>
+      <li><span class="em">ECMAScript 2022</span>: top level await, static class fields en methodes...</li>
+      <li><span class="em">ECMAScript 2023</span>: <code>Array.findLast()</code>, <code>Array.toSorted()</code>...</li>
+    </ul>
+    <p>Kort door de bocht is ES5 oude javascript, en ES6 nieuwe. Elk jaar komen er features bij. In dit hoofdstuk geven we er een paar van de meest interessante.</p>
 
-      <!-- ECMASCRIPT 2015 -->
-      <h2>Operators</h2>
-      <h3>** machtsverheffing</h3>
-      <p>Beter laat dan nooit, de <code>**</code> machtsverheffing:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <!-- ECMASCRIPT 2015 -->
+    <h2>Operators</h2>
+    <h3>** machtsverheffing</h3>
+    <p>Beter laat dan nooit, de <code>**</code> machtsverheffing:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 console.log(Math.pow(2, 3)); // 8</code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 console.log(2 ** 3); // 8</code></pre>
-      </div>
+    </div>
 
-      <h2>Variabelen</h2>
-      <h3>object shorthand property</h3>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <h2>Variabelen</h2>
+    <h3>object shorthand property</h3>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 var name = 'Bobby', age = 42;
 var person = {name: name, age: age};</code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const name = 'Bobby', age = 42;
 const person = {name, age}; // shorthand</code></pre>
-      </div>
-      <h3>method shorthand property</h3>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    </div>
+    <h3>method shorthand property</h3>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 var obj = {
    sum: function(a, b) {
       return a + b;
    }
 };
 console.log(obj.sum(6, 8)); // 14</code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const obj = {
   sum(a, b) {  // shorthand
     return a + b;
   }
 };
 console.log(obj.sum(6, 8)); // 14</code></pre>
-      </div>
-      <h3>...rest parameter</h3>
-      <p>Aggregeer overblijvende parameters in één enkele ...rest parameter:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    </div>
+    <h3>...rest parameter</h3>
+    <p>Aggregeer overblijvende parameters in één enkele ...rest parameter:</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const test = function(x, y, ...a) {
   return (x + y) * a.length;
 }
 console.log(test(1, 2, "hello", true, 7)); // 9</code></pre>
-      <h3>...spread operator</h3>
-      <p>Zet zowat alles om naar een vlakke array. Spreid b.v. een array of string in individuele elementen:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <h3>...spread operator</h3>
+    <p>Zet zowat alles om naar een vlakke array. Spreid b.v. een array of string in individuele elementen:</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const str = "hello";
 const chars = [ ...str ]; // ["h", "e", "l", "l", "o"]
 
 const options = ["green", true, 7];
 const extendedOptions = [1, 2, ...options]; // [1, 2, "green", true, 7]</code></pre>
-      <p>Eenvoudige concatenatie van arrays:</p>
-      <pre class="prism-okaida line-numbers"><code>// ES6
+    <p>Eenvoudige concatenatie van arrays:</p>
+    <pre class="prism-okaida line-numbers"><code>// ES6
 const arr = [1, 2, ...[3, 4, 5], 6, 7];
 console.log(arr); // [1, 2, 3, 4, 5, 6, 7] </code></pre>
-      <p>Kan ook gebruikt worden om <code>querySelectorAll()</code> te converteren naar een array:</p>
-      <div class="democontainer">
-         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;ul&gt;
+    <p>Kan ook gebruikt worden om <code>querySelectorAll()</code> te converteren naar een array:</p>
+    <div class="democontainer">
+      <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;ul&gt;
    &lt;li&gt;&lt;a href=""&gt;link 1&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href=""&gt;link 2&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href=""&gt;link 3&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p id="msg"&gt;&lt;/p&gt;
 </code></pre>
-         <pre class="prism-okaida w-1000" data-caption="es6"><code>const links = document.querySelectorAll('ul a');
+      <pre class="prism-okaida w-1000" data-caption="es6"><code>const links = document.querySelectorAll('ul a');
 const arrLinks = [...links];
 document.querySelector('#msg').innerHTML = `
    &lt;code&gt;document.querySelectorAll('ul a')&lt;/code&gt;: ${Array.isArray(links) ? 'wel' : 'geen'} array
    &lt;br&gt;&lt;code&gt;[...document.querySelectorAll('ul a')]&lt;/code&gt;: ${Array.isArray(arrLinks) ? 'wel' : 'geen'} array`;
 </code></pre>
-      </div>
+    </div>
 
-      <h3>destructureren</h3>
-      <p>Destructureren verdeelt een array over variabelen.</p>
-      <h4>voorbeeld 1: waarden verdelen over een array</h4>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <h3>destructureren</h3>
+    <p>Destructureren verdeelt een array over variabelen.</p>
+    <h4>voorbeeld 1: waarden verdelen over een array</h4>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 var list = [77, true, 'hello'];
 var a = list[0];
 var b = list[1];
@@ -163,24 +163,24 @@ var c = list[2];
 
 
 </code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const list = [77,  true, 'hello'];
 const [a, b, c] = list; // array destructuring
 
 console.log(a); // 77
 console.log(b); // true
 console.log(c); // 'hello'</code></pre>
-      </div>
-      <p>Je kan eenvoudig waarden skippen:</p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    </div>
+    <p>Je kan eenvoudig waarden skippen:</p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const list = [77, true, 'hello'];
 const [a, , c] = list;
 
 console.log(a); // 77
 console.log(c); // 'hello'</code></pre>
 
-      <h4>voorbeeld 2: standaardwaarden voor arrays</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>voorbeeld 2: standaardwaarden voor arrays</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const list = [7, 42];
 const [a = 1, b = 2, c = 3, d] = list;
 
@@ -188,12 +188,12 @@ console.log(b); // 42
 console.log(c); // 3
 console.log(d); // undefined</code></pre>
 
-      <h4>voorbeeld 3: waarden wisselen</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>voorbeeld 3: waarden wisselen</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const [a, b] = [b, a]; // waarden worden verwisseld</code></pre>
 
-      <h4>voorbeeld 4: meerdere waarden retourneren uit een methode</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>voorbeeld 4: meerdere waarden retourneren uit een methode</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const func = function() {
    return [1, true, 'hello', {}]; // return multiple values
 }
@@ -203,8 +203,8 @@ const [a, , b, ] = func();
 console.log(a); // 1
 console.log(b); // 'hello'</code></pre>
 
-      <h4>voorbeeld 5: een object destructureren in variabelen</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>voorbeeld 5: een object destructureren in variabelen</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const test = {
    name: 'Rogier',
    address: {
@@ -219,8 +219,8 @@ const { name, address } = test; // object destructuring
 console.log(name); // Rogier
 console.log(address); // {street: "Kerkstraat", number: 33}
 console.log(address.number); // 33</code></pre>
-      <p>Voorbeeld met expliciete namen van variabelen en deep matching:</p>
-      <pre class="prism-okaida line-numbers w-750" data-demo><code>// ES6
+    <p>Voorbeeld met expliciete namen van variabelen en deep matching:</p>
+    <pre class="prism-okaida line-numbers w-750" data-demo><code>// ES6
 const test = {
    name: 'Rogier',
    address: {
@@ -237,10 +237,10 @@ console.log(n); // Rogier
 console.log(s); // 'Kerkstraat'
 console.log(a); // 42</code></pre>
 
-      <h2>Functies</h2>
-      <h3>arrow functies</h3>
-      <p>Een <mark>arrow functie</mark> is een verkorte notatie voor functies (zoals lambda expressies in C#):</p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h2>Functies</h2>
+    <h3>arrow functies</h3>
+    <p>Een <mark>arrow functie</mark> is een verkorte notatie voor functies (zoals lambda expressies in C#):</p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 // zonder parameters
 const sayHello = () =&gt; console.log('hello');
 sayHello(); // hello
@@ -253,10 +253,10 @@ console.log(double(4)); // 8
 const sum = (a, b) =&gt; a + b;
 console.log(sum(2,4)); // 6</code></pre>
 
-      <h3>currying functies</h3>
-      <p>Een <mark>currying functie</mark> is een functie die een functie teruggeeft</p>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <h3>currying functies</h3>
+    <p>Een <mark>currying functie</mark> is een functie die een functie teruggeeft</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 var highpass = function highpass(cutoff) {
    return function (n) {
       return n &gt;= cutoff;
@@ -265,7 +265,7 @@ var highpass = function highpass(cutoff) {
 const gt4 = highpass(4);
 console.log(gt4(6)); // true
 console.log(gt4(3)); // false</code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const highpass = cutoff =&gt; n =&gt; n &gt;= cutoff;
 const gt4 = highpass(4);
 console.log(gt4(6)); // true
@@ -275,30 +275,30 @@ console.log(gt4(3)); // false
 
 
 </code></pre>
-      </div>
+    </div>
 
-      <h3>default parameters</h3>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <h3>default parameters</h3>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 function f (x, y, z) {
    if (y === undefined) y = 7;
    if (z === undefined) z = 42;
    return x + y + z;
 };</code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 function f (x, y = 7, z = 42) {
    return x + y + z;
 }
 
 
 </code></pre>
-      </div>
+    </div>
 
-      <h3>generator functies</h3>
-      <p>Een <mark>generator</mark> is een functie die elke keer een verschillende waarde teruggeeft. Telkens <code>next()</code> opgeroepen wordt, loopt het tot de volgende <code>yield</code>.
-      </p>
-      <h4>generator basisvoorbeeld</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h3>generator functies</h3>
+    <p>Een <mark>generator</mark> is een functie die elke keer een verschillende waarde teruggeeft. Telkens <code>next()</code> opgeroepen wordt, loopt het tot de volgende <code>yield</code>.
+    </p>
+    <h4>generator basisvoorbeeld</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 // define a generator
 const someGenerator = function*() {
    yield 'hello';
@@ -314,8 +314,8 @@ console.log(gen.next().value); // 'hello'
 console.log(gen.next().value); // 9
 console.log(gen.next().value); // true
 console.log(gen.next().value); // undefined</code></pre>
-      <p>In feite geeft <code>next()</code> een object terug van de vorm <code>{ value: ..., done: ... }</code></p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <p>In feite geeft <code>next()</code> een object terug van de vorm <code>{ value: ..., done: ... }</code></p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const someGenerator = function*() {
    yield 'an';
    yield 'bob';
@@ -326,9 +326,9 @@ const gen = someGenerator();
 console.log(gen.next()); // {value: "an", done: false}
 console.log(gen.next()); // {value: "bob", done: false}
 console.log(gen.next()); // {value: undefined, done: true}</code></pre>
-      <h4>generator met parameters</h4>
-      <p>Voorbeeld met parameters:</p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>generator met parameters</h4>
+    <p>Voorbeeld met parameters:</p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const counterGenerator = function*(start, step) {
    const number = start;
    while(true) {
@@ -342,8 +342,8 @@ const gen = counterGenerator(100, 3);
 console.log(gen.next().value); // 100
 console.log(gen.next().value); // 103
 console.log(gen.next().value); // 106</code></pre>
-      <h4>Fibonacci met generator</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>Fibonacci met generator</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 function* fibonacci(n) {
    const infinite = !n &amp;&amp; n !== 0;
    let current = 0;
@@ -365,9 +365,9 @@ console.log(fibGenerator.next().value); // 1
 const [...first10] = fibonacci(10);
 console.log(first10); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</code></pre>
 
-      <h4>generator delegatie</h4>
-      <p>Je kan vanuit één generator delegeren naar een andere:</p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>generator delegatie</h4>
+    <p>Je kan vanuit één generator delegeren naar een andere:</p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 function* g1() {
    yield 2;
    yield 3;
@@ -387,15 +387,15 @@ while(!next.done) {
    console.log(next.value); // 1 2 3 4 5
    next = iterator.next();
 }</code></pre>
-      <ul class="arrow">
-         <li>voor een meer diepgaande uitleg zie <a href="https://ponyfoo.com/articles/es6-generators-in-depth">ponyfoo.com</a></li>
-      </ul>
-      <h2>Collecties</h2>
-      <h3>Set</h3>
-      <p>
-         Een <mark>Set</mark> is als een array, maar zonder dubbele waarden:
-      </p>
-      <pre class="prism-okaida line-numbers w-800" data-demo><code>// ES6
+    <ul class="arrow">
+      <li>voor een meer diepgaande uitleg zie <a href="https://ponyfoo.com/articles/es6-generators-in-depth">ponyfoo.com</a></li>
+    </ul>
+    <h2>Collecties</h2>
+    <h3>Set</h3>
+    <p>
+      Een <mark>Set</mark> is als een array, maar zonder dubbele waarden:
+    </p>
+    <pre class="prism-okaida line-numbers w-800" data-demo><code>// ES6
 const x = new Set([1, 2, 3, 4, 4, 4, 5]); // kopieer array, maar verwijder dubbels
 
 x.add(6);
@@ -414,14 +414,14 @@ console.log(`The set has 8: ${x.has(8)}`); // false
 for (const value of x) {
    console.log(value);
 }</code></pre>
-      <ul class="arrow">
-         <li>andere methodes zijn <code>clear()</code>, <code>forEach()</code> en <code>values()</code></li>
-      </ul>
-      <h3>Map</h3>
-      <p>
-         Een <mark>Map</mark> is als een object, maar alles kan key zijn:
-      </p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <ul class="arrow">
+      <li>andere methodes zijn <code>clear()</code>, <code>forEach()</code> en <code>values()</code></li>
+    </ul>
+    <h3>Map</h3>
+    <p>
+      Een <mark>Map</mark> is als een object, maar alles kan key zijn:
+    </p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const x = new Map([
    [(new Date()).toLocaleDateString('be-NL'), function today () {}],
    [y =&gt; y * 2, { pony: 'foo' }],
@@ -438,19 +438,19 @@ x.set('author', 'Rogier');
 for (const [key, value] of x) {
    console.log(`${key}: ${value}`);
 }</code></pre>
-      <ul class="arrow">
-         <li>andere methodes zijn <code>clear()</code>, <code>forEach()</code> en <code>values()</code></li>
-      </ul>
-      <h3>WeakSet en WeakMap</h3>
-      <p>
-         Zelfde als <code>Map</code> en <code>Map</code>, met enkele beperkingen:
-      </p>
-      <ul>
-         <li>je kan enkel objecten toevoegen (WeakSet) of als keys gebruiken (<code>WeakMap</code>)</li>
-         <li>je kan niet itereren, dus geen <code>size</code>, <code>for...in</code> enz...</li>
-      </ul>
-      <p>Belangrijkste voordeel: elke item wordt automatisch opgekuist door de garbage collector als er geen referenties meer zijn. Een vergelijking van <code>Set</code> en <code>WeakSet</code>:</p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <ul class="arrow">
+      <li>andere methodes zijn <code>clear()</code>, <code>forEach()</code> en <code>values()</code></li>
+    </ul>
+    <h3>WeakSet en WeakMap</h3>
+    <p>
+      Zelfde als <code>Map</code> en <code>Map</code>, met enkele beperkingen:
+    </p>
+    <ul>
+      <li>je kan enkel objecten toevoegen (WeakSet) of als keys gebruiken (<code>WeakMap</code>)</li>
+      <li>je kan niet itereren, dus geen <code>size</code>, <code>for...in</code> enz...</li>
+    </ul>
+    <p>Belangrijkste voordeel: elke item wordt automatisch opgekuist door de garbage collector als er geen referenties meer zijn. Een vergelijking van <code>Set</code> en <code>WeakSet</code>:</p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const set = new Set();
 const weakset = new WeakSet();
 
@@ -464,25 +464,25 @@ const weakset = new WeakSet();
 
 console.log(set); // set bevat a tot je het manueel verwijdert
 console.log(weakset); // weakset bevat b tot garbage collected</code></pre>
-      <p>Gebruik weak collections in plaats van <code>Map</code> en <code>Set</code> waar mogelijk om geheugenleks te vermijden. Typische use cases:</p>
-      <ul>
-         <li>organiseer objecten in groepen (<code>WeakSet</code>)</li>
-         <li>hou bij welke objecten al zijn verwerkt (<code>WeakSet</code>)</li>
-         <li>breid objecten uit zonder de garbagecollection te verstoren (<code>WeakMap</code>)</li>
-      </ul>
-      <p>Weak collections zijn alleen nuttig voor garbage collection van objecten; het heeft dus geen zin object literals als keys te gebruiken:</p>
-      <pre class="prism-okaida line-numbers wrong w-600" data-demo><code>// ES6
+    <p>Gebruik weak collections in plaats van <code>Map</code> en <code>Set</code> waar mogelijk om geheugenleks te vermijden. Typische use cases:</p>
+    <ul>
+      <li>organiseer objecten in groepen (<code>WeakSet</code>)</li>
+      <li>hou bij welke objecten al zijn verwerkt (<code>WeakSet</code>)</li>
+      <li>breid objecten uit zonder de garbagecollection te verstoren (<code>WeakMap</code>)</li>
+    </ul>
+    <p>Weak collections zijn alleen nuttig voor garbage collection van objecten; het heeft dus geen zin object literals als keys te gebruiken:</p>
+    <pre class="prism-okaida line-numbers wrong w-600" data-demo><code>// ES6
 const weakmap = new WeakMap();
 weakmap.set(new Date(), 111); // heeft geen zin
 weakmap.set({}, 222); // heeft geen zin</code></pre>
-      <h3>Iterators</h3>
-      <p>
-         Een iterator definieert hoe een object wordt herhaald met <code>for...in...</code>
-         <br>Het is beschikbaar als de geëvalueerde property <code>[Symbol.iterator]</code>
-         <br>Het retourneert een waarde <code>{waarde: ..., klaar: ...}</code>
-      </p>
-      <h4>Voorbeeld 1: basisvoorbeeld</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h3>Iterators</h3>
+    <p>
+      Een iterator definieert hoe een object wordt herhaald met <code>for...in...</code>
+      <br>Het is beschikbaar als de geëvalueerde property <code>[Symbol.iterator]</code>
+      <br>Het retourneert een waarde <code>{waarde: ..., klaar: ...}</code>
+    </p>
+    <h4>Voorbeeld 1: basisvoorbeeld</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const foo = {};
 
 foo[Symbol.iterator] = function() {
@@ -500,8 +500,8 @@ foo[Symbol.iterator] = function() {
 for (const item of foo) {
    console.log(item); // alice bob clive dave
 }</code></pre>
-      <p>Kortere syntax:</p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <p>Kortere syntax:</p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const foo = {};
 
 foo[Symbol.iterator]() {
@@ -519,8 +519,8 @@ foo[Symbol.iterator]() {
 for (const item of foo) {
    console.log(item); // alice bob clive dave
 }</code></pre>
-      <h4>Voorbeeld 2: Fibonacci</h4>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h4>Voorbeeld 2: Fibonacci</h4>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const fibonacci = {
    [Symbol.iterator]() {
       let pre = 0, cur = 1;
@@ -537,8 +537,8 @@ for (const n of fibonacci) {
    if (n &gt; 1000) break;
    console.log(n);
 };</code></pre>
-      <h4>Voorbeeld 3: prioriteiten</h4>
-      <pre class="prism-okaida line-numbers w-600 h-400" data-demo><code>// ES6
+    <h4>Voorbeeld 3: prioriteiten</h4>
+    <pre class="prism-okaida line-numbers w-600 h-400" data-demo><code>// ES6
 const custom_collection = {
    elements: [
       {val: 111, priority: 1},
@@ -577,10 +577,10 @@ for(const i of custom_collection) {
    console.log(i); // 444 222 555 111 333
 };</code></pre>
 
-      <h2>OO concepten</h2>
-      <h3>Classes in javascript</h3>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <h2>OO concepten</h2>
+    <h3>Classes in javascript</h3>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 var Shape = function (id, x, y) {
    this.id = id;
    this.move(x, y) = function (x, y) {
@@ -596,7 +596,7 @@ var Shape = function (id, x, y) {
 
 
 </code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 class Shape {
    constructor (id, x, y) {
       this.id = id;
@@ -610,10 +610,10 @@ class Shape {
 
 const dot1 = new Shape('dot 1', 25, 50);
 console.log(`shape ${dot1.id} has position (${dot1.x},${dot1.y})`);</code></pre>
-      </div>
+    </div>
 
-      <h3>Static class members</h3>
-      <pre class="prism-okaida line-numbers w-600"><code>// ES6
+    <h3>Static class members</h3>
+    <pre class="prism-okaida line-numbers w-600"><code>// ES6
 class Rectangle {
    ...
    static defaultRectangle () {
@@ -622,9 +622,9 @@ class Rectangle {
 }
 const defRectangle = Rectangle.defaultRectangle();</code></pre>
 
-      <h3>Overerving</h3>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <h3>Overerving</h3>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 var Rectangle = function (id, x, y, width, height) {
    Shape.call(this, id, x, y);
    this.width  = width;
@@ -638,7 +638,7 @@ var Circle = function (id, x, y, radius) {
 };
 Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;</code></pre>
-         <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 class Rectangle extends Shape {
    constructor (id, x, y, width, height) {
       super(id, x, y);
@@ -652,13 +652,13 @@ class Circle extends Shape {
       this.radius = radius;
    }
 }</code></pre>
-      </div>
+    </div>
 
 
-      <h3>Modules</h3>
-      <p>Modules nemen in Javascript de rol van namespaces op zich.</p>
-      <div class="codecompare">
-         <pre class="prism-okaida line-numbers"><code>// ES5
+    <h3>Modules</h3>
+    <p>Modules nemen in Javascript de rol van namespaces op zich.</p>
+    <div class="codecompare">
+      <pre class="prism-okaida line-numbers"><code>// ES5
 // libs/SomeLibrary/SomeApi.js
 SomeLibrary = SomeLibrary || {};
 SomeLibrary.SomeApi = {};
@@ -675,7 +675,7 @@ console.log(api.function2(...));
 var api = SomeLibrary.SomeApi; // use shortcut if you like
 console.log(api.function1(...));
 console.log(api.var2);</code></pre>
-         <pre class="prism-okaida line-numbers"><code>// ES6
+      <pre class="prism-okaida line-numbers"><code>// ES6
 // libs/SomeLibrary/SomeApi.js
 export function1 = function () { ... };
 export function2 = function () { ... };
@@ -692,15 +692,15 @@ console.log(f1(...));
 console.log(v2);
 
 </code></pre>
-      </div>
+    </div>
 
-      <h3>Proxies</h3>
-      <p>
-         Proxies laten toe code uit te voeren wanneer properties van een object gelezen of geschreven worden
-         (vergelijkbaar met getter en setter methodes van properties in C#).
-         In zijn eenvoudigste vorm is het niet meer dan een passthrough:
-      </p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <h3>Proxies</h3>
+    <p>
+      Proxies laten toe code uit te voeren wanneer properties van een object gelezen of geschreven worden
+      (vergelijkbaar met getter en setter methodes van properties in C#).
+      In zijn eenvoudigste vorm is het niet meer dan een passthrough:
+    </p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const handler = {}
 const target = {}
 const proxy = new Proxy(target, handler)
@@ -708,8 +708,8 @@ proxy.a = 'Alice' // property set
 proxy.b = 'Bob' // property set
 console.log(proxy.a); // property get; identical to target.a
 console.log(proxy.b); // property get; identical to target.b</code></pre>
-      <p>Met getter en setter code:</p>
-      <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
+    <p>Met getter en setter code:</p>
+    <pre class="prism-okaida line-numbers w-600" data-demo><code>// ES6
 const handler = {
    // proxy trap for 'get'
    get (target, key) {
@@ -729,11 +729,10 @@ proxy.a = 'Alice'; // property set
 proxy.b = 'Bob'; // property set
 console.log(proxy.a); // property get
 console.log(proxy.b); // property get</code></pre>
-      <p>&rarr; zie ook <a
-            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">developer.mozilla.org
-            documentatie</a></p>
-      <p>Proxies laten toe de toegang tot properties te controleren, b.v. maak alle '_'-prefixed properties private:</p>
-      <pre class="prism-okaida line-numbers w-900" data-demo><code>// ES6
+    <p>&rarr; zie ook <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">developer.mozilla.org
+        documentatie</a></p>
+    <p>Proxies laten toe de toegang tot properties te controleren, b.v. maak alle '_'-prefixed properties private:</p>
+    <pre class="prism-okaida line-numbers w-900" data-demo><code>// ES6
 const handler = {
    get (target, key) {
       if (key[0] === '_') throw new Error(`Invalid attempt to get private "${key}" property`);
@@ -751,8 +750,8 @@ const proxy = new Proxy(target, handler);
 proxy.a = 'Alice';
 proxy.b = 'Bob';
 proxy._c = 'Clive';</code></pre>
-      <p>Validatie met een proxy:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <p>Validatie met een proxy:</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const handler = {
    set (target, key, value) {
       if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
@@ -762,8 +761,8 @@ const handler = {
 const person = {};
 const proxy = new Proxy(person, handler);
 proxy.age = -1; // throws an error</code></pre>
-      <p>Helemaal veilig is het nog niet. Merk op dat je de properties nog steeds rechtstreeks kan veranderen:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <p>Helemaal veilig is het nog niet. Merk op dat je de properties nog steeds rechtstreeks kan veranderen:</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const handler = {
    set (target, key, value) {
       if (key == 'age' &amp;&amp; value &lt; 0) throw new Error(`age cannot be negative`);
@@ -774,28 +773,28 @@ const person = {};
 const proxy = new Proxy(person, handler);
 person.age = -1; // no problem</code></pre>
 
-      <h2>Promises</h2>
-      <p>
-         Promises zijn een belangrijk begrip in Javascript, waar veel <strong>asynchroon</strong> verloopt, i.e. terwijl
-         één deelcode aan de uitvoering bezig is (API call, inladen resource, complexe berekening...) loopt de rest van
-         de code verder. Als de deelcode klaar is, wordt het resultaat (of een foutmelding) teruggegeven aan het
-         hoofdprogramma via een <strong>callback methode</strong>.
-      </p>
-      <p>
-         Om de syntax van al die callbacks wat te stroomlijnen, werden in ES6 <mark>promises</mark> geïntroduceerd.
-         <br>Een promise is een belofte van een stuk code om iets uit te voeren. Het heeft drie toestanden:
-      </p>
-      <ul>
-         <li><span class="em">pending</span>: nog bezig</li>
-         <li><span class="em">resolved</span>: uitgevoerd</li>
-         <li><span class="em">rejected</span>: gefaald</li>
-      </ul>
-      <h3>Basis promise</h3>
-      <blockquote class="dotted w-900">
-         [daughter] — "I promise to clean my room today"
-         <br>[mom] — "Ok. If you do, I'll give you a candy. But if you don't, I'll tell dad about it."
-      </blockquote>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <h2>Promises</h2>
+    <p>
+      Promises zijn een belangrijk begrip in Javascript, waar veel <strong>asynchroon</strong> verloopt, i.e. terwijl
+      één deelcode aan de uitvoering bezig is (API call, inladen resource, complexe berekening...) loopt de rest van
+      de code verder. Als de deelcode klaar is, wordt het resultaat (of een foutmelding) teruggegeven aan het
+      hoofdprogramma via een <strong>callback methode</strong>.
+    </p>
+    <p>
+      Om de syntax van al die callbacks wat te stroomlijnen, werden in ES6 <mark>promises</mark> geïntroduceerd.
+      <br>Een promise is een belofte van een stuk code om iets uit te voeren. Het heeft drie toestanden:
+    </p>
+    <ul>
+      <li><span class="em">pending</span>: nog bezig</li>
+      <li><span class="em">resolved</span>: uitgevoerd</li>
+      <li><span class="em">rejected</span>: gefaald</li>
+    </ul>
+    <h3>Basis promise</h3>
+    <blockquote class="dotted w-900">
+      [daughter] — "I promise to clean my room today"
+      <br>[mom] — "Ok. If you do, I'll give you a candy. But if you don't, I'll tell dad about it."
+    </blockquote>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
    if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
@@ -807,8 +806,8 @@ cleanRoom
    .then(function() { console.log('well done — here is your candy') })
    .catch(function() { console.log('boo — I\'ll have to tell dad') });</code></pre>
 
-      <p>Ietsje netter geschreven met arrow notaties:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <p>Ietsje netter geschreven met arrow notaties:</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
    if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
@@ -819,8 +818,8 @@ const cleanRoom = new Promise(function (resolve, reject) {
 cleanRoom
    .then(() =&gt; console.log('well done — here is your candy'))
    .catch(() =&gt; console.log('boo — I\'ll have to tell dad'));</code></pre>
-      <p>Zelfde, maar dan met de <code>.then(result =&gt; {...}, error =&gt; {...})</code> otatie:</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <p>Zelfde, maar dan met de <code>.then(result =&gt; {...}, error =&gt; {...})</code> otatie:</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
    if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
@@ -832,8 +831,8 @@ cleanRoom.then(
    () =&gt; console.log('well done — here is your candy'),
    () =&gt; console.log('boo — I\'ll have to tell dad')
 );</code></pre>
-      <p>Een promise kan maar één keer gesettled worden (d.w.z. veranderen van pending naar resolved of rejected)</p>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <p>Een promise kan maar één keer gesettled worden (d.w.z. veranderen van pending naar resolved of rejected)</p>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 const promise = new Promise(function (resolve, reject) {
    console.log('pending');
    const delay = 6000; // change to 2000 and run again
@@ -845,12 +844,12 @@ promise
    .then(() =&gt; console.log('settled (resolved)'))
    .catch(() =&gt; console.log('settled (rejected)'));</code></pre>
 
-      <h3>Data meegeven</h3>
-      <blockquote class="dotted w-900">
-         [daughter] — "I promise to clean my room today"
-         <br>[mom] — "Ok. If you do, you can pick a candy. If not, I want to hear your excuse."
-      </blockquote>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <h3>Data meegeven</h3>
+    <blockquote class="dotted w-900">
+      [daughter] — "I promise to clean my room today"
+      <br>[mom] — "Ok. If you do, you can pick a candy. If not, I want to hear your excuse."
+    </blockquote>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
    // 50% chance that promise is kept
@@ -862,13 +861,13 @@ const cleanRoom = new Promise(function (resolve, reject) {
 cleanRoom
    .then(result =&gt; console.log(`well done — here is your ${result}`))
    .catch(error =&gt; console.log(`boo — you ${error}`));</code></pre>
-      <h3>Multiple branches</h3>
-      <blockquote class="dotted w-900">
-         [daughter] — "I promise to clean my room today"
-         <br>[mom] — "Ok. If you do, I'll give you a candy. If you don't, I won't care."
-         <br>[dad] — "If you don't, I'll spank you."
-      </blockquote>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <h3>Multiple branches</h3>
+    <blockquote class="dotted w-900">
+      [daughter] — "I promise to clean my room today"
+      <br>[mom] — "Ok. If you do, I'll give you a candy. If you don't, I won't care."
+      <br>[dad] — "If you don't, I'll spank you."
+    </blockquote>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // daughter's promise
 const cleanRoom = new Promise(function (resolve, reject) {
    if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
@@ -882,15 +881,15 @@ cleanRoom
 
 // dad's reactions: he only punishes
 cleanRoom.catch(error =&gt; console.log('Here is your spanking'));</code></pre>
-      <p>&rarr; een branch moet altijd eindigen met <code>catch</code> om fouten op te vangen</p>
+    <p>&rarr; een branch moet altijd eindigen met <code>catch</code> om fouten op te vangen</p>
 
-      <h3>Promise chaining</h3>
-      <blockquote class="dotted w-900">
-         [dad] — "I promise to fix the car today"
-         <br>[mom] — "good, because I promised we would take the kids to the park."
-         <br>[big brother] — "little brother, i will ask mom if we go to the park"
-      </blockquote>
-      <pre class="prism-okaida line-numbers h-400 w-800" data-demo><code>// ES6
+    <h3>Promise chaining</h3>
+    <blockquote class="dotted w-900">
+      [dad] — "I promise to fix the car today"
+      <br>[mom] — "good, because I promised we would take the kids to the park."
+      <br>[big brother] — "little brother, i will ask mom if we go to the park"
+    </blockquote>
+    <pre class="prism-okaida line-numbers h-400 w-800" data-demo><code>// ES6
 // dad's promise
 const fixCar = new Promise(function (resolve, reject) {
    // 50% chance dad fixes the car
@@ -933,8 +932,8 @@ tellLittleBrother.then(
    }
 ); // no need to catch here; big brother always keeps his promise</code></pre>
 
-      <p>Met extra berichten en een paar delays om het realistischer te maken:</p>
-      <pre class="prism-okaida line-numbers h-400 w-800" data-demo><code>// ES6
+    <p>Met extra berichten en een paar delays om het realistischer te maken:</p>
+    <pre class="prism-okaida line-numbers h-400 w-800" data-demo><code>// ES6
 const fixCar = new Promise(function (resolve, reject) {
    console.log('---- dad starts fixing the car');
    // 50% chance dad fixes the car
@@ -1004,12 +1003,12 @@ tellLittleBrother.then(
    }
 ); // no need to catch here; big brother always keeps his promise</code></pre>
 
-      <h3>Promise.All</h3>
-      <blockquote class="dotted w-900">
-         [kids] — "Can we go to the park today?"
-         <br>[mom] — "Only if you both clean your rooms"
-      </blockquote>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <h3>Promise.All</h3>
+    <blockquote class="dotted w-900">
+      [kids] — "Can we go to the park today?"
+      <br>[mom] — "Only if you both clean your rooms"
+    </blockquote>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // kid1 promise
 const cleanRoom1 = new Promise(function (resolve, reject) {
    if (Math.random() &gt; 0.5) resolve(); // 50% chance that promise is kept
@@ -1028,12 +1027,12 @@ Promise.all([
    cleanRoom2
 ]).then(() =&gt; console.log('well done, we go')).catch(err =&gt; console.log(err));</code></pre>
 
-      <h3>Promise.race</h3>
-      <blockquote class="dotted w-900">
-         [kids] — "Can we have a candy?"
-         <br>[mom] — "The first who cleans his room gets a candy."
-      </blockquote>
-      <pre class="prism-okaida line-numbers" data-demo><code>// ES6
+    <h3>Promise.race</h3>
+    <blockquote class="dotted w-900">
+      [kids] — "Can we have a candy?"
+      <br>[mom] — "The first who cleans his room gets a candy."
+    </blockquote>
+    <pre class="prism-okaida line-numbers" data-demo><code>// ES6
 // kid1 promise
    const cleanRoom1 = new Promise(function (resolve, reject) {
    setTimeout(
@@ -1056,15 +1055,15 @@ Promise.race([
    cleanRoom2
 ]).then(res =&gt; console.log(`${res} first and gets the candy`));</code></pre>
 
-      <h2>Case study</h2>
-      <p>We gooien volgende technieken samen in Node:</p>
-      <ul class="arrow">
-         <li>een generator om URL's te genereren</li>
-         <li>promises om de content van URL's te fetchen (HTML)</li>
-         <li>Node modules om de HTML naar markup te parsen en te processen</li>
-      </ul>
-      <p>Nodige mode modules:</p>
-      <pre class="prism-okaida line-numbers" data-demo data-caption="package.json"><code class="language-json">{
+    <h2>Case study</h2>
+    <p>We gooien volgende technieken samen in Node:</p>
+    <ul class="arrow">
+      <li>een generator om URL's te genereren</li>
+      <li>promises om de content van URL's te fetchen (HTML)</li>
+      <li>Node modules om de HTML naar markup te parsen en te processen</li>
+    </ul>
+    <p>Nodige mode modules:</p>
+    <pre class="prism-okaida line-numbers" data-demo data-caption="package.json"><code class="language-json">{
    ...
    "dependencies": {
       "hget": "^3.1.0",
@@ -1073,8 +1072,8 @@ Promise.race([
       "request": "^2.79.0"
    }
 }</code></pre>
-      <p>Het volledige script:</p>
-      <pre class="prism-okaida line-numbers h-400" data-demo><code>// ES6
+    <p>Het volledige script:</p>
+    <pre class="prism-okaida line-numbers h-400" data-demo><code>// ES6
 
 // require modules
 const request = require('request');
@@ -1131,57 +1130,56 @@ const displayNextPage = function() {
 
 // start recursive page call
 displayNextPage();</code></pre>
-      <p>Voer vervolgens het script uit:</p>
-      <figure class="console">
-         <pre>C:\Users\rogie\Desktop&gt;node script.js</pre>
-         <figcaption>resultaat in de command prompt</figcaption>
-      </figure>
-      <figure>
-         <img src="img/es6/casestudy.png" alt="" class="w-600">
-         <figcaption>resultaat</figcaption>
-      </figure>
+    <p>Voer vervolgens het script uit:</p>
+    <figure class="console">
+      <pre>C:\Users\rogie\Desktop&gt;node script.js</pre>
+      <figcaption>resultaat in de command prompt</figcaption>
+    </figure>
+    <figure>
+      <img src="img/es6/casestudy.png" alt="" class="w-600">
+      <figcaption>resultaat</figcaption>
+    </figure>
 
-      <h2>Nuttige links</h2>
-      <ul>
-         <li><a href="http://es6-features.org/">http://es6-features.org/</a></li>
-         <li><a href="https://ponyfoo.com/">https://ponyfoo.com/</a></li>
-         <li><a href="https://kangax.github.io/compat-table/es6/">https://kangax.github.io/compat-table/es6/</a>
-         </li>
-         <li><a
-               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a>
-         </li>
-         <li><a href="http://exploringjs.com/es2016-es2017/">Exploring ES2016 and ES2017</a></li>
-      </ul>
+    <h2>Nuttige links</h2>
+    <ul>
+      <li><a href="http://es6-features.org/">http://es6-features.org/</a></li>
+      <li><a href="https://ponyfoo.com/">https://ponyfoo.com/</a></li>
+      <li><a href="https://kangax.github.io/compat-table/es6/">https://kangax.github.io/compat-table/es6/</a>
+      </li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a>
+      </li>
+      <li><a href="http://exploringjs.com/es2016-es2017/">Exploring ES2016 and ES2017</a></li>
+    </ul>
 
-   </main>
-   <footer>
-      <img src="img/thats-all.jpg" alt="">
-      <p>@2014, Rogier van der Linde</p>
-   </footer>
-   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+  </main>
+  <footer>
+    <img src="img/thats-all.jpg" alt="">
+    <p>@2014, Rogier van der Linde</p>
+  </footer>
+  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
 
-   <!-- popup -->
-   <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
-      <div class="hystmodal__wrap">
-         <div class="hystmodal__window" role="dialog" aria-modal="true">
-            <iframe title="demo"></iframe>
-         </div>
+  <!-- popup -->
+  <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
+    <div class="hystmodal__wrap">
+      <div class="hystmodal__window" role="dialog" aria-modal="true">
+        <iframe title="demo"></iframe>
       </div>
-   </div>
-   <!-- scripts -->
-   <script src="common/vendor/prism/prism.js"></script>
-   <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
-   <script src="common/js/mode.js"></script>
-   <script src="common/js/scripts.js"></script>
-   <!-- Google tag (gtag.js) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
-   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+    </div>
+  </div>
+  <!-- scripts -->
+  <script src="common/vendor/prism/prism.js"></script>
+  <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
+  <script src="common/js/mode.js"></script>
+  <script src="common/js/scripts.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-      gtag('config', 'G-33VMW730V9');
-   </script>
+    gtag('config', 'G-33VMW730V9');
+  </script>
 </body>
 
 </html>

@@ -1,111 +1,112 @@
 <!DOCTYPE html>
 <!-- [html-validate-disable no-trailing-whitespace] -->
+<!-- [html-validate-disable no-inline-style] -->
 <html lang="nl">
 
 <head>
-   <title>Javascript syntax | Javascript cursus</title>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="common/styles.css">
-   <link rel="stylesheet" href="css/styles.css">
+  <title>Javascript syntax | Javascript cursus</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="common/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="language-javascript line-numbers">
-   <div id="mode">
-      <span>n00b</span>
-      <label class="switch">
-         <input type="checkbox" checked>
-         <span class="slider round"></span>
-      </label>
-      <span>pro</span>
-   </div>
-   <nav class="site__nav">
-      <a href="01_syntax.html" class="main__thumb active" title="01. Javascript syntax">
-         <p class="thumb__title">01. Javascript syntax</p>
-         <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
-      </a>
-      <a href="02_domhtml.html" class="main__thumb" title="02. HTML manipulatie">
-         <p class="thumb__title">02. HTML manipulatie</p>
-         <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
-      </a>
-      <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
-         <p class="thumb__title">03. CSS manipulatie</p>
-         <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
-      </a>
-      <a href="04_async.html" class="main__thumb" title="04. Web API's">
-         <p class="thumb__title">04. Web API's</p>
-         <img class="thumb__visual" src="img/04_async/icon.png" alt="">
-      </a>
-      <a href="05_nodejs.html" class="main__thumb pro" title="05. NodeJS">
-        <p class="thumb__title">05. NodeJS</p>
-        <img class="thumb__visual" src="img/05_nodejs/icon.png" alt="">
-      </a>
-      <a href="games.html" class="main__thumb pro" title="games">
-         <p class="thumb__title">Games</p>
-         <img class="thumb__visual" src="img/games/icon.png" alt="">
-      </a>
-      <a href="es6.html" class="main__thumb pro" title="ES6">
-        <p class="thumb__title">ES6</p>
-        <img class="thumb__visual" src="img/es6/icon.png" alt="">
-      </a>
-        <a href="summary.html" class="main__thumb" title="samenvatting">
-         <p class="thumb__title">samenvatting</p>
-         <img class="thumb__visual" src="img/summary/icon.png" alt="">
-      </a>
-   </nav>
-   <h1>01. Javascript Syntax</h1>
-   <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
-   <div id="toc"></div>
-   <main>
+  <div id="mode">
+    <span>n00b</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+    <span>pro</span>
+  </div>
+  <nav class="site__nav">
+    <a href="01_syntax.html" class="main__thumb active" title="01. Javascript syntax">
+      <p class="thumb__title">01. Javascript syntax</p>
+      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+    </a>
+    <a href="02_domhtml.html" class="main__thumb" title="02. HTML manipulatie">
+      <p class="thumb__title">02. HTML manipulatie</p>
+      <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
+    </a>
+    <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
+      <p class="thumb__title">03. CSS manipulatie</p>
+      <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
+    </a>
+    <a href="04_games.html" class="main__thumb" title="04. Games">
+      <p class="thumb__title">04. Games</p>
+      <img class="thumb__visual" src="img/04_games/icon.png" alt="">
+    </a>
+    <a href="05_async.html" class="main__thumb" title="05. Web API's">
+      <p class="thumb__title">05. Web API's</p>
+      <img class="thumb__visual" src="img/05_async/icon.png" alt="">
+    </a>
+    <a href="06_nodejs.html" class="main__thumb pro" title="06. NodeJS">
+      <p class="thumb__title">06. NodeJS</p>
+      <img class="thumb__visual" src="img/06_nodejs/icon.png" alt="">
+    </a>
+    <a href="es6.html" class="main__thumb pro" title="ES6">
+      <p class="thumb__title">ES6</p>
+      <img class="thumb__visual" src="img/es6/icon.png" alt="">
+    </a>
+    <a href="summary.html" class="main__thumb" title="samenvatting">
+      <p class="thumb__title">samenvatting</p>
+      <img class="thumb__visual" src="img/summary/icon.png" alt="">
+    </a>
+  </nav>
+  <h1>01. Javascript Syntax</h1>
+  <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
+  <div id="toc"></div>
+  <main>
 
-      <!-- VIDEO -->
-      <h2>On Youtube: Javascript syntax</h2>
-      <div class="flexcontainer youtubecontainer">
-         <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/Rxn-qPPa5TI?si=nNw3_oAiwVj0Nopj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-         <figure class="print">
-            <a href="https://www.youtube.com/embed/Rxn-qPPa5TI"><img src="img/01_syntax/01.DWD-syntax.png" alt="" class="w-500"></a>
-            <figcaption><a href="https://www.youtube.com/embed/Rxn-qPPa5TI">https://www.youtube.com/embed/Rxn-qPPa5TI</a>
-            </figcaption>
-         </figure>
-         <div class="youtube_toc">
-            <ul>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=0s">00:00 intro</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=30s">00:30 Javascript als scriptingtaal</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=30s">05:00 Javascript uitvoeren</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=529s">08:49 Javascript in een webpagina</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=773s">12:53 console</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=797s">13:17 meerdere scripts linken</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=822s">13:42 interne en inline scripts</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=920s">15:20 variabelen en types</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1040s">17:20 mixen en conversies van types</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1162s">19:22 Infinity, NaN, Undefined</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1270s">21:10 strings, interpolatie, multiline</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1317s">21:57 constanten</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1485s">24:45 const, let of var?</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1528s">25:28 arrays en lijsten</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1644s">27:24 objecten</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1732s">28:52 selecties en iteraties, for-of, forEach</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1865s">31:05 functies</a></li>
-               <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1934s">32:14 Math, Date, Array...</a></li>
-            </ul>
-         </div>
+    <!-- VIDEO -->
+    <h2>On Youtube: Javascript syntax</h2>
+    <div class="flexcontainer youtubecontainer">
+      <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/Rxn-qPPa5TI?si=nNw3_oAiwVj0Nopj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <figure class="print">
+        <a href="https://www.youtube.com/embed/Rxn-qPPa5TI"><img src="img/01_syntax/01.DWD-syntax.png" alt="" class="w-500"></a>
+        <figcaption><a href="https://www.youtube.com/embed/Rxn-qPPa5TI">https://www.youtube.com/embed/Rxn-qPPa5TI</a>
+        </figcaption>
+      </figure>
+      <div class="youtube_toc">
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=0s">00:00 intro</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=30s">00:30 Javascript als scriptingtaal</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=30s">05:00 Javascript uitvoeren</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=529s">08:49 Javascript in een webpagina</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=773s">12:53 console</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=797s">13:17 meerdere scripts linken</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=822s">13:42 interne en inline scripts</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=920s">15:20 variabelen en types</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1040s">17:20 mixen en conversies van types</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1162s">19:22 Infinity, NaN, Undefined</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1270s">21:10 strings, interpolatie, multiline</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1317s">21:57 constanten</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1485s">24:45 const, let of var?</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1528s">25:28 arrays en lijsten</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1644s">27:24 objecten</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1732s">28:52 selecties en iteraties, for-of, forEach</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1865s">31:05 functies</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rxn-qPPa5TI&t=1934s">32:14 Math, Date, Array...</a></li>
+        </ul>
       </div>
+    </div>
 
-      <!-- COMMENTAAR -->
-      <h2>Werken met Javascript</h2>
-      <h3>Javascript als scriptingtaal</h3>
-      <p>
-         Javascript een <strong>scripting taal</strong>, geen echte programmeertaal zoals C#. Enkele kenmerken:
-      </p>
-      <ul>
-         <li>In Javascript gebeurt de <strong>compilatie tijdens de uitvoering</strong> van het script (JIT: just in time compilation), en niet vooraf zoals C# (naar een .exe)</li>
-         <li>Je zou verwachten dat het daardoor iets trager is dan bv. C#, maar dankzij JIT kan de code ook nog tijdens uitvoering geoptimaliseerd worden. Gemiddeld is er <strong>weinig verschil in snelheid</strong>.</li>
-         <li>Javascript is (net zoals HTML en CSS) <strong>zuiver tekst</strong>, en dus is de code moeilijker te beschermen tegen kopiëren dan een C# .exeprogramma.</li>
-         <li>Scripting talen hebben vaak een wat <strong>speciale, lossere syntax</strong>, met minder strakke regels en heel veel vrijheden en verantwoordelijkheden (dat zul je verderop nog wel merken).</li>
-         <li>Er zijn veel scripting talen &mdash; Python, PHP, Perl, Ruby... &mdash; maar er is er maar één die browsers begrijpen: <strong>Javascript</strong>.</li>
-      </ul>
-      <p>Javascript is syntactisch een erg rijke taal, die zeer compact kan zijn. Kopieer volgende fragment maar eens in een HTML document, en <a href="demos/01_syntax/js1k_3.html">bekijk het resutaat</a>...</p>
-      <pre class="prism-okaida language-html w-1200" data-demo="demos/01_syntax/js1k_3.html"><code>&lt;!doctype html&gt;
+    <!-- COMMENTAAR -->
+    <h2>Werken met Javascript</h2>
+    <h3>Javascript als scriptingtaal</h3>
+    <p>
+      Javascript een <strong>scripting taal</strong>, geen echte programmeertaal zoals C#. Enkele kenmerken:
+    </p>
+    <ul>
+      <li>In Javascript gebeurt de <strong>compilatie tijdens de uitvoering</strong> van het script (JIT: just in time compilation), en niet vooraf zoals C# (naar een .exe)</li>
+      <li>Je zou verwachten dat het daardoor iets trager is dan bv. C#, maar dankzij JIT kan de code ook nog tijdens uitvoering geoptimaliseerd worden. Gemiddeld is er <strong>weinig verschil in snelheid</strong>.</li>
+      <li>Javascript is (net zoals HTML en CSS) <strong>zuiver tekst</strong>, en dus is de code moeilijker te beschermen tegen kopiëren dan een C# .exeprogramma.</li>
+      <li>Scripting talen hebben vaak een wat <strong>speciale, lossere syntax</strong>, met minder strakke regels en heel veel vrijheden en verantwoordelijkheden (dat zul je verderop nog wel merken).</li>
+      <li>Er zijn veel scripting talen &mdash; Python, PHP, Perl, Ruby... &mdash; maar er is er maar één die browsers begrijpen: <strong>Javascript</strong>.</li>
+    </ul>
+    <p>Javascript is syntactisch een erg rijke taal, die zeer compact kan zijn. Kopieer volgende fragment maar eens in een HTML document, en <a href="demos/01_syntax/js1k_3.html">bekijk het resutaat</a>...</p>
+    <pre class="prism-okaida language-html w-1200" data-demo="demos/01_syntax/js1k_3.html"><code>&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 &lt;body&gt;
    &lt;canvas id="c"&gt;&lt;/canvas&gt;
@@ -115,36 +116,36 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-      <ul class="arrow">
-         <li>andere voorbeelden van Javascript programma's van minder dan 1000 tekens: <a href="demos/01_syntax/js1k_1.html">Rainbow game</a>, <a href="demos/01_syntax/js1k_2.html">Particles generator</a> </li>
-      </ul>
-      <div class="tips" data-caption="🤔 NAAMGEVING">
-         <p>
-            Javascript heeft een lange voorgeschiedenis van naamgeving: oorspronkelijk <strong>Mocha</strong> gedoopt,
-            dan <strong>LiveScript</strong> en vervolgens <strong>Javascript</strong>, om tenslotte hernoemd te worden
-            naar de vandaag officiële naam <strong class="em">ECMAScript</strong> of kortweg ES.
-            Ook de versienummering is verwarrend: ECMAScript6 of ES6 (a.k.a. Harmony) wordt ook ES2015 genoemd, en komt
-            ES7 dus overeen met ES2016.
-         </p>
-      </div>
-
-      <h3>Javascript in andere omgevingen</h3>
+    <ul class="arrow">
+      <li>andere voorbeelden van Javascript programma's van minder dan 1000 tekens: <a href="demos/01_syntax/js1k_1.html">Rainbow game</a>, <a href="demos/01_syntax/js1k_2.html">Particles generator</a> </li>
+    </ul>
+    <div class="tips" data-caption="🤔 NAAMGEVING">
       <p>
-         Javascript is <strong>enkel een taal</strong>, d.w.z. een set van syntaxregels; dit zegt niks over waar het
-         uitgevoerd wordt. In principe kan het uitgevoerd worden in elke omgeving waar een Javascript engine op kan
-         draaien. De meest gekende toepassing is <strong>in webpagina’s</strong>, maar enkele andere mogelijke omgevingen zijn:
+        Javascript heeft een lange voorgeschiedenis van naamgeving: oorspronkelijk <strong>Mocha</strong> gedoopt,
+        dan <strong>LiveScript</strong> en vervolgens <strong>Javascript</strong>, om tenslotte hernoemd te worden
+        naar de vandaag officiële naam <strong class="em">ECMAScript</strong> of kortweg ES.
+        Ook de versienummering is verwarrend: ECMAScript6 of ES6 (a.k.a. Harmony) wordt ook ES2015 genoemd, en komt
+        ES7 dus overeen met ES2016.
       </p>
-      <ul>
-         <li><strong>Windows Scripting Host</strong>: shell scripts in Javascript (kan ook op MAC, zie verder)</li>
-         <li><strong>NodeJS</strong>: server scripts geschreven in Javascript</li>
-         <li><strong>Micro:bit</strong>: deze populaire microcontroller kan je programmeren met Scratch, Python maar ook met Javascript</li>
-         <li><strong>Embedded</strong>: plugins voor Adobe Acrobat, Photoshop, Chrome enz... geschreven in Javascript</li>
-         <li>...</li>
-      </ul>
-      <h4>In Windows Scripting Host</h4>
-      <p>Je kan Javascript gebruiken om scripts uit te voeren in een Windows command. Codevoorbeeld (en ter vergelijking rechts de C# Console versie):</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>/* global WScript */
+    </div>
+
+    <h3>Javascript in andere omgevingen</h3>
+    <p>
+      Javascript is <strong>enkel een taal</strong>, d.w.z. een set van syntaxregels; dit zegt niks over waar het
+      uitgevoerd wordt. In principe kan het uitgevoerd worden in elke omgeving waar een Javascript engine op kan
+      draaien. De meest gekende toepassing is <strong>in webpagina’s</strong>, maar enkele andere mogelijke omgevingen zijn:
+    </p>
+    <ul>
+      <li><strong>Windows Scripting Host</strong>: shell scripts in Javascript (kan ook op MAC, zie verder)</li>
+      <li><strong>NodeJS</strong>: server scripts geschreven in Javascript</li>
+      <li><strong>Micro:bit</strong>: deze populaire microcontroller kan je programmeren met Scratch, Python maar ook met Javascript</li>
+      <li><strong>Embedded</strong>: plugins voor Adobe Acrobat, Photoshop, Chrome enz... geschreven in Javascript</li>
+      <li>...</li>
+    </ul>
+    <h4>In Windows Scripting Host</h4>
+    <p>Je kan Javascript gebruiken om scripts uit te voeren in een Windows command. Codevoorbeeld (en ter vergelijking rechts de C# Console versie):</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>/* global WScript */
 function faculteit(n) {
    var resultaat = n;
    for (var i = n - 1; i &gt; 1; i--) resultaat *= i;
@@ -157,7 +158,7 @@ var getal = parseInt(WScript.StdIn.ReadLine());
 WScript.StdOut.Write('De faculteit is ' + faculteit(getal));
 
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>static private int Faculteit(int n) {
+      <pre class="prism-vslight language-cs"><code>static private int Faculteit(int n) {
    int resultaat = n;
    for (int i = n - 1; i &gt; 1; i--) resultaat *= i;
    return resultaat;
@@ -170,13 +171,13 @@ static void Main(string[] args) {
    Console.WriteLine($"De faculteit is {Faculteit(getal)}");
 }
 </code></pre>
-      </div>
-      <p>
-         Sla het script op als <strong>demoWSH.js</strong>, en run het met het <strong>cscript commando</strong> in een
-         command prompt:
-      </p>
-      <figure class="console">
-         <pre>C:\Users\rogie\Desktop&gt;cscript demoWSH.js
+    </div>
+    <p>
+      Sla het script op als <strong>demoWSH.js</strong>, en run het met het <strong>cscript commando</strong> in een
+      command prompt:
+    </p>
+    <figure class="console">
+      <pre>C:\Users\rogie\Desktop&gt;cscript demoWSH.js
 Microsoft (R) Windows Script Host Version 5.812
 Copyright (C) Microsoft Corporation. All rights reserved.
 
@@ -185,17 +186,17 @@ FACULTEIT BEREKENEN
 Geef een geheel getal: 8
 De faculteit is 40320
 C:\Users\rogie\Desktop</pre>
-         <figcaption>resultaat in de command prompt</figcaption>
-      </figure>
+      <figcaption>resultaat in de command prompt</figcaption>
+    </figure>
 
-      <h4>Serverside Javascript met NodeJS</h4>
-      <p>
-         NodeJS is een Javascript runtime omgeving waarmee Javascript buiten de browser kan uitgevoerd worden,
-         bijvoorbeeld om server- of desktop toepassingen te schrijven. Je moet het eerst downloaden en installeren via
-         <a href="https://nodejs.org/en">https://nodejs.org/en</a>
-         Voorbeeldscript voor het opzetten van een eenvoudige server:
-      </p>
-      <pre class="prism-okaida"><code>const http = require('http');
+    <h4>Serverside Javascript met NodeJS</h4>
+    <p>
+      NodeJS is een Javascript runtime omgeving waarmee Javascript buiten de browser kan uitgevoerd worden,
+      bijvoorbeeld om server- of desktop toepassingen te schrijven. Je moet het eerst downloaden en installeren via
+      <a href="https://nodejs.org/en">https://nodejs.org/en</a>
+      Voorbeeldscript voor het opzetten van een eenvoudige server:
+    </p>
+    <pre class="prism-okaida"><code>const http = require('http');
 const port = 8124;
 const status = 200;
 http.createServer(function(request, response) {
@@ -204,44 +205,44 @@ http.createServer(function(request, response) {
 }).listen(port);
 console.log('Server running at http://127.0.0.1:8124/');
 </code></pre>
-      <p>Sla dit script ergens op, bijvoorbeeld als <strong>demoNode.js</strong> op de desktop. Voer het dan uit met het <strong>node</strong> commando:
-      </p>
-      <figure class="console">
-         <pre>C:\Users\rogie\Destkop&gt;node demoNode.js
+    <p>Sla dit script ergens op, bijvoorbeeld als <strong>demoNode.js</strong> op de desktop. Voer het dan uit met het <strong>node</strong> commando:
+    </p>
+    <figure class="console">
+      <pre>C:\Users\rogie\Destkop&gt;node demoNode.js
 Server running at http://127.0.0.1:8124/</pre>
-         <figcaption>run het script in de command prompt</figcaption>
-      </figure>
-      <p>Je kan vervolgens het serveradres openen in de browser:</p>
-      <p>
-         <img src="img/01_syntax/nodejs.png" alt="array" class="w-500">
-      </p>
+      <figcaption>run het script in de command prompt</figcaption>
+    </figure>
+    <p>Je kan vervolgens het serveradres openen in de browser:</p>
+    <p>
+      <img src="img/01_syntax/nodejs.png" alt="array" class="w-500">
+    </p>
 
-      <h3>Javascript in een webpagina</h3>
-      <h4>Script extern linken</h4>
+    <h3>Javascript in een webpagina</h3>
+    <h4>Script extern linken</h4>
+    <p>
+      In de rest van de cursus beperken we ons tot Javascript in web pagina’s. De werkwijze is gelijkend aan hoe je
+      CSS aan een webpagina toevoegt:
+    </p>
+    <ol>
+      <li>maak een <strong>map 'js'</strong> in je project</li>
+      <li>maak daarin een <strong>bestand 'script.js'</strong></li>
+      <li>link het <strong>onderaan in de &lt;body&gt;</strong> (CSS bestanden link je bovenaan in de &lt;head&gt;) je HTML document met &lt;script src="js/scripts.js"&gt;&lt;/script&gt;</li>
+      <li>open de HTML pagina in de browser (bijvoorbeeld met de Go Live knop rechtsonder)</li>
+    </ol>
+    <img src="img/01_syntax/js-in-webpagina.png" alt="" class="w-1000">
+    <div class="tips" data-caption="💡TIP">
       <p>
-         In de rest van de cursus beperken we ons tot Javascript in web pagina’s. De werkwijze is gelijkend aan hoe je
-         CSS aan een webpagina toevoegt:
+        Link je scripts altijd <strong>onderaan in de body</strong>, zodat alle HTML ingelezen is vóór het script
+        uitgevoerd wordt! Als bonus krijgt de gebruiker dan sneller de inhoud van de pagina te zien, zonder eerst op
+        het inladen van het script te moeten wachten
       </p>
-      <ol>
-         <li>maak een <strong>map 'js'</strong> in je project</li>
-         <li>maak daarin een <strong>bestand 'script.js'</strong></li>
-         <li>link het <strong>onderaan in de &lt;body&gt;</strong> (CSS bestanden link je bovenaan in de &lt;head&gt;) je HTML document met &lt;script src="js/scripts.js"&gt;&lt;/script&gt;</li>
-         <li>open de HTML pagina in de browser (bijvoorbeeld met de Go Live knop rechtsonder)</li>
-      </ol>
-      <img src="img/01_syntax/js-in-webpagina.png" alt="" class="w-1000">
-      <div class="tips" data-caption="💡TIP">
-         <p>
-            Link je scripts altijd <strong>onderaan in de body</strong>, zodat alle HTML ingelezen is vóór het script
-            uitgevoerd wordt! Als bonus krijgt de gebruiker dan sneller de inhoud van de pagina te zien, zonder eerst op
-            het inladen van het script te moeten wachten
-         </p>
-      </div>
+    </div>
 
-      <p>Voorbeeldcode, HTML en Javascript en het resultaat in de webpagina:</p>
-      <pre class="prism-okaida w-650"><code>document.getElementById('message').innerHTML = 'Hallo Wereld!';
+    <p>Voorbeeldcode, HTML en Javascript en het resultaat in de webpagina:</p>
+    <pre class="prism-okaida w-650"><code>document.getElementById('message').innerHTML = 'Hallo Wereld!';
 console.log('einde script');
 </code></pre>
-      <pre class="prism-default language-html w-650" data-demo="demos/01_syntax/basic/index.html"><code>&lt;!DOCTYPE html&gt;
+    <pre class="prism-default language-html w-650" data-demo="demos/01_syntax/basic/index.html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
    &lt;meta charset="UTF-8"&gt;
@@ -254,13 +255,13 @@ console.log('einde script');
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-      <img src="img/01_syntax/js-in-webpagina2.png" alt="" class="w-600">
+    <img src="img/01_syntax/js-in-webpagina2.png" alt="" class="w-600">
 
-      <h4>Meerdere scripts linken</h4>
-      <p>
-         Net zoals bij CSS, kan je ook meerdere scripts linken. Een typisch HTML bestand wordt dan:
-      </p>
-      <pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
+    <h4>Meerdere scripts linken</h4>
+    <p>
+      Net zoals bij CSS, kan je ook meerdere scripts linken. Een typisch HTML bestand wordt dan:
+    </p>
+    <pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
    &lt;meta charset="UTF-8"&gt;
@@ -282,9 +283,9 @@ console.log('einde script');
 &lt;/html&gt;
 </code></pre>
 
-      <h4>Interne scriptblokken</h4>
-      <p>In principe kan je scripts ook in de HTML pagina plaatsen, en net zoals bij CSS</p>
-      <pre class="prism-default language-html wrong" data-demo><code>&lt;!DOCTYPE html&gt;
+    <h4>Interne scriptblokken</h4>
+    <p>In principe kan je scripts ook in de HTML pagina plaatsen, en net zoals bij CSS</p>
+    <pre class="prism-default language-html wrong" data-demo><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
    &lt;meta charset="UTF-8"&gt;
@@ -300,13 +301,13 @@ console.log('einde script');
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-      <ul class="arrow warning">
-         <li>Interne script blokken getuigen van een slechte stijl. Hou je HTML, CSS en Javascript netjes in aparte bestanden!</li>
-      </ul>
+    <ul class="arrow warning">
+      <li>Interne script blokken getuigen van een slechte stijl. Hou je HTML, CSS en Javascript netjes in aparte bestanden!</li>
+    </ul>
 
-      <h4>Inline scripts</h4>
-      <p>Je kan scripts zelfs inline plaatsen, en net zoals bij CSS:</p>
-      <pre class="prism-default language-html wrong" data-demo><code>&lt;!DOCTYPE html&gt;
+    <h4>Inline scripts</h4>
+    <p>Je kan scripts zelfs inline plaatsen, en net zoals bij CSS:</p>
+    <pre class="prism-default language-html wrong" data-demo><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
    &lt;meta charset="UTF-8"&gt;
@@ -318,59 +319,59 @@ console.log('einde script');
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-      <div class="tips" data-caption="💣 LET OP">
-         <p>
-            Inline scripts zijn NOT DONE. Als je dit tegenkomt op het Internet, neem het dan niet over in een oefening of project!
-         </p>
-      </div>
+    <div class="tips" data-caption="💣 LET OP">
+      <p>
+        Inline scripts zijn NOT DONE. Als je dit tegenkomt op het Internet, neem het dan niet over in een oefening of project!
+      </p>
+    </div>
 
-      <h3>Console debugger</h3>
-      <p>In de inspector van Chrome (<strong>F12</strong> of <strong>Shift-Ctrl-I</strong>) vind je onder het tabblad
-         "Console" allerlei browser berichten: fouten, waarschuwingen, meldingen... Je kan er ook zelf naar schrijven,
-         wat de Console tot een debugging instrument bij uitstek maakt.</p>
-      <h4>Browsermeldingen</h4>
-      <p>Javascript foutmeldingen komen in de Console terecht, dus hou het altijd goed in de gaten!</p>
-      <pre class="prism-okaida w-900 padtop"><code>document.getElementById('messge').innerHTML = 'Hallo Wereld!'; // FOUT: element messge bestaat niet
+    <h3>Console debugger</h3>
+    <p>In de inspector van Chrome (<strong>F12</strong> of <strong>Shift-Ctrl-I</strong>) vind je onder het tabblad
+      "Console" allerlei browser berichten: fouten, waarschuwingen, meldingen... Je kan er ook zelf naar schrijven,
+      wat de Console tot een debugging instrument bij uitstek maakt.</p>
+    <h4>Browsermeldingen</h4>
+    <p>Javascript foutmeldingen komen in de Console terecht, dus hou het altijd goed in de gaten!</p>
+    <pre class="prism-okaida w-900 padtop"><code>document.getElementById('messge').innerHTML = 'Hallo Wereld!'; // FOUT: element messge bestaat niet
 console.log('einde script');
 </code></pre>
-      <img src="img/01_syntax/console.png" alt="" class="w-600">
-      <h4>Zelf schrijven naar de console</h4>
-      <p>Je kan met <code>console.log()</code> teksten naar de console schrijven:</p>
-      <pre class="prism-okaida w-650" data-demo><code>const name = 'Rogier';
+    <img src="img/01_syntax/console.png" alt="" class="w-600">
+    <h4>Zelf schrijven naar de console</h4>
+    <p>Je kan met <code>console.log()</code> teksten naar de console schrijven:</p>
+    <pre class="prism-okaida w-650" data-demo><code>const name = 'Rogier';
 console.log(`Hello ${name}`);</code></pre>
-      <p>Je kan het ook gebruiken om variabelen of zelfs hele arrays of objecten te inspecteren:</p>
-      <pre class="prism-okaida w-650" data-demo><code>const names = ['Alice', 'Bob', 'Clive'];
+    <p>Je kan het ook gebruiken om variabelen of zelfs hele arrays of objecten te inspecteren:</p>
+    <pre class="prism-okaida w-650" data-demo><code>const names = ['Alice', 'Bob', 'Clive'];
 const person = { name: 'rogier', age: '46', isMale: true};
 console.log(person);
 console.log(names);</code></pre>
-      <p>Er zijn trouwens nog een hele waslijst andere functies voor <code>console</code> (volledige lijst zie <a href="https://developer.chrome.com/docs/devtools/console/api">https://developer.chrome.com/docs/devtools/console/api</a>):
-      </p>
-      <pre class="prism-okaida w-650" data-demo><code>console.table({ name: 'rogier', age: '46', isMale: true});
+    <p>Er zijn trouwens nog een hele waslijst andere functies voor <code>console</code> (volledige lijst zie <a href="https://developer.chrome.com/docs/devtools/console/api">https://developer.chrome.com/docs/devtools/console/api</a>):
+    </p>
+    <pre class="prism-okaida w-650" data-demo><code>console.table({ name: 'rogier', age: '46', isMale: true});
 console.warn('this is a serious warning');
 console.error('whoops! an error occured');</code></pre>
-      <h4>debugger</h4>
-      <p>
-         De console werkt <strong>asynchroon</strong>. Dit is een belangrijk begrip in programmeren in het algemeen, en
-         Javascript in het bijzonder.
-         Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover
-         later in hoofdstuk <a href="04_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte
-         gevolgen. Neem volgende code:
-      </p>
-      <pre class="prism-okaida w-650" data-demo><code>const person = {
+    <h4>debugger</h4>
+    <p>
+      De console werkt <strong>asynchroon</strong>. Dit is een belangrijk begrip in programmeren in het algemeen, en
+      Javascript in het bijzonder.
+      Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover
+      later in hoofdstuk <a href="05_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte
+      gevolgen. Neem volgende code:
+    </p>
+    <pre class="prism-okaida w-650" data-demo><code>const person = {
    name: 'Rogier',
    age: 42
 };
 console.log(person); // schrijf 'person' naar de console
 person.age = 54; // verander achteraf de waarde 'age' naar 54
 </code></pre>
-      <p>In de console zie je de waarde '54' staan die pas ingesteld is nádat <code>console.log()</code> opgeroepen
-         werd.</p>
-      <p><img src="img/01_syntax/console-async.png" alt="" class="w-400"></p>
-      <p>De reden is dat waarden in de console niet noodzakelijk verschijnen op het moment in de code waarop
-         <code>console.log()</code> opgeroepen wordt. Je kan handmatig het script pauzeren met <code>debugger</code>, en
-         dan klopt de waarde wel:
-      </p>
-      <pre class="prism-okaida" data-demo><code>let person = {
+    <p>In de console zie je de waarde '54' staan die pas ingesteld is nádat <code>console.log()</code> opgeroepen
+      werd.</p>
+    <p><img src="img/01_syntax/console-async.png" alt="" class="w-400"></p>
+    <p>De reden is dat waarden in de console niet noodzakelijk verschijnen op het moment in de code waarop
+      <code>console.log()</code> opgeroepen wordt. Je kan handmatig het script pauzeren met <code>debugger</code>, en
+      dan klopt de waarde wel:
+    </p>
+    <pre class="prism-okaida" data-demo><code>let person = {
    name: 'Rogier',
    age: 42
 };
@@ -378,16 +379,16 @@ console.log(person); // schrijf 'person' naar de console
 debugger; // pauzeer het script
 person.age = 54; // verander achteraf de waarde 'age' naar 54
 </code></pre>
-      <p>De weergegeven waarde is nu wel correct:</p>
-      <p><img src="img/01_syntax/console-sync.png" alt="" class="w-400"></p>
+    <p>De weergegeven waarde is nu wel correct:</p>
+    <p><img src="img/01_syntax/console-sync.png" alt="" class="w-400"></p>
 
 
-      <h2>Variabelen, types &amp; constanten</h2>
-      <h3>Variabelen</h3>
-      <p>Variabelen aanmaken is veel eenvoudiger dan in C#: je gebruikt gewoon het gereserveerd woord <code>let</code>.
-         Een vergelijking voor de meest voorkomende types:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>let num1 = 3; // geheel getal
+    <h2>Variabelen, types &amp; constanten</h2>
+    <h3>Variabelen</h3>
+    <p>Variabelen aanmaken is veel eenvoudiger dan in C#: je gebruikt gewoon het gereserveerd woord <code>let</code>.
+      Een vergelijking voor de meest voorkomende types:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>let num1 = 3; // geheel getal
 let num2 = 3.14; // kommagetal
 let boo = true; // boolean
 let str = 'hello'; // string
@@ -395,7 +396,7 @@ let arr = [1, 2, 3, 5, 8, 13]; // array
 let dat = new Date(); // Date object
 let me = { age: 54, name: 'Rogier' };  // anoniem object
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>int num1 = 3; // geheel getal
+      <pre class="prism-vslight language-cs"><code>int num1 = 3; // geheel getal
 double num2 = 3.14; // kommagetal
 bool boo = true; // boolean
 string str = "hello"; // string
@@ -403,43 +404,43 @@ int[] arr = new int[] { 1, 2, 3, 5, 8, 13 }; // array
 DateTime dat = new DateTime(); // DateTime object
 var me = new { Age = 54, Name = "Rogier" }; // anoniem object
 </code></pre>
-      </div>
-      <p>In veel (oude) Javascript code zul je nog <code>var</code> zien gebruiken in plaats van <code>let</code>.</p>
-      <pre class="prism-okaida wrong"><code>var num1 = 3; // geheel getal
+    </div>
+    <p>In veel (oude) Javascript code zul je nog <code>var</code> zien gebruiken in plaats van <code>let</code>.</p>
+    <pre class="prism-okaida wrong"><code>var num1 = 3; // geheel getal
 var num2 = 3.14; // kommagetal
 ...
 </code></pre>
-      <ul class="arrow">
-         <li>de reden is nogal technisch (<code>var</code> definieert een variabele globaal, <code>let</code> lokaal),
-            maar de regel is: gebruik altijd <code>let</code> in plaats van <code>var</code></li>
-      </ul>
+    <ul class="arrow">
+      <li>de reden is nogal technisch (<code>var</code> definieert een variabele globaal, <code>let</code> lokaal),
+        maar de regel is: gebruik altijd <code>let</code> in plaats van <code>var</code></li>
+    </ul>
 
-      <h3>Weak typing van variabelen</h3>
-      <p>Variabelen in Javascript zijn <strong>weakly typed</strong>, d.w.z. het type kan veranderen als je er een
-         andere waarde aan toewijst:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>let num = 3; // num is een getal
+    <h3>Weak typing van variabelen</h3>
+    <p>Variabelen in Javascript zijn <strong>weakly typed</strong>, d.w.z. het type kan veranderen als je er een
+      andere waarde aan toewijst:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>let num = 3; // num is een getal
 num = "Rogier"; // num is nu een string
 num = false; // num is nu een boolean
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>int num = 3; // num is een getal
+      <pre class="prism-vslight language-cs"><code>int num = 3; // num is een getal
 num = "Rogier"; // FOUT!
 num = false; // FOUT!
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>hoewel een variabele veranderen van type kan, is het een bron van veel fouten en een <strong>slechte
-               programmeerstijl</strong>!</li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>hoewel een variabele veranderen van type kan, is het een bron van veel fouten en een <strong>slechte
+          programmeerstijl</strong>!</li>
+    </ul>
 
-      <h3>Mixen van variabelen</h3>
-      <p>
-         Als je verschillende types variabelen mixt in één expressie, passen zowel Javascript als C# in bepaalde
-         gevallen automatische conversie toe. Javascript is daarin nog een flexibeler dan C#. De verschillen zijn echter
-         groot, zoals uit onderstaande vergelijking blijkt:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida padtop" data-demo><code>console.log(3 + '2'); // 32; 3 omgezet naar string
+    <h3>Mixen van variabelen</h3>
+    <p>
+      Als je verschillende types variabelen mixt in één expressie, passen zowel Javascript als C# in bepaalde
+      gevallen automatische conversie toe. Javascript is daarin nog een flexibeler dan C#. De verschillen zijn echter
+      groot, zoals uit onderstaande vergelijking blijkt:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida padtop" data-demo><code>console.log(3 + '2'); // 32; 3 omgezet naar string
 console.log(3 + "2"); // 32; 3 omgezet naar string
 console.log(3 * '2'); // 6; '2' omgezet naar getal
 console.log(3 * "2"); // 6; "2" omgezet naar getal
@@ -449,7 +450,7 @@ console.log(3 == '3.0'); // true; '3.0' omgezet naar getal
 console.log(3 / 2); // 1.5; gewone deling
 console.log(3.0 / 2); // 1.5; gewone deling
 </code></pre>
-         <pre class="prism-vslight language-cs padtop"><code>Console.WriteLine(3 + '2'); // 53; '2' omgezet naar ASCII 50
+      <pre class="prism-vslight language-cs padtop"><code>Console.WriteLine(3 + '2'); // 53; '2' omgezet naar ASCII 50
 Console.WriteLine(3 + "2"); // 32; 3 naar string omgezet
 Console.WriteLine(3 * '2'); // 150; '2' omgezet naar ASCII 50
 Console.WriteLine(3 * "2"); // FOUT!
@@ -459,71 +460,71 @@ Console.WriteLine(3 == '3.0'); // FOUT!
 Console.WriteLine(3 / 2); // 1; gehele deling
 Console.WriteLine(3.0 / 2); // 1.5; gewone deling
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>moraal van het verhaal: <strong>vertrouw nooit op automatische conversie</strong>, noch in Javascript noch
-            in C#! De resultaten zijn werkelijk te onvoorspelbaar, en een kweeknest van fouten</li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>moraal van het verhaal: <strong>vertrouw nooit op automatische conversie</strong>, noch in Javascript noch
+        in C#! De resultaten zijn werkelijk te onvoorspelbaar, en een kweeknest van fouten</li>
+    </ul>
 
-      <h3>Conversie van variabelen</h3>
-      <p>Pas daarom bij het mixen van types in één expressie altijd conversie toe:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const test = 3;
+    <h3>Conversie van variabelen</h3>
+    <p>Pas daarom bij het mixen van types in één expressie altijd conversie toe:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const test = 3;
 console.log(test + parseInt('2')); // 5
 console.log(test.toString() + '2'); // 32
 console.log(parseFloat(test) / 2); // 1.5
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>int test = 3;
+      <pre class="prism-vslight language-cs"><code>int test = 3;
 Console.WriteLine(test + Convert.ToInt32("2")); // 5
 Console.WriteLine(Convert.ToString(test) + '2'); // 32
 Console.WriteLine(Convert.ToDouble(test) / 2); // 1.5
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>in Javascript gebruik je <code>parseInt()</code>, <code>parseFloat()</code>, <code>toString()</code></li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>in Javascript gebruik je <code>parseInt()</code>, <code>parseFloat()</code>, <code>toString()</code></li>
+    </ul>
 
-      <h3>Identity operator</h3>
-      <p>Er is een verschil tussen de identity operator === (vergelijkt waarde én type) en de equals operator ==
-         (vergelijkt enkel waarden):</p>
-      <pre class="prism-okaida w-600"><code>console.log('3' == 3); // true
+    <h3>Identity operator</h3>
+    <p>Er is een verschil tussen de identity operator === (vergelijkt waarde én type) en de equals operator ==
+      (vergelijkt enkel waarden):</p>
+    <pre class="prism-okaida w-600"><code>console.log('3' == 3); // true
 console.log('3' === 3); // false; verschillende types
 console.log('' == false); // true
 console.log('' === false); // false; verschillende types</code></pre>
-      <ul class="arrow">
-         <li>het is in principe een goede stijl de identity operator te gebruiken waar mogelijk, maar daar gaan we in
-            dit vak niet echt moeilijk over doen</li>
-      </ul>
+    <ul class="arrow">
+      <li>het is in principe een goede stijl de identity operator te gebruiken waar mogelijk, maar daar gaan we in
+        dit vak niet echt moeilijk over doen</li>
+    </ul>
 
 
-      <h3>Infinity, NaN, undefined</h3>
-      <p>Javascript heeft drie waarden die C# niet kent: <code>Infinity</code> (oneindig), <code>NaN</code> (Not a
-         Number of “geen getal”) en <code>undefined</code> (waarde onbekend)</p>
-      <div class="codecompare">
-         <pre class="prism-okaida w-600"><code>let test1;
+    <h3>Infinity, NaN, undefined</h3>
+    <p>Javascript heeft drie waarden die C# niet kent: <code>Infinity</code> (oneindig), <code>NaN</code> (Not a
+      Number of “geen getal”) en <code>undefined</code> (waarde onbekend)</p>
+    <div class="codecompare">
+      <pre class="prism-okaida w-600"><code>let test1;
 console.log(test1); // undefined
 console.log(7 * "bladibla"); // NaN
 console.log(6 / 0); // Infinity
 </code></pre>
-         <pre class="prism-vslight language-cs w-600"><code>int test1;
+      <pre class="prism-vslight language-cs w-600"><code>int test1;
 Console.WriteLine(test1); // fout! variabele heeft geen waarde
 Console.WriteLine(7 * "bladibla"); // fout! mixen van types
 Console.WriteLine(6 / 0); // fout! deling door 0
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>net zoals bij automatische conversie: maak hier best <strong>geen gebruik van</strong>, om fouten te
-            vermijden</li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>net zoals bij automatische conversie: maak hier best <strong>geen gebruik van</strong>, om fouten te
+        vermijden</li>
+    </ul>
 
 
-      <h3>Constanten</h3>
-      <p>
-         Een variabele declareer je als constante met <code>const</code>. Het betekent dat je geen nieuwe waarde mag
-         toekennen. Bij samengestelde types als objecten, arrays, lijsten enz... kan je wel nog steeds de individuele
-         elementen of properties aanpassen. Ter illustratie:
-      </p>
-      <pre class="prism-okaida"><code>const test1 = "abc";
+    <h3>Constanten</h3>
+    <p>
+      Een variabele declareer je als constante met <code>const</code>. Het betekent dat je geen nieuwe waarde mag
+      toekennen. Bij samengestelde types als objecten, arrays, lijsten enz... kan je wel nog steeds de individuele
+      elementen of properties aanpassen. Ter illustratie:
+    </p>
+    <pre class="prism-okaida"><code>const test1 = "abc";
 const test2 = 123;
 const test3 = [ 12, 9, 4, 33 ];
 const test4 = new Date(1970, 6, 23);
@@ -536,60 +537,60 @@ test2 = 456; // FOUT! variabele overschrijven mag niet
 test3 = [ 55, 67, 3 ]; // FOUT! variabele overschrijven mag niet
 test4 = new Date(1972, 8, 12); // FOUT! variabele overschrijven mag niet
 </code></pre>
-      <ul class="arrow">
-         <li>in C# kunnen samengestelde types als arrays en objecten niet <code>const</code> gedeclareerd worden; daar
-            moet je <code>readonly</code> gebruiken</li>
-      </ul>
+    <ul class="arrow">
+      <li>in C# kunnen samengestelde types als arrays en objecten niet <code>const</code> gedeclareerd worden; daar
+        moet je <code>readonly</code> gebruiken</li>
+    </ul>
 
-      <h3><code>const</code>, <code>let</code> of <code>var</code>?</h3>
-      <p>De afspraken zijn:</p>
-      <ul>
-         <li>gebruik standaard <code>const</code></li>
-         <li>gebruik <code>let</code> als je van plan bent in de loop van het programma een nieuwe waarde toe te wijzen
-         </li>
-         <li>gebruik nooit <code>var</code></li>
-      </ul>
-      <p>
-         Onthoud dus deze regel: <strong><code>const</code> wanneer mogelijk!</strong>
-      </p>
-      <p>
-         Qua hooflettergebruik voor constanten mag je vrij kiezen tussen UPPERCASE_UNDERSCORE en camelCase notatie. En
-         mogelijke keuze is de eerste notatie enkel voor “echte” constanten als MAX_POGINGEN of CANVAS_WIDTH te
-         gebruiken, en de tweede voor constanten die eigenlijk variabelen zijn die toevallig maar één keer toegewezen
-         worden, zoals familieNaam of boodschappenLijst.
-      </p>
+    <h3><code>const</code>, <code>let</code> of <code>var</code>?</h3>
+    <p>De afspraken zijn:</p>
+    <ul>
+      <li>gebruik standaard <code>const</code></li>
+      <li>gebruik <code>let</code> als je van plan bent in de loop van het programma een nieuwe waarde toe te wijzen
+      </li>
+      <li>gebruik nooit <code>var</code></li>
+    </ul>
+    <p>
+      Onthoud dus deze regel: <strong><code>const</code> wanneer mogelijk!</strong>
+    </p>
+    <p>
+      Qua hooflettergebruik voor constanten mag je vrij kiezen tussen UPPERCASE_UNDERSCORE en camelCase notatie. En
+      mogelijke keuze is de eerste notatie enkel voor “echte” constanten als MAX_POGINGEN of CANVAS_WIDTH te
+      gebruiken, en de tweede voor constanten die eigenlijk variabelen zijn die toevallig maar één keer toegewezen
+      worden, zoals familieNaam of boodschappenLijst.
+    </p>
 
-      <h2>Strings</h2>
-      <h3>Drie soorten quotes</h3>
-      <p>In C# moet je dubbele quotes gebruiken voor strings, maar in Javascript kan je ook enkele quotes of backticks
-         gebruiken. Een vergelijking:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>let first = 'Rogier'; // enkele quotes
+    <h2>Strings</h2>
+    <h3>Drie soorten quotes</h3>
+    <p>In C# moet je dubbele quotes gebruiken voor strings, maar in Javascript kan je ook enkele quotes of backticks
+      gebruiken. Een vergelijking:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>let first = 'Rogier'; // enkele quotes
 let last = "van der Linde"; // dubbele quotes
 let greet1 = 'Zeg "Welkom"'; // enkel en dubbel genest
 let greet2 = "Zeg 'Welkom'"; // omgekeerd mag ook
 let message = `Welkom ${first} ${last}`; // string interpolatie: gebruik backticks
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>string first = "Rogier";
+      <pre class="prism-vslight language-cs"><code>string first = "Rogier";
 string last = "van der Linde";
 string greet1 = "Zeg \"Hallo\""; // escape nodig
 string greet2 = "Zeg 'Hallo'"; // geen escape nodig
 string message = $"Hallo {first} {last}"; // string interpolatie
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>in Javascript mag je <strong>kiezen welke je gebruikt</strong> &mdash; al zijn enkele quotes het meest
-            gebruikelijk</li>
-         <li>bij <strong>string interpolatie</strong> <em>moet</em> je backticks gebruiken</li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>in Javascript mag je <strong>kiezen welke je gebruikt</strong> &mdash; al zijn enkele quotes het meest
+        gebruikelijk</li>
+      <li>bij <strong>string interpolatie</strong> <em>moet</em> je backticks gebruiken</li>
+    </ul>
 
-      <h3>String interpolatie, multiline strings</h3>
-      <p>
-         Net zoals C# kent Javascript string interpolatie en multiline strings. In C# worden ze met $ reps. @ aangeduid,
-         in javascript met backticks:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>// string interpolatie
+    <h3>String interpolatie, multiline strings</h3>
+    <p>
+      Net zoals C# kent Javascript string interpolatie en multiline strings. In C# worden ze met $ reps. @ aangeduid,
+      in javascript met backticks:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>// string interpolatie
 let name = 'Rogier';
 console.log(`Welkom ${name}`);
 
@@ -601,7 +602,7 @@ vier
 hoedje van
 hoedje van...`);
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>// string interpolatie
+      <pre class="prism-vslight language-cs"><code>// string interpolatie
 string naam = "Rogier";
 Console.WriteLine($"hallo {naam}");
 
@@ -613,98 +614,98 @@ vier
 hoedje van
 hoedje van...");
 </code></pre>
-      </div>
-      <h3>String methodes en properties</h3>
-      <p>Enkele voorbeelden:</p>
-      <pre class="prism-okaida"><code>console.log('ha'.repeat(3)); // hahaha
+    </div>
+    <h3>String methodes en properties</h3>
+    <p>Enkele voorbeelden:</p>
+    <pre class="prism-okaida"><code>console.log('ha'.repeat(3)); // hahaha
 console.log('yes we can'.split(' ')) // ['yes', 'we', 'can']
 console.log('hello'.endsWith('hell')); // true
 console.log('hello'.includes('ell')); // true</code></pre>
-      <p>De belangrijkste properties:</p>
-      <table class="light">
-         <thead>
-            <tr>
-               <th scope="col">property</th>
-               <th scope="col">omschrijving</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td><code>length</code></td>
-               <td>aantal karakters van de string</td>
-            </tr>
-         </tbody>
-      </table>
-      <p>De belangrijkste methodes:</p>
-      <table class="light">
-         <thead>
-            <tr>
-               <th scope="col">methode</th>
-               <th scope="col">Omschrijving</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td><code>endsWith(str)</code></td>
-               <td>controleert of een string eindigt met een stuk tekst</td>
-            </tr>
-            <tr>
-               <td><code>includes(str)</code></td>
-               <td>controleert of een string een stuk tekst bevat</td>
-            </tr>
-            <tr>
-               <td><code>indexOf(str)</code></td>
-               <td>zoek een waarde en geef eerste index terug (-1 indien niet gevonden)</td>
-            </tr>
-            <tr>
-               <td><code>lastIndexOf(str)</code></td>
-               <td>zoek een waarde en geef laatste index terug (-1 indien niet gevonden)</td>
-            </tr>
-            <tr>
-               <td><code>replace(str1, str2)</code></td>
-               <td>vervangt de eerst gevonden <code>str1</code> door <code>str2</code></td>
-            </tr>
-            <tr>
-               <td><code>replaceAll(str1, str2)</code></td>
-               <td>vervangt alle gevonden <code>str1</code> door <code>str2</code></td>
-            </tr>
-            <tr>
-               <td><code>split(separator)</code></td>
-               <td>splitst een tekst in een array</td>
-            </tr>
-            <tr>
-               <td><code>startsWith(str)</code></td>
-               <td>controleert of een string begint met een stuk tekst</td>
-            </tr>
-            <tr>
-               <td><code>substr(start, num)</code></td>
-               <td>substring beginnende van positie <code>start</code> en <code>num</code> karakters</td>
-            </tr>
-            <tr>
-               <td><code>substring(start, end)</code></td>
-               <td>substring van posities <code>start</code> tot <code>end</code></td>
-            </tr>
-            <tr>
-               <td><code>toLowerCase()</code></td>
-               <td>zet om naar kleine letters</td>
-            </tr>
-            <tr>
-               <td><code>toUpperCase()</code></td>
-               <td>zet om naar hoofdletters</td>
-            </tr>
-            <tr>
-               <td><code>trim()</code></td>
-               <td>verwijder spaties aan begin en einde</td>
-            </tr>
-         </tbody>
-      </table>
+    <p>De belangrijkste properties:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">property</th>
+          <th scope="col">omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>length</code></td>
+          <td>aantal karakters van de string</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>De belangrijkste methodes:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>endsWith(str)</code></td>
+          <td>controleert of een string eindigt met een stuk tekst</td>
+        </tr>
+        <tr>
+          <td><code>includes(str)</code></td>
+          <td>controleert of een string een stuk tekst bevat</td>
+        </tr>
+        <tr>
+          <td><code>indexOf(str)</code></td>
+          <td>zoek een waarde en geef eerste index terug (-1 indien niet gevonden)</td>
+        </tr>
+        <tr>
+          <td><code>lastIndexOf(str)</code></td>
+          <td>zoek een waarde en geef laatste index terug (-1 indien niet gevonden)</td>
+        </tr>
+        <tr>
+          <td><code>replace(str1, str2)</code></td>
+          <td>vervangt de eerst gevonden <code>str1</code> door <code>str2</code></td>
+        </tr>
+        <tr>
+          <td><code>replaceAll(str1, str2)</code></td>
+          <td>vervangt alle gevonden <code>str1</code> door <code>str2</code></td>
+        </tr>
+        <tr>
+          <td><code>split(separator)</code></td>
+          <td>splitst een tekst in een array</td>
+        </tr>
+        <tr>
+          <td><code>startsWith(str)</code></td>
+          <td>controleert of een string begint met een stuk tekst</td>
+        </tr>
+        <tr>
+          <td><code>substr(start, num)</code></td>
+          <td>substring beginnende van positie <code>start</code> en <code>num</code> karakters</td>
+        </tr>
+        <tr>
+          <td><code>substring(start, end)</code></td>
+          <td>substring van posities <code>start</code> tot <code>end</code></td>
+        </tr>
+        <tr>
+          <td><code>toLowerCase()</code></td>
+          <td>zet om naar kleine letters</td>
+        </tr>
+        <tr>
+          <td><code>toUpperCase()</code></td>
+          <td>zet om naar hoofdletters</td>
+        </tr>
+        <tr>
+          <td><code>trim()</code></td>
+          <td>verwijder spaties aan begin en einde</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <h2>Lijsten &amp; arrays</h2>
+    <h2>Lijsten &amp; arrays</h2>
 
-      <h3>Arrays</h3>
-      <p>Arrays in Javascript zijn veel losser dan in C#. Je mag types mixen, en onbeperkt elementen toevoegen:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const arr1 = [];
+    <h3>Arrays</h3>
+    <p>Arrays in Javascript zijn veel losser dan in C#. Je mag types mixen, en onbeperkt elementen toevoegen:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const arr1 = [];
 arr1[0] = 'abc';
 arr1[1] = 'def';
 console.log(arr1.length); // 2
@@ -714,7 +715,7 @@ arr1[2] = false; // boolean toevoegen: ok
 arr1[100] = 'test'; // tekst toevoegen: ok
 console.log(arr1.length); // 101
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>string[] arr1 = new string[10];
+      <pre class="prism-vslight language-cs"><code>string[] arr1 = new string[10];
 arr1[0] = "abc";
 arr1[1] = "def";
 Console.WriteLine(arr1.Length); // 10
@@ -724,20 +725,20 @@ arr1[2] = false; // fout! is geen string
 arr1[100] = "test"; // fout! buiten het bereik
 
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>hoewel het kan, is het <strong>mixen van types in arrays</strong> een bron van veel fouten en een
-            <strong>slechte programmeerstijl</strong>
-         </li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>hoewel het kan, is het <strong>mixen van types in arrays</strong> een bron van veel fouten en een
+        <strong>slechte programmeerstijl</strong>
+      </li>
+    </ul>
 
-      <h3>Lijsten</h3>
-      <p>In Javascript bestaat geen aparte implementatie voor lijsten, maar array methodes als <code>push()</code>,
-         <code>pop()</code> en <code>includes()</code> hebben wel veel overeenkomsten met de C# List methodes
-         <code>Add()</code>, <code>Remove()</code> en <code>Contains()</code>:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida w-700"><code>const list1 = ['boter', 'kaas', 'melk'];
+    <h3>Lijsten</h3>
+    <p>In Javascript bestaat geen aparte implementatie voor lijsten, maar array methodes als <code>push()</code>,
+      <code>pop()</code> en <code>includes()</code> hebben wel veel overeenkomsten met de C# List methodes
+      <code>Add()</code>, <code>Remove()</code> en <code>Contains()</code>:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida w-700"><code>const list1 = ['boter', 'kaas', 'melk'];
 list1.push('eieren'); // voeg item toe
 list1.push('tomaten'); // voeg item toe
 if (list1.includes('kaas')) console.log('lijst bevat kaas');
@@ -747,7 +748,7 @@ const last = list1.shift(); // verwijder eerste (boter)
 list1.reverse(); // keer volgorde om
 console.log(`lijst: ${list1.join(', ')}`); // eieren, melk, kaas
 </code></pre>
-         <pre class="prism-vslight language-cs w-700"><code>List&lt;string&gt; list1 = new List&lt;string&gt; { "boter", "kaas", "melk" };
+      <pre class="prism-vslight language-cs w-700"><code>List&lt;string&gt; list1 = new List&lt;string&gt; { "boter", "kaas", "melk" };
 list1.Add("eieren"); // voeg item toe
 list1.Add("tomaten"); // voeg item toe
 if (list1.Contains("kaas")) Console.WriteLine("lijst bevat kaas");
@@ -757,63 +758,63 @@ list1.Remove("boter"); // verwijder eerste
 list1.Reverse(); // keer volgorde om
 Console.WriteLine($"items: ${String.Join(", ", list1)}"); // melk, eieren, kaas
 </code></pre>
-      </div>
-      <h3>Properties en methodes</h3>
-      <p>Er wordt in Javascript geen onderscheid gemaakt tussen arrays en lijsten. </p>
-      <p>Properties:</p>
-      <table class="light">
-         <thead>
-            <tr>
-               <th scope="col">methode</th>
-               <th scope="col">Omschrijving</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td><code>length</code></td>
-               <td>aantal elementen van de array</td>
-            </tr>
-         </tbody>
-      </table>
-      <p>Methodes:</p>
-      <table class="light">
-         <thead>
-            <tr>
-               <th scope="col">methode</th>
-               <th scope="col">omschrijving</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td><code>includes()</code></td>
-               <td>controleert of de rij een waarde bevat</td>
-            </tr>
-            <tr>
-               <td><code>indexOf()</code></td>
-               <td>zoek een waarde en geef eerste index terug (-1 indien niet gevonden)</td>
-            </tr>
-            <tr>
-               <td><code>join()</code></td>
-               <td>voeg elementen samen tot een string</td>
-            </tr>
-            <tr>
-               <td><code>pop()</code></td>
-               <td>verwijder en return element achteraan de rij</td>
-            </tr>
-            <tr>
-               <td><code>push()</code></td>
-               <td>voeg element toe achteraan de rij</td>
-            </tr>
-            <tr>
-               <td><code>shift()</code></td>
-               <td>verwijder en return element aan het begin de rij</td>
-            </tr>
-         </tbody>
-      </table>
-      <h3>Extensiemethodes</h3>
-      <p>Net zoals in veel andere programmeertalen, kent Javascript een aantal zgn. extensiemethodes voor arrays. De
-         interessantste zijn <code>find()</code>, <code>filter()</code> en <code>map()</code>. Een codevoorbeeld:</p>
-      <pre class="prism-okaida"><code>const arr1 = ['boter', 'kaas', 'melk', 'eieren'];
+    </div>
+    <h3>Properties en methodes</h3>
+    <p>Er wordt in Javascript geen onderscheid gemaakt tussen arrays en lijsten. </p>
+    <p>Properties:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">methode</th>
+          <th scope="col">Omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>length</code></td>
+          <td>aantal elementen van de array</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Methodes:</p>
+    <table class="light">
+      <thead>
+        <tr>
+          <th scope="col">methode</th>
+          <th scope="col">omschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>includes()</code></td>
+          <td>controleert of de rij een waarde bevat</td>
+        </tr>
+        <tr>
+          <td><code>indexOf()</code></td>
+          <td>zoek een waarde en geef eerste index terug (-1 indien niet gevonden)</td>
+        </tr>
+        <tr>
+          <td><code>join()</code></td>
+          <td>voeg elementen samen tot een string</td>
+        </tr>
+        <tr>
+          <td><code>pop()</code></td>
+          <td>verwijder en return element achteraan de rij</td>
+        </tr>
+        <tr>
+          <td><code>push()</code></td>
+          <td>voeg element toe achteraan de rij</td>
+        </tr>
+        <tr>
+          <td><code>shift()</code></td>
+          <td>verwijder en return element aan het begin de rij</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Extensiemethodes</h3>
+    <p>Net zoals in veel andere programmeertalen, kent Javascript een aantal zgn. extensiemethodes voor arrays. De
+      interessantste zijn <code>find()</code>, <code>filter()</code> en <code>map()</code>. Een codevoorbeeld:</p>
+    <pre class="prism-okaida"><code>const arr1 = ['boter', 'kaas', 'melk', 'eieren'];
 console.log(arr1.find(str =&gt; str.startsWith('k'))); // 'kaas'
 console.log(arr1.filter(str =&gt; str.length &gt; 4 )); // ['boter', 'eieren']
 console.log(arr1.map(str =&gt; str.length )); // [5, 4, 4, 6]
@@ -823,18 +824,18 @@ console.log(arr2.find(n =&gt; n &gt; 0 &amp;&amp; n &lt; 10 )); // 3
 console.log(arr2.filter(n =&gt; n % 2 == 0)); // [16, 4]
 console.log(arr2.map(el =&gt; el + 1 )); // [17, -76, 4, 5, -8]
 </code></pre>
-      <ul class="arrow">
-         <li>extensiemethodes laten vaak toe heel compacte en leesbare code te schrijven &mdash; een aanrader om mee te
-            leren werken!</li>
-      </ul>
+    <ul class="arrow">
+      <li>extensiemethodes laten vaak toe heel compacte en leesbare code te schrijven &mdash; een aanrader om mee te
+        leren werken!</li>
+    </ul>
 
-      <h2>Objecten</h2>
+    <h2>Objecten</h2>
 
-      <h3>Objecten maken</h3>
-      <p>In Javascript kan je “ad hoc” objecten maken, in C# moet je eerst een <em>klasse</em> maken (zie leerstof OO
-         Application Development):</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const myCar = {
+    <h3>Objecten maken</h3>
+    <p>In Javascript kan je “ad hoc” objecten maken, in C# moet je eerst een <em>klasse</em> maken (zie leerstof OO
+      Application Development):</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const myCar = {
    make: 'Mercury Bobcat',
    speed: 0,
    engineOn: true,
@@ -854,7 +855,7 @@ console.log(`current speed is ${myCar.speed}`);
 
 
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>class Car {
+      <pre class="prism-vslight language-cs"><code>class Car {
    public string Make;
    public int Speed;
    public bool EngineOn;
@@ -874,12 +875,12 @@ Car myCar = new Car() {
 myCar.Accelerate(25);
 Console.WriteLine($"current speed is {myCar.Speed}");
 </code></pre>
-      </div>
+    </div>
 
-      <h3>Properties toevoegen</h3>
-      <p>In Javascript kan je achteraf nog onbeperkt properties toevoegen, in C# kan dat niet:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const myCar = {
+    <h3>Properties toevoegen</h3>
+    <p>In Javascript kan je achteraf nog onbeperkt properties toevoegen, in C# kan dat niet:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const myCar = {
    make: 'Mercury Bobcat',
    speed: 0,
    engineOn: false,
@@ -898,7 +899,7 @@ myCar.color = 'silver'; // ok; nieuwe property toegevoegd
 
 
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>class Car {
+      <pre class="prism-vslight language-cs"><code>class Car {
    public string Make;
    public int Speed;
    public bool EngineOn;
@@ -917,13 +918,13 @@ Car myCar = new Car() {
 
 myCar.Color = "silver"; // FOUT! property bestaat niet
 </code></pre>
-      </div>
+    </div>
 
-      <div class="pro">
-         <h3>Objecten als parameter</h3>
-         <p>Objecten worden vaak gebruikt om properties in één variabele te groeperen, die dan makkelijk als parameter
-            kan doorgegeven worden:</p>
-         <pre class="prism-okaida" data-demo><code>// functie met één 'thing' parameter
+    <div class="pro">
+      <h3>Objecten als parameter</h3>
+      <p>Objecten worden vaak gebruikt om properties in één variabele te groeperen, die dan makkelijk als parameter
+        kan doorgegeven worden:</p>
+      <pre class="prism-okaida" data-demo><code>// functie met één 'thing' parameter
 function getDescription(thing) {
    const lines = [];
    lines.push(`Name: ${thing.kind}`);
@@ -943,10 +944,10 @@ const stone = {
 // geef het door aan de functie
 console.log(getDescription(stone));</code></pre>
 
-         <h3>Anonieme objecten</h3>
-         <p>Net zoals bij <a href="#anonieme-functies">anonieme functies</a>, kan je ook ad hoc objecten aanmaken en
-            meegeven zonder ze eerst een naam te geven:</p>
-         <pre class="prism-okaida" data-demo><code>// functie met één 'thing' parameter
+      <h3>Anonieme objecten</h3>
+      <p>Net zoals bij <a href="#anonieme-functies">anonieme functies</a>, kan je ook ad hoc objecten aanmaken en
+        meegeven zonder ze eerst een naam te geven:</p>
+      <pre class="prism-okaida" data-demo><code>// functie met één 'thing' parameter
 function getDescription(thing) {
    const lines = [];
    lines.push(`Name: ${thing.kind}`);
@@ -963,46 +964,46 @@ console.log(getDescription({
    color: 'darkblue'
 }));</code></pre>
 
-      </div>
+    </div>
 
-      <h2>Selecties en iteraties</h2>
-      <h3>Selecties</h3>
-      <p>In Javascript komt de syntax van de selecties <code>if</code>, <code>if</code>-<code>else</code> en
-         <code>switch</code>-<code>case</code> overeen met C#. Een <code>if</code>-<code>else</code> voorbeeld:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const badGrades = true;
+    <h2>Selecties en iteraties</h2>
+    <h3>Selecties</h3>
+    <p>In Javascript komt de syntax van de selecties <code>if</code>, <code>if</code>-<code>else</code> en
+      <code>switch</code>-<code>case</code> overeen met C#. Een <code>if</code>-<code>else</code> voorbeeld:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const badGrades = true;
 if (badGrades) {
    console.log('House arrest for two weeks');
 } else {
    console.log('No house arrest');
 }
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>bool badGrades = true;
+      <pre class="prism-vslight language-cs"><code>bool badGrades = true;
 if (badGrades) {
    Console.WriteLine("House arrest for two weeks");
 } else {
    Console.WriteLine("No house arrest");
 }
 </code></pre>
-      </div>
-      <p>Vergeet ook de handige ternaire operator niet:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const number = 13;
+    </div>
+    <p>Vergeet ook de handige ternaire operator niet:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const number = 13;
 console.log(`${number} is ${number % 2 == 0 ? 'even' : 'odd'}`);
 </code></pre>
-         <pre class="prism-vslight language-cs w-700"><code>int number = 13;
+      <pre class="prism-vslight language-cs w-700"><code>int number = 13;
 Console.WriteLine($"{number} is {(number % 2 == 0 ? "even" : "odd")}");
 </code></pre>
-      </div>
+    </div>
 
-      <h3>Iteraties</h3>
-      <h4>herhalingsstructuren <code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
-      <p>In Javascript komt de syntax van de selecties <code>while</code>, <code>do</code>-<code>while</code> en
-         <code>for</code> overeen met C#. Een <code>for</code> voorbeeld:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>// definieer een array
+    <h3>Iteraties</h3>
+    <h4>herhalingsstructuren <code>while</code>, <code>do</code>-<code>while</code>, <code>for</code></h4>
+    <p>In Javascript komt de syntax van de selecties <code>while</code>, <code>do</code>-<code>while</code> en
+      <code>for</code> overeen met C#. Een <code>for</code> voorbeeld:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -1010,7 +1011,7 @@ for (let i = 0; i &lt; forrestFriends.length; i++) {
    console.log(`friend nr. ${i}: ${forrestFriends[i]}`);
 }
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>// definieer een array
+      <pre class="prism-vslight language-cs"><code>// definieer een array
 string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
 // itereer over de waarden
@@ -1018,14 +1019,14 @@ for (int i = 0; i &lt; forrestFriends.Length; i++) {
    Console.WriteLine($"friend number {i}: {forrestFriends[i]}");
 }
 </code></pre>
-      </div>
+    </div>
 
-      <h4>itereren over arrays met <code>for</code>-<code>of</code> </h4>
-      <p>De <code>for</code>-<code>of</code> iteratie in Javascript komt overeen met
-         <code>foreach</code>-<code>in</code> in C#:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>// definieer een array
+    <h4>itereren over arrays met <code>for</code>-<code>of</code> </h4>
+    <p>De <code>for</code>-<code>of</code> iteratie in Javascript komt overeen met
+      <code>foreach</code>-<code>in</code> in C#:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -1033,7 +1034,7 @@ for (const friend of forrestFriends) {
    console.log(friend); // Bubba, Lt. Dan
 }
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>// defininieer een array
+      <pre class="prism-vslight language-cs"><code>// defininieer een array
 string[] forrestFriends = { "Bubba", "Lt. Dan" };
 
 // itereer over de waarden
@@ -1041,11 +1042,11 @@ foreach (string friend in forrestFriends) {
    Console.WriteLine(friend); // Bubba, Lt. Dan
 }
 </code></pre>
-      </div>
+    </div>
 
-      <h4>itereren over collecties met <code>forEach</code></h4>
-      <p>Javascript heeft nog een verkorte notatie (zonder C# equivalent) die velen zeer handig vinden:</p>
-      <pre class="prism-okaida w-600"><code>// definieer een array
+    <h4>itereren over collecties met <code>forEach</code></h4>
+    <p>Javascript heeft nog een verkorte notatie (zonder C# equivalent) die velen zeer handig vinden:</p>
+    <pre class="prism-okaida w-600"><code>// definieer een array
 const forrestFriends = ['Bubba', 'Lt. Dan'];
 
 // itereer over de waarden
@@ -1054,9 +1055,9 @@ forrestFriends.forEach(friend =&gt; {
 });
 </code></pre>
 
-      <h4>Itereren over object keys met <code>for</code>-<code>in</code> </h4>
-      <p>Dit heeft niet direct een C# equivalent. Je kan het gebruiken om te itereren over de keys van een <a href="#objecten">object</a>:</p>
-      <pre class="prism-okaida w-600"><code>const myCar = {
+    <h4>Itereren over object keys met <code>for</code>-<code>in</code> </h4>
+    <p>Dit heeft niet direct een C# equivalent. Je kan het gebruiken om te itereren over de keys van een <a href="#objecten">object</a>:</p>
+    <pre class="prism-okaida w-600"><code>const myCar = {
    make: 'Mercury Bobcat',
    speed: 0,
    engineOn: true,
@@ -1068,20 +1069,20 @@ forrestFriends.forEach(friend =&gt; {
 for (const key in myCar) {
    console.log(`${key} is een ${typeof myCar[key]}`)
 }</code></pre>
-      <figure class="console">
-         <pre>make is een string
+    <figure class="console">
+      <pre>make is een string
 speed is een number
 engineOn is een boolean
 constructionDate is een object
 accelerate is een function</pre>
-         <figcaption>resultaat in de console</figcaption>
-      </figure>
+      <figcaption>resultaat in de console</figcaption>
+    </figure>
 
-      <h2>Functies</h2>
-      <h3>Klassieke notatie</h3>
-      <p>Methodes in C# noemt men in Javascript <strong>functies</strong>. Een vergelijking van de syntax:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>function getFibonacciNumbers(n) {
+    <h2>Functies</h2>
+    <h3>Klassieke notatie</h3>
+    <p>Methodes in C# noemt men in Javascript <strong>functies</strong>. Een vergelijking van de syntax:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>function getFibonacciNumbers(n) {
    if (n &lt;= 0) return [];
    if (n == 1) return [0];
    const arrFib = [];
@@ -1093,7 +1094,7 @@ accelerate is een function</pre>
    return arrFib;
 }
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>private static int[] GetFibonacciNumbers(int n) {
+      <pre class="prism-vslight language-cs"><code>private static int[] GetFibonacciNumbers(int n) {
    if (n &lt;= 0) return new int[0] { };
    if (n == 1) return new int[1] { 0 };
    int[] arrFib = new int[n];
@@ -1105,48 +1106,48 @@ accelerate is een function</pre>
    return arrFib;
 }
 </code></pre>
-      </div>
-      <h3>Notatie als constante</h3>
-      <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig (of toch
-         bijna, er is <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een
-            klein verschil</a>, maar dat is voor deze cursus niet zo belangrijk)</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const getFibonacciNumbers = function(n) {
+    </div>
+    <h3>Notatie als constante</h3>
+    <p>Je kan in Javascript een methode ook noteren als constante. Volgende notaties zijn gelijkwaardig (of toch
+      bijna, er is <a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">een
+        klein verschil</a>, maar dat is voor deze cursus niet zo belangrijk)</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const getFibonacciNumbers = function(n) {
    ...
 }
 </code></pre>
-         <pre class="prism-okaida"><code>function getFibonacciNumbers(n) {
+      <pre class="prism-okaida"><code>function getFibonacciNumbers(n) {
    ...
 }
 </code></pre>
-      </div>
-      <h3>Arrow expression notatie</h3>
-      <p>Een verkorte notatie die je in nog andere talen tegenkomt, is de <code>(...) =&gt; { ... }</code> vorm.
-         Volgende notaties zijn gelijkwaardig:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>const getFibonacciNumbers = function(n) {
+    </div>
+    <h3>Arrow expression notatie</h3>
+    <p>Een verkorte notatie die je in nog andere talen tegenkomt, is de <code>(...) =&gt; { ... }</code> vorm.
+      Volgende notaties zijn gelijkwaardig:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>const getFibonacciNumbers = function(n) {
    ...
 }
 const bepaalGgd = function(get1, get2) {
    ...
 }
 </code></pre>
-         <pre class="prism-okaida"><code>const getFibonacciNumbers = n =&gt; {
+      <pre class="prism-okaida"><code>const getFibonacciNumbers = n =&gt; {
    ...
 }
 const bepaalGgd = (get1, get2) =&gt; {
       ...
 }
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>je komt ze vooral veel tegen in <a href="#extensiemethodes">extensie methodes</a>, zie aldaar</li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>je komt ze vooral veel tegen in <a href="#extensiemethodes">extensie methodes</a>, zie aldaar</li>
+    </ul>
 
-      <h3>Optionele parameters</h3>
-      <p>Je kan net zoals in C# standaardwaarden instellen voor parameters. Waar je geen waarden opgeeft, worden
-         standaardwaarden genomen:</p>
-      <pre class="prism-okaida w-900 padtop" data-demo><code>function orderDetails(verkoper, product, prijs, klant = null, aantal = 1, kortingPerc = 0) {
+    <h3>Optionele parameters</h3>
+    <p>Je kan net zoals in C# standaardwaarden instellen voor parameters. Waar je geen waarden opgeeft, worden
+      standaardwaarden genomen:</p>
+    <pre class="prism-okaida w-900 padtop" data-demo><code>function orderDetails(verkoper, product, prijs, klant = null, aantal = 1, kortingPerc = 0) {
     return `
 Verkoper: ${verkoper}
 Klant: ${(klant == null ? '(onbekend)' : klant)}
@@ -1157,11 +1158,11 @@ Te betalen: ${Math.round(prijs * aantal * (100 - kortingPerc) / 100, 2)} euro`;
 
 console.log(orderDetails('Gift shop', 'Red Mug', 12.5));</code></pre>
 
-      <div class="pro">
-         <h3>Functies als parameters</h3>
-         <p>Aangezien je functies als variabelen (of constanten) kan noteren, kan je ze ook als argument meegeven aan
-            functies:</p>
-         <pre class="prism-okaida w-900" data-demo><code>// declareer methode end()
+    <div class="pro">
+      <h3>Functies als parameters</h3>
+      <p>Aangezien je functies als variabelen (of constanten) kan noteren, kan je ze ook als argument meegeven aan
+        functies:</p>
+      <pre class="prism-okaida w-900" data-demo><code>// declareer methode end()
 function end() {
    console.log('Ok, that was funny 😄');
 }
@@ -1174,9 +1175,9 @@ function speak(quote, callback) {
 
 // roep speak() op met end() als argument
 speak('Behind every great man is a woman rolling her eyes.', end);</code></pre>
-         <h3>Anonieme functies</h3>
-         <p>Je kan trouwens ook rechtstreeks een methode meegeven, b.v. met de arrow expression notatie:</p>
-         <pre class="prism-okaida w-900" data-demo><code>// declareer methode speak(), die als laatste parameter een functie 'callback' accepteert
+      <h3>Anonieme functies</h3>
+      <p>Je kan trouwens ook rechtstreeks een methode meegeven, b.v. met de arrow expression notatie:</p>
+      <pre class="prism-okaida w-900" data-demo><code>// declareer methode speak(), die als laatste parameter een functie 'callback' accepteert
 function speak(quote, callback) {
    console.log(quote);
    callback(); // voer de tweede parameter uit
@@ -1186,18 +1187,18 @@ function speak(quote, callback) {
 speak('Behind every great man is a woman rolling her eyes.', () =&gt; {
    console.log('Ok, that was funny 😄');
 });</code></pre>
-         <ul class="arrow">
-            <li>de letterlijke methode heeft geen naam end() meer zoals in het eerste voorbeeld; men noemt dat dan ook
-               een <strong class="em">anonieme functie</strong></li>
-         </ul>
-      </div>
+      <ul class="arrow">
+        <li>de letterlijke methode heeft geen naam end() meer zoals in het eerste voorbeeld; men noemt dat dan ook
+          een <strong class="em">anonieme functie</strong></li>
+      </ul>
+    </div>
 
-      <h2>Ingebouwde klassen: Math, Date, Array, Random...</h2>
-      <p>Minder dan C#, maar Javascript heeft ook een aantal ingebouwde klassen als <code>Math</code>,
-         <code>Date</code>, <code>Array</code>... De syntax verschilt helaas vaak veel. Een paar typische voorbeelden:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida"><code>// Date example
+    <h2>Ingebouwde klassen: Math, Date, Array, Random...</h2>
+    <p>Minder dan C#, maar Javascript heeft ook een aantal ingebouwde klassen als <code>Math</code>,
+      <code>Date</code>, <code>Array</code>... De syntax verschilt helaas vaak veel. Een paar typische voorbeelden:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida"><code>// Date example
 const now = new Date();
 console.log(now.getFullYear());
 
@@ -1209,7 +1210,7 @@ const arr1 = [ 'melk', 'boter', 'eieren' ];
 arr1.sort();
 console.log(arr1.join(', '));
 </code></pre>
-         <pre class="prism-vslight language-cs"><code>// Date example
+      <pre class="prism-vslight language-cs"><code>// Date example
 DateTime now = DateTime.Now;
 Console.WriteLine(now.Year);
 
@@ -1222,20 +1223,20 @@ string[] arr1 = { "melk", "boter", "eieren" }
 Array.Sort(arr1);
 Console.WriteLine(String.Join(", ", arr1));
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>voor een volledig overzicht zie <a href="https://www.w3schools.com/js/js_string_methods.asp">W3Schools</a>
-            of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">Mozilla.org</a></li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>voor een volledig overzicht zie <a href="https://www.w3schools.com/js/js_string_methods.asp">W3Schools</a>
+        of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">Mozilla.org</a></li>
+    </ul>
 
-      <h2>Stijlregels</h2>
+    <h2>Stijlregels</h2>
 
-      <h3>Accolades</h3>
-      <p>Als je code block uit één regel bestaat, mag je in theorie de accolades weglaten. Dit is een slechte stijl, dus
-         <strong>schrijf altijd de accolades voluit</strong>:
-      </p>
-      <div class="codecompare">
-         <pre class="prism-okaida wrong"><code>if (age &lt; 6)
+    <h3>Accolades</h3>
+    <p>Als je code block uit één regel bestaat, mag je in theorie de accolades weglaten. Dit is een slechte stijl, dus
+      <strong>schrijf altijd de accolades voluit</strong>:
+    </p>
+    <div class="codecompare">
+      <pre class="prism-okaida wrong"><code>if (age &lt; 6)
    console.log('child');
 else if (age &lt; 18)
    console.log('junior');
@@ -1243,7 +1244,7 @@ else
    console.log('adult');
 
 </code></pre>
-         <pre class="prism-okaida right"><code>if (age &lt; 6) {
+      <pre class="prism-okaida right"><code>if (age &lt; 6) {
    console.log('child');
 } else if (age &lt; 18) {
    console.log('junior');
@@ -1251,14 +1252,14 @@ else
    console.log('adult');
 }
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>het weglaten van accolades lijkt misschien een aantrekkelijk idee, maar het maakt je code foutgevoeliger, minder leesbaar en minder flexibel; je zult echte programmeurs dan ook nooit accolades zien weglaten!</li>
-      </ul>
+    </div>
+    <ul class="arrow">
+      <li>het weglaten van accolades lijkt misschien een aantrekkelijk idee, maar het maakt je code foutgevoeliger, minder leesbaar en minder flexibel; je zult echte programmeurs dan ook nooit accolades zien weglaten!</li>
+    </ul>
 
-      <h3>Code commentaar</h3>
-      <p>Voorzie je code <strong>rijkelijk van commentaar</strong>. Zo blijft het leesbaar voor jou en je collega’s, vandaag en in de toekomst! Inspireer je op volgend voorbeeld:</p>
-      <pre class="prism-okaida"><code>/*
+    <h3>Code commentaar</h3>
+    <p>Voorzie je code <strong>rijkelijk van commentaar</strong>. Zo blijft het leesbaar voor jou en je collega’s, vandaag en in de toekomst! Inspireer je op volgend voorbeeld:</p>
+    <pre class="prism-okaida"><code>/*
  * Binary sudoku script
  *
  * @author Rogier van der Linde &lt;rogier.vanderlinde@odisee.be&gt;
@@ -1310,78 +1311,78 @@ btnLogin.addEventListener('click', function(e) {
 ...
 </code></pre>
 
-      <h3>Code layout</h3>
-      <p>Een paar van de belangrijkere regels:</p>
-      <ul>
-         <li>maximaal <strong>één instructie per regel</strong></li>
-         <li><strong>spaties</strong> voor én na operatoren</li>
-         <li><strong>geen spaties</strong> voor puntkomma's of binnen haakjes</li>
-         <li>geen twee <strong>open regels</strong> na elkaar</li>
-         <li>bovenal: wees <strong>consequent</strong></li>
-      </ul>
-      <pre class="prism-okaida wrong"><code>console.log ('Genereer random getal... ' );
+    <h3>Code layout</h3>
+    <p>Een paar van de belangrijkere regels:</p>
+    <ul>
+      <li>maximaal <strong>één instructie per regel</strong></li>
+      <li><strong>spaties</strong> voor én na operatoren</li>
+      <li><strong>geen spaties</strong> voor puntkomma's of binnen haakjes</li>
+      <li>geen twee <strong>open regels</strong> na elkaar</li>
+      <li>bovenal: wees <strong>consequent</strong></li>
+    </ul>
+    <pre class="prism-okaida wrong"><code>console.log ('Genereer random getal... ' );
 let random = Math.Random( ); let g1 =parseInt(random);
 console.log(`Het kwadraat is: ${g1*g1}`);
 </code></pre>
-      <pre class="prism-okaida right"><code>console.log('Genereer random getal... ');
+    <pre class="prism-okaida right"><code>console.log('Genereer random getal... ');
 let random = Math.Random();
 let g1 = parseInt(random);
 console.log(`Het kwadraat is: ${g1 * g1}`);
 </code></pre>
-      <ul class="arrow">
-         <li>VS Code shortcut voor layout: <strong>Shift-Alt-F</strong></li>
-         <li>als ESLint geen fouten geeft, is het <em>meestal</em> goed (maar controleer op het einde altijd nog eens je layout)</li>
-      </ul>
+    <ul class="arrow">
+      <li>VS Code shortcut voor layout: <strong>Shift-Alt-F</strong></li>
+      <li>als ESLint geen fouten geeft, is het <em>meestal</em> goed (maar controleer op het einde altijd nog eens je layout)</li>
+    </ul>
 
-      <h3>Hoofdlettergebruik</h3>
-      <p>De gewoontes in Javascript qua hoofdlettergebruik en benaming verschillen lichtjes van C#. Een vergelijking:
-      </p>
-      <table class="grey left">
-         <thead>
-            <tr>
-               <th scope="col">&nbsp;</th>
-               <th scope="col">C#</th>
-               <th scope="col">Javascript</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>variabelen</td>
-               <td>camelCase, bv <code>grootsteGetal</code></td>
-               <td>idem</td>
-            </tr>
-            <tr>
-               <td>constanten</td>
-               <td>PascalCase, bv <code>MaxItems</code></td>
-               <td>UPPERCASE_UNDERSCORE of camelCase, b.v. <code>MAX_ITEMS</code> of <code>maxItems</code></td>
-            </tr>
-            <tr>
-               <td>methoden (C#) / functies (Javascript)</td>
-               <td>PascalCase, bv. <code>BerekenGemiddelde()</code></td>
-               <td>camellCase, bv. <code>berekenGemiddelde()</code></td>
-            </tr>
-            <tr>
-               <td>klassen (C#) / objecten (Javascript)</td>
-               <td>PascalCase, bv <code>Rectangle</code></td>
-               <td>idem</td>
-            </tr>
-         </tbody>
-      </table>
+    <h3>Hoofdlettergebruik</h3>
+    <p>De gewoontes in Javascript qua hoofdlettergebruik en benaming verschillen lichtjes van C#. Een vergelijking:
+    </p>
+    <table class="grey left">
+      <thead>
+        <tr>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">C#</th>
+          <th scope="col">Javascript</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>variabelen</td>
+          <td>camelCase, bv <code>grootsteGetal</code></td>
+          <td>idem</td>
+        </tr>
+        <tr>
+          <td>constanten</td>
+          <td>PascalCase, bv <code>MaxItems</code></td>
+          <td>UPPERCASE_UNDERSCORE of camelCase, b.v. <code>MAX_ITEMS</code> of <code>maxItems</code></td>
+        </tr>
+        <tr>
+          <td>methoden (C#) / functies (Javascript)</td>
+          <td>PascalCase, bv. <code>BerekenGemiddelde()</code></td>
+          <td>camellCase, bv. <code>berekenGemiddelde()</code></td>
+        </tr>
+        <tr>
+          <td>klassen (C#) / objecten (Javascript)</td>
+          <td>PascalCase, bv <code>Rectangle</code></td>
+          <td>idem</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <h3>Naamgeving</h3>
-      <p>Regels voor naamgeving:</p>
-      <ul>
-         <li>gebruik <strong>betekenisvolle</strong> namen, dus geen <code>g1</code>, <code>nm</code> enz... maar <code>getal1</code>, <code>klantNaam</code> enz...</li>
-         <li><strong>methodes</strong> beginnen met een <strong>werkwoord</strong>, bv. <code>berekenGemiddelde()</code>, <code>drukMenu()</code> enz...</li>
-         <li><strong>boolean</strong> variabelen, methodes en properties beginnen met werkwoord als is..., heeft... , bv. <code>bevatKlinker</code>, <code>isEven()</code>, <code>heeftSpelGestart</code> enz... </li>
-         <li>kies <strong>één taal</strong> (Engels óf Nederlands) en gebruik dat in je hele programma, dus niet de ene keer <code>name</code> en de andere keer <code>leeftijd</code></li>
-         <li>gebruik de <strong>Hongaarse notatie voor HTML elementen</strong>, dus prefix altijd met dezelfde drie letters, bv. <code>btnOk</code>, <code>lblBericht</code>, <code>sldPercentage</code>...</li>
-      </ul>
+    <h3>Naamgeving</h3>
+    <p>Regels voor naamgeving:</p>
+    <ul>
+      <li>gebruik <strong>betekenisvolle</strong> namen, dus geen <code>g1</code>, <code>nm</code> enz... maar <code>getal1</code>, <code>klantNaam</code> enz...</li>
+      <li><strong>methodes</strong> beginnen met een <strong>werkwoord</strong>, bv. <code>berekenGemiddelde()</code>, <code>drukMenu()</code> enz...</li>
+      <li><strong>boolean</strong> variabelen, methodes en properties beginnen met werkwoord als is..., heeft... , bv. <code>bevatKlinker</code>, <code>isEven()</code>, <code>heeftSpelGestart</code> enz... </li>
+      <li>kies <strong>één taal</strong> (Engels óf Nederlands) en gebruik dat in je hele programma, dus niet de ene keer <code>name</code> en de andere keer <code>leeftijd</code></li>
+      <li>gebruik de <strong>Hongaarse notatie voor HTML elementen</strong>, dus prefix altijd met dezelfde drie letters, bv. <code>btnOk</code>, <code>lblBericht</code>, <code>sldPercentage</code>...</li>
+    </ul>
 
-      <h3>Nesting</h3>
-      <p><strong>Vermijd nesting</strong> als het eenvoudig anders kan:</p>
-      <div class="codecompare">
-         <pre class="prism-okaida wrong"><code>if (age &gt; 6) {
+    <h3>Nesting</h3>
+    <p><strong>Vermijd nesting</strong> als het eenvoudig anders kan:</p>
+    <div class="codecompare">
+      <pre class="prism-okaida wrong"><code>if (age &gt; 6) {
    if (age &lt; 18) {
       console.log('junior');
    } else {
@@ -1391,7 +1392,7 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
    console.log('child');
 }
 </code></pre>
-         <pre class="prism-okaida right"><code>if (age &lt; 6) {
+      <pre class="prism-okaida right"><code>if (age &lt; 6) {
    console.log('child');
 } else if (age &lt; 18) {
    console.log('junior');
@@ -1401,50 +1402,50 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
 
 
 </code></pre>
-      </div>
-      <ul class="arrow">
-         <li>het weglaten van accolades lijkt misschien een aantrekkelijk idee, maar het maakt je code foutgevoeliger,
-            minder leesbaar en minder flexibel; je zult echte programmeurs dan ook nooit accolades zien weglaten!</li>
-      </ul>
-      <figure>
-         <img src="img/01_syntax/pyramid-of-doom.jpg" alt="pyramid of doom">
-         <figcaption>vermijd de <a href="https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming)">pyramid of doom</a>!</figcaption>
-      </figure>
-
-
-
-   </main>
-   <footer>
-     <img src="common/img/thats-all.jpg" alt="">
-     <div class="footer__bottom">
-       <p>@2024, Rogier van der Linde</p>
-       <p>cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a> &mdash; <a href="https://rogiervdl.github.io/CSS-course/">CSS</a> &mdash; <a href="https://rogiervdl.github.io/CS-course/">C#</a> &mdash; <a href="https://rogiervdl.github.io/DEVENV-course/">ontwikkelomgeving</a></p>
     </div>
-   </footer>
-   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+    <ul class="arrow">
+      <li>het weglaten van accolades lijkt misschien een aantrekkelijk idee, maar het maakt je code foutgevoeliger,
+        minder leesbaar en minder flexibel; je zult echte programmeurs dan ook nooit accolades zien weglaten!</li>
+    </ul>
+    <figure>
+      <img src="img/01_syntax/pyramid-of-doom.jpg" alt="pyramid of doom">
+      <figcaption>vermijd de <a href="https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming)">pyramid of doom</a>!</figcaption>
+    </figure>
 
-   <!-- popup -->
-   <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
-      <div class="hystmodal__wrap">
-         <div class="hystmodal__window" role="dialog" aria-modal="true">
-            <iframe title="demo"></iframe>
-         </div>
+
+
+  </main>
+  <footer>
+    <img src="common/img/thats-all.jpg" alt="">
+    <div class="footer__bottom">
+      <p>@2024, Rogier van der Linde</p>
+      <p>cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a> &mdash; <a href="https://rogiervdl.github.io/CSS-course/">CSS</a> &mdash; <a href="https://rogiervdl.github.io/CS-course/">C#</a> &mdash; <a href="https://rogiervdl.github.io/DEVENV-course/">ontwikkelomgeving</a></p>
+    </div>
+  </footer>
+  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+
+  <!-- popup -->
+  <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
+    <div class="hystmodal__wrap">
+      <div class="hystmodal__window" role="dialog" aria-modal="true">
+        <iframe title="demo"></iframe>
       </div>
-   </div>
-   <!-- scripts -->
-   <script src="common/vendor/prism/prism.js"></script>
-   <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
-   <script src="common/js/mode.js"></script>
-   <script src="common/js/scripts.js"></script>
-   <!-- Google tag (gtag.js) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
-   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+    </div>
+  </div>
+  <!-- scripts -->
+  <script src="common/vendor/prism/prism.js"></script>
+  <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
+  <script src="common/js/mode.js"></script>
+  <script src="common/js/scripts.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-      gtag('config', 'G-33VMW730V9');
-   </script>
+    gtag('config', 'G-33VMW730V9');
+  </script>
 </body>
 
 </html>
