@@ -1266,6 +1266,17 @@ else
  */
 
 // ===========================================
+// DOM
+// ===========================================
+
+// create DOM shorthands
+const divLoginModal = document.querySelector('#loginmodal');
+const lnkLogin = document.querySelector('#lnkLogin');
+const btnReset = document.querySelector('#btnReset');
+...
+
+
+// ===========================================
 // FUNCTIONS
 // ===========================================
 
@@ -1278,37 +1289,29 @@ else
 * @returns {string} string representation of the board
 */
 function drawBoard(width, height, numbers) {
-   ...
+  ...
+}
+
+/**
+* Shows login modal
+*
+* @param {object} e - event sender
+*/
+function showLogin(e) {
+  e.preventDefault();
+  divLoginModal.classList.add('show');
 }
 
 ....
 
 // ===========================================
-// DOM
-// ===========================================
-
-// create DOM shorthands
-const divLoginModal = document.querySelector('#loginmodal');
-const btnLogin = document.querySelector('#btnLogin');
-const btnCancel = document.querySelector('#btnCancel');
-...
-
-// ===========================================
 // EVENTS
 // ===========================================
 
-// add event listener
-btnLogin.addEventListener('click', function(e) {
-   e.preventDefault();
-   divLoginModal.classList.add('show');
-});
-
-// ===========================================
-// GAME LOGIC
-// ===========================================
-
-// initialize board
-...
+// add event listeners
+btnReset.addEventListener('click', drawBoard);
+lnkLogin.addEventListener('click', showLogin);
+....
 </code></pre>
 
     <h3>Code layout</h3>

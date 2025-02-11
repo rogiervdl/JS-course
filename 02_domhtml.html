@@ -783,11 +783,16 @@ btnHello.onclick = zegHallo; // zegHallo zonder haakjes ()</code></pre>
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
         </div>
         <div class="precontainer">
-          <pre class="prism-okaida right"><code>const lblMessage = document.querySelector('#lblMessage');
+          <pre class="prism-okaida right"><code>// declaraties
+const lblMessage = document.querySelector('#lblMessage');
 const btnHello = document.querySelector('#btnHello');
+
+// functies
 function zegHallo() {
    lblMessage.innerHTML = 'Hallo daar';
 }
+
+// events
 btnHello.addEventListener('click', zegHallo);</code></pre>
           <div class="codemarker" data-text=".addEventListener"></div>
         </div>
@@ -802,28 +807,49 @@ btnHello.addEventListener('click', zegHallo);</code></pre>
       <li>het is een <strong>moderne syntax</strong> die je ook in veel andere programmeertalen ziet (bv. Java)</li>
     </ul>
     <p>Je kan de code nog wat inkorten door gebruik te maken van een <a href="01_syntax.html#anonieme-functies">anonieme functie</a>:</p>
-    <pre class="prism-okaida right"><code>const lblMessage = document.querySelector('#lblMessage');
+    <pre class="prism-okaida wrong"><code>// declaraties
+const lblMessage = document.querySelector('#lblMessage');
 const btnHello = document.querySelector('#btnHello');
+
+// events/functies
 btnHello.addEventListener('click', function() { // anonieme functie
    lblMessage.innerHTML = 'Hallo daar';
 });</code></pre>
+    <p>&rarr; we gebruiken deze syntax liever niet, omdat er geen scheiding meer is tussen functies en event handlers.</p>
 
-    <h3>Aparte event handler methodes</h3>
-    <p>Bij grotere programma's is je code leesbaarder als je expliciete functies definieert voor het afhandelen van events. Neem volgend schematisch fragment:</p>
-    <pre class="prism-okaida"><code>
-frm1.addEventListener('submit', function(e) {
-   e.preventDefault();
-   // ...code handling form submit
-});
-lnkFilter.addEventListener('click', function(e) {
-   e.preventDefault();
-   // ...code handling link click
-});
-btnAdd.addEventListener('click', function() {
-   // ...code handling button click
-});</code></pre>
-    <p>Door de event handler functies apart te houden van de koppeling aan events, is je code veel beter gestructureerd:</p>
-    <pre class="prism-okaida right"><code>// EVENT HANDLERS
+    <h3>Basisstructuur scripts</h3>
+    <p>Splits je scripts altijd op in deze blokken:</p>
+    <ul>
+      <li><strong>declaraties</strong>: variabelen, DOM shortcuts...</li>
+      <li><strong>functies</strong>: algemene functies, event handlers...</li>
+      <li><strong>events</strong>: koppel events aan functies</li>
+    </ul>
+    <p>Zo hou je de drie netjes gescheiden. Schematisch voorbeeld:</p>
+    <pre class="prism-okaida right"><code>// DECLARATIES
+// ===========
+
+// constanten en variabelen
+const MAX_ATTEMPTS = 3;
+let score = 0;
+let answers = [];
+
+// DOM
+const frm1 = document.querySelector('...');
+const lnkFilter = document.querySelector('...');
+const btnAdd = document.querySelector('...');
+
+// FUNCTIES
+// ========
+
+// gewone functies
+function calculateScore(answ) {
+   ...
+}
+function generateNumbers() {
+  ...
+}
+
+// event handlers
 function handleFormSubmit(e) {
    e.preventDefault();
    // ...code handling form submit
@@ -836,7 +862,9 @@ function handleBtnAddClick() {
    // ...code handling button click
 }
 
-// HANDLE EVENTS
+// EVENTS
+// ======
+
 frm1.addEventListener('submit', handleFormSubmit);
 lnkFilter.addEventListener('click', handleLnkFilterClick);
 btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>

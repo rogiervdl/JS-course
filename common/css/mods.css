@@ -6,10 +6,22 @@ pre.padtop {
 	padding-top: 2.5em;
 }
 
+[contenteditable] {
+	outline: 1px solid transparent !important;
+}
+
+body pre[class*="language-"]:has([contenteditable]:focus) {
+  border: 1px dashed #666 !important;
+}
+
 /* color scheme mods */
 
 code[class*="language-"] {
 	background-color: transparent !important;
+}
+
+.token.comment * {
+	color: inherit !important;
 }
 
 /* toolbar mods */
@@ -89,12 +101,6 @@ pre.notoolbar+.toolbar .toolbar-item {
 
 [data-fancybox] {
 	cursor: pointer;
-}
-
-/* contenteditable */
-
-[contenteditable] {
-	outline: 0px solid transparent;
 }
 
 /* MEDIA QUERIES */
