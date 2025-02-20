@@ -4,172 +4,172 @@
 <html lang="nl">
 
 <head>
-  <title>HTML manipulatie | Javascript cursus</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="common/styles.css">
-  <link rel="stylesheet" href="css/styles.css">
+   <title>HTML manipulatie | Javascript cursus</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="common/styles.css">
+   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="language-javascript line-numbers">
-  <div id="mode">
-    <span>n00b</span>
-    <label class="switch">
-      <input type="checkbox" checked>
-      <span class="slider round"></span>
-    </label>
-    <span>pro</span>
-  </div>
-  <nav class="site__nav">
-    <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
-      <p class="thumb__title">01. Javascript syntax</p>
-      <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
-    </a>
-    <a href="02_domhtml.html" class="main__thumb active" title="02. HTML manipulatie">
-      <p class="thumb__title">02. HTML manipulatie</p>
-      <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
-    </a>
-    <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
-      <p class="thumb__title">03. CSS manipulatie</p>
-      <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
-    </a>
-    <a href="04_games.html" class="main__thumb" title="04. Games">
-      <p class="thumb__title">04. Games</p>
-      <img class="thumb__visual" src="img/04_games/icon.png" alt="">
-    </a>
-    <a href="05_async.html" class="main__thumb" title="05. Web API's">
-      <p class="thumb__title">05. Web API's</p>
-      <img class="thumb__visual" src="img/05_async/icon.png" alt="">
-    </a>
-    <a href="06_nodejs.html" class="main__thumb pro" title="06. NodeJS">
-      <p class="thumb__title">06. NodeJS</p>
-      <img class="thumb__visual" src="img/06_nodejs/icon.png" alt="">
-    </a>
-    <a href="es6.html" class="main__thumb pro" title="ES6">
-      <p class="thumb__title">ES6</p>
-      <img class="thumb__visual" src="img/es6/icon.png" alt="">
-    </a>
-    <a href="summary.html" class="main__thumb" title="05. samenvatting">
-      <p class="thumb__title">samenvatting</p>
-      <img class="thumb__visual" src="img/summary/icon.png" alt="">
-    </a>
-  </nav>
-  <h1>02. HTML manipulatie</h1>
-  <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
-  <div id="toc"></div>
+   <div id="mode">
+      <span>n00b</span>
+      <label class="switch">
+         <input type="checkbox" checked>
+         <span class="slider round"></span>
+      </label>
+      <span>pro</span>
+   </div>
+   <nav class="site__nav">
+      <a href="01_syntax.html" class="main__thumb" title="01. Javascript syntax">
+         <p class="thumb__title">01. Javascript syntax</p>
+         <img class="thumb__visual" src="img/01_syntax/icon.png" alt="">
+      </a>
+      <a href="02_domhtml.html" class="main__thumb active" title="02. HTML manipulatie">
+         <p class="thumb__title">02. HTML manipulatie</p>
+         <img class="thumb__visual" src="img/02_domhtml/icon.png" alt="">
+      </a>
+      <a href="03_domcss.html" class="main__thumb" title="03. CSS manipulatie">
+         <p class="thumb__title">03. CSS manipulatie</p>
+         <img class="thumb__visual" src="img/03_domcss/icon.png" alt="">
+      </a>
+      <a href="04_games.html" class="main__thumb" title="04. Games">
+         <p class="thumb__title">04. Games</p>
+         <img class="thumb__visual" src="img/04_games/icon.png" alt="">
+      </a>
+      <a href="05_async.html" class="main__thumb" title="05. Web API's">
+         <p class="thumb__title">05. Web API's</p>
+         <img class="thumb__visual" src="img/05_async/icon.png" alt="">
+      </a>
+      <a href="06_nodejs.html" class="main__thumb pro" title="06. NodeJS">
+         <p class="thumb__title">06. NodeJS</p>
+         <img class="thumb__visual" src="img/06_nodejs/icon.png" alt="">
+      </a>
+      <a href="es6.html" class="main__thumb pro" title="ES6">
+         <p class="thumb__title">ES6</p>
+         <img class="thumb__visual" src="img/es6/icon.png" alt="">
+      </a>
+      <a href="summary.html" class="main__thumb" title="05. samenvatting">
+         <p class="thumb__title">samenvatting</p>
+         <img class="thumb__visual" src="img/summary/icon.png" alt="">
+      </a>
+   </nav>
+   <h1>02. HTML manipulatie</h1>
+   <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
+   <div id="toc"></div>
 
-  <main>
-    <!-- VIDEO -->
-    <h2>On Youtube: trees, DOM, document queries, DOM manipulatie, events</h2>
-    <div class="flexcontainer youtubecontainer">
-      <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/tXkV_vuJT8s?enablejsapi=1" allowfullscreen></iframe>
-      <figure class="print">
-        <a href="https://www.youtube.com/embed/tXkV_vuJT8s"><img src="img/02_domhtml/03.DWD-dom1.png" alt="" class="w-500"></a>
-        <figcaption><a href="https://www.youtube.com/embed/tXkV_vuJT8s">https://www.youtube.com/embed/tXkV_vuJT8s</a>
-        </figcaption>
-      </figure>
-      <div class="youtube_toc">
-        <ul>
-          <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=0s">00:00 wat is DOM</a></li>
-          <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=160s">02:40 vergelijking met WPF</a></li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=406s">06:46 DOM querying</a>
+   <main>
+      <!-- VIDEO -->
+      <h2>On Youtube: trees, DOM, document queries, DOM manipulatie, events</h2>
+      <div class="flexcontainer youtubecontainer">
+         <iframe class="youtube" width="600" height="378" src="https://www.youtube.com/embed/tXkV_vuJT8s?enablejsapi=1" allowfullscreen></iframe>
+         <figure class="print">
+            <a href="https://www.youtube.com/embed/tXkV_vuJT8s"><img src="img/02_domhtml/03.DWD-dom1.png" alt="" class="w-500"></a>
+            <figcaption><a href="https://www.youtube.com/embed/tXkV_vuJT8s">https://www.youtube.com/embed/tXkV_vuJT8s</a>
+            </figcaption>
+         </figure>
+         <div class="youtube_toc">
             <ul>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=425s">07:05 boomstructuren</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=523s">8:43 WPF basisvoorbeeld</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=639s">10:39 Javascript equivalent</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=999s">16:39 DOM queries (let wel:<code>getElementById()</code> gebruiken we niet meer!)</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1424s">23:44 query chaining (form voorbeeld)</a></li>
+               <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=0s">00:00 wat is DOM</a></li>
+               <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=160s">02:40 vergelijking met WPF</a></li>
+               <li>
+                  <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=406s">06:46 DOM querying</a>
+                  <ul>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=425s">07:05 boomstructuren</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=523s">8:43 WPF basisvoorbeeld</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=639s">10:39 Javascript equivalent</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=999s">16:39 DOM queries (let wel:<code>getElementById()</code> gebruiken we niet meer!)</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1424s">23:44 query chaining (form voorbeeld)</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1407s">23:27 DOM manipulatie</a>
+                  <ul>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1687s">28:07 Javascript en DOM documentatie</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1790s">29:50 HTML attributen in Javascript (random foto voorbeeld)</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2136s">35:36 DOM properties in Javascript (foto afmetingen voorbeeld)</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2248s">37:28 innerHTML (foto's array voorbeeld)</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2546s">42:26 Events</a>
+                  <ul>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2581s">43:01 WPF click event basisvoorbeeld</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2658s">44:18 Javascript equivalent met addEventListener()</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2933s">48:53 andere events (mouseover/mouseout voorbeeld)</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3050s">50:50 sender object in WPF</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3173s">52:53 e.target equivalent in Javascript (buttons voorbeeld)</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3390s">56:30 event bubbling (3x3 tabel voorbeeld)</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3761s">1:02:41 e.preventDefault() (link click voorbeeld)</a></li>
+                     <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3975s">1:06:15 e.preventDefault() (form submit voorbeeld)</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=4229s">1:10:29 FotoGallerij voorbeeld</a>
+               </li>
+               <li>
+                  <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=4503s">1:15:03 FormChecking voorbeeld</a>
+               </li>
             </ul>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1407s">23:27 DOM manipulatie</a>
-            <ul>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1687s">28:07 Javascript en DOM documentatie</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=1790s">29:50 HTML attributen in Javascript (random foto voorbeeld)</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2136s">35:36 DOM properties in Javascript (foto afmetingen voorbeeld)</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2248s">37:28 innerHTML (foto's array voorbeeld)</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2546s">42:26 Events</a>
-            <ul>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2581s">43:01 WPF click event basisvoorbeeld</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2658s">44:18 Javascript equivalent met addEventListener()</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=2933s">48:53 andere events (mouseover/mouseout voorbeeld)</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3050s">50:50 sender object in WPF</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3173s">52:53 e.target equivalent in Javascript (buttons voorbeeld)</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3390s">56:30 event bubbling (3x3 tabel voorbeeld)</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3761s">1:02:41 e.preventDefault() (link click voorbeeld)</a></li>
-              <li><a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=3975s">1:06:15 e.preventDefault() (form submit voorbeeld)</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=4229s">1:10:29 FotoGallerij voorbeeld</a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=tXkV_vuJT8s&t=4503s">1:15:03 FormChecking voorbeeld</a>
-          </li>
-        </ul>
+         </div>
       </div>
-    </div>
 
-    <h2>Web vs. WPF</h2>
-    <p>WPF- en webtoepassingen hebben grote overeenkomsten:</p>
-    <table class="grey left">
-      <thead>
-        <tr>
-          <th scope="col">&nbsp;</th>
-          <th scope="col">WPF TOEPASSING</th>
-          <th scope="col">WEB TOEPASSING</th>
-          <th scope="col">&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">structuur</th>
-          <td>XAML</td>
-          <td>HTML</td>
-          <td>syntax lijkt sterk op elkaar</td>
-        </tr>
-        <tr>
-          <th scope="row">design</th>
-          <td>XAML attributen</td>
-          <td>CSS properties</td>
-          <td>fonts, margins, paddings, borders...</td>
-        </tr>
-        <tr>
-          <th scope="row">layout</th>
-          <td>Grid, WrapPanel, Canvas...</td>
-          <td>CSS Grid, FlexBox, positionering...</td>
-          <td>hebben zelfde layoutprincipes</td>
-        </tr>
-        <tr>
-          <th scope="row">code-behind</th>
-          <td>C#</td>
-          <td>Javascript</td>
-          <td>event handling, logica...</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Veel WPF principes als event handling, manipulaties van controls e.d. zul je ook terugvinden in Javascript webtoepassingen. Er zijn uiteraard ook een aantal verschillen:</p>
-    <ul class="arrow">
-      <li>Javascript en C# hebben een <strong>verschillende syntax</strong> (al zijn het beiden C-achtige talen)</li>
-      <li>WPF controls en HTML elementen hebben vaak heel <strong>verschillende namen en attributen</strong></li>
-      <li>over het algemeen biedt <strong>CSS veel meer mogelijkheden</strong> dan XAML attributen</li>
-      <li>over het algemeen biedt <strong>WPF veel meer componenten</strong> dan standaard HTML</li>
-    </ul>
+      <h2>Web vs. WPF</h2>
+      <p>WPF- en webtoepassingen hebben grote overeenkomsten:</p>
+      <table class="grey left">
+         <thead>
+            <tr>
+               <th scope="col">&nbsp;</th>
+               <th scope="col">WPF TOEPASSING</th>
+               <th scope="col">WEB TOEPASSING</th>
+               <th scope="col">&nbsp;</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th scope="row">structuur</th>
+               <td>XAML</td>
+               <td>HTML</td>
+               <td>syntax lijkt sterk op elkaar</td>
+            </tr>
+            <tr>
+               <th scope="row">design</th>
+               <td>XAML attributen</td>
+               <td>CSS properties</td>
+               <td>fonts, margins, paddings, borders...</td>
+            </tr>
+            <tr>
+               <th scope="row">layout</th>
+               <td>Grid, WrapPanel, Canvas...</td>
+               <td>CSS Grid, FlexBox, positionering...</td>
+               <td>hebben zelfde layoutprincipes</td>
+            </tr>
+            <tr>
+               <th scope="row">code-behind</th>
+               <td>C#</td>
+               <td>Javascript</td>
+               <td>event handling, logica...</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>Veel WPF principes als event handling, manipulaties van controls e.d. zul je ook terugvinden in Javascript webtoepassingen. Er zijn uiteraard ook een aantal verschillen:</p>
+      <ul class="arrow">
+         <li>Javascript en C# hebben een <strong>verschillende syntax</strong> (al zijn het beiden C-achtige talen)</li>
+         <li>WPF controls en HTML elementen hebben vaak heel <strong>verschillende namen en attributen</strong></li>
+         <li>over het algemeen biedt <strong>CSS veel meer mogelijkheden</strong> dan XAML attributen</li>
+         <li>over het algemeen biedt <strong>WPF veel meer componenten</strong> dan standaard HTML</li>
+      </ul>
 
-    <h2>DOM</h2>
-    <h3>Boomstructuren</h3>
-    <p>Boomstructuren komen veel voor in programmatie, en in web in het bijzonder: denk aan overerving, organisatie van namespaces, in XAML code... Voorwaarden om van een boomstructuur te kunnen spreken:</p>
-    <ul>
-      <li>elke node heeft <strong>exact één parentnode</strong></li>
-      <li>een parentnode kan een <strong>willekeurig aantal childnodes</strong> hebben</li>
-      <li>er ligt <strong>één rootnode aan de basis</strong> waar alle andere nodes hun oorsprong vinden</li>
-    </ul>
-    <p>Neem volgend eenvoudig HTML document:</p>
-    <pre class="prism-default language-html"><code>&lt;!doctype html&gt;
+      <h2>DOM</h2>
+      <h3>Boomstructuren</h3>
+      <p>Boomstructuren komen veel voor in programmatie, en in web in het bijzonder: denk aan overerving, organisatie van namespaces, in XAML code... Voorwaarden om van een boomstructuur te kunnen spreken:</p>
+      <ul>
+         <li>elke node heeft <strong>exact één parentnode</strong></li>
+         <li>een parentnode kan een <strong>willekeurig aantal childnodes</strong> hebben</li>
+         <li>er ligt <strong>één rootnode aan de basis</strong> waar alle andere nodes hun oorsprong vinden</li>
+      </ul>
+      <p>Neem volgend eenvoudig HTML document:</p>
+      <pre class="prism-default language-html"><code>&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
    &lt;title&gt;testpagina&lt;/title&gt;
@@ -187,99 +187,99 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-    <p>Grafisch kan je de structuur als volgt voorstellen:</p>
-    <img src="img/02_domhtml/domtree.png" alt="" class="w-500">
-    <p>De <code>html</code> node noemt men de <strong>root</strong>, de <code>title</code> is een <strong>child</strong> van de <code>head</code>, <code>h1</code>, <code>p</code> en <code>ul</code> zijn <strong>siblings</strong> enz... Samengevat:</p>
-    <table class="light">
-      <thead>
-        <tr>
-          <th scope="col">term</th>
-          <th scope="col">omschrijving</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>node</td>
-          <td>alle elementen noemt men tree nodes</td>
-        </tr>
-        <tr>
-          <td>root</td>
-          <td>de bovenste node, hier de <code>html</code></td>
-        </tr>
-        <tr>
-          <td>parent</td>
-          <td>direct bovenliggende node, bv. <code>ul</code> is parent van de <code>li</code>’s</td>
-        </tr>
-        <tr>
-          <td>ancestor</td>
-          <td>bovenliggende node, bv. <code>body</code> is ancestor van <code>a</code></td>
-        </tr>
-        <tr>
-          <td>sibling</td>
-          <td>nodes met dezelfde parent, bv. <code>title</code> en <code>meta</code></td>
-        </tr>
-        <tr>
-          <td>branch</td>
-          <td>vertakking, bv. <code>head</code>, <code>title</code> en <code>meta</code> zitten allen op dezelfde
-            branch</td>
-        </tr>
-        <tr>
-          <td>leaf</td>
-          <td>node zonder verdere vertakking, bv. <code>title</code></td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Visueel voorgesteld:</p>
-    <img src="img/02_domhtml/domtree2.png" alt="" class="w-500">
-    <h3>Document Object Model</h3>
-    <div class="tips" data-caption="💡 WAT IS HET DOM?">
-      <p>
-        Een <mark>Document Object Model</mark> of kortweg <strong>DOM</strong> is een programmeertechnisch model van
-        een HTML pagina waarmee scripts kunnen interageren. Het is in essentie een <strong>boomstructuur</strong> waar elke node <strong>events, methodes en
-          properties</strong> heeft die de programmeur kan aanspreken in zijn scripts.
-      </p>
-    </div>
-    <p>De vragen die centraal staan zijn:</p>
-    <ol>
-      <li>hoe kan ik met mijn script <strong>objecten vinden</strong> in het HTML document (buttons, afbeeldingen, teksten...)?</li>
-      <li>hoe kan ik met mijn script <strong>properties en methodes gebruiken</strong> om die objecten te manipuleren?</li>
-      <li>hoe kan mijn script <strong>reageren op events</strong> (interactie van de gebruiker, pagina is geladen, video afgelopen...)?</li>
-    </ol>
-    <h2>DOM querying</h2>
-    <h3>XAML nodes vinden in C#</h3>
-    <p>In <strong>WPF toepassingen</strong> kan je nodes aanspreken via hun <code>x:Name</code> attribuutwaarde. Nemen we een eenvoudig voorbeeld, een tekst van een TextBox kopiëren naar een label:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-vslight language-html language-xaml w-600" data-caption="XAML"><code>&lt;Window Title="Button Test" Background="#FFF4F2CB" ...&gt;
+      <p>Grafisch kan je de structuur als volgt voorstellen:</p>
+      <img src="img/02_domhtml/domtree.png" alt="" class="w-500">
+      <p>De <code>html</code> node noemt men de <strong>root</strong>, de <code>title</code> is een <strong>child</strong> van de <code>head</code>, <code>h1</code>, <code>p</code> en <code>ul</code> zijn <strong>siblings</strong> enz... Samengevat:</p>
+      <table class="light">
+         <thead>
+            <tr>
+               <th scope="col">term</th>
+               <th scope="col">omschrijving</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>node</td>
+               <td>alle elementen noemt men tree nodes</td>
+            </tr>
+            <tr>
+               <td>root</td>
+               <td>de bovenste node, hier de <code>html</code></td>
+            </tr>
+            <tr>
+               <td>parent</td>
+               <td>direct bovenliggende node, bv. <code>ul</code> is parent van de <code>li</code>’s</td>
+            </tr>
+            <tr>
+               <td>ancestor</td>
+               <td>bovenliggende node, bv. <code>body</code> is ancestor van <code>a</code></td>
+            </tr>
+            <tr>
+               <td>sibling</td>
+               <td>nodes met dezelfde parent, bv. <code>title</code> en <code>meta</code></td>
+            </tr>
+            <tr>
+               <td>branch</td>
+               <td>vertakking, bv. <code>head</code>, <code>title</code> en <code>meta</code> zitten allen op dezelfde
+                  branch</td>
+            </tr>
+            <tr>
+               <td>leaf</td>
+               <td>node zonder verdere vertakking, bv. <code>title</code></td>
+            </tr>
+         </tbody>
+      </table>
+      <p>Visueel voorgesteld:</p>
+      <img src="img/02_domhtml/domtree2.png" alt="" class="w-500">
+      <h3>Document Object Model</h3>
+      <div class="tips" data-caption="💡 WAT IS HET DOM?">
+         <p>
+            Een <mark>Document Object Model</mark> of kortweg <strong>DOM</strong> is een programmeertechnisch model van
+            een HTML pagina waarmee scripts kunnen interageren. Het is in essentie een <strong>boomstructuur</strong> waar elke node <strong>events, methodes en
+               properties</strong> heeft die de programmeur kan aanspreken in zijn scripts.
+         </p>
+      </div>
+      <p>De vragen die centraal staan zijn:</p>
+      <ol>
+         <li>hoe kan ik met mijn script <strong>objecten vinden</strong> in het HTML document (buttons, afbeeldingen, teksten...)?</li>
+         <li>hoe kan ik met mijn script <strong>properties en methodes gebruiken</strong> om die objecten te manipuleren?</li>
+         <li>hoe kan mijn script <strong>reageren op events</strong> (interactie van de gebruiker, pagina is geladen, video afgelopen...)?</li>
+      </ol>
+      <h2>DOM querying</h2>
+      <h3>XAML nodes vinden in C#</h3>
+      <p>In <strong>WPF toepassingen</strong> kan je nodes aanspreken via hun <code>x:Name</code> attribuutwaarde. Nemen we een eenvoudig voorbeeld, een tekst van een TextBox kopiëren naar een label:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-vslight language-html language-xaml w-600" data-caption="XAML"><code>&lt;Window Title="Button Test" Background="#FFF4F2CB" ...&gt;
    &lt;Grid&gt;
       &lt;TextBox x:Name="inpTest" Text="kot kot kedei" ... /&gt;
       &lt;Label x:Name="lblMessage" Content="" ... /&gt;
    &lt;/Grid&gt;
 &lt;/Window&gt;</code></pre>
-          <div class="codemarker" data-text="inpTest"></div>
-          <div class="codemarker" data-text="lblMessage"></div>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-vslight language-cs w-600"><code>public MainWindow() {
+               <div class="codemarker" data-text="inpTest"></div>
+               <div class="codemarker" data-text="lblMessage"></div>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-vslight language-cs w-600"><code>public MainWindow() {
    InitializeComponent();
    lblMessage.Content = $"tekst in het tekstvak: {inpTest.Text}";
 }</code></pre>
-          <div class="codemarker" data-text="inpTest"></div>
-          <div class="codemarker" data-text="lblMessage"></div>
-        </div>
+               <div class="codemarker" data-text="inpTest"></div>
+               <div class="codemarker" data-text="lblMessage"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/button-test.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/button-test.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <h3>HTML elementen vinden in Javascript</h3>
-    <p>In <strong>Javascript</strong> bestaat <em>in theorie</em> een gelijkaardige optie, nl. nodes rechstreeks aanspreken via hun HTML <code>id</code> attribuut. Het vorig voorbeeld, de HTML/Javascript versie:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
+      <h3>HTML elementen vinden in Javascript</h3>
+      <p>In <strong>Javascript</strong> bestaat <em>in theorie</em> een gelijkaardige optie, nl. nodes rechstreeks aanspreken via hun HTML <code>id</code> attribuut. Het vorig voorbeeld, de HTML/Javascript versie:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="nl"&gt;
 &lt;head&gt;
    &lt;title&gt; Button Test &lt;/title&gt;
@@ -292,99 +292,99 @@
    &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <div class="codemarker" data-text="inpTest"></div>
-          <div class="codemarker" data-text="lblMessage"></div>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida padtop"><code>lblMessage.innerHTML = `tekst in het tekstvak: ${inpTest.value}`;</code></pre>
-          <div class="codemarker" data-text="inpTest"></div>
-          <div class="codemarker" data-text="lblMessage"></div>
-        </div>
+               <div class="codemarker" data-text="inpTest"></div>
+               <div class="codemarker" data-text="lblMessage"></div>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida padtop"><code>lblMessage.innerHTML = `tekst in het tekstvak: ${inpTest.value}`;</code></pre>
+               <div class="codemarker" data-text="inpTest"></div>
+               <div class="codemarker" data-text="lblMessage"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/button-test-js.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/button-test-js.png" alt="" class="w-400">
+
+      <p>Er zijn verschillende redenen waarom dit in praktijk zo niet gedaan wordt:</p>
+      <ul>
+         <li>HTML elementen <strong>zonder id-attribuut</strong> worden <strong>niet gevonden</strong></li>
+         <li>indien het id-attribuut een <strong>koppelteken bevat</strong>, bv. id="shopping-cart", wordt het <strong>evenmin gevonden</strong> </li>
+         <li>het idee HTML nodes via hun id attribuut beschikbaar te maken in Javascript komt van Internet Explorer, en zoals alle ideeën van Internet Explorer, is dit dus ook een <strong>slecht idee</strong></li>
+      </ul>
+      <h4>HTML document queries</h4>
+      <p>De juiste manier om HTML nodes aan te spreken in Javascript is met één van de <strong>query-functies</strong>:</p>
+      <div class="x-scroll">
+         <table class="light">
+            <thead>
+               <tr>
+                  <th scope="col" class="w-200">query functie</th>
+                  <th scope="col">voorbeeld</th>
+                  <th scope="col">omschrijving</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td class="w-200"><span class="wrong"></span> <code>querySelector</code></td>
+                  <td><code>document.querySelector('#frm1 [type=submit]')</code></td>
+                  <td>zoek eerste node in document op basis van een CSS selector</td>
+               </tr>
+               <tr>
+                  <td class="w-200"><span class="right"></span> <code>querySelectorAll</code></td>
+                  <td><code>document.querySelectorAll('nav a')</code></td>
+                  <td>zoek alle nodes in document op basis van een CSS selector</td>
+               </tr>
+            </tbody>
+         </table>
       </div>
-    </div>
 
-    <p>Er zijn verschillende redenen waarom dit in praktijk zo niet gedaan wordt:</p>
-    <ul>
-      <li>HTML elementen <strong>zonder id-attribuut</strong> worden <strong>niet gevonden</strong></li>
-      <li>indien het id-attribuut een <strong>koppelteken bevat</strong>, bv. id="shopping-cart", wordt het <strong>evenmin gevonden</strong> </li>
-      <li>het idee HTML nodes via hun id attribuut beschikbaar te maken in Javascript komt van Internet Explorer, en zoals alle ideeën van Internet Explorer, is dit dus ook een <strong>slecht idee</strong></li>
-    </ul>
-    <h4>HTML document queries</h4>
-    <p>De juiste manier om HTML nodes aan te spreken in Javascript is met één van de <strong>query-functies</strong>:</p>
-    <div class="x-scroll">
-      <table class="light">
-        <thead>
-          <tr>
-            <th scope="col" class="w-200">query functie</th>
-            <th scope="col">voorbeeld</th>
-            <th scope="col">omschrijving</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="w-200"><span class="wrong"></span> <code>querySelector</code></td>
-            <td><code>document.querySelector('#frm1 [type=submit]')</code></td>
-            <td>zoek eerste node in document op basis van een CSS selector</td>
-          </tr>
-          <tr>
-            <td class="w-200"><span class="right"></span> <code>querySelectorAll</code></td>
-            <td><code>document.querySelectorAll('nav a')</code></td>
-            <td>zoek alle nodes in document op basis van een CSS selector</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>Daarnaast zijn er nog een aantal oudere <strong>get-functies</strong> die we in deze cursus <strong>niet meer gebruiken</strong>:</p>
-    <div class="x-scroll">
-      <table class="light">
-        <thead>
-          <tr>
-            <th scope="col" class="w-200">get functie</th>
-            <th scope="col">voorbeeld</th>
-            <th scope="col">query alternatief</th>
-            <th scope="col">omschrijving</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="w-220"><span class="wrong"></span> <code>getElementById</code></td>
-            <td><code>document.getElementById('btnOk')</code></td>
-            <td><code>document.querySelector('#btnOk')</code></td>
-            <td>zoek node in document op basis van een <code>id</code></td>
-          </tr>
-          <tr>
-            <td class="w-220"><span class="wrong"></span> <code>getElementsByClassName</code>
-            </td>
-            <td><code>document.getElementsByClassName('green')</code></td>
-            <td><code>document.querySelectorAll('.green')</code></td>
-            <td>zoek node in document op basis van een <code>class</code> attribuut</td>
-          </tr>
-          <tr>
-            <td class="w-220"><span class="wrong"></span> <code>getElementsByName</code></td>
-            <td><code>document.getElementsByName('grpGender')</code></td>
-            <td><code>document.querySelectorAll('[name=grpGender]')</code></td>
-            <td>zoek node in document op basis van een <code>name</code> attribuut</td>
-          </tr>
-          <tr>
-            <td class="w-220"><span class="wrong"></span> <code>getElementsByTagName</code>
-            </td>
-            <td><code>document.getElementsByTagName('img')</code></td>
-            <td><code>document.querySelectorAll('img')</code></td>
-            <td>zoek node in document op basis van een tag naam</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h4>Eén element vinden met <code>querySelector()</code></h4>
-    <p>Het vorige voorbeeld herschreven met <code>querySelector</code>:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
+      <p>Daarnaast zijn er nog een aantal oudere <strong>get-functies</strong> die we in deze cursus <strong>niet meer gebruiken</strong>:</p>
+      <div class="x-scroll">
+         <table class="light">
+            <thead>
+               <tr>
+                  <th scope="col" class="w-200">get functie</th>
+                  <th scope="col">voorbeeld</th>
+                  <th scope="col">query alternatief</th>
+                  <th scope="col">omschrijving</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td class="w-220"><span class="wrong"></span> <code>getElementById</code></td>
+                  <td><code>document.getElementById('btnOk')</code></td>
+                  <td><code>document.querySelector('#btnOk')</code></td>
+                  <td>zoek node in document op basis van een <code>id</code></td>
+               </tr>
+               <tr>
+                  <td class="w-220"><span class="wrong"></span> <code>getElementsByClassName</code>
+                  </td>
+                  <td><code>document.getElementsByClassName('green')</code></td>
+                  <td><code>document.querySelectorAll('.green')</code></td>
+                  <td>zoek node in document op basis van een <code>class</code> attribuut</td>
+               </tr>
+               <tr>
+                  <td class="w-220"><span class="wrong"></span> <code>getElementsByName</code></td>
+                  <td><code>document.getElementsByName('grpGender')</code></td>
+                  <td><code>document.querySelectorAll('[name=grpGender]')</code></td>
+                  <td>zoek node in document op basis van een <code>name</code> attribuut</td>
+               </tr>
+               <tr>
+                  <td class="w-220"><span class="wrong"></span> <code>getElementsByTagName</code>
+                  </td>
+                  <td><code>document.getElementsByTagName('img')</code></td>
+                  <td><code>document.querySelectorAll('img')</code></td>
+                  <td>zoek node in document op basis van een tag naam</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <h4>Eén element vinden met <code>querySelector()</code></h4>
+      <p>Het vorige voorbeeld herschreven met <code>querySelector</code>:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="nl"&gt;
 &lt;head&gt;
    &lt;title&gt; Button Test &lt;/title&gt;
@@ -397,28 +397,28 @@
    &lt;script src="js/scripts.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <div class="codemarker" data-text="inpTest"></div>
-          <div class="codemarker" data-text="lblMessage"></div>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida padtop"><code>const lbl = document.querySelector('#lblMessage');
+               <div class="codemarker" data-text="inpTest"></div>
+               <div class="codemarker" data-text="lblMessage"></div>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida padtop"><code>const lbl = document.querySelector('#lblMessage');
 const inp = document.querySelector('#inpTest');
 
 lbl.innerHTML = `tekst in het tekstvak: ${inp.value}`;
 </code></pre>
-          <div class="codemarker" data-text="#inpTest"></div>
-          <div class="codemarker" data-text="#lblMessage"></div>
-        </div>
+               <div class="codemarker" data-text="#inpTest"></div>
+               <div class="codemarker" data-text="#lblMessage"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/button-test-js.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/button-test-js.png" alt="" class="w-400">
-      </div>
-    </div>
-    <p>Je kan niet alleen id-selectoren, maar elke geldige CSS selector meegeven als argument:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;nav&gt;
+      <p>Je kan niet alleen id-selectoren, maar elke geldige CSS selector meegeven als argument:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;nav&gt;
    &lt;ul&gt;
       &lt;li class="active"&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
@@ -426,26 +426,26 @@ lbl.innerHTML = `tekst in het tekstvak: ${inp.value}`;
    &lt;/ul&gt;
 &lt;/nav&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida padtop"><code>const activeLink = document.querySelector('nav li.active a');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida padtop"><code>const activeLink = document.querySelector('nav li.active a');
 
 console.log(`actief menu item is "${activeLink.innerHTML}"`);
 console.log(`dit item linkt naar ${activeLink.href}`);
 </code></pre>
-          <div class="codemarker" data-text="nav li.active a"></div>
-        </div>
+               <div class="codemarker" data-text="nav li.active a"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/nav-test.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/nav-test.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <p>Bij meerdere matches, wordt de eerste genomen:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;nav&gt;
+      <p>Bij meerdere matches, wordt de eerste genomen:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;nav&gt;
    &lt;ul&gt;
       &lt;li class="active"&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
@@ -453,24 +453,24 @@ console.log(`dit item linkt naar ${activeLink.href}`);
    &lt;/ul&gt;
 &lt;/nav&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida padtop"><code>const firstLink = document.querySelector('nav a');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida padtop"><code>const firstLink = document.querySelector('nav a');
 console.log(`eerste menu item: "${firstLink.innerHTML}"`);
 </code></pre>
-        </div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/nav-test2.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/nav-test2.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <h4>Meerdere nodes vinden met <code>querySelectorAll()</code></h4>
-    <p>Wil je alle matches, gebruik dan querySelectorAll(), en overloop bv. de resultaten met een lus:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;nav&gt;
+      <h4>Meerdere nodes vinden met <code>querySelectorAll()</code></h4>
+      <p>Wil je alle matches, gebruik dan querySelectorAll(), en overloop bv. de resultaten met een lus:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;nav&gt;
    &lt;ul&gt;
       &lt;li class="active"&gt;&lt;a href="about.html"&gt;Over mij&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="practical.html"&gt;Praktisch&lt;/a&gt;&lt;/li&gt;
@@ -478,78 +478,92 @@ console.log(`eerste menu item: "${firstLink.innerHTML}"`);
    &lt;/ul&gt;
 &lt;/nav&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida"><code>const navLinks = document.querySelectorAll('nav a');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida"><code>const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach(lnk =&gt; {
    console.log(`menu item: "${lnk.innerHTML}"`);
 });
 </code></pre>
-          <div class="codemarker" data-text=".querySelectorAll('nav a')"></div>
-        </div>
+               <div class="codemarker" data-text=".querySelectorAll('nav a')"></div>
+            </div>
+         </div>
+         <p>
+            <img src="img/02_domhtml/nav-test3.png" alt="" class="w-400">
+         </p>
       </div>
-      <div>
-        <img src="img/02_domhtml/nav-test3.png" alt="" class="w-400">
-      </div>
-    </div>
+      <h5>NodeList vs Array ☝🏻</h5>
+      <p>
+         Let op: <code>querySelectorAll()</code> geeft geen array terug, maar een <mark>NodeList</mark>.
+         Je kan ongeveer alles wat je ook met arrays kan, <i>behalve</i> arraymethodes als <code>filter()</code>, <code>map()</code> enz..., die werken niet:
+      </p>
+      <pre class="wrong"><code>const links = document.querySelectorAll('a');
+const linkTexts = links.map(lnk =&gt; lnk.innerHTML); // fout! NodeList kent geen map()
+const lnksVisited = links.filter(lnk =&gt; lnk.classList.contains('visited')); // fout! NodeList kent geen filter()
+</code></pre>
+      <p>Je kan dit eenvoudig oplossen door het om te zetten naar een array met <code>Array.from(...)</code>, of nog eleganter met de <code>[...]</code> spread operator:</p>
+      <pre class="right"><code>const arrLinks = [...document.querySelectorAll('a')]; // ok; is nu een array
+const linkTexts = links.map(lnk =&gt; lnk.innerHTML); // ok
+const lnksVisited = links.filter(lnk =&gt; lnk.classList.contains('visited')); // ok
+</code></pre>
 
-    <h4>Query chaining</h4>
-    <p>Je kan <code>querySelector()</code> en <code>querySelectorAll()</code> niet enkel van document, maar van elke node oproepen:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html w-700"><code>&lt;table id="sample-table"&gt;
+      <h4>Query chaining</h4>
+      <p>Je kan <code>querySelector()</code> en <code>querySelectorAll()</code> niet enkel van document, maar van elke node oproepen:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html w-700"><code>&lt;table id="sample-table"&gt;
    &lt;tr&gt;&lt;th&gt;*&lt;/th&gt;&lt;th&gt;*&lt;/th&gt;&lt;th&gt;*&lt;/th&gt;&lt;th&gt;*&lt;/th&gt;&lt;/tr&gt;
    &lt;tr&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;td&gt;.&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida w-700"><code>const table1 = document.querySelector('#sample-table');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida w-700"><code>const table1 = document.querySelector('#sample-table');
 const rows = table1.querySelectorAll('tr');
 const cells = table1.querySelectorAll('td');
 
 console.log(`tabel bevat: ${rows.length} rijen ${cells.length} cellen`);
 </code></pre>
-          <div class="codemarker" data-text="table1.q" data-height="42"></div>
-        </div>
+               <div class="codemarker" data-text="table1.q" data-height="42"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/table-test.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/table-test.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <h2>DOM manipulatie</h2>
-    <p>
-      Met <mark>DOM manipulatie</mark> bedoelen we het <strong>aanpassen van node eigenschappen</strong> van nodes:
-      kleuren, zichtbaarheid, tekstinhoud... Je kan ook <strong>nodes toevoegen</strong> (of verwijderen) aan de DOM,
-      bijvoorbeeld als je gegevens dynamisch inlaadt, maar dat komt later aan bod.
-    </p>
-    <p>Er zijn in Javascript ruwweg vier categorieën van eigenschappen die je kan veranderen:</p>
-    <ul>
-      <li><strong>HTML attributen</strong>: in Javascript zijn <strong>HTML attributen als Javascript properties</strong> beschikbaar onder dezelfde naam</li>
-      <li><strong>DOM properties</strong>: dit zijn <strong>bijkomende Javascript properties</strong> die niet bestaan als HTML attributen</li>
-      <li><strong>CSS classes</strong>: je kan <strong>CSS classes</strong> aanpassen via de <code>classList</code> property</li>
-      <li><strong>CSS stijlen</strong>: je kan <strong>rechtstreeks CSS properties</strong> aanpassen via de <code>style</code> property</li>
-    </ul>
-    <p>We bekijken ze elk apart.</p>
-    <h3>HTML attributen</h3>
-    <p>
-      Je kan HTML attributen in Javascript lezen/schrijven als properties met dezelfde naam. Voorbeeld voor
-      <code>src</code> en <code>alt</code> attributen van een <code>&lt;img&gt;</code>, waarin een random foto
-      geladen wordt:
-    </p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html padtop" data-demo="demos/02_domhtml/dom-manipulatie-attributen.html"><code>&lt;img id="img1" src="img/photo1-s.jpg" alt="random image"&gt;</code></pre>
-          <div class="codemarker" data-text="src="></div>
-          <div class="codemarker" data-text="alt="></div>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida"><code>const photos = [
+      <h2>DOM manipulatie</h2>
+      <p>
+         Met <mark>DOM manipulatie</mark> bedoelen we het <strong>aanpassen van node eigenschappen</strong> van nodes:
+         kleuren, zichtbaarheid, tekstinhoud... Je kan ook <strong>nodes toevoegen</strong> (of verwijderen) aan de DOM,
+         bijvoorbeeld als je gegevens dynamisch inlaadt, maar dat komt later aan bod.
+      </p>
+      <p>Er zijn in Javascript ruwweg vier categorieën van eigenschappen die je kan veranderen:</p>
+      <ul>
+         <li><strong>HTML attributen</strong>: in Javascript zijn <strong>HTML attributen als Javascript properties</strong> beschikbaar onder dezelfde naam</li>
+         <li><strong>DOM properties</strong>: dit zijn <strong>bijkomende Javascript properties</strong> die niet bestaan als HTML attributen</li>
+         <li><strong>CSS classes</strong>: je kan <strong>CSS classes</strong> aanpassen via de <code>classList</code> property</li>
+         <li><strong>CSS stijlen</strong>: je kan <strong>rechtstreeks CSS properties</strong> aanpassen via de <code>style</code> property</li>
+      </ul>
+      <p>We bekijken ze elk apart.</p>
+      <h3>HTML attributen</h3>
+      <p>
+         Je kan HTML attributen in Javascript lezen/schrijven als properties met dezelfde naam. Voorbeeld voor
+         <code>src</code> en <code>alt</code> attributen van een <code>&lt;img&gt;</code>, waarin een random foto
+         geladen wordt:
+      </p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html padtop" data-demo="demos/02_domhtml/dom-manipulatie-attributen.html"><code>&lt;img id="img1" src="img/photo1-s.jpg" alt="random image"&gt;</code></pre>
+               <div class="codemarker" data-text="src="></div>
+               <div class="codemarker" data-text="alt="></div>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida"><code>const photos = [
    'img/photo1-s.jpg',
    'img/photo17-s.jpg',
    'img/photo6-s.jpg',
@@ -567,265 +581,265 @@ console.log(`foto ${i} geladen`);
 console.log(`huidige url: ${img1.src}`);
 </code>
 </pre>
-          <div class="codemarker" data-text="${img1.src}"></div>
-          <div class="codemarker" data-text="img1.src " data-height="43"></div>
-          <div class="codemarker" data-text="${img1.src}" data-nth="2"></div>
-        </div>
+               <div class="codemarker" data-text="${img1.src}"></div>
+               <div class="codemarker" data-text="img1.src " data-height="43"></div>
+               <div class="codemarker" data-text="${img1.src}" data-nth="2"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/random-test.gif" alt="" class="w-400 bordered">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/random-test.gif" alt="" class="w-400 bordered">
-      </div>
-    </div>
 
-    <h3>DOM properties</h3>
-    <p>
-      Naast HTML attributen hebben nodes in Javascript nog een pak andere DOM properties. Een uitstekende referentie is <a href="https://w3schools.com/jsref/">https://w3schools.com/jsref/</a>.
-      Sommige zijn voor <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">alle soorten nodes</a>, sommige enkel voor specifieke nodes als <a href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;a&gt;</a>,
-      <a href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;form&gt;</a> enz... Voorbeeld voor
-      <code>innerHTML</code> (zie <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">alle nodes</a>) en
-      <code>naturalWidth</code>/<code>naturalWidth</code> (zie <a href="https://www.w3schools.com/jsref/dom_obj_image.asp">&lt;img&gt;</a>):
-    </p>
-    <div class="codecompare">
-      <div class="w-700">
-        <div class="precontainer">
-          <pre class="prism-okaida language-html w-700"><code>&lt;img id="img1" src="https://rvdl.be/img/photo1-s.jpg" alt=""&gt;
+      <h3>DOM properties</h3>
+      <p>
+         Naast HTML attributen hebben nodes in Javascript nog een pak andere DOM properties. Een uitstekende referentie is <a href="https://w3schools.com/jsref/">https://w3schools.com/jsref/</a>.
+         Sommige zijn voor <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">alle soorten nodes</a>, sommige enkel voor specifieke nodes als <a href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;a&gt;</a>,
+         <a href="https://www.w3schools.com/jsref/dom_obj_anchor.asp">&lt;form&gt;</a> enz... Voorbeeld voor
+         <code>innerHTML</code> (zie <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">alle nodes</a>) en
+         <code>naturalWidth</code>/<code>naturalWidth</code> (zie <a href="https://www.w3schools.com/jsref/dom_obj_image.asp">&lt;img&gt;</a>):
+      </p>
+      <div class="codecompare">
+         <div class="w-700">
+            <div class="precontainer">
+               <pre class="prism-okaida language-html w-700"><code>&lt;img id="img1" src="https://rvdl.be/img/photo1-s.jpg" alt=""&gt;
 &lt;p id="message"&gt;&lt;/p&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida w-700"><code>const img1 = document.querySelector('#img1');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida w-700"><code>const img1 = document.querySelector('#img1');
 const msg = document.querySelector('#message');
 msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</code>
 </pre>
-          <div class="codemarker" data-text=".innerHTML"></div>
-          <div class="codemarker" data-text=".naturalWidth"></div>
-          <div class="codemarker" data-text=".naturalHeight"></div>
-        </div>
+               <div class="codemarker" data-text=".innerHTML"></div>
+               <div class="codemarker" data-text=".naturalWidth"></div>
+               <div class="codemarker" data-text=".naturalHeight"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/demo-domproperties.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/demo-domproperties.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <h3>innerHTML</h3>
-    <p>
-      De meest gebruikte property is ongetwijfeld <mark>innerHTML</mark>; het verwijst naar de HTML inhoud van een
-      element. De nieuwe inhoud is onmiddellijk beschikbaar in het DOM. Een voorbeeld:
-    </p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;div id="content"&gt;&lt;/div&gt;
+      <h3>innerHTML</h3>
+      <p>
+         De meest gebruikte property is ongetwijfeld <mark>innerHTML</mark>; het verwijst naar de HTML inhoud van een
+         element. De nieuwe inhoud is onmiddellijk beschikbaar in het DOM. Een voorbeeld:
+      </p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;div id="content"&gt;&lt;/div&gt;
 &lt;p id="message"&gt;&lt;/p&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida" data-demo="demos/02_domhtml/dom-manipulatie-innerhtml.html"><code>const content = document.querySelector('#content');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida" data-demo="demos/02_domhtml/dom-manipulatie-innerhtml.html"><code>const content = document.querySelector('#content');
 const msg = document.querySelector('#message');
 for (let i = 1; i &lt; 5; i++) {
-      content.innerHTML += `&lt;img id="img${i}"
-         src="https://rvdl.be/img/photo${i}-s.jpg" alt=""&gt;&lt;br&gt;`;
+   content.innerHTML += `&lt;img id="img${i}"
+      src="https://rvdl.be/img/photo${i}-s.jpg" alt=""&gt;&lt;br&gt;`;
 }
 let numImages = document.querySelectorAll('#content img').length;
 msg.innerHTML = `content contains ${numImages} images`;</code></pre>
-          <div class="codemarker" data-text=".innerHTML"></div>
-          <div class="codemarker" data-text=".innerHTML" data-nth="2"></div>
-        </div>
+               <div class="codemarker" data-text=".innerHTML"></div>
+               <div class="codemarker" data-text=".innerHTML" data-nth="2"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/demo-innerhtml.png" alt="" class="w-150 bordered">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/demo-innerhtml.png" alt="" class="w-150 bordered">
-      </div>
-    </div>
 
-    <h2>Events</h2>
-    <h3>Soorten events</h3>
-    <p>
-      <mark>Events</mark> zijn gebeurtenissen op HTML elementen als muiskliks, form submits enz... Een event heeft
-      dus altijd een <a href="#event-target"><code>target</code></a>, i.e. het element waarop het event plaatsvindt.
-      Je kan functies verbinden aan events met <a href="#events-koppelen-met-addeventlistener-juist"><code>addEventListener()</code></a>. Enkele veel
-      voorkomende events:
-    </p>
-    <table class="light">
-      <thead>
-        <tr>
-          <th scope="col">event</th>
-          <th scope="col">omschrijving</th>
-          <th scope="col">typische targets</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>click</code></td>
-          <td>muisklik</td>
-          <td>alle elementen</td>
-        </tr>
-        <tr>
-          <td><code>mouseover</code></td>
-          <td>muis erboven</td>
-          <td>alle elementen</td>
-        </tr>
-        <tr>
-          <td><code>mouseout</code></td>
-          <td>muis ervan weg</td>
-          <td>alle elementen</td>
-        </tr>
-        <tr>
-          <td><code>keydown</code></td>
-          <td>toets ingedrukt</td>
-          <td>tekst elementen</td>
-        </tr>
-        <tr>
-          <td><code>keyup</code></td>
-          <td>toets losgelaten</td>
-          <td>tekst elementen</td>
-        </tr>
-        <tr>
-          <td><code>focus</code></td>
-          <td>element krijgt focus</td>
-          <td>form elementen</td>
-        </tr>
-        <tr>
-          <td><code>blur</code></td>
-          <td>element verliest focus</td>
-          <td>form elementen</td>
-        </tr>
-        <tr>
-          <td><code>submit</code></td>
-          <td>formulier wordt verstuurd</td>
-          <td><code>&lt;form&gt;</code></td>
-        </tr>
-        <tr>
-          <td><code>input</code></td>
-          <td>waarde wordt veranderd</td>
-          <td><code>&lt;input&gt;</code> en <code>&lt;textarea&gt;</code></td>
-        </tr>
-        <tr>
-          <td><code>change</code></td>
-          <td>waarde is veranderd</td>
-          <td><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code></td>
-        </tr>
-      </tbody>
-    </table>
-    <h3>Events inline koppelen (fout!)</h3>
-    <p>In Javascript kan je <em>in theorie</em> event handlers net zoals bij WPF koppelen <strong>via een attribuut</strong>. Vergelijk de WPF versie:</p>
-    <div class="codecompare">
-      <div class="w-700">
-        <div class="precontainer">
-          <pre class="prism-vslight language-html language-xaml w-700" data-caption="XAML"><code>&lt;Button x:Name="btnHello" Content="Toon Hallo" Click="btnHello_Click" ... /&gt;
+      <h2>Events</h2>
+      <h3>Soorten events</h3>
+      <p>
+         <mark>Events</mark> zijn gebeurtenissen op HTML elementen als muiskliks, form submits enz... Een event heeft
+         dus altijd een <a href="#event-target"><code>target</code></a>, i.e. het element waarop het event plaatsvindt.
+         Je kan functies verbinden aan events met <a href="#events-koppelen-met-addeventlistener-juist"><code>addEventListener()</code></a>. Enkele veel
+         voorkomende events:
+      </p>
+      <table class="light">
+         <thead>
+            <tr>
+               <th scope="col">event</th>
+               <th scope="col">omschrijving</th>
+               <th scope="col">typische targets</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td><code>click</code></td>
+               <td>muisklik</td>
+               <td>alle elementen</td>
+            </tr>
+            <tr>
+               <td><code>mouseover</code></td>
+               <td>muis erboven</td>
+               <td>alle elementen</td>
+            </tr>
+            <tr>
+               <td><code>mouseout</code></td>
+               <td>muis ervan weg</td>
+               <td>alle elementen</td>
+            </tr>
+            <tr>
+               <td><code>keydown</code></td>
+               <td>toets ingedrukt</td>
+               <td>tekst elementen</td>
+            </tr>
+            <tr>
+               <td><code>keyup</code></td>
+               <td>toets losgelaten</td>
+               <td>tekst elementen</td>
+            </tr>
+            <tr>
+               <td><code>focus</code></td>
+               <td>element krijgt focus</td>
+               <td>form elementen</td>
+            </tr>
+            <tr>
+               <td><code>blur</code></td>
+               <td>element verliest focus</td>
+               <td>form elementen</td>
+            </tr>
+            <tr>
+               <td><code>submit</code></td>
+               <td>formulier wordt verstuurd</td>
+               <td><code>&lt;form&gt;</code></td>
+            </tr>
+            <tr>
+               <td><code>input</code></td>
+               <td>waarde wordt veranderd</td>
+               <td><code>&lt;input&gt;</code> en <code>&lt;textarea&gt;</code></td>
+            </tr>
+            <tr>
+               <td><code>change</code></td>
+               <td>waarde is veranderd</td>
+               <td><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code></td>
+            </tr>
+         </tbody>
+      </table>
+      <h3>Events inline koppelen (fout!)</h3>
+      <p>In Javascript kan je <em>in theorie</em> event handlers net zoals bij WPF koppelen <strong>via een attribuut</strong>. Vergelijk de WPF versie:</p>
+      <div class="codecompare">
+         <div class="w-700">
+            <div class="precontainer">
+               <pre class="prism-vslight language-html language-xaml w-700" data-caption="XAML"><code>&lt;Button x:Name="btnHello" Content="Toon Hallo" Click="btnHello_Click" ... /&gt;
 &lt;Label x:Name="lblMessage" Content="" ... /&gt;
 </code></pre>
-          <div class="codemarker" data-text="Click=&quot;btnHello_Click&quot;"></div>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-vslight language-cs w-700"><code>private void btnHello_Click(object sender, RoutedEventArgs e) {
+               <div class="codemarker" data-text="Click=&quot;btnHello_Click&quot;"></div>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-vslight language-cs w-700"><code>private void btnHello_Click(object sender, RoutedEventArgs e) {
    lblMessage.Content = "Hallo daar";
 }
 </code></pre>
-          <div class="codemarker" data-text="btnHello_Click"></div>
-        </div>
+               <div class="codemarker" data-text="btnHello_Click"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/event-inline-wpf.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/event-inline-wpf.png" alt="" class="w-400">
-      </div>
-    </div>
-    <p>met de Javascript versie:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html wrong w-700"><code>&lt;button id="btnHello" onclick="zegHallo()"&gt;Toon Hallo&lt;/button&gt;
+      <p>met de Javascript versie:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html wrong w-700"><code>&lt;button id="btnHello" onclick="zegHallo()"&gt;Toon Hallo&lt;/button&gt;
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
-          <div class="codemarker" data-text="onclick=&quot;zegHallo()&quot;" data-color="#C06000"></div>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida w-700"><code>const lblMessage = document.querySelector('#lblMessage');
-function zegHallo() {
+               <div class="codemarker" data-text="onclick=&quot;zegHallo()&quot;" data-color="#C06000"></div>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida w-700"><code>const lblMessage = document.querySelector('#lblMessage');
+function zegHallo(e) {
    lblMessage.innerHTML = 'Hallo daar';
 }
 </code></pre>
-          <div class="codemarker" data-text="zegHallo()"></div>
-        </div>
+               <div class="codemarker" data-text="zegHallo()"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
-      </div>
-    </div>
-    <p>Dit is <strong>niet</strong> de manier waarop het gedaan wordt in Javascript! Net zomin als we inline CSS gebruiken, zullen we ook geen inline Javascript gebruiken.</p>
+      <p>Dit is <strong>niet</strong> de manier waarop het gedaan wordt in Javascript! Net zomin als we inline CSS gebruiken, zullen we ook geen inline Javascript gebruiken.</p>
 
-    <h3>Events met <code>on...</code>-properties koppelen (fout!)</h3>
-    <p>We zullen events altijd in onze Javascript zelf koppelen. Een eerste oude en foute manier die je regelmatig nog tegenkomt op het internet is met <code>onclick</code>, <code>onmouseover</code> enz...:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
+      <h3>Events met <code>on...</code>-properties koppelen (fout!)</h3>
+      <p>We zullen events altijd in onze Javascript zelf koppelen. Een eerste oude en foute manier die je regelmatig nog tegenkomt op het internet is met <code>onclick</code>, <code>onmouseover</code> enz...:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida wrong"><code>const lblMessage = document.querySelector('#lblMessage');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida wrong"><code>const lblMessage = document.querySelector('#lblMessage');
 const btnHello = document.querySelector('#btnHello');
-function zegHallo() {
+function zegHallo(e) {
    lblMessage.innerHTML = 'Hallo daar';
 }
 btnHello.onclick = zegHallo; // zegHallo zonder haakjes ()</code></pre>
-          <div class="codemarker" data-color="#C06000" data-text=".onclick"></div>
-        </div>
+               <div class="codemarker" data-color="#C06000" data-text=".onclick"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <h3>Events koppelen met <code>addEventListener()</code> (juist!)</h3>
-    <p>De enige correcte manier om events te koppelen is met <code>addEventListener()</code>:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
+      <h3>Events koppelen met <code>addEventListener()</code> (juist!)</h3>
+      <p>De enige correcte manier om events te koppelen is met <code>addEventListener()</code>:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;button id="btnHello"&gt;Toon Hallo&lt;/button&gt;
 &lt;p id="lblMessage"&gt;&lt;/p&gt;</code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida right"><code>// declaraties
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida right"><code>// declaraties
 const lblMessage = document.querySelector('#lblMessage');
 const btnHello = document.querySelector('#btnHello');
 
-// functies
-function zegHallo() {
+// event handlers
+function zegHallo(e) {
    lblMessage.innerHTML = 'Hallo daar';
 }
 
 // events
 btnHello.addEventListener('click', zegHallo);</code></pre>
-          <div class="codemarker" data-text=".addEventListener"></div>
-        </div>
+               <div class="codemarker" data-text=".addEventListener"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/event-inline-js.png" alt="" class="w-400">
-      </div>
-    </div>
-    <ul class="arrow">
-      <li>HTML en Javascript blijven <strong>netjes gescheiden</strong></li>
-      <li>je kan <strong>meerdere event handlers</strong> koppelen aan één click event (wat bij WPF niet kan)</li>
-      <li>het is een <strong>moderne syntax</strong> die je ook in veel andere programmeertalen ziet (bv. Java)</li>
-    </ul>
-    <p>Je kan de code nog wat inkorten door gebruik te maken van een <a href="01_syntax.html#anonieme-functies">anonieme functie</a>:</p>
-    <pre class="prism-okaida wrong"><code>// declaraties
+      <ul class="arrow">
+         <li>HTML en Javascript blijven <strong>netjes gescheiden</strong></li>
+         <li>je kan <strong>meerdere event handlers</strong> koppelen aan één click event (wat bij WPF niet kan)</li>
+         <li>het is een <strong>moderne syntax</strong> die je ook in veel andere programmeertalen ziet (bv. Java)</li>
+      </ul>
+      <p>Je kan de code nog wat inkorten door gebruik te maken van een <a href="01_syntax.html#anonieme-functies">anonieme functie</a>:</p>
+      <pre class="prism-okaida wrong"><code>// declaraties
 const lblMessage = document.querySelector('#lblMessage');
 const btnHello = document.querySelector('#btnHello');
 
-// events/functies
-btnHello.addEventListener('click', function() { // anonieme functie
+// event handling
+btnHello.addEventListener('click', function(e) { // anonieme functie
    lblMessage.innerHTML = 'Hallo daar';
 });</code></pre>
-    <p>&rarr; we gebruiken deze syntax liever niet, omdat er geen scheiding meer is tussen functies en event handlers.</p>
+      <p>&rarr; we gebruiken deze syntax liever niet, omdat er geen scheiding meer is tussen functies en event handlers.</p>
 
-    <h3>Basisstructuur scripts</h3>
-    <p>Splits je scripts altijd op in deze blokken:</p>
-    <ul>
-      <li><strong>declaraties</strong>: variabelen, DOM shortcuts...</li>
-      <li><strong>functies</strong>: algemene functies, event handlers...</li>
-      <li><strong>events</strong>: koppel events aan functies</li>
-    </ul>
-    <p>Zo hou je de drie netjes gescheiden. Schematisch voorbeeld:</p>
-    <pre class="prism-okaida right"><code>// DECLARATIES
+      <h3>Basisstructuur scripts</h3>
+      <p>Splits je scripts altijd op in deze blokken:</p>
+      <ul>
+         <li><strong>declaraties</strong>: variabelen, DOM shortcuts...</li>
+         <li><strong>functies</strong>: algemene functies, event handlers...</li>
+         <li><strong>events</strong>: koppel events aan functies</li>
+      </ul>
+      <p>Zo hou je de drie netjes gescheiden. Schematisch voorbeeld:</p>
+      <pre class="prism-okaida right"><code>// DECLARATIES
 // ===========
 
 // constanten en variabelen
@@ -851,14 +865,12 @@ function generateNumbers() {
 
 // event handlers
 function handleFormSubmit(e) {
-   e.preventDefault();
    // ...code handling form submit
 }
 function handleLnkFilterClick(e) {
-   e.preventDefault();
    // ...code handling link click
 }
-function handleBtnAddClick() {
+function handleBtnAddClick(e) {
    // ...code handling button click
 }
 
@@ -870,13 +882,13 @@ lnkFilter.addEventListener('click', handleLnkFilterClick);
 btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>
 
 
-    <h3>Event target</h3>
-    <p>Wat in WPF de <strong>event sender</strong> is, heet in Javascript de <mark>event target</mark>. Een vergelijking, WPF versie:</p>
+      <h3>Event <code>target</code></h3>
+      <p>Wat in WPF de <strong>event sender</strong> is, heet in Javascript de <mark>event target</mark>. Een vergelijking, WPF versie:</p>
 
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-vslight language-html language-xaml w-650" data-caption="XAML"><code>&lt;Button x:Name="btn1" Content="KNOP 1" Click="btn_Click" ... /&gt;
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-vslight language-html language-xaml w-650" data-caption="XAML"><code>&lt;Button x:Name="btn1" Content="KNOP 1" Click="btn_Click" ... /&gt;
 &lt;Button x:Name="btn2" Content="KNOP 2" Click="btn_Click" ... /&gt;
 &lt;Button x:Name="btn3" Content="KNOP 3" Click="btn_Click" ... /&gt;
 &lt;Button x:Name="btn4" Content="KNOP 4" Click="btn_Click" ... /&gt;
@@ -884,25 +896,25 @@ btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>
 &lt;Button x:Name="btn6" Content="KNOP 6" Click="btn_Click" ... /&gt;
 &lt;Label x:Name="lblBericht" Content="" /&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-vslight language-cs w-650"><code>private void btn_Click(object sender, RoutedEventArgs e) {
+            </div>
+            <div class="precontainer">
+               <pre class="prism-vslight language-cs w-650"><code>private void btn_Click(object sender, RoutedEventArgs e) {
    Button btn = (Button)sender;
    lblBericht.Content = $"{btn.Content} geklikt";
 }
 </code></pre>
-          <div class="codemarker" data-text="object sender"></div>
-        </div>
+               <div class="codemarker" data-text="object sender"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/sender-wpf.png" alt="" class="w-300">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/sender-wpf.png" alt="" class="w-300">
-      </div>
-    </div>
-    <p>Javascript versie:</p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;button&gt;KNOP 1&lt;/button&gt;
+      <p>Javascript versie:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;button&gt;KNOP 1&lt;/button&gt;
 &lt;button&gt;KNOP 2&lt;/button&gt;
 &lt;button&gt;KNOP 3&lt;/button&gt;
 &lt;button&gt;KNOP 4&lt;/button&gt;
@@ -910,100 +922,185 @@ btnAdd.addEventListener('click', handleBtnAddClick);</code></pre>
 &lt;button&gt;KNOP 6&lt;/button&gt;
 &lt;p id="pBericht"&gt;&lt;/p&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida"><code>const buttons = document.querySelectorAll('button');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida"><code>// declaraties
+const buttons = document.querySelectorAll('button');
 const lblBericht = document.querySelector('#pBericht');
+
+// event handlers
+function handleBtnClick(e) {
+   lblBericht.innerHTML = `${e.target.innerHTML} geklikt`;
+}
+
+// events
 buttons.forEach(btn =&gt; {
-   btn.addEventListener('click', function(e) {
-       lblBericht.innerHTML = `${e.target.innerHTML} geklikt`;
-   });
+   btn.addEventListener('click', handleBtnClick);
 });
 </code></pre>
-          <div class="codemarker" data-text="e.target"></div>
-        </div>
+               <div class="codemarker" data-text="e.target"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/target.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/target.png" alt="" class="w-400">
-      </div>
-    </div>
-    <h3>Event bubbling</h3>
-    <p>
-      Iets wat WPF niet kent maar Javascript wel, is <mark>event bubbling</mark>. Dat houdt in dat als bv. een
-      element aangeklikt wordt (b.v een &lt;td&gt;), alle <strong>onderliggende elementen óók aangeklikt worden</strong> (dus &lt;tr&gt;, &lt;table&gt;...). Je kan daar handig gebruik van maken om bv. één event
-      handler te definiëren op een tabel voor alle cellen:
-    </p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;table id="board"&gt;
+      <h3>Event bubbling</h3>
+      <p>
+         Iets wat WPF niet kent maar Javascript wel, is <mark>event bubbling</mark>. Dat houdt in dat als bv. een
+         element aangeklikt wordt (b.v een &lt;td&gt;), alle <strong>onderliggende elementen óók aangeklikt worden</strong> (dus &lt;tr&gt;, &lt;table&gt;...). Je kan daar handig gebruik van maken om bv. één event
+         handler te definiëren op een tabel voor alle cellen:
+      </p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;table id="tblBoard"&gt;
    &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida"><code>const table = document.querySelector('#board');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida"><code>// declaraties
+const table = document.querySelector('#tblBoard');
 
-// definieer event op de hele tabel
-table.addEventListener('click', function(e) {
+// event handlers
+function handleTableClick(e) {
    // enkel indien TD aangeklikt is
    if (e.target.nodeName != 'TD') return;
 
    // toon aangeklikte cel
    console.log(`${e.target.innerHTML} geklikt`);
-});
-</code></pre>
-        </div>
-      </div>
-      <div>
-        <img src="img/02_domhtml/bubbling.png" alt="" class="w-400">
-      </div>
-    </div>
+}
 
-    <h3>Prevent default</h3>
-    <p>Voor sommige HTML elementen heeft de browser reeds een eigen event handler, een <mark>browser default action</mark>. De belangrijkste zijn:</p>
-    <table class="grey left">
-      <thead>
-        <tr>
-          <th scope="col">ELEMENT</th>
-          <th scope="col">EVENT</th>
-          <th scope="col">BROWSER DEFAULT ACTION</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>&lt;a&gt;</code></td>
-          <td><code>click</code></td>
-          <td>volg de url in <code>href="..."</code></td>
-        </tr>
-        <tr>
-          <td><code>&lt;form&gt;</code></td>
-          <td><code>submit</code></td>
-          <td>verstuur het formulier</td>
-        </tr>
-        <tr>
-          <td><code>&lt;input type="submit"&gt;</code><code>&lt;button type="submit"&gt;</code></td>
-          <td><code>click</code></td>
-          <td>verstuur het formulier</td>
-        </tr>
-        <tr>
-          <td><code>&lt;input type="text"&gt;</code><br><code>&lt;textarea&gt;</code></td>
-          <td><code>keyup</code><br><code>keydown</code><br><code>keypress</code></td>
-          <td>toon de ingedrukte toets in het tekstvak</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-      Standaard worden deze browser acties altijd uitgevoerd. Ook al voeg je bv. een click handler toe aan een link,
-      bij klikken op de link zal hoe dan ook de pagina verlaten worden.
-      Volgend voorbeeld illustreert dit:
-    </p>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html"><code>&lt;p&gt;Kies je zoekmachine:&lt;/p&gt;
+// events: click op hele tabel
+table.addEventListener('click', handleTableClick);
+</code></pre>
+            </div>
+            <pre class="prism-atom-dark language-css" data-caption="CSS"><code>td {
+   background-color: #007bff;
+   border: none;
+   color: white;
+   cursor: pointer;
+   font-size: 16px;
+   margin: 5px;
+   padding: 10px 15px;
+}
+td:hover {
+   background-color: #0056b3;
+}
+</code></pre>
+
+         </div>
+         <div>
+            <img src="img/02_domhtml/bubbling.png" alt="" class="w-400">
+         </div>
+      </div>
+      <h3>Event <code>this</code></h3>
+      <p>
+         Het <span class="em">element waarop het event gedefinieerd</span> is kan je opvragen met <code>this</code>.
+         Dat is <strong>meestal hetzelfde</strong> als <code>e.target</code>. Neem een eenvoudige button; zoals je ziet is er geen verschil:
+      </p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-okaida language-html w-700"><code>&lt;button id="btnTest"&gt;TEST&lt;/button&gt;</code></pre>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida w-700"><code>// declaraties
+const btnTest = document.querySelector('#btnTest');
+
+// event handlers
+function handleBtnClick(e) {
+   console.log(`element waarop geklikt is: ${e.target.id}`)
+   console.log(`element waaraan event handler gelinkt is: ${this.id}`)
+}
+
+// events
+btnTest.addEventListener('click', handleBtnClick);
+</code></pre>
+               <div class="codemarker" data-text="e.target"></div>
+               <div class="codemarker" data-text="this"></div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/this-1.png" alt="" class="w-400">
+         </div>
+      </div>
+      <p>In het tabel voorbeeld eerder is er wel een verschil:</p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html" data-caption="HTML"><code>&lt;table id="tblBoard"&gt;
+   &lt;tr&gt;&lt;td id="cell11"&gt;1&lt;/td&gt;&lt;td id="cell12"&gt;2&lt;/td&gt;&lt;td id="cell13"&gt;3&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;&lt;td id="cell21"&gt;4&lt;/td&gt;&lt;td id="cell22"&gt;5&lt;/td&gt;&lt;td id="cell23"&gt;6&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;&lt;td id="cell31"&gt;7&lt;/td&gt;&lt;td id="cell32"&gt;8&lt;/td&gt;&lt;td id="cell33"&gt;9&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida" data-caption="JS"><code>// declaraties
+const table = document.querySelector('#tblBoard');
+
+// event handlers
+function handleTableClick(e) {
+   console.log(`element waarop geklikt is: ${e.target.id}`)
+   console.log(`element waaraan event handler gelinkt is: ${this.id}`)
+}
+
+// events: click op hele tabel
+table.addEventListener('click', handleTableClick);
+</code></pre>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/this-2.png" alt="" class="w-400">
+         </div>
+      </div>
+
+      <h3>Prevent default</h3>
+      <p>Voor sommige HTML elementen heeft de browser reeds een eigen event handler, een <mark>browser default action</mark>. De belangrijkste zijn:</p>
+      <table class="grey left">
+         <thead>
+            <tr>
+               <th scope="col">ELEMENT</th>
+               <th scope="col">EVENT</th>
+               <th scope="col">BROWSER DEFAULT ACTION</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td><code>&lt;a&gt;</code></td>
+               <td><code>click</code></td>
+               <td>volg de url in <code>href="..."</code></td>
+            </tr>
+            <tr>
+               <td><code>&lt;form&gt;</code></td>
+               <td><code>submit</code></td>
+               <td>verstuur het formulier</td>
+            </tr>
+            <tr>
+               <td><code>&lt;input type="submit"&gt;</code><code>&lt;button type="submit"&gt;</code></td>
+               <td><code>click</code></td>
+               <td>verstuur het formulier</td>
+            </tr>
+            <tr>
+               <td><code>&lt;input type="text"&gt;</code><br><code>&lt;textarea&gt;</code></td>
+               <td><code>keyup</code><br><code>keydown</code><br><code>keypress</code></td>
+               <td>toon de ingedrukte toets in het tekstvak</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>
+         Standaard worden deze browser acties altijd uitgevoerd. Ook al voeg je bv. een click handler toe aan een link,
+         bij klikken op de link zal hoe dan ook de pagina verlaten worden.
+         Volgend voorbeeld illustreert dit:
+      </p>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html"><code>&lt;p&gt;Kies je zoekmachine:&lt;/p&gt;
 &lt;ul id="engines"&gt;
    &lt;li&gt;&lt;a href="https://bing.com/"&gt;Bing&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href="https://google.com/"&gt;Google&lt;/a&gt;&lt;/li&gt;
@@ -1011,62 +1108,74 @@ table.addEventListener('click', function(e) {
 &lt;/ul&gt;
 &lt;p id="lblBericht"&gt;&lt;/p&gt;
 </code></pre>
-        </div>
-        <div class="precontainer">
-          <pre class="prism-okaida wrong"><code>const links = document.querySelectorAll('#engines a');
+            </div>
+            <div class="precontainer">
+               <pre class="prism-okaida wrong"><code>// declaraties
+const links = document.querySelectorAll('#engines a');
 const lblBericht = document.querySelector('#lblBericht');
+
+// event handlers
+function handleLnkClick(e) {
+   lblBericht.innerHTML = `je hebt ${this.innerHTML} gekozen`;
+}
+
+// events
 links.forEach(lnk =&gt; {
-   lnk.addEventListener('click', function() {
-      lblBericht.innerHTML = `je hebt ${lnk.innerHTML} gekozen`;
-   });
+   lnk.addEventListener('click', handleLnkClick);
 });
 </code></pre>
-        </div>
+            </div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/preventdefault1.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/preventdefault1.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <p>De oplossing is de standaard browser actie disablen met <code>e.preventDefault()</code>:</p>
-    <div class="codecompare">
-      <div class="precontainer">
-        <pre class="prism-okaida right"><code>const links = document.querySelectorAll('#engines a');
-const lbl = document.querySelector('#pBericht');
+      <p>De oplossing is de standaard browser actie disablen met <code>e.preventDefault()</code>:</p>
+      <div class="codecompare">
+         <div class="precontainer">
+            <pre class="prism-okaida right"><code>// declaraties
+const links = document.querySelectorAll('#engines a');
+const lblBericht = document.querySelector('#lblBericht');
+
+// event handlers
+function handleLnkClick(e) {
+   e.preventDefault(); // vermijd dat de link gevolgd wordt
+   lblBericht.innerHTML = `je hebt ${this.innerHTML} gekozen`;
+}
+
+// events
 links.forEach(lnk =&gt; {
-   lnk.addEventListener('click', function(e) {
-      e.preventDefault();
-      lbl.innerHTML = `je hebt ${lnk.innerHTML} gekozen`;
-   });
+   lnk.addEventListener('click', handleLnkClick);
 });
 </code></pre>
-        <div class="codemarker" data-text="e.preventDefault()"></div>
+            <div class="codemarker" data-text="e.preventDefault()"></div>
+         </div>
+         <div>
+            <img src="img/02_domhtml/preventdefault2.png" alt="" class="w-400">
+         </div>
       </div>
-      <div>
-        <img src="img/02_domhtml/preventdefault2.png" alt="" class="w-400">
-      </div>
-    </div>
 
-    <h2>Voorbeelden</h2>
-    <h3>Foto gallerij</h3>
-    <p>
-      We maken een eenvoudige fotogalerij met aanklikbare thumbnails bovenaan. Als extra zetten we ze allemaal in
-      grijs; de bekeken foto's zetten we om in kleur.
-      Ook voorzien we een opacity hover effectje. In <a href="#video-1-trees-dom-document-queries-dom-manipulatie-events">de video</a> kan je de volledige uitleg
-      vinden. Een <a href="demos/02_domhtml/demoFotogallerij1/index.html">demo vind je hier</a>.
-    </p>
-    <p>Je herkent heel wat geziene technieken:</p>
-    <ul class="arrow">
-      <li>DOM functies <code>querySelector()</code> en <code>querySelectorAll()</code></li>
-      <li><code>addEventListener()</code></li>
-      <li><code>e.preventDefault()</code></li>
-      <li><code>innerHTML</code> DOM property</li>
-      <li><code>src</code> en <code>href</code> HTML attributen</li>
-    </ul>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html w-800" data-demo="demos/02_domhtml/demoFotogallerij1/index.html"><code>&lt;ul class="thumbs"&gt;
+      <h2>Voorbeelden</h2>
+      <h3>Foto gallerij</h3>
+      <p>
+         We maken een eenvoudige fotogalerij met aanklikbare thumbnails bovenaan. Als extra zetten we ze allemaal in
+         grijs; de bekeken foto's zetten we om in kleur.
+         Ook voorzien we een opacity hover effectje. In <a href="#video-1-trees-dom-document-queries-dom-manipulatie-events">de video</a> kan je de volledige uitleg
+         vinden. Een <a href="demos/02_domhtml/demoFotogallerij1/index.html">demo vind je hier</a>.
+      </p>
+      <p>Je herkent heel wat geziene technieken:</p>
+      <ul class="arrow">
+         <li>DOM functies <code>querySelector()</code> en <code>querySelectorAll()</code></li>
+         <li><code>addEventListener()</code></li>
+         <li><code>e.preventDefault()</code></li>
+         <li><code>innerHTML</code> DOM property</li>
+         <li><code>src</code> en <code>href</code> HTML attributen</li>
+      </ul>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html w-800" data-demo="demos/02_domhtml/demoFotogallerij1/index.html"><code>&lt;ul class="thumbs"&gt;
    &lt;li&gt;&lt;a href="img/photo1.jpg"&gt;
       &lt;img src="img/photo1-s.jpg" alt="Amman, Jordanië"&gt;&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href="img/photo17.jpg"&gt;
@@ -1082,27 +1191,33 @@ links.forEach(lnk =&gt; {
    &lt;img src="img/photo1.jpg" alt=""&gt;
    &lt;figcaption&gt;Amman, Jordanië&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-        </div>
+            </div>
 
-        <div class="precontainer">
-          <pre class="prism-okaida w-800"><code>const figBig = document.querySelector('#figBig');
+            <div class="precontainer">
+               <pre class="prism-okaida w-800"><code>// declaraties
+const figBig = document.querySelector('#figBig');
 const thumbLinks = document.querySelectorAll('.thumbs a');
+
+// event handlers
+function handleLinkClick(e) {
+   e.preventDefault();
+   figBig.querySelector('img').src = this.href;
+   figBig.querySelector('figcaption').innerHTML = this.querySelector('img').alt;
+}
+
+// events
 thumbLinks.forEach(lnk =&gt; {
-   lnk.addEventListener('click', function(e) {
-      e.preventDefault();
-      figBig.querySelector('img').src = lnk.href;
-      figBig.querySelector('figcaption').innerHTML = lnk.querySelector('img').alt;
-   });
+   lnk.addEventListener('click', handleLinkClick);
 });
 </code></pre>
-        </div>
+            </div>
+         </div>
+         <div>
+            <p><img src="img/02_domhtml/gallery2.png" alt="" class="w-600"></p>
+         </div>
       </div>
-      <div>
-        <p><img src="img/02_domhtml/gallery2.png" alt="" class="w-600"></p>
-      </div>
-    </div>
-    <div class="precontainer">
-      <pre class="prism-atom-dark language-css"><code>* {
+      <div class="precontainer">
+         <pre class="prism-atom-dark language-css"><code>* {
    margin: 0;
    padding: 0;
 }
@@ -1139,24 +1254,24 @@ img {
    margin-right: 5px;
 }
 </code></pre>
-    </div>
+      </div>
 
-    <h3>Form checking</h3>
-    <p>
-      Form checking is een absolute klassieker onder de Javascripts, en mag niet ontbreken.
-      Bekijk zeker de uitleg in <a href="#video-1-trees-dom-document-queries-dom-manipulatie-events">de video</a>.
-      Een <a href="demos/02_domhtml/demoFormchecking1/index.html">demo vind je hier</a>.
-      We beperken het formulier tot een eenvoudige registratie. Er zitten nog een tweetal nieuwigheden in (uitleg zie
-      video):
-    </p>
-    <ul class="arrow">
-      <li>novalidate attribuut</li>
-      <li>form submit event</li>
-    </ul>
-    <div class="codecompare">
-      <div>
-        <div class="precontainer">
-          <pre class="prism-default language-html" data-demo="demos/02_domhtml/demoFormchecking1/index.html"><code>&lt;form id="frmLogin"&gt;
+      <h3>Form checking</h3>
+      <p>
+         Form checking is een absolute klassieker onder de Javascripts, en mag niet ontbreken.
+         Bekijk zeker de uitleg in <a href="#video-1-trees-dom-document-queries-dom-manipulatie-events">de video</a>.
+         Een <a href="demos/02_domhtml/demoFormchecking1/index.html">demo vind je hier</a>.
+         We beperken het formulier tot een eenvoudige registratie. Er zitten nog een tweetal nieuwigheden in (uitleg zie
+         video):
+      </p>
+      <ul class="arrow">
+         <li>novalidate attribuut</li>
+         <li>form submit event</li>
+      </ul>
+      <div class="codecompare">
+         <div>
+            <div class="precontainer">
+               <pre class="prism-default language-html" data-demo="demos/02_domhtml/demoFormchecking1/index.html"><code>&lt;form id="frmLogin"&gt;
    &lt;h1 class="form__title"&gt;Registreren&lt;/h1&gt;
    &lt;div class="form__control ctrlEmail"&gt;
       &lt;label for="email"&gt;Email: &lt;/label&gt;
@@ -1171,21 +1286,19 @@ img {
    &lt;input type="submit" value="Inloggen"&gt;
 &lt;/form&gt;
 </code></pre>
-        </div>
+            </div>
 
-        <div class="precontainer">
-          <pre class="prism-okaida"><code>const frmLogin = document.querySelector('#frmLogin');
+            <div class="precontainer">
+               <pre class="prism-okaida"><code>// declarations
+const frmLogin = document.querySelector('#frmLogin');
 const inpEmail = frmLogin.querySelector('#email');
 const inpPw = frmLogin.querySelector('#pw');
 const msgEmail = frmLogin.querySelector('.ctrlEmail .message');
 const msgPw = frmLogin.querySelector('.ctrlPw .message');
 const lblMessage = document.querySelector('#lblMessage');
 
-// disable HTML5 validation
-frmLogin.setAttribute('novalidate', 'novalidate');
-
-// halt form submissions and check form
-frmLogin.addEventListener('submit', function (e) {
+// event handlers
+function handleFormSubmit(e) {
    e.preventDefault();
    let numErrors = 0;
 
@@ -1193,15 +1306,15 @@ frmLogin.addEventListener('submit', function (e) {
    msgEmail.innerHTML = '';
    msgPw.innerHTML = '';
 
-   // email can't be empty
-   if (inpEmail.value == '') {
-      msgEmail.innerHTML = 'email mag niet leeg zijn';
-      numErrors++;
-   }
-
    // email must have an @
    if (!inpEmail.value.includes('@')) {
       msgEmail.innerHTML = 'email moet @ bevatten';
+      numErrors++;
+   }
+
+   // email can't be empty
+   if (inpEmail.value == '') {
+      msgEmail.innerHTML = 'email mag niet leeg zijn';
       numErrors++;
    }
 
@@ -1223,16 +1336,22 @@ frmLogin.addEventListener('submit', function (e) {
       inpPw.value = '';
       lblMessage.innerHTML = 'Bedankt voor de registratie';
    }
-});
+}
+
+// disable HTML5 validation
+frmLogin.setAttribute('novalidate', 'novalidate');
+
+// form submit event
+frmLogin.addEventListener('submit', handleFormSubmit);
 </code></pre>
-        </div>
+            </div>
+         </div>
+         <div>
+            <p><img src="img/02_domhtml/formchecking.gif" alt="" class="w-400 bordered"></p>
+         </div>
       </div>
-      <div>
-        <p><img src="img/02_domhtml/formchecking.gif" alt="" class="w-400 bordered"></p>
-      </div>
-    </div>
-    <div class="precontainer">
-      <pre class="prism-atom-dark language-css"><code>body {
+      <div class="precontainer">
+         <pre class="prism-atom-dark language-css"><code>body {
    font-family: roboto;
    font-size: 14px;
 }
@@ -1247,38 +1366,38 @@ label, input {
    font-style: italic;
 }
 </code></pre>
-    </div>
-  </main>
-  <footer>
-    <img src="common/img/thats-all.jpg" alt="">
-    <div class="footer__bottom">
-      <p>@2024, Rogier van der Linde</p>
-      <p>cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a> &mdash; <a href="https://rogiervdl.github.io/CSS-course/">CSS</a> &mdash; <a href="https://rogiervdl.github.io/CS-course/">C#</a> &mdash; <a href="https://rogiervdl.github.io/DEVENV-course/">ontwikkelomgeving</a></p>
-    </div>
-  </footer>
-  <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
-  <!-- popup -->
-  <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
-    <div class="hystmodal__wrap">
-      <div class="hystmodal__window" role="dialog" aria-modal="true">
-        <iframe title="demo"></iframe>
       </div>
-    </div>
-  </div>
-  <!-- scripts -->
-  <script src="common/vendor/prism/prism.js"></script>
-  <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
-  <script src="common/js/mode.js"></script>
-  <script src="common/js/scripts.js"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+   </main>
+   <footer>
+      <img src="common/img/thats-all.jpg" alt="">
+      <div class="footer__bottom">
+         <p>@2024, Rogier van der Linde</p>
+         <p>cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a> &mdash; <a href="https://rogiervdl.github.io/CSS-course/">CSS</a> &mdash; <a href="https://rogiervdl.github.io/CS-course/">C#</a> &mdash; <a href="https://rogiervdl.github.io/DEVENV-course/">ontwikkelomgeving</a></p>
+      </div>
+   </footer>
+   <a aria-label="up" id="up" href="#top"><span class="fas fa-chevron-circle-up"></span></a>
+   <!-- popup -->
+   <div class="hystmodal dialog" id="diaDemo" aria-hidden="true">
+      <div class="hystmodal__wrap">
+         <div class="hystmodal__window" role="dialog" aria-modal="true">
+            <iframe title="demo"></iframe>
+         </div>
+      </div>
+   </div>
+   <!-- scripts -->
+   <script src="common/vendor/prism/prism.js"></script>
+   <script src="common/vendor/hystmodal/hystmodal.min.js"></script>
+   <script src="common/js/mode.js"></script>
+   <script src="common/js/scripts.js"></script>
+   <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-33VMW730V9"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-    gtag('config', 'G-33VMW730V9');
-  </script>
+      gtag('config', 'G-33VMW730V9');
+   </script>
 
 </body>
 

@@ -77,10 +77,6 @@ figcaption {
 	font-style: italic;
 }
 
-figure:not(.console) figcaption {
-	margin-top: -5px;
-}
-
 main>h1,
 main>h2,
 main>h3,
@@ -171,7 +167,13 @@ nav {
 
 table {
 	border-collapse: collapse;
+	caption-side: bottom;
 	margin-bottom: 2rem;
+}
+
+table caption {
+	font-size: 0.8em;
+	text-align: left;
 }
 
 /* CLASSES */
@@ -938,6 +940,7 @@ body pre.right,
 body div.right,
 body pre.wrong,
 body div.wrong {
+	overflow: visible !important;
 	position: relative;
 }
 

@@ -1,3 +1,4 @@
+// declarations
 const frmLogin = document.querySelector('#frmLogin');
 const inpEmail = frmLogin.querySelector('#email');
 const inpPw = frmLogin.querySelector('#pw');
@@ -5,12 +6,8 @@ const msgEmail = frmLogin.querySelector('.ctrlEmail .message');
 const msgPw = frmLogin.querySelector('.ctrlPw .message');
 const lblMessage = document.querySelector('#lblMessage');
 
-
-// disable HTML5 validation
-frmLogin.setAttribute('novalidate', 'novalidate');
-
-// halt form submissions and check form
-frmLogin.addEventListener('submit', function(e) {
+// event handler
+function handleFormSubmit(e) {
    e.preventDefault();
    let numErrors = 0;
 
@@ -48,4 +45,10 @@ frmLogin.addEventListener('submit', function(e) {
 		inpPw.value = '';
 		lblMessage.innerHTML = 'Bedankt voor de registratie';
 	}
-});
+}
+
+// disable HTML5 validation
+frmLogin.setAttribute('novalidate', 'novalidate');
+
+// form submit event
+frmLogin.addEventListener('submit', handleFormSubmit);
