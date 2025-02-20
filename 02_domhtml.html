@@ -503,8 +503,8 @@ const lnksVisited = links.filter(lnk =&gt; lnk.classList.contains('visited')); /
 </code></pre>
       <p>Je kan dit eenvoudig oplossen door het om te zetten naar een array met <code>Array.from(...)</code>, of nog eleganter met de <code>[...]</code> spread operator:</p>
       <pre class="right"><code>const arrLinks = [...document.querySelectorAll('a')]; // ok; is nu een array
-const linkTexts = links.map(lnk =&gt; lnk.innerHTML); // ok
-const lnksVisited = links.filter(lnk =&gt; lnk.classList.contains('visited')); // ok
+const linkTexts = arrLinks.map(lnk =&gt; lnk.innerHTML); // ok
+const lnksVisited = arrLinks.filter(lnk =&gt; lnk.classList.contains('visited')); // ok
 </code></pre>
 
       <h4>Query chaining</h4>
