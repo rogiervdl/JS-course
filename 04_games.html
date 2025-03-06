@@ -588,7 +588,23 @@ lnkNotifyMe.addEventListener('click', handleLnkNotifyClick);</code></pre>
          <figcaption>taskbar notificaties met Javascript</figcaption>
       </figure>
 
-      <h3>SpeechRecognition API</h3>
+      <h3>Web Speech API</h3>
+      <p>Deze API bestaat uit twee delen: SpeechSynthesisUtterance en SpeechRecognition</p>
+      <h4>SpeechSynthesisUtterance</h4>
+      <p>Basisvoorbeeld:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnSpeak"&gt;Say hello&lt;/button&gt;&lt;/p&gt;
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// event handlers
+function handleBtnSpeakClick(e) {
+   const utterance = new SpeechSynthesisUtterance("Hello world!");
+   speechSynthesis.speak(utterance);
+}
+
+// events
+btnSpeak.addEventListener('click', handleBtnSpeakClick);</code></pre>
+      </div>
+      <h4>SpeechRecognition</h4>
       <p>Basisvoorbeeld:</p>
       <div class="democontainer">
          <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnStart"&gt;Start listening&lt;/button&gt;&lt;/p&gt;
