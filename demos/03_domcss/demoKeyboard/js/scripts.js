@@ -1,10 +1,14 @@
-const inp = document.querySelector('#inp1');
+// declaraties
+const inpMessage = document.querySelector('#inpMessage');
 
+// event handlers
 function handleKeyDown(e) {
 	console.log(e);
-	document.querySelector('#kar').innerHTML = e.key;
-	document.querySelector('#code').innerHTML = e.keyCode;
-	document.querySelector('#shift').innerHTML = e.shiftKey ? 'ja' : 'nee ';
+	document.querySelector('#spnKey').innerHTML = e.key;
+	document.querySelector('#spnCode').innerHTML = e.code;
+	document.querySelector('#spnShift').innerHTML = e.shiftKey ? 'ja' : 'nee ';
+	document.querySelector('#spnControl').innerHTML = e.ctrlKey ? 'ja' : 'nee ';
 }
 
-inp.addEventListener('keydown', handleKeyDown);
+// events
+inpMessage.addEventListener('keydown', handleKeyDown);

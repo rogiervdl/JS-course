@@ -6,6 +6,7 @@
 <head>
   <title>Samenvatting | Javascript cursus</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="common/styles.css">
   <link rel="stylesheet" href="common/css/summary.css">
 </head>
@@ -161,7 +162,8 @@ const test = isNaN(3 * 'hello'); // true</code></pre>
               heeft nog geen waarde gekregen
             </td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>const test = null; // heeft bewust geen waarde</code></pre>
+              <pre class="prism-vslight" data-notoolbar><code>const test;
+console.log(test) // undefined</code></pre>
             </td>
           </tr>
           <tr>
@@ -172,8 +174,7 @@ const test = isNaN(3 * 'hello'); // true</code></pre>
               idem als <code>undefined</code>, maar betekent eerder "heeft bewust geen waarde"
             </td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>const test;
-console.log(test) // undefined</code></pre>
+              <pre class="prism-vslight" data-notoolbar><code>const test = null; // heeft bewust geen waarde</code></pre>
             </td>
           </tr>
         </tbody>
@@ -820,7 +821,7 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
             </td>
             <td>
               <pre class="prism-vslight language-html" data-notoolbar><code>&lt;div id="test" class="message box" data-lastviewed="2024-03-11" data-tag="quote"&gt;
-  &lt;p&gt;dit is &lt;em&gt;regel 1&lt;/em&gt;&lt;/p&gt;
+  &lt;p&gt;dit is &lt;em style="display:none"&gt;regel 1&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 <p></p>
 <pre class="prism-vslight" data-notoolbar><code>const divTest = document.querySelector('#test');</code></pre>
@@ -831,7 +832,7 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
               <code>innerHTML</code>
             </td>
             <td>
-              HTML code binnen een element
+              HTML binnen een element
             </td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.innerHTML); // '&lt;p&gt;dit is &lt;em&gt;regel 1&lt;/em&gt;&lt;/p&gt;'</code></pre>
@@ -839,13 +840,24 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
           </tr>
           <tr>
             <td>
+              <code>textContent</code>
+            </td>
+            <td>
+              tekst binnen een element (negeer tags)
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.textContent); // 'dit is regel 1'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <code>innerText</code>
             </td>
             <td>
-              tekst binnen een element (zonder tags)
+              zichtbare tekst binnen een element
             </td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.innerText); // 'dit is regel 1'</code></pre>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.innerText); // 'dit is '</code></pre>
             </td>
           </tr>
           <tr>
@@ -1048,17 +1060,22 @@ lnk1.addEventListener('click', (e) =&gt; {
           </tr>
           <tr>
             <td><code>e.key</code></td>
-            <td>ingedrukte toets, b.v <code>'Z'</code></td>
+            <td>ingevoerd karakter, b.v <code>'Z'</code></td>
             <td>toetsenbord</td>
           </tr>
           <tr>
-            <td><code>e.keyCode</code></td>
-            <td>ASCII nummer van de ingedrukte toets, b.v <code>90</code></td>
+            <td><code>e.code</code></td>
+            <td>ingedrukte toets, b.v <code>'KeyZ'</code></td>
             <td>toetsenbord</td>
           </tr>
           <tr>
             <td><code>e.shiftKey</code></td>
             <td>werd de shift ingedrukt, b.v <code>true</code></td>
+            <td>toetsenbord</td>
+          </tr>
+          <tr>
+            <td><code>e.ctrlKey</code></td>
+            <td>werd de control ingedrukt, b.v <code>true</code></td>
             <td>toetsenbord</td>
           </tr>
           <tr>

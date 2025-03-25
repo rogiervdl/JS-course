@@ -405,34 +405,36 @@ afstand: ${zaad.dataset.afstand}`);
          <div>
             <div class="precontainer">
                <pre class="prism-default language-html line-numbers w-700" data-demo="demos/03_domcss/demoKeyboard/index.html"><code>&lt;p&gt;tik iets in...&lt;/p&gt;
-&lt;p&gt;&lt;input type="text" id="inp1" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type="text" id="inpMessage" /&gt;&lt;/p&gt;
 &lt;p&gt;
-   karakter: &lt;span id="kar"&gt;&lt;/span&gt;
-   &lt;br&gt;code: &lt;span id="code"&gt;&lt;/span&gt;
-   &lt;br&gt;shift: &lt;span id="shift"&gt;&lt;/span&gt;
+  ingevoerd karakter: &lt;span id="spnKey"&gt;&lt;/span&gt;
+  &lt;br&gt;code ingedrukte toets: &lt;span id="spnCode"&gt;&lt;/span&gt;
+  &lt;br&gt;shift: &lt;span id="spnShift"&gt;&lt;/span&gt;
+  &lt;br&gt;control: &lt;span id="spnControl"&gt;&lt;/span&gt;
 &lt;/p&gt;
 </code></pre>
             </div>
             <div class="precontainer">
                <pre class="prism-okaida line-numbers w-700"><code>// declaraties
-const inp = document.querySelector('#inp1');
+const inpMessage = document.querySelector('#inpMessage');
 
 // event handlers
 function handleKeyDown(e) {
-  console.log(e);
-  document.querySelector('#kar').innerHTML = e.key;
-  document.querySelector('#code').innerHTML = e.keyCode;
-  document.querySelector('#shift').innerHTML = e.shiftKey ? 'ja' : 'nee ';
+	console.log(e);
+	document.querySelector('#spnKey').innerHTML = e.key;
+	document.querySelector('#spnCode').innerHTML = e.code;
+	document.querySelector('#spnShift').innerHTML = e.shiftKey ? 'ja' : 'nee ';
+	document.querySelector('#spnControl').innerHTML = e.ctrlKey ? 'ja' : 'nee ';
 }
 
-// event
-inp.addEventListener('keydown', handleKeyDown);
+// events
+inpMessage.addEventListener('keydown', handleKeyDown);
 </code></pre>
-               <div class="codemarker" data-text="e.key;" data-height="65" data-width="110"></div>
+               <div class="codemarker" data-text="e.key;" data-height="85" data-width="110"></div>
             </div>
          </div>
          <div>
-            <img src="img/03_domcss/toetsenbord.png" alt="" class="w-400">
+            <img src="img/03_domcss/toetsenbord.png" alt="" class="w-400 bordered">
          </div>
       </div>
       <h3>Muis</h3>
