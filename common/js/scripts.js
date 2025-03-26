@@ -149,37 +149,38 @@ function startApp() {
 	}
 
 	// part 2: build TOC
-	if (!DOM.titles.length) return;
-	let toc = '';
+	if (DOM.titles.length) {
+		let toc = '';
 
-	// iterate titles
-	const titleNrs = [0, 0, 0, 0, 0, 0];
-	DOM.titles.filter(t => !t.dataset.dontlist).forEach((title) => {
-		// get title number and create link
-		const titleNr = title.nodeName.substring(1);
-		const lnk = `<a href="#${title.dataset.id}">${title.dataset.text}</a>`;
+		// iterate titles
+		const titleNrs = [0, 0, 0, 0, 0, 0];
+		DOM.titles.filter(t => !t.dataset.dontlist).forEach((title) => {
+			// get title number and create link
+			const titleNr = title.nodeName.substring(1);
+			const lnk = `<a href="#${title.dataset.id}">${title.dataset.text}</a>`;
 
-		// increment title count
-		titleNrs[titleNr - 1]++;
-		if (titleNrs[titleNr - 1] == 1) toc += `${toc.includes('<li>') ? '<li>' : ''}<ul>`;
+			// increment title count
+			titleNrs[titleNr - 1]++;
+			if (titleNrs[titleNr - 1] == 1) toc += `${toc.includes('<li>') ? '<li>' : ''}<ul>`;
 
-		// reset all subtitle counts
-		for (let i = titleNr; i < titleNrs.length; i++) {
-			if (titleNrs[i] == 0) continue;
-			toc += `</ul>${toc.includes('</li>') ? '</li>' : ''}`;
-			titleNrs[i] = 0;
-		}
-		const prefix = titleNrs.filter(t => t != 0).join('.');
-		const ispro = title.closest('.pro') != null;
-		toc += `<li${ispro ? ' class="pro"' : ''}>${prefix} ${lnk}</li>\n`;
-	});
+			// reset all subtitle counts
+			for (let i = titleNr; i < titleNrs.length; i++) {
+				if (titleNrs[i] == 0) continue;
+				toc += `</ul>${toc.includes('</li>') ? '</li>' : ''}`;
+				titleNrs[i] = 0;
+			}
+			const prefix = titleNrs.filter(t => t != 0).join('.');
+			const ispro = title.closest('.pro') != null;
+			toc += `<li${ispro ? ' class="pro"' : ''}>${prefix} ${lnk}</li>\n`;
+		});
 
-	// add to dom
-	if (DOM.toc) DOM.toc.innerHTML = toc;
-	document.querySelector('h1 .title__anchor').scrollIntoView({
-		behavior: 'smooth', // Optional: makes the scroll smooth
-		block: 'start' // Scrolls to the top of the element
-	});
+		// add to dom
+		if (DOM.toc) DOM.toc.innerHTML = toc;
+		document.querySelector('h1 .title__anchor').scrollIntoView({
+			behavior: 'smooth', // Optional: makes the scroll smooth
+			block: 'start' // Scrolls to the top of the element
+		});
+	}
 
 	// part 3: nav scroll effect
 	window.addEventListener('scroll', () => {
