@@ -67,3 +67,11 @@ div.code-toolbar pre {
 	padding: 5px 10px;
 	width: 100%;
 }
+
+col.first {
+	width: 230px;
+}
+
+col.second {
+	width: 330px;
+}

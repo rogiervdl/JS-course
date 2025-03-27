@@ -54,7 +54,7 @@
       <img class="thumb__visual" src="img/summary/icon.png" alt="">
     </a>
   </nav>
-  <h1>05. Javascript samenvatting</h1>
+  <h1>Javascript samenvatting</h1>
   <p class="othercourses"><small>Dit hoofdstuk is onderdeel van de cursus <a href="https://rogiervdl.github.io/JS-course/">Javascript</a>. Andere cursussen in dezelfde reeks: <a href="https://rogiervdl.github.io/HTML-course/">HTML</a>, <a href="https://rogiervdl.github.io/CSS-course/">CSS</a>, <a href="https://rogiervdl.github.io/CS-course/">C#</a>, <a href="https://rogiervdl.github.io/DEVENV-course/">Ontwikkelomgeving</a>.</small></p>
   <div id="toc"></div>
   <main>
@@ -62,6 +62,10 @@
       <h2>Variabelen en objecten</h2>
       <h3>declaratie</h3>
       <table class="single">
+        <colgroup>
+          <col class="first">
+          <col>
+        </colgroup>
         <tbody>
           <tr>
             <td>
@@ -72,17 +76,39 @@
 let num2 = 3.14; // kommagetal
 let boo = true; // boolean
 let str = 'hello'; // string
-let dat = new Date(); // Date object</code></pre>
+let dat = new Date(); // Date object
+let me = {
+  age: 54,
+  name: 'Rogier'
+}; // object</code></pre>
             </td>
           </tr>
         </tbody>
       </table>
       <h3>conversie</h3>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <tbody>
           <tr>
             <td>
-              parseInt
+              toString()
+            </td>
+            <td>
+              zet getallen e.d. om naar een string
+            </td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(3.66.toString()) // '3.66'
+console.log(3.66.toString() + 12) // '3.6612'
+console.log(["apple", "banana", "cherry"].toString()) // 'apple,banana,cherry'</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              parseInt()
             </td>
             <td>
               zet teksten e.d. om naar een geheel getal
@@ -96,7 +122,7 @@ console.log(parseInt('he is 40')) // NaN - Not a Number</code></pre>
           </tr>
           <tr>
             <td>
-              parseFloat
+              parseFloat()
             </td>
             <td>
               zet teksten e.d. om naar een kommagetal
@@ -107,22 +133,15 @@ console.log(parseFloat('5.5 beers')) // 5.5 (ok: getal staat in het begin)
 console.log(parseFloat('the value of PI is 3.14')) // NaN - Not a Number</code></pre>
             </td>
           </tr>
-          <tr>
-            <td>
-              +
-            </td>
-            <td>
-              zet tekst om naar een getal
-            </td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(+'3.66') // 3.66 - het is nu een getal i.p.v. een string
-console.log(+'12 monkeys') // NaN - Not a Number</code></pre>
-            </td>
-          </tr>
         </tbody>
       </table>
       <h3>NaN, Infinity, undefined, null</h3>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">waarde</th>
@@ -151,7 +170,7 @@ const test = isNaN(3 * 'hello'); // true</code></pre>
               oneindige waarde
             </td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(10 / 0) // Infinity</code></pre>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(10 / 0) // Infinity - dus geen fout!</code></pre>
             </td>
           </tr>
           <tr>
@@ -182,11 +201,13 @@ console.log(test) // undefined</code></pre>
       <h2>Strings</h2>
       <h3>declaratie</h3>
       <table class="single">
+        <colgroup>
+          <col class="first">
+          <col>
+        </colgroup>
         <tbody>
           <tr>
-            <td>
-              gebruik quotes
-            </td>
+            <td>gebruik quotes</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>const name = 'Rogier'; // enkel quotes krijgen de voorkeur
 const name = "Rogier"; // mag, maar liever niet
@@ -194,9 +215,7 @@ const name = `Rogier`; // mag ook, maar wordt enkel gebruikt bij multiline strin
             </td>
           </tr>
           <tr>
-            <td>
-              string interpolatie
-            </td>
+            <td>string interpolatie</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>const name = 'Rogier';
 const length = 1.92;
@@ -222,6 +241,11 @@ hoedje van...`);</code></pre>
       </table>
       <h3>string properties en methodes</h3>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">property/methode</th>
@@ -231,9 +255,7 @@ hoedje van...`);</code></pre>
         </thead>
         <tbody>
           <tr>
-            <td>
-              &nbsp;
-            </td>
+            <td>&nbsp;</td>
             <td></td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>const str1 = 'Straks maakt mama macaroni klaar';</code></pre>
@@ -246,15 +268,6 @@ hoedje van...`);</code></pre>
             <td>aantal karakters</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>console.log(str1.length); // 32</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>endsWith(str)</code>
-            </td>
-            <td>controleert of een string eindigt met <code>str</code></td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.endsWith('ar')); // true</code></pre>
             </td>
           </tr>
           <tr>
@@ -278,32 +291,13 @@ console.log(str1.indexOf('pa')); // -1</code></pre>
           </tr>
           <tr>
             <td>
-              <code>lastIndexOf(str)</code>
-            </td>
-            <td>laatste positie van <code>str</code> (-1 indien niet gevonden)</td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.lastIndexOf('ma')); // 18</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>replace(str1, str2)</code>
-            </td>
-            <td>vervangt de eerste <code>str1</code> door <code>str2</code></td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.replace('mama', 'papa')); // 'Straks maakt papa macaroni klaar'</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <code>replaceAll(str1, str2)</code>
             </td>
             <td>vervangt alle <code>str1</code> door <code>str2</code></td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.replace(' ', '-')); // 'Straks-maakt-mama-macaroni-klaar'</code></pre>
+              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.replaceAll(' ', '-')); // 'Straks-maakt-mama-macaroni-klaar'</code></pre>
             </td>
           </tr>
-
           <tr>
             <td>
               <code>split(separator)</code>
@@ -315,36 +309,9 @@ console.log(str1.indexOf('pa')); // -1</code></pre>
           </tr>
           <tr>
             <td>
-              <code>startsWith(str)</code>
-            </td>
-            <td>controleert of een string begint met <code>str</code></td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.startsWith('Stra')); // true</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>substr(start, num)</code>
-            </td>
-            <td>substring vanaf positie <code>start</code> en <code>num</code> karakters</td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.substr(10, 15)); // 'kt mama macaron'</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>substring(start, end)</code>
-            </td>
-            <td>substring van posities <code>start</code> tot <code>end</code></td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(str1.substring(10, 15)); // 'kt ma'</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <code>toLowerCase()</code>
             </td>
-            <td>	zet om naar kleine letters</td>
+            <td>zet om naar kleine letters</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>console.log(str1.toLowerCase()); // 'straks maakt mama macaroni klaar'</code></pre>
             </td>
@@ -353,7 +320,7 @@ console.log(str1.indexOf('pa')); // -1</code></pre>
             <td>
               <code>toUpperCase()</code>
             </td>
-            <td>	zet om naar kleine letters</td>
+            <td>zet om naar kleine letters</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>console.log(str1.toUpperCase()); // 'STRAKS MAAKT MAMA MACARONI KLAAR'</code></pre>
             </td>
@@ -363,11 +330,13 @@ console.log(str1.indexOf('pa')); // -1</code></pre>
       <h2>Arrays en objecten</h2>
       <h3>declaratie</h3>
       <table class="single">
+        <colgroup>
+          <col class="first">
+          <col>
+        </colgroup>
         <tbody>
           <tr>
-            <td>
-              arrays
-            </td>
+            <td>arrays</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>// declaratie
 const arr = [1, 2, 3, 5, 8, 13]; // arrays zijn meestal constanten
@@ -379,9 +348,7 @@ arr[4]++; // wordt 9
             </td>
           </tr>
           <tr>
-            <td>
-              objecten
-            </td>
+            <td>objecten</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>// declaratie (objecten zijn meestal constanten)
 const options = {
@@ -403,8 +370,13 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
       </table>
 
       <h3>array properties en methodes</h3>
-      <p>Opmerking: Javascript kent geen onderscheid tussen arrays, lijsten, stacks, queues enz... zoals in C#; alles is een array.</p>
+      <p>Javascript kent geen onderscheid tussen arrays, lijsten, stacks, queues enz... zoals in C#; alles is een array.</p>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">property/methode</th>
@@ -448,7 +420,6 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
             <td>
 					<pre class="prism-vslight" data-notoolbar><code>console.log(arr1.indexOf('melk')); // 2
 						console.log(arr1.indexOf('brood')); // -1</code></pre>
-
             </td>
           </tr>
           <tr>
@@ -478,24 +449,6 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
               <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.push('brood'));</code></pre>
             </td>
           </tr>
-          <tr>
-            <td>
-              <code>shift()</code>
-            </td>
-            <td>verwijder en return element aan het begin de rij</td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.shift()); // 'boter'</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>unshift(item)</code>
-            </td>
-            <td>voeg <code>item</code> toe vooraan de rij</td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(arr1.unshift('brood'));</code></pre>
-            </td>
-          </tr>
         </tbody>
       </table>
     </section>
@@ -503,11 +456,13 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
     <section>
       <h2>Functies</h2>
       <table class="single">
+        <colgroup>
+          <col class="first">
+          <col>
+        </colgroup>
         <tbody>
           <tr>
-            <td>
-              klassieke declaratie
-            </td>
+            <td>klassieke declaratie</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>function vindGgd(a, b) {
   while (b !== 0) {
@@ -520,9 +475,7 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
             </td>
           </tr>
           <tr>
-            <td>
-              declaratie als constante
-            </td>
+            <td>declaratie als constante</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>const vindGgd = function(a, b) {
   ...
@@ -530,9 +483,7 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
             </td>
           </tr>
           <tr>
-            <td>
-              declaratie met arrow expressie
-            </td>
+            <td>declaratie met arrow expressie</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>const vindGgd = (a, b) =&gt; {
   ...
@@ -540,9 +491,7 @@ console.log(`opties: kleur ${options['color']}, grootte ${options['size']} ${opt
             </td>
           </tr>
           <tr>
-            <td>
-              optionele parameters
-            </td>
+            <td>optionele parameters</td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>function tekenTekst(txt, color = '#090', size = 14, withIcon = false) {
   ...
@@ -559,6 +508,11 @@ tekenTekst('hallo', '#338'); // size blijft 14, geen icoon
       <h2>Controlestructuren</h2>
       <h3>selecties</h3>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">code</th>
@@ -569,7 +523,7 @@ tekenTekst('hallo', '#338'); // size blijft 14, geen icoon
         <tbody>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>if</code></pre>
+              <code>if</code>
             </td>
             <td>als</td>
             <td>
@@ -581,7 +535,7 @@ if (badGrades) {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>if - else </code></pre>
+              <code>if - else </code>
             </td>
             <td>als - dan</td>
             <td>
@@ -595,7 +549,7 @@ if (badGrades) {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>voorwaarde1 ? waarde1 : waarde2</code></pre>
+              <code>voorwaarde1 ? waarde1 : waarde2</code>
             </td>
             <td>ternaire operator</td>
             <td>
@@ -606,7 +560,7 @@ console.log(badGrades ? 'House arrest for two weeks' : 'No house arrest');
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>if - else - if </code></pre>
+              <code>if - else - if </code>
             </td>
             <td>als - dan - als</td>
             <td>
@@ -627,7 +581,7 @@ if (seasonNr == 1) {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>switch - case</code></pre>
+              <code>switch - case</code>
             </td>
             <td>cascade selectiestructuur</td>
             <td>
@@ -645,11 +599,11 @@ switch (seasonNr)
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>voorwaarde1 ? waarde1
-: voorwaarde2 ? waarde2
-: voorwaarde3 ? waarde3
-: defaultwaarde
-</code></pre>
+              <code>voorwaarde1 ? waarde1
+<br>: voorwaarde2 ? waarde2
+<br>: voorwaarde3 ? waarde3
+<br>: defaultwaarde
+</code>
             </td>
             <td>getrapte ternaire operator</td>
             <td>
@@ -668,6 +622,11 @@ const seasonName = seasonNr == 1 ? 'lente'
     <section>
       <h3>iteraties</h3>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">code</th>
@@ -678,7 +637,7 @@ const seasonName = seasonNr == 1 ? 'lente'
         <tbody>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>for</code></pre>
+              <code>for</code>
             </td>
             <td>iteratie met vaste grenzen</td>
             <td>
@@ -690,7 +649,7 @@ for (let i = 0; i &lt; friends.length; i++) {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>for-of</code></pre>
+              <code>for-of</code>
             </td>
             <td>iteratie over een array</td>
             <td>
@@ -702,7 +661,7 @@ for (const friend of friends) {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>for-in</code></pre>
+              <code>for-in</code>
             </td>
             <td>iteratie over de keys van een object</td>
             <td>
@@ -718,7 +677,7 @@ for (const key in myCar) {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>forEach()</code></pre>
+              <code>forEach()</code>
             </td>
             <td>iteratie met callback methode</td>
             <td>
@@ -738,6 +697,11 @@ lnksMenu.forEach(lnk =&gt; {
       <h3>querying</h3>
       <p>Opmerking: alle andere methodes als <code>getElementById()</code> enz... mogen <em>niet</em> gebruikt worden</p>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">functie</th>
@@ -748,7 +712,7 @@ lnksMenu.forEach(lnk =&gt; {
         <tbody>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>querySelector()</code></pre>
+              <code>querySelector()</code>
             </td>
             <td>zoek eerste element op basis van een CSS selector</td>
             <td>
@@ -757,7 +721,7 @@ lnksMenu.forEach(lnk =&gt; {
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>querySelectorAll()</code></pre>
+              <code>querySelectorAll()</code>
             </td>
             <td>zoek alle elementen op basis van een CSS selector</td>
             <td>
@@ -771,6 +735,10 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
       </table>
       <h3>navigatie</h3>
       <table class="single">
+        <colgroup>
+          <col class="first">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">property</th>
@@ -806,6 +774,11 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
       </table>
       <h3>manipulatie</h3>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">property</th>
@@ -815,10 +788,8 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
         </thead>
         <tbody>
           <tr>
-            <td>
-            </td>
-            <td>
-            </td>
+            <td></td>
+            <td></td>
             <td>
               <pre class="prism-vslight language-html" data-notoolbar><code>&lt;div id="test" class="message box" data-lastviewed="2024-03-11" data-tag="quote"&gt;
   &lt;p&gt;dit is &lt;em style="display:none"&gt;regel 1&lt;/em&gt;&lt;/p&gt;
@@ -851,17 +822,6 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
           </tr>
           <tr>
             <td>
-              <code>innerText</code>
-            </td>
-            <td>
-              zichtbare tekst binnen een element
-            </td>
-            <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.innerText); // 'dit is '</code></pre>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <code>value</code>, <code>src</code>, <code>href</code>...
             </td>
             <td>
@@ -882,10 +842,10 @@ if (inpEmail.value == '') ...;</code></pre>
             </td>
             <td>
               <pre class="prism-vslight" data-notoolbar><code>console.log(divTest.classList.contains('box')); // true
-divTest.classList.add('green', 'small'); // classList value is 'message box green small'
-divTest.classList.remove('message'); // classList value is 'box green small'
-divTest.classList.toggle('box'); // classList value is 'green small'
-divTest.classList.toggle('box'); // classList value is 'box green small'</code></pre>
+divTest.classList.add('green'); // classList value is 'message box green'
+divTest.classList.remove('message', 'green'); // classList value is 'box'
+divTest.classList.toggle('box'); // classList value is ''
+divTest.classList.toggle('box'); // classList value is 'box'</code></pre>
             </td>
           </tr>
           <tr>
@@ -922,6 +882,11 @@ divTest.dataset.lastviewed = '2024-04-01'; // data-lastviewed waarde aangepast</
       <h3>event listeners</h3>
       <p>Events voeg je <strong>altijd</strong> toe met <code>addEventListener(event, callback)</code>. Enkele codefragmenten:</p>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">code</th>
@@ -932,7 +897,7 @@ divTest.dataset.lastviewed = '2024-04-01'; // data-lastviewed waarde aangepast</
         <tbody>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>addEventListener(evt, callback)</code></pre>
+              <code>addEventListener(evt, callback)</code>
             </td>
             <td>voer <code>callback()</code> uit als <code>event</code> optreedt</td>
             <td>
@@ -952,21 +917,35 @@ btn1.addEventListener('click', handleBtn1Click);</code></pre>
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>e.target</code></pre>
+              <code>this</code>
             </td>
-            <td>element waar het event op plaatsvond</td>
+            <td>element waarop de event hander gedefinieerd is</td>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>const btn1 = document.querySelector('#btn1');
-function handleBtn1Click(e) {
-  console.log(`${e.target.id} clicked`');
+              <pre class="prism-vslight" data-notoolbar><code>const tbl1 = document.querySelector('table');
+function handleTableClick(e) {
+  console.log(`${this.nodeName} clicked`'); // TABLE (handles event)
 }
-btn1.addEventListener('click', handleBtn1Click);
+tbl1.addEventListener('click', handleTableClick);
 </code></pre>
             </td>
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>e.preventDefault()</code></pre>
+              <code>e.target</code>
+            </td>
+            <td>element waar het event op plaatsvond</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>const tbl1 = document.querySelector('table');
+function handleTableClick(e) {
+  console.log(`${e.target.nodeName} clicked`'); // TD (was clicked)
+}
+tbl1.addEventListener('click', handleTableClick);
+</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>e.preventDefault()</code>
             </td>
             <td>verhinder de standaardactie van links, submitknoppen enz...</td>
             <td>
@@ -982,6 +961,11 @@ lnk1.addEventListener('click', (e) =&gt; {
       </table>
       <h3>soorten events</h3>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">event</th>
@@ -1045,6 +1029,11 @@ lnk1.addEventListener('click', (e) =&gt; {
       <h3>event object</h3>
       <p>Het event object <code>e</code> in <code>...addEventListener('keydown', (e) =&gt; { ... });</code> bevat informatie over het event.</p>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">property</th>
@@ -1087,6 +1076,115 @@ lnk1.addEventListener('click', (e) =&gt; {
             <td><code>e.clientY</code></td>
             <td>verticale positie van de muis (naar onder)</td>
             <td>muis</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section>
+      <h2>Games</h2>
+      <p>Enkele veelgebruikte API's en technieken waar je van gehoord moet hebben:</p>
+      <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">API</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">toestemming nodig?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>drag drop API</td>
+            <td>drag drop, b.v. bestanden of afbeeldingen naar een webpagina slepen</td>
+            <td>nee</td>
+          </tr>
+          <tr>
+            <td>geolocation API</td>
+            <td>opvragen locatie van de gebruiker</td>
+            <td>ja</td>
+          </tr>
+          <tr>
+            <td>localStorage</td>
+            <td>bewaren van gegevens op de browser; worden niet naar de server gestuurd zoals cookies</td>
+            <td>nee</td>
+          </tr>
+          <tr>
+            <td>notification API</td>
+            <td>kleine notificatie popups rechtsonder</td>
+            <td>ja</td>
+          </tr>
+          <tr>
+            <td>speech API</td>
+            <td>tekst naar speech en speech naar tekst</td>
+            <td>ja (voor toegang microfoon)</td>
+          </tr>
+          <tr>
+            <td>sound API</td>
+            <td>zelf geluiden synthetiseren</td>
+            <td>nee</td>
+          </tr>
+          <tr>
+            <td>webcam API</td>
+            <td>gebruik webcam van de gebruiker (toestemming nodig)</td>
+            <td>nee</td>
+          </tr>
+          <tr>
+            <td>webGL</td>
+            <td>3D graphics genereren in webpagina's</td>
+            <td>nee</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Drie manieren om een game loop te maken:</p>
+      <table class="single">
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>met <code>setTimeout()</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>function doLoop() {
+  // do game logic here
+  // ...
+
+  // new loop after 20ms
+  setTimeout(doLoop, 20);
+}</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>met <code>setInterval()</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>function doLoop() {
+  // do game logic here
+  // ...
+}
+
+// new loop each 20ms
+setInterval(doLoop, 20);
+</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>met <code>requestAnimationFrame()</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>function doLoop() {
+  // do game logic here
+  // ...
+
+  // new loop whenever ready
+  requestAnimationFrame(doLoop);
+}</code></pre>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -1141,6 +1239,11 @@ doFetch();
     <section>
       <h2>Debugging</h2>
       <table>
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">code</th>
@@ -1151,7 +1254,7 @@ doFetch();
         <tbody>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.log()</code></pre>
+              <code>console.log()</code>
             </td>
             <td>schrijf tekst naar de console</td>
             <td>
@@ -1160,7 +1263,7 @@ doFetch();
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>console.error()</code></pre>
+              <code>console.error()</code>
             </td>
             <td>schrijf fout naar de console</td>
             <td>
@@ -1169,7 +1272,7 @@ doFetch();
           </tr>
           <tr>
             <td>
-              <pre class="prism-vslight" data-notoolbar><code>debugger</code></pre>
+              <code>debugger</code>
             </td>
             <td>plaats een breekpunt</td>
             <td>
