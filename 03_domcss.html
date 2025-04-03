@@ -623,30 +623,30 @@ const msgPwHasNoCapital = inpPw.parentNode.querySelector('.message.has-no-capita
 
 // event handlers
 function handleFormSubmit(e) {
-	// prevent form submit
+   // prevent form submit
    e.preventDefault();
 
-	// clear all messages
+   // clear all messages
    msgEmailIsEmpty.classList.remove('show');
    msgPwIsEmpty.classList.remove('show')
    msgPwHasNoCapital.classList.remove('show')
 
-	// email can't be empty
+   // email can't be empty
    if (inpEmail.value == '') {
       msgEmailIsEmpty.classList.add('show');
    }
 
-	// password must have at least one capital letter
+   // password must have at least one capital letter
    if (inpPw.value.toLowerCase() == inpPw.value) {
       msgPwHasNoCapital.classList.add('show');
    }
 
-	// password can't be empty
+   // password can't be empty
    if (inpPw.value == '') {
       msgPwIsEmpty.classList.add('show');
    }
 
-	// if all ok; submit form
+   // if all ok; submit form
    if (this.querySelector('.message.show').length == 0) this.submit();
 }
 

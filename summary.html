@@ -734,7 +734,7 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
         </tbody>
       </table>
       <h3>navigatie</h3>
-      <p><em>opmerking: navigatie moet je in 2024-2025 niet kennen.</em></p>
+      <p><em>opmerking: navigatie properties moet je in 2024-2025 niet kennen.</em></p>
       <table class="single">
         <colgroup>
           <col class="first">
@@ -770,6 +770,40 @@ lnksMenu.forEach(lnk =&gt; { // itereer met forEach
           <tr>
             <td><code>node.previousElementSibling</code></td>
             <td>vorige sibling (null indien niet gevonden)</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="single">
+        <colgroup>
+          <col class="first">
+          <col class="second">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">methode</th>
+            <th scope="col">omschrijving</th>
+            <th scope="col">voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>node.closest(...)</code></td>
+            <td>zoekt dichtstbijzijnde bovenliggende element (ancestor) te vinden dat overeenkomt met een opgegeven CSS-selector</td>
+            <td>
+              <pre class="prism-vslight language-html" data-notoolbar><code>&lt;div class="row-item"&gt;
+  &lt;div class="row-nr"&gt;12&lt;/div&gt;
+  &lt;div class="row-text"&gt;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, corporis!&lt;/div&gt;
+  &lt;div class="row-actions"&gt;
+    &lt;button class="edit"&gt;✏️&lt;/button&gt;
+    &lt;button class="delete"&gt;🗑️&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p></p>
+<pre class="prism-vslight" data-notoolbar><code>const btnEdit = document.querySelector('.edit'); // edit button
+const textToEdit = btnEdit.closest('.row-item').querySelector('.row-text'); // item text to edit</code></pre>
+            </td>
           </tr>
         </tbody>
       </table>

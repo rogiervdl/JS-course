@@ -72,6 +72,10 @@ col.first {
 	width: 230px;
 }
 
+col.firstlarge {
+	width: 300px;
+}
+
 col.second {
 	width: 330px;
 }
