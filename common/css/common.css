@@ -274,6 +274,10 @@ body .brown {
 	color: #996633;
 }
 
+body .keyword {
+	color: #3200ff;
+}
+
 figure.console pre {
 	background-color: black;
 	background-image: url(../img/console-top.png);
