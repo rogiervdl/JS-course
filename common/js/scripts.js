@@ -79,9 +79,9 @@ function repaint() {
  * @param {string} strCss
  */
 function minimizeCss(strCss) {
-   strCss = strCss.replace(/(\/\*.*\*\/)|(\n|\r)+|\t*/g, '');
-   strCss = strCss.replace(/\s{2,}/g, ' ');
-   return strCss;
+	strCss = strCss.replace(/(\/\*.*\*\/)|(\n|\r)+|\t*/g, '');
+	strCss = strCss.replace(/\s{2,}/g, ' ');
+	return strCss;
 }
 
 /**
@@ -92,12 +92,12 @@ function minimizeCss(strCss) {
  */
 function cssApplySnippet(strSelector, strCss) {
 	// create <style> block
-   let demostyles = document.querySelector('#demostyles');
-   if (!demostyles) {
-      demostyles = document.createElement('style');
-      demostyles.id = 'demostyles';
-      document.head.appendChild(demostyles);
-   }
+	let demostyles = document.querySelector('#demostyles');
+	if (!demostyles) {
+		demostyles = document.createElement('style');
+		demostyles.id = 'demostyles';
+		document.head.appendChild(demostyles);
+	}
 
 	// parse css
 	const parser = new cssjs();
@@ -114,18 +114,34 @@ function cssApplySnippet(strSelector, strCss) {
 		}
 	}
 
-   // remove existing style block
-   const rex = new RegExp(`\\s*\\/\\* ${strSelector} \\*\\/[^\\/]*\\/\\* \\/${strSelector} \\*\\/\\s*`, 'm');
-   demostyles.innerHTML = demostyles.innerHTML.replace(rex, '\n\n');
+	// remove existing style block
+	const rex = new RegExp(`\\s*\\/\\* ${strSelector} \\*\\/[^\\/]*\\/\\* \\/${strSelector} \\*\\/\\s*`, 'm');
+	demostyles.innerHTML = demostyles.innerHTML.replace(rex, '\n\n');
 
-   // inject new style block
-   const strPrefixed = minimizeCss(prefixed.join(' '));
-   const strInjectCss = `/* ${strSelector} */
+	// inject new style block
+	const strPrefixed = minimizeCss(prefixed.join(' '));
+	const strInjectCss = `/* ${strSelector} */
 ${strPrefixed}
 /* /${strSelector} */
 
 `;
-   demostyles.innerHTML += strInjectCss;
+	demostyles.innerHTML += strInjectCss;
+}
+
+/**
+ * Creates id from string by sanatizing it
+ *
+ * @param {str} str
+ */
+function createIdFrom(str) {
+	if (!str || str == '') return null;
+	str = str.toLowerCase().replace(/[^a-zA-Z\d ]/g, '').replace(/ +/g, ' ').replace(/ /g, '-');
+	let id = str;
+	let i = 2;
+	while (document.getElementById(id)) {
+		id = `${str}-${i++}`;
+	}
+	return id;
 }
 
 /**
@@ -189,7 +205,9 @@ function startApp() {
 		// }
 		if (DOM.nav.classList.contains('condensed') && !(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)) {
 			DOM.nav.classList.remove('condensed');
-			setTimeout(function() { document.body.style.paddingTop = `${document.querySelector('nav').offsetHeight}px`; }, 500);
+			setTimeout(function() { 
+				document.body.style.paddingTop = `${document.querySelector('nav').offsetHeight}px`; 
+			}, 500);
 		}
 		if (!DOM.nav.classList.contains('condensed') && (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)) {
 			DOM.nav.classList.add('condensed');
@@ -242,22 +260,6 @@ function startApp() {
 			container.style.width = `${rcw.value}px`;
 		});
 	});
-}
-
-/**
- * Creates id from string by sanatizing it
- *
- * @param {str} str
- */
-function createIdFrom(str) {
-	if (!str || str == '') return null;
-	str = str.toLowerCase().replace(/[^a-zA-Z\d ]/g, '').replace(/ +/g, ' ').replace(/ /g, '-');
-	let id = str;
-	let i = 2;
-	while (document.getElementById(id)) {
-		id = `${str}-${i++}`;
-	}
-	return id;
 }
 
 // start your engines!

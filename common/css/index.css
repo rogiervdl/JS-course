@@ -32,7 +32,7 @@ body {
 h1, h2, h3 {
    color: #333;
    font-family: 'League Gothic', sans-serif;
-   text-shadow: 0 0.5rem 0.2rem rgba(150, 150, 150, 0.71);
+   text-shadow: 0 0.5rem 0.2rem rgb(150 150 150 / 71%);
    text-transform: uppercase;
 }
 
@@ -72,7 +72,7 @@ body:not(.showpro) .pro {
    font-size: 4rem;
    letter-spacing: 0.02em;
    margin-bottom: 2rem;
-   text-shadow: 0 0 0.rem rgba(0,0,0,0.2);
+   text-shadow: 0 0 0 rgb(0 0 0 / 20%);
    text-transform: uppercase;
 }
 
@@ -106,7 +106,7 @@ body:not(.showpro) .pro {
    align-items: center;
    background-color: #e1d9c0;
    border: 0.25em solid #eee;
-   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+   box-shadow: 0 0 1rem rgb(0 0 0 / 15%);
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
@@ -157,7 +157,7 @@ body:not(.showpro) .pro {
 /* aside */
 
 aside {
-   background: rgba(46,49,51,0.9);
+   background: rgb(46 49 51 / 90%);
    box-shadow: -1rem 0 2.5rem #1c1e20;
    padding: 1.5rem 2rem;
    text-align: left;
@@ -186,46 +186,58 @@ aside a:hover {
 
 /* responsive stuff */
 
-@media (min-width: 35em) {
-   .header__title {
+@media (width >= 35em) {
+
+	.header__title {
       font-size: 10rem;
    }
-   .header__tagline {
+
+	.header__tagline {
       font-size: 6rem;
    }
-   .site__nav {
+
+	.site__nav {
       column-gap: 4%;
       display: flex;
       flex-wrap: wrap;
       row-gap: 1em;
    }
-   .main__thumb {
+
+	.main__thumb {
       width: 48%;
    }
+
 }
 
-@media (min-width: 50em) {
-   .site__nav {
+@media (width >= 50em) {
+
+	.site__nav {
       column-gap: 3.5%;
       row-gap: 1.2em;
    }
-   .main__thumb {
+
+	.main__thumb {
       width: 31%;
    }
+
 }
 
-@media (min-width: 60em) {
-   .thumb__title {
+@media (width >= 60em) {
+
+	.thumb__title {
       font-size: 1.3em;
    }
-   .site__nav {
+
+	.site__nav {
       column-gap: calc(8% / 3);
       row-gap: 1.5em;
    }
-   .main__thumb {
+
+	.main__thumb {
       width: 23%;
    }
-   aside {
+
+	aside {
       bottom: 2.5rem;
       overflow: hidden;
       transition: all .2s ease;
@@ -241,13 +253,16 @@ aside a:hover {
 
 }
 
-@media (min-width: 75em) {
-   .site__nav {
+@media (width >= 75em) {
+
+	.site__nav {
       column-gap: 2.5%;
       row-gap: 1.875em;
    }
-   .main__thumb {
+
+	.main__thumb {
       width: 18%;
    }
+
 }
 

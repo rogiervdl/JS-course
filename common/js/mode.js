@@ -3,8 +3,8 @@ const chbMode = document.querySelector('#mode [type=checkbox]');
 
 // handle change event
 const handleChangeEvent = () => {
-   document.body.classList.toggle('showpro', chbMode.checked);
-   localStorage.setItem('showpro', chbMode.checked ? 'true' : 'false');
+	document.body.classList.toggle('showpro', chbMode.checked);
+	localStorage.setItem('showpro', chbMode.checked ? 'true' : 'false');
 };
 chbMode.addEventListener('change', handleChangeEvent);
 

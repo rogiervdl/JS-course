@@ -14,6 +14,13 @@ body pre[class*="language-"]:has([contenteditable]:focus) {
   border: 1px dashed #666 !important;
 }
 
+body.prism pre > code[class*="language-"] {
+	font-family: Consolas, Menlo, Monaco, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 0.9em;
+	line-height: 1.357em;
+	position: relative;
+}
+
 /* color scheme mods */
 
 code[class*="language-"] {
@@ -81,7 +88,7 @@ pre.notoolbar {
 	padding: 0.5em 1em;
 }
 
-pre.notoolbar+.toolbar .toolbar-item {
+pre.notoolbar + .toolbar .toolbar-item {
 	display: none !important;
 }
 
@@ -104,10 +111,11 @@ pre.notoolbar+.toolbar .toolbar-item {
 }
 
 /* MEDIA QUERIES */
-/* ============= */
 
-@media(min-width: 800px) {
+@media(width >= 800px) {
+
 	div.code-toolbar {
 		width: fit-content;
 	}
+
 }

@@ -12,7 +12,7 @@
    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body class="language-javascript line-numbers">
+<body class="prism language-javascript line-numbers">
    <div id="mode">
       <span>n00b</span>
       <label class="switch">
@@ -496,7 +496,7 @@ navLinks.forEach(lnk =&gt; {
       <h5>NodeList vs Array ☝🏻</h5>
       <p>
          Let op: <code>querySelectorAll()</code> geeft geen array terug, maar een <mark>NodeList</mark>.
-         Je kan ongeveer alles wat je ook met arrays kan, <i>behalve</i> arraymethodes als <code>filter()</code>, <code>map()</code> enz..., die werken niet:
+         Je kan ongeveer alles wat je ook met arrays kan, <em>behalve</em> arraymethodes als <code>filter()</code>, <code>map()</code> enz..., die werken niet:
       </p>
       <pre class="wrong"><code>const links = document.querySelectorAll('a');
 const linkTexts = links.map(lnk =&gt; lnk.innerHTML); // fout! NodeList kent geen map()

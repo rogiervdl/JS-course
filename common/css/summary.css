@@ -1,6 +1,6 @@
 :root {
    --primary-color: #faf5e6;
-   --secondary-color: rgb(153, 51, 150);
+   --secondary-color: rgb(153  51  150);
 }
 
 body {
@@ -19,7 +19,7 @@ table {
    background-color: #fff;
    border: 4px solid #fff;
    border-radius: 3px;
-   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+   box-shadow: 1px 1px 3px rgb(0  0  0 / 10%);
    margin-bottom: 10px;
 	max-width: 1400px;
 	width: 100%;
@@ -66,16 +66,4 @@ div.code-toolbar {
 div.code-toolbar pre {
 	padding: 5px 10px;
 	width: 100%;
-}
-
-col.first {
-	width: 230px;
-}
-
-col.firstlarge {
-	width: 300px;
-}
-
-col.second {
-	width: 330px;
 }

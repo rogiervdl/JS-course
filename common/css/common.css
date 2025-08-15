@@ -44,7 +44,7 @@ main {
 	margin-top: 0.3em;
 }
 
-main a:not([href*=http]):not([href="#"]):not([href=""])::after {
+main a:not([href*="http"], [href="#"], [href=""])::after {
 	content: "🔗";
 	font-size: smaller;
 	position: relative;
@@ -182,7 +182,6 @@ table caption {
 
 .title__anchor {
 	margin-top: -100px;
-	/* Size of fixed header */
 	padding-bottom: 100px;
 	display: block;
 }
@@ -220,7 +219,7 @@ table caption {
 }
 
 .shadow {
-	box-shadow: 0px 0px 15px #bbb;
+	box-shadow: 0 0 15px #bbb;
 }
 
 .smaller {
@@ -237,11 +236,11 @@ table caption {
 }
 
 .warning {
-	color: #996600 !important;
+	color: #960 !important;
 }
 
 .notice {
-	color: #008800 !important;
+	color: #080 !important;
 }
 
 .x-scroll {
@@ -250,28 +249,28 @@ table caption {
 }
 
 body .purple {
-	border-color: #9966FF;
-	color: #9966FF;
+	border-color: #96F;
+	color: #96F;
 }
 
 body .navy {
-	border-color: #3399FF;
-	color: #3399FF;
+	border-color: #39F;
+	color: #39F;
 }
 
 body .orange {
-	border-color: #FF6600;
-	color: #FF6600;
+	border-color: #F60;
+	color: #F60;
 }
 
 body .green {
-	border-color: #339933;
-	color: #339933;
+	border-color: #393;
+	color: #393;
 }
 
 body .brown {
-	border-color: #996633;
-	color: #996633;
+	border-color: #963;
+	color: #963;
 }
 
 body .keyword {
@@ -706,7 +705,7 @@ blockquote.dotted {
 }
 
 blockquote.greenbig {
-	background-color: #eeffee66;
+	background-color: #efe6;
 	border: 3px dashed #999;
 	font-size: larger;
 	margin-bottom: 1em;
@@ -746,7 +745,7 @@ blockquote.greenbig {
 	align-items: center;
 	background-color: #e1d9c0;
 	border: 0.4rem solid #eee;
-	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 1rem rgb(0 0 0 / 15%);
 	color: #333;
 	display: flex;
 	flex-direction: column;
@@ -756,7 +755,7 @@ blockquote.greenbig {
 	min-width: 16rem;
 	padding: 1.65rem 0.8rem;
 	text-decoration: none;
-	text-shadow: 0 0.2rem 0.2rem rgba(150, 150, 150, 0.71);
+	text-shadow: 0 0.2rem 0.2rem rgb(150 150 150 / 71%);
 	text-transform: uppercase;
 	transition: all .2s linear;
 	width: 16rem;
@@ -1050,7 +1049,6 @@ pre {
 }
 
 .range-container-width {
-	-webkit-appearance: none !important;
 	appearance: none !important;
 	background: #999;
 	height: 7px;
@@ -1059,7 +1057,6 @@ pre {
 }
 
 .range-container-width::-webkit-slider-thumb {
-	-webkit-appearance: none !important;
 	appearance: none !important;
 	background: #333;
 	height: 10px;
@@ -1086,9 +1083,8 @@ footer img {
 }
 
 /* MEDIA QUERIES */
-/* ============= */
 
-@media(min-width: 800px) {
+@media(width >= 800px) {
 
 	p,
 	table {
@@ -1112,9 +1108,11 @@ footer img {
 	}
 }
 
-@media(min-width: 1300px) {
+@media(width >= 1300px) {
+
 	.codecompare {
 		display: flex;
 		column-gap: 40px;
 	}
+
 }
