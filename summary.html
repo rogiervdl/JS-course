@@ -1264,7 +1264,7 @@ doFetch();
     </section>
 
     <section>
-      <h2>Debugging</h2>
+      <h2>Javascript console</h2>
       <table>
         <colgroup>
           <col class="first">
@@ -1290,6 +1290,15 @@ doFetch();
           </tr>
           <tr>
             <td>
+              <code>console.warn()</code>
+            </td>
+            <td>schrijf waarschuwing naar de console</td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.warn('deze waarschuwing komt in de console');</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <code>console.error()</code>
             </td>
             <td>schrijf fout naar de console</td>
@@ -1298,6 +1307,17 @@ doFetch();
             </td>
           </tr>
           <tr>
+            <td>
+              <code>console opmaak</code>
+            </td>
+            <td>opmaak met <code>%c</code></td>
+            <td>
+              <pre class="prism-vslight" data-notoolbar><code>console.log('%c Let op! ', 'color: red; font-weight: bold;');
+console.log('De waarde %c 42 %c is correct.', 'font-weight: bold; color: #0a0;', 'font-weight: normal;');</code></pre>
+            </td>
+          </tr>
+			 
+          <tr class="pro">
             <td>
               <code>debugger</code>
             </td>
