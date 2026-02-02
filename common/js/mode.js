@@ -9,7 +9,7 @@ const handleChangeEvent = () => {
 chbMode.addEventListener('change', handleChangeEvent);
 
 // restore from localstorage
-const showPro = localStorage.getItem('showpro') != 'false';
+const showPro = localStorage.getItem('showpro') == 'true';
 document.body.classList.toggle('showpro', showPro);
 chbMode.checked = showPro;
 

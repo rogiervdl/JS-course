@@ -44,7 +44,7 @@
    transition: .4s;
 }
  
-.switch .slider:before {
+.switch .slider::before {
    background-color: white;
    bottom: 0.4rem;
    content: "";
@@ -63,7 +63,7 @@
    box-shadow: 0 0 1px #bcac86;
 }
  
-.switch input:checked + .slider:before {
+.switch input:checked + .slider::before {
    transform: translateX(3.9rem);
 }
  
@@ -73,7 +73,7 @@
    border-radius: 3.4rem;
 }
  
-.switch .slider.round:before {
+.switch .slider.round::before {
    border-radius: 50%;
 }
 
