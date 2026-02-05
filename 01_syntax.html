@@ -97,7 +97,7 @@
 		<h2>Werken met Javascript</h2>
 		<h3>Javascript als scriptingtaal</h3>
 		<p>
-			Javascript een <strong>scripting taal</strong>, geen echte programmeertaal zoals C#. Enkele kenmerken:
+			Javascript is een <strong>scriptingtaal</strong>, geen echte programmeertaal zoals C#. Enkele kenmerken:
 		</p>
 		<ul>
 			<li>In Javascript gebeurt de <strong>compilatie tijdens de uitvoering</strong> van het script (JIT: just in time compilation), en niet vooraf zoals C# (naar een .exe)</li>
@@ -106,7 +106,7 @@
 			<li>Scripting talen hebben vaak een wat <strong>speciale, lossere syntax</strong>, met minder strakke regels en heel veel vrijheden en verantwoordelijkheden (dat zul je verderop nog wel merken).</li>
 			<li>Er zijn veel scripting talen &mdash; Python, PHP, Perl, Ruby... &mdash; maar er is er maar één die browsers begrijpen: <strong>Javascript</strong>.</li>
 		</ul>
-		<p>Javascript is syntactisch een erg rijke taal, die zeer compact kan zijn. Kopieer volgende fragment maar eens in een HTML document, en <a href="demos/01_syntax/js1k_3.html">bekijk het resutaat</a>...</p>
+		<p>Javascript is syntactisch een erg rijke taal, die zeer compact kan zijn. Kopieer volgende fragment maar eens in een HTML document, en <a href="demos/01_syntax/js1k_3.html">bekijk het resultaat</a>...</p>
 		<pre class="prism-okaida language-html w-1200" data-demo="demos/01_syntax/js1k_3.html"><code>&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 &lt;body&gt;
@@ -392,7 +392,7 @@ console.error('whoops! an error occured');</code></pre>
 				De console werkt <strong>asynchroon</strong>. Dit is een belangrijk begrip in programmeren in het algemeen, en
 				Javascript in het bijzonder.
 				Het betekent kortweg dat je niet precies weet in welke volgorde instructies uitgevoerd worden (meer hierover
-				later in hoofdstuk <a href="05_async.html">03. asynchrone javascript</a>). Dat heeft in de console onverwachte
+				later in hoofdstuk <a href="05_async.html">05. asynchrone javascript</a>). Dat heeft in de console onverwachte
 				gevolgen. Neem volgende code:
 			</p>
 			<pre class="prism-okaida w-650" data-demo><code>const person = {
@@ -1141,7 +1141,7 @@ Console.WriteLine(now.Year);
 
 // Math/Random example
 Random rnd = new Random();
-Console.WriteLine(Math.ceil(rnd.Next() * 10));
+Console.WriteLine(Math.Ceiling(rnd.Next() * 10.0));
 
 // Array example
 string[] arr1 = { "melk", "boter", "eieren" }
@@ -1254,7 +1254,7 @@ let random = Math.Random( ); let g1 =parseInt(random);
 console.log(`Het kwadraat is: ${g1*g1}`);
 </code></pre>
 		<pre class="prism-okaida right"><code>console.log('Genereer random getal... ');
-let random = Math.Random();
+let random = Math.random();
 let g1 = parseInt(random);
 console.log(`Het kwadraat is: ${g1 * g1}`);
 </code></pre>
@@ -1323,7 +1323,7 @@ console.log(`Het kwadraat is: ${g1 * g1}`);
 				</tr>
 				<tr>
 					<td>methoden (C#) / functies (Javascript)</td>
-					<td>camellCase, bv. <code>berekenGemiddelde()</code></td>
+					<td>camelCase, bv. <code>berekenGemiddelde()</code></td>
 					<td>PascalCase, bv. <code>BerekenGemiddelde()</code></td>
 				</tr>
 				<tr>
