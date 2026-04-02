@@ -1,9 +1,13 @@
-// init scene
+/* eslint-disable no-undef */
+/* eslint-disable no-magic-numbers */
+/* global THREE */
+// init scen
+// e
 const scene = new THREE.Scene();
 
 // add ground
 const groundGeometry = new THREE.PlaneGeometry(200, 300, 32);
-const  groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
+const groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
 groundTexture.wrapS = THREE.RepeatWrapping;
 groundTexture.wrapT = THREE.RepeatWrapping;
 groundTexture.repeat.set(4, 4);
