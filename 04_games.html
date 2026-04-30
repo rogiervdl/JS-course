@@ -836,8 +836,8 @@ function handleBtnStopClick() {
 }
 
 // bind events
-document.querySelector('#rngFrequency').addEventListener('input', () =&gt; oscillator.frequency.value = this.value);
-document.querySelector('#rngVolume').addEventListener('input', () =&gt; amp.gain.value = this.value);
+document.querySelector('#rngFrequency').addEventListener('input', function() { oscillator.frequency.value = this.value; });
+document.querySelector('#rngVolume').addEventListener('input', function() { amp.gain.value = this.value; });
 document.querySelector('#btnStop').addEventListener('click', handleBtnStopClick);</code></pre>
       </div>
       <figure>

@@ -99,7 +99,7 @@ const init = function() {
 		shininess: 60,
 		specular: 0x156289,
 	});
-	const shapeTexture = (new THREE.TextureLoader()).load('img/glass1.jpg');
+	const shapeTexture = (new THREE.TextureLoader()).load('img/wood.jpg');
 	shapeMaterialPhongTexture = new THREE.MeshPhongMaterial({
 		color: 0xCCCCCC,
 		side: THREE.DoubleSide,
