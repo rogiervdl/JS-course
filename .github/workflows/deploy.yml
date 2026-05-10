@@ -1,0 +1,38 @@
+# Naam van de workflow, verschijnt in het Actions tabblad op GitHub
+name: Deploy to GitHub Pages
+
+# Wanneer draait deze workflow?
+on:
+  push:
+    branches:
+      - main          # alleen bij een push naar de main branch
+
+# Rechten die de workflow nodig heeft
+permissions:
+  pages: write        # mag schrijven naar GitHub Pages
+  id-token: write     # nodig voor authenticatie met GitHub Pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest    # draait op een verse Ubuntu machine bij GitHub
+    environment:
+      name: github-pages      # koppelt aan de Pages omgeving in je repo settings
+      url: ${{ steps.deployment.outputs.page_url }}   # de URL van je site
+
+    steps:
+      # Stap 1: haal de code op uit de repo
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'   # dit is de cruciale regel: haal ook submodules op
+
+      # Stap 2: configureer GitHub Pages
+      - uses: actions/configure-pages@v5
+
+      # Stap 3: maak een artifact (pakketje) van alle bestanden
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'                 # upload alles in de repo root
+
+      # Stap 4: deploy het artifact naar GitHub Pages
+      - id: deployment
+        uses: actions/deploy-pages@v4
