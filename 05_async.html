@@ -397,23 +397,35 @@ populateBreedsList();</code></pre>
       </figure>
 
       <h2>Flickr API voorbeeld: API key, request parameters</h2>
-      <h3>API key aanvragen</h3>
+      <h3>API key</h3>
       <p>
-         Flickr is een foto community met een zeer <a href="https://www.flickr.com/services/api/">uitgebreide API</a>.
-         Het verschil met het vorige voorbeeld is dat je (na <a href="https://identity.flickr.com/sign-up">registratie</a>) een <strong>API key</strong> moet aanvragen,
-         en die meesturen met elke request. De key is <strong>gratis</strong>, maar het geeft hen, in tegenstelling tot
-         open API's, wel een beetje <strong>controle op je verbruik</strong>.
+         Een <mark>API key</mark> is een unieke code die je kan aanvragen en dan moet meesturen met elke request. Als voorbeeld maken we een toepassing met de zeer uitgebreide <a href="https://www.flickr.com/services/api/">Flickr API</a>.
+         Na <a href="https://identity.flickr.com/sign-up">registratie</a> krijg je een unieke <strong>API key</strong> die meesturen met elke request. 
+         De key is <strong>gratis</strong> (dat is niet altijd zo), maar het geeft hen wat <strong>controle op je verbruik</strong>.
       </p>
       <figure>
          <img src="img/05_async/flickr-registration.png" alt="" class="w-600">
          <figcaption>API key aanvraag bij Flickr.com</figcaption>
       </figure>
-      <h3>documentatie</h3>
+      <h3>URLSearchParams</h3>
       <p>
-         In de uitgebreide documentatie vinden we een methode <a href="https://www.flickr.com/services/api/flickr.photos.search.html">flickr.photos.search</a>, met alle mogelijke opties.
+         In de uitgebreide API documentatie vinden we een methode <a href="https://www.flickr.com/services/api/flickr.photos.search.html">flickr.photos.search</a>, met alle mogelijke opties.
          Een aantal van deze opties zullen we meesturen als <strong>request parameters</strong>.
       </p>
       <img src="img/05_async/flickr-photosearch.png" alt="" class="w-600">
+      <p>De correcte manier om deze mee te sturen is met <code>URLSearchParams()</code>. Schematisch:</p>
+      <pre class="prism-okaida w-700"><code>async function fetchData() {
+   // bouw de URL op met parameters
+   const params = new URLSearchParams();
+   params.append('param1', 'waarde1');
+   params.append('param2', 'waarde2');
+   const url = 'https://api.example.com/endpoint?' + params.toString();
+   // resultaat: https://api.example.com/endpoint?param1=waarde1&amp;param2=waarde2
+
+   // fetch de url met parameters
+   const resp = await fetch(url);
+   // ...
+}</code></pre>
       <h3>toepassing: zoeken op foto's</h3>
       <p>Verwerkt in een eenvoudige toepassing:</p>
       <div class="democontainer">
