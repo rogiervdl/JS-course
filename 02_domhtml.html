@@ -276,7 +276,7 @@
       </div>
 
       <h3>HTML elementen vinden in Javascript</h3>
-      <p>In <strong>Javascript</strong> bestaat <em>in theorie</em> een gelijkaardige optie, nl. nodes rechstreeks aanspreken via hun HTML <code>id</code> attribuut. Het vorig voorbeeld, de HTML/Javascript versie:</p>
+      <p>In <strong>Javascript</strong> bestaat <em>in theorie</em> een gelijkaardige optie, nl. nodes rechtstreeks aanspreken via hun HTML <code>id</code> attribuut. Het vorig voorbeeld, de HTML/Javascript versie:</p>
       <div class="codecompare">
          <div>
             <div class="precontainer">
@@ -622,35 +622,70 @@ msg.innerHTML = `afmetingen: ${img1.naturalWidth} x ${img1.naturalHeight}`;</cod
          </div>
       </div>
 
-      <h3>innerHTML</h3>
+      <h3>innerHTML / textContent</h3>
       <p>
-         De meest gebruikte property is ongetwijfeld <mark>innerHTML</mark>; het verwijst naar de HTML inhoud van een
-         element. De nieuwe inhoud is onmiddellijk beschikbaar in het DOM. Een voorbeeld:
-      </p>
+         De meest gebruikte properties zijn ongetwijfeld <mark>innerHTML</mark> en <mark>textContent</mark>; ze verwijzen beiden naar de <strong>inhoud van een element</strong>.  
+         Het verschil is dat <code>innerHTML</code> tags rendert als HTML, terwijl <code>textContent</code> tags letterlijk als tekst rendert.</p>
+      <p>Een voorbeeld dat het verschil illustreert:</p>   
+      <div>
+         <div class="precontainer">
+            <pre class="prism-default language-html"><code>&lt;p id="p1"&gt;&lt;/p&gt;
+&lt;p id="p2"&gt;&lt;/p&gt;
+</code></pre>
+         </div>
+         <div class="precontainer">
+            <pre class="prism-okaida" data-demo="demos/02_domhtml/dom-manipulatie-textcontent.html"><code>const p1 = document.querySelector('#p1');
+const p2 = document.querySelector('#p2');
+p1.innerHTML = 'Prijs (geschreven met innerHTML): &lt;strong&gt;€ 9,95&lt;/strong&gt; &mdash; &lt;a href="#details"&gt;details&lt;/a&gt;';
+p2.textContent = 'Prijs (geschreven met textContent): &lt;strong&gt;€ 9,95&lt;/strong&gt; &mdash; &lt;a href="#details"&gt;details&lt;/a&gt;';</code></pre>
+            <div class="codemarker" data-text=".innerHTML"></div>
+            <div class="codemarker" data-text=".textContent"></div>
+         </div>
+      </div>
+      <p>Het resultaat:</p>
+      <figure> 
+         <img src="img/02_domhtml/demo-textcontent.png" alt="" class="w-600 bordered">
+      </figure>
+      <p>Je gebruikt dus <code>innerHTML</code> om <strong>HTML te lezen/schrijven</strong>, en <code>textContent</code> om <strong>tekst te lezen/schrijven</strong>.</p>
+      <p>Nog een voorbeeld dat beiden illustreert, het genereren van vier <code>&lt;img&gt;</code>'s' uit een array van URL's:</p>
       <div class="codecompare">
          <div>
             <div class="precontainer">
-               <pre class="prism-default language-html"><code>&lt;div id="content"&gt;&lt;/div&gt;
+               <pre class="prism-default language-html"><code>&lt;div id="gallery"&gt;&lt;/div&gt;
 &lt;p id="message"&gt;&lt;/p&gt;
 </code></pre>
             </div>
             <div class="precontainer">
-               <pre class="prism-okaida" data-demo="demos/02_domhtml/dom-manipulatie-innerhtml.html"><code>const content = document.querySelector('#content');
+               <pre class="prism-okaida" data-demo="demos/02_domhtml/dom-manipulatie-innerhtml.html"><code>const gallery = document.querySelector('#gallery');
 const msg = document.querySelector('#message');
-for (let i = 1; i &lt; 5; i++) {
-   content.innerHTML += `&lt;img id="img${i}"
-      src="https://rvdl.be/img/photo${i}-s.jpg" alt=""&gt;&lt;br&gt;`;
-}
-let numImages = document.querySelectorAll('#content img').length;
-msg.innerHTML = `content contains ${numImages} images`;</code></pre>
+const urls = [
+   'https://rvdl.be/img/photo1-s.jpg',
+   'https://rvdl.be/img/photo2-s.jpg',
+   'https://rvdl.be/img/photo3-s.jpg',
+   'https://rvdl.be/img/photo4-s.jpg'
+];
+for (let i = 0; i &lt; urls.length; i++) {
+   // schrijf HTML met innerHTML
+   content.innerHTML += `&lt;img id="photo-${i + 1}" src="${url}" alt=""&gt;&lt;br&gt;`;
+};
+const numImages = gallery.querySelectorAll('img').length;
+
+// schrijf tekst met textContent
+msg.textContent = `gallery contains ${numImages} images`;
+
+// schrijf tekst met innerHTML als het tags bevat
+//msg.innerHTML = `gallery contains &lt;strong&gt;${numImages} images&lt;strong&gt;`;</code></pre>
                <div class="codemarker" data-text=".innerHTML"></div>
                <div class="codemarker" data-text=".innerHTML" data-nth="2"></div>
+               <div class="codemarker" data-text=".textContent"></div>
             </div>
          </div>
          <div>
             <img src="img/02_domhtml/demo-innerhtml.png" alt="" class="w-150 bordered">
          </div>
       </div>
+
+      <p></p>
 
       <h2>Events</h2>
       <h3>Soorten events</h3>

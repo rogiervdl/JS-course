@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <title>Testpagina</title>
+  <meta charset="utf-8">
+  <style>
+     body {
+        font-family: sans-serif;
+        font-size: 0.8em;
+     }
+  </style>
+</head>
+
+<body>
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <script>
+    const p1 = document.querySelector('#p1');
+    const p2 = document.querySelector('#p2');
+    p1.innerHTML = 'Prijs (geschreven met innerHTML): <strong>€ 9,95</strong> &mdash; <a href="#details">details</a>';
+    p2.textContent = 'Prijs (geschreven met textContent): <strong>€ 9,95</strong> &mdash; <a href="#details">details</a>';
+  </script>
+</body>
+
+</html>

@@ -454,6 +454,23 @@ var num2 = 3.14; // kommagetal
 			<li>de reden is nogal technisch (<code>var</code> definieert een variabele globaal, <code>let</code> lokaal), maar de regel is: gebruik altijd <code>let</code> in plaats van <code>var</code></li>
 		</ul>
 
+		<h3>typeof</h3>
+		<p>
+			In Javascript zijn er maar <strong>4 echte types</strong>: <code>number</code>, <code>boolean</code>, <code>string</code> en <code>object</code>.
+			Daarboven is er <code>undefined</code> voor variabelen die wel gedeclareerd maar nog niet toegewezen zijn.
+			Je kan het type van een waarde opvragen met de <mark>typeof</mark> operator:
+		</p>
+		<pre class="prism-okaida" data-demo><code>let x;
+console.log(typeof 3);         // number
+console.log(typeof 3.14);      // number (ook kommagetallen zijn 'number')
+console.log(typeof true);      // boolean
+console.log(typeof 'hello');   // string
+console.log(typeof { a: 1 }); // object
+console.log(typeof [1, 2, 3]); // object (arrays zijn ook objecten)
+console.log(typeof null);      // object (historische bug in JS)
+console.log(typeof x);         // undefined
+</code></pre>
+
 		<h3>Weak typing van variabelen</h3>
 		<p>Variabelen in Javascript zijn <strong>weakly typed</strong>, d.w.z. het type kan veranderen als je er een andere waarde aan toewijst:</p>
 		<div class="codecompare">

@@ -4,20 +4,32 @@
 <head>
   <title>Testpagina</title>
   <meta charset="utf-8">
+  <style>
+     body {
+        font-family: sans-serif;
+        font-size: 0.8em;
+     }
+  </style>
 </head>
 
 <body>
-  <div id="content"></div>
+  <div id="gallery"></div>
   <p id="message"></p>
   <script>
-    const content = document.querySelector('#content');
-    const msg = document.querySelector('#message');
-    for (let i = 1; i < 5; i++) {
-      content.innerHTML += `<img id="img${i}"
-      src="https://rvdl.be/img/photo${i}-s.jpg" alt=""><br>`;
-    }
-    let numImages = document.querySelectorAll('#content img').length;
-    msg.innerHTML = `content contains ${numImages} images`;
+      const gallery = document.querySelector('#gallery');
+      const msg = document.querySelector('#message');
+      const urls = [
+         'https://rvdl.be/img/photo1-s.jpg',
+         'https://rvdl.be/img/photo2-s.jpg',
+         'https://rvdl.be/img/photo3-s.jpg',
+         'https://rvdl.be/img/photo4-s.jpg'
+      ];
+      for (let i = 0; i < urls.length; i++) {
+         gallery.innerHTML += `<img id="photo-${i + 1}" src="${urls[i]}" alt=""><br>`;
+      };
+      const numImages = gallery.querySelectorAll('img').length;
+      msg.textContent = `gallery contains ${numImages} images`;
+      //msg.innerHTML = `gallery contains <strong>${numImages} images<strong>`;
   </script>
 </body>
 
