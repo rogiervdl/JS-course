@@ -882,6 +882,27 @@ document.querySelector('#btnStop').addEventListener('click', handleBtnStopClick)
          <figcaption>spritesheet van een karakter uit Doom I</figcaption>
       </figure>
 
+      <h3>Eenmalig uitvoeren met <code>setTimeout()</code></h3>
+      <p>De methode <code>setTimeout(callback, ms)</code> voert een functie <code>callback</code> eenmalig uit na een vertraging van <code>ms</code> milliseconden. Eenvoudig voorbeeld waarbij een knop na klikken disabled wordt, en na 2s weer enabled:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;button id="btnStart"&gt;start&lt;/button&gt;
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// declaraties
+const btnStart = document.querySelector('#btnStart');
+
+// functies
+function enableBtn() {
+   btnStart.disabled = false;
+}
+function handleBtnStartClick() {
+   btnStart.disabled = true;
+   setTimeout(enableBtn, 2000); // voer enableBtn() uit na 2000ms
+}
+
+// events
+btnStart.addEventListener('click', handleBtnStartClick);</code></pre>
+      </div>
+
       <h3>Animaties met <code>setInterval()</code></h3>
       <p>De methode <code>setInterval(callback, ms)</code> voert een methode <code>callback</code> uit met vaste tussenposen van <code>ms</code> milliseconden. De timer kan gestopt worden met <code>clearInterval()</code>. Eenvoudig voorbeeld:</p>
       <h4>Voorbeeld 1: klok</h4>
@@ -1206,124 +1227,126 @@ doLoop();</code></pre>
          <img src="img/04_games/gunman.png" alt="" class="w-600">
          <figcaption>screenshot van de gunman game</figcaption>
       </figure>
-      <h2>3D in Javascript</h2>
-      <h3>3D begrippen</h3>
-      <p>Voor 3D graphics en animaties hebben we het volgende nodig:</p>
-      <ul>
-         <li>een <span class="em">scene</span> met alle objecten, lichten enz...</li>
-         <li>enkele <span class="em">objecten</span> (kleur, textuur, materiaal, vorm, positie, rotatie...)</li>
-         <li><span class="em">belichting</span> (kleur, diafragma, positie, richting...)</li>
-         <li>één of meerdere <span class="em">cameras</span> (positie, doel...)</li>
-         <li>waarschijnlijk ook <span class="em">geluidseffecten</span></li>
-      </ul>
-      <p>Om die scene effectief weer te geven (<mark>renderen</mark>) moet je ook denken aan:</p>
-      <ul>
-         <li>welke objecten kunnen <span class="em">schaduw ontvangen</span>?</li>
-         <li>welke objecten kunnen <span class="em">schaduw geven</span>?</li>
-         <li>wat zijn de <span class="em">reflectie eigenschappen</span> van objecten (glans, absorptie...)?</li>
-      </ul>
-      <p>Tenslotte hebben we voor animaties ook één of andere <span class="em">game loop</span> nodig die de frames weergeeft.</p>
-      <img src="img/04_games/3dscene.jpg" alt="" class="w-600">
-      <h3>3D met Three.js library</h3>
-      <p>Er zijn verschillende libraries die het werken met 3D in Javascript vereenvoudigen, maar een uitstekende is <a href="https://threejs.org/docs/">Three.js</a>.</p>
-      <h4>Voorbeeld 1: roterende donut eenvoudig</h4>
-      <p>Codevoorbeeld van een roterende donut:</p>
-      <pre class="prism-okaida language-html h-400 w-800" data-demo><code>
-&lt;!-- SCRIPTS --&gt;
-&lt;script src="common/vendor/three.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  // init scene
-  const scene = new THREE.Scene();
+      <div class="pro">
+         <h2>3D in Javascript</h2>
+         <h3>3D begrippen</h3>
+         <p>Voor 3D graphics en animaties hebben we het volgende nodig:</p>
+         <ul>
+            <li>een <span class="em">scene</span> met alle objecten, lichten enz...</li>
+            <li>enkele <span class="em">objecten</span> (kleur, textuur, materiaal, vorm, positie, rotatie...)</li>
+            <li><span class="em">belichting</span> (kleur, diafragma, positie, richting...)</li>
+            <li>één of meerdere <span class="em">cameras</span> (positie, doel...)</li>
+            <li>waarschijnlijk ook <span class="em">geluidseffecten</span></li>
+         </ul>
+         <p>Om die scene effectief weer te geven (<mark>renderen</mark>) moet je ook denken aan:</p>
+         <ul>
+            <li>welke objecten kunnen <span class="em">schaduw ontvangen</span>?</li>
+            <li>welke objecten kunnen <span class="em">schaduw geven</span>?</li>
+            <li>wat zijn de <span class="em">reflectie eigenschappen</span> van objecten (glans, absorptie...)?</li>
+         </ul>
+         <p>Tenslotte hebben we voor animaties ook één of andere <span class="em">game loop</span> nodig die de frames weergeeft.</p>
+         <img src="img/04_games/3dscene.jpg" alt="" class="w-600">
+         <h3>3D met Three.js library</h3>
+         <p>Er zijn verschillende libraries die het werken met 3D in Javascript vereenvoudigen, maar een uitstekende is <a href="https://threejs.org/docs/">Three.js</a>.</p>
+         <h4>Voorbeeld 1: roterende donut eenvoudig</h4>
+         <p>Codevoorbeeld van een roterende donut:</p>
+         <pre class="prism-okaida language-html h-400 w-800" data-demo><code>
+   &lt;!-- SCRIPTS --&gt;
+   &lt;script src="common/vendor/three.min.js"&gt;&lt;/script&gt;
+   &lt;script&gt;
+   // init scene
+   const scene = new THREE.Scene();
 
-  // add ground
-  const groundGeometry = new THREE.PlaneGeometry(200, 300, 32);
-  const  groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
-  groundTexture.wrapS = THREE.RepeatWrapping;
-  groundTexture.wrapT = THREE.RepeatWrapping;
-  groundTexture.repeat.set(4, 4);
-  const groundMaterial = new THREE.MeshPhongMaterial({
-    shininess: 15,
-    specular: 0x888888,
-    shading: THREE.SmoothShading,
-    side: THREE.DoubleSide,
-    map: groundTexture
-  });
-  const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-  ground.rotation.x = Math.PI / 360 * 110;
-  ground.castShadow = false;
-  ground.receiveShadow = true;
-  scene.add(ground);
+   // add ground
+   const groundGeometry = new THREE.PlaneGeometry(200, 300, 32);
+   const  groundTexture = (new THREE.TextureLoader()).load('img/floor.jpg');
+   groundTexture.wrapS = THREE.RepeatWrapping;
+   groundTexture.wrapT = THREE.RepeatWrapping;
+   groundTexture.repeat.set(4, 4);
+   const groundMaterial = new THREE.MeshPhongMaterial({
+      shininess: 15,
+      specular: 0x888888,
+      shading: THREE.SmoothShading,
+      side: THREE.DoubleSide,
+      map: groundTexture
+   });
+   const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+   ground.rotation.x = Math.PI / 360 * 110;
+   ground.castShadow = false;
+   ground.receiveShadow = true;
+   scene.add(ground);
 
-  // add shape
-  const shapeGeometry = new THREE.TorusGeometry(30, 10, 12, 24);
-  const shapeMaterial = new THREE.MeshPhongMaterial({
-    color: 0x156289,
-    side: THREE.DoubleSide,
-    shading: THREE.FlatShading,
-    shininess: 60,
-    specular: 0x156289
-  });
-  const shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
-  shape.castShadow = true;
-  shape.receiveShadow = false;
-  shape.position.y = 70;
-  shape.rotation.y = Math.PI / 360 * 120;
-  scene.add(shape);
+   // add shape
+   const shapeGeometry = new THREE.TorusGeometry(30, 10, 12, 24);
+   const shapeMaterial = new THREE.MeshPhongMaterial({
+      color: 0x156289,
+      side: THREE.DoubleSide,
+      shading: THREE.FlatShading,
+      shininess: 60,
+      specular: 0x156289
+   });
+   const shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
+   shape.castShadow = true;
+   shape.receiveShadow = false;
+   shape.position.y = 70;
+   shape.rotation.y = Math.PI / 360 * 120;
+   scene.add(shape);
 
-  // add ambient light
-  const ambientlight = new THREE.AmbientLight(0x444444, 2.5);
-  scene.add(ambientlight);
+   // add ambient light
+   const ambientlight = new THREE.AmbientLight(0x444444, 2.5);
+   scene.add(ambientlight);
 
-  // add spotlight
-  const spotlight = new THREE.SpotLight(0xFFFFFF, 0.7);
-  spotlight.position.set(150, 200, -75);
-  spotlight.shadow.camera.visible = true;
-  spotlight.castShadow = true;
-  spotlight.penumbra = 0.1;
-  spotlight.angle = 0.4;
-  scene.add(spotlight);
+   // add spotlight
+   const spotlight = new THREE.SpotLight(0xFFFFFF, 0.7);
+   spotlight.position.set(150, 200, -75);
+   spotlight.shadow.camera.visible = true;
+   spotlight.castShadow = true;
+   spotlight.penumbra = 0.1;
+   spotlight.angle = 0.4;
+   scene.add(spotlight);
 
-  // add camera
-  camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
-  camera.position.y = 250;
-  camera.position.z = 250;
-  camera.lookAt(new THREE.Vector3(0, 50, 0));
+   // add camera
+   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
+   camera.position.y = 250;
+   camera.position.z = 250;
+   camera.lookAt(new THREE.Vector3(0, 50, 0));
 
-  // init renderer
-  renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setClearColor(new THREE.Color(0x000000));
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  document.body.appendChild(renderer.domElement);
+   // init renderer
+   renderer = new THREE.WebGLRenderer({ antialias: true });
+   renderer.setSize(window.innerWidth, window.innerHeight);
+   renderer.setClearColor(new THREE.Color(0x000000));
+   renderer.shadowMap.enabled = true;
+   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+   document.body.appendChild(renderer.domElement);
 
-  // render
-  function render() {
-    // keep looping
-    requestAnimationFrame(render);
-    shape.rotation.y += 0.03;
+   // render
+   function render() {
+      // keep looping
+      requestAnimationFrame(render);
+      shape.rotation.y += 0.03;
 
-    // render the scene
-    renderer.render(scene, camera);
-  }
-  render();
-&lt;/script&gt;</code></pre>
-      <figure>
-         <img src="img/04_games/3dsimple.png" alt="" class="w-600">
-         <figcaption>roterende donut in Three.js</figcaption>
-      </figure>
+      // render the scene
+      renderer.render(scene, camera);
+   }
+   render();
+   &lt;/script&gt;</code></pre>
+         <figure>
+            <img src="img/04_games/3dsimple.png" alt="" class="w-600">
+            <figcaption>roterende donut in Three.js</figcaption>
+         </figure>
 
-      <h4>Voorbeeld 2: roterende donut geavanceerd</h4>
-      <p>Geavanceerde versie van de roterende donut (<a href="demos/04_games/threejsfull/">demo hier</a>, <a href="demos/04_games/threejsfull/threejs-full-example.zip">zip met code hier</a>):</p>
-      <a href="demos/04_games/threejsfull/"><img src="img/04_games/threejs-full.png" alt="" class="w-800"></a>
+         <h4>Voorbeeld 2: roterende donut geavanceerd</h4>
+         <p>Geavanceerde versie van de roterende donut (<a href="demos/04_games/threejsfull/">demo hier</a>, <a href="demos/04_games/threejsfull/threejs-full-example.zip">zip met code hier</a>):</p>
+         <a href="demos/04_games/threejsfull/"><img src="img/04_games/threejs-full.png" alt="" class="w-800"></a>
 
-      <h4>Voorbeeld 3: vier op een rij in 3D</h4>
-      <p>Vier op een rij in 3D (<a href="demos/04_games/vieropeenrij/">demo hier</a>, <a href="demos/04_games/vieropeenrij/vieropeenrij.zip">zip met code hier</a>):</p>
-      <a href="demos/04_games/vieropeenrij/"><img src="img/04_games/vieropeenrij.png" alt="" class="w-800 bordered"></a>
+         <h4>Voorbeeld 3: vier op een rij in 3D</h4>
+         <p>Vier op een rij in 3D (<a href="demos/04_games/vieropeenrij/">demo hier</a>, <a href="demos/04_games/vieropeenrij/vieropeenrij.zip">zip met code hier</a>):</p>
+         <a href="demos/04_games/vieropeenrij/"><img src="img/04_games/vieropeenrij.png" alt="" class="w-800 bordered"></a>
 
-      <h4>Voorbeeld 4: 3D OXO</h4>
-      <p>OXO in 3D (<a href="demos/04_games/oxo3d/">demo hier</a>, <a href="demos/04_games/oxo3d/oxo3d.zip">zip met code hier</a>):</p>
-      <a href="demos/04_games/oxo3d/"><img src="img/04_games/oxo3d.png" alt="" class="w-800 bordered"></a>
+         <h4>Voorbeeld 4: 3D OXO</h4>
+         <p>OXO in 3D (<a href="demos/04_games/oxo3d/">demo hier</a>, <a href="demos/04_games/oxo3d/oxo3d.zip">zip met code hier</a>):</p>
+         <a href="demos/04_games/oxo3d/"><img src="img/04_games/oxo3d.png" alt="" class="w-800 bordered"></a>
+      </div>
    </main>
    <footer>
       <img src="common/img/thats-all.jpg" alt="">

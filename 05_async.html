@@ -247,8 +247,31 @@ btnRandomDogs.addEventListener('click', fetchRandomDogs);</code></pre>
       </div>
       <img src="img/05_async/dog-fetch2.png" alt="" class="w-600 bordered">
 
-      <h3>toepassing 1: 5 random foto's ophalen</h3>
-      <p>Met <code>fetch()</code> kan je zo'n URL <strong>dynamisch</strong> opvragen en de data gebruiken:</p>
+      <h3>fetch()</h3>
+      <p>Met <code>fetch()</code> kan je zo'n URL <strong>dynamisch</strong> opvragen en de data gebruiken. Schematisch voorbeeld:</p>
+      <pre class="prism-okaida w-700"><code>async function fetchData() {
+   // stuur het verzoek naar de URL
+   const resp = await fetch('https://api.example.com/endpoint');
+
+   // controleer of het verzoek gelukt is (HTTP 200-299)
+   if (!resp.ok) return;
+
+   // parse de JSON-respons naar een Javascript-object
+   const data = await resp.json();
+
+   // verwerk de data
+   console.log(data);
+}</code></pre>
+      <div class="tips" data-caption="💡 async/await">
+         <p>
+            De gedetailleerde uitleg over async/await <a href="#asyncawait">volgt later nog</a>, maar kort gezegd betekent <mark>async</mark>:
+            <strong>"dit kan even duren, doe alvast verder met de rest"</strong>, en <mark>await</mark>:
+            <strong>"nee nee, ik wacht wel tot het resultaat binnen is"</strong>
+         </p>
+      </div>
+
+      <h4>toepassing 1: 5 random foto's ophalen</h4>
+      <p>Een voorbeeld waarbij we 5 random foto's ophalen en weergeven:</p>
       <div class="democontainer">
          <pre class="prism-default language-html line-numbers w-700" data-caption data-demo><code>&lt;button type="button" id="btnRandomDogs"&gt;FETCH DOGS&lt;/button&gt;
 &lt;div id="dogs"&gt;&lt;/div&gt;</code></pre>
@@ -290,18 +313,11 @@ async function handleBtnRandomDogsClick() {
 btnRandomDogs.addEventListener('click', handleBtnRandomDogsClick);</code></pre>
 
       </div>
-      <div class="tips" data-caption="💡 async/await">
-         <p>
-            De uitleg over async/await volgt later nog, maar kort gezegd betekent <mark>async</mark>:
-            <strong>"dit kan even duren, doe alvast verder met de rest"</strong>, en <mark>await</mark>:
-            <strong>"nee nee, ik wacht wel tot het resultaat binnen is"</strong>
-         </p>
-      </div>
       <figure>
          <img src="img/05_async/dog-fetch2.png" alt="" class="w-600 bordered">
          <figcaption>toepassing 1: gegevens worden dynamisch opgehaald</figcaption>
       </figure>
-      <h3>toepassing 2: foto's van een specifiek ras ophalen </h3>
+      <h4>toepassing 2: foto's van een specifiek ras ophalen </h4>
       <p>Een iets uitgebreider voorbeeld, waarbij eerst de hondenrassen opgehaald worden in een lijstje:</p>
       <div class="democontainer">
          <pre class="prism-default language-html line-numbers w-700" data-demo data-caption><code>&lt;select id="selBreeds" class="hide"&gt;&lt;/select&gt;
