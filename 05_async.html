@@ -619,36 +619,37 @@ doGetRepos();</code></pre>
          <figcaption>aantal requests met token is opgetrokken tot 5000 per uur</figcaption>
       </figure>
 
-      <h2>RapidAPI voorbeeld: API key, request headers</h2>
-      <h3>registratie en API key aanmaken</h3>
-      <p>
-         RapidAPI is niet één API, maar een grote verzameling API's die je kan gebruiken met wisselende
-         gebruiksvoorwaarden.
-         Het grote voordeel is dat je <strong>maar één keer een API key</strong> hoeft aan te vragen voor alle API's.
-         Maak na <a href="https://rapidapi.com/signup">registratie</a> een app aan en ontvang je API key:
-      </p>
-      <figure>
-         <img src="img/05_async/rapid-register.png" alt="" class="w-600">
-         <figcaption>RapidAPI registratie</figcaption>
-      </figure>
-      <figure>
-         <img src="img/05_async/rapid-key.png" alt="" class="w-400">
-         <figcaption>RapidAPI API key aanvragen</figcaption>
-      </figure>
-      <h3>toepassing: Currency Exchange API</h3>
-      <p>
-         Bij wijze van voorbeeld testen we de <a href="https://rapidapi.com/fyhao/api/currency-exchange/">Currency
-            Exchange API</a>.
-         Het biedt twee methodes: <strong>listquotes</strong> en <strong>exchange</strong> (panel links) met telkens een
-         code voorbeeld (panel rechts; kies Javascript uit de dropdown).
-      </p>
-      <p>
-         Het (kleine) verschil met het Flickr voorbeeld is dat je de <strong>API key als header</strong>, en niet als
-         URL parameter moet meegeven.
-      </p>
-      <img src="img/05_async/currency-doc.png" alt="" class="w-600">
-      <div class="democontainer">
-         <pre class="prism-default language-html line-numbers w-800" data-caption data-demo="demos/05_async/demoRapidAPI/index.html"><code>&lt;form id="frmCurrencies"&gt;
+      <div class="pro">
+         <h2>RapidAPI voorbeeld: API key, request headers</h2>
+         <h3>registratie en API key aanmaken</h3>
+         <p>
+            RapidAPI is niet één API, maar een grote verzameling API's die je kan gebruiken met wisselende
+            gebruiksvoorwaarden.
+            Het grote voordeel is dat je <strong>maar één keer een API key</strong> hoeft aan te vragen voor alle API's.
+            Maak na <a href="https://rapidapi.com/signup">registratie</a> een app aan en ontvang je API key:
+         </p>
+         <figure>
+            <img src="img/05_async/rapid-register.png" alt="" class="w-600">
+            <figcaption>RapidAPI registratie</figcaption>
+         </figure>
+         <figure>
+            <img src="img/05_async/rapid-key.png" alt="" class="w-400">
+            <figcaption>RapidAPI API key aanvragen</figcaption>
+         </figure>
+         <h3>toepassing: Currency Exchange API</h3>
+         <p>
+            Bij wijze van voorbeeld testen we de <a href="https://rapidapi.com/fyhao/api/currency-exchange/">Currency
+               Exchange API</a>.
+            Het biedt twee methodes: <strong>listquotes</strong> en <strong>exchange</strong> (panel links) met telkens een
+            code voorbeeld (panel rechts; kies Javascript uit de dropdown).
+         </p>
+         <p>
+            Het (kleine) verschil met het Flickr voorbeeld is dat je de <strong>API key als header</strong>, en niet als
+            URL parameter moet meegeven.
+         </p>
+         <img src="img/05_async/currency-doc.png" alt="" class="w-600">
+         <div class="democontainer">
+            <pre class="prism-default language-html line-numbers w-800" data-caption data-demo="demos/05_async/demoRapidAPI/index.html"><code>&lt;form id="frmCurrencies"&gt;
    &lt;label for="selFrom"&gt;Van:&lt;/label&gt;
    &lt;select id="selFrom"&gt;&lt;/select&gt;
    &lt;label for="selTo"&gt;Naar:&lt;/label&gt;
@@ -752,9 +753,11 @@ frmCurrencies.addEventListener('submit', handleFormSubmit);
 // start your engines
 startApp();</code></pre>
 
+         </div>
+
+         <img src="img/05_async/currency-fetch.gif" alt="" class="w-400 bordered">
       </div>
 
-      <img src="img/05_async/currency-fetch.gif" alt="" class="w-400 bordered">
       <h2>Async/await</h2>
       <h3>Asynchrone functies</h3>
       <p>

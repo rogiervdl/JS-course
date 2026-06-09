@@ -67,6 +67,36 @@
       <p>
          Dit hoofdstuk is &ldquo;Games&rdquo; gedoopt omdat het een verzameling bevat van allerlei leuke en eenvoudige technieken (waaronder een paar in CSS) die van pas kunnen komen in game-achtige toepassingen.
       </p>
+      <h3>Clipboard API</h3>
+      <p>Met de <mark>Clipboard API</mark> kan je tekst lezen van of schrijven naar het klembord van de gebruiker via <code>navigator.clipboard.writeText()</code> en <code>navigator.clipboard.readText()</code>. Beide methodes zijn asynchroon. Eenvoudig voorbeeld:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html padtop" data-caption data-demo><code>&lt;p id="tekst"&gt;Dit is de te kopiëren tekst.&lt;/p&gt;
+&lt;button type="button" id="btnKopieer"&gt;kopieer&lt;/button&gt;</code></pre>
+         <pre class="prism-okaida" data-caption><code>// declaraties
+const btnKopieer = document.querySelector('#btnKopieer');
+const parTekst = document.querySelector('#tekst');
+
+// functies
+async function kopieerNaarClipboard(text) {
+   await navigator.clipboard.writeText(text);
+}
+
+async function handleBtnKopieerClick() {
+   await kopieerNaarClipboard(parTekst.textContent);
+   btnKopieer.textContent = 'gekopieerd!';
+}
+
+// events
+btnKopieer.addEventListener('click', handleBtnKopieerClick);</code></pre>
+      </div>
+      <div class="tips" data-caption="💡 async/await">
+         <p>
+            Je zult in dit hoofdstuk regelmatig de gereserveerde woorden <code>async</code> en <code>await</code> tegenkomen bij methodes. De uitgebreide uitleg staat in <a href="05_async.html#asyncawait">volgend hoofdstuk</a>, maar kort gezegd betekent <code>async</code>:
+            <strong>"dit kan een tijdje duren"</strong>, en <code>await</code>:
+            <strong>"ik wacht op het resultaat"</strong>
+         </p>
+      </div>
+
       <h3>Local storage API</h3>
       <p>Zoals cookies, maar dan beter: <mark>localStorage</mark> bewaart teksten lokaal in de browser van de gebruiker met de eenvoudige methodes <code>localStorage.getItem(key)</code> en <code>localStorage.setItem(key, value)</code>. </p>
       <h4>tekst bewaren</h4>
@@ -146,140 +176,7 @@ btnReset.addEventListener('click', handleBtnResetClick);</code></pre>
          <figcaption>opgeslagen localStorage items vind je onder de Application tab</figcaption>
       </figure>
 
-      <h3>Drag drop API</h3>
-      <h4>teksten verslepen</h4>
-      <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
-      <div class="democontainer">
-         <pre class="prism-default language-html w-800" data-caption data-demo><code>&lt;p&gt;
-   In alteration insipidity impression by travelling reasonable up motionless. Of
-   regard warmth by unable sudden garden ladies. No kept hung am size spot no. Likewise
-   led and dissuade rejoiced welcomed husbands boy. Do listening on he suspected
-   resembled. Water would still if to. Position boy required law moderate was may.
-&lt;/p&gt;
-&lt;textarea placeholder="...selecteer een stuk tekst, en sleep het hierin..."&gt;&lt;/textarea&gt;</code></pre>
-         <pre class="prism-atom-dark language-css w-800" data-caption><code>body {
-   width: 500px;
-}
-textarea {
-   border: 2px ridge;
-   height: 200px;
-   width: 100%;
-}</code></pre>
-         <pre class="prism-okaida w-800" data-caption><code>// declaraties
-const dropZone = document.querySelector('textarea');
 
-// event handlers
-function handleDrop(e) {
-   e.preventDefault();
-   txtPassed = e.dataTransfer.getData('text/plain');
-   this.innerHTML = txtPassed;
-}
-
-// events
-dropZone.addEventListener('dragover', (e)  =&gt; e.preventDefault() ); // disable
-dropZone.addEventListener('dragenter', (e)  =&gt; e.preventDefault() ); // disable
-dropZone.addEventListener('drop', handleDrop);</code></pre>
-      </div>
-
-      <figure class="w-500">
-         <img src="img/04_games/dragdrop-text.gif" alt="">
-         <figcaption>drag drop van teksten</figcaption>
-      </figure>
-
-      <h4>afbeeldingen verslepen</h4>
-      <p>Voorbeeld met afbeeldingen (tweede afbeelding is niet draggable wegens <code>draggable="false"</code>): </p>
-      <div class="democontainer">
-         <pre class="prism-default language-html w-600" data-caption data-demo><code>&lt;div id="dragzone"&gt;
-   &lt;img src="img/product1.jpg" alt=""&gt;
-   &lt;img src="img/product2.jpg" alt="" draggable="false"&gt;
-   &lt;img src="img/product3.jpg" alt=""&gt;
-&lt;/div&gt;
-&lt;div id="dropzone"&gt;
-   ...drop item here...
-&lt;/div&gt;</code></pre>
-         <pre class="prism-atom-dark language-css w-600" data-caption><code>#dropzone {
-   border: 2px ridge;
-   height: 200px;
-   width: 400px;
-}
-</code></pre>
-         <pre class="prism-okaida w-600" data-caption><code>// declaraties
-const dropZone = document.querySelector('#dropzone');
-
-// event handlers
-function handleDrop(e) {
-   e.stopPropagation();
-   e.preventDefault();
-   imgPassed = e.dataTransfer.getData('text/uri-list');
-   this.innerHTML = "&lt;img src='" + imgPassed + "'/&gt;";
-}
-
-// events
-dropZone.addEventListener('dragover', (e) =&gt; e.preventDefault()); // disable
-dropZone.addEventListener('dragenter', (e) =&gt; e.preventDefault()); // disable
-dropZone.addEventListener('drop', handleDrop);</code></pre>
-      </div>
-
-      <figure class="w-500">
-         <img src="img/04_games/dragdrop-image.gif" alt="">
-         <figcaption>drag drop van afbeeldingen</figcaption>
-      </figure>
-
-      <h4>afbeeldingen van desktop naar pagina slepen</h4>
-      <p>Voorbeeld met afbeeldingen vanuit verkenner naar een webpagina slepen: </p>
-      <div class="democontainer">
-         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;div id="dropzone"&gt;Drop in images from your desktop&lt;/div&gt;
-&lt;div id="thumbnails"&gt;&lt;/div&gt;
-</code></pre>
-         <pre class="prism-atom-dark language-css w-600" data-caption><code>#dropzone {
-   height: 150px;
-   border: 2px dashed #0687FF;
-}
-#thumbnails {
-   height: 125px;
-   margin-top: 10px;
-}
-#thumbnails img {
-   height: 100px;
-   margin: 10px
-}
-</code></pre>
-         <pre class="prism-okaida w-700" data-caption><code>// declaraties
-const dropzone = document.querySelector('#dropzone');
-const thumbs = document.querySelector('#thumbnails');
-
-// event handlers
-function handleDrop(e) {
-   e.preventDefault();
-
-   // fetch dropped files
-   for (const file of e.dataTransfer.files) {
-      // images only
-      if (!file.type.match(/image.*/)) continue;
-
-      // create reader for dropped file
-      const reader = new FileReader();
-      reader.addEventListener('load', function (e) {
-         thumbs.innerHTML += `&lt;img src="${e.target.result}" alt="${file.name}"&gt;`;
-      });
-      reader.addEventListener('error', () =&gt; { alert('an error occurred'); });
-
-      // feed dropped file to reader
-      reader.readAsDataURL(file);
-   }
-}
-
-// dropzone events
-dropzone.addEventListener('dragenter', (e) =&gt; { e.preventDefault(); }); // disable
-dropzone.addEventListener('dragover', (e) =&gt; { e.preventDefault(); }); // disable
-dropzone.addEventListener('dragleave', (e) =&gt; { e.preventDefault(); }); // disable
-dropzone.addEventListener('drop', handleDrop);
-</code></pre>
-      </div>
-      <figure class="w-500">
-         <img src="img/04_games/dragin-image.gif" alt="" class="bordered">
-         <figcaption>sleep afbeeldingen in een pagina</figcaption>
-      </figure>
       <h3>Webcam API</h3>
       <p>De webcam gebruiken is heel eenvoudig: vraag een webcamstream op via <code>navigator.mediaDevices.getUserMedia()</code>, en stel het in als bron van een <code>&lt;video&gt;</code> element.</p>
       <h4>Voorbeeld 1: weergave webcam in een video element</h4>
@@ -434,6 +331,185 @@ startWebcam();</code></pre>
          <li>webcam xylofoon op <a href="https://www.soundstep.com/blog/experiments/jsdetection/">https://www.soundstep.com/blog/experiments/jsdetection/</a></li>
       </ul>
 
+      <h3>Web Speech API</h3>
+      <p>Deze API bestaat uit twee delen: SpeechSynthesisUtterance en SpeechRecognition</p>
+      <h4>SpeechSynthesisUtterance</h4>
+      <p>Basisvoorbeeld:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnSpeak"&gt;Say hello&lt;/button&gt;&lt;/p&gt;
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// event handlers
+function handleBtnSpeakClick(e) {
+   const utterance = new SpeechSynthesisUtterance("Hello world!");
+   speechSynthesis.speak(utterance);
+}
+
+// events
+btnSpeak.addEventListener('click', handleBtnSpeakClick);</code></pre>
+      </div>
+      <h4>SpeechRecognition</h4>
+      <p>Basisvoorbeeld:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnStart"&gt;Start listening&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You said:&lt;/strong&gt; &lt;em id="echo"&gt;nothing yet&lt;/em&gt;&lt;/p&gt;
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// declaraties
+const btnStart = document.querySelector('#btnStart');
+const emEcho = document.querySelector('#echo');
+
+// event handlers
+function handleBtnStartClick(e) {
+   const recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+   recognition.lang = 'en-US';
+   recognition.start();
+   recognition.addEventListener('result', function(e) {
+      emEcho.innerHTML = e.results[0][0].transcript;
+   });
+}
+
+// events
+btnStart.addEventListener('click', handleBtnStartClick);</code></pre>
+      </div>
+      <figure class="w-300">
+         <img src="img/04_games/speech.gif" alt="" class="bordered">
+         <figcaption>stemherkenning met Javascript</figcaption>
+      </figure>
+
+      <h3>Drag drop API</h3>
+      <h4>teksten verslepen</h4>
+      <p>Drag drop van teksten is eenvoudig met het <code>ondrop</code> event en <code>dataTransfer.getData()</code>:</p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-800" data-caption data-demo><code>&lt;p&gt;
+   In alteration insipidity impression by travelling reasonable up motionless. Of
+   regard warmth by unable sudden garden ladies. No kept hung am size spot no. Likewise
+   led and dissuade rejoiced welcomed husbands boy. Do listening on he suspected
+   resembled. Water would still if to. Position boy required law moderate was may.
+&lt;/p&gt;
+&lt;textarea placeholder="...selecteer een stuk tekst, en sleep het hierin..."&gt;&lt;/textarea&gt;</code></pre>
+         <pre class="prism-atom-dark language-css w-800" data-caption><code>body {
+   width: 500px;
+}
+textarea {
+   border: 2px ridge;
+   height: 200px;
+   width: 100%;
+}</code></pre>
+         <pre class="prism-okaida w-800" data-caption><code>// declaraties
+const dropZone = document.querySelector('textarea');
+
+// event handlers
+function handleDrop(e) {
+   e.preventDefault();
+   txtPassed = e.dataTransfer.getData('text/plain');
+   this.innerHTML = txtPassed;
+}
+
+// events
+dropZone.addEventListener('dragover', (e)  =&gt; e.preventDefault() ); // disable
+dropZone.addEventListener('dragenter', (e)  =&gt; e.preventDefault() ); // disable
+dropZone.addEventListener('drop', handleDrop);</code></pre>
+      </div>
+
+      <figure class="w-500">
+         <img src="img/04_games/dragdrop-text.gif" alt="">
+         <figcaption>drag drop van teksten</figcaption>
+      </figure>
+
+      <h4>afbeeldingen verslepen</h4>
+      <p>Voorbeeld met afbeeldingen (tweede afbeelding is niet draggable wegens <code>draggable="false"</code>): </p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600" data-caption data-demo><code>&lt;div id="dragzone"&gt;
+   &lt;img src="img/product1.jpg" alt=""&gt;
+   &lt;img src="img/product2.jpg" alt="" draggable="false"&gt;
+   &lt;img src="img/product3.jpg" alt=""&gt;
+&lt;/div&gt;
+&lt;div id="dropzone"&gt;
+   ...drop item here...
+&lt;/div&gt;</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>#dropzone {
+   border: 2px ridge;
+   height: 200px;
+   width: 400px;
+}
+</code></pre>
+         <pre class="prism-okaida w-600" data-caption><code>// declaraties
+const dropZone = document.querySelector('#dropzone');
+
+// event handlers
+function handleDrop(e) {
+   e.stopPropagation();
+   e.preventDefault();
+   imgPassed = e.dataTransfer.getData('text/uri-list');
+   this.innerHTML = "&lt;img src='" + imgPassed + "'/&gt;";
+}
+
+// events
+dropZone.addEventListener('dragover', (e) =&gt; e.preventDefault()); // disable
+dropZone.addEventListener('dragenter', (e) =&gt; e.preventDefault()); // disable
+dropZone.addEventListener('drop', handleDrop);</code></pre>
+      </div>
+
+      <figure class="w-500">
+         <img src="img/04_games/dragdrop-image.gif" alt="">
+         <figcaption>drag drop van afbeeldingen</figcaption>
+      </figure>
+
+      <h4>afbeeldingen van desktop naar pagina slepen</h4>
+      <p>Voorbeeld met afbeeldingen vanuit verkenner naar een webpagina slepen: </p>
+      <div class="democontainer">
+         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;div id="dropzone"&gt;Drop in images from your desktop&lt;/div&gt;
+&lt;div id="thumbnails"&gt;&lt;/div&gt;
+</code></pre>
+         <pre class="prism-atom-dark language-css w-600" data-caption><code>#dropzone {
+   height: 150px;
+   border: 2px dashed #0687FF;
+}
+#thumbnails {
+   height: 125px;
+   margin-top: 10px;
+}
+#thumbnails img {
+   height: 100px;
+   margin: 10px
+}
+</code></pre>
+         <pre class="prism-okaida w-700" data-caption><code>// declaraties
+const dropzone = document.querySelector('#dropzone');
+const thumbs = document.querySelector('#thumbnails');
+
+// event handlers
+function handleDrop(e) {
+   e.preventDefault();
+
+   // fetch dropped files
+   for (const file of e.dataTransfer.files) {
+      // images only
+      if (!file.type.match(/image.*/)) continue;
+
+      // create reader for dropped file
+      const reader = new FileReader();
+      reader.addEventListener('load', function (e) {
+         thumbs.innerHTML += `&lt;img src="${e.target.result}" alt="${file.name}"&gt;`;
+      });
+      reader.addEventListener('error', () =&gt; { alert('an error occurred'); });
+
+      // feed dropped file to reader
+      reader.readAsDataURL(file);
+   }
+}
+
+// dropzone events
+dropzone.addEventListener('dragenter', (e) =&gt; { e.preventDefault(); }); // disable
+dropzone.addEventListener('dragover', (e) =&gt; { e.preventDefault(); }); // disable
+dropzone.addEventListener('dragleave', (e) =&gt; { e.preventDefault(); }); // disable
+dropzone.addEventListener('drop', handleDrop);
+</code></pre>
+      </div>
+      <figure class="w-500">
+         <img src="img/04_games/dragin-image.gif" alt="" class="bordered">
+         <figcaption>sleep afbeeldingen in een pagina</figcaption>
+      </figure>
+      
       <h3>Geolocation API</h3>
       <p>De positie van de gebruiker is eenvoudig te bepalen via <code>navigator.geolocation</code>:</p>
       <pre class="prism-okaida" data-demo><code>if (navigator.geolocation) {
@@ -587,50 +663,6 @@ lnkNotifyMe.addEventListener('click', handleLnkNotifyClick);</code></pre>
       <figure class="w-300">
          <img src="img/04_games/notification.png" alt="">
          <figcaption>taskbar notificaties met Javascript</figcaption>
-      </figure>
-
-      <h3>Web Speech API</h3>
-      <p>Deze API bestaat uit twee delen: SpeechSynthesisUtterance en SpeechRecognition</p>
-      <h4>SpeechSynthesisUtterance</h4>
-      <p>Basisvoorbeeld:</p>
-      <div class="democontainer">
-         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnSpeak"&gt;Say hello&lt;/button&gt;&lt;/p&gt;
-</code></pre>
-         <pre class="prism-okaida w-700" data-caption><code>// event handlers
-function handleBtnSpeakClick(e) {
-   const utterance = new SpeechSynthesisUtterance("Hello world!");
-   speechSynthesis.speak(utterance);
-}
-
-// events
-btnSpeak.addEventListener('click', handleBtnSpeakClick);</code></pre>
-      </div>
-      <h4>SpeechRecognition</h4>
-      <p>Basisvoorbeeld:</p>
-      <div class="democontainer">
-         <pre class="prism-default language-html w-600 padtop" data-caption data-demo><code>&lt;p&gt;&lt;button id="btnStart"&gt;Start listening&lt;/button&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;You said:&lt;/strong&gt; &lt;em id="echo"&gt;nothing yet&lt;/em&gt;&lt;/p&gt;
-</code></pre>
-         <pre class="prism-okaida w-700" data-caption><code>// declaraties
-const btnStart = document.querySelector('#btnStart');
-const emEcho = document.querySelector('#echo');
-
-// event handlers
-function handleBtnStartClick(e) {
-   const recognition = new (webkitSpeechRecognition || SpeechRecognition)();
-   recognition.lang = 'en-US';
-   recognition.start();
-   recognition.addEventListener('result', function(e) {
-      emEcho.innerHTML = e.results[0][0].transcript;
-   });
-}
-
-// events
-btnStart.addEventListener('click', handleBtnStartClick);</code></pre>
-      </div>
-      <figure class="w-300">
-         <img src="img/04_games/speech.gif" alt="" class="bordered">
-         <figcaption>stemherkenning met Javascript</figcaption>
       </figure>
 
       <h3>Audio en video</h3>
